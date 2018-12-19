@@ -180,6 +180,17 @@ This function removes the white space at the beginning and the end of the input 
 
 ------
 
+## strip_tags
+
+This function removes html tags embedded in a string.
+
+### Example
+| Example                      | Result         |
+| ---------------------------- | -------------- |
+| `"<p>Jean Marie</p>".strip_tags` | "Jean Marie" |
+
+------
+
 ## ljust
 
 Aligns the string to the left. You will need to specify the length of the string as this will add spaces/a pattern at the start of it.
