@@ -59,7 +59,7 @@ The SQL Server connector uses basic authentication to authenticate with SQL Serv
 
 At minimum, the database user account must be granted `SELECT` permission to the database specified in the [connection](#how-to-connect-to-sql-server-on-workato). Check out the example below to find out more about how to set permissions if you are the one setting up the SQL server connection for your business
 
-<details><summary><b>Detailed Example</b></summary>
+<details><summary><b>Example on how to set up permissions</b></summary>
 
 If we are trying to connect to a named database (`HR_PROD`) in a SQL Server instance, using a new database user `workato`, the following example queries can be used.
 
@@ -141,7 +141,7 @@ Case sensitivity of the name of a table/view depends on your database implementa
 
 ### Stored Procedures
 Stored procedures are custom written workflows that have to be written and saved within your SQL server. They are able to do a range of functionalities including creating, reading, updating and deleting rows. They can also accept parameters. Check out the details below if you want to know more about how Workato works with stored procedures.
-<details><summary>Executing stored procedures in Workato</summary>
+<details><summary>Example on how to execute stored procedure</summary>
 The SQL Server connector also works with all stored procedures in the connected database. Stored procedures can be triggered in recipes using our SQL Server `Execute stored procedure` action. All stored procedures in your database will be available in the pick lists the action. Stored procedures are written and stored within your SQL server
 
 ![Stored procedure selection from pick list](/assets/images/mssql/stored-procedure-view-1.png)
@@ -164,7 +164,7 @@ This clause will be used as a `WHERE` statement in each request. This should fol
 
 ### Operators 
 
-At the foundation of any `WHERE` statement, we have operators that help us filter and identify what rows we want returned in triggers and actions in Workato. By chaining operators in the same syntax one would do it in SQL, you'll be able to use them to create robust and complex filters on your data directly from Workato. Check out the sections below on some of the supported operators on Workato that'll help if you're not already familiar with SQL.
+At the foundation of any `WHERE` statement, we have operators that help us filter and identify what rows we want returned in triggers and actions in Workato. By chaining operators in the same way one would do it in SQL, you'll be able to use them to create robust and complex filters on your data directly from Workato. Check out the sections below on some of the supported operators on Workato and are similar to those found in SQL.
 
 <details><summary><b>List of operators</b></summary>
   
@@ -263,7 +263,7 @@ At the foundation of any `WHERE` statement, we have operators that help us filte
 
 ### Data types
 
-The other component of a `WHERE` condition would be to properly use these operators in conjunction with the proper datatypes. This means making sure you compare an integer in your table with another integer instead of a string. Failing to do so would result in unexpected behaviour or failed jobs 
+The other component of a `WHERE` condition would be to use these operators in conjunction with the proper datatypes. This means making sure you compare an integer in your table with another integer instead of a string. Failing to do so would result in unexpected behaviour or failed jobs 
 
 Workato also helps reveal the data types expected for each input field when you select 
 - **Select rows** actions
@@ -373,13 +373,13 @@ Column names with spaces must be enclosed in double quotes (`""`) or square brac
 Check out the details below for more functionality you can explore with your `WHERE` conditions. 
 
 <details><summary>Using <code>AND</code> and <code>OR</code> in your <code>WHERE</code> conditions</summary>
-`WHERE` conditions can also be used in conjunction with basic SQL logical operators like <code>AND</code> and <code>OR</code> to add more filters on the rows you return.
+<code>WHERE</code> conditions can also be used in conjunction with basic SQL logical operators like <code>AND</code> and <code>OR</code> to add more filters on the rows you return.
 
 ```sql
 ([currency code] = 'USD' AND totalAmt >1000) OR totalAmt>2000
 ```
 
-When used together,  this `WHERE` condition will return all rows that either have the value 'USD' in the `currency code` column **AND** more than 1000 in the `totalAmt` column **OR** more than 2000 in the `totalAmt` column
+When used together,  this <code>WHERE</code> condition will return all rows that either have the value 'USD' in the `currency code` column <code>AND</code> more than 1000 in the `totalAmt` column <code>OR</code> more than 2000 in the `totalAmt` column
 </details>
 
 <details><summary>Using sub-queries in your <code>WHERE</code> conditions</summary>
@@ -401,7 +401,7 @@ When used in a **Delete rows** action, this will delete all rows in the `compens
 
 SQL Server connector has triggers for both new and updated rows. For the trigger to work, both **Unique key** and **Sort column** must be configured.
 
-A table must satisfy some constraints to be used in a trigger. The following sections contain more information about specific constraints.
+A table must satisfy some constraints to be used in a trigger. The following sections contain more information about specific constraints. [Read our best practices to find out how you can prepare your table for use with Workato](#Preparing-a-table-for-use-in-Workato)
 
 ### Unique keys
 In all triggers and some actions, this is a required input. Values from this selected column are used to uniquely identify rows in the selected table. As such, the values in the selected column must be unique. Typically, this column is the **primary key** of the table (e.g. `ID`).
@@ -409,7 +409,7 @@ In all triggers and some actions, this is a required input. Values from this sel
 When used in a trigger, this column must be incremental. This constraint is required because the trigger uses values from this column to look for new rows. In each poll, the trigger queries for rows with a unique key value greater than the previous greatest value.
 
 <details><summary><b>Example</b></summary>
-Let's use a simple example to illustrate this behavior. We have a <b>New row trigger</b> that processed rows from a table. The <b>unique key</b> configured for this trigger is `ID`. The last row processed has `100` as it's `ID` value. In the next poll, the trigger will use `>= 101` as the condition to look for new rows.
+Let's use a simple example to illustrate this behavior. We have a <b>New row trigger</b> that processed rows from a table. The <b>unique key</b> configured for this trigger is <code>ID</code>. The last row processed has <code>100</code> as it's <code>ID</code> value. In the next poll, the trigger will use <code>>= 101</code> as the condition to look for new rows.
 Performance of a trigger can be improved if the column selected to be used as the <b>unique key</b> is indexed. 
 </details>
 
@@ -420,10 +420,10 @@ When a row is updated, the **Unique key** value remains the same. However, it sh
 
 For SQL Server, only **datetime2** and **datetime** column types can be used.
 
-<details><summary><b>Detailed Example</b></summary>
-Let's use a simple example to illustrate this behavior. We have a **New/updated row trigger** that processed rows from a table. The **Unique key** and **Sort column** configured for this trigger is `ID` and `UPDATED_AT` respectively. The last row processed by the trigger has `ID` value of `100` and `UPDATED_AT` value of `2018-05-09 16:00:00.000000`. In the next poll, the trigger will query for new rows that satisfy either of the 2 conditions:
-1. `UPDATED_AT > '2018-05-09 16:00:00.000000'`
-2. `ID > 100 AND UPDATED_AT = '2018-05-09 16:00:00.000000'`
+<details><summary><b>Example</b></summary>
+Let's use a simple example to illustrate this behavior. We have a **New/updated row trigger** that processed rows from a table. The **Unique key** and **Sort column** configured for this trigger is <code>ID</code> and <code>UPDATED_AT</code> respectively. The last row processed by the trigger has <code>ID</code> value of <code>100</code> and `UPDATED_AT` value of <code>2018-05-09 16:00:00.000000</code>. In the next poll, the trigger will query for new rows that satisfy either of the 2 conditions:
+1. <code>UPDATED_AT</code> '2018-05-09 16:00:00.000000'`
+2. <code>ID</code> > 100 AND UPDATED_AT = '2018-05-09 16:00:00.000000'`
 </details>
 
 ## Using single row actions/triggers vs using batch of rows actions/triggers
@@ -452,7 +452,7 @@ Outputs from batch triggers/actions can also be used outside of actions that wor
 ## Best practices when using SQL server
 We compiled a few of our best practices that make your life easier when developing workflows with Workato. Read more to learn some crucial tips that result in less bugs and time wasted.
 
-### When to use batch of rows triggers/actions vs single row triggers/actions
+### Deciding when to use batch of rows triggers/actions vs single row triggers/actions
 While single row triggers/actions can almost always accomplish the same functionality as batch triggers/actions and vice versa, ultimately the decision to use one or the other becomes a matter of business requirements. Whilst batch actions offer the ability to improve time efficiency of recipe, reduce the number of operations required per run and load on servers, there exists a trade-off between the flexibility since batch actions that do fail, fail on a batch level. 
 
 When examined, most workflows with applicable batch triggers/actions can be accomplished in 3 ways:
@@ -466,14 +466,14 @@ When examined, most workflows with applicable batch triggers/actions can be acco
   <tbody>
    <tr>
       <td>The use of a batch trigger, followed by a batch action and using Workato's repeat step for any single row actions.</td>
-      <td>Using this method is the most efficient across all metrics. Since Workato employs a step-by-step (Synchronous) process within each job run so any error that causes the run to stop also prevents the following steps from being executed for the entire batch. In some cases, this could be useful behaviour where we would want to fix our recipe before letting it run on to further steps. To strike a balance between efficiency and stopping too many records from being process during a failed job run, toggle the batch size setting.
+      <td>Using this method is the most efficient across all metrics. Since Workato employs a step-by-step (synchronous) process within each job run so any error that causes the run to stop also prevents the following steps from being executed for the entire batch. In some cases, this could be useful behaviour where we would want to fix our recipe before letting it run on to further steps. To strike a balance between efficiency and stopping too many records from being process during a failed job run, toggle the batch size setting.
         <details><summary><u>Business use case example</u></summary>
         If we were to pull batchs of new leads from a SQL server for batch inserts into Salesforce, we could follow this up with emails to individuals on the sales team with links to the leads newly created on Saleforce directly. In cases where our information flowing in raised an error during the batch insert action, no email would be sent out to our sales team with links that didnt work! We can now safely make adjustments to our recipe to accomodate this error before repeating the job.
         </details>
      </td>
     </tr>
        <td>The use of a single row trigger, followed by a single row actions</td>
-      <td>Using this method is the least efficient across all metrics, especially for triggers/actions that work with large numbers of records. Workato employs a step-by-step (Synchronous) process within each job run so any error that causes the run to stop also prevents the following steps from being executed. In some cases, this could be useful behaviour where we would want to fix our recipe before letting it run on to further steps and yet remains different from the batch trigger version as it only stops the job runs for those that raise errors. In time sensitive business use cases where all new rows should be processed as soon as possible, this might be the best design choice.
+      <td>Using this method is the least efficient across all metrics, especially for triggers/actions that work with large numbers of records. Workato employs a step-by-step (synchronous) process within each job run so any error that causes the run to stop also prevents the following steps from being executed. In some cases, this could be useful behaviour where we would want to fix our recipe before letting it run on to further steps and yet remains different from the batch trigger version as it only stops the job runs for those that raise errors. In time sensitive business use cases where all new rows should be processed as soon as possible, this might be the best design choice.
         <details><summary><u>Business use case example</u></summary>
         For time sensitive job runs such as new rows in a SQL server table indicating new orders, the following actions may be crucial in ensuring the timely delivery of your product to your customer. Having entire batches of orders be stopped due to a single failed record may result in lost revenue for you. In this scenario, single row triggers/actions may be the best way to minimise disruptions to your company's operations.
         </details>
@@ -483,7 +483,7 @@ When examined, most workflows with applicable batch triggers/actions can be acco
        <td>The use of a batch trigger, followed by all required batch actions. A separate recipes can be used with a single row action and single row actions.</td>
       <td>Using this method is allows records to be process concurrently. This allows errors to be contained at a recipe level and only affect the steps that follow after it. In cases where steps are independent of each other and one need not be completed before the other can begin, this might be the best solution.
         <details><summary><u>Business use case example</u></summary>
-        New records in a table signify new customer sign ups for a free trial for your product. With this trigger in mind, you hope to add them in batches to a drip campaign as well as send their details individually over to your sales team for followups. As both cases need not be dependent on each other and both can be accomplished without diminishing the others effectiveness, this workflow could be accomplished as separate recipes.
+        New records in a table could signify new customer sign ups for a free trial for your product. You hope to add them in batches to a drip campaign as well as send their details individually over to your sales team for followups. Given both cases are not dependent on each other and both can be accomplished without diminishing the other's effectiveness, this workflow could and should be accomplished as separate recipes to minimise the impact if failed job runs on business.
         </details>
      </td>
     </tr>
@@ -491,7 +491,7 @@ When examined, most workflows with applicable batch triggers/actions can be acco
 </table>
 
 
-### Using custom SQL in Workato
+### How to write custom SQL in Workato
 Workato allows you to write your own custom SQL queries in 2 ways:
 1. [Using our `Select rows using custom SQL` action](/connectors/mssql/select.md#select-rows-using-custom-sql) (Recommended for **only** select queries)
 2. [Using our `Run custom SQL` action](/connectors/mssql/run_sql.md)
@@ -500,7 +500,7 @@ With these custom SQL queries, you can do a wide range of create, read, update a
 
 Also remember not to end your `Select rows using custom SQL` action with a `;` as this would cause it to error out.
 
-### Preparing a table for use in Workato
+### How to prepare a table for use in Workato
 When looking to make triggers using our `New row` and `New/updated row` triggers, trigger configurations require either the use of a unique key or unique key and sorted column to enable Workato to ensure your trigger doesn't miss out on any records. Not all tables that you encounter may be ready to be used as a trigger so here are some best practices to prepare your table for use in Workato.
 
 **Unique keys**
@@ -509,7 +509,7 @@ When looking to make triggers using our `New row` and `New/updated row` triggers
   * Finding a existing key that can act as a proxy which is an integer, unique and auto incrementing
   * Creating a new auto incrementing unique integer key
 
-<details><summary><b>How to create an auto incrementing key in SQL server</b></summary>
+<details><summary><b>Example on how to create a new auto incrementing key</b></summary>
 
 1. Make sure no other column has been declared as an `IDENTITY` column in your table. (if this has been done so, you may use that directly as your unique interger key
 2. Enter the following commands to create an new `IDENTITY` column
@@ -528,7 +528,7 @@ ADD yourAutoIncrementUniqueKey INT UNIQUE NOT NULL IDENTITY ;
 3. If no column is suitable, an `updated_at` column can be created to fulfill this purpose.
 4. This new `updated_at` column in SQL server can now be used as an sort column
 
-<details><summary><b>How to create an `updated_at` column</b></summary>
+<details><summary><b>Example on how to create an updated_at column to sort by</b></summary>
 
 1. Enter the following commands to create an `updated_at` column
       
@@ -551,6 +551,17 @@ end
 ```
 
 </details>
+
+### When to use update, insert and upsert actions
+Choosing between [update](/connectors/mssql/update.md), [insert](/connectors/mssql/insert.md) and [upsert](/connectors/mssql/upsert.md) actions can have numerous implications for your recipes and SQL server tables. Whilst upserts may be used to accomplish most actions where update or insert are used, here are some of the key considerations to keep in mind when choosing one over the other.
+
+**Key considerations**
+1. Upsert performs better in certain cases where records should be unique based on a **single** column. This reduces the number of steps required in the recipe when a search would have had to been performed to decide whether to update a record or insert a new record.
+2. Updates and inserts perform better when records should be unique based on multiple columns as upserts only takes one unique key into consideration. In cases such as these, a search would have to be performed first and update or insert actions performed based on the return of the search.
+3. Upserts are useful in failed job runs where repeating a failed job where it previously inserted a row would not result in another row being created. Inserts would insert yet another row if the job were to be run again.
+4. Upserts need to be documented properly to ensure maintainability. Since it becomes unclear without documentation whether steps that use upsert are always inserts or always updates, it becomes challenging for others in your organisation to maintain these recipes.
+
+
 
 
 
