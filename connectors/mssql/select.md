@@ -11,8 +11,8 @@ This action lets you select rows based on certain criteria defined by a ` WHERE`
 ![Select rows action](/assets/images/mssql/select-rows-action.png)
 *Select rows action*
 
-### Table
-First, select a table to work with. This can be done either by selecting a table from the pick list, or toggling the input to text mode and typing the full table name.
+### Tables/Views
+First, select a table/view to work with. This can be done either by selecting a table or view from the pick list, or toggling the input to text mode and typing the full table/view name.
 
 ### WHERE condition
 Next, provide a `WHERE` condition to filter rows. This condition can be as simple as filtering a single record by it's `ID`.
@@ -27,7 +27,7 @@ Alternatively, it can be used to select multiple rows based on values in one or 
 status = 'closed' and priority = 1
 ```
 
-Complex `WHERE` conditions with subqueries can also be used. Refer to the [WHERE condition](/connectors/mssql.md#where-condition) guide for more information.
+Complex `WHERE` conditions with subqueries can also be used. Refer to the [`WHERE` condition](/connectors/mssql.md#using-where-conditions) guide for more information.
 
 ### Order by
 Rows returned from this action can be ordered based on the **Order by** input field. This field is used to change the default ordering of rows from your SQL Server database.
@@ -47,14 +47,14 @@ This input field gives you the option to fetch only a page of results from the e
 ## Select rows using custom SQL
 This action lets you select rows based on a custom SQL query. Rows that are returned from the query will be returned as the output of this action.
 
-## Supported versions
+### Supported versions
 This action is only supported for SQL Server 2012 or newer. It uses a default stored procedure `sp_describe_first_result_set` that is only available from SQL Server 2012 onwards.
 
 ![Select rows using custom SQL action](/assets/images/mssql/custom-sql-action.png)
 *Select rows using custom SQL action*
 
 ### SQL
-Provide the SQL to be executed to select rows. The SQL here will be used to generate the output datatree. To do this, the SQL will be executed once when you provide it. You can map datapills here to execute dynamically changing SQL statements. Remember to wrap datapills in quotes (`''`).
+Provide the SQL to be executed to select rows. The SQL here will be used to generate the output datatree. To do this, the SQL will be executed once when you provide it. You can map datapills here to execute dynamically changing SQL statements. Remember to wrap datapills in quotes (`''`). **Do not add a `;` at the end of your SQL query as this will cause the step to fail**
 
 Avoid using limit clauses like `TOP` in your SQL. This is because the limit to the number of rows returned in the query is based on the value defined in the [**Limit** input field](#limit-1). Adding your own limit clause will cause the action to fail.
 
@@ -62,3 +62,17 @@ Avoid using limit clauses like `TOP` in your SQL. This is because the limit to t
 This input field determines the maximum number of rows to return. The default limit is 100 and capped at a maximum of 1000 rows for a single **Select rows using custom SQL** action.
 
 If this field is left blank, `TOP 100` will be used.
+
+## Use cases
+
+### Using the `Select rows` action to check for a row
+The select action can be used in your recipes to check for a record before deciding whether to insert or update a row in a table. While this may be similar to [upsert](/connectors/upsert.md), it retains its advantage over upsert in cases where you need to check for the record based on multiple columns. This can be accomplished using the `WHERE` condition. 
+
+* Find out how to use the [`WHERE` condition](/connectors/mssql.md#using-where-conditions)
+* Check out how we use it in a recipe with our SalesForce integrations
+
+### Using the `Select rows using custom SQL` action to check for a row
+This build upon the previous use case. Using custom SQL allows you to join multiple tables together and use the returned rows to check if a new row should be inserted or an existing row should be updated. This is useful in cases where you might be looking for a specific user's order in your database and need to join a `users` table with an `orders` table to check for duplicates.
+
+* Check out some [best practices when using custom SQL actions](/connectors/mssql/introduction.md#how-to-write-custom-sql-in-workato)
+* Check out how we use it in a recipe with our SalesForce integrations
