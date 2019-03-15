@@ -4,9 +4,9 @@ date: 2019-01-31 06:00:00 Z
 ---
 
 # Dropbox action - Download file
-Download contents of a file. File contents can be used in subsequent steps of the recipe to upload the file into other applications.
+This action downloads contents of a file. The `File contents` output from this action can be used in subsequent steps of the recipe to upload the file into other applications.
 
-The following is an example of uploading a file using `File contents`:
+The following image is an example of uploading a file using `File contents`. Here, we map `File contents` from the action `Download file` to the action [Upload file using file contents](/connectors/dropbox/action-upload-file-contents.md):
 
 ![Download & upload file in Dropbox](/assets/images/connectors/dropbox/download-upload-file.png)
 

@@ -6,7 +6,7 @@ date: 2019-01-31 06:00:00 Z
 # Dropbox action - Upload file using file contents
 Upload a file to Dropbox by providing the file contents. If a file with the same name already exists in the folder, action will fail.
 
-The following is an example of uploading a file using `File contents` from the [Download file](/connectors/dropbox/action-download-file.md) action:
+The following image is an example of uploading a file using `File contents` from the action [Download file](/connectors/dropbox/action-download-file.md):
 
 ![Download & upload file in Dropbox](/assets/images/connectors/dropbox/download-upload-file.png)
 
