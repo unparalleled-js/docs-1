@@ -59,68 +59,68 @@ The SQL Server connector uses basic authentication to authenticate with SQL Serv
 
 At minimum, the database user account must be granted `SELECT` permission to the database specified in the [connection](#how-to-connect-to-sql-server-on-workato). Check out the example below to find out more about how to set permissions if you are the one setting up the SQL server connection for your business
 
-<details><summary><b>Example on how to set up permissions</b></summary>
-
-If we are trying to connect to a named database (`HR_PROD`) in a SQL Server instance, using a new database user `workato`, the following example queries can be used.
-
-First, create a new login and user dedicated to integration use cases with Workato.
-```sql
-CREATE LOGIN workato WITH PASSWORD = 'password1234';
-USE HR_PROD;
-CREATE USER workato FOR LOGIN workato;
-```
-Replace `password1234` with a secure password. Remember to set a password that you and others in your organisation can remember.
-
-This allows the user to have login access to the SQL Server instance. However, this user will not have access to any tables.
-
-The next step is to grant permission to the necessary tables. There are a few ways to do this. One of the simplest ways is to grant access based on a **ROLE**.
-
-```sql
-ALTER ROLE db_datareader ADD MEMBER workato;
-```
-
-Alternatively, we can grant access to all tables defined by a **SCHEMA**, `HR`.
-
-```sql
-GRANT SELECT,INSERT ON SCHEMA :: HR TO workato;
-```
-
-To grant permissions only for certain tables, specify their table names separately and run this query.
-```sql
-GRANT SELECT,INSERT ON tablename1 TO workato;
-GRANT SELECT,INSERT ON tablename2 TO workato;
-```
-Granting selective permission are useful for databases that have sensitive information. Only give Workato access to the tables that contain the information you need for recipes.
-
-Finally, check that this user has the necessary permissions. Run a query to see all permissions.
-
-```sql
-SELECT
-  pr.name,
-  pr.type_desc,
-  perm.permission_name,
-  perm.class_desc,
-  object_name(perm.major_id) AS "object",
-  schema_name(perm.major_id) AS "schema"
-FROM sys.database_principals pr
-LEFT JOIN sys.database_permissions perm ON perm.grantee_principal_id = pr.principal_id
-WHERE pr.name = 'workato';
-```
-
-This should return the following minimum permission to create a SQL Server connection on Workato.
-
-```
-+---------+-----------+-----------------+------------+--------+-------------+
-| name    | type_desc | permission_name | class_desc | object | schema      |
-+---------+-----------+-----------------+------------+--------+-------------+
-| workato | SQL_USER  | CONNECT         | DATABASE   | NULL   | NULL        |
-| workato | SQL_USER  | INSERT          | SCHEMA     | NULL   | workatodemo |
-| workato | SQL_USER  | SELECT          | SCHEMA     | NULL   | workatodemo |
-+---------+-----------+-----------------+------------+--------+-------------+
-3 rows in set (0.20 sec)
-```
-
-</details>
+> <details><summary><b>How to set up permissions</b></summary>
+> 
+> If we are trying to connect to a named database (`HR_PROD`) in a SQL Server instance, using a new database user `workato`, the following example queries can be used.
+> 
+> First, create a new login and user dedicated to integration use cases with Workato.
+> ```sql
+> CREATE LOGIN workato WITH PASSWORD = 'password1234';
+> USE HR_PROD;
+> CREATE USER workato FOR LOGIN workato;
+> ```
+> Replace `password1234` with a secure password. Remember to set a password that you and others in your organisation can remember.
+> 
+> This allows the user to have login access to the SQL Server instance. However, this user will not have access to any tables.
+> 
+> The next step is to grant permission to the necessary tables. There are a few ways to do this. One of the simplest ways is to grant access based on a **ROLE**.
+> 
+> ```sql
+> ALTER ROLE db_datareader ADD MEMBER workato;
+> ```
+> 
+> Alternatively, we can grant access to all tables defined by a **SCHEMA**, `HR`.
+> 
+> ```sql
+> GRANT SELECT,INSERT ON SCHEMA :: HR TO workato;
+> ```
+> 
+> To grant permissions only for certain tables, specify their table names separately and run this query.
+> ```sql
+> GRANT SELECT,INSERT ON tablename1 TO workato;
+> GRANT SELECT,INSERT ON tablename2 TO workato;
+> ```
+> Granting selective permission are useful for databases that have sensitive information. Only give Workato access to the tables that contain the information you need for recipes.
+> 
+> Finally, check that this user has the necessary permissions. Run a query to see all permissions.
+> 
+> ```sql
+> SELECT
+>   pr.name,
+>   pr.type_desc,
+>   perm.permission_name,
+>   perm.class_desc,
+>   object_name(perm.major_id) AS "object",
+>   schema_name(perm.major_id) AS "schema"
+> FROM sys.database_principals pr
+> LEFT JOIN sys.database_permissions perm ON perm.grantee_principal_id = pr.principal_id
+> WHERE pr.name = 'workato';
+> ```
+> 
+> This should return the following minimum permission to create a SQL Server connection on Workato.
+> 
+> ```
+> +---------+-----------+-----------------+------------+--------+-------------+
+> | name    | type_desc | permission_name | class_desc | object | schema      |
+> +---------+-----------+-----------------+------------+--------+-------------+
+> | workato | SQL_USER  | CONNECT         | DATABASE   | NULL   | NULL        |
+> | workato | SQL_USER  | INSERT          | SCHEMA     | NULL   | workatodemo |
+> | workato | SQL_USER  | SELECT          | SCHEMA     | NULL   | workatodemo |
+> +---------+-----------+-----------------+------------+--------+-------------+
+> 3 rows in set (0.20 sec)
+> ```
+> 
+> </details>
 
 ## Working with the SQL Server connector
 
@@ -141,17 +141,17 @@ Case sensitivity of the name of a table/view depends on your database implementa
 
 ### Stored Procedures
 Stored procedures are custom written workflows that have to be written and saved within your SQL server. They are able to do a range of functionalities including creating, reading, updating and deleting rows. They can also accept parameters. Check out the details below if you want to know more about how Workato works with stored procedures.
-<details><summary>Example on how to execute stored procedure</summary>
-The SQL Server connector also works with all stored procedures in the connected database. Stored procedures can be triggered in recipes using our SQL Server `Execute stored procedure` action. All stored procedures in your database will be available in the pick lists the action. Stored procedures are written and stored within your SQL server
-
-![Stored procedure selection from pick list](/assets/images/mssql/stored-procedure-view-1.png)
-*Select your stored procedure from the pick list*
-
-If applicable, you will be prompted to enter in the parameters for your stored procedure. Use this to execute store procedures based on returned datapills from your previous steps by the relevant datapills into the parameter fields.
-
-![Store procedure input fields for parameters](/assets/images/mssql/stored-procedure-view-2.png)
-*Select your stored procedure from the pick list*
-</details>
+> <details><summary>How to execute stored procedures</summary>
+> The SQL Server connector also works with all stored procedures in the connected database. Stored procedures can be triggered in recipes using our SQL Server `Execute stored procedure` action. All stored procedures in your database will be available in the pick lists the action. Stored procedures are written and stored within your SQL server
+> 
+> ![Stored procedure selection from pick list](/assets/images/mssql/stored-procedure-view-1.png)
+> *Select your stored procedure from the pick list*
+> 
+> If applicable, you will be prompted to enter in the parameters for your stored procedure. Use this to execute store procedures based on returned datapills from your previous steps by the relevant datapills into the parameter fields.
+> 
+> ![Store procedure input fields for parameters](/assets/images/mssql/stored-procedure-view-2.png)
+> *Select your stored procedure from the pick list*
+> </details>
 
 ## Using `WHERE` conditions
 
@@ -263,7 +263,7 @@ At the foundation of any `WHERE` statement, we have operators that help us filte
 
 ### Data types
 
-The other component of a `WHERE` condition would be to use these operators in conjunction with the proper datatypes. This means making sure you compare an integer in your table with another integer instead of a string. Failing to do so would result in unexpected behaviour or failed jobs 
+The other component of a `WHERE` condition would be to use these operators in conjunction with the proper datatypes. When writing `WHERE` statements, make sure you compare a variable of `data type = integer` in your table with a  instead of a variable of `data type = integer` instead of `data type = string`. Failing to do so would result in unexpected behaviour or failed jobs 
 
 Workato also helps reveal the data types expected for each input field when you select 
 - **Select rows** actions
@@ -408,10 +408,10 @@ In all triggers and some actions, this is a required input. Values from this sel
 
 When used in a trigger, this column must be incremental. This constraint is required because the trigger uses values from this column to look for new rows. In each poll, the trigger queries for rows with a unique key value greater than the previous greatest value.
 
-<details><summary><b>Example</b></summary>
-Let's use a simple example to illustrate this behavior. We have a <b>New row trigger</b> that processed rows from a table. The <b>unique key</b> configured for this trigger is <code>ID</code>. The last row processed has <code>100</code> as it's <code>ID</code> value. In the next poll, the trigger will use <code>>= 101</code> as the condition to look for new rows.
-Performance of a trigger can be improved if the column selected to be used as the <b>unique key</b> is indexed. 
-</details>
+> <details><summary><b>Example</b></summary>
+> Let's use a simple example to illustrate this behavior. We have a <b>New row trigger</b> that processed rows from a table. The <b>unique key</b> configured for this trigger is <code>ID</code>. The last row processed has <code>100</code> as it's <code>ID</code> value. In the next poll, the trigger will use <code>>= 101</code> as the condition to look for new rows.
+> Performance of a trigger can be improved if the column selected to be used as the <b>unique key</b> is indexed. 
+> </details>
 
 ### Sort column
 This is required for **New/updated row triggers**. Values in this selected column are used to identify updated rows.
@@ -420,11 +420,11 @@ When a row is updated, the **Unique key** value remains the same. However, it sh
 
 For SQL Server, only **datetime2** and **datetime** column types can be used.
 
-<details><summary><b>Example</b></summary>
-Let's use a simple example to illustrate this behavior. We have a **New/updated row trigger** that processed rows from a table. The **Unique key** and **Sort column** configured for this trigger is <code>ID</code> and <code>UPDATED_AT</code> respectively. The last row processed by the trigger has <code>ID</code> value of <code>100</code> and `UPDATED_AT` value of <code>2018-05-09 16:00:00.000000</code>. In the next poll, the trigger will query for new rows that satisfy either of the 2 conditions:
-1. <code>UPDATED_AT</code> '2018-05-09 16:00:00.000000'`
-2. <code>ID</code> > 100 AND UPDATED_AT = '2018-05-09 16:00:00.000000'`
-</details>
+> <details><summary><b>Example</b></summary>
+> Let's use a simple example to illustrate this behavior. We have a **New/updated row trigger** that processed rows from a table. The **Unique key** and **Sort column** configured for this trigger is <code>ID</code> and <code>UPDATED_AT</code> respectively. The last row processed by the trigger has <code>ID</code> value of <code>100</code> and `UPDATED_AT` value of <code>2018-05-09 16:00:00.000000</code>. In the next poll, the trigger will query for new rows that satisfy either of the 2 conditions:
+> 1. <code>UPDATED_AT</code> '2018-05-09 16:00:00.000000'`
+> 2. <code>ID</code> > 100 AND UPDATED_AT = '2018-05-09 16:00:00.000000'`
+> </details>
 
 ## Using single row actions/triggers vs using batch of rows actions/triggers
 SQL Server connector can read or write to your database either as a single row or in batches. When using batch triggers/actions, you have to provide the batch size you wish to work with. The batch size can be any number between 1 and 100, with 100 being the maximum batch size. Batch triggers and actions are great for jobs when you expect to read, create or update a large number of rows. Choosing to batch your job runs rather than having them split into separate jobs runs not only saves operations but [reduces recipe runtimes and decreases load on your servers](/features/batch-processing.md). 
@@ -509,18 +509,18 @@ When looking to make triggers using our `New row` and `New/updated row` triggers
   * Finding a existing key that can act as a proxy which is an integer, unique and auto incrementing
   * Creating a new auto incrementing unique integer key
 
-<details><summary><b>Example on how to create a new auto incrementing key</b></summary>
-
-1. Make sure no other column has been declared as an `IDENTITY` column in your table. (if this has been done so, you may use that directly as your unique interger key
-2. Enter the following commands to create an new `IDENTITY` column
-```sql
-ALTER TABLE yourTable
-ADD yourAutoIncrementUniqueKey INT UNIQUE NOT NULL IDENTITY ;
-```
-3. After this, you should be able to use your new key as a unique column!
-4. Creating a new `IDENTITY` column in SQL server backfills all your previous records. Take note of the initial recipe run!
-
-</details>
+> <details><summary><b>How to create a new auto incrementing key</b></summary>
+> 
+> 1. Make sure no other column has been declared as an `IDENTITY` column in your table. (if this has been done so, you may use that directly as your unique interger key
+> 2. Enter the following commands to create an new `IDENTITY` column
+> ```sql
+> ALTER TABLE yourTable
+> ADD yourAutoIncrementUniqueKey INT UNIQUE NOT NULL IDENTITY ;
+> ```
+> 3. After this, you should be able to use your new key as a unique column!
+> 4. Creating a new `IDENTITY` column in SQL server backfills all your previous records. Take note of the initial recipe run!
+> 
+> </details>
 
 **Sort column**
 1. Tables that have `updated_at` columns within them should be suitable as the sort column. 
@@ -528,29 +528,29 @@ ADD yourAutoIncrementUniqueKey INT UNIQUE NOT NULL IDENTITY ;
 3. If no column is suitable, an `updated_at` column can be created to fulfill this purpose.
 4. This new `updated_at` column in SQL server can now be used as an sort column
 
-<details><summary><b>Example on how to create an updated_at column to sort by</b></summary>
-
-1. Enter the following commands to create an `updated_at` column
-      
-```sql
-ALTER TABLE yourTable
-add updatedAt datetime2
-CONSTRAINT DF_myTable_updatedAt DEFAULT GETDATE()
-```
-
-2. After this, now we need to add this column to trigger and update whenever a record is changes
-      
-```sql
-create trigger trg_myTable_update on yourTable for update as
-begin
-  update yourTable
-	set updatedAt = getDate()
-	from yourTable inner join deleted d
-	on yourTable.id=d.id
-end
-```
-
-</details>
+> <details><summary><b>Example on how to create an updated_at column to sort by</b></summary>
+> 
+> 1. Enter the following commands to create an `updated_at` column
+>       
+> ```sql
+> ALTER TABLE yourTable
+> add updatedAt datetime2
+> CONSTRAINT DF_myTable_updatedAt DEFAULT GETDATE()
+> ```
+> 
+> 2. After this, now we need to add this column to trigger and update whenever a record is changes
+>       
+> ```sql
+> create trigger trg_myTable_update on yourTable for update as
+> begin
+>   update yourTable
+> 	set updatedAt = getDate()
+> 	from yourTable inner join deleted d
+> 	on yourTable.id=d.id
+> end
+> ```
+> 
+> </details>
 
 ### When to use update, insert and upsert actions
 Choosing between [update](/connectors/mssql/update.md), [insert](/connectors/mssql/insert.md) and [upsert](/connectors/mssql/upsert.md) actions can have numerous implications for your recipes and SQL server tables. Whilst upserts may be used to accomplish most actions where update or insert are used, here are some of the key considerations to keep in mind when choosing one over the other.
