@@ -4,7 +4,10 @@ date: 2018-02-02 06:10:00 Z
 ---
 
 # SQL Server - Insert actions
-Workato offers both batch and single insert row actions. This allows you the flexibility to choose the action that you require for your recipe and to fulfill your business needs. Check out our [best practices on whether to use batch or single insert actions](/connectors/mssql/introduction.md#deciding-when-to-use-batch-of-rows-triggersactions-vs-single-row-triggersactions) and [when to use insert, update or update](/connectors/mssql/introduction.md#when-to-use-update-insert-and-upsert-actions)
+Workato offers both batch and single insert row actions. This allows you the flexibility to choose the action that you require for your recipe and to fulfill your business needs. Check out our [best practices on whether to use batch or single insert actions](/connectors/mssql/introduction.md#deciding-when-to-use-batch-of-rows-triggersactions-vs-single-row-triggersactions) and [when to use insert, update or update](/connectors/mssql/introduction.md#when-to-use-update-insert-and-upsert-actions). 
+
+> Stopped jobs due to errors after an `insert row` action has finished would result in multiple inserts if the job is repeated. Consider using upserts that prevent inserting multiple rows into your database tables by deduping them on a key
+
 ## Insert row
 This action inserts a single row into the selected table.
 
@@ -39,4 +42,12 @@ Finally, you will need to map the required fields from the output datatree here 
 
 Refer to the [List management](/features/list-management.md) guide for more information about working with batches.
 
+## Use cases
 
+### Inserting a row
+Row insertion can be used in various ways and settings depending on your business needs. A versatile action that can take in datapills from previous steps, check out how it can be used in conjunction with Workbot via slack to make bug ticket submission process easier.
+
+![use-case-workbot-cmd](/assets/images/mssql/use-case-workbot-cmd.png)   
+*Command in slack using workbot*
+
+Check out how we use it in a recipe with our Workbot integrations.
