@@ -16,7 +16,7 @@ Here are some common use cases for SQL server on Workato. We go through the scen
 > To ensure that their records of customer_orders are up to date in their SQL servers, a recipe is needed to insert or update Salesforce account details into their <code>Accounts</code> table in SQL server
 > There cannot be no duplicate records in their `SHIPPER_ORDERS` table in SQL server so checks must be done to either update an existing order or create a new one.
 >
-> SQL Server Actions used
+> ### SQL Server Actions used
 > * `Select rows`
 > * `Upsert row`
 >
@@ -34,13 +34,13 @@ Here are some common use cases for SQL server on Workato. We go through the scen
 > 4. Retrieve contact details using Workato's Salesforce connector. We need all order details just in case a new order has to be made
 > 5. Use an upsert action to insert this records in the `SHIPPER_ORDERS` table.
 >  
->  [Recipe link](https://www.workato.com/recipes/912228-sql-server-new-case-in-salesforce-triggers-a-new-row-in-sql-server#recipe)
+>  ### [Recipe link](https://www.workato.com/recipes/912228-sql-server-new-case-in-salesforce-triggers-a-new-row-in-sql-server#recipe)
 > </details>
 
 > <details><summary><b>New Workbot command on Slack creates a new record in SQL server</b></summary>
 > Company Foo uses their SQL server database to keep track of bug tickets found in their company website. Their team uses slack to communicate and leverages on Workato's bot - Workbot - to make inserting tickets into their database easier. At its most basic, each ticket is required to have ticket names and descriptions.
 >
-> SQL Server Actions used
+> ### SQL Server Actions used
 > * `Insert rows`
 >
 > 1. A [Workbot trigger](/workbot/workbot.md) is used that triggers everytime the `/createTicket` command is sent in slack to Workbot. The user also provides input such as the ticket name and ticket description. 
@@ -56,6 +56,6 @@ Here are some common use cases for SQL server on Workato. We go through the scen
 > 
 > 3. A command is returned to confirm that ticket has been added
 >
-> [Recipe link](https://www.workato.com/recipes/912741-new-command-to-slack-workbot-will-insert-row-in-a-table-in-sql-server?st=5ab789#recipe)
+> ### [Recipe link](https://www.workato.com/recipes/912741-new-command-to-slack-workbot-will-insert-row-in-a-table-in-sql-server?st=5ab789#recipe)
 >
 > </details>
