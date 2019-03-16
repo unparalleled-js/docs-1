@@ -63,14 +63,12 @@ Databases are often used for a wide range of tasks and it may be tempting to cre
 
 For example, given that we hope to design a recipe that reads new contact information from a SQL server data base, create new accounts in Salesforce, add these contacts into a mailchimp campaign and back this data up in an redshift database, one could consider splitting this workflow up into 3 separate recipes. This allows other recipes and 3rd party apps to call them, reducing the amount of redundant steps. Changes to any step, such as a change in email provider from mailchimp to sendgrid would be handled much easier due to this design pattern.
 
-#### How to write custom SQL in Workato
+### How to write custom SQL in Workato
 Workato allows you to write your own custom SQL queries in 2 ways:
 1. [Using our `Select rows using custom SQL` action](/connectors/mssql/select.md#select-rows-using-custom-sql) (Recommended for **only** select queries)
 2. [Using our `Run custom SQL` action](/connectors/mssql/run_sql.md)
 
 With these custom SQL queries, you can do a wide range of create, read, update and delete actions on your SQL server. Since writing your own queries might get messy, remember manage your step output by giving your returned columns **meaningful aliases** and **only returning the columns that you need**. This makes maintaining your recipe easier and more readable for others as well.
-
-Also remember not to end your `Select rows using custom SQL` action with a `;` as this would cause it to error out.
 
 ## Database design patterns
 
