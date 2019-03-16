@@ -45,7 +45,7 @@ This input field determines the maximum number of rows to return. The default li
 This input field gives you the option to fetch only a page of results from the entire results set. For example, to skip the first 100 rows of the selected results set, input `100` to this field. The default is `0`.
 
 ## Select rows using custom SQL
-This action lets you select rows based on a custom SQL query. Rows that are returned from the query will be returned as the output of this action.
+This action lets you select rows based on a custom SQL query. Rows that are returned from the query will be returned as the output of this action. Check out some [best practices when using custom SQL actions](/connectors/mssql/introduction.md#how-to-write-custom-sql-in-workato)
 
 ### Supported versions
 This action is only supported for SQL Server 2012 or newer. It uses a default stored procedure `sp_describe_first_result_set` that is only available from SQL Server 2012 onwards.
@@ -66,13 +66,9 @@ If this field is left blank, `TOP 100` will be used.
 ## Use cases
 
 ### Using the `Select rows` action to check for a row
-The select action can be used in your recipes to check for a record before deciding whether to insert or update a row in a table. While this may be similar to [upsert](/connectors/upsert.md), it retains its advantage over upsert in cases where you need to check for the record based on multiple columns. This can be accomplished using the `WHERE` condition. 
+The select action can be used in your recipes to check for a record before deciding whether to insert, update or upsert a row in a table. Use this in cases where you need to check for the record whether an insert, update or upsert action is needed based on multiple columns. 
 
 * Find out how to use the [`WHERE` condition](/connectors/mssql.md#using-where-conditions)
-* Check out how we use it in a recipe with our SalesForce integrations
+* Check out how we use it in a recipe with our SalesForce integrations.
 
-### Using the `Select rows using custom SQL` action to check for a row
-This build upon the previous use case. Using custom SQL allows you to join multiple tables together and use the returned rows to check if a new row should be inserted or an existing row should be updated. This is useful in cases where you might be looking for a specific user's order in your database and need to join a `users` table with an `orders` table to check for duplicates.
 
-* Check out some [best practices when using custom SQL actions](/connectors/mssql/introduction.md#how-to-write-custom-sql-in-workato)
-* Check out how we use it in a recipe with our SalesForce integrations
