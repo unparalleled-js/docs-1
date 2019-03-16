@@ -50,4 +50,4 @@ Row insertion can be used in various ways and settings depending on your busines
 ![use-case-workbot-cmd](/assets/images/mssql/use-case-workbot-cmd.png)   
 *Command in slack using workbot*
 
-Check out how we use it in a recipe with our Workbot integrations.
+Check out how we use it in a [recipe with our Workbot integrations.](/connectors/mssql/common-use-cases.md)
