@@ -560,6 +560,7 @@ Choosing between [update](/connectors/mssql/update.md), [insert](/connectors/mss
 2. Updates and inserts perform better when records should be unique based on multiple columns as upserts only takes one unique key into consideration. In cases such as these, a search would have to be performed first and update or insert actions performed based on the return of the search.
 3. Upserts are useful in failed job runs where repeating a failed job where it previously inserted a row would not result in another row being created. Inserts would insert yet another row if the job were to be run again.
 4. Upserts need to be documented properly to ensure maintainability. Since it becomes unclear without documentation whether steps that use upsert are always inserts or always updates, it becomes challenging for others in your organisation to maintain these recipes.
+5. Updates allow you to update rows that might not all be identified using a unique key. Rows to update identified using a range of parameters, i.e. updating all records whose `Title` column = `consultant`
 
 
 
