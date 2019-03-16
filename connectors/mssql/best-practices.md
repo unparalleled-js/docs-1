@@ -1,9 +1,21 @@
+---
+title: Workato connectors - Introduction
+date: 2019-03-13 12:40:00 Z
+---
 
 # Best practices when using SQL server
-We compiled a few of our best practices that make your life easier when developing workflows with Workato. Read more to learn some crucial tips that result in less bugs and time wasted.
+We compiled a few of our best practices that make your life easier when developing workflows with Workato. Read more to learn some crucial tips that result in less bugs and time wasted. We've split up these into 2 overarching patterns:
+* Recipe Design patterns
+* Database Design patterns
 
-## Deciding when to use batch of rows triggers/actions vs single row triggers/actions
-While single row triggers/actions can almost always accomplish the same functionality as batch triggers/actions and vice versa, ultimately the decision to use one or the other becomes a matter of business requirements. Whilst batch actions offer the ability to improve time efficiency of recipe, reduce the number of operations required per run and load on servers, there exists a trade-off between the flexibility since batch actions that do fail, fail on a batch level. 
+## Recipe Design patterns
+Workato contains numerous functionality that makes life easier for you when designing your recipes. Through the use of tools such as callable recipes as well as actions such as single row actions as well batch actions, you'll be able to break down  complex processes, create recipes that mimic your current dataflows without decreasing performance and troubleshoot them easily. While we do have [general recipe building best practices](/recipes/best-practices-building.md), read on more to find out some of the rules specific to databases that you should keep in mind when building recipes in Workato.
+
+### Keep conscious and minimise database whenever possible
+This design pattern has applications both when deciding the type of actions as well as the structure of your recipes. When designing your recipes, it helps to keep in mind that each database action induces additional load on your servers. To minimise strain on your databases, especially when your recipes are in live and part of your operations, removing unnecessary steps and thoughtful use of batch triggers and actions mean your recipes are more sustainable. 
+
+### Deciding when to use batch of rows triggers/actions vs single row triggers/actions
+While single row triggers/actions can almost always accomplish the same functionality as batch triggers/actions and vice versa, ultimately the decision to use one or the other becomes a matter of business requirements and design considerations. Batch triggers/actions reduce the load on your servers by batching up to a 100 records into a single call offering the ability to improve time efficiency of recipe, reduce the number of operations required per run and load on servers, there exists a trade-off between the flexibility since batch actions that do fail, fail on a batch level. 
 
 When examined, most workflows with applicable batch triggers/actions can be accomplished in 3 ways:
 <table class="unchanged rich-diff-level-one">
@@ -43,8 +55,15 @@ When examined, most workflows with applicable batch triggers/actions can be acco
   </tbody>
 </table>
 
+### Handling errors
+Error handling is an important part in the design process of a recipe. Here are some of the [best practices for error handling](/recipes/best-practices-error-handling.md) when designing recipes. 
 
-## How to write custom SQL in Workato
+### Splitting up and compartmentalizing recipes
+Databases are often used for a wide range of tasks and it may be tempting to create long flowing recipes that accomplish all tasks. Building upon the previous section, complex workflows should always be split up into separate recipes, compartmentalizing recipes and limiting the length of recipes based on their purpose. This makes recipe maintainence and troubleshooting easier and also reduces the number redundant actions across recipes. To acheive this, Workato has [callable recipes](/features/callable-recipes.md), allowing recipes to trigger other recipes. Callable recipes can also be triggered by 3rd party applications through a REST API. 
+
+For example, given that we hope to design a recipe that reads new contact information from a SQL server data base, create new accounts in Salesforce, add these contacts into a mailchimp campaign and back this data up in an redshift database, one could consider splitting this workflow up into 3 separate recipes. This allows other recipes and 3rd party apps to call them, reducing the amount of redundant steps. Changes to any step, such as a change in email provider from mailchimp to sendgrid would be handled much easier due to this design pattern.
+
+#### How to write custom SQL in Workato
 Workato allows you to write your own custom SQL queries in 2 ways:
 1. [Using our `Select rows using custom SQL` action](/connectors/mssql/select.md#select-rows-using-custom-sql) (Recommended for **only** select queries)
 2. [Using our `Run custom SQL` action](/connectors/mssql/run_sql.md)
@@ -52,6 +71,8 @@ Workato allows you to write your own custom SQL queries in 2 ways:
 With these custom SQL queries, you can do a wide range of create, read, update and delete actions on your SQL server. Since writing your own queries might get messy, remember manage your step output by giving your returned columns **meaningful aliases** and **only returning the columns that you need**. This makes maintaining your recipe easier and more readable for others as well.
 
 Also remember not to end your `Select rows using custom SQL` action with a `;` as this would cause it to error out.
+
+## Database design patterns
 
 ### How to prepare a table for use in Workato
 When looking to make triggers using our `New row` and `New/updated row` triggers, trigger configurations require either the use of a unique key or unique key and sorted column to enable Workato to ensure your trigger doesn't miss out on any records. Not all tables that you encounter may be ready to be used as a trigger so here are some best practices to prepare your table for use in Workato.
