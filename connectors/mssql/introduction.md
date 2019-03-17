@@ -3,7 +3,7 @@ title: Workato connectors - Introduction
 date: 2018-03-13 12:40:00 Z
 ---
 # SQL Server
-[SQL Server](https://www.microsoft.com/en-us/sql-server/) is a relational database management system by Microsoft. It supports transactional processes, business intelligence and analytics applications for enterprises.
+[SQL Server](https://www.microsoft.com/en-us/sql-server/) is a relational database management system by Microsoft. It supports transactional processes, business intelligence and analytics applications for enterprises. Workato's integrations with SQL server help you to accomplish a wide range of tasks such as migrating data, building data pipelines to data warehouses and lakes, backing up data automatically or transforming and exporting data to build complex workflows. Read on more to find out how to set up connections, SQL server actions and triggers and use cases on how Workato can work with SQL server to fulfill your business needs.
 
 ## Supported versions
 All versions of SQL Server are supported. However, some triggers/actions are restricted to newer versions. Refer to individual trigger/action documentation to find out.
@@ -153,7 +153,7 @@ This clause will be used as a `WHERE` statement in each request. This should fol
 
 ### Operators 
 
-At the foundation of any `WHERE` statement, we have operators that help us filter and identify what rows we want returned in triggers and actions in Workato. By chaining operators in the same way one would do it in SQL, you'll be able to use them to create robust and complex filters on your data directly from Workato. Check out the sections below on some of the supported operators on Workato and are similar to those found in SQL.
+At the foundation of any `WHERE` statement, we have operators that help us filter and identify what rows we want returned in Workato. By chaining operators in the same way one would do it in SQL, you'll be able to use them to create robust and complex filters on your data directly from Workato. 
 
 <details><summary><b>List of operators</b></summary>
   
@@ -252,7 +252,7 @@ At the foundation of any `WHERE` statement, we have operators that help us filte
 
 ### Data types
 
-The other component of a `WHERE` condition would be to use these operators in conjunction with the proper datatypes. When writing `WHERE` statements, make sure you compare a variable of `data type = integer` in your table with a  instead of a variable of `data type = integer` instead of `data type = string`. Failing to do so would result in unexpected behaviour or failed jobs 
+The other component of a `WHERE` condition would be to use these operators in conjunction with the proper datatypes. When writing `WHERE` statements, make sure you compare a variable of `data type = integer` in your table with a  instead of a variable of `data type = integer` instead of `data type = string`. 
 
 Workato also helps reveal the data types expected for each input field when you select 
 - **Select rows** actions
