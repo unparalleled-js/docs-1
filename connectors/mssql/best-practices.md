@@ -1,6 +1,6 @@
 ---
-title: Workato connectors - Introduction
-date: 2019-03-13 12:40:00 Z
+title: Workato connectors - Best practices
+date: 2019-03-17 23:00:00 Z
 ---
 
 # Best practices when using SQL server
