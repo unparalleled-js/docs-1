@@ -4,7 +4,7 @@ date: 2019-03-17 23:00:00 Z
 ---
 
 # Best practices when using SQL server
-We compiled a few of our best practices that make your life easier when developing workflows with Workato. Read more to learn some crucial tips that result in less bugs and time wasted. We've split up these into 2 overarching patterns:
+We compiled a few of our best practices that make your life easier when developing workflows with Workato by causing less bugs and time wasted. We've split up these into 2 overarching patterns:
 * Recipe Design patterns
 * Database Design patterns
 
