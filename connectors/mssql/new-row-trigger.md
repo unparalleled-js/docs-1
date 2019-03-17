@@ -143,6 +143,8 @@ WHERE
   c.table_name='table_name'
 ```
 
+If no column can be found, check out our [best practices](/connectors/mssql/best-practices.md#designing-tables-for-use-in-workato) to find out how to make one.
+
 ### Batch size
 Batch size of rows to return in each job. This can be any number between **1** and the maximum batch size. Maximum batch size is **100** and default is **100**.
 
