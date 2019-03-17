@@ -62,13 +62,3 @@ Avoid using limit clauses like `TOP` in your SQL. This is because the limit to t
 This input field determines the maximum number of rows to return. The default limit is 100 and capped at a maximum of 1000 rows for a single **Select rows using custom SQL** action.
 
 If this field is left blank, `TOP 100` will be used.
-
-## Use cases
-
-### Using the `Select rows` action to check for a row
-The select action can be used in your recipes to check for a record before deciding whether to insert, update or upsert a row in a table. Use this in cases where you need to check for the record whether an insert, update or upsert action is needed based on multiple columns. 
-
-* Find out how to use the [`WHERE` condition](/connectors/mssql.md#using-where-conditions)
-* Check out how we use it in a recipe with our SalesForce integrations.
-
-
