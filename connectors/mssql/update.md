@@ -4,7 +4,7 @@ date: 2018-02-02 06:10:00 Z
 ---
 
 # SQL Server - Update actions
-> Read up more over here as to whether [upsert might be a better action choice](/connectors/mssql/best-practices.md#when-to-use-update-insert-and-upsert-actions). 
+Workato offers both batch and single update row actions. This allows you the flexibility to choose the action that you require for your recipe and to fulfill your business needs. Check out our [best practices on whether to use batch or single update actions](/connectors/mssql/best-practices.md#deciding-when-to-use-batch-of-rows-triggersactions-vs-single-row-triggersactions) and [when to use insert, update or update](/connectors/mssql/best-practices.md#when-to-use-update-insert-and-upsert-actions). 
 
 ## Update rows
 This action updates one or more rows with a single set of values. It uses a `WHERE` condition to select the row(s) to perform the update.
