@@ -4,6 +4,7 @@ date: 2018-02-02 06:10:00 Z
 ---
 
 # SQL Server - Update actions
+Read up more over here as to whether [upsert might be a better action choice](/connectors/mssql/best-practices.md#when-to-use-update-insert-and-upsert-actions). 
 
 ## Update rows
 This action updates one or more rows with a single set of values. It uses a `WHERE` condition to select the row(s) to perform the update.
