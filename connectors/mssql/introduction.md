@@ -140,18 +140,7 @@ The SQL Server connector works with all tables and views. These are available in
 Case sensitivity of the name of a table/view depends on your database implementation. A default SQL Server is case insensitive. Databases or database objects with `CS` in the **COLLATION** indicates that it is case sensitive.
 
 ### Stored Procedures
-Stored procedures are custom written workflows that have to be written and saved within your SQL server. They are able to do a range of functionalities including creating, reading, updating and deleting rows. They can also accept parameters. Check out the details below if you want to know more about how Workato works with stored procedures.
-> <details><summary>How to execute stored procedures</summary>
-> The SQL Server connector also works with all stored procedures in the connected database. Stored procedures can be triggered in recipes using our SQL Server `Execute stored procedure` action. All stored procedures in your database will be available in the pick lists the action. Stored procedures are written and stored within your SQL server
-> 
-> ![Stored procedure selection from pick list](/assets/images/mssql/stored-procedure-view-1.png)
-> *Select your stored procedure from the pick list*
-> 
-> If applicable, you will be prompted to enter in the parameters for your stored procedure. Use this to execute store procedures based on returned datapills from your previous steps by the relevant datapills into the parameter fields.
-> 
-> ![Store procedure input fields for parameters](/assets/images/mssql/stored-procedure-view-2.png)
-> *Select your stored procedure from the pick list*
-> </details>
+Stored procedures are custom written workflows that have to be written and saved within your SQL server. They are able to do a range of functionalities including creating, reading, updating and deleting rows. They can also accept parameters. [Click here if you want to know more about how Workato works with stored procedures.](/connectors/mssql/stored-procedure.md)
 
 ## Using `WHERE` conditions
 
