@@ -41,13 +41,3 @@ If you do not map a list datapill to this field, this action will insert only 1 
 Finally, you will need to map the required fields from the output datatree here to insert rows with data from preceding trigger or actions. Take note that datapills mapped to each column here should be from the source list datapill you used earlier. Datapills that are mapped outside the source list datapill will not be iterated.
 
 Refer to the [List management](/features/list-management.md) guide for more information about working with batches.
-
-## Use cases
-
-### Inserting a row
-Row insertion can be used in various ways and settings depending on your business needs. A versatile action that can take in datapills from previous steps, check out how it can be used in conjunction with Workbot via slack to make bug ticket submission process easier.
-
-![use-case-workbot-cmd](/assets/images/mssql/use-case-workbot-cmd.png)   
-*Command in slack using workbot*
-
-Check out how we use it in a [recipe with our Workbot integrations.](/connectors/mssql/common-use-cases.md)
