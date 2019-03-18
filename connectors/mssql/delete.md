@@ -30,4 +30,4 @@ Alternatively, it can be used to delete multiple rows.
 status = 'closed'
 ```
 
-Complex `WHERE` conditions with subqueries can also be used. Refer to the [WHERE condition](/connectors/mssql.md#where-condition) guide for more information.
+Complex `WHERE` conditions with subqueries can also be used. Refer to the [WHERE condition](/connectors/mssql/introduction.md#using-where-conditions) guide for more information.
