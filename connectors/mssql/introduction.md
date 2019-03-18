@@ -359,7 +359,7 @@ Column names with spaces must be enclosed in double quotes (`""`) or square brac
 ![WHERE condition with enclosed identifier](/assets/images/mssql/where-condition-with-enclosed-identifier.png)
 *`WHERE` condition with enclosed identifier*
 
-Check out the details below for more functionality you can explore with your `WHERE` conditions. 
+Check out below for more details into the functionality you can explore with your `WHERE` conditions. 
 
 <details><summary>Using <code>AND</code> and <code>OR</code> in your <code>WHERE</code> conditions</summary>
 <code>WHERE</code> conditions can also be used in conjunction with basic SQL logical operators like <code>AND</code> and <code>OR</code> to add more filters on the rows you return.
@@ -436,7 +436,9 @@ As a result, the output of batch triggers/actions needs to be handled differentl
 ![Using batch trigger output](/assets/images/mssql/using_batch_output.png)
 *Using batch trigger output*
 
-Outputs from batch triggers/actions can also be used outside of actions that work specifically with lists. By using Workato's repeat step, you'll be able to control batch outputs and [use them with any action built for single rows.](/features/list-management.md#using-datapills-in-an-action-with-a-repeat-step-action-does-not-handle-list-processing-list-processing-needs-to-be-done-explicitly-at-the-recipe-logic-level)
+Outputs from batch triggers/actions can also be used outside of actions that work specifically with lists. By using Workato's repeat step, you'll be able to control batch outputs and [use them with any action built for single rows.](/features/list-management.md#using-datapills-in-an-action-with-a-repeat-step-action-does-not-handle-list-processing-list-processing-needs-to-be-done-explicitly-at-the-recipe-logic-level).
+
+> Unsure when to use batch actions and single row actions? [Check out our best practices section for recipe design tips!](/connectors/mssql/best-practices.md#deciding-when-to-use-batch-of-rows-triggersactions-vs-single-row-triggersactions)
 
 
 

@@ -27,7 +27,7 @@ Alternatively, it can be used to select multiple rows based on values in one or 
 status = 'closed' and priority = 1
 ```
 
-Complex `WHERE` conditions with subqueries can also be used. Refer to the [`WHERE` condition](/connectors/mssql.md#using-where-conditions) guide for more information.
+Complex `WHERE` conditions with subqueries can also be used. Refer to the [`WHERE` condition](/connectors/mssql/introduction.md#using-where-conditions) guide for more information.
 
 ### Order by
 Rows returned from this action can be ordered based on the **Order by** input field. This field is used to change the default ordering of rows from your SQL Server database.
@@ -45,7 +45,7 @@ This input field determines the maximum number of rows to return. The default li
 This input field gives you the option to fetch only a page of results from the entire results set. For example, to skip the first 100 rows of the selected results set, input `100` to this field. The default is `0`.
 
 ## Select rows using custom SQL
-This action lets you select rows based on a custom SQL query. Rows that are returned from the query will be returned as the output of this action. Check out some [best practices when using custom SQL actions](/connectors/mssql/introduction.md#how-to-write-custom-sql-in-workato)
+This action lets you select rows based on a custom SQL query. Rows that are returned from the query will be returned as the output of this action. Check out some [best practices when using custom SQL actions](/connectors/mssql/best-practices.md#using-custom-sql-and-stored-procedures-in-workato-and-why-you-should-do-so)
 
 ### Supported versions
 This action is only supported for SQL Server 2012 or newer. It uses a default stored procedure `sp_describe_first_result_set` that is only available from SQL Server 2012 onwards.
