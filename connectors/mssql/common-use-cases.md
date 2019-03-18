@@ -6,56 +6,38 @@ date: 2019-03-15 12:37:00 Z
 # SQL Server - Common use cases
 
 ## Contents
-Here are some common use cases for SQL server on Workato. We go through the scenarios step by step and also provide links to the recipe. Free free to copy them and repurpose them for your own use!
-* New order change event in Salesforce creates a new/updated row in SQL server
-* New Workbot command on Slack creates a new record in SQL server and
+Workato works with SQL server databases to offer workflow automations that allow you to accomplish:
+* Data migraton
+* Data replicaton
+* Data pipelines to data lakes and data warehouses
+* Data exporting for use in daily operations
 
+## Data migration
+Workato allows you to perform data migrations of any scale using recipes that are easy to design, test and push into production. Data migrations are an essential consideration from your company is transitioning from one database provider to another or when upgrading the applications your teams are using. 
 
-> <details><summary><b>New order change event in Salesforce creates a new/updated row in SQL server</b></summary>
-> Company ABC uses Salesforce as their CRM tool. They also have a SQL server which stores records of customer_orders in their `SHIPPER_ORDERS` table.
-> To ensure that their records of customer_orders are up to date in their SQL servers, a recipe is needed to insert or update Salesforce account details into their <code>Accounts</code> table in SQL server
-> There cannot be no duplicate records in their `SHIPPER_ORDERS` table in SQL server so checks must be done to either update an existing order or create a new one.
->
-> ### SQL Server Actions used
-> * `Select rows`
-> * `Upsert row`
->
-> 1. A Salesforce trigger is used that triggers everytime a `Order change event` is made in Salesforce. This information is passed into a select query that checks if the account already exists in the `SHIPPER_ORDERS` table based on the `accountID` and that the last updated time was earlier than the time the order was changed.
-> 
-> ![select-action-search-2-columns](/assets/images/mssql/select-action-search-2-columns.png) 
-> *Searching for order record that matches the Order ID and was last updated earlier than the recent order change event*
-> 
-> 2. Using this action, we can search for that specific Order as well as check that we are updating it with the latest information possible
-> 3. If no record is found, we know that the Order change event that we just received contains the most up-to-date details. 
-> 
-> ![conditional-steps-upsert](/assets/images/mssql/use-case-select-upsert.png)
-> *Recipe overview - Search for table to see if record needs to be updated. If yes, then upsert record*
->
-> 4. Retrieve contact details using Workato's Salesforce connector. We need all order details just in case a new order has to be made
-> 5. Use an upsert action to insert this records in the `SHIPPER_ORDERS` table.
->  
->  ### [Recipe link](https://www.workato.com/recipes/912228-sql-server-new-case-in-salesforce-triggers-a-new-row-in-sql-server#recipe)
-> </details>
+<details><summary><b>Data migration example (Salesforce to inhouse CRM software)</b></summary>
+  Company ABC is medium sized company that sells commercial insurance. Their sales team uses Salesforce as their CRM tool but their engineering team has built an inhouse CRM software that can better suits the workflow of selling insurance. To accomplish the migration, Workato can be used to pull account information from Salesforce and migrate the data over to ABC's SQL server databases which the new CRM software will pull data from. 
+  
+  ![Pulling-Salesforce-Records](/assets/images/mssql/Pulling-Salesforce-Records.png)
+  *Pulling accounts in batches to increase recipe efficency*
+  
+We begin by first pulling Saleforce accounts in batches. Leaving the `When first started, this recipe should pick up events from` input field blank allows us to retrieve all records. 
 
-> <details><summary><b>New Workbot command on Slack creates a new record in SQL server</b></summary>
-> Company Foo uses their SQL server database to keep track of bug tickets found in their company website. Their team uses slack to communicate and leverages on Workato's bot - Workbot - to make inserting tickets into their database easier. At its most basic, each ticket is required to have ticket names and descriptions.
->
-> ### SQL Server Actions used
-> * `Insert rows`
->
-> 1. A [Workbot trigger](/workbot/workbot.md) is used that triggers everytime the `/createTicket` command is sent in slack to Workbot. The user also provides input such as the ticket name and ticket description. 
-> 
-> ![use-case-workbot-cmd](/assets/images/mssql/use-case-workbot-cmd.png)   
-> *Command in slack using workbot*
-> 
-> 
-> 2. The following insert row action in Workato inserts the ticket name and description into SQL server.
-> 
-> ![use-case-workbot-insert-row](/assets/images/mssql/use-case-workbot-insert-row.png) 
-> *Inserting row in tickets table in SQL server*
-> 
-> 3. A command is returned to confirm that ticket has been added
->
-> ### [Recipe link](https://www.workato.com/recipes/912741-new-command-to-slack-workbot-will-insert-row-in-a-table-in-sql-server?st=5ab789#recipe)
->
-> </details>
+  ![Data-migration-Recipe-Flow](/assets/images/mssql/Data-migration-Recipe-Flow.png)
+  *Recipe flow when migrating data with error handling and monitoring*
+
+After configuring the trigger, we begin by first setting up an error monitoring step to allow us to handle any potential errors that come up during the migration. After that, it is always helpful to research for account records at recipe run-time to reduce the chances of migrating over data that is not up to date. We use the repeat action on Workato to cycle through each retrieved account, pull this information again from Salesforce right before storing all this information in a list.
+
+After cycling through all accounts in this batch, upsert this batch of account records into the designated SQL server. Upsert is used instead of insert to guard against making duplicate accounts that might occur. And just like that your data migration of accounts from Salesforce to SQL server is done! Dont forget to test this recipe and you may want to consider building this into a larger workflow that involves the migration of contact information and other crucial information stored in Salesforce.
+
+### [Recipe link](https://www.workato.com/recipes/912863#recipe)
+
+</details>
+
+## Data Replication
+Data replication and the backing up of data into separate databases provides companies with a way to plan for disaster recovery, accomodate different geographical regions as well as increase the availability of data to stakeholders without placing all stress on a single server. Workato allows you to create recipes that can migrate large amounts of from one database to another.
+
+<details><summary><b>Data replication example (Oracle to SQL)</b></summary>
+  
+</details>
+
