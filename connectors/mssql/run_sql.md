@@ -9,7 +9,7 @@ date: 2018-09-20 06:10:00 Z
 
 This action lets you send a SQL string to the SQL Server instance to be executed. It can be used to execute Data Manipulation Language (DML) statements like `INSERT`, `UPDATE`, `SELECT` and `DELETE`, as well as Data Definition Language (DDL) commands, like `CREATE`, `ALTER` and `DROP`.
 
-Unlike [Select rows using custom SQL](/connectors/mssql/select.md#select-rows-using-custom-sql), this action is not optimized for easy configuration. For `SELECT` statements with large number of columns, use that action instead. Using custom SQL is a great way to improve recipe efficiency and balance load between Workato and your database. [Find out more in our best practices section how to use custom SQL to make your recipes more efficient.](/connectors/mssql/best-practices.md#using-custom-sql-and-stored-procedures-in-workato)
+Unlike [Select rows using custom SQL](/connectors/mssql/select.md#select-rows-using-custom-sql), this action is not optimized for easy configuration. For `SELECT` statements with large number of columns, use that action instead. Using custom SQL is a great way to improve recipe efficiency and balance load between Workato and your database. [Find out more in our best practices section how to use custom SQL to make your recipes more efficient.](/connectors/mssql/best-practices.md#using-custom-sql-and-stored-procedures-in-workato-and-why-you-should-do-so)
 
 **This action requires a connection using OPA version 2.4.3 or newer.**
 
