@@ -30,7 +30,7 @@ status = 'closed'
 
 Take note that all rows matching this criteria will be updated with the same values provided in **Columns** input.
 
-Complex `WHERE` conditions with subqueries can also be used. Refer to the [WHERE condition](/connectors/mssql.md#where-condition) guide for more information.
+Complex `WHERE` conditions with subqueries can also be used. Refer to the [WHERE condition](/connectors/mssql/introduction.md#using-where-conditions) guide for more information.
 
 ### Columns
 Lastly, map the datapills from your previous triggers or actions into their respective columns. The columns in the selected table are presented as input fields here for you to insert datapills.
