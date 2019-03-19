@@ -40,7 +40,6 @@ Learn more about the other triggers and actions Workato has to offer for SQL ser
   * [Insert actions](/connectors/mssql/insert.md)
   * [Update actions](/connectors/mssql/update.md)
   * [Upsert actions](/connectors/mssql/upsert.md)
-  * [Delete actions](/connectors/mssql/delete.md)
   * [Run custom SQL action](/connectors/mssql/run_sql.md)
   * [Execute stored procedure](/connectors/mssql/stored-procedure.md)
   
