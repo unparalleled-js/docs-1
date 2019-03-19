@@ -19,7 +19,7 @@ First, select a table to update. This can be done either by selecting a table fr
 Next, provide a `WHERE` condition to select rows to be updated. This condition can be as simple as filtering a single record to update based on `ID`.
 
 ```sql
-id = 123
+ID = 123
 ```
 
 Alternatively, it can be used to select and update multiple rows.
@@ -56,3 +56,18 @@ If you do not map a list datapill to this field, this action will update only 1 
 Finally, you will need to map the required fields from the output datatree here to update rows with data from preceding trigger or actions. Take note that datapills mapped to each column here should be from the source list datapill you used earlier. Datapills that are mapped outside the source list datapill will not be iterated.
 
 Refer to the [List management](/features/list-management.html) guide for more information about working with batches.
+
+## Next steps
+Learn more about the other triggers and actions Workato has to offer for SQL server
+  * [New row trigger](/connectors/mssql/new-row-trigger.md)
+  * [New/updated row trigger](/connectors/mssql/updated-row-trigger.md)
+  * [Select actions](/connectors/mssql/select.md)
+  * [Insert actions](/connectors/mssql/insert.md)
+  * [Upsert actions](/connectors/mssql/upsert.md)
+  * [Delete actions](/connectors/mssql/delete.md)
+  * [Run custom SQL action](/connectors/mssql/run_sql.md)
+  * [Execute stored procedure](/connectors/mssql/stored-procedure.md)
+  
+Or get busy building your recipes now! Check out our
+  * [Best practices](/connectors/mssql/best-practices.md)
+  * [Use cases](/connectors/mssql/common-use-cases.md)
