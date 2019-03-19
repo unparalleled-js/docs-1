@@ -201,3 +201,18 @@ Complex `WHERE` conditions with subqueries can also be used. Refer to the [WHERE
 Provide the SQL to be executed to select rows. The SQL here will be used to generate the output datatree. To do this, the SQL will be executed once when you provide it. You can map datapills here to execute dynamically changing SQL statements. Remember to wrap datapills in quotes (`''`).
 
 Avoid using limit clauses like `TOP` in your SQL. This is because the limit to the number of rows returned in the query is based on the value defined in the **Batch size** input field. Adding your own limit clause will cause the action to fail.
+
+## Next steps
+Learn more about the other triggers and actions Workato has to offer for SQL server
+  * [New row trigger](/connectors/mssql/new-row-trigger.md)
+  * [Select actions](/connectors/mssql/select.md)
+  * [Insert actions](/connectors/mssql/insert.md)
+  * [Update actions](/connectors/mssql/update.md)
+  * [Upsert actions](/connectors/mssql/upsert.md)
+  * [Delete actions](/connectors/mssql/delete.md)
+  * [Run custom SQL action](/connectors/mssql/run_sql.md)
+  * [Execute stored procedure](/connectors/mssql/stored-procedure.md)
+  
+Or get busy building your recipes now! Check out our
+  * [Best practices](/connectors/mssql/best-practices.md)
+  * [Use cases](/connectors/mssql/common-use-cases.md)
