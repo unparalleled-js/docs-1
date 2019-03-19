@@ -29,32 +29,54 @@ For example, if we were hoping to use Workato to build a workflow that accomplis
 5. backs this data up in an redshift database
 
 One should consider splitting this workflow up into 4 separate recipes.
-
-Callable Recipe *1* **Create Salesforce accounts**
-1. Receive request data 
-2. Performs validation on data received
-3. Checks for existing Salesforce accounts
-4. Updates or inserts new Salesforce accounts
-
-Callable Recipe *2* **Adds contacts to email campaign**
-1. Receive request data 
-2. Performs validation on data received
-3. Checks for existing duplicate contact 
-4. Adds or updates contact to email campaign
-
-Callable Recipe *3* **Back contact data up in Redshift**
-1. Receive request data 
-2. Performs validation on data received
-3. Perform data transformation to prepare for Redshift
-4. Checks for existing records in Redshift
-5. Updates or inserts contact records
-
-Parent Recipe *4* **Kickstart workflow from database (SQL server)**
-1. Trigger from SQL server to retreive data
-2. Perform basic data transformation and validation
-3. Call Recipe *1*
-4. Call Recipe *2*
-5. Call Recipe *3*
+<table>
+  <thead>
+    <tr>
+        <th width='30%'>Recipe</th>
+        <th width='70%'>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+   <td>Callable Recipe <b>1</b>  <br> <b>Create Salesforce accounts</b></td>
+<td>
+  1. Receive request data  <br>
+  2. Performs validation on data received <br>
+  3. Checks for existing Salesforce accounts <br>
+  4. Updates or inserts new Salesforce accounts <br>
+ </td>
+      </tr>
+<tr>
+<td>Callable Recipe <b>2</b>  <br> <b>Adds contacts to email campaign</b></td>
+<td>
+  1. Receive request data  <br>
+  2. Performs validation on data received <br>
+  3. Checks for existing duplicate contact  <br>
+  4. Adds or updates contact to email campaign <br>
+  </td>
+  </tr>
+<tr>
+<td>Callable Recipe <b>3</b>  <br> <b>Back contact data up in Redshift</b></td>
+<td>
+  1. Receive request data <br>
+  2. Performs validation on data received <br>
+  3. Perform data transformation to prepare for Redshift <br>
+  4. Checks for existing records in Redshift <br>
+  5. Updates or inserts contact records <br>
+  </td>
+  </tr>
+<tr>
+<td>Parent Recipe <b>4</b>  <br> <b>Kickstart workflow from database (SQL server)</b></td>
+<td>
+  1. Trigger from SQL server to retreive data<br>
+  2. Perform basic data transformation and validation <br>
+  3. Call Recipe <b>1</b> <br>
+  4. Call Recipe <b>2</b> <br>
+  5. Call Recipe <b>3</b> <br>
+  </td>
+  </tr>
+</body>
+</table>
 
 By splitting this workflow up into multiple recipes, this allows other recipes and 3rd party apps to also call upon recipe 1, 2 and 3 reducing the amount of redundant steps if, for example, another recipe needed to back data up in a redshift database. Changes to any step or improvements to any part of the workflow, such as a change in email provider from mailchimp to sendgrid would be handled much easier due to this design pattern.
 
