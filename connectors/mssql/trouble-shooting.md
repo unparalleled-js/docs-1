@@ -10,14 +10,14 @@ During the design stage of recipes, errors are bound to happen. Here are some of
 
 ### Timeouts
 
-Workao employs [timeouts on jobs and actions](/recipes/recipe-job-errors.md#timeouts) when they take too long to execute. When working with databases, this can be a common occurence when queries and stored procedures take too long to respond. When this happens, consider doing the following:
+Workao employs [timeouts on jobs and actions](/recipes/recipe-job-errors.md#timeouts) when they take too long to execute. When working with databases, this could be a common occurence since queries and stored procedures may too long to respond. When this happens, consider doing the following:
 
-#### Action timeouts
+#### Action timeouts (One specfic step times out)
 * Limiting the number of rows returned further
 * Introducing indexes in your database
 * Optimising custom SQL queries (i.e. eliminating unnecessary joins)
 
-#### Job timeouts
+#### Job timeouts (One entire run of a recipe times out)
 * Separating recipes and using callable recipes to join workflows up
 * Use asynchronous calls when calling recipes
 * Eliminating unnecessary actions
@@ -50,7 +50,6 @@ Here are some possible reasons and fixes for missing values:
 * The column has an `unique` constraint and results duplicate values being rejected. Consider using the upsert action to update record instead of inserting a new one.
 * The datapill entered during recipe run-time returned a `NULL` value. When this was inserted in a column with `NOT NULL` constraint, an error was thrown. [More info here.](/recipes/recipe-job-errors.md#missing-required-fields-at-run-time) Consider adding logical checks for `NULL` values and passing default values in when need. This can be accomplished with [Workato's formula mode.](/formulas/formula-mode.md)
 
-## Integration errors
 
 
 
