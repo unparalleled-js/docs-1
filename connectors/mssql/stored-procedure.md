@@ -24,3 +24,18 @@ Next, provide any input parameters required for the selected stored procedure.
 
 ### Output
 If the selected stored procedures outputs multiple datasets, only the first will be returned in this action. The returned dataset size is limited to 100 rows.
+
+## Next steps
+Learn more about the other triggers and actions Workato has to offer for SQL server
+  * [New row trigger](/connectors/mssql/new-row-trigger.md)
+  * [New/updated row trigger](/connectors/mssql/updated-row-trigger.md)
+  * [Select actions](/connectors/mssql/select.md)
+  * [Insert actions](/connectors/mssql/insert.md)
+  * [Update actions](/connectors/mssql/update.md)
+  * [Upsert actions](/connectors/mssql/upsert.md)
+  * [Delete actions](/connectors/mssql/delete.md)
+  * [Run custom SQL action](/connectors/mssql/run_sql.md)
+  
+Or get busy building your recipes now! Check out our
+  * [Best practices](/connectors/mssql/best-practices.md)
+  * [Use cases](/connectors/mssql/common-use-cases.md)
