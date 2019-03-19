@@ -18,13 +18,13 @@ First, select a table/view to work with. This can be done either by selecting a 
 Next, provide a `WHERE` condition to filter rows. This condition can be as simple as filtering a single record by it's `ID`.
 
 ```sql
-id = 123
+ID = 123
 ```
 
 Alternatively, it can be used to select multiple rows based on values in one or more columns.
 
 ```sql
-status = 'closed' and priority = 1
+status = 'closed' AND priority = 1
 ```
 
 Complex `WHERE` conditions with subqueries can also be used. Refer to the [`WHERE` condition](/connectors/mssql/introduction.md#using-where-conditions) guide for more information.
@@ -39,7 +39,7 @@ priority asc, created_date desc
 ```
 
 ### Limit
-This input field determines the maximum number of rows to return. The default limit is 100 and capped at a maximum of 1000 rows for a single **Select rows** action.
+This input field determines the maximum number of rows to return. The default limit is 100 and capped at a maximum of 1000 rows for a single **Select rows** action. If you require to select more than 1000 rows and perform actions, this can be done in batches from Workato recipes directly. Find examples in our [use cases.](/connectors/mssql/common-use-cases.md)
 
 ### Offset
 This input field gives you the option to fetch only a page of results from the entire results set. For example, to skip the first 100 rows of the selected results set, input `100` to this field. The default is `0`.
@@ -56,7 +56,7 @@ This action is only supported for SQL Server 2012 or newer. It uses a default st
 ### SQL
 Provide the SQL to be executed to select rows. The SQL here will be used to generate the output datatree. To do this, the SQL will be executed once when you provide it. You can map datapills here to execute dynamically changing SQL statements. Remember to wrap datapills in quotes (`''`). **Do not add a `;` at the end of your SQL query as this will cause the step to fail**
 
-Avoid using limit clauses like `TOP` in your SQL. This is because the limit to the number of rows returned in the query is based on the value defined in the [**Limit** input field](#limit-1). Adding your own limit clause will cause the action to fail.
+Avoid using limit clauses like `TOP` in your SQL. This is because the limit to the number of rows returned in the query is based on the value defined in the **Limit** input field. Adding your own limit clause will cause the action to fail.
 
 ### Limit
 This input field determines the maximum number of rows to return. The default limit is 100 and capped at a maximum of 1000 rows for a single **Select rows using custom SQL** action.
