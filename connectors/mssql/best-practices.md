@@ -5,14 +5,19 @@ date: 2019-03-17 23:00:00 Z
 
 # Best practices when using SQL server
 We compiled a few of our best practices that make your life easier when developing workflows with Workato by causing less bugs and time wasted. We've split up these into 2 overarching patterns:
-* Recipe Design patterns
-* Database Design patterns
+* Recipe design patterns
+* Database design patterns
 
-## Recipe Design patterns
-Workato contains numerous functionality that makes life easier for you when designing your recipes. Using tools such as [callable recipes](/features/callable-recipes.md) and single row/batch actions, you'll be able to break down complex workflow processes to create recipes that mimic your current dataflows without decreasing performance and troubleshoot them easily. Here are some [general recipe building best practices](/recipes/best-practices-building.md), but read on more to find out some of the rules specific to databases that you should keep in mind when building recipes in Workato.
+## Recipe design patterns
+Workato contains numerous functions that makes life easier for you when you're designing recipes. Using tools such as [callable recipes](/features/callable-recipes.md) and single row/batch actions, you'll be able to break down complex workflow processes to create recipes that mimic your current dataflows without decreasing performance and troubleshoot them easily. Here are some [general recipe building best practices](/recipes/best-practices-building.md), but read on more to find out some of the rules specific to databases that you should keep in mind when building recipes in Workato.
 
 ### Keep conscious and minimise database actions whenever possible
-When designing your recipes, it helps to keep in mind that each database action induces additional load on your servers. To minimise strain on your databases, removing unnecessary steps and thoughtful use of batch actions mean your recipes are more sustainable and cost effective.
+When designing your recipes, it helps to keep in mind that each database action induces additional load on your servers. To minimise strain on your databases, removing unnecessary steps and thoughtful use of batch actions mean your recipes are more sustainable and cost effective. 
+
+#### Common ways to reduce database actions
+* Using `Upsert` instead of using `Select`
+* Using Workato's `Lists` by Workato to aggregate data and using batch actions to send it over to SQL server.
+* Using stored procedures or custom SQL functions to transform data on SQL server. (More on that below)
 
 ### Handling errors
 Error handling is an important part in the design process of a recipe. Here are some of the [best practices for error handling](/recipes/best-practices-error-handling.md) when designing recipes. 
@@ -40,7 +45,7 @@ One should consider splitting this workflow up into 4 separate recipes.
     <tr>
    <td>Callable Recipe <b>1</b>  <br> <b>Create Salesforce accounts</b></td>
 <td>
-  1. Receive request data  <br>
+  1. Triggered after being called by another recipe and receive request data  <br>
   2. Performs validation on data received <br>
   3. Checks for existing Salesforce accounts <br>
   4. Updates or inserts new Salesforce accounts <br>
@@ -49,7 +54,7 @@ One should consider splitting this workflow up into 4 separate recipes.
 <tr>
 <td>Callable Recipe <b>2</b>  <br> <b>Adds contacts to email campaign</b></td>
 <td>
-  1. Receive request data  <br>
+  1. Triggered after being called by another recipe and receive request data  <br>
   2. Performs validation on data received <br>
   3. Checks for existing duplicate contact  <br>
   4. Adds or updates contact to email campaign <br>
@@ -58,7 +63,7 @@ One should consider splitting this workflow up into 4 separate recipes.
 <tr>
 <td>Callable Recipe <b>3</b>  <br> <b>Back contact data up in Redshift</b></td>
 <td>
-  1. Receive request data <br>
+  1. Triggered after being called by another recipe and receive request data <br>
   2. Performs validation on data received <br>
   3. Perform data transformation to prepare for Redshift <br>
   4. Checks for existing records in Redshift <br>
@@ -81,7 +86,7 @@ One should consider splitting this workflow up into 4 separate recipes.
 By splitting this workflow up into multiple recipes, this allows other recipes and 3rd party apps to also call upon recipe 1, 2 and 3 reducing the amount of redundant steps if, for example, another recipe needed to back data up in a redshift database. Changes to any step or improvements to any part of the workflow, such as a change in email provider from mailchimp to sendgrid would be handled much easier due to this design pattern.
 
 ### Deciding when to use batch of rows triggers/actions vs single row triggers/actions
-The decision to use batch or single row actions are often a matter of business requirements and design considerations. While batch triggers/actions reduce the load on your servers by batching up to a 100 records into a single call offering the ability to improve time efficiency of recipe, reduce the number of operations required per run and load on servers, there exists a trade-off between the flexibility since batch actions that do fail, fail on a batch level. Building upon the previous section, the choice to use batch rows and triggers should also be a consideration when compartmentalising your recipes.
+Keeping in mind the ability to break down complex workflows through callable recipes, the decision to use batch or single row actions are often a matter of business requirements and design considerations. While batch triggers/actions reduce the load on your servers by batching up to a 100 records into a single call offering the ability to improve time efficiency of recipe, reduce the number of operations required per run and load on servers, there exists a trade-off between the flexibility since batch actions that do fail, fail on a batch level. 
 
 When examined, most workflows with applicable batch triggers/actions can be accomplished in 3 ways:
 <table class="unchanged rich-diff-level-one">
@@ -94,14 +99,14 @@ When examined, most workflows with applicable batch triggers/actions can be acco
   <tbody>
    <tr>
       <td>The use of a batch trigger, followed by a batch action and using Workato's repeat step for any single row actions.</td>
-      <td>Using this method is the most efficient across all metrics. Since Workato employs a step-by-step (synchronous) process within each job run so any error that causes the run to stop also prevents the following steps from being executed for the entire batch. In cases where it only makes sense for the following actions to be executed contingent on the success of the initial steps, this could be useful behaviour. Since even a single record causes the whole batch to stop, some thought should go into striking a balance between efficiency and stopping too many records from being processed during a failed job run. One solution would be to toggle batch size      
+      <td>Using this method is the most efficient across all metrics. Since Workato employs a step-by-step (synchronous) process within each job run so any error that causes the run to stop also prevents the following steps from being executed for the entire batch. In cases where it only makes sense for the following actions to be executed contingent on the success of the initial steps, this could be useful behaviour. Since even a single record causes the whole batch to stop, some thought should go into striking a balance between efficiency and stopping too many records from being processed during a failed job run. One solution would be to toggle batch size. <br><br>      
         <details><summary><u>Business use case example</u></summary>
-        If we were to pull batchs of new leads from a SQL server for batch inserts into Salesforce, we could follow this up with emails to individuals on the sales team with links to the leads newly created on Saleforce directly. In cases where our information flowing in raised an error during the batch insert action, no email would be sent out to our sales team with links that didnt work or were empty! We can now safely make adjustments to our recipe to accomodate this error before repeating the job.
+        If we were to pull batchs of new leads from a SQL server for batch inserts into Salesforce, we could follow this up with emails to individuals on the sales team with links to the leads newly created on Saleforce directly. In cases where our information flowing in from Salesforce raised an error during the batch insert action, no email would be sent out to our sales team with links that didnt work or were empty! We can now safely make adjustments to our recipe to accomodate this error before repeating the job.
         </details>
      </td>
     </tr>
        <td>The use of a single row trigger, followed by a single row actions</td>
-      <td>Using this method is the least efficient across all metrics, especially for triggers/actions that work with large numbers of records. Workato employs a step-by-step (synchronous) process within each job run so any error that causes the run to stop also prevents the following steps from being executed. In some cases, this could be useful behaviour where we would want to fix our recipe before letting it run on to further steps and yet remains different from the batch trigger version as it only stops the job runs for those that raise errors. In time sensitive business use cases where all new rows should be processed as soon as possible, this might be the best design choice.
+      <td>Using this method is the least efficient across all metrics, especially for triggers/actions that work with large numbers of records. Workato employs a step-by-step (synchronous) process within job runs so any error that causes the run to stop also prevents the following steps from being executed. Some cases call for this behaviour where we would want to fix our recipe before letting the recipe run on to further steps. This is different from the batch trigger version as it only stops the job runs for those that raise errors compared to an entire batch. In time sensitive business use cases where all new rows should be processed as soon as possible, this might be the best design choice.<br><br>
         <details><summary><u>Business use case example</u></summary>
         Time sensitive job runs such as new orders populating a SQL server table as new rows, the following actions may be crucial in ensuring the timely delivery of your product to your customer. Having entire batches of orders being stopped due to a single failed record may result in lost revenue for you. In this scenario, single row triggers/actions may be the best way to minimise disruptions to your company's operations. <b>Another alternative to consider would be to reduce the batch size of your batch actions.</b>
         </details>
@@ -109,7 +114,7 @@ When examined, most workflows with applicable batch triggers/actions can be acco
     </tr>
     </tr>
        <td>The use of a batch trigger, followed by all required batch actions. A separate recipes can be used with a single row action and single row actions.</td>
-      <td>Using this method is allows records to be processed concurrently. This allows errors to be contained at a recipe level and only affect the steps that follow after it. In cases where steps are independent of each other and one need not be completed before the other can begin, this might be the best solution. This fits in the best with more complex workflows where seperating recipes based on their data types and business needs makes recipes easier to maintain and efficient as mentioned earlier.
+      <td>Using this method is allows records to be processed concurrently. This allows errors to be contained at a recipe level and only affect the steps that follow after it. In cases where steps are independent of each other and one need not be completed before the other can begin, this might be the best solution. This fits in the best with more complex workflows where seperating recipes based on their data types and business needs makes recipes easier to maintain and efficient as mentioned earlier.<br><br>
         <details><summary><u>Business use case example</u></summary>
         New records in a table could signify new customer sign ups for a free trial for your product. You hope to add them in batches to a drip campaign as well as send their details individually over to your sales team for followups. Given both cases are not dependent on each other and both can be accomplished without diminishing the other's effectiveness, this workflow could and should be accomplished as separate recipes to minimise the impact if failed job runs on business.
         </details>
@@ -129,7 +134,7 @@ Choosing between [update](/connectors/mssql/update.md), [insert](/connectors/mss
 5. Updates allow you to update rows that might not all be identified using a unique key. Rows to update identified using a range of parameters, i.e. updating all records whose `Title` column = `consultant`
 6. Upserts can end up being overly flexbile where inserting a new row when one cannot be found may not be the best behaviour. For example, a recipe triggering when an order is changed in Salesforce to update the record of the order in your database might not be suitable for the upsert action. Since a record of the order should have already been in the system, the lack of one to update should be noted and the job stopped with a report error instead.
 
-### Using custom SQL and stored procedures in Workato and why you should do so
+### When to use custom SQL and stored procedures in Workato 
 Workato allows you to write your own custom SQL queries in 2 ways:
 1. [Using our `Select rows using custom SQL` action](/connectors/mssql/select.md#select-rows-using-custom-sql) (Recommended for **only** select queries)
 2. [Using our `Run custom SQL` action](/connectors/mssql/run_sql.md)
