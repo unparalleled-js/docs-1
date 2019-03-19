@@ -3,7 +3,7 @@ title: Workato connectors - Introduction
 date: 2018-03-13 12:40:00 Z
 ---
 # SQL Server
-[SQL Server](https://www.microsoft.com/en-us/sql-server/) is a relational database management system by Microsoft. It supports transactional processes, business intelligence and analytics applications for enterprises. Workato's integrations with SQL server help you to accomplish a wide range of tasks such as migrating data, building data pipelines to data warehouses and lakes, backing up data automatically or transforming and exporting data to build complex workflows. Read on more to find out how to set up connections, SQL server actions and triggers and use cases on how Workato can work with SQL server to fulfill your business needs.
+[SQL Server](https://www.microsoft.com/en-us/sql-server/) is a relational database management system by Microsoft. It supports transactional processes, business intelligence and analytics applications for enterprises. Workato's integrations with SQL server help you to accomplish a wide range of tasks such as migrating data, building data pipelines to data warehouses and lakes, backing up data automatically or transforming and exporting data to build complex workflows. Find out how to set up connections to your SQL server from Workato and how Workato can work with SQL server to fulfill your business needs.
 
 ## Supported versions
 All versions of SQL Server are supported. However, some triggers/actions are restricted to newer versions. Refer to individual trigger/action documentation to find out.
@@ -73,7 +73,7 @@ At minimum, the database user account must be granted `SELECT` permission to the
 > 
 > This allows the user to have login access to the SQL Server instance. However, this user will not have access to any tables.
 > 
-> The next step is to grant permission to the necessary tables. There are a few ways to do this. One of the simplest ways is to grant access based on a **ROLE**.
+> The next step is to grant permission to the necessary tables. There are a few ways to do this. One of the simplest ways is to grant access based on a **ROLE**. [Find out more about database-level roles here](https://docs.microsoft.com/en-us/sql/relational-databases/security/authentication-access/database-level-roles?view=sql-server-2017)
 > 
 > ```sql
 > ALTER ROLE db_datareader ADD MEMBER workato;
@@ -252,7 +252,7 @@ At the foundation of any `WHERE` statement, we have operators that help us filte
 
 ### Data types
 
-The other component of a `WHERE` condition would be to use these operators in conjunction with the proper datatypes. When writing `WHERE` statements, make sure you compare a variable of `data type = integer` in your table with a  instead of a variable of `data type = integer` instead of `data type = string`. 
+The other component of a `WHERE` condition would be to use these operators in conjunction with the proper datatypes. When writing `WHERE` statements, make sure you compare a variable of `data type = integer` in your table with a  variable of `data type = integer` instead of `data type = string`. 
 
 Workato also helps reveal the data types expected for each input field when you select 
 - **Select rows** actions
@@ -388,7 +388,7 @@ When used in a **Delete rows** action, this will delete all rows in the `compens
 
 ## Configuring triggers
 
-SQL Server connector has triggers for both new and updated rows. For the trigger to work, both **Unique key** and **Sort column** must be configured.
+SQL Server connector has triggers for both new and updated rows. For the triggers to work, both **Unique keys** must be configured.**Sort columns** need to be configured for triggers that find recently updated rows.
 
 A table must satisfy some constraints to be used in a trigger. The following sections contain more information about specific constraints. [Read our best practices to find out how you can prepare your table for use with Workato](#Preparing-a-table-for-use-in-Workato)
 
@@ -410,9 +410,9 @@ When a row is updated, the **Unique key** value remains the same. However, it sh
 For SQL Server, only **datetime2** and **datetime** column types can be used.
 
 > <details><summary><b>Example</b></summary>
-> Let's use a simple example to illustrate this behavior. We have a **New/updated row trigger** that processed rows from a table. The **Unique key** and **Sort column** configured for this trigger is <code>ID</code> and <code>UPDATED_AT</code> respectively. The last row processed by the trigger has <code>ID</code> value of <code>100</code> and `UPDATED_AT` value of <code>2018-05-09 16:00:00.000000</code>. In the next poll, the trigger will query for new rows that satisfy either of the 2 conditions:
-> 1. <code>UPDATED_AT</code> '2018-05-09 16:00:00.000000'`
-> 2. <code>ID</code> > 100 AND UPDATED_AT = '2018-05-09 16:00:00.000000'`
+> Let's use a simple example to illustrate this behavior. We have a <b>new/updated row trigger</b> that processed rows from a table. The <b>Unique key</b> and <b>Sort column</b> configured for this trigger is <code>ID</code> and <code>UPDATED_AT</code> respectively. The last row processed by the trigger has <code>ID</code> value of <code>100</code> and <code>UPDATED_AT</code> value of <code>2018-05-09 16:00:00.000000</code>. In the next poll, the trigger will query for new rows that satisfy either of the 2 conditions: <br>
+> 1. <code>UPDATED_AT'2018-05-09 16:00:00.000000'</code> <br>
+> 2. <code>ID</code> > 100 AND <code>UPDATED_AT = '2018-05-09 16:00:00.000000'</code>
 > </details>
 
 ## Using single row actions/triggers vs using batch of rows actions/triggers
@@ -440,7 +440,18 @@ Outputs from batch triggers/actions can also be used outside of actions that wor
 
 > Unsure when to use batch actions and single row actions? [Check out our best practices section for recipe design tips!](/connectors/mssql/best-practices.md#deciding-when-to-use-batch-of-rows-triggersactions-vs-single-row-triggersactions)
 
+## List of Workato triggers and actions
+Workato currently supports the following triggers and actions. Find out more details about each by clicking on the links below. You can also navigate to them through the side bar.
 
+  * [New row trigger](/connectors/mssql/new-row-trigger.md)
+  * [New/updated row trigger](/connectors/mssql/updated-row-trigger.md)
+  * [Select actions](/connectors/mssql/select.md)
+  * [Insert actions](/connectors/mssql/insert.md)
+  * [Update actions](/connectors/mssql/update.md)
+  * [Upsert actions](/connectors/mssql/upsert.md)
+  * [Delete actions](/connectors/mssql/delete.md)
+  * [Run custom SQL action](/connectors/mssql/run_sql.md)
+  * [Execute stored procedure](/connectors/mssql/stored-procedure.md)
 
 
 
