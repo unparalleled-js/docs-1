@@ -57,3 +57,29 @@ Workato allows you to perform data migrations of any scale using recipes that ar
  
 </details>
 
+## Data Warehousing/ Data lakes
+  With many 3rd party applications handling different aspects of their business, Centralising HR data into a cenral data warehouse can make reporting easier and support decision makers. Workato can be used to automate the process of sending data over to a central SQL server from multiple sources each day as well as executing stored procedures that help maintain your data warehouse such as purging old data, rebuilding indexes, reviewing database size and statistics to send to database management stakeholders. 
+  
+  Workday, Wrike and Salesforce
+ <details><summary><b>Data Warehouse example (Multiple sources to SQL server)</b></summary>
+  Company ABC has offices all over the world and thousands of employees. Offices across countries use different HR tools as well as different numbers of tools to keep track of staff performance. Upper management has decided to create a central HR data warehouse where data from each office can flow into. This would set the foundation for analysis of staff performance given policy changes and improvements put into effect. Company ABC can set up a recipes on Workato that can automate this process.
+  
+  ![Data-warehouse-trigger-workday](/assets/images/mssql/Data-warehouse-trigger-workday.png)
+  *Triggered daily, this recipe begins by first generating a report on Workday to load into the database
+  
+  Upon triggering, this recipe gets Workday to generate a report of Workers in the company and batches these employees before upserting them in the SQL server database. Batching was done primarily due to the batch size limit of the upsert batch present in SQL server of 400. 
+
+ ![Get-data-from-SFDC-Wrike-Email](/assets/images/mssql/Get-data-from-SFDC-Wrike-Email.png)
+ *Upserts data from Wrike and Salesforce before executing Stored procedure for maintenance and sending out emails*
+ 
+  Next up, data is transfered in a simpler way for SFDC and Wrike due to the low amount of records for either. The batching method used for Workday can be implemented easily for SFDC and Wrike if needed. Another good practice would be to separate this recipe for readability and maintainability. 
+  
+  The last step is to execute a Stored procedure on SQL server that does basic data maintenance such as data purging, rebuilding of indexes amongst others. This makes sure your data base is ready for end users. Emails to report job errors as well as success should be put in place to ensure nothing is amiss. These recipes can also be shared with stakeholders in each of Company ABC's office to maintain their own data pipelines into the the central HR database. Check out our [recipe development lifecycle documents](/recipe-development-lifecycle.md) to find out more!
+  
+</details>
+  
+ 
+  
+  
+  
+  
