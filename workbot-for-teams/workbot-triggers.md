@@ -38,7 +38,7 @@ The table below lists the input fields in the trigger and what they do.
             </td>
         </tr>
         <tr>
-            <td>Parameters</td>
+            <td><a href="#parameters">Parameters</a></td>
             <td>
               Parameter can store additional data that can be used as datapills in follow-up recipe actions.
             </td>
