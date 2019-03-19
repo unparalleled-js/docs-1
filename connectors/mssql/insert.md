@@ -41,3 +41,18 @@ If you do not map a list datapill to this field, this action will insert only 1 
 Finally, you will need to map the required fields from the output datatree here to insert rows with data from preceding trigger or actions. Take note that datapills mapped to each column here should be from the source list datapill you used earlier. Datapills that are mapped outside the source list datapill will not be iterated.
 
 Refer to the [List management](/features/list-management.md) guide for more information about working with batches.
+
+## Next steps
+Learn more about the other triggers and actions Workato has to offer for SQL server
+  * [New row trigger](/connectors/mssql/new-row-trigger.md)
+  * [New/updated row trigger](/connectors/mssql/updated-row-trigger.md)
+  * [Select actions](/connectors/mssql/select.md)
+  * [Update actions](/connectors/mssql/update.md)
+  * [Upsert actions](/connectors/mssql/upsert.md)
+  * [Delete actions](/connectors/mssql/delete.md)
+  * [Run custom SQL action](/connectors/mssql/run_sql.md)
+  * [Execute stored procedure](/connectors/mssql/stored-procedure.md)
+  
+Or get busy building your recipes now! Check out our
+  * [Best practices](/connectors/mssql/best-practices.md)
+  * [Use cases](/connectors/mssql/common-use-cases.md)
