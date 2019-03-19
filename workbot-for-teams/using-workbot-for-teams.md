@@ -37,7 +37,7 @@ Workbot commands can be invoked in 3 distinct ways:
 
 Commands can also prompt users for additional parameters. For example, to create a new ServiceNow incident, the user should provide the urgency, summary and description of the incident. In this case, you can add 3 parameters; `urgency`, `summary` & `description`. When the command is invoked, Workbot will open a task module and prompt the user for each parameter.
 
-![Task module](/assets/images/workbot-for-teams/task-module.png)
+![Task module](/assets/images/workbot-for-teams/task-module-sf.png)
 *Workbot can ask users for info if you specify additional parameters in your command*
 
 ## Event notifications using Post message action

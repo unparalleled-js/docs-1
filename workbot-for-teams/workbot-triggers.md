@@ -32,7 +32,7 @@ The table below lists the input fields in the trigger and what they do.
     </thead>
     <tbody>
         <tr>
-            <td>Command name</td>
+            <td><a href="#command-name">Command name</a></td>
             <td>
               Name of the command.
             </td>
@@ -58,7 +58,7 @@ The table below lists the input fields in the trigger and what they do.
     </tbody>
 </table>
 
-### Command name
+#### Command name
 Workbot commands can invoke their recipes by:
 1.  Sending the command name in a direct message to Workbot, e.g. **newissue**
 2. Sending the command name in a channel and tagging Workbot, e.g. **@workbot newissue**
@@ -69,12 +69,12 @@ Workbot commands can invoke their recipes by:
 ![Command name in button example](/assets/images/workbot-for-teams/button-submission.png)
 *The 'Create issue' button invokes the 'newissue' command and executes the recipe when submitted*
 
-### Parameters
+#### Parameters
 Each parameter can store additional data that can be used as datapills in follow-up recipe actions.
 
 For example, to create an incident in ServiceNow, you may want to prompt users for additional info like **Urgency**, **Summary** and **Description**. By adding **Urgency**, **Summary** and **Description** as parameters, Workbot will open a task module and prompt the user for each parameter.
 
-![Task module](/assets/images/workbot-for-teams/task-module.png)
+![Task module](/assets/images/workbot-for-teams/task-module-snow.png)
 *Workbot can ask users for info if you specify additional parameters in your command*
 
 Users can also skip the prompts by supplying the parameters together with the command.
@@ -82,7 +82,7 @@ Users can also skip the prompts by supplying the parameters together with the co
 ![Command with in-line parameters](/assets/images/workbot-for-teams/workbot-command-example.png)
 *Sending a 'newissue' command with additional parameters Urgency, Summary and Description*
 
-#### Defining parameters
+##### Defining parameters
 ![Parameters configured](/assets/images/workbot-for-teams/parameters-configured.png)
 *3 parameters configured for the 'newissue' command*
 
@@ -147,7 +147,7 @@ The table below describes in further detail what each parameter configuration fi
         <tr>
             <td>Example input value</td>
             <td>
-              Displays the example input value when the field is empty in the task module. Useful in giving the user a sense of what the requested input should look like, as well as the desired format.
+              Displays a placeholder for the field in the task module. Useful in giving the user a sense of what the requested input should look like, as well as the desired format.
             </td>
         </tr>
         <tr>
@@ -165,7 +165,7 @@ The table below describes in further detail what each parameter configuration fi
     </tbody>
 </table>
 
-#### Advanced methods to pass parameter values
+##### Advanced methods to pass parameter values
 Parameter values can also be passed by buttons and task modules as they invoke a Workbot command. Typically, you use parameters to pass context to the invoked Workbot recipe.
 
 ![Button with params example](/assets/images/workbot-for-teams/button-with-params.png)

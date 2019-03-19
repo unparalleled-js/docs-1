@@ -18,8 +18,8 @@ Workbot is a bot platform built on top of Workato. It helps you run these busine
 
 These business workflows can be initiated from Teams by using [Workbot commands](/workbot-for-teams/workbot-triggers.md). When the command is sent to Workbot (via direct messages or channels), it will look for the corresponding workflow in Workato and execute the workflow steps.
 
-![Command example](/assets/images/workbot-for-teams/workbot-command-example.png)
-*Sending a 'newissue' command with additional parameters. The workflow creates the ticket, then sends a reply*
+![Command example](/assets/images/workbot-for-teams/workbot-command-example-1.png)
+*Sending a 'view_opportunities' command. The retrieves the open opportunities in Salesforce, then sends a reply*
 
 These workflows — combined with Workbot — allow you to retrieve, create and update data across all your apps - directly within Teams.
 

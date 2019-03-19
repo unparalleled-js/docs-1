@@ -160,6 +160,8 @@ Picklist options can be configured so that users can pick from a finite list of 
 
 To add a picklist, simply add comma-separated options in the **Options** field. If the display name and the value are different, separate the two by a colon, e.g. **High:1, Medium:2, Low: 3**.
 
+It's important to note that pick list display name and value cannot contain <code>:</code> or <code>,</code>.
+
 ![Picklist options in recipe](/assets/images/workbot-for-teams/parameter-picklist-1.png)
 *Options where display name and value are the same*
 

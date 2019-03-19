@@ -11,7 +11,7 @@ Additionally, Workbot also includes custom actions. This action allows you to ut
 Workbot supports 3 actions:
 * [Post reply](#post-reply)
 * [Post message](#post-messages)
-* [Custom action](#download-attachment)
+* Custom action
 
 ## Post reply
 Post reply allows you to post a message back to a user when a Workbot command is invoked. Replies are posted directly to the user or in-channel, depending on where the command was invoked.
@@ -27,117 +27,6 @@ You can optionally include 1 fact set (a set of name-value pairs), 1 pick list, 
 
 ![Post reply recipe](/assets/images/workbot-for-teams/post-reply-recipe.png)
 *Recipe perspective of the post reply example above*
-
-### Input fields
-![Post reply fields](/assets/images/workbot-for-teams/post-reply-fields.png)
-*Post reply & Post message follow the same message structure*
-
-The post reply action follows a fixed structure, with a preceding **Envelope text** and **Message container**. Text input fields support markdown syntax.
-
-The table below lists the input fields in the post reply action.
-
-<table class="unchanged rich-diff-level-one">
-<colgroup>
-<col style="width: 117px">
-<col style="width: 165px">
-<col style="width: 632px">
-</colgroup>
-  <tr>
-    <th>Group</th>
-    <th>Input</th>
-    <th>Description<br></th>
-  </tr>
-  <tr>
-    <td></td>
-    <td>Envelope text</td>
-    <td>First message, preceding any text, images, or other elements in the message container. Support markdown.</td>
-  </tr>
-  <tr>
-    <td rowspan="4">Heading</td>
-    <td>Heading</td>
-    <td>Heading text. Supports markdown.</td>
-  </tr>
-  <tr>
-    <td>Subheading</td>
-    <td>Subheading text. Support markdown.</td>
-  </tr>
-  <tr>
-    <td>Link text</td>
-    <td>Use markdown to add text links, e.g. [Salesforce](https://www.salesforce.com/).<br></td>
-  </tr>
-  <tr>
-    <td>Heading thumbnail</td>
-    <td>Provide image URL of thumbnail. Displays to the left of heading text.</td>
-  </tr>
-  <tr>
-    <td rowspan="2">Body</td>
-    <td>Body text</td>
-    <td>Main body text of message. Supports markdown</td>
-  </tr>
-  <tr>
-    <td>Image</td>
-    <td>Provide image URL. Displays below body text.</td>
-  </tr>
-  <tr>
-    <td rowspan="2">Fact set<br></td>
-    <td>Text</td>
-    <td>Title of fact. Supports markdown.</td>
-  </tr>
-  <tr>
-    <td>Value</td>
-    <td>Value of fact. Supports markdown.</td>
-  </tr>
-  <tr>
-    <td rowspan="5">Pick list</td>
-    <td>Pick list name</td>
-    <td>Name of picklist. Displays before choices. Supports markdown.</td>
-  </tr>
-  <tr>
-    <td>Pick list style</td>
-    <td>Compact displays choices in a drop-down menu, while Expanded displays all choices with radio buttons.</td>
-  </tr>
-  <tr>
-    <td>Choice parameter</td>
-    <td>Parameter name to store the choice value. This parameter-value pair will be passed on as additional parameters.</td>
-  </tr>
-  <tr>
-    <td>Text (choice)</td>
-    <td>Text to display for choice.</td>
-  </tr>
-  <tr>
-    <td>Value (choice)</td>
-    <td>Value to pass to <span style="font-weight:bold">Choice parameter </span><span style="font-weight:normal">if chosen.</span></td>
-  </tr>
-  <tr>
-    <td rowspan="4">Buttons</td>
-    <td>Prompt text for buttons</td>
-    <td>Prompt that displays before buttons. Useful in providing context for the buttons that follow.</td>
-  </tr>
-  <tr>
-    <td>Text (button)</td>
-    <td>Text to display for button.</td>
-  </tr>
-  <tr>
-    <td>Submit button command</td>
-    <td>Workbot command to invoke when users submit this button.</td>
-  </tr>
-  <tr>
-    <td>Additional parameters</td>
-    <td>Pass additional parameters when user submits by clicking a button. Format should be JSON with name-value pairs, e.g.<br><br><pre>{
-   "opportunity_id":"<kbd>Opportunity ID</kbd>",
-   "stage":"<kbd>Stage</kbd>"
-}<samp></td>
-  </tr>
-  <tr>
-    <td rowspan="2"></td>
-    <td>Post as raw JSON</td>
-    <td>For advanced users to fully customize the message formatting.</td></td>
-  </tr>
-  <tr>
-    <td>Message to update</td>
-    <td>Use message ID from the output of a post reply or post message action to update that message with this one.</td>
-  </tr>
-</table>
 
 ## Post message
 The post message actions allows you to post a message to a user or a channel. It is similar to **Post reply**, but with an additional field called **Message recipient**. This field allows you to specify where to post the message (direct to user, or to channel).
@@ -159,7 +48,7 @@ Use post message if you:
 ### Advanced section
  The advanced section has 2 fields: **Post as raw JSON** and **Message to update**.
 
-- #### Post as raw JSON
+#### Post as raw JSON
   This field is for advanced users who want to fully customize the message formatting. When set to **Yes**, all other fields will be hidden. Should include <code>"type": "message"</code>, followed by <code>"attachments"</code>, e.g.
 ```
   {
@@ -182,11 +71,128 @@ Use post message if you:
    ]
 }
 ```
-- #### Message to update
-  **Message to update** allows you to overwrite a previously posted message from an earlier action step. Simply use the <code>Message ID</code> datapill from a Workbot command, **Post message** or **Post reply** action.
+For more details, refer to [Microsoft's Adaptive Card Designer](https://adaptivecards.io/designer).
 
-  ![Message to update example](/assets/images/workbot-for-teams/message-to-update.png)
+#### Message to update
+**Message to update** allows you to overwrite a previously posted message from an earlier action step. Simply use the <kbd>Original message ID</kbd> datapill (from the output of a Workbot command), or the <kbd>ID</kbd> datapill (from the output of a **Post message** or **Post reply** action).
+
+![Original message ID](/assets/images/workbot-for-teams/original-message-id.png)
+*Original message ID*
+
+![Message to update example](/assets/images/workbot-for-teams/message-to-update.png)
 *Message to update*
+
+### Input fields
+![Post reply fields](/assets/images/workbot-for-teams/post-reply-fields.png)
+*Post reply & Post message follow the same message structure*
+
+The post reply action follows a fixed structure, with a preceding **Envelope text** and **Message container**. Text input fields support markdown syntax.
+
+The table below lists the input fields in the post reply action.
+
+<table class="unchanged rich-diff-level-one">
+<colgroup>
+<col style="width: 117px">
+<col style="width: 165px">
+<col style="width: 632px">
+</colgroup>
+  <tr>
+    <th>Group</th>
+    <th>Input</th>
+    <th>Description<br></th>
+  </tr>
+  <tr>
+    <td></td>
+    <td>Envelope text&ast;</td>
+    <td>First message, preceding any text, images, or other elements in the message container. Support markdown.</td>
+  </tr>
+  <tr>
+    <td rowspan="4">Heading*</td>
+    <td>Heading</td>
+    <td>Heading text.</td>
+  </tr>
+  <tr>
+    <td>Subheading&ast;</td>
+    <td>Subheading text. Support markdown.</td>
+  </tr>
+  <tr>
+    <td>Link text&ast;</td>
+    <td>Use markdown to add text links, e.g. <code>[Salesforce](https://www.salesforce.com/)</code>.</td>
+  </tr>
+  <tr>
+    <td>Heading thumbnail</td>
+    <td>Provide image URL of thumbnail. Displays to the left of heading text.</td>
+  </tr>
+  <tr>
+    <td rowspan="2">Body&ast;</td>
+    <td>Body text</td>
+    <td>Main body text of message. Supports markdown</td>
+  </tr>
+  <tr>
+    <td>Image</td>
+    <td>Provide image URL. Displays below body text.</td>
+  </tr>
+  <tr>
+    <td rowspan="2">Fact set<br></td>
+    <td>Text*</td>
+    <td>Title of fact.</td>
+  </tr>
+  <tr>
+    <td>Value&ast;</td>
+    <td>Value of fact.</td>
+  </tr>
+  <tr>
+    <td rowspan="5">Pick list</td>
+    <td>Pick list name&ast;</td>
+    <td>Name of picklist. Displays before choices.</td>
+  </tr>
+  <tr>
+    <td>Pick list style</td>
+    <td>Compact displays choices in a drop-down menu, while Expanded displays all choices with radio buttons.</td>
+  </tr>
+  <tr>
+    <td>Choice parameter</td>
+    <td>Parameter name to store the choice value. This parameter-value pair will be passed on as additional parameters.</td>
+  </tr>
+  <tr>
+    <td>Text (choice)</td>
+    <td>Text to display for choice.</td>
+  </tr>
+  <tr>
+    <td>Value (choice)</td>
+    <td>Value to pass to <b>Choice parameter</b> if chosen.</td>
+  </tr>
+  <tr>
+    <td rowspan="4">Buttons</td>
+    <td>Prompt text for buttons*</td>
+    <td>Prompt that displays before buttons. Useful in providing context for the buttons that follow.</td>
+  </tr>
+  <tr>
+    <td>Text (button)</td>
+    <td>Text to display for button.</td>
+  </tr>
+  <tr>
+    <td>Submit button command</td>
+    <td>Workbot command to invoke when users submit this button.</td>
+  </tr>
+  <tr>
+    <td>Additional parameters</td>
+    <td>Pass additional parameters when user submits by clicking a button. Format should be JSON with name-value pairs, e.g.<br><br><pre>{
+   "opportunity_id":"<kbd>Opportunity ID</kbd>",
+   "stage":"<kbd>Stage</kbd>"
+}<samp></td>
+  </tr>
+  <tr>
+    <td rowspan="2">Advanced</td>
+    <td>Post as raw JSON</td>
+    <td>For advanced users to fully customize the message formatting.</td></td>
+  </tr>
+  <tr>
+    <td>Message to update</td>
+    <td>Use message ID from the output of a post reply or post message action to update that message with this one.</td>
+  </tr>
+</table>
+&ast;Supports markdown
 
 # Learn more
 - [Using Workbot for MS Teams](/workbot-for-teams/using-workbot-for-teams.md)

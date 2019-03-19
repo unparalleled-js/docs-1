@@ -132,7 +132,7 @@
     * [Topics management](connectors/pubsub.md#creating-and-managing-topics)
     * [New message trigger](connectors/pubsub.md#using-the-new-message-trigger)
     * [Publish message action](connectors/pubsub.md#using-the-publish-message-action)
-  * [Workbot](workbot/workbot.md)
+  * [Workbot for Slack](workbot/workbot.md)
     * [Slack VS Workbot](workbot/workbot.md#slack-connector-vs-workbot-for-slack-connector)
     * [Workbot for Slack setup](workbot/workbot-for-slack-setup.md)
     * [Using Workbot for Slack](workbot/using-workbot-for-slack.md)
