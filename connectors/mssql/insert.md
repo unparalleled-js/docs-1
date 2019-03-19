@@ -6,7 +6,7 @@ date: 2018-02-02 06:10:00 Z
 # SQL Server - Insert actions
 Workato offers both batch and single insert row actions. This allows you the flexibility to choose the action that you require for your recipe and to fulfill your business needs. Check out our [best practices on whether to use batch or single insert actions](/connectors/mssql/best-practices.md#deciding-when-to-use-batch-of-rows-triggersactions-vs-single-row-triggersactions) and [when to use insert, update or update](/connectors/mssql/best-practices.md#when-to-use-update-insert-and-upsert-actions). 
 
-> Stopped jobs due to errors after an `insert row` action has finished would result in multiple inserts if the job is repeated. Consider using upserts that prevent inserting multiple rows into your database tables by deduping them on a key
+> Errors raised in a step after an `insert row` action has been executed during a job run will result in another insert if the job is repeated. Consider using upserts that prevent inserting multiple rows into your database tables by deduping them on a key
 
 ## Insert row
 This action inserts a single row into the selected table.
@@ -14,7 +14,7 @@ This action inserts a single row into the selected table.
 ![Insert row action](/assets/images/mssql/insert-row-action.png)
 *Insert row action*
 
-### Table
+### Table/view
 First, select a table to insert a row into. This can be done either by selecting a table from the pick list, or toggling the input field to text mode and typing the full table name.
 
 ### Columns
