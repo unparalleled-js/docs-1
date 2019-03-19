@@ -4,6 +4,7 @@ date: 2018-02-02 06:10:00 Z
 ---
 
 # SQL Server - Update actions
+Workato offers both batch and single update row actions. This allows you the flexibility to choose the action that you require for your recipe and to fulfill your business needs. Check out our [best practices on whether to use batch or single update actions](/connectors/mssql/best-practices.md#deciding-when-to-use-batch-of-rows-triggersactions-vs-single-row-triggersactions) and [when to use insert, update or update](/connectors/mssql/best-practices.md#when-to-use-update-insert-and-upsert-actions). 
 
 ## Update rows
 This action updates one or more rows with a single set of values. It uses a `WHERE` condition to select the row(s) to perform the update.
@@ -18,7 +19,7 @@ First, select a table to update. This can be done either by selecting a table fr
 Next, provide a `WHERE` condition to select rows to be updated. This condition can be as simple as filtering a single record to update based on `ID`.
 
 ```sql
-id = 123
+ID = 123
 ```
 
 Alternatively, it can be used to select and update multiple rows.
@@ -29,7 +30,7 @@ status = 'closed'
 
 Take note that all rows matching this criteria will be updated with the same values provided in **Columns** input.
 
-Complex `WHERE` conditions with subqueries can also be used. Refer to the [WHERE condition](/connectors/mssql.md#where-condition) guide for more information.
+Complex `WHERE` conditions with subqueries can also be used. Refer to the [WHERE condition](/connectors/mssql/introduction.md#using-where-conditions) guide for more information.
 
 ### Columns
 Lastly, map the datapills from your previous triggers or actions into their respective columns. The columns in the selected table are presented as input fields here for you to insert datapills.
@@ -55,3 +56,18 @@ If you do not map a list datapill to this field, this action will update only 1 
 Finally, you will need to map the required fields from the output datatree here to update rows with data from preceding trigger or actions. Take note that datapills mapped to each column here should be from the source list datapill you used earlier. Datapills that are mapped outside the source list datapill will not be iterated.
 
 Refer to the [List management](/features/list-management.html) guide for more information about working with batches.
+
+## Next steps
+Learn more about the other triggers and actions Workato has to offer for SQL server
+  * [New row trigger](/connectors/mssql/new-row-trigger.md)
+  * [New/updated row trigger](/connectors/mssql/updated-row-trigger.md)
+  * [Select actions](/connectors/mssql/select.md)
+  * [Insert actions](/connectors/mssql/insert.md)
+  * [Upsert actions](/connectors/mssql/upsert.md)
+  * [Delete actions](/connectors/mssql/delete.md)
+  * [Run custom SQL action](/connectors/mssql/run_sql.md)
+  * [Execute stored procedure](/connectors/mssql/stored-procedure.md)
+  
+Or get busy building your recipes now! Check out our
+  * [Best practices](/connectors/mssql/best-practices.md)
+  * [Use cases](/connectors/mssql/common-use-cases.md)

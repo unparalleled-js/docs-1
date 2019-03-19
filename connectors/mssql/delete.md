@@ -9,7 +9,7 @@ date: 2018-02-02 06:10:00 Z
 
 This action lets you delete rows based on certain criteria defined by a ` WHERE` condition.
 
-> **This action should be tested and used with care, as it will PERMANENTLY delete rows in your table.**
+> **This action should be tested and used with care, as it will PERMANENTLY delete rows in your table. Testing should be done on a test database**
 
 ![Delete action](/assets/images/mssql/delete-rows-action.png)
 *Delete rows action*
@@ -30,4 +30,19 @@ Alternatively, it can be used to delete multiple rows.
 status = 'closed'
 ```
 
-Complex `WHERE` conditions with subqueries can also be used. Refer to the [WHERE condition](/connectors/mssql.md#where-condition) guide for more information.
+Complex `WHERE` conditions with subqueries can also be used. Refer to the [WHERE condition](/connectors/mssql/introduction.md#using-where-conditions) guide for more information.
+
+## Next steps
+Learn more about the other triggers and actions Workato has to offer for SQL server
+  * [New row trigger](/connectors/mssql/new-row-trigger.md)
+  * [New/updated row trigger](/connectors/mssql/updated-row-trigger.md)
+  * [Select actions](/connectors/mssql/select.md)
+  * [Insert actions](/connectors/mssql/insert.md)
+  * [Update actions](/connectors/mssql/update.md)
+  * [Upsert actions](/connectors/mssql/upsert.md)
+  * [Run custom SQL action](/connectors/mssql/run_sql.md)
+  * [Execute stored procedure](/connectors/mssql/stored-procedure.md)
+  
+Or get busy building your recipes now! Check out our
+  * [Best practices](/connectors/mssql/best-practices.md)
+  * [Use cases](/connectors/mssql/common-use-cases.md)
