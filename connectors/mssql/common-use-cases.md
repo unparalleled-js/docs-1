@@ -60,9 +60,8 @@ Workato allows you to perform data migrations of any scale using recipes that ar
 ## Data Warehousing/ Data lakes
   With many 3rd party applications handling different aspects of their business, Centralising HR data into a cenral data warehouse can make reporting easier and support decision makers. Workato can be used to automate the process of sending data over to a central SQL server from multiple sources each day as well as executing stored procedures that help maintain your data warehouse such as purging old data, rebuilding indexes, reviewing database size and statistics to send to database management stakeholders. 
   
-  Workday, Wrike and Salesforce
  <details><summary><b>Data Warehouse example (Multiple sources to SQL server)</b></summary>
-  Company ABC has offices all over the world and thousands of employees. Offices across countries use different HR tools as well as different numbers of tools to keep track of staff performance. Upper management has decided to create a central HR data warehouse where data from each office can flow into. This would set the foundation for analysis of staff performance given policy changes and improvements put into effect. Company ABC can set up a recipes on Workato that can automate this process.
+  Company ABC has offices all over the world and thousands of employees. Offices across countries use different HR tools as well as different numbers of tools to keep track of staff performance. Upper management has decided to create a central HR data warehouse where data from each office can flow into. This would set the foundation for analysis of staff performance given policy changes and improvements put into effect. Company ABC can set up a recipes on Workato that can automate this process and have chosen to centralise their data from Workday, Wrike and Salesforce for this exercise.
   
   ![Data-warehouse-trigger-workday](/assets/images/mssql/Data-warehouse-trigger-workday.png)
   *Triggered daily, this recipe begins by first generating a report on Workday to load into the database
