@@ -559,7 +559,7 @@
     * [New/updated row trigger](connectors/snowflake/updated-row-trigger.md)
   * [Splunk](connectors/splunk.md)
   * [SQL Server](connectors/mssql.md)
-    * [Introduction](connectors/mssql.md#how-to-connect-to-mssql-on-workato)
+    * [Introduction](connectors/mssql/introduction.md))
     * [New row trigger](connectors/mssql/new-row-trigger.md)
     * [New/updated row trigger](connectors/mssql/updated-row-trigger.md)
     * [Select actions](connectors/mssql/select.md)
