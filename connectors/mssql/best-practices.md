@@ -160,11 +160,11 @@ When looking to make triggers using our `New row` and `New/updated row` triggers
 
 > <details><summary><b>How to create a new auto incrementing key</b></summary>
 > 
-> 1. Make sure no other column has been declared as an `IDENTITY` column in your table. (if this has been done so, you may use that directly as your unique integer key
-> 2. Enter the following commands to create an new `IDENTITY` column
+> 1. Make sure no other column has been declared as an <code>IDENTITY</code> column in your table. (if this has been done so, you may use that directly as your unique integer key
+> 2. Enter the following commands to create an new <code>IDENTITY</code> column, where [your_table_name] and [column_name] are placeholders for your table name and new column name respectively
 > ```sql
-> ALTER TABLE yourTable
-> ADD yourAutoIncrementUniqueKey INT UNIQUE NOT NULL IDENTITY ;
+> ALTER TABLE [your_table_name]
+> ADD [column_name] INT UNIQUE NOT NULL IDENTITY ;
 > ```
 > 3. After this, you should be able to use your new key as a unique column!
 > 4. Creating a new `IDENTITY` column in SQL server backfills all your previous records. Take note of the initial recipe run!
@@ -172,30 +172,30 @@ When looking to make triggers using our `New row` and `New/updated row` triggers
 > </details>
 
 **Sort column**
-1. Tables that have `updated_at` columns within them should be suitable as the sort column. 
+1. `updated_at` columns within a table should be suitable as the sort column. 
 2. Failing that, any column that can be sorted based on the time the record was updated can be used.
 3. If no column is suitable, an `updated_at` column can be created to fulfil this purpose.
 4. This new `updated_at` column in SQL server can now be used as an sort column
 
-> <details><summary><b>Example on how to create an updated_at column to sort by</b></summary>
+> <details><summary><b>How to create an `updated_at` column to sort by</b></summary>
 > 
-> 1. Enter the following commands to create an `updated_at` column
+> 1. Enter the following commands to create an `updated_at` column, where [your_table_name] and [column_name] are placeholders for your table name and new column name respectively
 >       
 > ```sql
-> ALTER TABLE yourTable
-> add updatedAt datetime2
-> CONSTRAINT DF_myTable_updatedAt DEFAULT GETDATE()
+> ALTER TABLE [your_table_name]
+> add updated_at datetime2
+> CONSTRAINT DF_myTable_updated_at DEFAULT GETDATE()
 > ```
 > 
 > 2. After this, now we need to add this column to trigger and update whenever a record is changes
 >       
 > ```sql
-> create trigger trg_myTable_update on yourTable for update as
+> create trigger trg_myTable_update on [your_table_name] for update as
 > begin
->   update yourTable
-> 	set updatedAt = getDate()
-> 	from yourTable inner join deleted d
-> 	on yourTable.id=d.id
+>   update [your_table_name]
+> 	set updated_at = getDate()
+> 	from [your_table_name] inner join deleted d
+> 	on [your_table_name].id=d.id
 > end
 > ```
 > 
