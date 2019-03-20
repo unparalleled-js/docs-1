@@ -22,8 +22,8 @@ When designing your recipes, it helps to keep in mind that each database action 
 ### Handling errors
 Error handling is an important part in the design process of a recipe. Here are some of the [best practices for error handling](/recipes/best-practices-error-handling.md) when designing recipes. 
 
-### Splitting up and compartmentalizing recipes
-Databases are often used for a wide range of tasks and while it may be tempting to create huge recipes that accomplish all tasks, this also makes these recipes incredibly hard to maintain. Complex workflows should always be split up into separate recipes, seperating recipes and compartmentalising them based on their purpose. This makes recipe maintainence and troubleshooting easier as errors can be traced quickly to specific recipes that handle well defined purposes. Breaking down workflows into multiple recipes also reduces the number of redundant actions across recipes as basic recipes can be called and used across different recipes for different business units. To acheive this, Workato has [callable recipes](/features/callable-recipes.md), allowing recipes to trigger other recipes. Callable recipes can also be triggered by 3rd party applications through a REST API. 
+### Splitting up complex workflows into separate recipes
+Databases are often used for a wide range of tasks and it may be tempting to create huge recipes that accomplish all tasks but this also makes these recipes incredibly hard to maintain. Complex workflows should always be split up into separate recipes compartmentalising them based on their purpose. This makes recipe maintainence and troubleshooting easier as errors can be traced quickly to specific recipes that handle well defined purpose. Breaking down workflows into multiple recipes also reduces the amount of redundancy as the same recipe can be called by a variety of different recipes. To acheive this, Workato has [callable recipes](/features/callable-recipes.md), allowing recipes to trigger other recipes. Callable recipes can also be triggered by 3rd party applications through a REST API. 
 
 For example, if we were hoping to use Workato to build a workflow that accomplished the following 
 
@@ -85,7 +85,7 @@ One should consider splitting this workflow up into 4 separate recipes.
 
 By splitting this workflow up into multiple recipes, this allows other recipes and 3rd party apps to also call upon recipe 1, 2 and 3 reducing the amount of redundant steps if, for example, another recipe needed to back data up in a redshift database. Changes to any step or improvements to any part of the workflow, such as a change in email provider from mailchimp to sendgrid would be handled much easier due to this design pattern.
 
-### Deciding when to use batch of rows triggers/actions vs single row triggers/actions
+### When to use batch of rows triggers/actions vs single row triggers/actions
 Keeping in mind the ability to break down complex workflows through callable recipes, the decision to use batch or single row actions are often a matter of business requirements and design considerations. While batch triggers/actions reduce the load on your servers by batching up to a 100 records into a single call offering the ability to improve time efficiency of recipe, reduce the number of operations required per run and load on servers, there exists a trade-off between the flexibility since batch actions that do fail, fail on a batch level. 
 
 When examined, most workflows with applicable batch triggers/actions can be accomplished in 3 ways:
