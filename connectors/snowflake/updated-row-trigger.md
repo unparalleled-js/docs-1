@@ -99,7 +99,7 @@ This trigger picks up rows that are inserted/updated in the selected table or vi
 Select the table/view to process rows from. This can be done either by selecting a table from the pick list, or toggling the input field to text mode and typing the full table name.
 
 ### Unique key
-Values from this selected column is used to deduplicate rows in the selected table.
+Values from this selected column are used to deduplicate rows in the selected table.
 
 As such, the values in the selected column should not be repeated in your table. Typically, this column is the primary key of the table (e.g. `ID`). It should be incremental and sortable. This column can also be indexed for better performance.
 
