@@ -4,7 +4,7 @@ date: 2019-01-10 06:10:00 Z
 ---
 
 # Snowflake
-Snowflake is a relational ANSI SQL data warehouse in the cloud. Due to its unique architecture designed for the cloud, Snowflake offers a data warehouse that is faster, easier to use, and far more flexible than traditional data warehouse
+Snowflake is a relational ANSI SQL data warehouse in the cloud. Due to its unique architecture designed for the cloud, Snowflake offers a data warehouse that is faster, easier to use, and far more flexible than traditional data warehouses
 
 ## How to connect to Snowflake on Workato
 The Snowflake connector uses username and password to authenticate with Snowflake. If your snowflake instance has network policies that restrict access based on IP address, you will need to whitelist [Workato IP addresses](/security.md#ip_whitelists) to successfully create a connection.
