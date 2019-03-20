@@ -140,7 +140,7 @@ The Snowflake connector works with all tables and views available to the usernam
 ### Single row vs batch of rows
 Snowflake connector can read or write to your database either as a single row or in batches. When using batch triggers/actions, you have to provide the batch size you wish to work with. The batch size can be any number between 1 and 100, with 100 being the maximum batch size.
 
-![Batch trigger inputs](/assets/images/mssql/batch_trigger_input.png)
+![Batch trigger inputs](/assets/images/snowflake/new-batch-of-rows-trigger.png)
 *Batch trigger inputs*
 
 Besides the difference in input fields, there is also a difference between the outputs of these 2 types of operations. A trigger that processes rows one at a time will have an output datatree that allows you to map data from that single row.
