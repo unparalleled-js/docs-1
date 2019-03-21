@@ -16,6 +16,8 @@ Use the following endpoints to manage OEM users
 ### Description
 Create a new OEM user. Requires 'oem_vendor' privilege.
 
+<details> <summary> <b>Details</b></summary>
+  
 ### Parameters
 <table class="unchanged rich-diff-level-one" text-align ="center">
   <thead>
@@ -100,6 +102,8 @@ Create a new OEM user. Requires 'oem_vendor' privilege.
   </tbody>
 </table>
 
+</details>
+
 ## Add member to OEM account
 
 > POST /api/managed_users/:id/member  
@@ -107,6 +111,8 @@ Create a new OEM user. Requires 'oem_vendor' privilege.
 ### Description
 Adds a member to the OEM account. Requires 'oem_vendor' privilege.
 
+<details> <summary> <b>Details</b></summary>
+  
 ### Parameters
 <table class="unchanged rich-diff-level-one" text-align ="center">
   <thead>
@@ -191,3 +197,4 @@ Adds a member to the OEM account. Requires 'oem_vendor' privilege.
   </tbody>
 </table>
 
+</details>
