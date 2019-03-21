@@ -16,7 +16,7 @@ Use the following endpoints to work with recipes in Workato
 ### Description
 Returns a recipe object.
 
-<details> <summary><b>Details</b></summary>
+<details> <summary> <b>Details</b></summary>
 
 ### Parameters
 <table class="unchanged rich-diff-level-one" text-align ="center">
