@@ -16,6 +16,8 @@ Use the following endpoints to retrieve data related to jobs in Workato
 ### Description
 Returns aggregated job information as well as detailed job information for a specified recipe in Workato.
 
+<details> <summary> <b>Details</b></summary>
+  
 ### Parameters
 <table class="unchanged rich-diff-level-one" text-align ="center">
   <thead>
@@ -271,3 +273,5 @@ GET /api/recipes/140/jobs
   "message": "Not found"
 }
 ```
+
+</details>
