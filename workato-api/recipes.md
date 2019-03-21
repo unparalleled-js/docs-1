@@ -18,7 +18,7 @@ Returns a recipe object.
 
 <details> <summary> <b>Details</b></summary>
 
-### Parameters
+<h3> Parameters</h3>
 <table class="unchanged rich-diff-level-one" text-align ="center">
   <thead>
     <tr>
@@ -41,7 +41,7 @@ Returns a recipe object.
   </tbody>
 </table>
 
-### Responses
+<h3> Responses</h3>
 <table class="unchanged rich-diff-level-one" text-align ="center">
   <thead>
     <tr>
@@ -69,11 +69,10 @@ Returns a recipe object.
   </tbody>
 </table>
 
-### Examples
+<h3> Examples </h3>
 
-#### Success: 200
-```json
-GET /api/recipes/48
+<h4> Success: 200</h4>
+<pre><code style="display: block; white-space: pre-wrap;">GET /api/recipes/48
 200
 {
   "id": 48,
@@ -113,16 +112,15 @@ GET /api/recipes/48
   ],
   "author_name": "Test User36"
 }
-```
+</code></pre>
 
-#### Not found: 404
-```json
-GET /api/recipes/100500
+<h4> Not found: 404</h4>
+<pre><code style="display: block; white-space: pre-wrap;">GET /api/recipes/100500
 404
 {
   "message": "Not found"
 }
-```
+</code></pre>
 
 </details>
 
@@ -135,7 +133,7 @@ Creates a recipe in Workato based on parameters in request.
 
 <details> <summary><b>Details</b></summary>
 
-### Parameters
+<h3> Parameters</h3>
 <table class="unchanged rich-diff-level-one" text-align ="center">
   <thead>
     <tr>
@@ -189,7 +187,7 @@ Creates a recipe in Workato based on parameters in request.
   </tbody>
 </table>
 
-### Responses
+<h3> Responses</h3>
 <table class="unchanged rich-diff-level-one" text-align ="center">
   <thead>
     <tr>
@@ -213,11 +211,10 @@ Creates a recipe in Workato based on parameters in request.
   </tbody>
 </table>
 
-### Examples
+<h3> Examples</h3>
 
-#### Success: 200
-```json
-POST /api/recipes
+<h4> Success: 200</h4>
+<pre><code style="display: block; white-space: pre-wrap;">POST /api/recipes
 {
   "name": "Send mail",
   "code": "{\"number\":0,\"provider\":\"clock\",\"name\":\"timer\",\"as\":\"timer\",\"keyword\":\"trigger\",\"dynamicPickListSelection\":{},\"toggleCfg\":{},\"input\":{\"interval\":\"5\",\"start_at\":\"\"},\"block\":[{\"number\":1,\"provider\":\"email\",\"name\":\"send_mail\",\"as\":\"send_mail\",\"keyword\":\"action\",\"dynamicPickListSelection\":{},\"toggleCfg\":{},\"input\":{},\"uuid\":\"cd865246-ece7-4188-845e-33d021664be3\"}],\"uuid\":\"c4b0778d-5a23-4c52-a5bb-4a99ae5d25ae\"}",
@@ -228,7 +225,7 @@ POST /api/recipes
   "success": true,
   "id": 116
 }
-```
+</code></pre>
 
 </details>
 
@@ -241,7 +238,7 @@ Updates a recipe in Workato based on specified recipe ID.
 
 <details> <summary><b>Details</b></summary>
 
-### Parameters
+<h3> Parameters</h3>
 <table class="unchanged rich-diff-level-one" text-align ="center">
   <thead>
     <tr>
@@ -306,7 +303,7 @@ Updates a recipe in Workato based on specified recipe ID.
   </tbody>
 </table>
 
-### Responses
+<h3>Responses</h3>
 <table class="unchanged rich-diff-level-one" text-align ="center">
   <thead>
     <tr>
@@ -334,11 +331,10 @@ Updates a recipe in Workato based on specified recipe ID.
   </tbody>
 </table>
 
-### Examples
+<h3> Examples</h3>
 
-#### Success: 200
-```json
-PUT /api/recipes/1
+<h4> Success: 200</h4>
+<pre><code style="display: block; white-space: pre-wrap;">PUT /api/recipes/1
 {
   "name": "Send mail",
   "code": "{\"number\":0,\"provider\":\"clock\",\"name\":\"timer\",\"as\":\"timer\",\"keyword\":\"trigger\",\"dynamicPickListSelection\":{},\"toggleCfg\":{},\"input\":{\"interval\":\"5\",\"start_at\":\"\"},\"block\":[{\"number\":1,\"provider\":\"email\",\"name\":\"send_mail\",\"as\":\"send_mail\",\"keyword\":\"action\",\"dynamicPickListSelection\":{},\"toggleCfg\":{},\"input\":{},\"uuid\":\"cd865246-ece7-4188-845e-33d021664be3\"}],\"uuid\":\"c4b0778d-5a23-4c52-a5bb-4a99ae5d25ae\"}",
@@ -348,10 +344,9 @@ PUT /api/recipes/1
 {
   "success": true
 }
-```
+</code></pre>
 
-```json
-PUT /api/recipes/2
+<pre><code style="display: block; white-space: pre-wrap;">PUT /api/recipes/2
 
 200
 {
@@ -362,7 +357,7 @@ PUT /api/recipes/2
     ]
   }
 }
-```
+</code></pre>
 
 </details>
 
@@ -375,7 +370,7 @@ Returns a list of recipes belonging to the authenticated user with respect to di
 
 <details> <summary><b>Details</b></summary>
 
-### Parameters
+<h3> Parameters</h3>
 <table class="unchanged rich-diff-level-one" text-align ="center">
   <thead>
     <tr>
@@ -441,7 +436,7 @@ Returns a list of recipes belonging to the authenticated user with respect to di
   </tbody>
 </table>
 
-### Responses
+<h3> Responses</h3>
 <table class="unchanged rich-diff-level-one" text-align ="center">
   <thead>
     <tr>
@@ -465,11 +460,10 @@ Returns a list of recipes belonging to the authenticated user with respect to di
   </tbody>
 </table>
 
-### Examples
+<h3> Examples</h3>
 
-#### Success: 200
-```json
-GET /api/recipes?active=false
+<h4> Success: 200</h4>
+<pre><code style="display: block; white-space: pre-wrap;">GET /api/recipes?active=false
 200
 {
   "items": [
@@ -515,10 +509,9 @@ GET /api/recipes?active=false
     }
   ]
 }
-```
+</code></pre>
 
-```json
-GET /api/recipes?per_page=2
+<pre><code style="display: block; white-space: pre-wrap;">GET /api/recipes?per_page=2
 200
 {
   "items": [
@@ -566,10 +559,9 @@ GET /api/recipes?per_page=2
     }
   ]
 }
-```
+</code></pre>
 
-```json
-GET /api/recipes?adapter_names_any=custom_adapter
+<pre><code style="display: block; white-space: pre-wrap;">GET /api/recipes?adapter_names_any=custom_adapter
 200
 {
   "items": [
@@ -621,10 +613,9 @@ GET /api/recipes?adapter_names_any=custom_adapter
     }
   ]
 }
-```
+</code></pre>
 
-```json
-GET /api/recipes?per_page=2&since_id=22
+<pre><code style="display: block; white-space: pre-wrap;">GET /api/recipes?per_page=2&since_id=22
 200
 {
   "items": [
@@ -676,10 +667,9 @@ GET /api/recipes?per_page=2&since_id=22
     }
   ]
 }
-```
+</code></pre>
 
-```json
-GET /api/recipes
+<pre><code style="display: block; white-space: pre-wrap;">GET /api/recipes
 200
 {
   "items": [
@@ -749,10 +739,9 @@ GET /api/recipes
     }
   ]
 }
-```
+</code></pre>
 
-```json
-GET /api/recipes?adapter_names_all=custom_adapter%2Ccustom_adapter1
+<pre><code style="display: block; white-space: pre-wrap;">GET /api/recipes?adapter_names_all=custom_adapter%2Ccustom_adapter1
 200
 {
   "items": [
@@ -782,10 +771,9 @@ GET /api/recipes?adapter_names_all=custom_adapter%2Ccustom_adapter1
     }
   ]
 }
-```
+</code></pre>
 
-```json
-GET /api/recipes?active=true
+<pre><code style="display: block; white-space: pre-wrap;">GET /api/recipes?active=true
 200
 {
   "items": [
@@ -815,10 +803,9 @@ GET /api/recipes?active=true
     }
   ]
 }
-```
+</code></pre>
 
-```json
-GET /api/recipes?page=2&per_page=2
+<pre><code style="display: block; white-space: pre-wrap;">GET /api/recipes?page=2&per_page=2
 200
 {
   "items": [
@@ -846,10 +833,9 @@ GET /api/recipes?page=2&per_page=2
     }
   ]
 }
-```
+</code></pre>
 
-```json
-GET /api/recipes?order=activity
+<pre><code style="display: block; white-space: pre-wrap;">GET /api/recipes?order=activity
 200
 {
   "items": [
@@ -919,7 +905,7 @@ GET /api/recipes?order=activity
     }
   ]
 }
-```
+</code></pre>
 
 </details>
 
@@ -933,7 +919,7 @@ Searches for public recipes and returns a list. Requires 'oem_vendor' privilege.
 
 <details> <summary><b>Details</b></summary>
 
-### Parameters
+<h3> Parameters</h3>
 <table class="unchanged rich-diff-level-one" text-align ="center">
   <thead>
     <tr>
@@ -1000,7 +986,7 @@ Searches for public recipes and returns a list. Requires 'oem_vendor' privilege.
   </tbody>
 </table>
 
-### Responses
+<h3> Responses</h3>
 <table class="unchanged rich-diff-level-one" text-align ="center">
   <thead>
     <tr>
@@ -1024,11 +1010,10 @@ Searches for public recipes and returns a list. Requires 'oem_vendor' privilege.
   </tbody>
 </table>
 
-### Examples
+<h3> Examples</h3>
 
-#### Success: 200
-```json
-GET /api/recipes/search?page=2&per_page=3
+<h4> Success: 200</h4>
+<pre><code style="display: block; white-space: pre-wrap;">GET /api/recipes/search?page=2&per_page=3
 200
 {
   "items": [
@@ -1051,10 +1036,9 @@ GET /api/recipes/search?page=2&per_page=3
     }
   ]
 }
-```
+</code></pre>
 
-```json
-GET /api/recipes/search?per_page=2&since_id=66
+<pre><code style="display: block; white-space: pre-wrap;">GET /api/recipes/search?per_page=2&since_id=66
 200
 {
   "items": [
@@ -1096,10 +1080,9 @@ GET /api/recipes/search?per_page=2&since_id=66
     }
   ]
 }
-```
+</code></pre>
 
-```json
-GET /api/recipes/search?adapter_names_any=custom_adapter%2Ccustom_adapter1
+<pre><code style="display: block; white-space: pre-wrap;">GET /api/recipes/search?adapter_names_any=custom_adapter%2Ccustom_adapter1
 200
 {
   "items": [
@@ -1160,10 +1143,9 @@ GET /api/recipes/search?adapter_names_any=custom_adapter%2Ccustom_adapter1
     }
   ]
 }
-```
+</code></pre>
 
-```json
-GET /api/recipes/search?user_id=60
+<pre><code style="display: block; white-space: pre-wrap;">GET /api/recipes/search?user_id=60
 200
 {
   "items": [
@@ -1182,10 +1164,9 @@ GET /api/recipes/search?user_id=60
     }
   ]
 }
-```
+</code></pre>
 
-```json
-GET /api/recipes/search
+<pre><code style="display: block; white-space: pre-wrap;">GET /api/recipes/search
 200
 {
   "items": [
@@ -1259,10 +1240,9 @@ GET /api/recipes/search
     }
   ]
 }
-```
+</code></pre>
 
-```json
-GET /api/recipes/search?adapter_names_all=custom_adapter%2Ccustom_adapter1
+<pre><code style="display: block; white-space: pre-wrap;">GET /api/recipes/search?adapter_names_all=custom_adapter%2Ccustom_adapter1
 200
 {
   "items": [
@@ -1306,10 +1286,9 @@ GET /api/recipes/search?adapter_names_all=custom_adapter%2Ccustom_adapter1
     }
   ]
 }
-```
+</code></pre>
 
-```json
-GET /api/recipes/search?per_page=2
+<pre><code style="display: block; white-space: pre-wrap;">GET /api/recipes/search?per_page=2
 200
 {
   "items": [
@@ -1347,10 +1326,9 @@ GET /api/recipes/search?per_page=2
     }
   ]
 }
-```
+</code></pre>
 
-```json
-GET /api/recipes/search?cloned_recipe_id=true
+<pre><code style="display: block; white-space: pre-wrap;">GET /api/recipes/search?cloned_recipe_id=true
 200
 {
   "items": [
@@ -1428,10 +1406,9 @@ GET /api/recipes/search?cloned_recipe_id=true
     }
   ]
 }
-```
+</code></pre>
 
-```json
-GET /api/recipes/search?adapter_names_any=custom_adapter%2Ccustom_adapter1&curated=true
+<pre><code style="display: block; white-space: pre-wrap;">GET /api/recipes/search?adapter_names_any=custom_adapter%2Ccustom_adapter1&curated=true
 200
 {
   "items": [
@@ -1456,7 +1433,7 @@ GET /api/recipes/search?adapter_names_any=custom_adapter%2Ccustom_adapter1&curat
     }
   ]
 }
-```
+</code></pre>
 
 </details>
 
@@ -1469,7 +1446,7 @@ Starts a recipe specified by recipe ID.
 
 <details> <summary><b>Details</b></summary>
 
-### Parameters
+<h3> Parameters</h3>
 <table class="unchanged rich-diff-level-one" text-align ="center">
   <thead>
     <tr>
@@ -1492,7 +1469,7 @@ Starts a recipe specified by recipe ID.
   </tbody>
 </table>
 
-### Responses
+<h3> Responses</h3>
 <table class="unchanged rich-diff-level-one" text-align ="center">
   <thead>
     <tr>
@@ -1520,19 +1497,17 @@ Starts a recipe specified by recipe ID.
   </tbody>
 </table>
 
-### Examples
+<h3> Examples</h3>
 
-#### Success: 200
-```json
-PUT /api/recipes/109/start
+<h4> Success: 200</h4>
+<pre><code style="display: block; white-space: pre-wrap;">PUT /api/recipes/109/start
 200
 {
   "success": true
 }
-```
+</code></pre>
 
-```json
-PUT /api/recipes/111/start
+<pre><code style="display: block; white-space: pre-wrap;">PUT /api/recipes/111/start
 200
 {
   "success": false,
@@ -1550,23 +1525,21 @@ PUT /api/recipes/111/start
   ],
   "config_errors": []
 }
-```
+</code></pre>
 
-```json
-PUT /api/recipes/112/start
+<pre><code style="display: block; white-space: pre-wrap;">PUT /api/recipes/112/start
 200
 {
   "success": true
 }
-```
+</code></pre>
 
-```json
-PUT /api/recipes/114/start
+<pre><code style="display: block; white-space: pre-wrap;">PUT /api/recipes/114/start
 404
 {
   "message": "Not found"
 }
-```
+</code></pre>
 
 </details>
 
@@ -1579,7 +1552,7 @@ Stops a recipe specified by recipe ID.
 
 <details> <summary><b>Details</b></summary>
 
-### Parameters
+<h3> Parameters</h3>
 <table class="unchanged rich-diff-level-one" text-align ="center">
   <thead>
     <tr>
@@ -1602,7 +1575,7 @@ Stops a recipe specified by recipe ID.
   </tbody>
 </table>
 
-### Responses
+<h3> Responses</h3>
 <table class="unchanged rich-diff-level-one" text-align ="center">
   <thead>
     <tr>
@@ -1630,24 +1603,22 @@ Stops a recipe specified by recipe ID.
   </tbody>
 </table>
 
-### Examples
+<h3> Examples</h3>
 
-#### Success: 200
-```json
-PUT /api/recipes/57/stop
+<h4> Success: 200</h4>
+<pre><code style="display: block; white-space: pre-wrap;">PUT /api/recipes/57/stop
 200
 {
   "success": true
 }
-```
+</code></pre>
 
-```json
-PUT /api/recipes/58/stop
+<pre><code style="display: block; white-space: pre-wrap;">PUT /api/recipes/58/stop
 404
 {
   "message": "Not found"
 }
-```
+</code></pre>
 
 </details>
 
@@ -1660,7 +1631,7 @@ Deletes a the recipe specified by id
 
 <details> <summary><b>Details</b></summary>
 
-### Parameters
+<h3> Parameters </h3>
 <table class="unchanged rich-diff-level-one" text-align ="center">
   <thead>
     <tr>
@@ -1683,7 +1654,7 @@ Deletes a the recipe specified by id
   </tbody>
 </table>
 
-### Responses
+<h3> Responses</h3>
 <table class="unchanged rich-diff-level-one" text-align ="center">
   <thead>
     <tr>
@@ -1711,23 +1682,20 @@ Deletes a the recipe specified by id
   </tbody>
 </table>
 
-### Examples
+<h3> Examples</h3>
 
-#### Success: 200
-```json
-DELETE /api/recipes/1
+<h4> Success: 200</h4>
+<pre><code style="display: block; white-space: pre-wrap;">DELETE /api/recipes/1
 200
 {
   "success": true
 }
-```
+</code></pre>
 
-```json
-DELETE /api/recipes/3
+<pre><code style="display: block; white-space: pre-wrap;">DELETE /api/recipes/3
 404
 {
   "message": "Not found"
 }
-```
-
+</code></pre>
 </details>

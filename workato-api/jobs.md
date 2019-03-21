@@ -18,7 +18,7 @@ Returns aggregated job information as well as detailed job information for a spe
 
 <details> <summary> <b>Details</b></summary>
 
-### Parameters
+<h3> Parameters</h3>
 <table class="unchanged rich-diff-level-one" text-align ="center">
   <thead>
     <tr>
@@ -107,7 +107,7 @@ Returns aggregated job information as well as detailed job information for a spe
   </tbody>
 </table>
 
-### Responses
+<h3> Responses</h3>
 <table class="unchanged rich-diff-level-one" text-align ="center">
   <thead>
     <tr>
@@ -135,11 +135,10 @@ Returns aggregated job information as well as detailed job information for a spe
   </tbody>
 </table>
 
-### Examples
+<h3> Examples</h3>
 
-#### Success: 200
-```json
-GET /api/recipes/137/jobs?offset_run_id=1&offset_job_id=2&prev=true
+<h4> Success: 200</h4>
+<pre><code style="display: block; white-space: pre-wrap;">GET /api/recipes/137/jobs?offset_run_id=1&offset_job_id=2&prev=true
 200
 {
   "job_succeeded_count": 5,
@@ -205,10 +204,9 @@ GET /api/recipes/137/jobs?offset_run_id=1&offset_job_id=2&prev=true
     }
   ]
 }
-```
+</code></pre>
 
-```json
-GET /api/recipes/138/jobs?offset_run_id=1&offset_job_id=2&failed=true
+<pre><code style="display: block; white-space: pre-wrap;">GET /api/recipes/138/jobs?offset_run_id=1&offset_job_id=2&failed=true
 200
 {
   "job_succeeded_count": 5,
@@ -263,15 +261,14 @@ GET /api/recipes/138/jobs?offset_run_id=1&offset_job_id=2&failed=true
     }
   ]
 }
-```
+</code></pre>
 
-#### Recipe not found : 404
-```json
-GET /api/recipes/140/jobs
+<h4> Recipe not found : 404 </h4>
+<pre><code style="display: block; white-space: pre-wrap;">GET /api/recipes/140/jobs
 404
 {
   "message": "Not found"
 }
-```
+</code></pre>
 
 </details>

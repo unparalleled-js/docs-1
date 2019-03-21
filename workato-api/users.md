@@ -18,7 +18,7 @@ Get details of authenticated user
 
 <details> <summary> <b>Details</b></summary>
 
-### Responses
+<h3> Responses </h3>
 <table class="unchanged rich-diff-level-one" text-align ="center">
   <thead>
     <tr>
@@ -42,11 +42,10 @@ Get details of authenticated user
   </tbody>
 </table>
 
-### Examples
+<h3> Examples</h3>
 
-#### Success: 200
-```json
-GET /api/users/me
+<h4>Success: 200</h4>
+<pre><code style="display: block; white-space: pre-wrap;">GET /api/users/me
 200
 {
   "id": 18289,
@@ -70,5 +69,5 @@ GET /api/users/me
   "phone": null,
   "active_recipes_count": 1
 }
-```
+</code></pre>
 </details>

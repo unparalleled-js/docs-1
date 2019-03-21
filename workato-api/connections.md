@@ -18,7 +18,7 @@ Returns all connections and associated data for the Workato user specified in th
 
 <details> <summary> <b>Details</b></summary>
 
-### Responses
+<h3>Responses</h3>
 <table class="unchanged rich-diff-level-one" text-align ="center">
   <thead>
     <tr>
@@ -42,11 +42,10 @@ Returns all connections and associated data for the Workato user specified in th
   </tbody>
 </table>
 
-### Examples
+<h3> Examples</h3>
 
-#### Success: 200
-```json
-GET /api/connections
+<h4> Success: 200</h4>
+<pre><code style="display: block; white-space: pre-wrap;">GET /api/connections
 200
 [
   {
@@ -61,6 +60,6 @@ GET /api/connections
     "updated_at": "2015-05-26T22:53:52.532Z"
   }
 ]
-```
+</code></pre>
 
 </details>
