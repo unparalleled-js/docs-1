@@ -14,7 +14,7 @@ Alternatively, navigate to your account settings by clicking on `Account Setting
 ## Workato API Resource Overview
 Workato's API has various endpoints that allows access functionality to different aspects of Workato. Here is a general overview of the endpoints available.
 
-### Adapters
+### [Adapters](/workato-api/adapters.md)
 <table class="unchanged rich-diff-level-one">
   <thead>
     <tr>
@@ -24,13 +24,13 @@ Workato's API has various endpoints that allows access functionality to differen
   </thead>
   <tbody>
   <tr>
-    <td width =400> <a href="https://wwww.workato.com/apidoc/1.0/adapters/index.html">GET /api/integrations</a> </td>
+    <td width =400> <a href="/workato-api/adapters.md#list-connector-metadata">GET /api/integrations</a> </td>
     <td> Query connector metadata. Requires 'oem_vendor' privilege.</td>
   </tr>
   </tbody>
 </table>
 
-### Connections
+### [Connections](/workato-api/connections.md)
 <table class="unchanged rich-diff-level-one">
   <thead>
     <tr>
@@ -40,13 +40,13 @@ Workato's API has various endpoints that allows access functionality to differen
   </thead>
   <tbody>
   <tr>
-    <td width =400> <a href="https://wwww.workato.com/apidoc/1.0/adapters/index.html">GET /api/connections</a> </td>
+    <td width =400> <a href="/workato-api/connections.md#list-connections">GET /api/connections</a> </td>
     <td> List connections belonging to user</td>
   </tr>
   </tbody>
 </table>
 
-### Jobs
+### [Jobs](/workato-api/jobs.md)
 <table class="unchanged rich-diff-level-one">
   <thead>
     <tr>
@@ -56,14 +56,14 @@ Workato's API has various endpoints that allows access functionality to differen
   </thead>
   <tbody>
   <tr>
-    <td width =400> <a href="https://wwww.workato.com/apidoc/1.0/adapters/index.html">GET /api/recipes/:recipe_id/jobs</a> </td>
+    <td width =400> <a href="/workato-api/jobs.md#list-jobs-belonging-to-a-recipe">GET /api/recipes/:recipe_id/jobs</a> </td>
     <td> List jobs belonging to recipe</td>
   </tr>
   </tbody>
 </table>
 
 
-### Managed Users
+### [Managed Users](/workato-api/managed-users.md)
 <table class="unchanged rich-diff-level-one">
   <thead>
     <tr>
@@ -73,17 +73,17 @@ Workato's API has various endpoints that allows access functionality to differen
   </thead>
   <tbody>
   <tr>
-    <td width =400> <a href="https://wwww.workato.com/apidoc/1.0/adapters/index.html">POST /api/managed_users</a> </td>
+    <td width =400> <a href="/workato-api/managed-users.md#create-new-oem-users">POST /api/managed_users</a> </td>
     <td>Create a new OEM user. Requires 'oem_vendor' privilege.</td>
   </tr>
    <tr>
-    <td width =400> <a href="https://wwww.workato.com/apidoc/1.0/adapters/index.html">POST /api/managed_users/:id/member</a> </td>
+    <td width =400> <a href="/workato-api/managed-users.md#add-member-to-oem-account">POST /api/managed_users/:id/member</a> </td>
     <td>Add member to the OEM account. Requires 'oem_vendor' privilege.</td>
   </tr>
   </tbody>
 </table>
   
-### Recipes
+### [Recipes](/workato-api/recipes.md)
 <table class="unchanged rich-diff-level-one">
   <thead>
     <tr>
@@ -93,41 +93,41 @@ Workato's API has various endpoints that allows access functionality to differen
   </thead>
   <tbody>
   <tr>
-    <td width =400> <a href="https://wwww.workato.com/apidoc/1.0/adapters/index.html">GET /api/recipes/:id</a> </td>
+    <td width =400> <a href="/workato-api/recipes.md#get-recipe-details">GET /api/recipes/:id</a> </td>
     <td>Get recipe details</td>
   </tr>
   <tr>
-    <td width =400> <a href="https://wwww.workato.com/apidoc/1.0/adapters/index.html">POST /api/recipes</a> </td>
+    <td width =400> <a href="/workato-api/recipes.md#create-a-recipe">POST /api/recipes</a> </td>
     <td>Create recipe</td>
   </tr>
   <tr>
-    <td width =400> <a href="https://wwww.workato.com/apidoc/1.0/adapters/index.html">PUT /api/recipes/:id</a> </td>
+    <td width =400> <a href="/workato-api/recipes.md#update-a-recipe">PUT /api/recipes/:id</a> </td>
     <td>Update recipe</td>
   </tr>
   <tr>
-    <td width =400> <a href="https://wwww.workato.com/apidoc/1.0/adapters/index.html">GET /api/recipes</a> </td>
+    <td width =400> <a href="/workato-api/recipes.md#list-recipes-belonging-to-user">GET /api/recipes</a> </td>
     <td>List recipes belonging to user</td>
   </tr>
   <tr>
-    <td width =400> <a href="https://wwww.workato.com/apidoc/1.0/adapters/index.html">GET /api/recipes/search</a> </td>
+    <td width =400> <a href="/workato-api/recipes.md#search-for-public-recipes">GET /api/recipes/search</a> </td>
     <td>Search for public recipes. Requires 'oem_vendor' privilege.</td>
   </tr>
   <tr>
-    <td width =400> <a href="https://wwww.workato.com/apidoc/1.0/adapters/index.html">PUT /api/recipes/:id/start</a> </td>
+    <td width =400> <a href="/workato-api/recipes.md#start-recipe">PUT /api/recipes/:id/start</a> </td>
     <td>Start recipe</td>
   </tr>
   <tr>
-    <td width =400> <a href="https://wwww.workato.com/apidoc/1.0/adapters/index.html">PUT /api/recipes/:id/stop</a> </td>
+    <td width =400> <a href="/workato-api/recipes.md#stop-recipe">PUT /api/recipes/:id/stop</a> </td>
     <td>Stop recipe</td>
   </tr>
   <tr>
-    <td width =400> <a href="https://wwww.workato.com/apidoc/1.0/adapters/index.html">DELETE /api/recipes/:id</a> </td>
+    <td width =400> <a href="/workato-api/recipes.md#delete-recipe">DELETE /api/recipes/:id</a> </td>
     <td>Delete recipe</td>
   </tr>
   </tbody>
  </table>
  
- ### Users
+ ### [Users](/workato-api/users.md)
 <table class="unchanged rich-diff-level-one">
   <thead>
     <tr>
@@ -137,7 +137,7 @@ Workato's API has various endpoints that allows access functionality to differen
   </thead>
   <tbody>
   <tr>
-    <td width =400> <a href="https://wwww.workato.com/apidoc/1.0/adapters/index.html">GET /api/users/me</a> </td>
+    <td width =400> <a href="/workato-api/users.md#get-user-details">GET /api/users/me</a> </td>
     <td>Get details of authenticated user</td>
   </tr>
   </tbody>
