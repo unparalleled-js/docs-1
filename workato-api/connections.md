@@ -16,6 +16,8 @@ Use the following endpoints to retrieve the connections that belong to a user
 ### Description
 Returns all connections and associated data for the Workato user specified in the query parameters or in the request headers of the API request.
 
+<details> <summary> <b>Details</b></summary>
+  
 ### Responses
 <table class="unchanged rich-diff-level-one" text-align ="center">
   <thead>
@@ -60,4 +62,6 @@ GET /api/connections
   }
 ]
 ```
+
+</details>
 
