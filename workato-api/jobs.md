@@ -4,7 +4,7 @@ date: 2019-03-21 11:20:00 Z
 ---
 
 # Jobs
-Use the following endpoints to retrieve data related to jobs in Workato
+Use the following endpoints to retrieve recipe job data in Workato.
 
 ## Supported Formats
 * Json
@@ -17,7 +17,7 @@ Use the following endpoints to retrieve data related to jobs in Workato
 Returns aggregated job information as well as detailed job information for a specified recipe in Workato.
 
 <details> <summary> <b>Details</b></summary>
-  
+
 ### Parameters
 <table class="unchanged rich-diff-level-one" text-align ="center">
   <thead>
@@ -29,8 +29,8 @@ Returns aggregated job information as well as detailed job information for a spe
   <tbody>
   <tr>
     <td width =200 > <b>recipe_id</b> <br> required </td>
-    <td> 
-    Recipe ID 
+    <td>
+    Recipe ID
     <br>
     <b>Validations:</b> <br>
     <ul>
@@ -40,7 +40,7 @@ Returns aggregated job information as well as detailed job information for a spe
   </tr>
   <tr>
     <td width =200 > <b>offset_run_id</b> <br>optional</td>
-    <td> 
+    <td>
     offset_run_id (deprecated)
     <br>
     <b>Validations:</b> <br>
@@ -51,8 +51,8 @@ Returns aggregated job information as well as detailed job information for a spe
   </tr>
   <tr>
     <td width =200 > <b>offset_job_id </b> <br>optional</td>
-    <td> 
-    offset_job_id 
+    <td>
+    offset_job_id
     <br>
     <b>Validations:</b> <br>
     <ul>
@@ -62,7 +62,7 @@ Returns aggregated job information as well as detailed job information for a spe
   </tr>
   <tr>
     <td width =200 > <b>prev</b> <br>optional</td>
-    <td> 
+    <td>
     Previous jobs if 'true', next otherwise
     <br>
     <b>Validations:</b> <br>
@@ -73,7 +73,7 @@ Returns aggregated job information as well as detailed job information for a spe
   </tr>
   <tr>
     <td width =200 > <b>failed</b> <br>optional</td>
-    <td> 
+    <td>
     Return failed jobs only if 'true' (deprecated)
     <br>
     <b>Validations:</b> <br>
@@ -84,7 +84,7 @@ Returns aggregated job information as well as detailed job information for a spe
   </tr>
   <tr>
     <td width =200 > <b>status</b> <br>optional</td>
-    <td> 
+    <td>
     Filter by status - succeeded, failed, pending
     <br>
     <b>Validations:</b> <br>
@@ -95,7 +95,7 @@ Returns aggregated job information as well as detailed job information for a spe
   </tr>
   <tr>
     <td width =200 > <b>rerun_only</b> <br>optional</td>
-    <td> 
+    <td>
     Return rerun jobs only if 'true'
     <br>
     <b>Validations:</b> <br>

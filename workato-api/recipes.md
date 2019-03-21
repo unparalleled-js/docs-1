@@ -4,14 +4,14 @@ date: 2019-03-21 11:20:00 Z
 ---
 
 # Recipes
-Use the following endpoints to work with recipes in Workato
+Use the following endpoints to work with recipes in Workato.
 
 ### Supported Formats
 * Json
 
 ## Get recipe details
 
-> GET /api/integrations 
+> GET /api/integrations
 
 ### Description
 Returns a recipe object.
@@ -29,8 +29,8 @@ Returns a recipe object.
   <tbody>
   <tr>
     <td width =200 > <b>id</b> <br>required</td>
-    <td> 
-    Recipe ID 
+    <td>
+    Recipe ID
     <br>
     <b>Validations:</b> <br>
     <ul>
@@ -128,10 +128,10 @@ GET /api/recipes/100500
 
 ## Create a recipe
 
-> POST /api/recipes 
+> POST /api/recipes
 
 ### Description
-Creates a recipe in Workato based on request.
+Creates a recipe in Workato based on parameters in request.
 
 <details> <summary><b>Details</b></summary>
 
@@ -146,7 +146,7 @@ Creates a recipe in Workato based on request.
   <tbody>
   <tr>
     <td width =200 > <b>recipe</b> <br>optional</td>
-    <td> 
+    <td>
     <b>Validations:</b> <br>
     <ul>
     <li>Must be a hash</li>
@@ -155,7 +155,7 @@ Creates a recipe in Workato based on request.
   </tr>
   <tr>
     <td width =200 > <b>recipe[name]</b> <br>optional</td>
-    <td> 
+    <td>
     Name of the recipe
     <br>
     <b>Validations:</b> <br>
@@ -166,7 +166,7 @@ Creates a recipe in Workato based on request.
   </tr>
   <tr>
     <td width =200 > <b>recipe[code]</b> <br>optional</td>
-    <td> 
+    <td>
     JSON string representing the recipe lines
     <br>
     <b>Validations:</b> <br>
@@ -177,7 +177,7 @@ Creates a recipe in Workato based on request.
   </tr>
   <tr>
     <td width =200 > <b>recipe[config]</b> <br>optional</td>
-    <td> 
+    <td>
     JSON string representing the connection lines
     <br>
     <b>Validations:</b> <br>
@@ -234,10 +234,10 @@ POST /api/recipes
 
 ## Update a recipe
 
-> PUT /api/recipes/:id 
+> PUT /api/recipes/:id
 
 ### Description
-Updates a recipe in Workato based on request.
+Updates a recipe in Workato based on specified recipe ID.
 
 <details> <summary><b>Details</b></summary>
 
@@ -252,7 +252,7 @@ Updates a recipe in Workato based on request.
   <tbody>
   <tr>
     <td width =200 > <b>id</b> <br>required</td>
-    <td> 
+    <td>
     Recipe ID
     <br>
     <b>Validations:</b> <br>
@@ -263,7 +263,7 @@ Updates a recipe in Workato based on request.
   </tr>
   <tr>
     <td width =200 > <b>recipe</b> <br>optional</td>
-    <td> 
+    <td>
     <b>Validations:</b> <br>
     <ul>
     <li>Must be a Hash</li>
@@ -272,7 +272,7 @@ Updates a recipe in Workato based on request.
   </tr>
     <tr>
     <td width =200 > <b>recipe[name]</b> <br>optional</td>
-    <td> 
+    <td>
     Name of the recipe
     <br>
     <b>Validations:</b> <br>
@@ -283,7 +283,7 @@ Updates a recipe in Workato based on request.
   </tr>
   <tr>
     <td width =200 > <b>recipe[code]</b> <br>optional</td>
-    <td> 
+    <td>
     JSON string representing the recipe lines
     <br>
     <b>Validations:</b> <br>
@@ -294,7 +294,7 @@ Updates a recipe in Workato based on request.
   </tr>
   <tr>
     <td width =200 > <b>recipe[config]</b> <br>optional</td>
-    <td> 
+    <td>
     JSON string representing the connection lines
     <br>
     <b>Validations:</b> <br>
@@ -368,10 +368,10 @@ PUT /api/recipes/2
 
 ## List recipes belonging to user
 
-> GET /api/recipes 
+> GET /api/recipes
 
 ### Description
-Returns a list of recipes belonging to the authenticated user with respect to different filters. Recipes are returned in descending ID order
+Returns a list of recipes belonging to the authenticated user with respect to different filters. Recipes are returned in descending ID order.
 
 <details> <summary><b>Details</b></summary>
 
@@ -386,7 +386,7 @@ Returns a list of recipes belonging to the authenticated user with respect to di
   <tbody>
   <tr>
     <td width =200 > <b>adapter_names_any</b> <br>optional</td>
-    <td> 
+    <td>
     List of adapters names. Resulting recipes should use at least one of given adapters
     <b>Validations:</b> <br>
     <ul>
@@ -396,7 +396,7 @@ Returns a list of recipes belonging to the authenticated user with respect to di
   </tr>
   <tr>
     <td width =200 > <b>adapter_names_all</b> <br>optional</td>
-    <td> 
+    <td>
     List of adapters names. Resulting recipes should use all of given adapters
     <br>
     <b>Validations:</b> <br>
@@ -407,7 +407,7 @@ Returns a list of recipes belonging to the authenticated user with respect to di
   </tr>
     <tr>
     <td width =200 > <b>active</b> <br>optional</td>
-    <td> 
+    <td>
     Is flow runnig. 'true' - running, 'false' - stopped, all recipes otherwise
     <br>
     <b>Validations:</b> <br>
@@ -418,7 +418,7 @@ Returns a list of recipes belonging to the authenticated user with respect to di
   </tr>
   <tr>
     <td width =200 > <b>since_id</b> <br>optional</td>
-    <td> 
+    <td>
     Find recipes with ID less than given
     <br>
     <b>Validations:</b> <br>
@@ -429,7 +429,7 @@ Returns a list of recipes belonging to the authenticated user with respect to di
   </tr>
   <tr>
     <td width =200 > <b>order</b> <br>optional</td>
-    <td> 
+    <td>
     Set ordering method or default if blank. Possible options: activity
     <br>
     <b>Validations:</b> <br>
@@ -925,10 +925,11 @@ GET /api/recipes?order=activity
 
 ## Search for public recipes
 
-> GET /api/recipes/search 
+> GET /api/recipes/search
 
 ### Description
-Searches for public recipes and returns a list. Requires 'oem_vendor' privilege.
+Searches for public recipes and returns a list. Requires 'oem_vendor' privilege. Returns an empty list when no matching connectors are found.
+
 
 <details> <summary><b>Details</b></summary>
 
@@ -943,8 +944,8 @@ Searches for public recipes and returns a list. Requires 'oem_vendor' privilege.
   <tbody>
   <tr>
     <td width =200 > <b>applications</b> <br>optional</td>
-    <td> 
-    Comma separated connector identifiers(e.g: salesforce,service_now). Resulting recipes should use at least one of given connectors
+    <td>
+    Comma separated connector identifiers (e.g: salesforce,service_now). Resulting recipes should use at least one of given connectors
     <br>
     <b>Validations:</b> <br>
     <ul>
@@ -954,7 +955,7 @@ Searches for public recipes and returns a list. Requires 'oem_vendor' privilege.
   </tr>
   <tr>
     <td width =200 > <b>term</b> <br>optional</td>
-    <td> 
+    <td>
     Search term
     <br>
     <b>Validations:</b> <br>
@@ -965,7 +966,7 @@ Searches for public recipes and returns a list. Requires 'oem_vendor' privilege.
   </tr>
     <tr>
     <td width =200 > <b>boost_owned</b> <br>optional</td>
-    <td> 
+    <td>
     Give higher priority to recipes in your account. Defaults to 'false'
     <br>
     <b>Validations:</b> <br>
@@ -976,7 +977,7 @@ Searches for public recipes and returns a list. Requires 'oem_vendor' privilege.
   </tr>
   <tr>
     <td width =200 > <b>page</b> <br>optional</td>
-    <td> 
+    <td>
     Page number. Defaults to 0
     <br>
     <b>Validations:</b> <br>
@@ -987,7 +988,7 @@ Searches for public recipes and returns a list. Requires 'oem_vendor' privilege.
   </tr>
   <tr>
     <td width =200 > <b>per_page</b> <br>optional</td>
-    <td> 
+    <td>
     Page size. Defaults to 20, max 20
     <br>
     <b>Validations:</b> <br>
@@ -1461,10 +1462,10 @@ GET /api/recipes/search?adapter_names_any=custom_adapter%2Ccustom_adapter1&curat
 
 ## Start recipe
 
-> PUT /api/recipes/:id/start 
+> PUT /api/recipes/:id/start
 
 ### Description
-Starts a the recipe specified by id
+Starts a recipe specified by recipe ID.
 
 <details> <summary><b>Details</b></summary>
 
@@ -1479,7 +1480,7 @@ Starts a the recipe specified by id
   <tbody>
   <tr>
     <td width =200 > <b>id</b> <br>required</td>
-    <td> 
+    <td>
     Recipe ID
     <br>
     <b>Validations:</b> <br>
@@ -1574,7 +1575,7 @@ PUT /api/recipes/114/start
 > PUT /api/recipes/:id/stop  
 
 ### Description
-Stops a the recipe specified by id
+Stops a recipe specified by recipe ID.
 
 <details> <summary><b>Details</b></summary>
 
@@ -1589,7 +1590,7 @@ Stops a the recipe specified by id
   <tbody>
   <tr>
     <td width =200 > <b>id</b> <br>required</td>
-    <td> 
+    <td>
     Recipe ID
     <br>
     <b>Validations:</b> <br>
@@ -1652,7 +1653,7 @@ PUT /api/recipes/58/stop
 
 ## Delete recipe
 
-> DELETE /api/recipes/:id 
+> DELETE /api/recipes/:id
 
 ### Description
 Deletes a the recipe specified by id
@@ -1670,7 +1671,7 @@ Deletes a the recipe specified by id
   <tbody>
   <tr>
     <td width =200 > <b>id</b> <br>required</td>
-    <td> 
+    <td>
     Recipe ID
     <br>
     <b>Validations:</b> <br>
