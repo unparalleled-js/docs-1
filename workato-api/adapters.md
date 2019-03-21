@@ -6,7 +6,7 @@ date: 2019-03-21 11:20:00 Z
 # Adapters
 Use the following endpoints to retrieve the metadata of your connectors in Workato
 
-## Supported Formats
+### Supported Formats
 * Json
 
 ## List Connector Metadata
@@ -16,6 +16,8 @@ Use the following endpoints to retrieve the metadata of your connectors in Worka
 ### Description
 Returns a list of connectors and associated metadata for the Workato user specified in the query parameters or in the request headers of the API request.
 
+<details> <summary> <b>Details</b></summary>
+  
 ### Parameters
 <table class="unchanged rich-diff-level-one" text-align ="center">
   <thead>
@@ -89,3 +91,4 @@ GET /api/adapters
 ]
 ```
 
+</details>
