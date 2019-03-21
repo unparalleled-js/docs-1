@@ -18,7 +18,7 @@ Returns a list of connectors and associated metadata specified in the query para
 
 <details> <summary> <b>Details</b></summary>
 
-### Parameters
+<h3>Parameters</h3>
 <table class="unchanged rich-diff-level-one" text-align ="center">
   <thead>
     <tr>
@@ -41,7 +41,7 @@ Returns a list of connectors and associated metadata specified in the query para
   </tbody>
 </table>
 
-### Responses
+<h3> Responses</h3>
 <table class="unchanged rich-diff-level-one" text-align ="center">
   <thead>
     <tr>
@@ -65,10 +65,10 @@ Returns a list of connectors and associated metadata specified in the query para
   </tbody>
 </table>
 
-### Examples
+<h3> Examples</h3>
 
-#### Success: 200
-```json
+<h4> Success: 200 </h4>
+<pre><code style="display: block; white-space: pre-wrap;">
 GET /api/adapters
 200
 [
@@ -89,6 +89,7 @@ GET /api/adapters
     "mobile_search": true
   }
 ]
-```
+</code></pre>
+
 
 </details>
