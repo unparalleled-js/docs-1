@@ -23,7 +23,7 @@ Creates a new OEM user. Requires 'oem_vendor' privilege.
 
 <details> <summary> <b>Details</b></summary>
 
-### Parameters
+<h3> Parameters </h3>
 <table class="unchanged rich-diff-level-one" text-align ="center">
   <thead>
     <tr>
@@ -79,17 +79,16 @@ Creates a new OEM user. Requires 'oem_vendor' privilege.
   </tbody>
 </table>
 
-### Example
-```json
-{
+<h3> Example </h3>
+<pre><code style="display: block; white-space: pre-wrap;">{
   "name": "Kevin O'Leary",
   "oauth_id": "AAA0932808240:UU0239093498",
   "notification_email": "kevinl@acme.com",
   "external_id": "UU0239093498"
 }
-```
+</code></pre>
 
-### Responses
+<h3> Responses </h3>
 <table class="unchanged rich-diff-level-one" text-align ="center">
   <thead>
     <tr>
@@ -117,24 +116,22 @@ Creates a new OEM user. Requires 'oem_vendor' privilege.
   </tbody>
 </table>
 
-### Examples
+<h3> Examples </h3>
 
-#### Success: 200
-```json
-POST /api/managed_users
+<h4> Success: 200 </h4>
+<pre><code style="display: block; white-space: pre-wrap;">POST /api/managed_users
 {
   "id": 3498583,
   "plan_id": "oem_plan",
   "trial": false
 }
-```
-#### Server error: 500
-```json
-{
+</code></pre>
+<h4> Server error: 500 </h4>
+<pre><code style="display: block; white-space: pre-wrap;">{
   "message":"Server error",
   "id": "32y2298sjbjdwejweg"
 }
-```
+</code></pre>
 </details>
 
 ## Add member to OEM account
@@ -149,7 +146,7 @@ Adds a member to the OEM account. Requires 'oem_vendor' privilege.
 
 <details> <summary> <b>Details</b></summary>
 
-### Parameters
+<h3> Parameters</h3>
 <table class="unchanged rich-diff-level-one" text-align ="center">
   <thead>
     <tr>
@@ -205,17 +202,16 @@ Adds a member to the OEM account. Requires 'oem_vendor' privilege.
   </tbody>
 </table>
 
-### Example
-```json
-{
+<h3> Example</h3>
+<pre><code style="display: block; white-space: pre-wrap;">{
   "name": "Jack Smith",
   "oauth_id": "AAA0932808240:UU0239093499",
   "role_name": "Admin",
   "external_id": "UU0239093499"
 }
-```
+</code></pre>
 
-### Responses
+<h3> Responses</h3>
 <table class="unchanged rich-diff-level-one" text-align ="center">
   <thead>
     <tr>
@@ -247,23 +243,22 @@ Adds a member to the OEM account. Requires 'oem_vendor' privilege.
   </tbody>
 </table>
 
-### Examples
+<h3> Examples</h3>
 
-#### Success: 200
-```json
-POST /api/managed_users/12/member
+<h4> Success: 200</h4>
+<pre><code style="display: block; white-space: pre-wrap;">POST /api/managed_users/12/member
 {
   "id": 3498583,
   "plan_id": "oem_plan",
   "trial": false
 }
-```
-#### Server error: 500
-```json
-{
+</code></pre>
+
+<h4>Server error: 500</h4>
+<pre><code style="display: block; white-space: pre-wrap;">{
   "message":"Server error",
   "id": "32y2298sjbjdwejweg"
 }
-```
+</code></pre>
 
 </details>
