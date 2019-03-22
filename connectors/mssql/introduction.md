@@ -55,47 +55,42 @@ The SQL Server connector uses basic authentication to authenticate with SQL Serv
   </tbody>
 </table>
 
-### Permissions required to connect 
+### Permissions required to connect
 
 At minimum, the database user account must be granted `SELECT` permission to the database specified in the [connection](#how-to-connect-to-sql-server-on-workato). Check out the example below to find out more about how to set permissions if you are the one setting up the SQL server connection for your business
 
 > <details><summary><b>How to set up permissions</b></summary>
-> 
-> If we are trying to connect to a named database (`HR_PROD`) in a SQL Server instance, using a new database user `workato`, the following example queries can be used.
-> 
+>
+> If we are trying to connect to a named database (<kbd>HR_PROD</kbd>) in a SQL Server instance, using a new database user <kbd>workato</kbd>, the following example queries can be used.
+>
 > First, create a new login and user dedicated to integration use cases with Workato.
-> ```sql
-> CREATE LOGIN workato WITH PASSWORD = 'password1234';
+> <pre><code style="display: block; white-space: pre-wrap;">CREATE LOGIN workato WITH PASSWORD = 'password1234';
 > USE HR_PROD;
 > CREATE USER workato FOR LOGIN workato;
-> ```
-> Replace `password1234` with a secure password. Remember to set a password that you and others in your organisation can remember.
-> 
+> </code></pre>
+> Replace <kbd>password1234</kbd> with a secure password. Remember to set a password that you and others in your organisation can remember.
+>
 > This allows the user to have login access to the SQL Server instance. However, this user will not have access to any tables.
-> 
-> The next step is to grant permission to the necessary tables. There are a few ways to do this. One of the simplest ways is to grant access based on a **ROLE**. [Find out more about database-level roles here](https://docs.microsoft.com/en-us/sql/relational-databases/security/authentication-access/database-level-roles?view=sql-server-2017)
-> 
-> ```sql
-> ALTER ROLE db_datareader ADD MEMBER workato;
-> ```
-> 
-> Alternatively, we can grant access to all tables defined by a **SCHEMA**, `HR`.
-> 
-> ```sql
-> GRANT SELECT,INSERT ON SCHEMA :: HR TO workato;
-> ```
-> 
+>
+> The next step is to grant permission to the necessary tables. There are a few ways to do this. One of the simplest ways is to grant access based on a **ROLE**.
+> <br>[Find out more about database-level roles here](https://docs.microsoft.com/en-us/sql/relational-databases/security/authentication-access/database-level-roles?view=sql-server-2017)
+> <br>
+> <pre><code style="display: block; white-space: pre-wrap;">ALTER ROLE db_datareader ADD MEMBER workato;
+> </code></pre>
+> Alternatively, we can grant access to all tables defined by a **SCHEMA**, <kbd>HR</kbd>.
+>
+> <pre><code style="display: block; white-space: pre-wrap;">GRANT SELECT,INSERT ON SCHEMA :: HR TO workato;
+> </code></pre>
+>
 > To grant permissions only for certain tables, specify their table names separately and run this query.
-> ```sql
-> GRANT SELECT,INSERT ON tablename1 TO workato;
+> <pre><code style="display: block; white-space: pre-wrap;">GRANT SELECT,INSERT ON tablename1 TO workato;
 > GRANT SELECT,INSERT ON tablename2 TO workato;
-> ```
+> </code></pre>
 > Granting selective permission are useful for databases that have sensitive information. Only give Workato access to the tables that contain the information you need for recipes.
-> 
+>
 > Finally, check that this user has the necessary permissions. Run a query to see all permissions.
-> 
-> ```sql
-> SELECT
+>
+> <pre><code style="display: block; white-space: pre-wrap;">SELECT
 >   pr.name,
 >   pr.type_desc,
 >   perm.permission_name,
@@ -105,12 +100,11 @@ At minimum, the database user account must be granted `SELECT` permission to the
 > FROM sys.database_principals pr
 > LEFT JOIN sys.database_permissions perm ON perm.grantee_principal_id = pr.principal_id
 > WHERE pr.name = 'workato';
-> ```
-> 
+> </code></pre>
+>
 > This should return the following minimum permission to create a SQL Server connection on Workato.
-> 
-> ```
-> +---------+-----------+-----------------+------------+--------+-------------+
+>
+> <pre><code style="display: block; white-space: pre-wrap;">+---------+-----------+-----------------+------------+--------+-------------+
 > | name    | type_desc | permission_name | class_desc | object | schema      |
 > +---------+-----------+-----------------+------------+--------+-------------+
 > | workato | SQL_USER  | CONNECT         | DATABASE   | NULL   | NULL        |
@@ -118,15 +112,15 @@ At minimum, the database user account must be granted `SELECT` permission to the
 > | workato | SQL_USER  | SELECT          | SCHEMA     | NULL   | workatodemo |
 > +---------+-----------+-----------------+------------+--------+-------------+
 > 3 rows in set (0.20 sec)
-> ```
-> 
+> </code></pre>
+>
 > </details>
 
 ## Working with the SQL Server connector
 
 ## Using tables, views and stored procedures
 
-After successfully connecting to your SQL Server and selecting an action/trigger in your recipe, you will often be prompted to select either a table, view or stored procedure. This tells Workato where to pull or send data to. 
+After successfully connecting to your SQL Server and selecting an action/trigger in your recipe, you will often be prompted to select either a table, view or stored procedure. This tells Workato where to pull or send data to.
 
 ### Tables & Views
 The SQL Server connector works with all tables and views. These are available in pick lists in each trigger/action or you can provide the exact name. Views can be called using this as well and be used in the same way as a table.
@@ -151,12 +145,12 @@ This input field is used to filter and identify rows to perform an action on. It
 
 This clause will be used as a `WHERE` statement in each request. This should follow basic SQL syntax. Refer to this [SQL Server documentation](https://docs.microsoft.com/en-us/sql/t-sql/queries/where-transact-sql) for a comprehensive list of rules for constructing `WHERE` statements. Below, we go through some of the basics needed to form your `WHERE` statements.
 
-### Operators 
+### Operators
 
-At the foundation of any `WHERE` statement, we have operators that help us filter and identify what rows we want returned in Workato. By chaining operators in the same way one would do it in SQL, you'll be able to use them to create robust and complex filters on your data directly from Workato. 
+At the foundation of any `WHERE` statement, we have operators that help us filter and identify what rows we want returned in Workato. By chaining operators in the same way one would do it in SQL, you'll be able to use them to create robust and complex filters on your data directly from Workato.
 
 <details><summary><b>List of operators</b></summary>
-  
+
 <table class="unchanged rich-diff-level-one">
   <thead>
     <tr>
@@ -252,14 +246,14 @@ At the foundation of any `WHERE` statement, we have operators that help us filte
 
 ### Data types
 
-The other component of a `WHERE` condition would be to use these operators in conjunction with the proper datatypes. When writing `WHERE` statements, make sure you compare a variable of `data type = integer` in your table with a  variable of `data type = integer` instead of `data type = string`. 
+The other component of a `WHERE` condition would be to use these operators in conjunction with the proper datatypes. When writing `WHERE` statements, make sure you compare a variable of `data type = integer` in your table with a  variable of `data type = integer` instead of `data type = string`.
 
-Workato also helps reveal the data types expected for each input field when you select 
+Workato also helps reveal the data types expected for each input field when you select
 - **Select rows** actions
 - **Update rows** actions
 - **Upsert rows** actions
 
-They appear directly below the output field, allowing you to know the expected data type to be sent while building the recipe. Use these hints to send the proper data types over to your SQL server as failing to do so might lead to unexpected behaviour or failed jobs. 
+They appear directly below the output field, allowing you to know the expected data type to be sent while building the recipe. Use these hints to send the proper data types over to your SQL server as failing to do so might lead to unexpected behaviour or failed jobs.
 
 ![input field hints](/assets/images/mssql/Mssql-input-field-date-type.png)
 *Hints below each input field inform you about the data type expected*
@@ -294,7 +288,7 @@ Here are some of the common data types you can expect to see. A more comprehensi
     <tr>
       <td>bigint</td>
       <td>Allows whole numbers between -9,223,372,036,854,775,808 and 9,223,372,036,854,775,807</td>
-      <td><code>10,000,000,000`</td>
+      <td><code>10,000,000,000</td>
     </tr>
     <tr>
       <td>bit</td>
@@ -345,7 +339,7 @@ A simple `WHERE` condition to filter rows based on values in a single column loo
 currency = 'USD'
 ```
 
-If used in a **Select rows** action, this `WHERE` condition will return all rows that has the value 'USD' in the `currency` column. Just remember to wrap datapills with single quotes in your inputs. 
+If used in a **Select rows** action, this `WHERE` condition will return all rows that has the value 'USD' in the `currency` column. Just remember to wrap datapills with single quotes in your inputs.
 
 ![Using datapills in WHERE condition](/assets/images/mssql/use_datapill_in_where.png)
 *Using datapills in `WHERE` condition*
@@ -359,7 +353,7 @@ Column names with spaces must be enclosed in double quotes (`""`) or square brac
 ![WHERE condition with enclosed identifier](/assets/images/mssql/where-condition-with-enclosed-identifier.png)
 *`WHERE` condition with enclosed identifier*
 
-Check out below for more details into the functionality you can explore with your `WHERE` conditions. 
+Check out below for more details into the functionality you can explore with your `WHERE` conditions.
 
 <details><summary>Using <code>AND</code> and <code>OR</code> in your <code>WHERE</code> conditions</summary>
 <code>WHERE</code> conditions can also be used in conjunction with basic SQL logical operators like <code>AND</code> and <code>OR</code> to add more filters on the rows you return.
@@ -399,7 +393,7 @@ When used in a trigger, this column must be incremental. This constraint is requ
 
 > <details><summary><b>Example</b></summary>
 > Let's use a simple example to illustrate this behavior. We have a <b>New row trigger</b> that processed rows from a table. The <b>unique key</b> configured for this trigger is <code>ID</code>. The last row processed has <code>100</code> as it's <code>ID</code> value. In the next poll, the trigger will use <code>>= 101</code> as the condition to look for new rows.
-> Performance of a trigger can be improved if the column selected to be used as the <b>unique key</b> is indexed. 
+> Performance of a trigger can be improved if the column selected to be used as the <b>unique key</b> is indexed.
 > </details>
 
 ### Sort column
@@ -416,7 +410,7 @@ For SQL Server, only **datetime2** and **datetime** column types can be used.
 > </details>
 
 ## Using single row actions/triggers vs using batch of rows actions/triggers
-SQL Server connector can read or write to your database either as a single row or in batches. When using batch triggers/actions, you have to provide the batch size you wish to work with. The batch size can be any number between 1 and 100, with 100 being the maximum batch size. Batch triggers and actions are great for jobs when you expect to read, create or update a large number of rows. Choosing to batch your job runs rather than having them split into separate jobs runs not only saves operations but [reduces recipe runtimes and decreases load on your servers](/features/batch-processing.md). 
+SQL Server connector can read or write to your database either as a single row or in batches. When using batch triggers/actions, you have to provide the batch size you wish to work with. The batch size can be any number between 1 and 100, with 100 being the maximum batch size. Batch triggers and actions are great for jobs when you expect to read, create or update a large number of rows. Choosing to batch your job runs rather than having them split into separate jobs runs not only saves operations but [reduces recipe runtimes and decreases load on your servers](/features/batch-processing.md).
 
 ![Batch trigger inputs](/assets/images/mssql/batch_trigger_input.png)
 *Batch trigger inputs*
@@ -452,9 +446,3 @@ Workato currently supports the following triggers and actions. Find out more det
   * [Delete actions](/connectors/mssql/delete.md)
   * [Run custom SQL action](/connectors/mssql/run_sql.md)
   * [Execute stored procedure](/connectors/mssql/stored-procedure.md)
-
-
-
-
-
-
