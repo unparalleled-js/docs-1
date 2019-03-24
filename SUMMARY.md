@@ -151,6 +151,7 @@
     * [Configuring slash commands](workbot/configuring-slash-commands.md)
     * [Legacy slash commands](workbot/legacy-slash-commands.md)
   * [Workbot for MS Teams](/workbot-for-teams/workbot.md)
+    * [Getting started](/workbot-for-teams/getting-started.md)
     * [Using Workbot for MS Teams](/workbot-for-teams/using-workbot-for-teams.md)
     * [Workbot triggers](/workbot-for-teams/workbot-triggers.md)
     * [Workbot actions](/workbot-for-teams/workbot-actions.md)
