@@ -110,16 +110,25 @@ Here are a list of accepted inputs into the apply block
 
 ```ruby
 apply: lambda do |connection|
-  params(authtoken: connection['authtoken']) #adds in URL parameters passed as a hash object i.e. authtoken=[connection['authtoken']]
+  #adds in URL parameters passed as a hash object i.e. authtoken=[connection['authtoken']]
+  params(authtoken: connection['authtoken']) 
+  
+  #Adds in payload fields (PATCH, POST, PUT only) pass as hash
   payload(
           grant_type: "authorization_code",
           client_id: connection["client_id"],
           client_secret: connection["client_secret"],
           code: auth_code
-        ) #Adds in payload fields (PATCH, POST, PUT only) pass as hash
-  headers("Authorization": "Bearer #{connection["access_token"]}") # Adds in headers into every request passed as a hash. The variable access_token can be retrieved from input prompts defined in the 'fields' schema earlier or a return from the acquire block i.e. Authorization : Bearer [given access token]
-  user(connection["username"])  ##used in conjunction with password function below. i.e. sends the input as username and password in HTTP authentication
-  password(connection["username"]) ## used in conjunction with user function above. i.e. sends the input as username and password in HTTP authentication
+        ) 
+        
+  # Adds in headers into every request passed as a hash. 
+  # The variable access_token can be retrieved from input prompts defined in the 'fields' schema earlier or a return from the acquire block i.e. Authorization : Bearer [given access token]
+  headers("Authorization": "Bearer #{connection["access_token"]}") 
+  
+  # Used in conjunction with password function below. 
+  # i.e. sends the input as username and password in HTTP authentication
+  user(connection["username"])  
+  password(connection["username"]) 
 end
 ```
 
