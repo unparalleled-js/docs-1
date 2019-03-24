@@ -9,7 +9,7 @@ date: 2018-09-20 06:10:00 Z
 
 This action lets you send a SQL string to the Oracle database to be executed. It can be used to execute Data Manipulation Language (DML) statements like `INSERT`, `UPDATE`, `SELECT` and `DELETE`, as well as Data Definition Language (DDL) commands, like `CREATE`, `ALTER` and `DROP`.
 
-Unlike [Select rows using custom SQL](/connectors/oracle/select.md#select-rows-using-custom-sql), this action is not optimized for easy configuration. For `SELECT` statements with large number of columns, use that action instead.
+Unlike [Select rows using custom SQL](/connectors/oracle/select.md#select-rows-using-custom-sql), this action is not optimized for easy configuration. For `SELECT` statements with large number of columns, use that action instead. Using custom SQL is a great way to improve recipe efficiency and balance load between Workato and your database. [Find out more in our best practices section how to use custom SQL to make your recipes more efficient.](/connectors/oracle/best-practices.md#when-to-use-custom-sql-and-stored-procedures-in-workato)
 
 **This action requires a connection using OPA version 2.4.3 or newer.**
 
@@ -75,3 +75,19 @@ Unlike [Select rows using custom SQL](/connectors/oracle/select.md#select-rows-u
 ### Limitations
 
 There is a size limit of `1000` rows when your custom SQL statement returns data.
+
+## List of Workato triggers and actions
+Workato currently supports the following triggers and actions. Find out more details about each by clicking on the links below. You can also navigate to them through the side bar.
+
+  * [New row trigger](/connectors/oracle/new-row-trigger.md)
+  * [New/updated row trigger](/connectors/oracle/updated-row-trigger.md)
+  * [Select actions](/connectors/oracle/select.md)
+  * [Insert actions](/connectors/oracle/insert.md)
+  * [Update actions](/connectors/oracle/update.md)
+  * [Upsert actions](/connectors/oracle/upsert.md)
+  * [Delete actions](/connectors/oracle/delete.md)
+  * [Execute stored procedure](/connectors/oracle/stored-procedure.md)
+
+  Or get busy building your recipes now! Check out our
+  * [Best practices](/connectors/oracle/best-practices.md)
+  * [Use cases](/connectors/database-common-use-cases.md)

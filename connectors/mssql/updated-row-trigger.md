@@ -195,7 +195,7 @@ status = 'closed' and priority > 3
 
 Leave blank to process all rows from the selected table.
 
-Complex `WHERE` conditions with subqueries can also be used. Refer to the [WHERE condition](/connectors/mssql.md#where-condition) guide for more information.
+Complex `WHERE` conditions with subqueries can also be used. Refer to the [WHERE condition](/connectors/mssql/introduction.md#using-where-conditions) guide for more information.
 
 ### SQL
 Provide the SQL to be executed to select rows. The SQL here will be used to generate the output datatree. To do this, the SQL will be executed once when you provide it. You can map datapills here to execute dynamically changing SQL statements. Remember to wrap datapills in quotes (`''`).
@@ -212,7 +212,7 @@ Learn more about the other triggers and actions Workato has to offer for SQL ser
   * [Delete actions](/connectors/mssql/delete.md)
   * [Run custom SQL action](/connectors/mssql/run_sql.md)
   * [Execute stored procedure](/connectors/mssql/stored-procedure.md)
-  
+
 Or get busy building your recipes now! Check out our
   * [Best practices](/connectors/mssql/best-practices.md)
-  * [Use cases](/connectors/mssql/common-use-cases.md)
+  * [Use cases](/connectors/database-common-use-cases.md)

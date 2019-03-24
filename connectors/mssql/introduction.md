@@ -57,7 +57,7 @@ The SQL Server connector uses basic authentication to authenticate with SQL Serv
 
 ### Permissions required to connect
 
-At minimum, the database user account must be granted `SELECT` permission to the database specified in the [connection](#how-to-connect-to-sql-server-on-workato). Check out the example below to find out more about how to set permissions if you are the one setting up the SQL server connection for your business
+At minimum, the database user account must be granted `SELECT` permission to the database specified in the [connection](#how-to-connect-to-sql-server-on-workato). Check out the example below to find out more about how to set permissions if you are the one setting up the SQL server connection for your business.
 
 > <details><summary><b>How to set up permissions</b></summary>
 >
@@ -126,10 +126,10 @@ After successfully connecting to your SQL Server and selecting an action/trigger
 The SQL Server connector works with all tables and views. These are available in pick lists in each trigger/action or you can provide the exact name. Views can be called using this as well and be used in the same way as a table.
 
 ![Table selection from pick list](/assets/images/mssql/table_pick_list.png)
-*Select a table/view from pick list*
+<center><i>Select a table/view from pick list</i></center>
 
 ![Exact table name provided](/assets/images/mssql/table_name_text.png)
-*Provide exact table/view name in a text field*
+<center><i>Provide exact table/view name in a text field</i></center>
 
 Case sensitivity of the name of a table/view depends on your database implementation. A default SQL Server is case insensitive. Databases or database objects with `CS` in the **COLLATION** indicates that it is case sensitive.
 
@@ -249,14 +249,13 @@ At the foundation of any `WHERE` statement, we have operators that help us filte
 The other component of a `WHERE` condition would be to use these operators in conjunction with the proper datatypes. When writing `WHERE` statements, make sure you compare a variable of `data type = integer` in your table with a  variable of `data type = integer` instead of `data type = string`.
 
 Workato also helps reveal the data types expected for each input field when you select
-- **Select rows** actions
 - **Update rows** actions
 - **Upsert rows** actions
 
 They appear directly below the output field, allowing you to know the expected data type to be sent while building the recipe. Use these hints to send the proper data types over to your SQL server as failing to do so might lead to unexpected behaviour or failed jobs.
 
 ![input field hints](/assets/images/mssql/Mssql-input-field-date-type.png)
-*Hints below each input field inform you about the data type expected*
+<center><i>Hints below each input field inform you abou</i></center> the data type expected*
 
 Here are some of the common data types you can expect to see. A more comprehensive list can be found [here](https://www.w3schools.com/sql/sql_datatypes.asp)
 
@@ -288,7 +287,7 @@ Here are some of the common data types you can expect to see. A more comprehensi
     <tr>
       <td>bigint</td>
       <td>Allows whole numbers between -9,223,372,036,854,775,808 and 9,223,372,036,854,775,807</td>
-      <td><code>10,000,000,000</td>
+      <td><code>10,000,000,000</code></td>
     </tr>
     <tr>
       <td>bit</td>
@@ -342,7 +341,7 @@ currency = 'USD'
 If used in a **Select rows** action, this `WHERE` condition will return all rows that has the value 'USD' in the `currency` column. Just remember to wrap datapills with single quotes in your inputs.
 
 ![Using datapills in WHERE condition](/assets/images/mssql/use_datapill_in_where.png)
-*Using datapills in `WHERE` condition*
+<center><i>Using datapills in `WHERE` condition</i></center>
 
 Column names with spaces must be enclosed in double quotes (`""`) or square brackets (`[]`). For example, **currency code** must to enclosed in brackets to be used as an identifier.
 
@@ -351,7 +350,7 @@ Column names with spaces must be enclosed in double quotes (`""`) or square brac
 ```
 
 ![WHERE condition with enclosed identifier](/assets/images/mssql/where-condition-with-enclosed-identifier.png)
-*`WHERE` condition with enclosed identifier*
+<center><i>`WHERE` condition with enclosed identifier</i></center>
 
 Check out below for more details into the functionality you can explore with your `WHERE` conditions.
 
@@ -376,7 +375,7 @@ id in (select compensation_id from users where active = 0)
 When used in a **Delete rows** action, this will delete all rows in the `compensation` table related to users who are no longer active (`active = 0`).
 
 ![Using subquery in WHERE condition](/assets/images/mssql/subquery-in-where-condition.png)
-*Using subquery in WHERE condition*
+<center><i>Using subquery in WHERE condition</i></center>
 
 </details>
 
@@ -384,7 +383,7 @@ When used in a **Delete rows** action, this will delete all rows in the `compens
 
 SQL Server connector has triggers for both new and updated rows. For the triggers to work, both **Unique keys** must be configured.**Sort columns** need to be configured for triggers that find recently updated rows.
 
-A table must satisfy some constraints to be used in a trigger. The following sections contain more information about specific constraints. [Read our best practices to find out how you can prepare your table for use with Workato](#Preparing-a-table-for-use-in-Workato)
+A table must satisfy some constraints to be used in a trigger. The following sections contain more information about specific constraints. [Read our best practices to find out how you can prepare your table for use with Workato](connectors/mssql/best-practices.md#designing-tables-for-use-in-Workato)
 
 ### Unique keys
 In all triggers and some actions, this is a required input. Values from this selected column are used to uniquely identify rows in the selected table. As such, the values in the selected column must be unique. Typically, this column is the **primary key** of the table (e.g. `ID`).
@@ -413,26 +412,26 @@ For SQL Server, only **datetime2** and **datetime** column types can be used.
 SQL Server connector can read or write to your database either as a single row or in batches. When using batch triggers/actions, you have to provide the batch size you wish to work with. The batch size can be any number between 1 and 100, with 100 being the maximum batch size. Batch triggers and actions are great for jobs when you expect to read, create or update a large number of rows. Choosing to batch your job runs rather than having them split into separate jobs runs not only saves operations but [reduces recipe runtimes and decreases load on your servers](/features/batch-processing.md).
 
 ![Batch trigger inputs](/assets/images/mssql/batch_trigger_input.png)
-*Batch trigger inputs*
+<center><i>Batch trigger inputs</i></center>
 
 Besides the difference in input fields, there is also a difference between the outputs of these 2 types of operations. A trigger that processes rows one at a time will have an output datatree that allows you to map data from that single row.
 
 ![Single row output](/assets/images/mssql/single_row_trigger_output.png)
-*Single row output*
+<center><i>Single row output</i></center>
 
 However, a trigger that processes rows in batches will output them as an array of rows. The <kbd>Rows</kbd> datapill indicates that the output is a list containing data for each row in that batch.
 
 ![Batch trigger output](/assets/images/mssql/batch_trigger_output.png)
-*Batch trigger output*
+<center><i>Batch trigger output</i></center>
 
 As a result, the output of batch triggers/actions needs to be handled differently. This [recipe](https://www.workato.com/recipes/666198) uses a batch trigger for new rows in the `users` table. The output of the trigger is used in a Salesforce bulk upsert action that requires mapping the <kbd>Rows</kbd> datapill into the source list.
 
 ![Using batch trigger output](/assets/images/mssql/using_batch_output.png)
-*Using batch trigger output*
+<center><i>Using batch trigger output</i></center>
 
 Outputs from batch triggers/actions can also be used outside of actions that work specifically with lists. By using Workato's repeat step, you'll be able to control batch outputs and [use them with any action built for single rows.](/features/list-management.md#using-datapills-in-an-action-with-a-repeat-step-action-does-not-handle-list-processing-list-processing-needs-to-be-done-explicitly-at-the-recipe-logic-level).
 
-> Unsure when to use batch actions and single row actions? [Check out our best practices section for recipe design tips!](/connectors/mssql/best-practices.md#deciding-when-to-use-batch-of-rows-triggersactions-vs-single-row-triggersactions)
+> Unsure when to use batch actions and single row actions? [Check out our best practices section for recipe design tips!](/connectors/mssql/best-practices.md#d#when-to-use-batch-of-rows-triggersactions-vs-single-row-triggersactions)
 
 ## List of Workato triggers and actions
 Workato currently supports the following triggers and actions. Find out more details about each by clicking on the links below. You can also navigate to them through the side bar.
@@ -446,3 +445,7 @@ Workato currently supports the following triggers and actions. Find out more det
   * [Delete actions](/connectors/mssql/delete.md)
   * [Run custom SQL action](/connectors/mssql/run_sql.md)
   * [Execute stored procedure](/connectors/mssql/stored-procedure.md)
+
+  Or get busy building your recipes now! Check out our
+    * [Best practices](/connectors/mssql/best-practices.md)
+    * [Use cases](/connectors/database-common-use-cases.md)

@@ -12,7 +12,7 @@ This action lets you delete rows based on certain criteria defined by a ` WHERE`
 > **Warning: This action should be tested and used with care as is it will PERMANENTLY delete rows in your table.**
 
 ![Delete action](/assets/images/oracle/delete-rows-action.png)
-*Delete rows action*
+<center><i>Delete rows action</i></center>
 
 ### Table
 First, select a table to delete rows from. This can be done either by selecting a table from the pick list, or toggling the input to text mode and typing the full table name.
@@ -30,4 +30,19 @@ Alternatively, it can be used to delete multiple rows.
 STATUS = 'closed'
 ```
 
-Complex `WHERE` conditions with subqueries can also be used. Refer to the Oracle [WHERE condition](/connectors/oracle.md#where-condition) guide for more information.
+Complex `WHERE` conditions with subqueries can also be used. Refer to the Oracle [WHERE condition](/connectors/oracle/introduction.md#using-where-conditions) guide for more information.
+
+## Next steps
+Learn more about the other triggers and actions Workato has to offer for SQL server
+  * [New row trigger](/connectors/oracle/new-row-trigger.md)
+  * [New/updated row trigger](/connectors/oracle/updated-row-trigger.md)
+  * [Select actions](/connectors/oracle/select.md)
+  * [Insert actions](/connectors/oracle/insert.md)
+  * [Update actions](/connectors/oracle/update.md)
+  * [Upsert actions](/connectors/oracle/upsert.md)
+  * [Run custom SQL action](/connectors/oracle/run_sql.md)
+  * [Execute stored procedure](/connectors/oracle/stored-procedure.md)
+
+Or get busy building your recipes now! Check out our
+  * [Best practices](/connectors/oracle/best-practices.md)
+  * [Use cases](/connectors/database-common-use-cases.md)

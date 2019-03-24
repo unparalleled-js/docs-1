@@ -39,7 +39,7 @@ priority asc, created_date desc
 ```
 
 ### Limit
-This input field determines the maximum number of rows to return. The default limit is 100 and capped at a maximum of 1000 rows for a single **Select rows** action. If you require to select more than 1000 rows and perform actions, this can be done in batches from Workato recipes directly. Find examples in our [use cases.](/connectors/mssql/common-use-cases.md)
+This input field determines the maximum number of rows to return. The default limit is 100 and capped at a maximum of 1000 rows for a single **Select rows** action. If you require to select more than 1000 rows and perform actions, this can be done in batches from Workato recipes directly. Find examples in our [use cases.](/connectors/database-common-use-cases.md#data-replication)
 
 ### Offset
 This input field gives you the option to fetch only a page of results from the entire results set. For example, to skip the first 100 rows of the selected results set, input `100` to this field. The default is `0`.
@@ -73,7 +73,7 @@ Learn more about the other triggers and actions Workato has to offer for SQL ser
   * [Delete actions](/connectors/mssql/delete.md)
   * [Run custom SQL action](/connectors/mssql/run_sql.md)
   * [Execute stored procedure](/connectors/mssql/stored-procedure.md)
-  
+
 Or get busy building your recipes now! Check out our
   * [Best practices](/connectors/mssql/best-practices.md)
-  * [Use cases](/connectors/mssql/common-use-cases.md)
+  * [Use cases](/connectors/database-common-use-cases.md)

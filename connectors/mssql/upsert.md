@@ -4,7 +4,7 @@ date: 2018-02-02 06:10:00 Z
 ---
 
 # SQL Server - Upsert actions
-Workato offers both batch and single upsert row actions. This allows you the flexibility to choose the action that you require for your recipe and to fulfill your business needs. Check out our [best practices on whether to use batch or single upsert actions](/connectors/mssql/best-practices.md#deciding-when-to-use-batch-of-rows-triggersactions-vs-single-row-triggersactions) and [when to use insert, update or update](/connectors/mssql/best-practices.md#when-to-use-update-insert-and-upsert-actions). 
+Workato offers both batch and single upsert row actions. This allows you the flexibility to choose the action that you require for your recipe and to fulfill your business needs. Check out our [best practices on whether to use batch or single upsert actions](/connectors/mssql/best-practices.md#deciding-when-to-use-batch-of-rows-triggersactions-vs-single-row-triggersactions) and [when to use insert, update or update](/connectors/mssql/best-practices.md#when-to-use-update-insert-and-upsert-actions).
 
 ## Upsert row
 This action upserts a single row into the selected table.
@@ -55,7 +55,7 @@ Learn more about the other triggers and actions Workato has to offer for SQL ser
   * [Delete actions](/connectors/mssql/delete.md)
   * [Run custom SQL action](/connectors/mssql/run_sql.md)
   * [Execute stored procedure](/connectors/mssql/stored-procedure.md)
-  
+
 Or get busy building your recipes now! Check out our
   * [Best practices](/connectors/mssql/best-practices.md)
-  * [Use cases](/connectors/mssql/common-use-cases.md)
+  * [Use cases](/connectors/database-common-use-cases.md)

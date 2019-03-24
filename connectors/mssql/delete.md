@@ -1,4 +1,4 @@
----
+<center><i>--</i></center>
 title: Workato connectors - SQL Server Delete actions
 date: 2018-02-02 06:10:00 Z
 ---
@@ -12,7 +12,7 @@ This action lets you delete rows based on certain criteria defined by a ` WHERE`
 > **This action should be tested and used with care, as it will PERMANENTLY delete rows in your table. Testing should be done on a test database**
 
 ![Delete action](/assets/images/mssql/delete-rows-action.png)
-*Delete rows action*
+<center><i>Delete rows action</i></center>
 
 ### Table
 First, select a table to delete rows from. This can be done either by selecting a table from the pick list, or toggle the input to text mode and type the full table name.
@@ -42,7 +42,7 @@ Learn more about the other triggers and actions Workato has to offer for SQL ser
   * [Upsert actions](/connectors/mssql/upsert.md)
   * [Run custom SQL action](/connectors/mssql/run_sql.md)
   * [Execute stored procedure](/connectors/mssql/stored-procedure.md)
-  
+
 Or get busy building your recipes now! Check out our
   * [Best practices](/connectors/mssql/best-practices.md)
-  * [Use cases](/connectors/mssql/common-use-cases.md)
+  * [Use cases](/connectors/database-common-use-cases.md)

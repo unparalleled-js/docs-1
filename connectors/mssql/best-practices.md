@@ -83,7 +83,7 @@ One should consider splitting this workflow up into 4 separate recipes.
 </body>
 </table>
 
-By splitting this workflow up into multiple recipes, this allows other recipes and 3rd party apps to also call upon recipe 1, 2 and 3 reducing the amount of redundant steps if, for example, another recipe needed to back data up in a redshift database. Changes to any step or improvements to any part of the workflow, such as a change in email provider from mailchimp to SendGrid would be handled much easier due to this design pattern.
+By splitting this workflow up into multiple recipes, this allows other recipes and 3rd party apps to also call upon recipe 1, 2 and 3 reducing the amount of redundant steps if, for example, another recipe needed to back data up in a redshift database. Changes to any step or improvements to any part of the workflow, such as a change in email provider from mailchimp to SendGrid would be handled much easier due to this design pattern. Check out our [use cases](/connectors/database-common-use-cases.md#data-exporting) to see how this was implemented!
 
 ### When to use batch of rows triggers/actions vs single row triggers/actions
 With the ability to break down complex workflows through callable recipes, the decision to use batch or single row actions are often a matter of business requirements and design considerations. While batch triggers/actions reduce the load on your servers and improve time efficiency by batching up to a 100 records into a single call, there exists a trade-off as batch actions that do fail, fail on a batch level.

@@ -3,17 +3,18 @@ title: Workato connectors - Common use cases
 date: 2019-03-15 12:37:00 Z
 ---
 
-# SQL Server - Common use cases
+# Database - Common use cases
+Here are some common use cases of how Workato can connect and integrate with your databases to automate workflows. Most of these use-cases are built with SQL server but they can be easily extended to all databases supported by Workato.
 
 ## Contents
-Workato works with SQL server databases to offer workflow automations that allow you to accomplish:
+Workato works with databases to offer workflow automations that allow you to accomplish:
 * Data exporting for use in daily operations
 * Data migration
 * Data replication
 * Data pipelines to data lakes and data warehouses
 
 ## Data exporting
-Data coming into your SQL server database can be used in various ways. Often we need this data coming into our servers from our websites to be available as soon as possible in a variety of applications. Workato makes setting up these workflows simple, maintainable and extensible through our ability to modularly build workflows. Check out the example below to see how we used callable recipes to simplify the process of sending new/updated contact data from SQL server to Salesforce, Mailchimp and Redshift.
+Data coming into your database can be used in various ways. Often we need this data coming into our servers from our websites to be available as soon as possible in a variety of applications. Workato makes setting up these workflows simple, maintainable and extensible through our ability to modularly build workflows. Check out the example below to see how we used callable recipes to simplify the process of sending new/updated contact data from database to Salesforce, Mailchimp and Redshift.
 
 <details><summary><b>Data export example </b></summary>
   <br>

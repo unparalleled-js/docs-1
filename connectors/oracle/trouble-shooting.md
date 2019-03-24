@@ -37,12 +37,12 @@ When building recipes that are triggered on new rows in a table as well as inser
 * Creating separate tables for raw unprocessed data and transformed data
 
 ### Multiple copies of the same record
-When using insert actions, job runs that raise errors but have completed the insert row action step will reinsert rows when the job is repeated. This could result in multiple copies of the same record being inserted. Consider using upsert actions that can first search for an existing record before updating one if found or inserting a new record. Find out different use cases and when to use either in our [best practices](/connectors/mssql/best-practices.md#when-to-use-update-insert-and-upsert-actions)
+When using insert actions, job runs that raise errors but have completed the insert row action step will reinsert rows when the job is repeated. This could result in multiple copies of the same record being inserted. Consider using upsert actions that can first search for an existing record before updating one if found or inserting a new record. Find out different use cases and when to use either in our [best practices](/connectors/oracle/best-practices.md#when-to-use-update-insert-and-upsert-actions)
 
-### Missing values
-SQL server allows you to validate new data before inserting them into tables to ensure data integrity using `CONSTRAINTS`. Constraints on data can be defined in SQL server itself when tables are created or altered and are used to make sure data integrity is maintained. During recipe design-time, input fields with `NOT NULL`, `UNIQUE`, `PRIMARY KEY` or `CHECK` constraints will still show up as optional. During recipe run-time, errors will be raised when these constraints are violated. The following screenshot shows a job error when no input is given for a field that has a `PRIMARY KEY` constraint:
+### Missing or invalid values
+Oracle allows you to validate new data before inserting them into tables to ensure data integrity using `CONSTRAINTS`. Constraints on data can be defined in SQL server itself when tables are created or altered and are used to make sure data integrity is maintained. During recipe design-time, input fields with `NOT NULL`, `UNIQUE`, `PRIMARY KEY` or `CHECK` constraints will still show up as optional. During recipe run-time, errors will be raised when these constraints are violated. The following screenshot shows a job error when no input is given for a field that has a `CHECK` constraint:
 
-![Common-error-missing-values](/assets/images/mssql/Common-error-missing-values.png)
+![Common-error-invalid-values](/assets/images/oracle/Common-error-invalid-values.png)
 
 Here are some possible reasons and fixes for missing values:
 * Your primary key column is not auto-incrementing. Alter the column to be an identity column which auto-increments after every insert
