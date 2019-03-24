@@ -57,10 +57,6 @@ connection: {
 }
 ```
 
-## apply
-
-Synonym of the `credentials` block: Basically how to apply the credentials to an action/trigger/test request. All requests made in actions, triggers, tests and pick lists will be applied with the credentials defined here.
-
 ## acquire
 
 Context is same as an action's execute block. You can write the require code here to acquire and store relevant credentials data to be used in the `apply` block.
@@ -105,6 +101,56 @@ Original `connection` object
 ```
 
 This new connection object will be passed into all actions, triggers, test and pick lists as the `connection` argument.
+
+## apply
+
+Synonym of the `credentials` block: Basically how to apply the credentials to an action/trigger/test request. All requests made in actions, triggers, tests and pick lists will be applied with the credentials defined here.
+
+Here are a list of accepted inputs into the apply block
+
+```ruby
+apply: lambda do |connection|
+  params(authtoken: connection['authtoken']) #adds in URL parameters passed as a hash object i.e. authtoken=[connection['authtoken']]
+  payload(
+          grant_type: "authorization_code",
+          client_id: connection["client_id"],
+          client_secret: connection["client_secret"],
+          code: auth_code
+        ) #Adds in payload fields (PATCH, POST, PUT only) pass as hash
+  headers("Authorization": "Bearer #{connection["access_token"]}") # Adds in headers into every request passed as a hash. The variable access_token can be retrieved from input prompts defined in the 'fields' schema earlier or a return from the acquire block i.e. Authorization : Bearer [given access token]
+  user(connection["username"])  ##used in conjunction with password function below. i.e. sends the input as username and password in HTTP authentication
+  password(connection["username"]) ## used in conjunction with user function above. i.e. sends the input as username and password in HTTP authentication
+end
+```
+
+In the ZOHO CRM example above, the `authtoken` that is returned from the `acquire` block is used in the `apply` block to add URL parameters to every subsequent request by the connector.
+
+This needn't be the case for simpler methods of authentication where apply blocks can pull directly from user input fields in the `connection` object.
+
+```ruby
+connection: {
+
+  fields: [
+    {
+      name: "token",
+      control_type: "string",
+      label: "Bearer token",
+      optional: false,
+      hint: "Available in 'My Profile' page"
+    }
+  ],
+
+  authorization: {
+    type: 'custom_auth',
+
+    apply: lambda do |connection|
+        headers("Authorization": "Bearer #{connection["token"]}")
+    end
+  }
+}
+```
+
+Over here, we send over an user input token in the every request made by the custom connector in the header.
 
 > The "apply" block will not be applied to any requests made in "acquire". So you will have to include the required credentials for a successful API request here.
 
