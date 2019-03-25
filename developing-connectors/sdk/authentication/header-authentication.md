@@ -1,6 +1,6 @@
 # Header Authentication
 
-For APIs requiring header authentication, this can be easily accomplished if when the token is supplied by the user directly through user input fields.
+For APIs requiring header authentication, this can be easily accomplished if the token is supplied by the user directly through user input fields.
 
 ## Example header authentication
 
@@ -21,7 +21,7 @@ connection: {
     type: 'custom_auth',
 
     apply: lambda do |connection|
-        headers("Authorization": "Bearer #{connection["token"]}")
+      headers("Authorization": "Bearer #{connection["token"]}")
     end
   }
 }
@@ -57,6 +57,6 @@ apply: lambda do |connection|
 end
 ```
 
-> The "apply" block will not be applied to any requests made in "acquire". So you will have to include the required credentials for a successful API request here.
+> The `apply` block will not be applied to any requests made in `acquire`. So you will have to include the required credentials for a successful API request there.
 
-Check out our [custom authentication documents](developing-connectors/sdk/authentication/custom-authentication.md) to find out other methods to authorise your custom connector on Workato.
+Check out our [custom authentication documents](developing-connectors/sdk/authentication/custom-authentication.md) to find out other ways to authenticate your custom connector on Workato.
