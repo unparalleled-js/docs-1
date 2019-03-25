@@ -40,7 +40,7 @@ The Active Directory connector authenticates with LDAP protocol, which is only a
 
 Refer to the following table for the earliest OPA version that supports each feature.
 
-|OPA Version|Feature added|
+|OPA Version|Feature|
 |-|-|
 |2.3|Active Directory connector|
 |2.4.4|Auxiliary class attributes|
