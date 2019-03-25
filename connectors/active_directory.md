@@ -36,6 +36,17 @@ The Active Directory connector authenticates with LDAP protocol, which is only a
 
 ## Working with the Active Directory connector
 
+### OPA versions
+
+Refer to the following table for the earliest OPA version that supports each feature.
+
+|OPA Version|Feature added|
+|-|-|
+|2.3|Active Directory connector|
+|2.4.4|Auxiliary class attributes|
+|2.4.6|Support self-signed certificates for LDAPS|
+|2.4.6.3|User-defined path to server certificate for LDAPS|
+
 ### Object types
 The Active Directory connector works with all types of objects.
 
