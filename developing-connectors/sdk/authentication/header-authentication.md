@@ -1,6 +1,6 @@
 # Header Authentication
 
-For APIs requiring header authentication, this can be easily accomplished if when the token is supplied by the user directly.
+For APIs requiring header authentication, this can be easily accomplished if when the token is supplied by the user directly through user input fields.
 
 ## Example header authentication
 
