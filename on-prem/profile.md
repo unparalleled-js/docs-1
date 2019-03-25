@@ -12,7 +12,7 @@ A single Workato on-premises agent can be used to connect with multiple on-premi
  - [SAP](#sap-connection-profile)
  - [Java messaging service](#jms-connection-profile)
  - [Apache Kafka](#apache-kafka-connection-profile)
- - [Active directory](#active-directory-connection-profile)
+ - [Active Directory](#active-directory-connection-profile)
  - [HTTP resource](#http-resources)
  - [NTLM](#ntlm-connection-profile)
  - [Command-line scripts](#command-line-scripts-profile)
@@ -472,16 +472,84 @@ ldap:
     username: cn=Administrator
     password: foobar
     base: dc=acme,dc=com
+    ssl:
+      cert: /path/to/PEM-encoded-certificate-or-trusted-CA
+      trustAll: true
 ```
 
-where profile configuration properties are:
-
-| Property name | Description |
-|------------------|-------------------------------------------|
-| url | The URL of the LDAP server to use. The URL should be in the format `ldap://myserver.example.com:389`. For SSL access, use the ldaps protocol and the appropriate port, e.g. `ldaps://myserver.example.com:636`. If fail-over functionality is desired, more than one URL can be specified, separated using comma (,). |
-| username | The username (principal) to use when authenticating with the LDAP server. This will usually be the distinguished name of an admin user (e.g.cn=Administrator) |
-| password | The password (credentials) to use when authenticating with the LDAP server |
-| base | The base DN. When this attribute has been configured, all Distinguished Names supplied to and received from LDAP operations will be relative to the specified LDAP path. This can significantly simplify working against the LDAP tree; however there are several occasions when you will need to have access to the base path. For more information on this, please refer to Obtaining a reference to the base LDAP path |
+<table class="unchanged rich-diff-level-one">
+  <thead>
+    <tr>
+        <th colspan=2 width='25%'>Property name</th>
+        <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td colspan=2>
+        <b>url</b><br>
+        <i>required</i>
+      </td>
+      <td>
+        The URL of the LDAP server to use. The URL should be in the format <code>ldap://myserver.example.com:389</code>.<br><br>
+        For SSL access, use the LDAPS protocol. The URL format is in the same format <code>ldaps://myserver.example.com:636</code>.<br><br>
+        If fail-over functionality is desired, more than one URL can be specified, separated using comma (,).
+      </td>
+    </tr>
+    <tr>
+      <td colspan=2>
+        <b>username</b><br>
+        <i>required</i>
+      </td>
+      <td>
+        The username (principal) to use when authenticating with the LDAP server. This will usually be the distinguished name of an admin user. For example, <code>cn=Administrator</code>.
+      </td>
+    </tr>
+    <tr>
+      <td colspan=2>
+        <b>password</b><br>
+        <i>required</i>
+      </td>
+      <td>The password (credentials) to use when authenticating with the LDAP server</td>
+    </tr>
+    </tr>
+    <tr>
+      <td colspan=2>
+        <b>base</b><br>
+        <i>optional</i>
+      </td>
+      <td>
+        The base DN for all requests. When this attribute has been configured, all <b>Distinguished names</b> supplied to and received from LDAP operations will be relative to this LDAP path. This can significantly simplify working against a large LDAP tree.<br><br>
+        However there are several occasions when you will need to have access to the base path. For more information on this, please refer to Obtaining a reference to the base LDAP path.
+      </td>
+    </tr>
+    </tr>
+    <tr>
+      <td rowspan=4>
+        <b>ssl</b><br>
+        <i>optional</i>
+      </td>
+      <td>cert</td>
+      <td>Path the PEM encoded certificate or a trusted CA.</td>
+    </tr>
+    <tr>
+      <td>pem</td>
+      <td>Full content of a PEM encoded certificate.</td>
+    </tr>
+    <tr>
+      <td>key</td>
+      <td>
+        Private key for mutual SSL setup. <b>Required</b> if <code>pem</code> is provided.
+      </td>
+    </tr>
+    <tr>
+      <td>trustAll</td>
+      <td>
+        Set to <code>true</code> to enable self-signed certificates.
+      </td>
+    </tr>
+  </tbody>
+</table>
 
 ## HTTP resources
 
