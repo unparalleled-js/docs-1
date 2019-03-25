@@ -160,6 +160,7 @@
     * [Authentication](developing-connectors/sdk/authentication.md)
     * [Basic auth](developing-connectors/sdk/authentication/basic-authentication.md)
     * [OAuth 2.0](developing-connectors/sdk/authentication/oauth2-authentication.md)
+    * [Header auth](developing-connectors/sdk/authentication/header-authentication.md)
     * [Custom auth](developing-connectors/sdk/authentication/custom-authentication.md)
     * [Test](developing-connectors/sdk/authentication/test.md)
   * [On-prem agent](on-prem.md)
