@@ -319,7 +319,7 @@ When used in a **Delete rows** action, this will delete all rows in the `users` 
 
 ## Configuring triggers
 
-Oracle connector has triggers for both new and updated rows. For the triggers to work, both **Unique keys** must be configured.**Sort columns** need to be configured for triggers that find recently updated rows.
+Oracle connector has triggers for both new and updated rows. For the triggers to work, both **Unique keys** must be configured. **Sort columns** need to be configured for triggers that find recently updated rows.
 
 A table must satisfy some constraints to be used in a trigger. The following sections contain more information about specific constraints. [Read our best practices to find out how you can prepare your table for use with Workato](connectors/oracle/best-practices.md#designing-tables-for-use-in-Workato)
 

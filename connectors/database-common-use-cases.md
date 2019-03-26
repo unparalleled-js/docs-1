@@ -9,23 +9,26 @@ Here are some common use cases of how Workato can connect and integrate with you
 ## Contents
 Workato works with databases to offer workflow automations that allow you to accomplish:
 * Data exporting for use in daily operations
-* Data migration
-* Data replication
+* Data replication from cloud based applications
+* Database access as an API end point
 * Data pipelines to data lakes and data warehouses
 
 ## Data exporting
-Data coming into your database can be used in various ways. Often we need this data coming into our servers from our websites to be available as soon as possible in a variety of applications. Workato makes setting up these workflows simple, maintainable and extensible through our ability to modularly build workflows. Check out the example below to see how we used callable recipes to simplify the process of sending new/updated contact data from database to Salesforce, Mailchimp and Redshift.
+Data coming into your database can be used in various ways. Often we need this data coming into our servers from our websites to be available as soon as possible in a variety of applications. Workato makes setting up these workflows simple by automating these dataflows. Check out the example below to see leads that come in through your database from your website can be quickly integrated with Salesforce and Mailchimp for greater selling efficiency.
 
-<details><summary><b>Data export example </b></summary>
+<details><summary><b>SQL server to Salesforce and Mailchimp </b></summary>
   <br>
-  Company ABC is a industry leader in the beverage business. They manufacture and sell drinks to large retailers and events all over the world. They also have a website that takes down contact information of buyers from companies when they fill up a form and place it into their SQL server databases. Company ABC wants to set up a recipe that can automate the process of moving this contact data over to Salesforce for its sales team to work on their leads, adding these contacts to an email campaign as well as backing these contacts up in their secondary redshift database. Workato can accomplish this by splitting up the workflow into 4 recipes, where each recipe's function is well defined
+    Company ABC is fast growing software company that sells scheduling software for restaurants and other labour intensive companies. They have a website that attracts business owners and managers which fill in their particulars when they sign up for a trial. Company ABC has recently started using Salesforce to improve the capabilities of it's sales team as well as mailchimp to increase the number of customer touchpoints. Lead data comes in from their website into their SQL server database and they hope to automate the process of transferring this data from SQL server to Salesforce as well as adding them as subscribers to their mailchimp campaigns. Workato provides them with an easy to use and scalable way to build workflows that help export data from SQL server to Salesforce and mailchimp.
   <br>
-    ![Callable-recipe-Salesforce](/assets/images/mssql/use-case-data-export-2.png)
-    <center><i>Recipe that handles taking contact data and upserting it into Salesforce</i></center>
-    <br>
-    We start by first creating 3 recipes such as the one above. These recipes are callable recipes where they are triggered by other recipes. They can also receive inputs which we have set in this case to be arrays of contact objects with various properties. Click on the recipe link below to find out more details. Callable recipes act like functions which require certain inputs and can be used to accomplish things such as data transformations as well as transactions to other apps. This reduces redundancy in recipes as any other recipe can call this same recipe to create a new contact in Salesforce by giving the proper inputs
-<br>
-    Callable recipes are also great for eliminating the need to constantly use the same steps to transform your data. For example, Company ABC's callable recipe to back data up to Redshift could include actions to transform and aggregate data and be used to send both raw contact data into one table and aggregated data into another for data analysis.
+  ![Recipe workflow](assets/images/mssql/use-case-data-export-1.png)
+  <center><i>Recipe overall workflow</i></center>
+  <br>
+    We start by first creating a trigger based on the table in their SQL server database where new contact records are inserted when a user fills up their form on their website. After configuring the trigger, we add error handling through steps 1 and 4 which watch for errors and send an email if any error is raised. Steps 2 and 3 come next where we can create contacts Salesforce based on return data from the records received in our trigger.
+  <br>
+  ![Configuring contacts in Salesforce connector](/assets/images/mssql/use-case-data-export-2.png)
+  <center><i>Saleforce configuration and using datapills from trigger output</i></center>
+  <br>
+    By clicking on the Saleforce step and selecting create new
   <br>
     ![parent-recipe](/assets/images/mssql/use-case-data-export-1.png)
     <center><i>Parent recipe that controls the workflow and calls the other recipes</i></center>
@@ -76,10 +79,11 @@ Workato allows you to perform data migrations of any scale using recipes that ar
 </details>
 
 ## Data Replication
-  Data replication and the backing up of data into separate databases provides companies with a way to plan for disaster recovery, accomodate different geographical regions as well as increase the availability of data to stakeholders without placing all stress on a single server. Workato allows you to create recipes that can migrate large amounts of from one database to another.
+  Data replication and the backing up of data into separate databases provides companies with a way to plan for disaster recovery, increasing availability of data for analytics and reducing strain on a single server. Workato allows you to create recipes that can migrate large amounts of from one database to another at regular intervals. Because of the simple interface, Workato also makes it easy for troubleshooting and reproducing these replication processes if you happen to change your database provider as you simply need to change your connection on the recipe - no coding required! For examples on how you can do a daily database replication instead, check out our example on Data Warehousing below which can be used.
 
 <details><summary><b>Streaming data replication example (Oracle to SQL)</b></summary>
-  Company ABC has offices all over the world and seeks replicate its databases centralised in its US office with servers in South East Asia. This reduces strain on the company's central database system as ad hoc query reports and data analysis from teams around the world can be split amongst these two databases. Workato can be used to replicate large datasets over different database servers and types, performing transformations along the way. Company ABC can set up a recipe on Workato that is able to transfer a large table in its Oracle database to its SQL server database in batches at certain intervals a day. In Workato, this can be done pretty easily in a two step recipe.
+  Company ABC has been experiencing significant growth and its databases are struggling to keep up with the read heavy queries that its analytics department uses. In order to be able to scale sustainably, Company ABC hopes to automate the task of replicating its database periodically to a secondary server that can help balance the load. Workato can be used to replicate large datasets over different database servers and types, performing transformations along the way. Company ABC can set up an easy 2 step recipe on Workato that is able to transfer a large table in its Oracle database to its SQL server database in batches at certain intervals a day.
+
 <br>
   ![Oracle polling trigger to SQL server](/assets/images/mssql/use-case-data-migration-1.png)
   <center><i>Recipe checks Oracle database for new/updated triggers and sends it over to SQL server</i></center>
@@ -110,25 +114,25 @@ Workato allows you to perform data migrations of any scale using recipes that ar
   <center><i>Increase job concurrency to increase throughput</i></center>
 
   By sending over the records in batches and using concurrent job runs, Workato is able to replicate large databases through systematic batch processing.
+
+  > This process is quite advanced and not recommended for
+  >
+
   <h3> <a href="https://www.workato.com/recipes/913037">Recipe link</a> </h3>
 </details>
 
 ## Data Warehousing/ Data lakes
-  With many 3rd party applications handling different aspects of their business, Centralising HR data into a cenral data warehouse can make reporting easier and support decision makers. Workato can be used to automate the process of sending data over to a central SQL server from multiple sources each day as well as executing stored procedures that help maintain your data warehouse such as purging old data, rebuilding indexes, reviewing database size and statistics to send to database management stakeholders.
+  Data warehouses and data lakes are useful tools to empower analytics and business intelligence in business. They are be used in various different capacities such as department specific warehouses for operations centric or HR centric data. Workato can be used to automate the process of sending data over to a data warehouse from multiple sources each day. This makes maintaining your data pipelines much easier by automating the process and minimising the troubleshooting involved when changes such as table schemas are made.
 
- <details><summary><b>Data Warehouse example (Multiple sources to SQL server)</b></summary>
-  Company ABC has offices all over the world and thousands of employees. Offices across countries use different HR tools as well as different numbers of tools to keep track of staff performance. Upper management has decided to create a central HR data warehouse where data from each office can flow into. This would set the foundation for analysis of staff performance given policy changes and improvements put into effect. Company ABC can set up a recipes on Workato that can automate this process and have chosen to centralise their data from Workday, Wrike and Salesforce for this exercise.
+ <details><summary><b>SQL server Daily sync to Snowflake warehouse via Amazon S3</b></summary>
+  Company ABC wants to sync contact information of all its customers into Snowflake to allow for better real time reporting. Due to the large volume of contact information received each day, Company ABC needs a fast and efficient way of transferring data from SQL server to Snowflake. A recipe on Workato can be made that leverages on the use of stored procedures, on-prem files and Amazon s3 to transfer large amounts of data quickly.
 <br>
-  ![Data-warehouse-trigger-workday](/assets/images/mssql/Data-warehouse-trigger-workday.png)
-  <center><i>Triggered daily, this recipe begins by first generating a report on Workday to load into the database</i></center>
+  ![Data-warehouse-recipe](/assets/images/mssql/Data-warehouse-recipe.png)
+  <center><i>Triggered daily, this recipe moves large amounts of data from SQL server to Snowflake</i></center>
 <br>
-  Upon triggering, this recipe gets Workday to generate a report of Workers in the company and batches these employees before upserting them in the SQL server database. Batching was done as the batch size limit of the upsert action present in SQL server is 400.
-<br>
- ![Get-data-from-SFDC-Wrike-Email](/assets/images/mssql/Get-data-from-SFDC-Wrike-Email.png)
- <center><i>Upserts data from Wrike and Salesforce before executing Stored procedure for maintenance and sending out emails</i></center>
-<br>
-  Next up, data is transfered in a simpler way for SFDC and Wrike due to the low amount of records for either. The batching method used for Workday can be implemented easily for SFDC and Wrike if needed. Another good practice would be to separate this recipe for readability and maintainability.
+  Upon triggering, this recipe executes a stored procedure on SQL server that transforms data exports it into a specified folder as a CSV. This folder is configured such that Workato's on-prem agent is connected to it. Using Workato's on-prem file connector, new folders like this can be downloaded and quickly uploaded to Amazon S3. Lastly, Workato's native Snowflake to S3 bucket integration can be used quickly load all this data in.
+<br> <br>
+  This recipe not only automates the process of transferring data but allows for the easy maintenance of such pipelines. Workato's easy to use interface means that schema changes or changes to which data warehouse you are using can be easily switch out. Authentication would also be done via our platform so you needn't have to deal with that complexity.
 
-  The last step is to execute a Stored procedure on SQL server that does basic data maintenance such as data purging, rebuilding of indexes amongst others. This makes sure your data base is ready for end users. Emails to report job errors as well as success should be put in place to ensure nothing is amiss. These recipes can also be shared with stakeholders in each of Company ABC's office to maintain their own data pipelines into the the central HR database. Check out our [recipe development lifecycle documents](/recipe-development-lifecycle.md) to find out more!
-
+  <h3> <a href="https://www.workato.com/recipes/917080#recipe">Recipe link</a> </h3>
 </details>

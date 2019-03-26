@@ -158,11 +158,12 @@ When looking to make triggers using our `New row` and `New/updated row` triggers
 2. When this is not the case, one of two solutions can be implemented
   * Finding an existing key that can act as a proxy which is an integer, unique and auto incrementing
   * Creating a new auto incrementing unique integer key
+3. It is always advisable to create tables with simple primary keys rather than composite primary keys as much as possible. This simplifies the process of setting up triggers
 
 > <details><summary><b>How to create a new auto incrementing key</b></summary>
 > Oracle does not support auto incrementing columns in versions 11g and versions before.
 > <br> <br>
-> <b> Here is how you can implement an auto_incrementing key for versions 11g and before</b>
+> <b> Here is how you can implement an auto_incrementing key for versions 11g and before</b> <br>
 > 1. A sequence needs to be first created, which is a data object that multiple users can access to automatically generate incremented values.
 > 2. Enter the following commands to create an new sequence as well as create a new column, where [your_table_name] and [column_name] are placeholders for your table name and new column name respectively
 >
@@ -186,9 +187,8 @@ When looking to make triggers using our `New row` and `New/updated row` triggers
 > </code></pre>
 >
 > 4. You can now use this column as your unique key!
-> <br>
-> <b>Here is how you can implement an auto incrementing key for versions after 11g</b>
-> <br> <br>
+> <br><br>
+> <b>Here is how you can implement an auto incrementing key for versions after 11g</b><br>
 >
 > 1. We can use <code>IDENTITIES</code> to do so. Type in the following commands, where [your_table_name] and [column_name] are placeholders for your table name and new column name respectively
 >
