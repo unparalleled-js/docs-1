@@ -8,117 +8,97 @@ Here are some common use cases of how Workato can connect and integrate with you
 
 ## Contents
 Workato works with databases to offer workflow automations that allow you to accomplish:
-* Data exporting for use in daily operations
+* Data exporting from databases for daily operations
 * Data replication from cloud based applications
-* Database access as an API end point
+* Database reports/ information as an API end point
 * Data pipelines to data lakes and data warehouses
 
-## Data exporting
+## Data exporting from databases for daily operations
 Data coming into your database can be used in various ways. Often we need this data coming into our servers from our websites to be available as soon as possible in a variety of applications. Workato makes setting up these workflows simple by automating these dataflows. Check out the example below to see leads that come in through your database from your website can be quickly integrated with Salesforce and Mailchimp for greater selling efficiency.
 
 <details><summary><b>SQL server to Salesforce and Mailchimp </b></summary>
   <br>
-    Company ABC is fast growing software company that sells scheduling software for restaurants and other labour intensive companies. They have a website that attracts business owners and managers which fill in their particulars when they sign up for a trial. Company ABC has recently started using Salesforce to improve the capabilities of it's sales team as well as mailchimp to increase the number of customer touchpoints. Lead data comes in from their website into their SQL server database and they hope to automate the process of transferring this data from SQL server to Salesforce as well as adding them as subscribers to their mailchimp campaigns. Workato provides them with an easy to use and scalable way to build workflows that help export data from SQL server to Salesforce and mailchimp.
-  <br>
-  ![Recipe workflow](assets/images/mssql/use-case-data-export-1.png)
+    Company ABC is fast growing software company that sells scheduling software for restaurants and other labour intensive companies. They have a website that attracts business owners and managers which fill in their particulars when they sign up for a trial. Company ABC has recently started using Salesforce to improve the capabilities of it's sales team as well as mailchimp to increase the number of customer touchpoints. Lead data comes in from their website into their SQL server database and they hope to automate the process of transferring this data from SQL server to Salesforce as well as adding them as subscribers to their mailchimp campaigns.
+  <br> <br>
+    Workato provides them with an easy to use and scalable way to build workflows that help export data from SQL server to Salesforce and mailchimp.
+  <br> <br>
+
+  ![Recipe workflow](/assets/images/mssql/use-case-data-export-1.png)
+
   <center><i>Recipe overall workflow</i></center>
   <br>
-    We start by first creating a trigger based on the table in their SQL server database where new contact records are inserted when a user fills up their form on their website. After configuring the trigger, we add error handling through steps 1 and 4 which watch for errors and send an email if any error is raised. Steps 2 and 3 come next where we can create contacts Salesforce based on return data from the records received in our trigger.
+    We start by first creating a trigger based on the table in their SQL server database where new contact records are inserted when a user fills up their form on their website. After configuring the trigger, we add error handling through steps 1 and 5 which watch for errors and send an email if any error is raised. Steps 2, 3 and 4 come next where we can create contacts Salesforce based on return data from the records received in our trigger.
   <br>
+
   ![Configuring contacts in Salesforce connector](/assets/images/mssql/use-case-data-export-2.png)
-  <center><i>Saleforce configuration and using datapills from trigger output</i></center>
-  <br>
-    By clicking on the Saleforce step and selecting create new
-  <br>
-    ![parent-recipe](/assets/images/mssql/use-case-data-export-1.png)
-    <center><i>Parent recipe that controls the workflow and calls the other recipes</i></center>
-    <br>
-    After setting up these recipes, we can now build the parent recipe that calls each callable recipe we have set up. Callable recipes can be called synchronously or asynchronously (either waiting for the called recipe to finish running or go on without waiting for that recipe to run). Take note that dependencies further down that require the outputs from recipes should be call synchronously.
 
+  <center><i>Salesforce configuration and using datapills from trigger output</i></center>
+  <br>
+    By clicking on the Saleforce step and selecting create new records in batches, we not only speed up the time taken for the recipe to run by inserting new contacts into Salesforce by batch but we can also map the output from the SQL server trigger to contact information created in Salesforce. Above, you can see how we are mapping Account ID in Salesforce contacts to the Account_ID in our SQL server databases.
+  <br>
+
+  ![Configuring subscribers in Mailchimp connector](/assets/images/mssql/use-case-data-export-3.png)
+
+  <center><i>Mailchimp configuration and using datapills from trigger output</i></center>
+  <br>
+    Since the Mailchimp connector does not have batch actions, this can be overcome through Workato's repeat action. Workato's repeat action allows us to cycle through the list of contacts from the SQL server trigger earlier. We then just need to add each contact in the list as a subscriber to a Mailchimp campaign.
   <br><br>
 
-  ![Data-migration-Recipe-Flow](/assets/images/mssql/Data-migration-Recipe-Flow.png)
-  <center><i>Recipe flow when migrating data with error handling and monitoring</i></center>
+  This recipe can be extended to easily to include more actions if your workflows becomes more complex. Remember to keep in mind the use of batch actions whenever possible to reduce the number of tasks each recipes uses! Benefits of using Workato include the ability for these workflows to be changed so easily! Changes from one email campaign software such as Mailchimp to Sendgrid are easily handled with minimal coding.
 
-  <br><br>
-
-  After configuring the trigger, we begin by first setting up an error monitoring step to allow us to handle any potential errors that come up during the migration. After that, it is always helpful to research for account records at recipe run-time to reduce the chances of migrating over data that is not up to date. We use the repeat action on Workato to cycle through each retrieved account, pull this information again from Salesforce right before storing all this information in a list. <br>
-
-  After cycling through all accounts in this batch, upsert this batch of account records into the designated SQL server. Upsert is used instead of insert to guard against making duplicate accounts that might occur. And just like that your data migration of accounts from Salesforce to SQL server is done! Dont forget to test this recipe and you may want to consider building this into a larger workflow that involves the migration of contact information and other crucial information stored in Salesforce. <br>
   <h3> <a href="https://www.workato.com/recipes/915591#settings">Recipe link</a> </h3>
 
 </details>
 
-## Data migration
-Workato allows you to perform data migrations of any scale using recipes that are easy to design, test and push into production. Data migrations are an essential consideration from your company is transitioning from one database provider to another or when upgrading the applications your teams are using.
+## Data replication from cloud based applications
+Workato allows you to perform data migrations of any scale using recipes that are easy to design, test and push into production. Data migrations are an essential consideration from your company is transitioning from one application to another as well as an essential step when backing up your data onto your local database servers. For example, Workato can be used to automate the process of backing up your Salesforce data onto your SQL servers.
 
-<details><summary><b>Data migration example (Salesforce to in-house CRM software)</b></summary>
+<details><summary><b>Salesforce to SQL server </b></summary>
   <br>
-  Company ABC is medium sized company that sells commercial insurance. Their sales team uses Salesforce as their CRM tool but their engineering team has built an inhouse CRM software that can better suits the workflow of selling insurance. To accomplish the migration, Workato can be used to pull account information from Salesforce and migrate the data over to ABC's SQL server databases which the new CRM software will pull data from.
+  Company ABC is medium sized company that sells commercial insurance. Their sales team uses Salesforce as a CRM tool. Company ABC is beginning to practice the act backing up important their sales data stored in Salesforce in their own personal SQL servers as a way of disaster recovery plans. Workato can be used to automate this process and remove the need for any code to be written to set up this workflow.
+
   <br><br>
 
-  ![Pulling-Salesforce-Records](/assets/images/mssql/Pulling-Salesforce-Records.png)
+  ![Recipe Workflow](/assets/images/mssql/use-case-data-replication-1.png)
   <center><i>Pulling accounts in batches to increase recipe efficency</i></center>
 
-  <br><br>
+  <br>
 
-  We begin by first pulling Saleforce accounts in batches. Leaving the `When first started, this recipe should pick up events from` input field blank allows us to retrieve all records.
-
-  <br><br>
-
-  ![Data-migration-Recipe-Flow](/assets/images/mssql/Data-migration-Recipe-Flow.png)
-  <center><i>Recipe flow when migrating data with error handling and monitoring</i></center>
+  We begin by first pulling Saleforce accounts in batches. Leaving the `When first started, this recipe should pick up events from` input field blank allows us to retrieve all records when the recipe is first run.
 
   <br><br>
 
-  After configuring the trigger, we begin by first setting up an error monitoring step to allow us to handle any potential errors that come up during the migration. After that, it is always helpful to research for account records at recipe run-time to reduce the chances of migrating over data that is not up to date. We use the repeat action on Workato to cycle through each retrieved account, pull this information again from Salesforce right before storing all this information in a list. <br>
+  ![Salesforce to SQL server](/assets/images/mssql/use-case-data-replication-2.png)
+  <center><i>Mapping Salesforce datapills to columns in SQL server</i></center>
 
-  After cycling through all accounts in this batch, upsert this batch of account records into the designated SQL server. Upsert is used instead of insert to guard against making duplicate accounts that might occur. And just like that your data migration of accounts from Salesforce to SQL server is done! Dont forget to test this recipe and you may want to consider building this into a larger workflow that involves the migration of contact information and other crucial information stored in Salesforce. <br>
+  <br>
+
+  Use the batch upsert action in SQL server to update existing Salesforce records that have been updated whilst creating any potentially new Salesforce contacts.
+
+  <br>
+
   <h3> <a href="https://www.workato.com/recipes/912863#recipe">Recipe link</a> </h3>
 
 </details>
 
-## Data Replication
-  Data replication and the backing up of data into separate databases provides companies with a way to plan for disaster recovery, increasing availability of data for analytics and reducing strain on a single server. Workato allows you to create recipes that can migrate large amounts of from one database to another at regular intervals. Because of the simple interface, Workato also makes it easy for troubleshooting and reproducing these replication processes if you happen to change your database provider as you simply need to change your connection on the recipe - no coding required! For examples on how you can do a daily database replication instead, check out our example on Data Warehousing below which can be used.
+## Database reports/ information as an API end point
+  Companies that want to grant access to internal teams or clients without exposing their database can do so in the form of an API managed directly through Workato. Workato allows you to [build APIs](/api-management.md) that can call recipes that trigger workflows involving your database such as returning how much inventory you have left of a certain product or the status of a delivery. Check out the recipe below on how to build a callable recipe in Workato that can be exposed securely via a REST API to your company's business partners.
 
-<details><summary><b>Streaming data replication example (Oracle to SQL)</b></summary>
-  Company ABC has been experiencing significant growth and its databases are struggling to keep up with the read heavy queries that its analytics department uses. In order to be able to scale sustainably, Company ABC hopes to automate the task of replicating its database periodically to a secondary server that can help balance the load. Workato can be used to replicate large datasets over different database servers and types, performing transformations along the way. Company ABC can set up an easy 2 step recipe on Workato that is able to transfer a large table in its Oracle database to its SQL server database in batches at certain intervals a day.
+<details><summary><b>Callable recipe to return inventory status</b></summary>
+  Company ABC is a growing toy company that retails through various online partners. Instead of having to always update each partner of its inventory status of each of it's toys, it can now give each partner access to its API which queries its Oracle database to find out the inventory status of each of its toys. This reduces workload on both ends and also allows for real time updates for it's business partners.
 
-<br>
-  ![Oracle polling trigger to SQL server](/assets/images/mssql/use-case-data-migration-1.png)
-  <center><i>Recipe checks Oracle database for new/updated triggers and sends it over to SQL server</i></center>
   <br>
-  In this recipe, Workato checks your Oracle database every few minutes and retrieves any new/updated rows. Batching is done automatically for you through our batch triggers and we can use batch actions in SQL server to send the data over quickly.
+  ![Recipe workflow](/assets/images/mssql/use-case-API-1.png)
+  <center><i>Recipe is triggered whenever an authenticated user calls this end point</i></center>
   <br>
-  ![Error-handling](/assets/images/mssql/use-case-data-migration-2.png)
-  <center><i>Error handling is a great way to verify that all batches have gone through. Emails sent for success and errors can help with intervention monitoring as well</i></center>  
-  It is always a good practice to set up error handling in your recipes. In production, you would want to notify and send emails to relevant stakeholders to let them know that something has gone wrong so they can work on rectifying it immediately. Over here, we set up error handling through emails sent that provide feedback on whether the job succeeded or failed.
+  This recipe can be triggered by other recipes in Workato as well as external sources that have a valid authentication key. Setting up an API on Workato can be found [here](/api-management.md)
   <br>
-  <h3> <a href="https://www.workato.com/recipes/915576l#recipe">Recipe link</a> </h3>
-</details>
-<br>
-<details><summary><b>Daily database replication example (Oracle to SQL)</b></summary>
-  In another case, Company ABC wants to limit its database replication efforts to a daily scheduled sync of data between its Oracle and SQL server databases. This is often done as scheduled syncs can be done at times where database traffic is lowest and reduces strain on the server as compared to our continuous replication example previously. Workato allows for this as well through manual batching.
-
-  ![Parent Recipe view](/assets/images/mssql/Parent-recipe-data-replicatin.png)
-  <center><i>Parent recipe that helps control the dispatching of batches for transfer</i></center>
+  ![Custom SQL query](/assets/images/mssql/use-case-API-2.png)
+  <center><i>Custom SQL is used to access the `group by` functionality of SQL</i></center>  
   <br>
-  To begin, a parent recipe is set up that controls the controlling of batches being upserted into the SQL server database. After finding out how many batchs there should be, the recipe proceeds to call another recipe that is in charge of the retreival of a particular batch and its upserting into the SQL server. Indexing your SQL server's unique key would greatly reduce the time taken for these actions to complete and might be essential to prevent the job from timing out. Input parameters `Limit`, `Offset` and `Orderby` are passed into this called recipe to help specify the batch.
+  The request body of the API call could contain information such as which toys that the partner wants to know inventory of. A SQL query is used to group and count the inventory of that specific toy in the database and the result is sent to the caller as a API response.
   <br>
- ![Recipe to handle retrieval and upserting of rows](/assets/images/mssql/Recipe-to-handle-retrieval-and-upserting-of-rows.png)
- <center><i>Called recipe that handles retrieval and upserting of rows in SQL server</i></center>
- <br>
-  To increase throughput, the called recipe can be toggled to increase the number of concurrent jobs that can be run. This can be done in the settings tabs of the recipe
-<br>
-  ![Setting concurrency number](/assets/images/mssql/replication-use-case-concurrent-setting.png)
-  <center><i>Increase job concurrency to increase throughput</i></center>
-
-  By sending over the records in batches and using concurrent job runs, Workato is able to replicate large databases through systematic batch processing.
-
-  > This process is quite advanced and not recommended for
-  >
-
-  <h3> <a href="https://www.workato.com/recipes/913037">Recipe link</a> </h3>
+  <h3> <a href="https://www.workato.com/recipes/917299#recipe">Recipe link</a> </h3>
 </details>
 
 ## Data Warehousing/ Data lakes
