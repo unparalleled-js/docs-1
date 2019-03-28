@@ -14,20 +14,22 @@ Workato works with databases to offer workflow automations that allow you to acc
 * Data pipelines to data lakes and data warehouses
 
 ## Data exporting from databases for daily operations
-Data coming into your database can be used in various ways. Often we need this data coming into our servers from our websites to be available as soon as possible in a variety of applications. Workato makes setting up these workflows simple by automating these dataflows. Check out the example below to see leads that come in through your database from your website can be quickly integrated with Salesforce and Mailchimp for greater selling efficiency.
+Data coming into your database can be used in various ways. Often we need this data coming into our servers from our websites to be available as soon as possible in a variety of applications. Workato makes setting up these workflows simple by automating them. Check out the example below to see how changes in user attribute that come in through your database from your website can be quickly integrated with Salesforce and Mailchimp for greater selling efficiency. This could happen when users on your app indicate their interest in purchasing an item or perform a certain action that you believe indicates an upsell opportunity.
+
+This recipe can be extended to easily to include more actions if your workflows becomes more complex. Remember to keep in mind the use of batch actions whenever possible to reduce the number of tasks each recipes uses! Benefits of using Workato include the ability for these workflows to be changed so easily! Changes from one email campaign software such as Mailchimp to Sendgrid are easily handled with minimal coding.
 
 <details><summary><b>SQL server to Salesforce and Mailchimp </b></summary>
   <br>
-    Company ABC is fast growing software company that sells scheduling software for restaurants and other labour intensive companies. They have a website that attracts business owners and managers which fill in their particulars when they sign up for a trial. Company ABC has recently started using Salesforce to improve the capabilities of it's sales team as well as mailchimp to increase the number of customer touchpoints. Lead data comes in from their website into their SQL server database and they hope to automate the process of transferring this data from SQL server to Salesforce as well as adding them as subscribers to their mailchimp campaigns.
+    Company ABC is fast growing software company that sells scheduling software for restaurants and other labour intensive companies. They currently use a mobile application as well as browser application as a platform to allow their clients to do scheduling. As they push out a new system that handles leave tracking and payroll, they want to upsell these features to existing customers who currently have a certain number of employees as well as any customers that grow above this size.
   <br> <br>
-    Workato provides them with an easy to use and scalable way to build workflows that help export data from SQL server to Salesforce and mailchimp.
+    Workato provides them with an easy to use and scalable way to build workflows  that help export applicable customer data from SQL server where their data is stored to Salesforce and mailchimp.
   <br> <br>
 
   ![Recipe workflow](/assets/images/mssql/use-case-data-export-1.png)
 
   <center><i>Recipe overall workflow</i></center>
   <br>
-    We start by first creating a trigger based on the table in their SQL server database where new contact records are inserted when a user fills up their form on their website. After configuring the trigger, we add error handling through steps 1 and 5 which watch for errors and send an email if any error is raised. Steps 2, 3 and 4 come next where we can create contacts Salesforce based on return data from the records received in our trigger.
+    We start by first creating a trigger based on the table in their SQL server database where customer data is created or updated regularly based the application. After configuring the trigger, we add error handling through steps 1 and 5 which watch for errors and send an email if any error is raised. Steps 2, 3 and 4 come next where we can create contacts Salesforce based on return data from the records received in our trigger.
   <br>
 
   ![Configuring contacts in Salesforce connector](/assets/images/mssql/use-case-data-export-2.png)
@@ -44,18 +46,18 @@ Data coming into your database can be used in various ways. Often we need this d
     Since the Mailchimp connector does not have batch actions, this can be overcome through Workato's repeat action. Workato's repeat action allows us to cycle through the list of contacts from the SQL server trigger earlier. We then just need to add each contact in the list as a subscriber to a Mailchimp campaign.
   <br><br>
 
-  This recipe can be extended to easily to include more actions if your workflows becomes more complex. Remember to keep in mind the use of batch actions whenever possible to reduce the number of tasks each recipes uses! Benefits of using Workato include the ability for these workflows to be changed so easily! Changes from one email campaign software such as Mailchimp to Sendgrid are easily handled with minimal coding.
-
-  <h3> <a href="https://www.workato.com/recipes/915591#settings">Recipe link</a> </h3>
+  <h3> <a href="https://www.workato.com/recipes/917205-data-export-sql-server-to-salesforce-and-mailchimp#recipe">Recipe link</a> </h3>
 
 </details>
 
 ## Data replication from cloud based applications
-Workato allows you to perform data migrations of any scale using recipes that are easy to design, test and push into production. Data migrations are an essential consideration from your company is transitioning from one application to another as well as an essential step when backing up your data onto your local database servers. For example, Workato can be used to automate the process of backing up your Salesforce data onto your SQL servers.
+Workato allows you to perform data migrations of any scale using recipes that are easy to design, test and push into production. Data migrations are an essential considerations for a company that is transitioning from one application to another as well as an essential step when backing up your data onto your local database servers. For example, Workato can be used to automate the process of backing up your Salesforce data onto your SQL servers. Check out the example to find out how.
+
+This recipe can be used to also perform transformations before storing the final values in SQL server and removes the need for any complex scripts to be run and maintained. Using Workato, any further changes can be handled without any code at all.
 
 <details><summary><b>Salesforce to SQL server </b></summary>
   <br>
-  Company ABC is medium sized company that sells commercial insurance. Their sales team uses Salesforce as a CRM tool. Company ABC is beginning to practice the act backing up important their sales data stored in Salesforce in their own personal SQL servers as a way of disaster recovery plans. Workato can be used to automate this process and remove the need for any code to be written to set up this workflow.
+  Company ABC is a company that sells commercial insurance. Their sales team uses Salesforce as a CRM tool. Company ABC is beginning to practice the act backing up important their sales data stored in Salesforce in their own personal SQL servers as a way of disaster recovery plans. Workato can be used to automate this process and remove the need for any code to be written to set up this workflow.
 
   <br><br>
 
@@ -82,7 +84,9 @@ Workato allows you to perform data migrations of any scale using recipes that ar
 </details>
 
 ## Database reports/ information as an API end point
-  Companies that want to grant access to internal teams or clients without exposing their database can do so in the form of an API managed directly through Workato. Workato allows you to [build APIs](/api-management.md) that can call recipes that trigger workflows involving your database such as returning how much inventory you have left of a certain product or the status of a delivery. Check out the recipe below on how to build a callable recipe in Workato that can be exposed securely via a REST API to your company's business partners. This can also be extended to be done from an on-premises database, abstracting away the complexity of managing this connection.
+  Companies that want to grant access to internal teams or clients without exposing their database can do so in the form of an API managed directly through Workato. Workato allows you to [build APIs](/api-management.md) that can call recipes that trigger workflows involving your database such as returning how much inventory you have left of a certain product or the status of a delivery. Check out the recipe below on how to build a callable recipe in Workato that can be exposed securely via a REST API to your company's business partners.
+
+  This recipe can also be extended to be done from an on-premises database, abstracting away the complexity of managing this connection. Any further changes to the business needs of your business or your partners can also be done directly on Workato with a basic understanding of SQL and no coding as well!
 
 <details><summary><b>Callable recipe to return inventory status</b></summary>
   Company ABC is a growing toy company that retails through various online partners. Instead of having to always update each partner of its inventory status of each of it's toys, it can now give each partner access to its API which queries its Oracle database to find out the inventory status of each of its toys. This reduces workload on both ends and also allows for real time updates for it's business partners.
@@ -101,8 +105,10 @@ Workato allows you to perform data migrations of any scale using recipes that ar
   <h3> <a href="https://www.workato.com/recipes/917299#recipe">Recipe link</a> </h3>
 </details>
 
-## Data Warehousing/ Data lakes
+## Data Warehousing/ Database syncs
   Data warehouses and data lakes are useful tools to empower analytics and business intelligence in business. They are be used in various different capacities such as department specific warehouses for operations centric or HR centric data. Workato can be used to automate the process of sending data over to a data warehouse from multiple sources each day. This makes maintaining your data pipelines much easier by automating the process and minimising the troubleshooting involved when changes such as table schemas are made.
+
+  This recipe not only automates the process of transferring data but allows for the easy maintenance of such pipelines. Workato's easy to use interface means that schema changes or changes to which data warehouse you are using can be easily switch out. Authentication would also be done via our platform so you needn't have to deal with that complexity.
 
  <details><summary><b>SQL server Daily sync to Snowflake warehouse via Amazon S3</b></summary>
   Company ABC wants to sync contact information of all its customers into Snowflake to allow for better real time reporting. Due to the large volume of contact information received each day, Company ABC needs a fast and efficient way of transferring data from SQL server to Snowflake. A recipe on Workato can be made that leverages on the use of stored procedures, on-prem files and Amazon s3 to transfer large amounts of data quickly.
@@ -111,8 +117,7 @@ Workato allows you to perform data migrations of any scale using recipes that ar
   <center><i>Triggered daily, this recipe moves large amounts of data from SQL server to Snowflake</i></center>
 <br>
   Upon triggering, this recipe executes a stored procedure on SQL server that transforms data exports it into a specified folder as a CSV. This folder is configured such that Workato's on-prem agent is connected to it. Using Workato's on-prem file connector, new folders like this can be downloaded and quickly uploaded to Amazon S3. Lastly, Workato's native Snowflake to S3 bucket integration can be used quickly load all this data in.
-<br> <br>
-  This recipe not only automates the process of transferring data but allows for the easy maintenance of such pipelines. Workato's easy to use interface means that schema changes or changes to which data warehouse you are using can be easily switch out. Authentication would also be done via our platform so you needn't have to deal with that complexity.
+<br>
 
   <h3> <a href="https://www.workato.com/recipes/917080#recipe">Recipe link</a> </h3>
 </details>
