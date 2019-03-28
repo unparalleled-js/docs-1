@@ -11,11 +11,11 @@ We compiled a few of our best practices that make your life easier when developi
 ## Recipe design patterns
 Workato contains numerous functions that makes life easier for you when you're designing recipes. Using tools such as [callable recipes](/features/callable-recipes.md) and single row/batch actions, you'll be able to break down complex workflow processes to create recipes that mimic your current dataflows without decreasing performance and troubleshoot them easily. Here are some [general recipe building best practices](/recipes/best-practices-building.md), but read on more to find out some of the rules specific to databases that you should keep in mind when building recipes in Workato.
 
-### Keep conscious and minimise database actions whenever possible
+### Keep conscious of the number of database actions in your recipe and remove redundancies whenever possible
 When designing your recipes, it helps to keep in mind that each database action induces additional load on your servers. To minimise strain on your databases, removing unnecessary steps and thoughtful use of batch actions mean your recipes are more sustainable and cost effective.
 
 #### Common ways to reduce database actions
-* Using `Upsert` instead of using `Select`
+* Using `Upsert` instead of using `Select` and `Update/Insert`
 * Using Workato's `Lists` by Workato to aggregate data and using batch actions to send it over to SQL server. This can be applied when a connector does not have batch action/trigger functionality
 * Using stored procedures or custom SQL functions whenever possible to accomplish more actions on your database server before sending it over to Workato
 
@@ -27,7 +27,7 @@ Databases are often used for a wide range of tasks and it may be tempting to cre
 
 For example, if we were hoping to use Workato to build a workflow that accomplished the following
 
-1. reads new contact information from a SQL server data base
+1. reads new/updated contact information from a SQL server data base
 2. performs basic transformations
 3. creates new accounts in Salesforce
 4. adds these contacts into a mailchimp campaign
@@ -83,7 +83,7 @@ One should consider splitting this workflow up into 4 separate recipes.
 </body>
 </table>
 
-By splitting this workflow up into multiple recipes, this allows other recipes and 3rd party apps to also call upon recipe 1, 2 and 3 reducing the amount of redundant steps if, for example, another recipe needed to back data up in a redshift database. Changes to any step or improvements to any part of the workflow, such as a change in email provider from mailchimp to SendGrid would be handled much easier due to this design pattern. Check out our [use cases](/connectors/database-common-use-cases.md#data-exporting) to see how this was implemented!
+By splitting this workflow up into multiple recipes, this allows other recipes and 3rd party apps to also call upon recipe 1, 2 and 3 reducing the amount of redundant steps if, for example, another recipe needed to back data up in a redshift database. Changes to any step or improvements to any part of the workflow, such as a change in email provider from mailchimp to SendGrid would be handled much easier due to this design pattern.
 
 ### When to use batch of rows triggers/actions vs single row triggers/actions
 With the ability to break down complex workflows through callable recipes, the decision to use batch or single row actions are often a matter of business requirements and design considerations. While batch triggers/actions reduce the load on your servers and improve time efficiency by batching up to a 100 records into a single call, there exists a trade-off as batch actions that do fail, fail on a batch level.
@@ -127,11 +127,11 @@ When examined, most workflows with applicable batch triggers/actions can be acco
 Choosing between [update](/connectors/mssql/update.md), [insert](/connectors/mssql/insert.md) and [upsert](/connectors/mssql/upsert.md) actions can have numerous implications for your recipes and SQL server tables. While upserts can be used to accomplish most actions where update or insert are used, here are some of the key considerations to keep in mind when choosing one over the other.
 
 **Key considerations**
-1. Upsert performs better in certain cases where records should be unique based on a **single** column. This reduces the number of steps required in the recipe when a search would have had to been performed to decide whether to update a record or insert a new record.
+1. Upsert performs better in certain cases where records should be unique based on a **single** column. This reduces the number of steps required in a recipe where a search would have had to been performed to decide whether to update a record or insert a new record.
 2. Upserts are useful in failed job runs where repeating a failed job where it previously inserted a row would not result in another row being created. Inserts would insert yet another row if the job were to be run again.
 3. Upserts need to be documented properly to ensure maintainability. Since it becomes unclear without documentation whether steps that use upsert are always inserts or always updates, it becomes challenging for others in your organisation to maintain these recipes.
 4. Updates allow you to update rows that might not all be identified using a unique key. Rows to update identified using a range of parameters, i.e. updating all records whose `Title` column = `consultant`
-5. Upserts can end up being overly flexible where inserting a new row when one cannot be found may not be the best behaviour. For example, a recipe triggering when an order is changed in Salesforce to update the record of the order in your database might not be suitable for the upsert action. Since a record of the order should have already been in the system, the lack of one to update should be noted and the job stopped with a report error instead.
+5. Upserts may coverup potential bugs or issues. For example, a recipe triggering when an order is changed in Salesforce to update the record of the order in your database might not be suitable for the upsert action. Since a record of the order should have already been in the system, the lack of one to update should be noted and the job stopped with a report error instead.
 
 ### When to use custom SQL and stored procedures in Workato
 Workato allows you to write your own custom SQL queries in 2 ways:

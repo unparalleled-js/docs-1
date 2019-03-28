@@ -3,7 +3,7 @@ title: Workato connectors - SQL Server
 date: 2018-02-02 06:10:00 Z
 ---
 
-# SQL Server 
+# SQL Server
 SQL Server documentation contains the following chapters:
   * [Introduction](connectors/mssql/introduction.md)
   * [New row trigger](/connectors/mssql/new-row-trigger.md)
@@ -15,5 +15,5 @@ SQL Server documentation contains the following chapters:
   * [Run custom SQL action](/connectors/mssql/run_sql.md)
   * [Execute stored procedure](/connectors/mssql/stored-procedure.md)
   * [Best practices](/connectors/mssql/best-practices.md)
-  * [Use cases](/connectors/mssql/common-use-cases.md)
+  * [Use cases](/connectors/database-common-use-cases.md)
   * [Troubleshooting](connectors/mssql/trouble-shooting.md)

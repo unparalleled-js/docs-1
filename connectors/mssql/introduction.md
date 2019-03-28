@@ -120,7 +120,7 @@ At minimum, the database user account must be granted `SELECT` permission to the
 
 ## Using tables, views and stored procedures
 
-After successfully connecting to your SQL Server and selecting an action/trigger in your recipe, you will often be prompted to select either a table, view or stored procedure. This tells Workato where to pull or send data to.
+After successfully connecting to your SQL Server and selecting an action/trigger in your recipe, you will often be prompted to select either a table, view or stored procedure. This tells Workato which tables you want to pull or send data to.
 
 ### Tables & Views
 The SQL Server connector works with all tables and views. These are available in pick lists in each trigger/action or you can provide the exact name. Views can be called using this as well and be used in the same way as a table.
@@ -134,7 +134,7 @@ The SQL Server connector works with all tables and views. These are available in
 Case sensitivity of the name of a table/view depends on your database implementation. A default SQL Server is case insensitive. Databases or database objects with `CS` in the **COLLATION** indicates that it is case sensitive.
 
 ### Stored Procedures
-Stored procedures are custom written workflows that have to be written and saved within your SQL server. They are able to do a range of functionalities including creating, reading, updating and deleting rows. They can also accept parameters. [Click here if you want to know more about how Workato works with stored procedures.](/connectors/mssql/stored-procedure.md)
+Stored procedures are custom written SQL statements that are written and saved within your SQL server. They are able to do a range of functionalities including creating, reading, updating and deleting rows. They can also accept parameters. [Find out more about how Workato works with stored procedures.](/connectors/mssql/stored-procedure.md)
 
 ## Using `WHERE` conditions
 
@@ -147,7 +147,7 @@ This clause will be used as a `WHERE` statement in each request. This should fol
 
 ### Operators
 
-At the foundation of any `WHERE` statement, we have operators that help us filter and identify what rows we want returned in Workato. By chaining operators in the same way one would do it in SQL, you'll be able to use them to create robust and complex filters on your data directly from Workato.
+At the foundation of any `WHERE` statement, we have operators that help us filter and identify what rows we want returned in Workato. By chaining operators in the same way you would do it in SQL, you'll be able to use them to create robust and complex filters on your data directly from Workato.
 
 <details><summary><b>List of operators</b></summary>
 
@@ -248,16 +248,17 @@ At the foundation of any `WHERE` statement, we have operators that help us filte
 
 The other component of a `WHERE` condition would be to use these operators in conjunction with the proper datatypes. When writing `WHERE` statements, make sure you compare a variable of `data type = integer` in your table with a  variable of `data type = integer` instead of `data type = string`.
 
-Workato also helps reveal the data types expected for each input field when you select
+Workato also helps to reveal the data types expected for each input field when you select
 - **Update rows** actions
 - **Upsert rows** actions
 
 They appear directly below the output field, allowing you to know the expected data type to be sent while building the recipe. Use these hints to send the proper data types over to your SQL server as failing to do so might lead to unexpected behaviour or failed jobs.
 
 ![input field hints](/assets/images/mssql/Mssql-input-field-date-type.png)
-<center><i>Hints below each input field inform you abou</i></center> the data type expected*
+<center><i>Hints below each input field inform you about the data type expected</i></center>
 
 Here are some of the common data types you can expect to see. A more comprehensive list can be found [here](https://www.w3schools.com/sql/sql_datatypes.asp)
+
 
 <details><summary><b>List of common data types</b></summary>
 <table class="unchanged rich-diff-level-one">
@@ -447,5 +448,5 @@ Workato currently supports the following triggers and actions. Find out more det
   * [Execute stored procedure](/connectors/mssql/stored-procedure.md)
 
   Or get busy building your recipes now! Check out our
-    * [Best practices](/connectors/mssql/best-practices.md)
-    * [Use cases](/connectors/database-common-use-cases.md)
+  * [Best practices](/connectors/mssql/best-practices.md)
+  * [Use cases](/connectors/database-common-use-cases.md)

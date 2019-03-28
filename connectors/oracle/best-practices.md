@@ -132,7 +132,7 @@ Choosing between [update](/connectors/oracle/update.md), [insert](/connectors/or
 2. Upserts are useful in failed job runs where repeating a failed job where it previously inserted a row would not result in another row being created. Inserts would insert yet another row if the job were to be run again.
 3. Upserts need to be documented properly to ensure maintainability. Since it becomes unclear without documentation whether steps that use upsert are always inserts or always updates, it becomes challenging for others in your organisation to maintain these recipes.
 4. Updates allow you to update rows where a unique key might not be applicable i.e. updating all records whose `Title` column = `consultant`
-5. Upserts can end up being overly flexible where inserting a new row when one cannot be found may not be the best behaviour. i.e. recipe triggering when an order is changed in Salesforce to update the record of the order in your database might not be suitable for the upsert action. Since a record of the order should have already been in the system, the lack of one to update should be noted and the job stopped with a report error instead.
+5. Upserts may coverup potential bugs or issues. For example, a recipe triggering when an order is changed in Salesforce to update the record of the order in your database might not be suitable for the upsert action. Since a record of the order should have already been in the system, the lack of one to update should be noted and the job stopped with a report error instead.
 
 ### When to use custom SQL and stored procedures in Workato
 Workato allows you to write your own custom SQL queries in 2 ways:
