@@ -20,24 +20,99 @@ Tools for building recipes are often associated with connectors, triggers and ac
 These tools aid in making recipes more powerful with human approval capabilities as well as allow data to be reused across recipes in the same account.
 
 The following are classified under this category:
+<table class="unchanged rich-diff-level-one">
+  <thead>
+    <tr>
+        <th width='25%'>Input field</th>
+        <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td> <a href = "features/account-properties.md"> Properties </a></td>
+      <td>
+        Define account wide properties that you can use as variables in your recipes. <a href = "features/account-properties.md">Learn more</a>
+      </td>
+    </tr>
+    <tr>
+      <td> <a href = "features/lookup-tables.md"> Lookup table </a></td>
+      <td>
+        Define lookup tables that your recipes can easily lookup to get additional information. <a href = "features/lookup-tables.md">Learn more</a>
+      </td>
+    </tr>
+    <tr>
+      <td> <a href = "workflow.md"> People Task</a></td>
+      <td>
+        Add steps into your recipes that require a designated human to approve before it can continue. <a href = "workflow.md">Learn more</a>
+      </td>
+    </tr>
+    <tr>
+      <td> <a href = "features/message-template.md"> Message templates</a></td>
+      <td>
+        Create static message templates on HTML/text/Json/XML that can be used in multiple recipes. <a href = "features/message-template.md">Learn more</a>
+      </td>
+    </tr>
+    <tr>
+      <td> <a href = "features/common-data-model.md">  Common data models </a></td>
+      <td>
+        Create schemas for objects such as Customers that can be used in multiple recipes. <a href = "features/common-data-model.md">Learn more</a>
+      </td>
+    </tr>
+    <tr>
+      <td><a href = "connectors/pubsub.md"> Pub/Sub</a></td>
+      <td>
+        Allow recipes to subscribe to events published by other recipes reducing dependencies and trickle down effects of change between recipes. <a href = "connectors/pubsub.md">Learn more</a>
+      </td>
+    </tr>
+    <tr>
+      <td><a href = "workbot/workbot.md"> Workbot for Slack</a></td>
+      <td>
+        Create a chatbot on slack that can interact with users to accomplish complex workflows. <a href = "workbot/workbot.md">Learn more</a>
+      </td>
+    </tr>
+    <tr>
+      <td> <a href = "workbot-for-teams/workbot.md"> Workbot for Microsoft Teams</a></td>
+      <td>
+        Create a chatbot on Microsoft Teams that can interact with users to accomplish complex workflows.  <a href = "workbot-for-teams/workbot.md">Learn more</a>
+      </td>
+    </tr>        
+  </tbody>
+</table>
 
-* [Properties](features/account-properties.md)
-* [Lookup table](features/lookup-tables.md)
-* [People Task](workflow.md)
-* [Message templates](features/message-template.md)
-* [Common data models](features/common-data-model.md)
-* [Pub/Sub](connectors/pubsub.md)
-* [Workbot](workbot/workbot.md)
 
 ## Connect apps
 
 Tools for connecting apps allow the user to add and manage their custom applications, on-prem applications and API endpoints.
 
 The following are classified under this category:
-
-* [Connector SDK](developing-connectors/sdk.md)
-* [On-prem agent](on-prem.md)
-* [API management](api-management.md)
+<table class="unchanged rich-diff-level-one">
+  <thead>
+    <tr>
+        <th width='25%'>Input field</th>
+        <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><a href = "developing-connectors/sdk.md"> Connector SDK</a></td>
+      <td>
+        Build robust custom application connectors on Workato's Software Development Kit to connect to your any application we currently don't support. <a href = "developing-connectors/sdk.md">Learn more</a>
+      </td>
+    </tr>
+    <tr>
+      <td><a href = "on-prem.md"> On-prem agent</a></td>
+      <td>
+        Connect easily and securely to applications such as databases hidden behind firewalls. <a href = "on-prem.md">Learn more</a>
+      </td>
+    </tr>
+    <tr>
+      <td><a href = "api-management.md"> API management</a></td>
+      <td>
+        Turn any recipe or collection of recipes on Workato into an API endpoint that can be exposed to the public. <a href = "api-management.md">Learn more</a>
+      </td>
+    </tr>
+  </tbody>
+</table>
 
 ## Collaborate and manage recipes
 
@@ -45,5 +120,25 @@ The tools in this section allow the collaboration across teams, the management o
 
 The following are classified under this category:
 
-* [Recipe lifecycle management](recipe-development-lifecycle.md)
-* [Teams](user-accounts-and-teams/team-collaboration.md)
+<table class="unchanged rich-diff-level-one">
+  <thead>
+    <tr>
+        <th width='25%'>Input field</th>
+        <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><a href = "recipe-development-lifecycle.md">Recipe lifecycle management</a></td>
+      <td>
+        Plan, develop, test and deploy new workflows on Workato. <a href = "recipe-development-lifecycle.md">Learn more</a>
+      </td>
+    </tr>
+    <tr>
+      <td><a href = "user-accounts-and-teams/team-collaboration.md">Teams</a></td>
+      <td>
+         Collaborate with multiple users to build recipes in a share workspace. <a href = "user-accounts-and-teams/team-collaboration.md">Learn more</a>
+      </td>
+    </tr>
+  </tbody>
+</table>
