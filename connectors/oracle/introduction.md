@@ -57,23 +57,23 @@ The Oracle connector uses basic authentication to authenticate with Oracle.
 At minimum, the database user account must be granted `SELECT` permission to the database specified in the [connection](#how-to-connect-to-oracle-on-workato). Check out the example below to find out more about how to set permissions if you are the one setting up the Oracle server connection for your business
 > <details><summary><b>How to set up permissions</b></summary>
 >
-> If we are trying to connect to a named schema (<code>HR_PROD</code>) in an Oracle instance, using a new database user <code>WORKATO</code>, the following example queries can be used.>
+> If we are trying to connect to a named schema (<code>HR_PROD</code>) in an Oracle instance, using a new database user <code>WORKATO</code>, the following example queries can be used.
 >
 > First, create a new user dedicated to integration use cases with Workato.
 > <pre><code style="display: block; white-space: pre-wrap;">CREATE USER WORKATO IDENTIFIED BY password</code></pre>
 >
-> Next, grant <code>CONNECT</code> to this user.>
+> Next, grant <code>CONNECT</code> to this user.
 >
 > <pre><code style="display: block; white-space: pre-wrap;">GRANT CONNECT TO WORKATO;</code></pre>
 >
-> This allows the user to have login access to the Oracle instance. However, this user will not have access to any tables.>
+> This allows the user to have login access to the Oracle instance. However, this user will not have access to any tables.
 >
-> The next step is to grant access to <code>SUPPLIER</code> table in the <code>HR_PROD</code> schema. In this example, we only wish to grant <code>SELECT</code> and <code>INSERT</code> permissions.>
+> The next step is to grant access to <code>SUPPLIER</code> table in the <code>HR_PROD</code> schema. In this example, we only wish to grant <code>SELECT</code> and <code>INSERT</code> permissions.
 >
 > <pre><code style="display: block; white-space: pre-wrap;">GRANT SELECT,INSERT ON HR_PROD.SUPPLIER TO WORKATO;
 > </code></pre>
 >
-> Finally, check that this user has the necessary permissions. Run a query to see all grants.>
+> Finally, check that this user has the necessary permissions. Run a query to see all grants.
 >
 > <pre><code style="display: block; white-space: pre-wrap;">SELECT * FROM DBA_ROLE_PRIVS WHERE GRANTEE = 'WORKATO';
 > SELECT * FROM DBA_TAB_PRIVS WHERE GRANTEE = 'WORKATO';
@@ -109,6 +109,7 @@ The Oracle connector works with all tables and views. These are available in pic
 <center><i>Select a table/view from pick list</i></center>
 
 <br>
+
 ![Exact table name provided](/assets/images/oracle/table_name_text.png)
 <center><i>Provide exact table/view name in a text field</i></center>
 
@@ -126,80 +127,80 @@ This clause will be used as a `WHERE` statement in each request. This should fol
 #### Operators
 At the foundation of any `WHERE` statement, we have operators that help us filter and identify what rows we want returned in Workato. By chaining operators in the same way one would do it in SQL, you'll be able to use them to create robust and complex filters on your data directly from Workato.
 
-<details><summary><b>List of operators</b></summary>
-<table class="unchanged rich-diff-level-one">
-  <thead>
-    <tr>
-        <th>Operator</th>
-        <th width='40%'>Description</th>
-        <th width='40%'>Example</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>=</td>
-      <td>Equal</td>
-      <td><code>WHERE ID = 445</code></td>
-    </tr>
-    <tr>
-      <td>
-        !=<br>
-        <>
-      </td>
-      <td>Not equal</td>
-      <td><code>WHERE ID <> 445</code></td>
-    </tr>
-    <tr>
-      <td>
-        &gt<br>
-        &gt=
-      </td>
-      <td>
-        Greater than<br>
-        Greater than or equal to
-      </td>
-      <td><code>WHERE PRICE > 10000</code></td>
-    </tr>
-    <tr>
-      <td>
-        &lt<br>
-        &lt=
-      </td>
-      <td>
-        Less than<br>
-        Less than or equal to
-      </td>
-      <td><code>WHERE PRICE > 10000</code></td>
-    </tr>
-    <tr>
-      <td>IN(...)</td>
-      <td>List of values</td>
-      <td><code>WHERE ID IN(445, 600, 783)</code></td>
-    </tr>
-    <tr>
-      <td>LIKE</td>
-      <td>Pattern matching with wildcard characters (<code>%</code> and <code>&#95</code>)</td>
-      <td><code>WHERE EMAIL LIKE '%@workato.com'</code></td>
-    </tr>
-    <tr>
-      <td>BETWEEN</td>
-      <td>Retrieve values with a range</td>
-      <td><code>WHERE ID BETWEEN 445 AND 783</code></td>
-    </tr>
-    <tr>
-      <td>
-        IS NULL<br>
-        IS NOT NULL
-      </td>
-      <td>
-        NULL values check<br>
-        Non-NULL values check
-      </td>
-      <td><code>WHERE NAME IS NOT NULL</code></td>
-    </tr>
-  </tbody>
-</table>
-</details>
+><details><summary><b>List of operators</b></summary>
+><table class="unchanged rich-diff-level-one">
+>  <thead>
+>    <tr>
+>        <th>Operator</th>
+>        <th width='40%'>Description</th>
+>        <th width='40%'>Example</th>
+>    </tr>
+>  </thead>
+>  <tbody>
+>    <tr>
+>      <td>=</td>
+>      <td>Equal</td>
+>      <td><code>WHERE ID = 445</code></td>
+>    </tr>
+>    <tr>
+>      <td>
+>        !=<br>
+>        <>
+>      </td>
+>      <td>Not equal</td>
+>      <td><code>WHERE ID <> 445</code></td>
+>    </tr>
+>    <tr>
+>      <td>
+>        &gt<br>
+>        &gt=
+>      </td>
+>      <td>
+>        Greater than<br>
+>        Greater than or equal to
+>      </td>
+>      <td><code>WHERE PRICE > 10000</code></td>
+>    </tr>
+>    <tr>
+>      <td>
+>        &lt<br>
+>        &lt=
+>      </td>
+>      <td>
+>        Less than<br>
+>        Less than or equal to
+>      </td>
+>      <td><code>WHERE PRICE > 10000</code></td>
+>    </tr>
+>    <tr>
+>      <td>IN(...)</td>
+>      <td>List of values</td>
+>      <td><code>WHERE ID IN(445, 600, 783)</code></td>
+>    </tr>
+>    <tr>
+>      <td>LIKE</td>
+>      <td>Pattern matching with wildcard characters (<code>%</code> and <code>&#95</code>)</td>
+>      <td><code>WHERE EMAIL LIKE '%@workato.com'</code></td>
+>    </tr>
+>    <tr>
+>      <td>BETWEEN</td>
+>      <td>Retrieve values with a range</td>
+>      <td><code>WHERE ID BETWEEN 445 AND 783</code></td>
+>    </tr>
+>    <tr>
+>      <td>
+>        IS NULL<br>
+>        IS NOT NULL
+>      </td>
+>      <td>
+>        NULL values check<br>
+>        Non-NULL values check
+>      </td>
+>      <td><code>WHERE NAME IS NOT NULL</code></td>
+>    </tr>
+>  </tbody>
+></table>
+></details>
 
 ### Data types
 
@@ -216,59 +217,59 @@ They appear directly below the output field, allowing you to know the expected d
 
 Here are some of the common data types you can expect to see. A more comprehensive list can be found [here](https://www.w3schools.com/sql/sql_datatypes.asp)
 
-<details><summary><b>List of common data types</b></summary>
-<table class="unchanged rich-diff-level-one">
-  <thead>
-    <tr>
-        <th>Data type</th>
-        <th width='40%'>Description</th>
-        <th width='40%'>Example</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>number</td>
-      <td>The NUMBER data type stores zero, positive and negative fixed numbers.</td>
-      <td><code>-100</code>,<code>1</code>,<code>30,000</code></td>
-    </tr>
-    <tr>
-      <td>FLOAT</td>
-      <td>The FLOAT data type is a subtype of NUMBER. You can can specify it with or without precision. Scale cannot be specified, but is interpreted from the data. Each FLOAT value requires from 1 to 22 bytes.</td>
-      <td><code>1.11</code>,<code>2.0761</code>,<code>1.61803398875</code></td>
-    </tr>
-    <tr>
-      <td>YEAR</td>
-      <td>valid values are -4712 to 9999 excluding year 0</td>
-      <td><code>1</code>,<code>245</code>,<code>100</code></td>
-    </tr>
-    <tr>
-      <td>MONTH</td>
-      <td>01-12</td>
-      <td><code>1</code></td>
-    </tr>
-    <tr>
-      <td>DAY</td>
-      <td>01-31</td>
-      <td><code>1</code>,<code>0</code>,<code>15</code></td>
-    </tr>
-    <tr>
-      <td>VARCHAR2(n)</td>
-      <td><b>Variable</b> width character string of length `n`</td>
-      <td><code>Foo_bar</code></td>
-    </tr>
-    <tr>
-      <td>nchar(n)</td>
-      <td><b>Fixed</b> width character string of length `n`</td>
-      <td><code>Foo</code> where n = 3</td>
-    </tr>
-    <tr>
-      <td>TIMESTAMP</td>
-      <td>From January 1, 1753 to December 31, 9999 with an accuracy of 3.33 milliseconds</td>
-      <td><code>2011-09-16 13:23:18.767</code></td>
-    </tr>
-  </tbody>
-</table>
-</details>
+><details><summary><b>List of common data types</b></summary>
+><table class="unchanged rich-diff-level-one">
+>  <thead>
+>    <tr>
+>        <th>Data type</th>
+>        <th width='40%'>Description</th>
+>        <th width='40%'>Example</th>
+>    </tr>
+>  </thead>
+>  <tbody>
+>    <tr>
+>      <td>number</td>
+>      <td>The NUMBER data type stores zero, positive and negative fixed numbers.</td>
+>      <td><code>-100</code>,<code>1</code>,<code>30,000</code></td>
+>    </tr>
+>    <tr>
+>      <td>FLOAT</td>
+>      <td>The FLOAT data type is a subtype of NUMBER. You can can specify it with or without precision. Scale cannot be specified, but is interpreted from the data. Each FLOAT value requires from 1 to 22 bytes.</td>
+>      <td><code>1.11</code>,<code>2.0761</code>,<code>1.61803398875</code></td>
+>    </tr>
+>    <tr>
+>      <td>YEAR</td>
+>      <td>valid values are -4712 to 9999 excluding year 0</td>
+>      <td><code>1</code>,<code>245</code>,<code>100</code></td>
+>    </tr>
+>    <tr>
+>      <td>MONTH</td>
+>      <td>01-12</td>
+>      <td><code>1</code></td>
+>    </tr>
+>    <tr>
+>      <td>DAY</td>
+>      <td>01-31</td>
+>      <td><code>1</code>,<code>0</code>,<code>15</code></td>
+>    </tr>
+>    <tr>
+>      <td>VARCHAR2(n)</td>
+>      <td><b>Variable</b> width character string of length `n`</td>
+>      <td><code>Foo_bar</code></td>
+>    </tr>
+>    <tr>
+>      <td>nchar(n)</td>
+>      <td><b>Fixed</b> width character string of length `n`</td>
+>      <td><code>Foo</code> where n = 3</td>
+>    </tr>
+>    <tr>
+>      <td>TIMESTAMP</td>
+>      <td>From January 1, 1753 to December 31, 9999 with an accuracy of 3.33 milliseconds</td>
+>      <td><code>2011-09-16 13:23:18.767</code></td>
+>    </tr>
+>  </tbody>
+></table>
+></details>
 
 ### Writing `WHERE` conditions
 
@@ -294,28 +295,28 @@ Column names that do not conform to standard rules (includes spaces, lower-case 
 <center><i>`WHERE` condition with enclosed identifier</i></center>
 
 Check out below for more details into the functionality you can explore with your `WHERE` conditions.
-<details><summary>Using <code>AND</code> and <code>OR</code> in your <code>WHERE</code> conditions</summary>
-<code>WHERE</code> conditions can also be used in conjunction with basic SQL logical operators like <code>AND</code> and <code>OR</code> to add more filters on the rows you return.
+><details><summary>Using <code>AND</code> and <code>OR</code> in your <code>WHERE</code> conditions</summary>
+><code>WHERE</code> conditions can also be used in conjunction with basic SQL logical operators like <code>AND</code> and <code>OR</code> to add more filters on the rows you return.
+>
+><pre><code style="display: block; white-space: pre-wrap;">("currency code" = 'USD' AND totalAmt >1000) OR totalAmt>2000
+></code></pre>
+>
+>When used together,  this <code>WHERE</code> condition will return all rows that either have the value 'USD' in the `currency code` column <code>AND</code> more than 1000 in the `totalAmt` column <code>OR</code> more than 2000 in the `totalAmt` column
+></details>
 
-<pre><code style="display: block; white-space: pre-wrap;">("currency code" = 'USD' AND totalAmt >1000) OR totalAmt>2000
-</code></pre>
-
-When used together,  this <code>WHERE</code> condition will return all rows that either have the value 'USD' in the `currency code` column <code>AND</code> more than 1000 in the `totalAmt` column <code>OR</code> more than 2000 in the `totalAmt` column
-</details>
-
-<details><summary>Using sub-queries in your <code>WHERE</code> conditions</summary>
-
-Your `WHERE` condition can also contain subqueries. The following query can be used on the `users` table.
-
-<pre><code style="display: block; white-space: pre-wrap;">ID IN (SELECT "USER ID" FROM TICKETS WHERE PRIORITY >= 2)
-</code></pre>
-
-When used in a **Delete rows** action, this will delete all rows in the `users` table where at least one associated row in the `tickets` table has a value of 2 in the `priority` column.
-
-![Using datapills in WHERE condition with subquery](/assets/images/oracle/use_datapill_in_where_complex.png)
-<center><i>Using datapills in `WHERE` condition with subquery</i></center>
-
-</details>
+><details><summary>Using sub-queries in your <code>WHERE</code> conditions</summary>
+>
+>Your `WHERE` condition can also contain subqueries. The following query can be used on the `users` table.
+>
+><pre><code style="display: block; white-space: pre-wrap;">ID IN (SELECT "USER ID" FROM TICKETS WHERE PRIORITY >= 2)
+></code></pre>
+>
+>When used in a **Delete rows** action, this will delete all rows in the `users` table where at least one associated row in the `tickets` table has a value of 2 in the `priority` column.
+>
+>![Using datapills in WHERE condition with subquery](/assets/images/oracle/use_datapill_in_where_complex.png)
+><center><i>Using datapills in `WHERE` condition with subquery</i></center>
+>
+></details>
 
 ## Configuring triggers
 

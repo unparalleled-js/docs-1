@@ -19,6 +19,8 @@ Data coming into your database can be used in various ways. Often we need this d
 This recipe can be extended to easily to include more actions if your workflows becomes more complex. Remember to keep in mind the use of batch actions whenever possible to reduce the number of tasks each recipes uses! Benefits of using Workato include the ability for these workflows to be changed so easily! Changes from one email campaign software such as Mailchimp to Sendgrid are easily handled with minimal coding.
 
 <details><summary><b>SQL server to Salesforce and Mailchimp </b></summary>
+    <a href="https://www.workato.com/recipes/917205-data-export-sql-server-to-salesforce-and-mailchimp#recipe">Recipe link</a>
+  <br>
   <br>
     Company ABC is fast growing software company that sells scheduling software for restaurants and other labour intensive companies. They currently use a mobile application as well as browser application as a platform to allow their clients to do scheduling. As they push out a new system that handles leave tracking and payroll, they want to upsell these features to existing customers who currently have a certain number of employees as well as any customers that grow above this size.
   <br> <br>
@@ -44,9 +46,6 @@ This recipe can be extended to easily to include more actions if your workflows 
   <center><i>Mailchimp configuration and using datapills from trigger output</i></center>
   <br>
     Since the Mailchimp connector does not have batch actions, this can be overcome through Workato's repeat action. Workato's repeat action allows us to cycle through the list of contacts from the SQL server trigger earlier. We then just need to add each contact in the list as a subscriber to a Mailchimp campaign.
-  <br><br>
-
-  <h3> <a href="https://www.workato.com/recipes/917205-data-export-sql-server-to-salesforce-and-mailchimp#recipe">Recipe link</a> </h3>
 
 </details>
 
@@ -56,7 +55,9 @@ Workato allows you to perform data migrations of any scale using recipes that ar
 This recipe can be used to also perform transformations before storing the final values in SQL server and removes the need for any complex scripts to be run and maintained. Using Workato, any further changes can be handled without any code at all.
 
 <details><summary><b>Salesforce to SQL server </b></summary>
-  <br>
+<a href="https://www.workato.com/recipes/912863#recipe">Recipe link</a>
+<br>
+<br>
   Company ABC is a company that sells commercial insurance. Their sales team uses Salesforce as a CRM tool. Company ABC is beginning to practice the act backing up important their sales data stored in Salesforce in their own personal SQL servers as a way of disaster recovery plans. Workato can be used to automate this process and remove the need for any code to be written to set up this workflow.
 
   <br><br>
@@ -77,10 +78,6 @@ This recipe can be used to also perform transformations before storing the final
 
   Use the batch upsert action in SQL server to update existing Salesforce records that have been updated whilst creating any potentially new Salesforce contacts.
 
-  <br>
-
-  <h3> <a href="https://www.workato.com/recipes/912863#recipe">Recipe link</a> </h3>
-
 </details>
 
 ## Database reports/ information as an API end point
@@ -89,20 +86,29 @@ This recipe can be used to also perform transformations before storing the final
   This recipe can also be extended to be done from an on-premises database, abstracting away the complexity of managing this connection. Any further changes to the business needs of your business or your partners can also be done directly on Workato with a basic understanding of SQL and no coding as well!
 
 <details><summary><b>Callable recipe to return inventory status</b></summary>
+ <a href="https://www.workato.com/recipes/917299#recipe">Recipe link</a>
+ <br>
+ <br>
   Company ABC is a growing toy company that retails through various online partners. Instead of having to always update each partner of its inventory status of each of it's toys, it can now give each partner access to its API which queries its Oracle database to find out the inventory status of each of its toys. This reduces workload on both ends and also allows for real time updates for it's business partners.
 
-  <br>
+  <br><br>
+
   ![Recipe workflow](/assets/images/mssql/use-case-API-1.png)
   <center><i>Recipe is triggered whenever an authenticated user calls this end point</i></center>
+
   <br>
+
   This recipe can be triggered by other recipes in Workato as well as external sources that have a valid authentication key. Setting up an API on Workato can be found [here](/api-management.md)
-  <br>
+
+  <br><br>
+
   ![Custom SQL query](/assets/images/mssql/use-case-API-2.png)
   <center><i>Custom SQL is used to access the `group by` functionality of SQL</i></center>  
+
   <br>
+
   The request body of the API call could contain information such as which toys that the partner wants to know inventory of. A SQL query is used to group and count the inventory of that specific toy in the database and the result is sent to the caller as a API response.
-  <br>
-  <h3> <a href="https://www.workato.com/recipes/917299#recipe">Recipe link</a> </h3>
+
 </details>
 
 ## Data Warehousing/ Database syncs
@@ -111,13 +117,18 @@ This recipe can be used to also perform transformations before storing the final
   This recipe not only automates the process of transferring data but allows for the easy maintenance of such pipelines. Workato's easy to use interface means that schema changes or changes to which data warehouse you are using can be easily switch out. Authentication would also be done via our platform so you needn't have to deal with that complexity.
 
  <details><summary><b>SQL server Daily sync to Snowflake warehouse via Amazon S3</b></summary>
+ <a href="https://www.workato.com/recipes/917080#recipe">Recipe link</a>
+ <br>
+ <br>
   Company ABC wants to sync contact information of all its customers into Snowflake to allow for better real time reporting. Due to the large volume of contact information received each day, Company ABC needs a fast and efficient way of transferring data from SQL server to Snowflake. A recipe on Workato can be made that leverages on the use of stored procedures, on-prem files and Amazon s3 to transfer large amounts of data quickly.
-<br>
+
+  <br><br>
+
   ![Data-warehouse-recipe](/assets/images/mssql/Data-warehouse-recipe.png)
   <center><i>Triggered daily, this recipe moves large amounts of data from SQL server to Snowflake</i></center>
-<br>
-  Upon triggering, this recipe executes a stored procedure on SQL server that transforms data exports it into a specified folder as a CSV. This folder is configured such that Workato's on-prem agent is connected to it. Using Workato's on-prem file connector, new folders like this can be downloaded and quickly uploaded to Amazon S3. Lastly, Workato's native Snowflake to S3 bucket integration can be used quickly load all this data in.
-<br>
 
-  <h3> <a href="https://www.workato.com/recipes/917080#recipe">Recipe link</a> </h3>
+  <br>
+
+  Upon triggering, this recipe executes a stored procedure on SQL server that transforms data exports it into a specified folder as a CSV. This folder is configured such that Workato's on-prem agent is connected to it. Using Workato's on-prem file connector, new folders like this can be downloaded and quickly uploaded to Amazon S3. Lastly, Workato's native Snowflake to S3 bucket integration can be used quickly load all this data in.
+
 </details>

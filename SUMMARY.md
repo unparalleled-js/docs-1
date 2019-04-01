@@ -459,7 +459,7 @@
     * [Delete actions](connectors/oracle/delete.md)
     * [Run custom SQL action](connectors/oracle/run_sql.md)
     * [Execute stored procedure](connectors/oracle/stored-procedure.md)
-    * [Best Practices](connectors/oracle/best-practices.md))
+    * [Best Practices](connectors/oracle/best-practices.md)
     * [Use cases](connectors/database-common-use-cases.md)
     * [Troubleshooting](connectors/oracle/trouble-shooting.md)
   * [Oracle EBS](connectors/oracle-ebs.md)

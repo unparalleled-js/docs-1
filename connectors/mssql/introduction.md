@@ -125,11 +125,17 @@ After successfully connecting to your SQL Server and selecting an action/trigger
 ### Tables & Views
 The SQL Server connector works with all tables and views. These are available in pick lists in each trigger/action or you can provide the exact name. Views can be called using this as well and be used in the same way as a table.
 
+<br>
+
 ![Table selection from pick list](/assets/images/mssql/table_pick_list.png)
 <center><i>Select a table/view from pick list</i></center>
 
+<br>
+
 ![Exact table name provided](/assets/images/mssql/table_name_text.png)
 <center><i>Provide exact table/view name in a text field</i></center>
+
+<br>
 
 Case sensitivity of the name of a table/view depends on your database implementation. A default SQL Server is case insensitive. Databases or database objects with `CS` in the **COLLATION** indicates that it is case sensitive.
 
@@ -149,100 +155,100 @@ This clause will be used as a `WHERE` statement in each request. This should fol
 
 At the foundation of any `WHERE` statement, we have operators that help us filter and identify what rows we want returned in Workato. By chaining operators in the same way you would do it in SQL, you'll be able to use them to create robust and complex filters on your data directly from Workato.
 
-<details><summary><b>List of operators</b></summary>
-
-<table class="unchanged rich-diff-level-one">
-  <thead>
-    <tr>
-        <th>Operator</th>
-        <th width='40%'>Description</th>
-        <th width='40%'>Example</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>=</td>
-      <td>Equal</td>
-      <td><code>WHERE ID = 445</code></td>
-    </tr>
-    <tr>
-      <td>
-        !=<br>
-        <>
-      </td>
-      <td>Not equal</td>
-      <td><code>WHERE ID <> 445</code></td>
-    </tr>
-    <tr>
-      <td>
-        &gt<br>
-        &gt=
-      </td>
-      <td>
-        Greater than<br>
-        Greater than or equal to
-      </td>
-      <td><code>WHERE PRICE > 10000</code></td>
-    </tr>
-    <tr>
-      <td>
-        &lt<br>
-        &lt=
-      </td>
-      <td>
-        Less than<br>
-        Less than or equal to
-      </td>
-      <td><code>WHERE PRICE > 10000</code></td>
-    </tr>
-    <tr>
-      <td>IN(...)</td>
-      <td>List of values</td>
-      <td><code>WHERE ID IN(445, 600, 783)</code></td>
-    </tr>
-    <tr>
-      <td>LIKE</td>
-      <td>Pattern matching with wildcard characters (<code>%</code> to represent zero or more characters and <code>&#95</code> to represent a single character)</td>
-      <td><code>WHERE EMAIL LIKE '%@workato.com'</code></td>
-    </tr>
-    <tr>
-      <td>BETWEEN</td>
-      <td>Retrieve values with a range</td>
-      <td><code>WHERE ID BETWEEN 445 AND 783</code></td>
-    </tr>
-    <tr>
-      <td>
-        IS NULL<br>
-        IS NOT NULL
-      </td>
-      <td>
-        NULL values check<br>
-        Non-NULL values check
-      </td>
-      <td><code>WHERE NAME IS NOT NULL</code></td>
-    </tr>
-    <tr>
-      <td>
-        AND
-      </td>
-      <td>
-        Requires both preceding and proceeding conditions to be fulfilled to be true
-      </td>
-      <td><code>WHERE ID = 445 AND NAME IS NOT NULL</code></td>
-    </tr>
-    <tr>
-      <td>
-        OR
-      </td>
-      <td>
-        Requires either the preceding and proceeding conditions to be fulfilled to be true
-      </td>
-      <td><code>WHERE ID = 445 OR NAME IS NOT NULL</code></td>
-    </tr>
-  </tbody>
-</table>
-<br>
-</details>
+> <details><summary><b>List of operators</b></summary>
+>
+> <table class="unchanged rich-diff-level-one">
+>   <thead>
+>     <tr>
+>         <th>Operator</th>
+>         <th width='40%'>Description</th>
+>         <th width='40%'>Example</th>
+>     </tr>
+>   </thead>
+>   <tbody>
+>     <tr>
+>       <td>=</td>
+>       <td>Equal</td>
+>       <td><code>WHERE ID = 445</code></td>
+>     </tr>
+>     <tr>
+>       <td>
+>         !=<br>
+>         <>
+>       </td>
+>       <td>Not equal</td>
+>       <td><code>WHERE ID <> 445</code></td>
+>     </tr>
+>     <tr>
+>       <td>
+>         &gt<br>
+>         &gt=
+>       </td>
+>       <td>
+>         Greater than<br>
+>         Greater than or equal to
+>       </td>
+>       <td><code>WHERE PRICE > 10000</code></td>
+>     </tr>
+>     <tr>
+>       <td>
+>         &lt<br>
+>         &lt=
+>       </td>
+>       <td>
+>         Less than<br>
+>         Less than or equal to
+>       </td>
+>       <td><code>WHERE PRICE > 10000</code></td>
+>     </tr>
+>     <tr>
+>       <td>IN(...)</td>
+>       <td>List of values</td>
+>       <td><code>WHERE ID IN(445, 600, 783)</code></td>
+>     </tr>
+>     <tr>
+>       <td>LIKE</td>
+>       <td>Pattern matching with wildcard characters (<code>%</code> to represent zero or more characters and <code>&#95</code> to represent a single character)</td>
+>       <td><code>WHERE EMAIL LIKE '%@workato.com'</code></td>
+>     </tr>
+>     <tr>
+>       <td>BETWEEN</td>
+>       <td>Retrieve values with a range</td>
+>       <td><code>WHERE ID BETWEEN 445 AND 783</code></td>
+>     </tr>
+>     <tr>
+>       <td>
+>         IS NULL<br>
+>         IS NOT NULL
+>       </td>
+>       <td>
+>         NULL values check<br>
+>         Non-NULL values check
+>       </td>
+>       <td><code>WHERE NAME IS NOT NULL</code></td>
+>     </tr>
+>     <tr>
+>       <td>
+>         AND
+>       </td>
+>       <td>
+>         Requires both preceding and proceeding conditions to be fulfilled to be true
+>       </td>
+>       <td><code>WHERE ID = 445 AND NAME IS NOT NULL</code></td>
+>     </tr>
+>     <tr>
+>       <td>
+>         OR
+>       </td>
+>       <td>
+>         Requires either the preceding and proceeding conditions to be fulfilled to be true
+>       </td>
+>       <td><code>WHERE ID = 445 OR NAME IS NOT NULL</code></td>
+>     </tr>
+>   </tbody>
+> </table>
+> <br>
+> </details>
 
 ### Data types
 
@@ -254,80 +260,83 @@ Workato also helps to reveal the data types expected for each input field when y
 
 They appear directly below the output field, allowing you to know the expected data type to be sent while building the recipe. Use these hints to send the proper data types over to your SQL server as failing to do so might lead to unexpected behaviour or failed jobs.
 
+<br>
+
 ![input field hints](/assets/images/mssql/Mssql-input-field-date-type.png)
 <center><i>Hints below each input field inform you about the data type expected</i></center>
 
+<br>
+
 Here are some of the common data types you can expect to see. A more comprehensive list can be found [here](https://www.w3schools.com/sql/sql_datatypes.asp)
 
-
-<details><summary><b>List of common data types</b></summary>
-<table class="unchanged rich-diff-level-one">
-  <thead>
-    <tr>
-        <th>Data type</th>
-        <th width='40%'>Description</th>
-        <th width='40%'>Example</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>int</td>
-      <td>Allows whole numbers between -2,147,483,648 and 2,147,483,647</td>
-      <td><code>-100</code>,<code>1</code>,<code>30,000</code></td>
-    </tr>
-    <tr>
-      <td>decimal</td>
-      <td>Fixed precision and scale numbers that are exact. This is commonly used. Max length can be specified but defaults to </td>
-      <td><code>1.11</code>,<code>2.0761</code>,<code>1.61803398875</code></td>
-    </tr>
-    <tr>
-      <td>smallint</td>
-      <td>Allows whole numbers from 0 to 255</td>
-      <td><code>1</code>,<code>245</code>,<code>100</code></td>
-    </tr>
-    <tr>
-      <td>bigint</td>
-      <td>Allows whole numbers between -9,223,372,036,854,775,808 and 9,223,372,036,854,775,807</td>
-      <td><code>10,000,000,000</code></td>
-    </tr>
-    <tr>
-      <td>bit</td>
-      <td>Integer that can be 0, 1, or NULL</td>
-      <td><code>1</code>,<code>0</code>,<code>NULL</code></td>
-    </tr>
-    <tr>
-      <td>varchar(n)</td>
-      <td><b>Variable</b> width character string of length `n`</td>
-      <td><code>Foo_bar</code></td>
-    </tr>
-    <tr>
-      <td>nchar(n)</td>
-      <td><b>Fixed</b> width character string of length `n`</td>
-      <td><code>Foo</code> where n = 3</td>
-    </tr>
-    <tr>
-      <td>datetime</td>
-      <td>From January 1, 1753 to December 31, 9999 with an accuracy of 3.33 milliseconds</td>
-      <td><code>2011-09-16 13:23:18.767</code></td>
-    </tr>
-    <tr>
-      <td>datetime2</td>
-      <td>From January 1, 0001 to December 31, 9999 with an accuracy of 100 nanoseconds</td>
-      <td><code>2011-09-16 13:23:18.7676720</code></td>
-    </tr>
-    <tr>
-      <td>date</td>
-      <td>Store a date only. From January 1, 0001 to December 31, 9999</td>
-      <td><code>2012-10-11</code></td>
-    </tr>
-    <tr>
-      <td>time</td>
-      <td>Store a time only to an accuracy of 100 nanoseconds. Minimum length `hh:mm:ss` and maximum length `hh:mm:ss.nnnnnnnn`</td>
-      <td><code>08:30:12</code>,<code>09:12:20.12898400</code></td>
-    </tr>
-  </tbody>
-</table>
-</details>
+> <details><summary><b>List of common data types</b></summary>
+> <table class="unchanged rich-diff-level-one">
+>   <thead>
+>     <tr>
+>         <th>Data type</th>
+>         <th width='40%'>Description</th>
+>         <th width='40%'>Example</th>
+>     </tr>
+>   </thead>
+>   <tbody>
+>     <tr>
+>       <td>int</td>
+>       <td>Allows whole numbers between -2,147,483,648 and 2,147,483,647</td>
+>       <td><code>-100</code>,<code>1</code>,<code>30,000</code></td>
+>     </tr>
+>     <tr>
+>       <td>decimal</td>
+>       <td>Fixed precision and scale numbers that are exact. This is commonly used. Max length can be specified but defaults to </td>
+>       <td><code>1.11</code>,<code>2.0761</code>,<code>1.61803398875</code></td>
+>     </tr>
+>     <tr>
+>       <td>smallint</td>
+>       <td>Allows whole numbers from 0 to 255</td>
+>       <td><code>1</code>,<code>245</code>,<code>100</code></td>
+>     </tr>
+>     <tr>
+>       <td>bigint</td>
+>       <td>Allows whole numbers between -9,223,372,036,854,775,808 and 9,223,372,036,854,775,807</td>
+>       <td><code>10,000,000,000</code></td>
+>     </tr>
+>     <tr>
+>       <td>bit</td>
+>       <td>Integer that can be 0, 1, or NULL</td>
+>       <td><code>1</code>,<code>0</code>,<code>NULL</code></td>
+>     </tr>
+>     <tr>
+>       <td>varchar(n)</td>
+>       <td><b>Variable</b> width character string of length `n`</td>
+>       <td><code>Foo_bar</code></td>
+>     </tr>
+>     <tr>
+>       <td>nchar(n)</td>
+>       <td><b>Fixed</b> width character string of length `n`</td>
+>       <td><code>Foo</code> where n = 3</td>
+>     </tr>
+>     <tr>
+>       <td>datetime</td>
+>       <td>From January 1, 1753 to December 31, 9999 with an accuracy of 3.33 milliseconds</td>
+>       <td><code>2011-09-16 13:23:18.767</code></td>
+>     </tr>
+>     <tr>
+>       <td>datetime2</td>
+>       <td>From January 1, 0001 to December 31, 9999 with an accuracy of 100 nanoseconds</td>
+>       <td><code>2011-09-16 13:23:18.7676720</code></td>
+>     </tr>
+>     <tr>
+>       <td>date</td>
+>       <td>Store a date only. From January 1, 0001 to December 31, 9999</td>
+>       <td><code>2012-10-11</code></td>
+>     </tr>
+>     <tr>
+>       <td>time</td>
+>       <td>Store a time only to an accuracy of 100 nanoseconds. Minimum length `hh:mm:ss` and maximum length `hh:mm:ss.nnnnnnnn`</td>
+>       <td><code>08:30:12</code>,<code>09:12:20.12898400</code></td>
+>     </tr>
+>   </tbody>
+> </table>
+> </details>
 
 ### Writing `WHERE` conditions
 
@@ -341,8 +350,12 @@ currency = 'USD'
 
 If used in a **Select rows** action, this `WHERE` condition will return all rows that has the value 'USD' in the `currency` column. Just remember to wrap datapills with single quotes in your inputs.
 
+<br>
+
 ![Using datapills in WHERE condition](/assets/images/mssql/use_datapill_in_where.png)
 <center><i>Using datapills in `WHERE` condition</i></center>
+
+<br>
 
 Column names with spaces must be enclosed in double quotes (`""`) or square brackets (`[]`). For example, **currency code** must to enclosed in brackets to be used as an identifier.
 
@@ -350,35 +363,38 @@ Column names with spaces must be enclosed in double quotes (`""`) or square brac
 [currency code] = 'USD'
 ```
 
+<br>
+
 ![WHERE condition with enclosed identifier](/assets/images/mssql/where-condition-with-enclosed-identifier.png)
 <center><i>`WHERE` condition with enclosed identifier</i></center>
 
+<br>
+
 Check out below for more details into the functionality you can explore with your `WHERE` conditions.
 
-<details><summary>Using <code>AND</code> and <code>OR</code> in your <code>WHERE</code> conditions</summary>
-<code>WHERE</code> conditions can also be used in conjunction with basic SQL logical operators like <code>AND</code> and <code>OR</code> to add more filters on the rows you return.
+><details><summary>Using <code>AND</code> and <code>OR</code> in your <code>WHERE</code> conditions</summary>
+><code>WHERE</code> conditions can also be used in conjunction with basic SQL logical operators like <code>AND</code> and <code>OR</code> to add more filters on the rows you return.
+>
+> <pre><code style="display: block; white-space: pre-wrap;">([currency code] = 'USD' AND totalAmt >1000) OR totalAmt>2000 </code></pre>
+>
+>When used together,  this <code>WHERE</code> condition will return all rows that either have the value 'USD' in the <code>currency code</code> column <code>AND</code> more than 1000 in the <code>totalAmt</code> column <code>OR</code> more than 2000 in the <code>totalAmt</code> column
+></details>
 
-```sql
-([currency code] = 'USD' AND totalAmt >1000) OR totalAmt>2000
-```
 
-When used together,  this <code>WHERE</code> condition will return all rows that either have the value 'USD' in the `currency code` column <code>AND</code> more than 1000 in the `totalAmt` column <code>OR</code> more than 2000 in the `totalAmt` column
-</details>
-
-<details><summary>Using sub-queries in your <code>WHERE</code> conditions</summary>
-
-Your `WHERE` condition can also contain subqueries. The following query can be used on the `compensation` table.
-
-```sql
-id in (select compensation_id from users where active = 0)
-```
-
-When used in a **Delete rows** action, this will delete all rows in the `compensation` table related to users who are no longer active (`active = 0`).
-
-![Using subquery in WHERE condition](/assets/images/mssql/subquery-in-where-condition.png)
-<center><i>Using subquery in WHERE condition</i></center>
-
-</details>
+><details><summary>Using sub-queries in your <code>WHERE</code> conditions</summary>
+>
+>Your <code>WHERE</code> condition can also contain subqueries. The following query can be used on the <code>compensation</code> table.
+>
+><pre><code style="display: block; white-space: pre-wrap;">id in (select compensation_id from users where active = 0)</code></pre>
+>
+>When used in a **Delete rows** action, this will delete all rows in the `compensation` table related to users who are no longer active (`active = 0`).
+>
+> <br>
+>
+>![Using subquery in WHERE condition](/assets/images/mssql/subquery-in-where-condition.png)
+><center><i>Using subquery in WHERE condition</i></center>
+>
+></details>
 
 ## Configuring triggers
 
