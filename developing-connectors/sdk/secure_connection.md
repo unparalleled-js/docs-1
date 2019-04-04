@@ -34,7 +34,7 @@ To enable the option for connecting through an OPA, all you have to do is add th
 
 With this property added, an input field will be visible when setting up a connection to choose an existing on-prem agent in your account.
 
-![Connection with option to use OPA](/assets/images/sdk/connection_without_secure_tunnel_option.png)
+![Connection with option to use OPA](/assets/images/sdk/connection_with_secure_tunnel_option.png)
 *Connection with option to use OPA*
 
 Learn how to setup an on-prem agent [here](/on-prem/setup.md).
