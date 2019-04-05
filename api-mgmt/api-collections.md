@@ -13,7 +13,7 @@ The next step is to organize these recipes into one or more API Collections. Gen
 
 It may be helpful to place recipes whose endpoints belong to a the same API Collection within the same folder in the Workato UI. An API Collection can be associated with a folder, so that any new callable recipes added to the folder will be placed into the collection automatically (they are not, however, automatically enabled for external calling).
 
-To create an API Collection, navigate to the API Management section from the Tools menu, and then click on the API Collections tab. You will see something like this:
+To create an API Collection, navigate to the API platform section from the Tools menu, and then click on the API Collections tab. You will see something like this:
 
 ![API Collection Tab](/assets/images/api-mgmt/api-collections.png)
 *API Collections Tab*
@@ -36,7 +36,7 @@ The "..." icon in the upper left corner of listed endpoint within the API Collec
 ![Edit endpoint dialog](/assets/images/api-mgmt/edit-endpoint.png)
 *Edit endpoint dialog*
 
-Editing allows changing the name, recipe, HTTP Method (such as POST), and the URL path to the API. (Note that changes may require clients of the API to make adjustments on their end, so that their recipes, scripts, etc. still work). Deleting an endpoint removes it from the collection and makes it inaccessible to any clients that had previously been granted access to it through the collection. 
+Editing allows changing the name, recipe, HTTP Method (such as POST), and the URL path to the API. (Note that changes may require clients of the API to make adjustments on their end, so that their recipes, scripts, etc. still work). Deleting an endpoint removes it from the collection and makes it inaccessible to any clients that had previously been granted access to it through the collection.
 
 ## Activating or Deactivating an Endpoint
 

@@ -3,7 +3,7 @@ title: Calling APIs
 date: 2018-02-03 06:23:00 Z
 ---
 
-APIs that are exposed through the API Management console can be called from recipes in accounts other than one owning the recipe, as well as from third-party tools, programs, and scripts.
+APIs that are exposed through the API platform console can be called from recipes in accounts other than one owning the recipe, as well as from third-party tools, programs, and scripts.
 
 # Calling an API Endpoint from a Recipe
 
@@ -39,4 +39,3 @@ Clients can access the Open API description for the service by performing a GET 
 The Open API description can be used by tools such as the [Swagger UI](https://swagger.io/tools/swagger-ui/) to make requests. For programmers, it is possible to generate API client code using [Swagger Codegen](https://github.com/swagger-api/swagger-codegen).
 
 Any other standard HTTP request tool, such as the command-line tool "curl," can also be used to make requests.
-
