@@ -7,8 +7,8 @@ date: 2018-02-02 19:41:00 Z
 API owners can manage and monitor clients' usage of their APIs from
 the Workato UI.
 
-API Management is accessible from the Tools menu. Once in the main
-API Management screen, select the "Clients" tab to create and
+API platform is accessible from the Tools menu. Once in the main
+API platform screen, select the "Clients" tab to create and
 manage API clients. A typical screen would look like this:
 
 ![Create API Cliient](/assets/images/api-mgmt/api-new-client.png)
@@ -51,5 +51,3 @@ Note the "API Key" field. A unique API key is generated for each client. This ke
 An API key can be revoked, and a new one issued, by clicking on the "Refresh" button next to the key.
 
 Note that the new client is shown as "Disabled" by default. A disabled client cannot call any APIs. Moving the slider right will switch the client's status to "Enabled," after which he/she will be allowed to make API calls.
-
-
