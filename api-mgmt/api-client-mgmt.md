@@ -59,4 +59,3 @@ An API key can be revoked, and a new one issued, by clicking on the "Refresh" bu
 
 A client can be "Disabled" or "Enabled." A disabled client cannot call any APIs. Moving the slider right will switch the client's status to "Enabled," after which he/she will be allowed to make API calls.
 
-

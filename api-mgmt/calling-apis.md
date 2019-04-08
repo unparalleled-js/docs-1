@@ -43,4 +43,3 @@ Clients can access the Open API description for the service by performing a GET 
 The Open API description can be used by tools such as the [Swagger UI](https://swagger.io/tools/swagger-ui/) to make requests. For programmers, it is possible to generate API client code using [Swagger Codegen](https://github.com/swagger-api/swagger-codegen).
 
 Any other standard HTTP request tool, such as the command-line tool "curl," can also be used to make requests.
-
