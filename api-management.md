@@ -47,8 +47,6 @@ See the following pages for more details on Workato's API Platform:
 
 * [Managing API Clients and Access Profiles](/api-mgmt/api-client-mgmt.md)
 
-* [JWT Access Tokens](/api-mgmt/jwt-access-tokens.md)
-
 * [Calling APIs](/api-mgmt/calling-apis.md)
 
 * [Security Best Practices for APIs](/api-mgmt/api-security.md)
