@@ -1,9 +1,13 @@
 ---
 title: Calling APIs
-date: 2018-02-03 06:23:00 Z
+date: 2018-04-08 13:25:00 Z
 ---
 
-APIs that are exposed through the API Management console can be called from recipes in accounts other than one owning the recipe, as well as from third-party tools, programs, and scripts.
+APIs that are exposed through the API Platform console can be called from recipes in accounts other than one owning the recipe, as well as from third-party tools, programs, and scripts. The API manager must provide to the client the Auth Token value needed to call an API Collection.
+
+# Authorization Headers
+
+If the Access Profile specifies the "Auth Token" method of authentication, then the Auth Token value must be passed by the client as the value of the "API-Token" header. If the authorization method is "JSON Web Token," then the value of the encoded and signed token is passed in the "Authorization" header, using the "Bearer" scheme.
 
 # Calling an API Endpoint from a Recipe
 
@@ -14,7 +18,7 @@ An API Endpoint can be called from a recipe using the HTTP Connector. Select the
 
 Make sure that the type of request (POST, PUT, GET) matches the API that you are calling. Any required fields need to be specified in the body (for POST and PUT) or as query parameters in the URL (for GET).
 
-Also note that an "API-Token" request header has been added. Its value should be set to the token that the API owner has supplied to you.
+Also note that an "API-Token" request header has been added. Its value should be set to the token that the API owner has supplied to you. (This assumes the "Auth Token" method of authentication)
 
 Caution: the API token should not be shared with other users. Therefore it is recommended not to make a recipe public that contains such as token.
 
