@@ -592,7 +592,7 @@ The following profile properties are supported:
 | Property name | Description |
 |------------------|-------------------------------------------|
 | auth | Full NTLM authentication credentials. This can include username, password, domain and workstation.<br><br>For OPA version 2.4.7 or later, **username** and **password** can be configured separately if they contain special characters like `@` and `/`. |
-|username | Username for NLTM authentication.<br>**Only for OPA version 2.4.7 or later** |
+|username | Username for NTLM authentication.<br>**Only for OPA version 2.4.7 or later** |
 |password | Password for NTLM authentication.<br>**Only for OPA version 2.4.7 or later** |
 | base_url | The base URL for NTLM resources |
 | cm_default_max_per_route | **Optional**. Sets the number of connections per route/host (must be a positive number, default 5) |
