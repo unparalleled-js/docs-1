@@ -103,13 +103,14 @@ When examined, most workflows with applicable batch triggers/actions can be acco
       The use of a batch trigger, followed by a batch action and using Workato's repeat step for any single row actions.
       </td>
       <td>
-      Using this method is the most efficient across all metrics. Since Workato employs a step-by-step (synchronous) process within each job run so any error that causes the run to stop also prevents the following steps from being executed for the entire batch. In cases where it only makes sense for the following actions to be executed contingent on the success of the initial steps, this could be useful behaviour. Since even a single record causes the whole batch to stop, some thought should go into striking a balance between efficiency and stopping too many records from being processed during a failed job run. One solution would be to toggle batch size.
+        Using this method is the most efficient across all metrics. Workato employs a step-by-step (synchronous) process within each job run. Additionally, an error in any step of the job will cause it to stop, without proceeding to successive steps. Since even a single record causes the whole batch to stop, some thought should go into striking a balance between efficiency and stopping too many records from being processed during a failed job run. One solution would be to toggle batch size.
       </td>
       <td>
-      If we were to pull batches of new leads from a Oracle server for batch inserts into Salesforce, we could follow this up with emails to individuals on the sales team with links to the leads newly created on Salesforce directly. In cases where our information flowing in from Salesforce raised an error during the batch insert action, no email would be sent out to our sales team with links that didn’t work or were empty! We can now safely make adjustments to our recipe to accommodate this error before repeating the job.
+        When pulling batches of new leads from a Oracle server for batch inserts into Salesforce, we could follow this up with emails to sales reps (with links to the records in Salesforce).<br><br>
+        In cases where our information flowing in from Salesforce raised an error during the batch insert action, no email would be sent out to our sales team with links that didn’t work or were empty! We can now safely make adjustments to our recipe to accommodate this error before repeating the job.
      </td>
     </tr>
-    <tr  valign="top">
+    <tr valign="top">
        <td>
         The use of a single row trigger, followed by a single row actions
        </td>
@@ -172,7 +173,8 @@ When looking to make triggers using our `New row` and `New/updated row` triggers
 > <details><summary><b>How to create a new auto incrementing key</b></summary>
 > Oracle does not support auto incrementing columns in versions 11g and versions before.
 > <br> <br>
-> <b> Here is how you can implement an auto_incrementing key for versions 11g and before</b> <br>
+> <b> Here is how you can implement an auto_incrementing key for versions 11g and before</b>
+>
 > 1. A sequence needs to be first created, which is a data object that multiple users can access to automatically generate incremented values.
 > <br>
 > 2. Enter the following commands to create an new sequence as well as create a new column, where [your_table_name] and [column_name] are placeholders for your table name and new column name respectively
@@ -196,9 +198,10 @@ When looking to make triggers using our `New row` and `New/updated row` triggers
 > END
 > </code></pre>
 > 4. You can now use this column as your unique key!
-> <br><br>
-> <b>Here is how you can implement an auto incrementing key for versions after 11g</b>
+>
 > <br>
+> <b>Here is how you can implement an auto incrementing key for versions after 11g</b>
+>
 > 1. We can use <code>IDENTITIES</code> to do so. Type in the following commands, where [your_table_name] and [column_name] are placeholders for your table name and new column name respectively
 >
 > <pre><code style="display: block; white-space: pre-wrap;">ALTER TABLE [your_table_name]
@@ -224,13 +227,13 @@ When looking to make triggers using our `New row` and `New/updated row` triggers
 > </code></pre>
 >
 > 2. After this, now we need to add this column to trigger and update whenever a record is changes
->       
+>
 > <pre><code style="display: block; white-space: pre-wrap;">CREATE OR REPLACE TRIGGER TRG_[your_table_name]
-  BEFORE UPDATE ON [your_table_name]
-  FOR EACH ROW
-BEGIN
-  :NEW.UPDATED_AT :=CURRENT_TIMESTAMP;
-end;
+>   BEFORE UPDATE ON [your_table_name]
+>   FOR EACH ROW
+> BEGIN
+>   :NEW.UPDATED_AT := CURRENT_TIMESTAMP;
+> end;
 > </code></pre>
 > </details>
 
