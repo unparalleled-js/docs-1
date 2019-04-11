@@ -37,50 +37,62 @@ We should consider splitting this workflow up into 4 separate recipes.
 <table>
   <thead>
     <tr>
-        <th width='30%'>Recipe</th>
-        <th width='70%'>Description</th>
+      <th width='30%'>Recipe</th>
+      <th width='70%'>Description</th>
     </tr>
   </thead>
   <tbody>
     <tr>
-   <td>Callable Recipe <b>1</b>  <br> <b>Create Salesforce accounts</b></td>
-<td>
-  1. Triggered after being called by another recipe and receive request data  <br>
-  2. Performs validation on data received <br>
-  3. Checks for existing Salesforce accounts <br>
-  4. Updates or inserts new Salesforce accounts <br>
- </td>
-      </tr>
-<tr>
-<td>Callable Recipe <b>2</b>  <br> <b>Adds contacts to email campaign</b></td>
-<td>
-  1. Triggered after being called by another recipe and receive request data  <br>
-  2. Performs validation on data received <br>
-  3. Checks for existing duplicate contact  <br>
-  4. Adds or updates contact to email campaign <br>
-  </td>
-  </tr>
-<tr>
-<td>Callable Recipe <b>3</b>  <br> <b>Back contact data up in Redshift</b></td>
-<td>
-  1. Triggered after being called by another recipe and receive request data <br>
-  2. Performs validation on data received <br>
-  3. Perform data transformation to prepare for Redshift <br>
-  4. Checks for existing records in Redshift <br>
-  5. Updates or inserts contact records <br>
-  </td>
-  </tr>
-<tr>
-<td>Parent Recipe <b>4</b>  <br> <b>Kickstart workflow from database (Oracle)</b></td>
-<td>
-  1. Scheduled trigger to retrieve data from Oracle<br>
-  2. Perform basic data transformation and validation <br>
-  3. Call Recipe <b>1</b> <br>
-  4. Call Recipe <b>2</b> <br>
-  5. Call Recipe <b>3</b> <br>
-  </td>
-  </tr>
-</tbody>
+      <td>
+        Callable Recipe <b>1</b><br>
+        <b>Create Salesforce accounts</b>
+      </td>
+      <td>
+        1. Triggered after being called by another recipe and receive request data  <br>
+        2. Performs validation on data received <br>
+        3. Checks for existing Salesforce accounts <br>
+        4. Updates or inserts new Salesforce accounts <br>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        Callable Recipe <b>2</b><br>
+        <b>Adds contacts to email campaign</b>
+      </td>
+      <td>
+        1. Triggered after being called by another recipe and receive request data  <br>
+        2. Performs validation on data received <br>
+        3. Checks for existing duplicate contact  <br>
+        4. Adds or updates contact to email campaign <br>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        Callable Recipe <b>3</b><br>
+        <b>Back contact data up in Redshift</b>
+      </td>
+      <td>
+        1. Triggered after being called by another recipe and receive request data <br>
+        2. Performs validation on data received <br>
+        3. Perform data transformation to prepare for Redshift <br>
+        4. Checks for existing records in Redshift <br>
+        5. Updates or inserts contact records <br>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        Parent Recipe <b>4</b><br>
+        <b>Kickstart workflow from database (Oracle)</b>
+      </td>
+      <td>
+        1. Scheduled trigger to retrieve data from Oracle<br>
+        2. Perform basic data transformation and validation <br>
+        3. Call Recipe <b>1</b> <br>
+        4. Call Recipe <b>2</b> <br>
+        5. Call Recipe <b>3</b> <br>
+      </td>
+    </tr>
+  </tbody>
 </table>
 
 By splitting this workflow up into multiple recipes, this allows other recipes and 3rd party apps to also call upon recipe 1, 2 and 3 reducing the amount of redundant steps if, for example, another recipe needed to back data up in a redshift data warehouse. Changes to any step or improvements to any part of the workflow, such as a change in email provider from mailchimp to SendGrid would be handled much easier due to this design pattern.
@@ -92,9 +104,9 @@ When examined, most workflows with applicable batch triggers/actions can be acco
 <table class="unchanged rich-diff-level-one">
   <thead>
     <tr>
-        <th width='20%'>Method</th>
-        <th width='40%'>Benefits/Drawbacks</th>
-        <th width='40%'>Business use case example</th>
+      <th width='20%'>Method</th>
+      <th width='40%'>Benefits/Drawbacks</th>
+      <th width='40%'>Business use case example</th>
     </tr>
   </thead>
   <tbody>
@@ -176,7 +188,6 @@ When looking to make triggers using our `New row` and `New/updated row` triggers
 > <b> Here is how you can implement an auto_incrementing key for versions 11g and before</b>
 >
 > 1. A sequence needs to be first created, which is a data object that multiple users can access to automatically generate incremented values.
-> <br>
 > 2. Enter the following commands to create an new sequence as well as create a new column, where [your_table_name] and [column_name] are placeholders for your table name and new column name respectively
 >
 > <pre><code style="display: block; white-space: pre-wrap;">CREATE SEQUENCE seq_auto_increment START WITH 1;

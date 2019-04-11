@@ -37,53 +37,65 @@ We should consider splitting this workflow up into 4 separate recipes.
 <table>
   <thead>
     <tr>
-        <th width='30%'>Recipe</th>
-        <th width='70%'>Description</th>
+      <th width='30%'>Recipe</th>
+      <th width='70%'>Description</th>
     </tr>
   </thead>
   <tbody>
     <tr>
-   <td>Callable Recipe <b>1</b>  <br> <b>Create Salesforce accounts</b></td>
-<td>
-  1. Triggered after being called by another recipe and receive request data  <br>
-  2. Performs validation on data received <br>
-  3. Checks for existing Salesforce accounts <br>
-  4. Updates or inserts new Salesforce accounts <br>
- </td>
-      </tr>
-<tr>
-<td>Callable Recipe <b>2</b>  <br> <b>Adds contacts to email campaign</b></td>
-<td>
-  1. Triggered after being called by another recipe and receive request data  <br>
-  2. Performs validation on data received <br>
-  3. Checks for existing duplicate contact  <br>
-  4. Adds or updates contact to email campaign <br>
-  </td>
-  </tr>
-<tr>
-<td>Callable Recipe <b>3</b>  <br> <b>Back contact data up in Redshift data warehouse</b></td>
-<td>
-  1. Triggered after being called by another recipe and receive request data <br>
-  2. Performs validation on data received <br>
-  3. Perform data transformation to prepare for Redshift data warehouse <br>
-  4. Checks for existing records into Redshift data warehouse <br>
-  5. Updates or inserts contact records <br>
-  </td>
-  </tr>
-<tr>
-<td>Parent Recipe <b>4</b>  <br> <b>Kickstart workflow from database (SQL server)</b></td>
-<td>
-  1. Scheduled trigger to retrieve data from Sql Server<br>
-  2. Perform basic data transformation and validation <br>
-  3. Call Recipe <b>1</b> <br>
-  4. Call Recipe <b>2</b> <br>
-  5. Call Recipe <b>3</b> <br>
-  </td>
-  </tr>
-</body>
+      <td>
+        Callable Recipe <b>1</b><br>
+        <b>Create Salesforce accounts</b>
+      </td>
+      <td>
+        1. Triggered after being called by another recipe and receive request data  <br>
+        2. Performs validation on data received <br>
+        3. Checks for existing Salesforce accounts <br>
+        4. Updates or inserts new Salesforce accounts <br>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        Callable Recipe <b>2</b><br>
+        <b>Adds contacts to email campaign</b>
+      </td>
+      <td>
+        1. Triggered after being called by another recipe and receive request data  <br>
+        2. Performs validation on data received <br>
+        3. Checks for existing duplicate contact  <br>
+        4. Adds or updates contact to email campaign <br>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        Callable Recipe <b>3</b><br>
+        <b>Back contact data up in Redshift data warehouse</b>
+      </td>
+      <td>
+        1. Triggered after being called by another recipe and receive request data <br>
+        2. Performs validation on data received <br>
+        3. Perform data transformation to prepare for Redshift data warehouse <br>
+        4. Checks for existing records into Redshift data warehouse <br>
+        5. Updates or inserts contact records <br>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        Parent Recipe <b>4</b><br>
+        <b>Kickstart workflow from database (SQL server)</b>
+      </td>
+      <td>
+        1. Scheduled trigger to retrieve data from Sql Server<br>
+        2. Perform basic data transformation and validation <br>
+        3. Call Recipe <b>1</b> <br>
+        4. Call Recipe <b>2</b> <br>
+        5. Call Recipe <b>3</b> <br>
+      </td>
+    </tr>
+  </body>
 </table>
 
-By splitting this workflow up into multiple recipes, this allows other recipes and 3rd party apps to also call upon recipe 1, 2 and 3 reducing the amount of redundant steps if, for example, another recipe needed to back data up in a Redshift data warehouse. Changes to any step or improvements to any part of the workflow, such as a change in email provider from mailchimp to SendGrid would be handled much easier due to this design pattern.
+By splitting this workflow up into multiple recipes, this allows other recipes and 3rd party apps to also call upon recipe 1, 2 and 3 reducing the amount of redundant steps if, for example, another recipe needed to back data up in a Redshift data warehouse. Changes to any step or improvements to any part of the workflow, such as a change in email provider from Mailchimp to SendGrid would be handled much easier due to this design pattern.
 
 ### When to use batch of rows triggers/actions vs single row triggers/actions
 With the ability to break down complex workflows through callable recipes, the decision to use batch or single row actions are often a matter of business requirements and design considerations. While batch triggers/actions reduce the load on your servers and improve time efficiency by batching up to a 100 records into a single call, there exists a trade-off as batch actions that do fail, fail on a batch level.
@@ -92,37 +104,37 @@ When examined, most workflows with applicable batch triggers/actions can be acco
 <table class="unchanged rich-diff-level-one">
   <thead>
     <tr>
-        <th width='20%'>Method</th>
-        <th width='40%'>Benefits/Drawbacks</th>
-        <th width='40%'>Business use case example</th>
+      <th width='20%'>Method</th>
+      <th width='40%'>Benefits/Drawbacks</th>
+      <th width='40%'>Business use case example</th>
     </tr>
   </thead>
   <tbody>
    <tr>
       <td>The use of a batch trigger, followed by a batch action and using Workato's repeat step for any single row actions.</td>
-      <td>Using this method is the most efficient across all metrics. Since Workato employs a step-by-step (synchronous) process within each job run so any error that causes the run to stop also prevents the following steps from being executed for the entire batch. In cases where it only makes sense for the following actions to be executed contingent on the success of the initial steps, this could be useful behaviour. Since even a single record causes the whole batch to stop, some thought should go into striking a balance between efficiency and stopping too many records from being processed during a failed job run. One solution would be to toggle batch size.
-        </td>  
-    <td>
+      <td>
+        Using this method is the most efficient across all metrics. Since Workato employs a step-by-step (synchronous) process within each job run so any error that causes the run to stop also prevents the following steps from being executed for the entire batch. In cases where it only makes sense for the following actions to be executed contingent on the success of the initial steps, this could be useful behaviour. Since even a single record causes the whole batch to stop, some thought should go into striking a balance between efficiency and stopping too many records from being processed during a failed job run. One solution would be to toggle batch size.
+      </td>
+      <td>
         If we were to pull batches of new leads from a SQL server for batch inserts into Salesforce, we could follow this up with emails to individuals on the sales team with links to the leads newly created on Salesforce directly. In cases where our information flowing in from Salesforce raised an error during the batch insert action, no email would be sent out to our sales team with links that didn’t work or were empty! We can now safely make adjustments to our recipe to accommodate this error before repeating the job.
-        </details>
-     </td>
+      </td>
     </tr>
        <td>The use of a single row trigger, followed by a single row actions</td>
-      <td>Using this method is the least efficient across all metrics, especially for triggers/actions that work with large numbers of records. Workato employs a step-by-step (synchronous) process within job runs so any error that causes the run to stop also prevents the following steps from being executed. Some cases call for this behaviour where we would want to fix our recipe before letting the recipe run on to further steps. This is different from the batch trigger version as it only stops the job runs for those that raise errors compared to an entire batch. In time sensitive business use cases where all new rows should be processed as soon as possible, this might be the best design choice.
+       <td>
+         Using this method is the least efficient across all metrics, especially for triggers/actions that work with large numbers of records. Workato employs a step-by-step (synchronous) process within job runs so any error that causes the run to stop also prevents the following steps from being executed. Some cases call for this behaviour where we would want to fix our recipe before letting the recipe run on to further steps. This is different from the batch trigger version as it only stops the job runs for those that raise errors compared to an entire batch. In time sensitive business use cases where all new rows should be processed as soon as possible, this might be the best design choice.
       </td>  
       <td>
         Time sensitive job runs such as new orders populating a SQL server table as new rows, the following actions may be crucial in ensuring the timely delivery of your product to your customer. Having entire batches of orders being stopped due to a single failed record may result in lost revenue for you. In this scenario, single row triggers/actions may be the best way to minimise disruptions to your company's operations. <b>Another alternative to consider would be to reduce the batch size of your batch actions.</b>
-        </details>
-     </td>
+      </td>
     </tr>
     <tr>
        <td>The use of a batch trigger, followed by all required batch actions. A separate recipes can be used with a single row action and single row actions.</td>
-      <td>Using this method is allows records to be processed concurrently. This allows errors to be contained at a recipe level and only affect the steps that follow after it. In cases where steps are independent of each other and one need not be completed before the other can begin, this might be the best solution. This fits in the best with more complex workflows where separating recipes based on their data types and business needs makes recipes easier to maintain and efficient as mentioned earlier.
+       <td>
+         Using this method is allows records to be processed concurrently. This allows errors to be contained at a recipe level and only affect the steps that follow after it. In cases where steps are independent of each other and one need not be completed before the other can begin, this might be the best solution. This fits in the best with more complex workflows where separating recipes based on their data types and business needs makes recipes easier to maintain and efficient as mentioned earlier.
       </td>  
       <td>
         New records in a table could signify new customer sign-ups for a free trial for your product. You hope to add them in batches to a drip campaign as well as send their details individually over to your sales team for follow-ups. Given both cases are not dependent on each other and both can be accomplished without diminishing the other's effectiveness, this workflow could and should be accomplished as separate recipes to minimise the impact if failed job runs on business.
-        </details>
-     </td>
+      </td>
     </tr>
   </tbody>
 </table>
@@ -163,14 +175,13 @@ When looking to make triggers using our `New row` and `New/updated row` triggers
 
 > <details><summary><b>How to create a new auto incrementing key</b></summary>
 >
-> 1. Make sure no other column has been declared as an <code>IDENTITY</code> column in your table. (if this has been done so, you may use that directly as your unique integer key<br>
-> 2. Enter the following commands to create an new <code>IDENTITY</code> column, where [your_table_name] and [column_name] are placeholders for your table name and new column name respectively<br>
+> 1. Make sure no other column has been declared as an <code>IDENTITY</code> column in your table. (if this has been done so, you may use that directly as your unique integer key
+> 2. Enter the following commands to create an new <code>IDENTITY</code> column, where [your_table_name] and [column_name] are placeholders for your table name and new column name respectively
 > <pre><code style="display: block; white-space: pre-wrap;">ALTER TABLE [your_table_name]
 > ADD [column_name] INT UNIQUE NOT NULL IDENTITY ;
 > </code></pre>
-> 3. After this, you should be able to use your new key as a unique column!<br>
+> 3. After this, you should be able to use your new key as a unique column!
 > 4. Creating a new <code>IDENTITY</code> column in SQL server backfills all your previous records. Take note of the initial recipe run!
->
 > </details>
 
 **Sort column**
@@ -199,7 +210,6 @@ When looking to make triggers using our `New row` and `New/updated row` triggers
 >    FROM INSERTED i
 >    WHERE [your_table_name].ID = i.ID;
 > </code></pre>
->
 > </details>
 
 ### Data validation
