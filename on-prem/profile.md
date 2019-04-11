@@ -565,11 +565,21 @@ The agent may be configured to allow accessing internal HTTPS resources which us
 Normally a server certificate's Common Name (or Subject Alternate Name) field should match the target hostname. If you want the agent to accept server certificates with non-matching hostname, disable hostname verification by setting `verifyHost` property to `false` (defaults to `true`).
 
 ## NTLM connection profile
-Certain HTTP resources require NTLM authentication. This can be done using a NTLM connection profile. An example profile should look like this:
+Certain HTTP resources require NTLM authentication. This can be done using a NTLM connection profile. Here are some example NTLM profiles:
 ```YAML
 ntlm:
   MyNtlmProfile:
     auth: "username:password@domain/workstation"
+    base_url: "http://myntlmhost.com"
+    cm_default_max_per_route: 15
+    cm_max_total: 100
+    verifyHost: true
+    trustAll: false
+
+  AnotherNtlmProfile:
+    auth: "domain/workstation"
+    username: "username"
+    password: "password"
     base_url: "http://myntlmhost.com"
     cm_default_max_per_route: 15
     cm_max_total: 100
@@ -581,7 +591,9 @@ The following profile properties are supported:
 
 | Property name | Description |
 |------------------|-------------------------------------------|
-| auth | NTLM authentication credentials |
+| auth | Full NTLM authentication credentials. This can include username, password, domain and workstation.<br><br>For OPA version 2.4.7 or later, **username** and **password** can be configured separately if they contain special characters like `@` and `/`. |
+|username | Username for NTLM authentication.<br>**Only for OPA version 2.4.7 or later** |
+|password | Password for NTLM authentication.<br>**Only for OPA version 2.4.7 or later** |
 | base_url | The base URL for NTLM resources |
 | cm_default_max_per_route | **Optional**. Sets the number of connections per route/host (must be a positive number, default 5) |
 | cm_max_total | **Optional**. Sets the maximum number of connections (must be a positive number, default 10) |
