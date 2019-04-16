@@ -10,6 +10,7 @@ SQL Server documentation contains the following chapters:
   * [New/updated row trigger](/connectors/mssql/updated-row-trigger.md)
   * [Select actions](/connectors/mssql/select.md)
   * [Insert actions](/connectors/mssql/insert.md)
+  * [Update actions](/connectors/mssql/update.md)
   * [Upsert actions](/connectors/mssql/upsert.md)
   * [Delete actions](/connectors/mssql/delete.md)
   * [Run custom SQL action](/connectors/mssql/run_sql.md)

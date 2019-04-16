@@ -10,6 +10,7 @@ date: 2018-03-18 06:00:00 Z
   * [New/updated row trigger](/connectors/oracle/updated-row-trigger.md)
   * [Select actions](/connectors/oracle/select.md)
   * [Insert actions](/connectors/oracle/insert.md)
+  * [Update actions](/connectors/oracle/update.md)
   * [Upsert actions](/connectors/oracle/upsert.md)
   * [Delete actions](/connectors/oracle/delete.md)
   * [Run custom SQL action](/connectors/oracle/run_sql.md)
