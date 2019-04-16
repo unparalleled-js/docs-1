@@ -67,7 +67,7 @@ An installation instruction video for Windows is also available [here](https://w
 7) After installing your agent on your machine, you will now need to configure your agent by [creating connection profiles](/on-prem/profile.md)
 
 ### Linux
-In some cases, the secure network is a Linux environment where you cannot setup the OPA files using an interface. The setup will need to be done in 2 separate steps. First, download agent and cert files ito a local machine (usually a work device with access to the secure remote server). Then, securely move these files into the secure remote server and setup the OPA.
+In some cases, the secure network is a Linux environment where you cannot set up the OPA files using an interface. The setup will need to be done in 2 separate steps. First, download agent and cert files into a local machine (usually a work device with access to the secure remote server). Then, securely move these files into the secure remote server and set up the OPA.
 
 1) On the top navigation bar, click `Tools` > `On-premises agent`
 
@@ -81,7 +81,7 @@ In some cases, the secure network is a Linux environment where you cannot setup 
 
 ![On-premises option](/assets/images/on-prem/download-key-and-agent.png)
 
-4) When downloading the agent, select Linux operating system to download the right agent installer.
+4) When downloading the agent, select the Linux operating system to download the right agent installer.
 
 ![On-premises option](/assets/images/on-prem/mac-os.png)
 
@@ -100,7 +100,7 @@ $ scp -i /Users/eeshan/Projects/mey_key.pem /Users/eeshan/Downloads/cert.zip ec2
 $ ssh -i /Users/eeshan/Projects/my_key.pem ec2-user@ec2-3-91-231-221.compute-1.amazonaws.com
 ```
 
-8) Unpack agent package file. Provide a meaningful name for the agent directory. (Default to `workato-agent`)
+8) Unpack agent package file. Provide a meaningful name for the agent directory. (Defaults to `workato-agent`)
 ```bash
 $ tar xvzf workato-agent-linux-x64-2.4.8.tar.gz
 ```
