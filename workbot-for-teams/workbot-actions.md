@@ -91,16 +91,14 @@ The post reply action follows a fixed structure, with a preceding **Envelope tex
 The table below lists the input fields in the post reply action.
 
 <table class="unchanged rich-diff-level-one">
-<colgroup>
-<col style="width: 117px">
-<col style="width: 165px">
-<col style="width: 632px">
-</colgroup>
+<thead>
   <tr>
     <th>Group</th>
     <th>Input</th>
     <th>Description<br></th>
   </tr>
+</thead>
+<tbody>
   <tr>
     <td></td>
     <td>Envelope text&ast;</td>
@@ -191,6 +189,7 @@ The table below lists the input fields in the post reply action.
     <td>Message to update</td>
     <td>Use message ID from the output of a post reply or post message action to update that message with this one.</td>
   </tr>
+</tbody>
 </table>
 &ast;Supports markdown
 
