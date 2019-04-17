@@ -201,7 +201,7 @@ The table below lists the input fields in the post reply action.
           Pass additional parameters when user submits by clicking a button. Format should be JSON with name-value pairs, e.g.<br><br><pre>{
        "opportunity_id":"<kbd>Opportunity ID</kbd>",
        "stage":"<kbd>Stage</kbd>"
-}<samp>
+}</pre>
       </td>
       </tr>
       <tr>
