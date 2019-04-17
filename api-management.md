@@ -1,6 +1,6 @@
 ---
 title: API Management
-date: 2018-02-10 20:01:00 Z
+date: 2018-04-08 10:45:00 Z
 ---
 
 # API Platform
@@ -12,10 +12,10 @@ Workato allows for callable recipes to be turned into an API endpoint. This mean
 
 API calls can be made from Workato recipes in other accounts (using the HTTP Connector) or by tools, programs and scripts that are completely outside of Workato.
 
-API platform tools in Workato allow a Workato user to control and monitor access to APIs associated with their account's recipes. API platform is available from the Tools menu.
+Workato's API Platform allows a Workato user to control and monitor access to APIs associated with their account's recipes. The API Platform is available from the Tools menu.
 
-![API Management Tool](/assets/images/api-mgmt/api-mgmt-tool.png)
-*API platform Tool*
+![API Platform Tool](/assets/images/api-mgmt/api-platform-tool.png)
+*API Platform Tool*
 
 # Concepts
 ## Endpoints
@@ -39,7 +39,7 @@ An API token grants access to all the API Collections within an Access Profile. 
 
 # More information
 
-See the following pages for more details on API management:
+See the following pages for more details on Workato's API Platform:
 
 * [API Collections and Endpoint Management](/api-mgmt/api-collections.md)
 

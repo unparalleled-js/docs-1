@@ -218,6 +218,7 @@
   * [API Collections and Endpoint Management](api-mgmt/api-collections.md)
   * [API Access Policies](api-mgmt/api-access-policies.md)
   * [Managing API Clients and Access Profiles](api-mgmt/api-client-mgmt.md)
+    * [Access Tokens](api-mgmt/access-tokens.md)
   * [Calling APIs](api-mgmt/calling-apis.md)
   * [Security Best Practices for APIs](api-mgmt/api-security.md)
 * [Connectors](connectors.md)
