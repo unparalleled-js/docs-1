@@ -42,6 +42,7 @@ The following table shows what goes into the button fields:
             <th>Value</th>
             <th>Description</th>
         </tr>
+    <tbody>
         <tr>
           <td>Title</td>
           <td>
@@ -53,8 +54,9 @@ The following table shows what goes into the button fields:
         </tr>
         <tr>
           <td>Submit button command</td>
-          <td>Workbot command to execute when button is clicked, e.g.
-          <pre>create_ticket</code>
+          <td>
+            Workbot command to execute when button is clicked, e.g.
+          <code>create_ticket</code>
           </td>
           <td>
             Choose from a list of existing recipes that can be invoked by a Workbot command.
@@ -63,10 +65,10 @@ The following table shows what goes into the button fields:
         <tr>
           <td>Parameters</td>
           <td>
-          Parameter values to pass onto the next recipe when button is clicked, e.g.<br><br><pre>{<br>  "sys_id": "<kbd>sys_id</kbd>"<br>  "summary": "<kbd>Summary</kbd>",<br>  "description": "<kbd>Description</kbd>"<br>}
+            Parameter values to pass onto the next recipe when button is clicked, e.g.<br><br><pre>{<br>  "sys_id": "<kbd>sys_id</kbd>"<br>  "summary": "<kbd>Summary</kbd>",<br>  "description": "<kbd>Description</kbd>"<br>}
           </td>
           <td>
-          Key in name-value pairs to pass onto the next recipe as parameter values. Remember to wrap datapills with double quotes.
+            Key in name-value pairs to pass onto the next recipe as parameter values. Remember to wrap datapills with double quotes.
           </td>
         </tr>
       </tbody>
@@ -91,6 +93,7 @@ The following table shows what goes into the pick list and choice fields:
             <th>Input field</th>
             <th>Description</th>
         </tr>
+    <tbody>
         <tr>
           <td>Pick list name</td>
           <td>
@@ -100,13 +103,13 @@ The following table shows what goes into the pick list and choice fields:
         <tr>
           <td>Pick list style</td>
           <td>
-          <b>Compact</b> displays choices in a drop-down menu, while <b>Expanded</b> displays all choices with radio buttons.
+            <b>Compact</b> displays choices in a drop-down menu, while <b>Expanded</b> displays all choices with radio buttons.
           </td>
         </tr>
         <tr>
           <td>Choice parameter</td>
           <td>
-          Parameter name to store the choice value. This name-value pair will be passed on as additional parameters.
+            Parameter name to store the choice value. This name-value pair will be passed on as additional parameters.
           </td>
         </tr>
         <tr>
@@ -187,6 +190,7 @@ The following table shows what goes into the dynamic buttons fields:
             <th>Value</th>
             <th>Description</th>
         </tr>
+    <tbody>
         <tr>
           <td>Button source list</td>
           <td>
@@ -209,8 +213,9 @@ The following table shows what goes into the dynamic buttons fields:
         </tr>
         <tr>
           <td>Submit button command</td>
-          <td>Workbot command to execute when button is clicked, e.g.
-          <pre>assign_user</code>
+          <td>
+            Workbot command to execute when button is clicked, e.g.
+          <code>assign_user</code>
           </td>
           <td>
             Choose from a list of existing Workbot command recipes or key in a new command. Clicking on this button will trigger the recipe with the corresponding command trigger.
@@ -222,7 +227,7 @@ The following table shows what goes into the dynamic buttons fields:
             Pass additional parameters when user submits by clicking a button. Format should be JSON with name-value pairs, e.g.<br><br><pre>{<br>  "opportunity_id": "<kbd>Opportunity ID</kbd>",<br>  "stage": "<kbd>Stage</kbd>"<br>}<samp>
           </td>
           <td>
-          Key in name-value pairs to pass onto the next recipe as additional parameters.
+            Key in name-value pairs to pass onto the next recipe as additional parameters.
           </td>
         </tr>
       </tbody>
