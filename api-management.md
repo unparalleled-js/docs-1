@@ -12,7 +12,6 @@ Workato allows for callable recipes to be turned into an API endpoint. This mean
 
 API calls can be made from Workato recipes in other accounts (using the HTTP Connector) or by tools, programs and scripts that are completely outside of Workato.
 
-<<<<<<< HEAD
 Workato's API Platform allows a Workato user to control and monitor access to APIs associated with their account's recipes. The API Platform is available from the Tools menu.
 
 ![API Platform Tool](/assets/images/api-mgmt/api-platform-tool.png)
