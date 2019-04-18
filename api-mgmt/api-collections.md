@@ -13,7 +13,9 @@ The next step is to organize these recipes into one or more API Collections. Gen
 
 It may be helpful to place recipes whose endpoints belong to a the same API Collection within the same folder in the Workato UI. An API Collection can be associated with a folder, so that any new callable recipes added to the folder will be placed into the collection automatically (they are not, however, automatically enabled for external calling).
 
-To create an API Collection, navigate to the API platform section from the Tools menu, and then click on the API Collections tab. You will see something like this:
+API Collections are versioned, using a unique 1-10 character version identifier. Collections with the same name but different version are distinct objects.
+
+To create an API Collection, navigate to the API Platform section from the Tools menu, and then click on the API Collections tab. You will see something like this:
 
 ![API Collection Tab](/assets/images/api-mgmt/api-collections.png)
 *API Collections Tab*
@@ -23,7 +25,7 @@ Click on "Add new API Collection" to create a new collection. This brings up an 
 ![Select API Source dialog](/assets/images/api-mgmt/select-api-source.png)
 *Select API Source dialog*
 
-After filling in this dialog, the final screen shows a list of the endpoints that will be initially placed into your collection from the folder you have selected. Don't worry if more endpoints are included than you actually to use. You can edit the list later.
+After filling in this dialog, the final screen shows a list of the endpoints that will be initially placed into your collection from the folder you have selected. Don't worry if more endpoints are included than you actually intend to use. You can edit the list later.
 
 Click on "Create API Collection" to create the collection. This returns you to the API Collections list, where you will see the new collection listed.
 
