@@ -18,6 +18,10 @@ Note that in Google Drive API, the terms `folder` and `file` are used interchang
 
 | Field name | Description |
 |---|---|
+| Is folder | Whether this is a folder. |
+| Is google file | Whether this is a Google file i.e. Google Sheets, Google Docs, Google Slides, etc. |
+| Is other file | Whether this is a non-Google file i.e. csv, pdf, docx, etc. |
+| File contents | Full contents of the file. This is a [streaming object](/features/file-streaming.md). |
 | ID | ID of the file. |
 | Name | Name of the file  older |
 | Mime type | Mime type of this file, as stated in [Google documentation](https://developers.google.com/drive/api/v3/mime-types). |
