@@ -248,6 +248,72 @@ These rows will be expressed as a list of hashes:
 ]
 ```
 
+### Example of multiple matches
+You can filter out records based on a particular field against more than 1 value. This is done by passing an array value in the WHERE condition.
+
+`contacts.where('company': ['ABC','HBO'])`
+
+This WHERE condition will return rows where the company is either **ABC** or **HBO**:
+
+| name | email        | state | company | company_rev |
+| ---- | ------------ | ----- | ------- | ----------- |
+| Joe  | joe@abc.om   | CA    | ABC     | 1000        |
+| Jack | jack@hbo.com | CA    | HBO     | 30000       |
+
+These rows will be returned as a list of hashes.
+
+```ruby
+[
+  {
+    'name' => 'Joe',
+    'email' => 'joe@abc.com',
+    'state' => 'CA',
+    'company' => 'ABC',
+    'company_rev' => 1000
+  },
+  {
+    'name' => 'Jack',
+    'email' => 'jack@hbo.com',
+    'state' => 'CA',
+    'company' => 'HBO',
+    'company_rev' => 30000
+  }
+]
+```
+
+### Example of pattern matching
+You can also filter out records using regex. This is done by passing a regex instead of a string.
+
+`contacts.where('name': /^Jo/)`
+
+This WHERE condition will return rows where the name starts with **Jo**:
+
+| name | email        | state | company | company_rev |
+| ---- | ------------ | ----- | ------- | ----------- |
+| Joe  | joe@abc.om   | CA    | ABC     | 1000        |
+| Joan | joan@nbc.com | MA    | NBC     | 10000       |
+
+These rows will be expressed as a list of hashes:
+
+```ruby
+[
+  {
+    'name' => 'Joe',
+    'email' => 'joe@abc.com',
+    'state' => 'CA',
+    'company' => 'ABC',
+    'company_rev' => 1000
+  },
+  {
+    'name' => 'Joan',
+    'email' => 'joan@nbc.com',
+    'state' => 'MA',
+    'company' => 'NBC',
+    'company_rev' => 10000
+  }
+]
+```
+
 ### Example of complex reduction
 If a series of WHERE conditions are chained, the formula evaluates each where condition in series.
 
