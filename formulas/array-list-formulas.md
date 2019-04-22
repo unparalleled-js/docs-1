@@ -220,24 +220,16 @@ A compound WHERE formula will retrieve only the rows that matches all the condit
 
 `contacts.where('state': 'CA', 'company_revenue >=": 10000)`
 
-will returns the following rows:
+will returns the following row(s):
 
 | name | email        | state | company | company_rev |
 | ---- | ------------ | ----- | ------- | ----------- |
-| Joan | joan@nbc.com | MA    | NBC     | 10000       |
 | Jack | jack@hbo.com | CA    | HBO     | 30000       |
 
 These rows will be expressed as a list of hashes:
 
 ```ruby
 [
-  {
-    'name' => 'Joan',
-    'email' => 'joan@nbc.com',
-    'state' => 'MA',
-    'company' => 'NBC',
-    'company_rev' => 10000
-  },
   {
     'name' => 'Jack',
     'email' => 'jack@hbo.com',
