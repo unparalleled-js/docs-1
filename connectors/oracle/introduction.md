@@ -55,7 +55,7 @@ The Oracle connector uses basic authentication to authenticate with Oracle.
 ### Permissions required to connect
 
 At minimum, the database user account must be granted `SELECT` permission to the database specified in the [connection](#how-to-connect-to-oracle-on-workato). Check out the example below to find out more about how to set permissions if you are the one setting up the Oracle server connection for your business
-> <details><summary><b>How to set up permissions</b></summary>
+> <details><summary><b>Click here to find out how to set up permissions</b></summary>
 >
 > If we are trying to connect to a named schema (<code>HR_PROD</code>) in an Oracle instance, using a new database user <code>WORKATO</code>, the following example queries can be used.
 >
@@ -127,7 +127,7 @@ This clause will be used as a `WHERE` statement in each request. This should fol
 #### Operators
 At the foundation of any `WHERE` statement, we have operators that help us filter and identify what rows we want returned in Workato. By chaining operators in the same way one would do it in SQL, you'll be able to use them to create robust and complex filters on your data directly from Workato.
 
-><details><summary><b>List of operators</b></summary>
+><details><summary><b>Click here for a list of operators</b></summary>
 ><table class="unchanged rich-diff-level-one">
 >  <thead>
 >    <tr>
@@ -217,7 +217,7 @@ They appear directly below the output field, allowing you to know the expected d
 
 Here are some of the common data types you can expect to see. A more comprehensive list can be found [here](https://www.w3schools.com/sql/sql_datatypes.asp)
 
-><details><summary><b>List of common data types</b></summary>
+><details><summary><b>Click here for a list of common data types</b></summary>
 ><table class="unchanged rich-diff-level-one">
 >  <thead>
 >    <tr>
@@ -254,12 +254,12 @@ Here are some of the common data types you can expect to see. A more comprehensi
 >    </tr>
 >    <tr>
 >      <td>VARCHAR2(n)</td>
->      <td><b>Variable</b> width character string of length `n`</td>
+>      <td><b>Variable</b> width character string of length <code>n</code></td>
 >      <td><code>Foo_bar</code></td>
 >    </tr>
 >    <tr>
 >      <td>nchar(n)</td>
->      <td><b>Fixed</b> width character string of length `n`</td>
+>      <td><b>Fixed</b> width character string of length <code>n</code></td>
 >      <td><code>Foo</code> where n = 3</td>
 >    </tr>
 >    <tr>
@@ -294,27 +294,27 @@ Column names that do not conform to standard rules (includes spaces, lower-case 
 ![WHERE condition with enclosed identifier](/assets/images/oracle/where_condition_with_enclosed_identifier.png)
 <center><i>`WHERE` condition with enclosed identifier</i></center>
 
-Check out below for more details into the functionality you can explore with your `WHERE` conditions.
+Click the tabs below for more details into the functionality you can explore with your `WHERE` conditions.
 ><details><summary>Using <code>AND</code> and <code>OR</code> in your <code>WHERE</code> conditions</summary>
 ><code>WHERE</code> conditions can also be used in conjunction with basic SQL logical operators like <code>AND</code> and <code>OR</code> to add more filters on the rows you return.
 >
 ><pre><code style="display: block; white-space: pre-wrap;">("currency code" = 'USD' AND totalAmt >1000) OR totalAmt>2000
 ></code></pre>
 >
->When used together,  this <code>WHERE</code> condition will return all rows that either have the value 'USD' in the `currency code` column <code>AND</code> more than 1000 in the `totalAmt` column <code>OR</code> more than 2000 in the `totalAmt` column
+>When used together,  this <code>WHERE</code> condition will return all rows that either have the value 'USD' in the <code>currency code</code> column <code>AND</code> more than 1000 in the <code>totalAmt</code> column <code>OR</code> more than 2000 in the <code>totalAmt</code> column
 ></details>
 
 ><details><summary>Using sub-queries in your <code>WHERE</code> conditions</summary>
 >
->Your `WHERE` condition can also contain subqueries. The following query can be used on the `users` table.
+>Your <code>WHERE</code> condition can also contain subqueries. The following query can be used on the <code>users</code> table.
 >
 ><pre><code style="display: block; white-space: pre-wrap;">ID IN (SELECT "USER ID" FROM TICKETS WHERE PRIORITY >= 2)
 ></code></pre>
 >
->When used in a **Delete rows** action, this will delete all rows in the `users` table where at least one associated row in the `tickets` table has a value of 2 in the `priority` column.
+>When used in a <b>Delete rows</b> action, this will delete all rows in the <code>users</code> table where at least one associated row in the <code>tickets</code> table has a value of 2 in the <code>priority</code> column.
 >
->![Using datapills in WHERE condition with subquery](/assets/images/oracle/use_datapill_in_where_complex.png)
-><center><i>Using datapills in `WHERE` condition with subquery</i></center>
+> <img src="/assets/images/oracle/use_datapill_in_where_complex.png" alt="Using datapills in WHERE condition with subquery">
+><center><i>Using datapills in <code>WHERE</code> condition with subquery</i></center>
 >
 ></details>
 
@@ -329,7 +329,7 @@ In all triggers and some actions, this is a required input. Values from this sel
 
 When used in a trigger, this column must be incremental. This constraint is required because the trigger uses values from this column to look for new rows. In each poll, the trigger queries for rows with a unique key value greater than the previous greatest value.
 
-> <details><summary><b>Example</b></summary>
+> <details><summary><b>Click here for a detailed example</b></summary>
 > Let's use a simple example to illustrate this behavior. We have a <b>New row trigger</b> that processed rows from a table. The <b>unique key</b> configured for this trigger is <code>ID</code>. The last row processed has <code>100</code> as it's <code>ID</code> value. In the next poll, the trigger will use <code>>= 101</code> as the condition to look for new rows.
 > Performance of a trigger can be improved if the column selected to be used as the <b>unique key</b> is indexed.
 > </details>
@@ -341,7 +341,7 @@ When a row is updated, the **Unique key** value remains the same. However, it sh
 
 For Oracle database, only **date**, **timestamp**, **timestamp with time zone** and **timestamp with local time zone** column types can be used.
 
-> <details><summary><b>Example</b></summary>
+> <details><summary><b>Click here for a detailed example</b></summary>
 > Let's use a simple example to illustrate this behavior. We have a <b>new/updated row trigger</b> that processed rows from a table. The <b>Unique key</b> and <b>Sort column</b> configured for this trigger is <code>ID</code> and <code>UPDATED_AT</code> respectively. The last row processed by the trigger has <code>ID</code> value of <code>100</code> and <code>UPDATED_AT</code> value of <code>2018-05-09 16:00:00.000000</code>. In the next poll, the trigger will query for new rows that satisfy either of the 2 conditions: <br>
 > 1. <code>UPDATED_AT'2018-05-09 16:00:00.000000'</code> <br>
 > 2. <code>ID</code> > 100 AND <code>UPDATED_AT = '2018-05-09 16:00:00.000000'</code>
