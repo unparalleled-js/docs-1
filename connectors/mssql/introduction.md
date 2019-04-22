@@ -59,7 +59,7 @@ The SQL Server connector uses basic authentication to authenticate with SQL Serv
 
 At minimum, the database user account must be granted `SELECT` permission to the database specified in the [connection](#how-to-connect-to-sql-server-on-workato). Check out the example below to find out more about how to set permissions if you are the one setting up the SQL server connection for your business.
 
-> <details><summary><b>How to set up permissions</b></summary>
+> <details><summary><b>Click here to find out how to set up permissions</b></summary>
 >
 > If we are trying to connect to a named database (<kbd>HR_PROD</kbd>) in a SQL Server instance, using a new database user <kbd>workato</kbd>, the following example queries can be used.
 >
@@ -72,12 +72,12 @@ At minimum, the database user account must be granted `SELECT` permission to the
 >
 > This allows the user to have login access to the SQL Server instance. However, this user will not have access to any tables.
 >
-> The next step is to grant permission to the necessary tables. There are a few ways to do this. One of the simplest ways is to grant access based on a **ROLE**.
-> <br>[Find out more about database-level roles here](https://docs.microsoft.com/en-us/sql/relational-databases/security/authentication-access/database-level-roles?view=sql-server-2017)
+> The next step is to grant permission to the necessary tables. There are a few ways to do this. One of the simplest ways is to grant access based on a <b>ROLE</b>.
+> <br><a href="https://docs.microsoft.com/en-us/sql/relational-databases/security/authentication-access/database-level-roles?view=sql-server-2017">Find out more about database-level roles here</a>
 > <br>
 > <pre><code style="display: block; white-space: pre-wrap;">ALTER ROLE db_datareader ADD MEMBER workato;
 > </code></pre>
-> Alternatively, we can grant access to all tables defined by a **SCHEMA**, <kbd>HR</kbd>.
+> Alternatively, we can grant access to all tables defined by a <b>SCHEMA</b>, <kbd>HR</kbd>.
 >
 > <pre><code style="display: block; white-space: pre-wrap;">GRANT SELECT,INSERT ON SCHEMA :: HR TO workato;
 > </code></pre>
@@ -155,7 +155,7 @@ This clause will be used as a `WHERE` statement in each request. This should fol
 
 At the foundation of any `WHERE` statement, we have operators that help us filter and identify what rows we want returned in Workato. By chaining operators in the same way you would do it in SQL, you'll be able to use them to create robust and complex filters on your data directly from Workato.
 
-> <details><summary><b>List of operators</b></summary>
+> <details><summary><b>Click here for a list of operators</b></summary>
 >
 > <table class="unchanged rich-diff-level-one">
 >   <thead>
@@ -269,7 +269,7 @@ They appear directly below the output field, allowing you to know the expected d
 
 Here are some of the common data types you can expect to see. A more comprehensive list can be found [here](https://www.w3schools.com/sql/sql_datatypes.asp)
 
-> <details><summary><b>List of common data types</b></summary>
+> <details><summary><b>Click here for a list of common data types</b></summary>
 > <table class="unchanged rich-diff-level-one">
 >   <thead>
 >     <tr>
@@ -306,12 +306,12 @@ Here are some of the common data types you can expect to see. A more comprehensi
 >     </tr>
 >     <tr>
 >       <td>varchar(n)</td>
->       <td><b>Variable</b> width character string of length `n`</td>
+>       <td><b>Variable</b> width character string of length <code>n</code></td>
 >       <td><code>Foo_bar</code></td>
 >     </tr>
 >     <tr>
 >       <td>nchar(n)</td>
->       <td><b>Fixed</b> width character string of length `n`</td>
+>       <td><b>Fixed</b> width character string of length <code>n</code></td>
 >       <td><code>Foo</code> where n = 3</td>
 >     </tr>
 >     <tr>
@@ -331,7 +331,7 @@ Here are some of the common data types you can expect to see. A more comprehensi
 >     </tr>
 >     <tr>
 >       <td>time</td>
->       <td>Store a time only to an accuracy of 100 nanoseconds. Minimum length `hh:mm:ss` and maximum length `hh:mm:ss.nnnnnnnn`</td>
+>       <td>Store a time only to an accuracy of 100 nanoseconds. Minimum length <code>hh:mm:ss</code> and maximum length <code>hh:mm:ss.nnnnnnnn<code></td>
 >       <td><code>08:30:12</code>,<code>09:12:20.12898400</code></td>
 >     </tr>
 >   </tbody>
@@ -370,7 +370,7 @@ Column names with spaces must be enclosed in double quotes (`""`) or square brac
 
 <br>
 
-Check out below for more details into the functionality you can explore with your `WHERE` conditions.
+Click the tabs below for more details into the functionality you can explore with your `WHERE` conditions.
 
 ><details><summary>Using <code>AND</code> and <code>OR</code> in your <code>WHERE</code> conditions</summary>
 ><code>WHERE</code> conditions can also be used in conjunction with basic SQL logical operators like <code>AND</code> and <code>OR</code> to add more filters on the rows you return.
@@ -387,11 +387,11 @@ Check out below for more details into the functionality you can explore with you
 >
 ><pre><code style="display: block; white-space: pre-wrap;">id in (select compensation_id from users where active = 0)</code></pre>
 >
->When used in a **Delete rows** action, this will delete all rows in the `compensation` table related to users who are no longer active (`active = 0`).
+>When used in a <b>Delete rows</b> action, this will delete all rows in the <code>compensation</code> table related to users who are no longer active (<code>active = 0</code>).
 >
 > <br>
 >
->![Using subquery in WHERE condition](/assets/images/mssql/subquery-in-where-condition.png)
+> <img src="/assets/images/mssql/subquery-in-where-condition.png" alt="Using subquery in WHERE condition">
 ><center><i>Using subquery in WHERE condition</i></center>
 >
 ></details>
@@ -407,7 +407,7 @@ In all triggers and some actions, this is a required input. Values from this sel
 
 When used in a trigger, this column must be incremental. This constraint is required because the trigger uses values from this column to look for new rows. In each poll, the trigger queries for rows with a unique key value greater than the previous greatest value.
 
-> <details><summary><b>Example</b></summary>
+> <details><summary><b>Click here for a detailed example</b></summary>
 > Let's use a simple example to illustrate this behavior. We have a <b>New row trigger</b> that processed rows from a table. The <b>unique key</b> configured for this trigger is <code>ID</code>. The last row processed has <code>100</code> as it's <code>ID</code> value. In the next poll, the trigger will use <code>>= 101</code> as the condition to look for new rows.
 > Performance of a trigger can be improved if the column selected to be used as the <b>unique key</b> is indexed.
 > </details>
@@ -419,7 +419,7 @@ When a row is updated, the **Unique key** value remains the same. However, it sh
 
 For SQL Server, only **datetime2** and **datetime** column types can be used.
 
-> <details><summary><b>Example</b></summary>
+> <details><summary><b>Click here for a detailed example</b></summary>
 > Let's use a simple example to illustrate this behavior. We have a <b>new/updated row trigger</b> that processed rows from a table. The <b>Unique key</b> and <b>Sort column</b> configured for this trigger is <code>ID</code> and <code>UPDATED_AT</code> respectively. The last row processed by the trigger has <code>ID</code> value of <code>100</code> and <code>UPDATED_AT</code> value of <code>2018-05-09 16:00:00.000000</code>. In the next poll, the trigger will query for new rows that satisfy either of the 2 conditions: <br>
 > 1. <code>UPDATED_AT'2018-05-09 16:00:00.000000'</code> <br>
 > 2. <code>ID</code> > 100 AND <code>UPDATED_AT = '2018-05-09 16:00:00.000000'</code>
