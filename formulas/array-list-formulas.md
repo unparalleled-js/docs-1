@@ -160,6 +160,17 @@ Returns the last item in a list. Can also be used to return the last n items in 
 ## where
 Retrieves only the rows (hashes) which satisfy the specified WHERE condition. This formula accepts a single argument in the form of a hash with one or more key-value pairs.
 
+The default operand for the condition is **equal to** (`==`). This formula also supports the following operands. Operands should be added to the end of key separated by a space.
+
+| Name                  | Notation | Example                                    |
+| --------------------- | -------- | ------------------------------------------ |
+| Equal to (default)    | ==       | `leads.where('state': 'CA')`               |
+| More than             | >        | `leads.where('company_revenue >": 10000)`  |
+| More than or equal to | >=       | `leads.where('company_revenue >=": 10000)` |
+| Less than             | <        | `leads.where('company_revenue <": 10000)`  |
+| Less than or equal to | <=       | `leads.where('company_revenue <=": 10000)` |
+| Not equal to          | !=       | `leads.where('state !=': 'CA')`            |
+
 ### Example of simple where formula
 `contacts.where('state': 'CA')` returns the following rows:
 
