@@ -387,7 +387,7 @@ Click the tabs below for more details into the functionality you can explore wit
 >
 ><pre><code style="display: block; white-space: pre-wrap;">id in (select compensation_id from users where active = 0)</code></pre>
 >
->When used in a <b>Delete rows</b> action, this will delete all rows in the <code>compensation</code> table related to users who are no longer active (<code>active= 0</code>).
+>When used in a <b>Delete rows</b> action, this will delete all rows in the <code>compensation</code> table related to users who are no longer active (<code>active = 0</code>).
 >
 > <br>
 >
