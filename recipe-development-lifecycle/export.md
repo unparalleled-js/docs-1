@@ -62,7 +62,7 @@ Clicking on the button will begin the process of creating a .zip file package an
 
 All exports are saved in the ‘Export history’ tab of the manifest. Click the ‘Download zip file’ button on the last column in the history table to re-download that version of the package. The version of the package is saved at the point of export. The package will persist for as long as the [data retention](/data-retention.md) period on that account. Check the [Account settings](https://www.workato.com/users/current/edit#data_retention) tab to find the data retention period of your account.
 
-![Export history](/assets/images/features/packages/export-history)
+![Export history](/assets/images/features/packages/export-history.png)
 *All past exports of this manifest is saved in the export history tab*
 
 ## Returning to an existing manifest
