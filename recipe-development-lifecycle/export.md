@@ -4,6 +4,11 @@ date: 2019-04-18 15:00:00 Z
 ---
 
 # Export
+
+The export process in recipe lifecycle management typically happens after development of a set of recipes and their related assets is complete or when a new change in your business process requires the recipes to be edited. In Workato, recipes and assets are exported as packages in the form of zip files. The files contain json file representations of each one of the exported assets.
+
+After the export process is complete, you can [import](/recipe-development-lifecycle/import.md) the package in another Workato instance to apply the changes made.
+
 ## Export manifests
 To begin exporting a package, start by defining an export manifest. A manifest is a record of all the selected recipes and dependencies that users can use for export and re-export. The manifest can also be edited after the creation and first export.
 

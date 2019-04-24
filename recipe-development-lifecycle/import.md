@@ -5,7 +5,9 @@ date: 2017-05-31 15:00:00 Z
 
 # Import
 
-To import recipes and dependencies into a Workato instance, you will need a zip file containing [exported](/recipe-development-lifecycle/export.md) assets.
+To import recipes and dependencies into a Workato instance, you will need a package containing [exported](/recipe-development-lifecycle/export.md) assets. Importing a package is the final step in the recipe development lifecycle where finished recipes are deployed in a Workato instance.
+
+## Import process
 
 After exporting a package as a zip file, import the file into another Workato instance. From the main recipe development lifecycle page, click on the ‘Import’ tab to begin.
 
@@ -28,7 +30,7 @@ There are 3 general tags that will inform the user of import status:
 ### Unique tags for recipes, connections and lookup tables:
 
 #### Recipes:
-![RLM in tools gif](/assets/images/features/packages/name-manifest.png)
+![RLM in tools gif](/assets/images/features/packages/recipe-tags.png)
 *All possible status tags for recipes*
 
 A running recipe may be overwritten. The recipes will be stopped, updated and then automatically restarted.
