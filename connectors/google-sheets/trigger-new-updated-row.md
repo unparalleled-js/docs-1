@@ -6,7 +6,7 @@ date: 2017-6-12 23:00:00 Z
 # Google Sheets trigger - New/updated row in sheet
 The **New/updated row in sheet** trigger is able to pick up changes made to rows in your selected sheet, as well as new rows **added at the bottom** of your sheet.
 
-Note that at the moment, this trigger can monitor up to **1000 rows**. New or updated rows after row 1000 will not be picked up.
+Note that at the moment, this trigger can monitor up to **10,000 rows**. New or updated rows after row 10,000 will not be picked up.
 
 ## How to use this trigger
 ### Setting up the Google sheet
