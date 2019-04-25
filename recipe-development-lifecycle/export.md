@@ -35,24 +35,24 @@ The wizard will then display the recipes in the folder and all the dependencies 
 
 On this screen, select/deselect the assets that you wish to export. All associated connections, custom connectors, lookup tables and callable recipes will also be shown on this page along with all account properties in the Workato account.
 
-Note that users cannot add assets that are in **different folders** to a single manifest. If there are recipes that [call other recipes](/features/callable-recipes.md), please put all the related recipes in 1 folder.
+Note that users cannot add assets that are in **different folders** to a single manifest. If there are recipes that [call other recipes](/features/callable-recipes.md), please put all the related recipes in one folder.
 
-When assets are not in the folder, the wizard will display a warning (as shown below). In this case, if the connection needs to be included as a part of the package, you should go to the App Connections page and move the connection to the right folder. Orange warning messages can be safely ignored if you wish to proceed with the export without dependent assets.
+When assets are not in the folder, the wizard will display a warning (as shown below). In this case, if the connection needs to be included as a part of the package, you should go to the App Connections page and move the connection to the right folder. Connections in the Home folder are shared connections that will be available for export regardless of the chosen folder. Orange warning messages can be safely ignored if you wish to proceed with the export without dependent assets.
 
 ![Connection in diff folder](/assets/images/features/packages/dependent-asset-not-found.png)
 *A warning will appear if the connection is in a different folder*
 
-As dependencies related to the asset is deselected, a similar orange warning will appear on the recipe to inform the user that a dependency will be missing from the final exported folder. By expanding each recipe line, users can re-select the asset with a click of a button. If the dependency is unnecessary for export, this warning can be **safely ignored**.
+As dependencies related to the asset are deselected, a similar orange warning will appear on the recipe to inform the user that a dependency will be missing from the final exported folder. By expanding each recipe line, users can re-select the asset with a click of a button. If the dependency is unnecessary for export, this warning can be **safely ignored**.
 
 ![Connection in diff folder](/assets/images/features/packages/deselect-object.gif)
 *As objects are deselected, warnings appear*
 
 If connections are shared across accounts, we recommend that the connections are placed in the 'Home' folder so they can be exported irregardless of the selected folder.
 
-Choose to export the data in lookup tables by individual lookup tables. On the right of the lookup tables, select ‘Include data’ or ‘Ignore data’. This option default to ‘Ignore data’, which exports the table with the headers only. Choose ‘include data’ to export the data in each row in the package.
+Choose to export the data in lookup tables by individual lookup tables. On the right of the lookup tables, select "Include data" or "Ignore data". This option default to "Ignore data", which exports the table with the headers only. Choose Include data" to export the data in each row in the package.
 
 ![Connection in diff folder](/assets/images/features/packages/lookup-properties.png)
-*'Ignore data' or 'Include data' on each lookup table*
+*"Ignore data" or "Include data" on each lookup table*
 
 Finally, save the manifest. The same configuration of recipes and assets can now be used during multiple exports. To reuse the existing manifest, find the manifest in the main export tab and click on it to access its content.
 
