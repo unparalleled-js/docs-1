@@ -17,39 +17,20 @@ Start the import process by selecting an import target folder. If the folder is 
 
 Select the .zip file to import from the computer as well as the target folder. The wizard will begin reading the package and loading its contents. It will also compare the corresponding recipes and dependencies in the account and look for changes.
 
-There are 3 general tags that will inform the user of import status:
+## Import status tags
 
-- A new recipe/dependency will be added (New)
-- The recipe/dependency was not changed or updated
+On the import preview screen, each item is assigned a tag that will inform the user of its import status. 
 
-  If there are no detected changes, the asset will be tagged with a **‘No change’** tag and it will not be stopped (for running recipes) or updated.
-
-- The current recipe/dependency will be overwritten
-
-
-### Unique tags for recipes, connections and lookup tables:
-
-#### Recipes:
+### Recipes:
 ![RLM in tools gif](/assets/images/features/packages/recipe-tags.png)
 *All possible status tags for recipes*
 
-A running recipe may be overwritten. The recipes will be stopped, updated and then automatically restarted.
+- Recipes that do not exist are added to the folder will be tagged "Creates a new recipe". 
+- Recipes that exist and were not changed will be tagged with "No change".
+- Recipes that already exist that have been edited will be tagged with "Overwrites recipe". 
+- If a running recipe needs to be updated it will be tagged with "Overwrites running recipe". The recipes will be stopped, updated and then automatically restarted.
 
-#### Connections:
-A placeholder connection may be created. This placeholder contains only the application and name of the connection. Authentication to this placeholder is required.
-
-#### Lookup tables:
-Lookup tables in the zip file will always contain schema data (name and column names) but may or may not contain data. During import, users can specify if the table data should be or overwritten or ignored.
-
-If the lookup table contains no data, it will be created/updated with only column names. If the lookup table contains data, use the radio buttons to select if the data should be overwritten or ignored.
-
-![RLM in tools gif](/assets/images/features/packages/import-lookup.png)
-*'Import data' or 'Ignore data' on individual lookup tables to be imported*
-
-‘Overwrite’ will cause all table data to be overwritten and all data in the table to be replaced permanently. ‘Ignore’ will disregard all table data even though the table was exported with data.
-
-### Updating a running recipe
-A running recipe may be overwritten. The recipes will be stopped, updated and then automatically restarted.
+#### Updating a running recipe
 
 ![RLM in tools gif](/assets/images/features/packages/rerun-running.png)
 *Running recipes will be automatically stopped and then restarted*
@@ -60,6 +41,27 @@ As a best practice, it is recommended that the recipes to be updated are stopped
 
 The list of stopped recipes are temporarily stored and will be automatically restarted after the import process is complete. Any errors with restarting the recipes have to be fixed manually. Once the process is completed, the new/updated recipes and dependencies should be successfully imported and restarted.
 
+If errors occur with starting a recipe after the import process, you should click on the link to the recipe, resolve any errors and restart the recipe manually.
+
+### Connections:
+A placeholder connection may be created. This placeholder contains only the application and name of the connection. Authentication to this placeholder is required after import.
+
+### Lookup tables:
+Lookup tables in the zip file will always contain schema data (name and column names) but may or may not contain data. During import, users can specify if the table data should be or overwritten or ignored.
+
+If the lookup table contains no data, it will be created/updated with only column names. If the lookup table contains data, use the radio buttons to select if the data should be overwritten or ignored.
+
+![RLM in tools gif](/assets/images/features/packages/import-lookup.png)
+*'Import data' or 'Ignore data' on individual lookup tables to be imported*
+
+‘Overwrite’ will cause all table data to be overwritten and all data in the table to be replaced permanently. ‘Ignore’ will disregard all table data even though the table was exported with data.
+
+### Other dependencies
+Other recipe dependencies will have the following tags according to their statuses.
+
+1. A new recipe/dependency will be added (Creates a new dependency)
+2. If there are no detected changes, the asset will be tagged with a **‘No change’** tag
+3. The current recipe/dependency will be overwritten with the changes in the import (Overwrites dependency)
 
 ## Packages import behavior
 The following table details how an imported package's assets are moved into your Workato account.
