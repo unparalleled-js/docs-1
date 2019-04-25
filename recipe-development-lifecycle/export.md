@@ -63,7 +63,7 @@ After creating a manifest, export the manifest as a package by clicking on the �
 Clicking on the button will begin the process of creating a .zip file package and open a pop-up with the export status. Once the .zip file completes building, you can download it.
 
 ![Download package](/assets/images/features/packages/download-package.gif)
-*As objects are deselected, warnings appear*
+*The export process produces a zip file for download*
 
 All exports are saved in the ‘Export history’ tab of the manifest. Click the ‘Download zip file’ button on the last column in the history table to re-download that version of the package. The version of the package is saved at the point of export. The package will persist for as long as the [data retention](/data-retention.md) period on that account. Check the [Account settings](https://www.workato.com/users/current/edit#data_retention) tab to find the data retention period of your account.
 
@@ -71,7 +71,7 @@ All exports are saved in the ‘Export history’ tab of the manifest. Click the
 *All past exports of this manifest is saved in the export history tab*
 
 ## Returning to an existing manifest
-After the continued development of recipes in the same folder, users may want to returning to an existing manifest to re-export the content. During that time, one or more of the following may have occurred:
+After the continued development of recipes in the same folder, users may want to return to an existing manifest to re-export the content. During that time, one or more of the following may have occurred:
 
 - Assets were deleted
 - Assets were moved to a different folder/sub-folder
