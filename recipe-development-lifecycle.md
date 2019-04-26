@@ -31,9 +31,13 @@ For Workato accounts with the Recipe lifecycle management feature enabled, users
 ![RLM in tools gif](/assets/images/features/packages/navigate-to-recipelifecycle.gif)
 *Recipe lifecycle management in Tools*
 
-## Feature walkthrough
+## Process walkthrough
 
 Learn more about the process of using the recipe lifecycle management feature in the following documents:
 
 - [Export](/recipe-development-lifecycle/export.md)
 - [Import](/recipe-development-lifecycle/import.md)
+
+## Recipe lifecycle management automation
+
+To automate the import and export of packages, users can make use of [Recipe lifecycle management APIs](workato-api/recipe-lifecycle-management.md).
