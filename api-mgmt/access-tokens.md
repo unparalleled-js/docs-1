@@ -88,7 +88,7 @@ Once the JWT token is generated, clients can test the APIs by visiting the API g
 
 Next, select a collection in the next screen. To test an API endpoint within a collection, click on the toggle for 'Authentication method and token' and select JSON web token (JWT). Paste the JWT token here and set the token.
 
-![Select JWT](/assets/images/api-mgmt/postman-eg.png)
+![Select JWT](/assets/images/api-mgmt/set-jwt-token.png)
 *Setting the JWT token*
 
 After setting the token, choose on one of the endpoints and fill in valid values for the required parameters. Click on 'Test' at the bottom of the page to test the API endpoint. The test should return a `200` response code and the expected response body.
@@ -98,7 +98,7 @@ After setting the token, choose on one of the endpoints and fill in valid values
 The encoded and signed token is passed to the Workato API in the header (see [Calling APIS](/api-mgmt/calling-apis.md)). The access token is sent in the Authorization header with the Bearer authentication scheme.
 
 1. The example below shows how the token is used in Postman:
-![Postman test](/assets/images/api-mgmt/jwt-generation.png)
+![Postman test](/assets/images/api-mgmt/postman-eg.png)
 *Example of a JWT token used in Postman*
 
 2. The example below shows how the token is used in a curl request:
