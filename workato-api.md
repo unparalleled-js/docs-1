@@ -142,3 +142,29 @@ Workato's API has various endpoints that allows access functionality to differen
   </tr>
   </tbody>
 </table>
+
+### [Recipe lifecycle management](/workato-api/recipe-lifecycle-management.md)
+<table class="unchanged rich-diff-level-one">
+  <thead>
+    <tr>
+        <th width='40%'>Resource</th>
+        <th width='60%'>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+  <tr>
+    <td width =400> <a href="/workato-api/recipe-lifecycle-management.md#export-package-based-on-a-manifest">POST /api/packages/export/:manifest_id </a> </td>
+    <td>Export package based on a manifest</td>
+  </tr>
+  <tr>
+    <td width =400> <a href="/workato-api/recipe-lifecycle-management.md#import-package-into-a-folder">POST /api/packages/import/:folder_id </a> </td>
+    <td>Import package into a folder </td>
+  </tr>
+  <tr>
+    <td width =400> <a href="/workato-api/recipe-lifecycle-management.md#get-package-by-id">GET /api/packages/:id</a> </td>
+    <td>Get package by ID</td>
+  </tr>
+  <tr>
+    <td width =400> <a href="/workato-api/recipe-lifecycle-management.md#download-package">GET /api/packages/:id/download </a> </td>
+    <td>Download package</td>
+  </tr>
