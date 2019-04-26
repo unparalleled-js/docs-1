@@ -14,7 +14,8 @@ Use the following endpoints to automate the import and export of packages.
 > POST /api/packages/export/:manifest_id
 
 ### Description
-Export package based on a manifest. Manifest ID is required.
+Export package based on a manifest. Manifest ID is required. This is an asynchronous request. Please use the [GET package by ID](workato-api/recipe-lifecycle-management.md#get-package-by-id) endpoint to get details of the exported package after this endpoint is used.
+
 
 <details> <summary> <b>Details</b></summary>
 
@@ -90,6 +91,8 @@ Export package based on a manifest. Manifest ID is required.
 
 ### Description
 Import a package (zip file) into the folder. The input is a “application/octet-stream” payload containing package content. `restart_recipes` should be “true” if running recipes need to be restarted upon import.
+
+This is an asynchronous request. Please use the [GET package by ID](workato-api/recipe-lifecycle-management.md#get-package-by-id) endpoint to get details of the imported package after this endpoint is used.
 
 <details> <summary> <b>Details</b></summary>
 

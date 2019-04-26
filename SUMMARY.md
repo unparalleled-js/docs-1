@@ -560,6 +560,7 @@
     * [Managed Users API](workato-api/managed-users.md)
     * [Recipes API](workato-api/recipes.md)
     * [Users](workato-api/users.md)
+    * [Recipe lifecycle management](workato-api/recipe-lifecycle-management.md)
 * [Security](security.md)
   * [IP whitelists](security.md#ip_whitelists)
 * [Product Updates](product-updates.md)
