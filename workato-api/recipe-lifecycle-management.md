@@ -9,71 +9,6 @@ Use the following endpoints to automate the import and export of packages.
 ### Supported Formats
 * Json
 
-## Get package by ID
-
-> GET /api/packages/:id
-
-### Description
-Get details of an imported or exported package.
-
-<details> <summary> <b>Details</b></summary>
-
-<h3> Responses </h3>
-<table class="unchanged rich-diff-level-one" text-align ="center">
-  <thead>
-    <tr>
-        <th width='20%'>Code</th>
-        <th width='80%'>Description</th>
-    </tr>
-  </thead>
-  <tbody>
-  <tr>
-    <td width =200 > <kbd>200</kbd> </td>
-    <td> Success </td>
-  </tr>
-  <tr>
-    <td width =200 > <kbd>400</kbd> </td>
-    <td> Bad request </td>
-  </tr>
-  <tr>
-    <td width =200 > <kbd>401</kbd> </td>
-    <td> Unauthorized </td>
-  </tr>
-  <tr>
-    <td width =200 > <kbd>500</kbd> </td>
-    <td> Server error </td>
-  </tr>
-  </tbody>
-</table>
-
-<h3> Examples</h3>
-
-<h4>Success: 200</h4>
-<pre><code style="display: block; white-space: pre-wrap;">GET /api/packages/242
-200
-{  
-   "id":242,
-   "operation_type":"export",
-   "status":"completed",
-   "export_manifest_id":3,
-   "download_url":"https://workato-staging-assets,com/packages/zip_files/000/000/242/original/exportdemo.zip"
-}
-</code></pre>
-
-<pre><code style="display: block; white-space: pre-wrap;">GET /api/packages/245
-200
-{  
-   "id":242,
-   "operation_type":"export",
-   "status":"failed",
-   "error":"error_message"
-   "export_manifest_id":4,
-   "download_url":"null"
-}
-</code></pre>
-
-</details>
-
 ## Export package based on a manifest
 
 > POST /api/packages/export/:manifest_id
@@ -233,6 +168,71 @@ Import a package (zip file) into the folder. The input is a “application/octet
    "download_url":"https://workato-staging-assets,com/packages/zip_files/000/000/242/original/exportdemo.zip"
 }
 </code></pre>
+</details>
+
+## Get package by ID
+
+> GET /api/packages/:id
+
+### Description
+Get details of an imported or exported package.
+
+<details> <summary> <b>Details</b></summary>
+
+<h3> Responses </h3>
+<table class="unchanged rich-diff-level-one" text-align ="center">
+  <thead>
+    <tr>
+        <th width='20%'>Code</th>
+        <th width='80%'>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+  <tr>
+    <td width =200 > <kbd>200</kbd> </td>
+    <td> Success </td>
+  </tr>
+  <tr>
+    <td width =200 > <kbd>400</kbd> </td>
+    <td> Bad request </td>
+  </tr>
+  <tr>
+    <td width =200 > <kbd>401</kbd> </td>
+    <td> Unauthorized </td>
+  </tr>
+  <tr>
+    <td width =200 > <kbd>500</kbd> </td>
+    <td> Server error </td>
+  </tr>
+  </tbody>
+</table>
+
+<h3> Examples</h3>
+
+<h4>Success: 200</h4>
+<pre><code style="display: block; white-space: pre-wrap;">GET /api/packages/242
+200
+{  
+   "id":242,
+   "operation_type":"export",
+   "status":"completed",
+   "export_manifest_id":3,
+   "download_url":"https://workato-staging-assets,com/packages/zip_files/000/000/242/original/exportdemo.zip"
+}
+</code></pre>
+
+<pre><code style="display: block; white-space: pre-wrap;">GET /api/packages/245
+200
+{  
+   "id":242,
+   "operation_type":"export",
+   "status":"failed",
+   "error":"error_message"
+   "export_manifest_id":4,
+   "download_url":"null"
+}
+</code></pre>
+
 </details>
 
 ## Download package
