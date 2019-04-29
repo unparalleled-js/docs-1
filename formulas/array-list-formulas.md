@@ -57,10 +57,10 @@ Lists also support ranges as indexes. This returns another list, instead of retu
 # Hashes
 A hash is a dictionary-like collection of unique keys and their values. They are similar to Lists, but where a List uses integers as its index, a Hash allows you to use any object type. Hashes enumerate their values in the order that the corresponding keys were inserted.
 
-Let's take the example of a hash with 2 values, with item_name as "Acme widgets" and item_quantity as 10.
+Let's take the example of a hash with 2 values, with `'Acme widgets'` and `10` as the values of item_name and item_quantity respectively.
 
 ```ruby
-line_item = { item_name: “Acme widgets”, item_qty: 10 }
+line_item = { 'item_name' => 'Acme widgets', 'item_qty' => 10 }
 ```
 
 | Example                  | Result         |
@@ -69,13 +69,13 @@ line_item = { item_name: “Acme widgets”, item_qty: 10 }
 | `line_item[“item_qty”]`  | 10             |
 
 # List of hashes
-In Workato, you will mostly run into lists of hashes. Let’s look at a Quickbooks invoice which has a number of line items. It will be represented as an list of hashes.
+In Workato, you will mostly run into lists of hashes. Let's look at a Quickbooks invoice which has a number of line items. It will be represented as an list of hashes.
 
 ```ruby
-line_items = [                                     # list
-  { item_name: “Acme widgets”, item_qty: 10  },	# hash 1
-  { item_name: “RR bearings”,  item_qty: 100 },	# hash 2
-  { item_name: “Coyote tyres”, item_qty: 7   }	 # hash 3
+line_items = [                                          # list
+  { 'item_name' => 'Acme widgets', 'item_qty' => 10 },  # hash 1
+  { 'item_name' => 'RR bearings', 'item_qty' => 100 },  # hash 2
+  { 'item_name' => 'Coyote tyres', 'item_qty' => 7 }    # hash 3
 ]
 ```
 
@@ -91,17 +91,41 @@ This is the Contacts list in a table form:
 | ---- | ------------ | ----- | ------- | ----------- |
 | Joe  | joe@abc.om   | CA    | ABC     | 1000        |
 | Jill | jill@nbc.com | MA    | NBC     | 1000        |
-| Joan | joan@nbc.com | MA    | NBC     | 1000        |
+| Joan | joan@nbc.com | MA    | NBC     | 10000       |
 | Jack | jack@hbo.com | CA    | HBO     | 30000       |
 
 This is the Contacts list in a list of hashes form.
 
 ```ruby
 [
-  { name: 'Joe',  email: ’joe@abc.com’,  state: ’CA’, company: ’ABC’, company_rev: ’1000’ },
-  { name: 'Jill', email: ’jill@nbc.com’, state: ’MA’, company: ’NBC’, company_rev: ’1000’ },
-  { name: 'Joan', email: ’joan@nbc.com’, state: ’MA’, company: ’NBC’, company_rev: ’1000’ },
-  { name: 'Jack', email: ’jack@hbo.com’, state: ’CA’, company: ’HBO’, company_rev: ’30000’ }
+  {
+    'name' => 'Joe',
+    'email' => 'joe@abc.com',
+    'state' => 'CA',
+    'company' => 'ABC',
+    'company_rev' => 1000
+  },
+  {
+    'name' => 'Jill',
+    'email' => 'jill@nbc.com',
+    'state' => 'MA',
+    'company' => 'NBC',
+    'company_rev' => 1000
+  },
+  {
+    'name' => 'Joan',
+    'email' => 'joan@nbc.com',
+    'state' => 'MA',
+    'company' => 'NBC',
+    'company_rev' => 10000
+  },
+  {
+    'name' => 'Jack',
+    'email' => 'jack@hbo.com',
+    'state' => 'CA',
+    'company' => 'HBO',
+    'company_rev' => 30000
+  }
 ]
 ```
 
@@ -111,11 +135,11 @@ Returns the first item in a list. Can also be used to return the first n items i
 
 ### Example
 
-| Example                            | Result         |
-| ---------------------------------- | -------------- |
-| `["Jean", "Marie"].first`          | "Jean"         |
-| `["Ms", "Jean", "Marie"].first`    | "Ms"           |
-| `["Ms", "Jean", "Marie"].first(2)` | ["Ms", "Jean"] |
+| Example                            | Result           |
+| ---------------------------------- | ---------------- |
+| `["Jean", "Marie"].first`          | `"Jean"`         |
+| `["Ms", "Jean", "Marie"].first`    | `"Ms"`           |
+| `["Ms", "Jean", "Marie"].first(2)` | `["Ms", "Jean"]` |
 
 ---
 
@@ -125,19 +149,30 @@ Returns the last item in a list. Can also be used to return the last n items in 
 
 ### Example
 
-| Example                           | Result            |
-| --------------------------------- | ----------------- |
-| `["Jean", "Marie"].last`          | "Marie"           |
-| `["Ms", "Jean", "Marie"].last`    | "Marie"           |
-| `["Ms", "Jean", "Marie"].last(2)` | ["Jean", "Marie"] |
+| Example                           | Result              |
+| --------------------------------- | ------------------- |
+| `["Jean", "Marie"].last`          | `"Marie"`           |
+| `["Ms", "Jean", "Marie"].last`    | `"Marie"`           |
+| `["Ms", "Jean", "Marie"].last(2)` | `["Jean", "Marie"]` |
 
 ---
 
 ## where
-Retrieves only the rows (hashes) which meet the WHERE condition specified.
+Retrieves only the rows (hashes) which satisfy the specified WHERE condition. This formula accepts a single argument in the form of a hash with one or more key-value pairs.
+
+The default operand for the condition is **equal to** (`==`). This formula also supports the following operands. Operands should be added to the end of key separated by a space.
+
+| Name                  | Notation | Example                                    |
+| --------------------- | -------- | ------------------------------------------ |
+| Equal to (default)    | ==       | `leads.where('state': 'CA')`               |
+| More than             | >        | `leads.where('company_revenue >": 10000)`  |
+| More than or equal to | >=       | `leads.where('company_revenue >=": 10000)` |
+| Less than             | <        | `leads.where('company_revenue <": 10000)`  |
+| Less than or equal to | <=       | `leads.where('company_revenue <=": 10000)` |
+| Not equal to          | !=       | `leads.where('state !=': 'CA')`            |
 
 ### Example of simple where formula
-`contacts.where("state ==": "CA")` returns the following rows:
+`contacts.where('state': 'CA')` returns the following rows:
 
 | name | email        | state | company | company_rev |
 | ---- | ------------ | ----- | ------- | ----------- |
@@ -148,30 +183,44 @@ These rows will be expressed as a list of hashes:
 
 ```ruby
 [
-  { name: ’Joe’,  email: ’joe@abc.com’,  state: ’CA’, company: ’ABC’, company_rev: ’1000’ },
-  { name: ’Jack’, email: ’jack@hbo.com’, state: ’CA’, company: ’HBO’, company_rev: ’1000’ }
+  {
+    'name' => 'Joe',
+    'email' => 'joe@abc.com',
+    'state' => 'CA',
+    'company' => 'ABC',
+    'company_rev' => 1000
+  },
+  {
+    'name' => 'Jack',
+    'email' => 'jack@hbo.com',
+    'state' => 'CA',
+    'company' => 'HBO',
+    'company_rev' => 30000
+  }
 ]
 ```
 
 The following is a simple WHERE formula retrieving lead records with the company Delphi Chemicals.
+
+`leads.where('Company': 'Delphi Chemicals')`
+
 ![Simple where formula retrieving lead records from company Delphi Chemicals](/assets/images/formula-docs/non-nested-where-formula.png)
 *Simple where formula retrieving lead records from company Delphi Chemicals*
 
 ### Example of where formula for nested fields
-The WHERE formula can be nested to filter for records by nested values in the datatree.
+Sometimes, the field(s) you want to filter are nested. In that case, the WHERE condition should use nested fields syntax.
+
+`leads.where('Address.Country': 'USA')`
 
 ![Nested where formula retrieving lead records with an address in USA](/assets/images/formula-docs/nested-where-formula.png)
 *Nested where formula retrieving records with an address in USA*
 
-This is in contrast to a simple WHERE formula, where the filtering happens for non-nested values in the datatree:
-
-![Simple where formula retrieving lead records from company Delphi Chemicals](/assets/images/formula-docs/non-nested-where-formula.png)
-*Simple where formula retrieving lead records from company Delphi Chemicals*
-
 ### Example of compound where formula
 A compound WHERE formula will retrieve only the rows that matches all the conditions.
 
-`contacts.where("state ==": "CA", "company_revenue >=": 10000)` returns the following rows:
+`contacts.where('state': 'CA', 'company_revenue >=": 10000)`
+
+will returns the following row(s):
 
 | name | email        | state | company | company_rev |
 | ---- | ------------ | ----- | ------- | ----------- |
@@ -181,14 +230,86 @@ These rows will be expressed as a list of hashes:
 
 ```ruby
 [
-  { name: ’Jack’, email: ’jack@hbo.com’, state: ’CA’, company: ’HBO’, company_rev: ’1000’ }
+  {
+    'name' => 'Jack',
+    'email' => 'jack@hbo.com',
+    'state' => 'CA',
+    'company' => 'HBO',
+    'company_rev' => 30000
+  }
+]
+```
+
+### Example of multiple matches
+You can filter out records based on a particular field against more than 1 value. This is done by passing an array value in the WHERE condition.
+
+`contacts.where('company': ['ABC','HBO'])`
+
+This WHERE condition will return rows where the company is either **ABC** or **HBO**:
+
+| name | email        | state | company | company_rev |
+| ---- | ------------ | ----- | ------- | ----------- |
+| Joe  | joe@abc.om   | CA    | ABC     | 1000        |
+| Jack | jack@hbo.com | CA    | HBO     | 30000       |
+
+These rows will be returned as a list of hashes.
+
+```ruby
+[
+  {
+    'name' => 'Joe',
+    'email' => 'joe@abc.com',
+    'state' => 'CA',
+    'company' => 'ABC',
+    'company_rev' => 1000
+  },
+  {
+    'name' => 'Jack',
+    'email' => 'jack@hbo.com',
+    'state' => 'CA',
+    'company' => 'HBO',
+    'company_rev' => 30000
+  }
+]
+```
+
+### Example of pattern matching
+You can also filter out records using regex. This is done by passing a regex instead of a string.
+
+`contacts.where('name': /^Jo/)`
+
+This WHERE condition will return rows where the name starts with **Jo**:
+
+| name | email        | state | company | company_rev |
+| ---- | ------------ | ----- | ------- | ----------- |
+| Joe  | joe@abc.om   | CA    | ABC     | 1000        |
+| Joan | joan@nbc.com | MA    | NBC     | 10000       |
+
+These rows will be expressed as a list of hashes:
+
+```ruby
+[
+  {
+    'name' => 'Joe',
+    'email' => 'joe@abc.com',
+    'state' => 'CA',
+    'company' => 'ABC',
+    'company_rev' => 1000
+  },
+  {
+    'name' => 'Joan',
+    'email' => 'joan@nbc.com',
+    'state' => 'MA',
+    'company' => 'NBC',
+    'company_rev' => 10000
+  }
 ]
 ```
 
 ### Example of complex reduction
 If a series of WHERE conditions are chained, the formula evaluates each where condition in series.
 
-`contacts.where("state ==": "CA").where("company_revenue >=": 10000)` returns the following rows, which is the same as the compound where formula:
+`contacts.where('state': 'CA').where('company_revenue >=': 10000)` returns the following rows, which is the same as the compound where formula:
 
 | name | email        | state | company | company_rev |
 | ---- | ------------ | ----- | ------- | ----------- |
@@ -196,14 +317,14 @@ If a series of WHERE conditions are chained, the formula evaluates each where co
 
 In this case, however, the chaining will result in an intermediary array:
 
-`contacts.where("state ==": "CA")` first returns:
+`contacts.where('state': 'CA')` first returns:
 
 | name | email        | state | company | company_rev |
 | ---- | ------------ | ----- | ------- | ----------- |
 | Joe  | joe@abc.om   | CA    | ABC     | 1000        |
 | Jack | jack@hbo.com | CA    | HBO     | 30000       |
 
-And `.where("company_revenue >=": 10000)` filters this intermediary array further to return only:
+And `.where('company_revenue >=': 10000)` filters this intermediary array further to return only:
 
 | name | email        | state | company | company_rev |
 | ---- | ------------ | ----- | ------- | ----------- |
@@ -213,7 +334,13 @@ Results will be expressed as a list of hashes:
 
 ```ruby
 [
-  { name: ’Jack’, email: ’jack@hbo.com’, state: ’CA’, company: ’HBO’, company_rev: ’1000’ }
+  {
+    'name' => 'Jack',
+    'email' => 'jack@hbo.com',
+    'state' => 'CA',
+    'company' => 'HBO',
+    'company_rev' => '1000'
+  }
 ]
 ```
 
