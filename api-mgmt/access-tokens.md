@@ -68,7 +68,7 @@ Here "sub" is the Auth Key that is obtainable from the Access Profile screen in 
 
 The JWT token is a signed representation of the JSON structure. You can generate a JWT token using the tools at [JWT.IO](https://jwt.io/).
 
-With JWT, the client is responsible for generating and packaging a token in the correct format. An online tool is available at [JWT.IO](https://jwt.io/) to facilitate this. The JSON format text mentioned above should be pasted or typed into the "payload" field on the "Decoded" side of the tool. In addition, paste in your private key (RSA) or secret string (HMAC) in the "Verify Signature" section. The signed and encoded key then appears on the right-hand side in the "Encoded" section.
+With JWT, the client is responsible for generating and packaging a token in the correct format. An online tool is available at [JWT.IO](https://jwt.io/) to facilitate this. The JSON format text mentioned above should be pasted or typed into the "payload" field on the "Decoded" side of the tool. In addition, they will paste in the private key (RSA) or secret string (HMAC) in the "Verify Signature" section. The signed and encoded key then appears on the right-hand side in the "Encoded" section.
 
 The two standard algorithms Workato supports are "HS256" (aka HMAC) and "RS256" (aka RSA).
 
@@ -77,4 +77,33 @@ For example, generation of an HMAC JWT might look like this:
 ![JWT Generation](/assets/images/api-mgmt/jwt-generation.png)
 *JWT Generation*
 
-The encoded and signed token is passed to the Workato API in the "Authorization" header (see [Calling APIS](/api-mgmt/calling-apis.md)).
+
+## Invoking APIs secured with JWT
+
+### Testing an API endpoint
+Once the JWT token is generated, clients can test the APIs by visiting the API group URL. Click on 'Copy client URL' in the client screen as shown in the image below. You can provide your client this URL.
+
+![Copy client URL](/assets/images/api-mgmt/copy-client-url.png)
+*Copy the client URL*
+
+Next, select a collection in the next screen. To test an API endpoint within a collection, click on the toggle for 'Authentication method and token' and select JSON web token (JWT). Paste the JWT token here and set the token.
+
+![Select JWT](/assets/images/api-mgmt/set-jwt-token.png)
+*Setting the JWT token*
+
+After setting the token, choose on one of the endpoints and fill in valid values for the required parameters. Click on 'Test' at the bottom of the page to test the API endpoint. The test should return a `200` response code and the expected response body.
+
+![Select JWT](/assets/images/api-mgmt/test-success.png)
+*200 response code and response body*
+
+### Calling an API endpoint
+
+The encoded and signed token is passed to the Workato API in the header (see [Calling APIS](/api-mgmt/calling-apis.md)). The access token is sent in the Authorization header with the Bearer authentication scheme.
+
+1. The example below shows how the token is used in Postman:
+![Postman test](/assets/images/api-mgmt/postman-eg.png)
+*Example of a JWT token used in Postman*
+
+2. The example below shows how the token is used in a curl request:
+```json
+curl -XGET -H 'Authorization: Bearer ayJhbGciOiJIUzI1NakIKjkJFVCJ9.eyJzdWIiOiI4OJSIFMLLdkZTY0ZWZkNDY1MTcyMjk2MDA2ZTlmNDEwNGEzOGJmMDAzZTk0YmYyYzRiMzhjYzg3ZDgwYjU0ODk1IiwibmFtZSI6os9fvaG4gRG9lIn0.D_ZHmYZkbRAFQeL' 'https://apim.workato.com/api-endpoints-v1/call?email=john-doe%40acme.com'```
