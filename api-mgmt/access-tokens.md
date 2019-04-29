@@ -93,6 +93,9 @@ Next, select a collection in the next screen. To test an API endpoint within a c
 
 After setting the token, choose on one of the endpoints and fill in valid values for the required parameters. Click on 'Test' at the bottom of the page to test the API endpoint. The test should return a `200` response code and the expected response body.
 
+![Select JWT](/assets/images/api-mgmt/test-success.png)
+*200 response code and response body*
+
 ### Calling an API endpoint
 
 The encoded and signed token is passed to the Workato API in the header (see [Calling APIS](/api-mgmt/calling-apis.md)). The access token is sent in the Authorization header with the Bearer authentication scheme.
