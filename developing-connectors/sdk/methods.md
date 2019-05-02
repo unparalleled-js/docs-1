@@ -180,7 +180,10 @@ Learn how to make HTTP requests using the HTTP verb methods [here](/developing-c
     </tr>
     <tr>
       <td>tap</td>
-      <td>Yields x to the block, and then returns x.<br><code>(1..10).tap{|x| puts "original: #{x.inspect}"}.to_a.tap {|x| puts "array: #{x.inspect}"}</code><br>  <a href="https://apidock.com/ruby/Object/tap">More details here.</a></td>
+      <td>Yields x to the block, and then returns x.<br>
+        <pre><code style="display: block; white-space: pre-wrap;">(1..10).        tap{|x| puts "original: #{x.inspect}"}.
+to_a.           tap {|x| puts "array: #{x.inspect}"}
+</code></pre> <a href="https://apidock.com/ruby/Object/tap">More details here.</a></td>
     </tr>
     <tr>
       <td>utc</td>
@@ -205,13 +208,6 @@ Learn how to make HTTP requests using the HTTP verb methods [here](/developing-c
       <td>
         Iterates the given block for each element with an index <br>
         <a href="https://apidock.com/ruby/Enumerator/with_index">More details here.</a>
-      </td>
-    </tr>
-    <tr>
-      <td>wrap</td>
-      <td>
-        Wraps its argument in an array unless it is already an array <br>
-        <a href="https://apidock.com/rails/Array/wrap/class">More details here.</a>
       </td>
     </tr>
     <tr>
