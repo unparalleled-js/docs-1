@@ -33,8 +33,8 @@ Learn how to make HTTP requests using the HTTP verb methods [here](/developing-c
     <tr>
       <td>dig</td>
       <td>Retrieves the value object corresponding to the index passed in <br>
-      The dig method is often used to strip away layers in nested arrays/hashes. For example, we use the dig method often when dealing with xml data formats. <br>
-     <a href="https://docs.workato.com/developing-connectors/sdk/data-format/xml-format.html">More details here.</a></td>
+      The dig method is often used to strip away layers in nested arrays/hashes. For example, we use the dig method often when dealing with XML data formats. <br>
+     <a href="https://docs.workato.com/developing-connectors/sdk/data-format/XML-format.html">More details here.</a></td>
     </tr>
     <tr>
       <td>each</td>
@@ -61,7 +61,7 @@ Learn how to make HTTP requests using the HTTP verb methods [here](/developing-c
     <tr>
       <td>format_xml</td>
     <td>
-        Convert request and expect response body in XML format
+        Convert request to XML format and expect response body in XML format
     </td>
     </tr>
     <tr>
@@ -136,12 +136,6 @@ Learn how to make HTTP requests using the HTTP verb methods [here](/developing-c
       </td>
     </tr>
     <tr>
-      <td>options</td>
-      <td>
-
-      </td>
-    </tr>
-    <tr>
       <td>parse_json</td>
       <td>
         Works the same way as json.parse <br>
@@ -180,7 +174,7 @@ Learn how to make HTTP requests using the HTTP verb methods [here](/developing-c
     <tr>
       <td>request_format_xml</td>
     <td>
-        Convert request to xml format
+        Convert request to XML format
     </td>
     </tr>
     <tr>
@@ -211,7 +205,7 @@ Learn how to make HTTP requests using the HTTP verb methods [here](/developing-c
     <tr>
       <td>response_format_xml</td>
       <td>
-        Expect response in xml format
+        Expect response in XML format
       </td>
     </tr>
     <tr>
