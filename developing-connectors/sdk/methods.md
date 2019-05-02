@@ -32,7 +32,7 @@ Learn how to make HTTP requests using the HTTP verb methods [here](/developing-c
     </tr>
     <tr>
       <td>fetch</td>
-      <td>Returns a value from the hash for the given key. <a href="https://apidock.com/ruby/Hash/fetch">More details here.</a></td>
+      <td>Returns a value from the hash for the given key.<br> <a href="https://apidock.com/ruby/Hash/fetch">More details here.</a></td>
     </tr>
     <tr>
       <td>group_by</td>
@@ -43,7 +43,7 @@ Learn how to make HTTP requests using the HTTP verb methods [here](/developing-c
     </tr>
      <tr>
       <td>has_key?</td>
-      <td>Returns true if the given key is present in hash. <a href="https://apidock.com/ruby/v1_9_3_392/Hash/has_key">More details here.</a></td>
+      <td>Returns true if the given key is present in hash.<br> <a href="https://apidock.com/ruby/v1_9_3_392/Hash/has_key">More details here.</a></td>
     </tr>
     <tr>
       <td>headers</td>
