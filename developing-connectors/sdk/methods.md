@@ -244,13 +244,13 @@ Learn how to make HTTP requests using the HTTP verb methods [here](/developing-c
         Returns the next object in the enumerator, and move the internal position forward.<br>
         This is often used in config_fields where you can use <code>next</code> as a way to add a guard clause that checks inputs before the lambda function is executed.
         <pre><code style="display: block; white-space: pre-wrap;">object_definition: {
-          document: {
-            fields: lambda do |_connection, config_fields|
-              next [] if config_fields.blank?
-              get("https://www.webmerge.me/api/documents/#{config_fields["document_id"]}/fields").
-                map { |field| field.slice("name") }
-            end
-          }
+  document: {
+    fields: lambda do |connection, config_fields|
+      next [] if config_fields.blank?
+      get("https://www.webmerge.me/api/documents/#{config_fields["document_id"]}/fields").
+        map { |field| field.slice("name") }
+    end
+  }
 }</code></pre>
         <a href="https://apidock.com/ruby/Enumerator/next">More details here.</a>
       </td>
@@ -307,21 +307,21 @@ Learn how to make HTTP requests using the HTTP verb methods [here](/developing-c
     </tr>
     <tr>
       <td>tap</td>
-      <td>Yields x to the block, and then returns x.<br>
-        The tap method is often used for transformation. For example, we use the tap method below to transform a webhook's payload.
-        <pre><code style="display: block; white-space: pre-wrap;"># payload = {
-#	"id" => {"value" => 1},
-#	"name" => {"value" => 2}
-# }
-
-webhook_notification: lambda do |input, payload|
+      <td>
+        Yields x to the block, and then returns x.<br>
+        The tap method is often used for transformation. For example, we use the tap method below to transform a webhook's payload. If a webhook payload is deliever in this format.
+        <pre><code style="display: block; white-space: pre-wrap;">{
+  "id" => {"value" => 1},
+  "name" => {"value" => 2}
+}</code></pre>
+        You can use tap to transform it into a more user friendly JSON.<br>
+        <pre><code style="display: block; white-space: pre-wrap;">webhook_notification: lambda do |input, payload|
   payload.tap do |output|
     output.each { |k, v| output[k] = v["value"] }
   end
-end
-
-# payload = {"id"=>1, "name"=>2}
-</code></pre> <a href="https://apidock.com/ruby/Object/tap">More details here.</a></td>
+end</code></pre>
+      The final JSON will look like this <code>{"id"=>1, "name"=>2}</code><br>
+      <a href="https://apidock.com/ruby/Object/tap">More details here.</a></td>
     </tr>
     <tr>
       <td>utc</td>
@@ -330,7 +330,6 @@ end
         <a href="http://ruby-doc.org/core-2.2.0/Time.html#method-c-utc">More details here.</a>
       </td>
     </tr>
-
     <tr>
       <td>while</td>
       <td>
