@@ -182,7 +182,7 @@ Learn how to make HTTP requests using the HTTP verb methods [here](/developing-c
       <td>tap</td>
       <td>Yields x to the block, and then returns x.<br>
         <pre><code style="display: block; white-space: pre-wrap;">(1..10).        tap{|x| puts "original: #{x.inspect}"}.
-to_a.           tap {|x| puts "array: #{x.inspect}"}
+to_a.           tap{|x| puts "array: #{x.inspect}"}
 </code></pre> <a href="https://apidock.com/ruby/Object/tap">More details here.</a></td>
     </tr>
     <tr>
