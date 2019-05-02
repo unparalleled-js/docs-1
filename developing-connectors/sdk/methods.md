@@ -23,11 +23,27 @@ Learn how to make HTTP requests using the HTTP verb methods [here](/developing-c
       <td>Basic iterator<br><code>[1, 2, 3].each { |i| puts i }</code></td>
     </tr>
     <tr>
+      <td>each_with_index</td>
+      <td>Iterator returned with an index<br><code>[1, 2, 3].each_with_index { |item, index| puts "#{index}:#{item}" }</code><br> <a href="https://apidock.com/ruby/Enumerator/each_with_index">More details here.</a></td>
+    </tr>
+    <tr>
+      <td>even?</td>
+      <td>Returns true if integer is an even number<br> <a href="https://apidock.com/ruby/Integer/even%3F">More details here.</a></td>
+    </tr>
+    <tr>
+      <td>fetch</td>
+      <td>Returns a value from the hash for the given key. <a href="https://apidock.com/ruby/Hash/fetch">More details here.</a></td>
+    </tr>
+    <tr>
       <td>group_by</td>
       <td>
         Group arrays into sets.<br>
         <a href="http://apidock.com/rails/Enumerable/group_by">More details here.</a>
       </td>
+    </tr>
+     <tr>
+      <td>has_key?</td>
+      <td>Returns true if the given key is present in hash. <a href="https://apidock.com/ruby/v1_9_3_392/Hash/has_key">More details here.</a></td>
     </tr>
     <tr>
       <td>headers</td>
@@ -58,6 +74,10 @@ Learn how to make HTTP requests using the HTTP verb methods [here](/developing-c
       </td>
     </tr>
     <tr>
+      <td>odd?</td>
+      <td>Returns true if integer is an odd number<br> <a href="https://apidock.com/ruby/Integer/odd%3F">More details here.</a></td>
+    </tr>
+    <tr>
       <td>only</td>
       <td>
         White list a comma-separate  of fields<br>
@@ -83,6 +103,14 @@ Learn how to make HTTP requests using the HTTP verb methods [here](/developing-c
       <td>Convert a date/date-time variable to ISO8601 format</td>
     </tr>
     <tr>
+      <td>is_true?</td>
+      <td>Converts a value to boolean and returns true if value is truthy.</td>
+    </tr>
+    <tr>
+      <td>is_not_true?</td>
+      <td>Converts a value to boolean and returns true if value is not truthy.</td>
+    </tr>
+    <tr>
       <td>map</td>
       <td>Returns a new array after invoking block on each element</td>
     </tr>
@@ -91,6 +119,13 @@ Learn how to make HTTP requests using the HTTP verb methods [here](/developing-c
       <td>
         Returns a new hash containing merged contents.<br>
         <a href="https://ruby-doc.org/core-2.2.0/Hash.html#method-i-merge">More details here.</a>
+      </td>
+    </tr>
+    <tr>
+      <td>next</td>
+      <td>
+        Returns the next object in the enumerator, and move the internal position forward.<br>
+        <a href="https://apidock.com/ruby/Enumerator/next">More details here.</a>
       </td>
     </tr>
     <tr>
@@ -144,6 +179,10 @@ Learn how to make HTTP requests using the HTTP verb methods [here](/developing-c
       </td>
     </tr>
     <tr>
+      <td>tap</td>
+      <td>Yields x to the block, and then returns x.<br><code>(1..10).tap{|x| puts "original: #{x.inspect}"}.to_a.tap {|x| puts "array: #{x.inspect}"}</code><br>  <a href="https://apidock.com/ruby/Object/tap">More details here.</a></td>
+    </tr>
+    <tr>
       <td>utc</td>
       <td>
         Convert Time to UTC timezone.<br>
@@ -159,6 +198,27 @@ Learn how to make HTTP requests using the HTTP verb methods [here](/developing-c
       <td>
         while loop statement.<br>
         <a href="https://www.tutorialspoint.com/ruby/ruby_loops.htm">More details here.</a>
+      </td>
+    </tr>
+    <tr>
+      <td>with_index</td>
+      <td>
+        Iterates the given block for each element with an index <br>
+        <a href="https://apidock.com/ruby/Enumerator/with_index">More details here.</a>
+      </td>
+    </tr>
+    <tr>
+      <td>wrap</td>
+      <td>
+        Wraps its argument in an array unless it is already an array <br>
+        <a href="https://apidock.com/rails/Array/wrap/class">More details here.</a>
+      </td>
+    </tr>
+    <tr>
+      <td>wrap</td>
+      <td>
+        Wraps its argument in an array unless it is already an array <br>
+        <a href="https://apidock.com/rails/Array/wrap/class">More details here.</a>
       </td>
     </tr>
   </tbody>
