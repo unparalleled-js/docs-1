@@ -178,12 +178,6 @@ Learn how to make HTTP requests using the HTTP verb methods [here](/developing-c
     </td>
     </tr>
     <tr>
-      <td>request_format_multipart_form</td>
-    <td>
-        Convert request to multipart_form format
-    </td>
-    </tr>
-    <tr>
       <td>required</td>
       <td>
         Make a comma-separate list of fields required<br>
