@@ -4,9 +4,9 @@ date: 2019-04-29 12:40:00 Z
 ---
 
 # Coupa - Purchase order actions
-Workato allows you to close or cancel purchase orders on Coupa. To create, update or query purchase orders on Coupa, [use generic actions instead](/connectors/coupa/object-actions.md) and select purchase orders when prompted for an object.
+Workato allows you to close or cancel purchase orders on Coupa. To create, update or query purchase orders on Coupa, [use our object actions instead](/connectors/coupa/object-actions.md) and select purchase orders when prompted for an object.
 
-This action is traditionally used in response to triggers based on that purchase order's record in your ERP system. For example, a closed purchase order in NetSuite can trigger the closure of this purchase order as receipts and invoices have already been received.
+This action is traditionally used in response to recipes triggered when a purchase order is closed in NetSuite. This could happen after payment is made. By closing both purchases orders in NetSuite and Coupa, data integrity is maintained.
 
 **Purchase order specific actions**
 - `Close purchase order`
@@ -22,7 +22,7 @@ When this action is executed in a recipe, it finds and closes the purchase order
 ### Cancel purchase order
 When this action is executed in a recipe, it finds and cancels the purchase order denoted in the step input.
 
-### Output fields
+### Output fields for purchase order actions
 When cancelled or closed, Workato also returns the purchase order object so you can use its datapills in subsequent steps.
 
 ## List of triggers and actions

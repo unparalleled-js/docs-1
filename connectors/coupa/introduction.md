@@ -3,14 +3,14 @@ title: Workato connectors - Introduction
 date: 2019-04-29 12:40:00 Z
 ---
 # Coupa
-[Coupa](https://www.coupa.com/) is a business spend management platform. It supports procurement, invoicing, expense and payment functions for enterprises. Coupa allows users to create and approve procurement processes from requisition to invoicing. It also has an integrated expense module that allows users to submit expense reports and have them approved on Coupa. This information is then traditionally synced with ERP systems such as NetSuite, Oracle EBS or SAP for other business functions such as accounting or payment.
+[Coupa](https://www.coupa.com/) is a business spend management platform. It supports procurement, invoicing, expense and payment functions for enterprises. Coupa enables users to create and approve procurement processes such as requisitions and invoices. It also has an integrated expense module that allows users to submit expense reports and have them approved directly on Coupa. Traditionally, this information is then synced with ERP systems such as [NetSuite](/connectors/netsuite.md), [Oracle EBS](/connectors/oracle-ebs.md) or [SAP](/connectors/sap.md) for other business functions such as accounting or making payments.
 
-Workato's integration with Coupa helps you to sync this data with any of the ERP systems we support to support your Procure To Pay, Procure To Order and expense management processes. Find out how to set up your connection on Workato to your Coupa instance and how you can leverage on Workato to increase the business value of Coupa through integrations with your other business applications.
+Workato's integration with Coupa helps you to sync this data with any of these ERP systems to support your Procure To Pay, Procure To Order and Expense Management processes. Read on to find out how to set up your connection on Workato to your Coupa instance and how you can leverage on Workato to increase the business value you gain from Coupa through integrations with your other business applications.
 
 ## How to connect to Coupa on Workato
 Coupa uses authentication based off API keys. API keys are keys you generate to let Coupa know this Workato connection is allowed to work with your information. Generate your API key in your Coupa instance by heading to https://[your-instance-name].coupacloud.com/api_keys or logging into your Coupa account.
 
-API keys can be found under the `Setup` => `Integrations` => `API Keys`
+API keys can be found under the `Setup` => `Integrations` => `API Keys` in the top navigation header in your Coupa instance.
 
 ![Configure Coupa connection view](/assets/images/coupa/connection.png)
 <center><i>The connection configuration page for Coupa on Workato</i></center>
@@ -41,7 +41,7 @@ API keys can be found under the `Setup` => `Integrations` => `API Keys`
 ## Working with the Coupa connector
 
 ### Objects
-Coupa data is grouped into objects and this is also reflected in our Workato connector. When you see objects in actions and triggers, you will be able to configure the object in question later on. We currently support the following objects.
+In Workato, we grouped Coupa data into objects in our actions and triggers. Objects refer to almost anything Workato currently supports in our Coupa actions or triggers. When selecting an action such as `Create Object`, you'll be prompted later on to clarify whether you want to create a purchase order or an invoice. We currently support the following objects in Coupa.
 
 <table class="unchanged rich-diff-level-one">
   <thead>
@@ -118,10 +118,10 @@ Coupa data is grouped into objects and this is also reflected in our Workato con
   </tbody>
 </table>
 
-This is a non exhaustive list of Coupa objects and there are still more enhancements to come. Check out the rest of the available Coupa objects on their resource portal. [Learn more](https://success.coupa.com/Integrate/Technical_Documentation/API/Resources)
+This is a non exhaustive list of Coupa objects and there are still more enhancements to come. Check out the rest of the [available Coupa objects on their resource portal](https://success.coupa.com/Integrate/Technical_Documentation/API/Resources). If you see an object that we currently don't support, Workato's Coupa connector allows for custom actions that allow you to send [custom HTTP requests](/developing-connectors/custom-actions.md).
 
 ### Using Coupa actions and triggers on Workato
-The Coupa connector in Workato first requires you to select your action which is a mixture of generic actions as well as commonly used specific actions .
+The Coupa connector in Workato first requires you to select your action which is a mixture of generic actions as well as commonly used specific actions.
 
 **Generic triggers**
 - [New/updated object](/connectors/coupa/object-triggers.md)
@@ -139,18 +139,18 @@ The Coupa connector in Workato first requires you to select your action which is
 - [Get supplier sites by supplier](/connectors/coupa/supplier-actions.md)
 - [Set integration run status](/connectors/coupa/integration-action.md)
 
-For generic actions and triggers, you'll be able to select the object you want to work with later on when configuring the step. The required input fields for the object you select will then be dynamically generated. This includes any custom fields that you or your team have defined.
+For generic actions and triggers, you'll be able to select the object you want to work with later on when configuring the step. The required input fields for the object you select will then be dynamically generated. This includes any custom fields that you or your team have defined in Coupa
 
 ![Selecting an object](/assets/images/coupa/selecting-object.gif)
 <center><i>Selecting an object in the Coupa connector</i></center>
 
 
 ### Custom object fields in Coupa
-The Coupa connector on Workato automatically pulls all custom fields whenever you request for an object. Search for custom fields you would like to work with in the `add/remove optional fields` drop down.
+The Coupa connector on Workato automatically pulls all custom fields whenever you request for an object. Search for custom fields you or your team have defined in the `add/remove optional fields` drop down.
 
 
 ## List of triggers and actions
-Workato currently supports the following triggers and actions. Find out more details about each by clicking on the links below. You can also navigate to them through the side bar.
+Workato currently supports the following Coupa triggers and actions. Find out more details about each by clicking on the links below. You can also navigate to them through the side bar.
 
   * [Object actions](/connectors/coupa/object-actions.md)
   * [Object triggers](/connectors/coupa/object-triggers.md)
