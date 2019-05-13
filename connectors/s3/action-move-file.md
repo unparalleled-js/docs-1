@@ -4,7 +4,7 @@ date: 2018-12-13 23:00:00 Z
 ---
 
 # Amazon S3 action - Move file
-This action moves a file from a bucket/folder to another bucket/folder in Amazon S3. The destination bucket/folder needs to exist before moving the file.
+This action moves a file from a bucket/folder to another bucket/folder in Amazon S3. The destination bucket/folder must exist before moving the file.
 
 ## Input fields
 | Field name | Description |

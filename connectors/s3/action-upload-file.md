@@ -13,5 +13,5 @@ This action uploads a new file to selected bucket/folder. If a file with the sam
 | Bucket | The bucket to upload the file to. Select a bucket from the picklist or enter the bucket name directly. |
 | Folder | The folder to upload the file to. Select a folder from the picklist or enter the folder path directly. |
 | File name | The name of the uploaded file. Note that this is file name, not file path. |
-| File contents | Contents of the file to upload. Accepts a datapill such as `File contents`, and also accepts raw text. |
-| Chunk size (in kilobytes) | File contents will be [streamed](https://docs.workato.com/features/file-streaming.html) in chunks of this size. Default is 1024 KB, minimum is 32 KB. By default, Workato automatically manages the chunk size. Configure this when you want to optimize the data throughput yourself. Larger chunk size will increase throughput, but may exceed API limit. |
+| File contents | Contents of the file to upload. Accepts a datapill, such as `File contents`, or raw text. |
+| Chunk size<br>(in kilobytes) | File contents will be [streamed](https://docs.workato.com/features/file-streaming.html) in chunks of this size. Default is 1024 KB, minimum is 32 KB. Workato manages the chunk size automatically by default. Configure this when you want to optimize the data throughput yourself. Larger chunk size will increase throughput, but may exceed API limit. |
