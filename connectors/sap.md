@@ -1,20 +1,26 @@
 ---
-title: Workato connectors - SAP
+title: Workato connectors - SAP On-premise
 date: 2018-12-06 06:00:00 Z
 ---
 
-# SAP
-SAP is an enterprise resource planning software used by the largest corporations in the world. Workato's SAP connector allows you to easily integrate with SAP and build powerful automation around it.
-
-There are 3 ways you can connect to SAP on Workato:
-1. [Using IDoc](#connect-to-sap-using-idoc) (recommended)
-2. Using RFC (coming soon)
-3. [Using OData](#connect-to-sap-using-odata) (early beta)
-
-## Connect to SAP using IDoc
+# SAP On-premise
 ![SAP JCo connector](/assets/images/connectors/sap/sap-jco.png)
 
-The SAP On-premise connector can connect to both on-premise SAP system and SAP system on a server behind the corporate firewall. It can handle IDocs coming from SAP (Outbound IDoc) as well as when IDocs being sent to SAP (Inbound IDoc).
+SAP is an enterprise resource planning software used by the largest corporations in the world.
+
+Workato SAP On-premise connector allows you to connect with SAP system on-premises or on a server behind a corporate firewall. The connector supports using IDoc or RFC to communicate with SAP. Using Workato, you can build powerful automation around SAP and other applications, without writing a line of code.
+
+## Supported SAP versions
+Workato's On-premise SAP connector supports SAP ERP ECC 6.0 and later, SAP CRM, SAP SRM, SAP SCM, and any other modules compatible with the NetWeaver platform.
+
+It requires the SAP Java Connector (JCo) to work. Please refer to [SAP Note 107727 - SAP JCo 3.0 release and support strategy](https://launchpad.support.sap.com/#/notes/1077727) for details on JCo versions.
+
+## Supported communication method
+The connector supports the following communication methods with SAP:
+
+- Inbound IDoc (send IDoc to SAP)
+- Outbound IDoc (receive IDoc from SAP)
+- Transactional RFC (invoke synchronous RFC and BAPI in SAP)
 
 ### Introduction to IDoc
 The term `IDoc` stands for intermediate document. It is simply a data container used to exchange information between SAP systems or between SAP and 3rd-party systems.
@@ -23,18 +29,23 @@ IDoc is an open interface which is independent of the internal data structure st
 
 IDoc is independent of the direction of data exchange, having both Outbound and Inbound capabilities.
 
-### Supported SAP versions
-Workato's On-premise SAP connector supports SAP ERP ECC 6.0 and later, SAP CRM, SAP SRM, SAP SCM, and any other modules compatible with the NetWeaver platform.
+### Introduction to RFC
+`RFC` is a SAP protocol that handles communications between SAP systems and third party applications. It is the process of calling a function module which is residing on a different machine from the caller program.
 
-It requires the SAP Java Connector (JCo) to work. Please refer to [SAP Note 107727 - SAP JCo 3.0 release and support strategy](https://launchpad.support.sap.com/#/notes/1077727) for details on JCo versions.
+Workato can call SAP RFCs in an SAP system to fetch the data returned or make synchronous updates to the SAP data.
 
-### How to configure
-Follow the these steps to connect Workato with SAP using IDoc:
-- [Configure IDoc in SAP to work with Workato](#configure-idoc-in-sap-to-work-with-workato)
-- [Configure Workato On-prem agent on SAP server](#configure-workato-on-prem-agent-opa-on-sap-server)
-- [Configure SAP connector in Workato UI](#configure-sap-connector-in-workato-ui)
+## How to connect to SAP On-premise on Workato
 
-### Configure IDoc in SAP to work with Workato
+The SAP On-premise connector can connect to both on-premise SAP system and SAP system on a server behind the corporate firewall.
+
+Please follow these steps **strictly in this sequence** to configure the connection:
+- [I/ Configure IDoc and RFC in SAP](#configure-idoc-and-rfc-in-sap)
+- [II/ Configure Workato On-prem agent on SAP server](#configure-workato-on-prem-agent-opa-on-sap-server)
+- [III/ Configure SAP connector in Workato UI](#configure-sap-connector-in-workato-ui)
+
+If you encounter error at any step, please review the [Troubleshooting](#troubleshooting) section.
+
+### Configure IDoc and RFC in SAP
 #### Step 1: Register a Program ID for Workato in SAPGUI
 In SAP, use Transaction SM59 to create RFC Destination of type TCP/IP (type T).
 
@@ -44,7 +55,7 @@ In the Technical Settings tab, select the `Registered Server Program` option and
 
 ![RFC destination](/assets/images/connectors/sap/rfc-destination.png)
 
-The RFC Connection can be tested once the Workato On-prem Agent (OPA) has been setup (instructions below).
+The RFC Connection can be tested once the Workato On-prem Agent (OPA) has been setup ([instructions below](#configure-workato-on-prem-agent-opa-on-sap-server)).
 
 #### Step 2: Define a port for Workato
 Use the transaction WE21 to define a port for sending and receiving IDocs of type `Transactional RFC`.
@@ -89,16 +100,20 @@ The below configuration in the distribution model will enable SAP to send DEBMAS
 
 ### Configure Workato On-prem Agent (OPA) on SAP server
 #### Step 6: Download Workato On-prem Agent (OPA)
-For IDoc to work with Workato, you need to install a Workato On-prem Agent (OPA) on your SAP server.
+For Workato to talk to SAP, you need to install a Workato On-prem Agent (OPA) on your SAP server, or on a separate Virtual Machine that can reach your SAP server.
 
-Follow [these instructions](https://docs.workato.com/on-prem/setup.html) to download and setup Workato OPA on your SAP server.
+The Virtual Machine server and your SAP server need to be in the same domain, not outside of the firewall, and able to access each other (From each server, try to ping the other server to make sure they can reach each other).
+
+Follow [these instructions](https://docs.workato.com/on-prem/setup.html) to download and setup Workato OPA.
 
 #### Step 7: Download the SAP JCO libraries
-Download the SAP JCO connector libraries from the link below. Please ensure that the correct Operating system is selected.
+If you do not already have a license to use SAP JCo libraries, please contact your SAP provider for license.
+
+From the link below, download 2 items: SAP JCO connector libraries (version 3.x or later) and SAP Java IDoc class library. Please ensure that the correct Operating system is selected.
 
 https://support.sap.com/en/product/connectors/jco.html
 
-Once the libraries are downloaded, place them in the `lib_ext/` directory of the OPA.
+Once the libraries are downloaded, place them in the `lib_ext/` directory of the OPA. If the `lib_ext` directory is not already created, please create it under the root directory of the OPA.
 
 #### Step 8: Create SAP profile in OPA
 Follow [these instructions](https://docs.workato.com/on-prem/profile.html#sap-connection-profile) to create a SAP profile in OPA.
@@ -111,17 +126,22 @@ Follow [these instructions](https://docs.workato.com/on-prem/run.html) to run th
 
 ![SAP connection](/assets/images/connectors/sap/sap-jco-connection.png)
 
-There are 2 ways to create a connection in Workato. Click on `App Connections` on the navigation bar and then on `Create a new connection`; or click on the connections tab in a recipe with SAP triggers/actions. Then, follow the steps below:
+There are 2 ways to create a connection in Workato. Click on `App Connections` on the navigation bar and then on `Create a new connection`; or click on the `Connections` tab in a recipe with SAP triggers/actions. Then, follow the steps below:
 - Select the connector `SAP On-premise`
 - Input the OPA profile name for SAP you have created in previous step, in this case `Direct1`
 - Select the OPA name, in this case `OPA @ BCone SAP`
 - Click `Link your account`. If the connection is successful, you can start building recipes in Workato to talk to SAP.
 
-## Connect to SAP using OData
-![SAP OData connector](/assets/images/connectors/sap/sap-odata.png)
+### Troubleshooting
+The followings are issues you may encounter during your setup. This list is constantly being updated. If you don't find your issue listed here, please contact Workato Support.
 
-The SAP OData connector is currently in early beta and can only provide `read` capability, but not `write`. Currently, we recommend using IDoc or RFC instead.
+**After clicking `Link your account` in Workato, it fails to connect**
+  This is often due to incorrect OPA configuration. Please check the SAP profile in the OPA's `config.yml` file for these errors:
 
-Requirements to use the SAP OData connector:
-- Your SAP system needs to support creating OData services (only available in newer SAP versions such as SAP S/4HANA)
-- You need to build and expose SAP OData services in your SAP. Learn more [here](https://blogs.sap.com/2016/02/08/odata-everything-that-you-need-to-know-part-1/).
+  - `gwhost` is not accessible: In the machine that OPA is installed, use Terminal / Command Prompt to `ping` that `gwhost` and verify that it's accessible.
+
+  - `gwserv` is wrong: Please make sure you input the correct gateway server port number.
+
+**I don't see the needed IDocs in the dropdown list in Workato**
+
+You need to [configure the needed IDoc in your SAP](#configure-idoc-and-rfc-in-sap) first, before it can be displayed in the dropdown list in Workato.

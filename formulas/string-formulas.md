@@ -16,7 +16,7 @@ In the examples below, we will look at some of the methods that can be used to m
 
 # Conditionals
 
-This section will cover formulas which allow you to apply conditions (if-else) to your strings. Find out more about how to use conditionals [here](http://docs.workato.com/formulas.html#conditionals)
+This section will cover formulas which allow you to apply conditions (if-else) to your strings. Find out more about how to use conditionals [here](/formulas/formula-mode.md#conditionals).
 
 ---
 
@@ -30,6 +30,32 @@ This function checks the input string and returns true if it is an empty string 
 | `"Jean Marie".blank?` | false  |
 | `" ".blank?`          | true   |
 | `nil.blank?`          | true   |
+
+---
+
+## is_not_true?
+
+Converts a value to boolean and returns true if value is truthy.
+
+### Example
+| Example       | Result |
+| ------------- | ------ |
+| `"false".is_not_true?`  | true   |
+| `0.is_not_true?`  | true   |
+| `nil.is_not_true?`  | false   |
+
+---
+
+## is_true?
+
+Converts a value to boolean and returns true if value is truthy.
+
+### Example
+| Example       | Result |
+| ------------- | ------ |
+| `"false".is_true?`  | false   |
+| `1.is_true?`  | true   |
+| `nil.is_true?`  | true   |
 
 ---
 

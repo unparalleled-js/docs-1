@@ -186,6 +186,14 @@ To access the full list, check out the [Ruby documentation](http://ruby-doc.org/
 ## in_time_zone
 Converts a time value to a different time zone. This function uses the list of time zone names from the IANA time zone database. The output will be an equivalent time in a different time zone. Find out more [here](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones)
 
+### Example
+
+| Example                                      | Result                               |
+|----------------------------------------------|--------------------------------------|
+| `"2017-05-31T12:30:45.303136-07:00".in_time_zone("America/New_York")` | "2017-05-31T15:30:45.303136-04:00"   |
+| `"2017-01-30".in_time_zone("America/New_York")`<br>Note: dates with no timezones take the timezone defined in your Workato account settings | "2017-01-30T00:00:00.000000-05:00"   |
+
+### Regions reference
 Refer to the following table for the timezone name to use in the formula.
 
 | Region                       | Timezone to use in formula     |
@@ -340,13 +348,6 @@ Refer to the following table for the timezone name to use in the formula.
 | Tokelau Is.                  | Pacific/Fakaofo                |
 | Chatham Is.                  | Pacific/Chatham                |
 | Samoa                        | Pacific/Apia                   |
-
-### Example
-
-| Example                                      | Result                               |
-|----------------------------------------------|--------------------------------------|
-| `"2017-05-31T12:30:45.303136-07:00".in_time_zone(\"America/New_York\")` | "2017-05-31T15:30:45.303136-04:00"   |
-| `"2017-01-30".in_time_zone(\"America/New_York\")` #Note: dates with no timezones take the timezone defined in your Workato account settings | "2017-01-30T00:00:00.000000-05:00"   |
 
 # Converting datetime to date
 To convert a date data type into a datetime data, or vice versa, use the [to_date](#todate) or [to_time](#totime) formulas.

@@ -44,7 +44,7 @@ This operator subtracts the right hand operand from the left hand operand. This 
 
 ---
 
-## The multiply (*) operator
+## The multiply (\*) operator
 This operator multiplies the operands on either side.
 
 ### Example
@@ -69,6 +69,22 @@ Divides left hand operand by right hand operand.
 | `7 / 4.0`   | 1.75        | Float  |
 | `7.0 / 4`   | 1.75        | Float  |
 | `7.0 / 4.0` | 1.75        | Float  |
+
+---
+
+## The exponential (\*\*) operator
+
+Left hand operand to the power of the right hand operand.
+
+### Example
+| Example      | Result      | Type     |
+| ------------ | ----------- | ---------|
+| `5**3`       | 125         | Fixnum   |
+| `4**1.5`     | 8.0         | Float    |
+| `4.0**2`     | 16.0        | Float    |
+| `3**-1`      | "1/3"       | Rational |
+| `8**(3**-1)` | 2.0         | Float    |
+| `7**-1.6`    | 0.044447... | Float    |
 
 ---
 
@@ -127,6 +143,55 @@ This function checks the input and returns true if it is a null or an empty stri
 | `null.blank?` | true   |
 | `-45.blank?`  | false  |
 | `0.blank?`    | false  |
+
+---
+
+## even?
+
+This function checks the input and returns true if it is an even number.
+
+### Example
+| Example       | Result |
+| ------------- | ------ |
+| `2.even?`  | true   |
+| `3.even?` | false   |
+
+---
+
+## is_not_true?
+
+Converts a value to boolean and returns true if value is truthy.
+
+### Example
+| Example       | Result |
+| ------------- | ------ |
+| `"false".is_not_true?`  | true   |
+| `0.is_not_true?`  | true   |
+| `nil.is_not_true?`  | false   |
+
+---
+
+## is_true?
+
+Converts a value to boolean and returns true if value is truthy.
+
+### Example
+| Example       | Result |
+| ------------- | ------ |
+| `"false".is_true?`  | false   |
+| `1.is_true?`  | true   |
+| `nil.is_true?`  | true   |
+
+---
+## odd?
+
+This function checks the input and returns true if it is an odd number.
+
+### Example
+| Example       | Result |
+| ------------- | ------ |
+| `3.odd?`  | true   |
+| `2.odd?` | false   |
 
 ---
 

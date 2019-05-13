@@ -12,7 +12,7 @@ A single Workato on-premises agent can be used to connect with multiple on-premi
  - [SAP](#sap-connection-profile)
  - [Java messaging service](#jms-connection-profile)
  - [Apache Kafka](#apache-kafka-connection-profile)
- - [Active directory](#active-directory-connection-profile)
+ - [Active Directory](#active-directory-connection-profile)
  - [HTTP resource](#http-resources)
  - [NTLM](#ntlm-connection-profile)
  - [Command-line scripts](#command-line-scripts-profile)
@@ -46,8 +46,10 @@ ldap:
 
 **Do not use spaces or special characters in connection profile names.**
 
-## Applying a new configuration
+## Running your agent
+After configuring your connection profiles, you will need to run your on-premises agent on your machine. [Check out how to do so on your operating system.](/on-prem/run.md)
 
+## Applying a new configuration
 A running on-premises agent automatically applies any changes made to the configuration file. Changes to proxy server settings require you to restart the agent.
 
 ## Database connection profile
@@ -182,14 +184,28 @@ files:
 ```
 
 ## SAP connection profile
-SAP connection profile must be defined in the `sap` section. There are two connection types that connector supports: `direct` and `messageserver`.
-
-Below is the example of `direct` connection type. Use this connection type if SAP system is directly exposed as an application server.
+SAP connection profile must be defined in the `server` and `sap` section. The `server` section looks like this:
 
 ```YAML
+server:
+  classpath:
+    - lib/SAPConnector.jar
+    - lib_ext
+```
+
+Here, `lib_ext` is the directory where you put the SAP JCo connector libraries. If this directory is not already created, create this directory under the root directory of the OPA and put the SAP JCo connector libraries there.
+
+There are two connection types that the connector supports: `direct` and `messageserver`. Below is the example of `direct` connection type. Use this connection type if SAP system is directly exposed as an application server.
+
+```YAML
+server:
+  classpath:
+    - lib/SAPConnector.jar
+    - lib_ext
+
 sap:
   Direct:
-  # sap inbound connection properties
+  # Sap inbound connection properties
     connection_type: direct
     ashost: 10.30.xx.xx
     client: 800
@@ -199,35 +215,40 @@ sap:
     sysnr: 00
     pool_capacity: 3
     peak_limit: 10
-  # Below are the sap outbound connection properties. These must be passed along with inbound properties
+  # Sap outbound connection properties. These must be passed along with inbound properties
     gwhost: 10.30.xx.xx
     gwserv: 3300
     progid: WORKATO
     connection_count: 2
-    http_connect_timeout: 30000
-    preview: true
-    http_connection_request_timeout: 30000
-    http_socket_timeout: 30000
-    cm_max_total: 20
-    cm_default_max_per_route: 20
+  # Workato Connection properties for advanced users. Often don't need to be changed
+    http_connect_timeout: 10000
+    http_connection_request_timeout: 10000
+    http_socket_timeout: 10000
+    cm_max_total: 10
+    cm_default_max_per_route: 5
+  # Properties for setting IDoc segment fields. Leave blank values if you only use RFC, but do not delete this section
     control_segment:
-    # Properties required for setting idoc segement fields  
       SNDPOR: WORKATO
       SNDPRT: LS
       SNDPRN: WORKATO
       RCVPOR: SAPEQ6
       RCVPRT: LS
       RCVPRN: T90CLNT090
-    # Below property required to get IDOC list configured on RCVPRN profile
+    # Property to get IDoc list configured on RCVPRN profile
       OUT_RCVPRN: WORKATO
 ```
 
-Below is the example of `messageserver` connection type. Use this connection type when SAO system is behind message server gateway.
+Below is the example of `messageserver` connection type. Use this connection type when SAP system is behind message server gateway.
 
 ```YAML
+server:
+  classpath:
+    - lib/SAPConnector.jar
+    - lib_ext
+
 sap:
   MessageServer:
-  # sap inbound connection properties
+  # Sap inbound connection properties
     connection_type: messageserver
     user: OSA_DEV
     password: ********
@@ -240,91 +261,115 @@ sap:
     group:  PUBLIC
     pool_capacity: 3
     peak_limit: 10
-  # Below are the sap outbound connection properties. These must be passed along with inbound properties
+  # Sap outbound connection properties. These must be passed along with inbound properties
     gwhost: 10.30.xx.xx
     gwserv: 3300
     progid: WORKATO
     connection_count: 2
-    http_connect_timeout: 30000
-    preview: true
-    http_connection_request_timeout: 30000
-    http_socket_timeout: 30000
-    cm_max_total: 20
-    cm_default_max_per_route: 20
+  # Workato Connection properties for advanced users. Often don't need to be changed
+    http_connect_timeout: 10000
+    http_connection_request_timeout: 10000
+    http_socket_timeout: 10000
+    cm_max_total: 10
+    cm_default_max_per_route: 5
+  # Properties for setting IDoc segment fields. Leave blank values if you only use RFC, but do not delete this section  
     control_segment:
-    # Properties required for setting idoc segement fields  
       SNDPOR: WORKATO
       SNDPRT: LS
       SNDPRN: WORKATO
       RCVPOR: SAPEQ6
       RCVPRT: LS
       RCVPRN: T90CLNT090
-    # Below property required to get IDOC list configured on RCVPRN profile
+    # Property to get IDoc list configured on RCVPRN profile
       OUT_RCVPRN: WORKATO
 ```
 
-The below properties are mandatory and required if Application Server is connected directly to the SAP JCO Connector. This will not allow Load Balancer on the SAP side to be enabled:
+### How to configure SAP profile properties
 
-| Property name | Comment |
-|------------------|-------------------------------------------|
-| ashost | SAP host in the format of `xxx.xxx.xxx.xxx` |
-| client | Three digit sap client id |
+The properties below are required if you are connecting directly to SAP Application Server. This will not allow Load Balancer on the SAP side to be enabled:
 
-The below properties are mandatory and required if Messager Server is connected to the SAP JCO Connector. This will allow Load Balancer on the SAP side to be enabled and can be used for SAP Production server connection parameters:
+- **ashost**: SAP host in the format of `xx.xx.xx.xx`. This is the IP Address of the SAP application server you are connecting directly. This can be seen on the SAP Logon Pad which is used to login to your on-premise SAP Application server.
 
-| Property name | Comment |
-|------------------|-------------------------------------------|
-| mshost | 10.30.32.80 |
-| msserv | 3601 |
-| r3name | R/3 |
-| group | PUBLIC |
+    ![Host](/assets/images/connectors/sap/ashost.png)
 
-The below properties are required irrespective of the connection type. Be it either Message Server or Application server:
+- **client**: The actual client number which is used for connecting to Workato. Use the same one you log into with your SAP Logon Pad. It's always a 3 digit integer.
 
-| Property name | Comment |
-|------------------|-------------------------------------------|
-| user | SAP RFC user. Recommend using background user and disable dialog properties. |
-| password | SAP RFC user password |
-| lang | Logon language |
-| sysnr | Two digit sap system number |
-| pool_capacity | Default to `3`. Maximum number of idle connections that kept open for a SAP connection. |
-| peak_limit | Default to `10`. Maximum number of active connections that can be created for a sap connection simultaneously |
+    ![Client](/assets/images/connectors/sap/client.png)
+
+The properties below are required if you are connecting to SAP Message Server. The Message Server is responsible for communication between SAP application servers. It passes requests from one application server to another within the system. This will allow Load Balancer on the SAP side to be enabled:
+
+- **mshost**: Message Server host in the format of `xx.xx.xx.xx`. This is the IP Address of the Message Server you are connecting.
+- **msserv**: Message Server port.
+
+    `mhost` and `msserv` can be found in SAP Tcode SMMS as shown below:
+
+    ![Message Server Host](/assets/images/connectors/sap/mhost.png)
+
+- **r3name**: The system ID of the SAP system, e.g. R/3, SQ2. Can be found on the SAP Logon Pad which is used to login to your SAP Application server.
+
+    ![Message Server Host](/assets/images/connectors/sap/r3name.png)
+
+- **group**: Logical group name of the application servers. Can be found in SAP Tcode SMLG:
+
+    ![Group](/assets/images/connectors/sap/group.png)
+
+The properties below are required irrespective of the connection type, either Message Server or Application server:
+
+- **user**: SAP RFC user. Using background user and disabling dialog properties are recommended.
+
+    ![User](/assets/images/connectors/sap/user.png)
+
+- **password**: SAP RFC user password.
+
+    ![Password](/assets/images/connectors/sap/password.png)
+
+- **lang**: Logon language.
+
+    ![Language](/assets/images/connectors/sap/language.png)
+
+- **sysnr**: Two digit SAP system number.
+
+    ![System number](/assets/images/connectors/sap/system-number.png)
+
+- **pool_capacity**: Default to `3`. Maximum number of idle connections that kept open for a SAP connection.
+- **peak_limit**: Default to `10`. Maximum number of active connections that can be created for SAP simultaneously.
 
 These are required for SAP Outbound Connection properties:
 
-| Property name | Comment |
-|------------------|-------------------------------------------|
-| gwhost | SAP Gateway Host: `xxx.xxx.xxx.xxx` |
-| gwserv | Gateway server port |
-| progid | SAP Program ID configured for Workato> |
-| connection_count | Default to `2`. The number of parallel connection can be open for outbound sap connection. |
+- **gwhost**: SAP Gateway Host, in the number format of `xx.xx.xx.xx`.
+- **gwserv**: Gateway server port.
+- **progid**: SAP Program ID configured for Workato.
+
+    The 3 properties above can be found in the SM59 Tcode for the created Workato RFC Destination:
+
+    ![Program ID](/assets/images/connectors/sap/program-id.png)
+
+- **connection_count**: Default to `2`. The number of parallel connection can be open for outbound sap connection.
 
 These are optional for Workato Connection properties (for advanced users):
 
-| Property name | Comment |
-|------------------|-------------------------------------------|
-| http_connect_timeout | Default 10000. Determines the timeout in milliseconds until a connection is established. A timeout value of zero is interpreted as an infinite timeout. |
-| http_connection_request_timeout | Default 10000. Returns the timeout in milliseconds used when requesting a connection from the connection manager. A timeout value of zero is interpreted as an infinite timeout. |
-| http_socket_timeout | Default 10000. Defines the socket timeout in milliseconds, which is the timeout for waiting for data  or, put differently, a maximum period inactivity between two consecutive data packets. |
-| cm_max_total | Default 10. Total number of connections in the connection pool. |
-| cm_default_max_per_route | Default 5. Number of connections in the pool per route. |
+- **http_connect_timeout**: Default 10000. Determines the timeout in milliseconds until a connection is established. A timeout value of zero is interpreted as an infinite timeout.
+- **http_connection_request_timeout**: Default 10000. Returns the timeout in milliseconds used when requesting a connection from the connection manager. A timeout value of zero is interpreted as an infinite timeout.
+- **http_socket_timeout**: Default 10000. Defines the socket timeout in milliseconds, which is the timeout for waiting for data  or, put differently, a maximum period inactivity between two consecutive data packets.
+- **cm_max_total**: Default 10. Total number of connections in the connection pool.
+- **cm_default_max_per_route**: Default 5. Number of connections in the pool per route.
 
-These are required for SAP IDOC Connection properties (defined to send IDOCs to SAP). These can be dynamically overridden with the Workato recipe/mapping:
+These are required for SAP IDoc Connection properties (defined to send IDocs to SAP). These can be dynamically overridden with the Workato recipe/mapping:
 
-| Property name | Comment |
-|------------------|-------------------------------------------|
-| SNDPOR | Transactional RFC port configured in SAP for Workato |
-| SNDPRT | Partner profile type |
-| SNDPRN | Partner profile Name defined for Workato |
-| RCVPOR | SAP default Receiver Port |
-| RCVPRT | Receiver Partner profile type |
-| RCVPRN | Receiver Partner profile type defined for the SAP |
+- **SNDPOR**: Transactional RFC port configured in SAP for Workato.
+- **SNDPRT**: Partner profile type.
+- **SNDPRN**: Partner profile Name defined for Workato.
+- **RCVPOR**: SAP default Receiver Port.
+- **RCVPRT**: Receiver Partner profile type.
+- **RCVPRN**: Receiver Partner profile type defined for the SAP.
 
-The Below property required to get IDOC dropdown list populated in the Workato Recipe creation UI configured on Receiver partner profile:
+    To find the 6 properties above, send a sample IDoc to the created IDoc configuration in SAP. Proceed to Tcode WE19, open the IDoc number and its control record, then you can find all 6 properties in one place as shown below:
 
-| Property name | Comment |
-|------------------|-------------------------------------------|
-| OUT_RCVPRN | Receiver Partner profile type defined for the SAP |
+    ![Control segment](/assets/images/connectors/sap/control-segment.png)
+
+The below property is required to get IDoc dropdown list populated in the Workato Recipe creation UI configured on Receiver partner profile:
+
+- **OUT_RCVPRN**: Receiver Partner profile type defined for the SAP. Can be the same as **RCVPRN** above for ease of use.
 
 ## JMS connection profile
 JMS connection profiles must be defined in the `jms` section. A JMS provider is specified by `provider` property of a connection profile. The following JMS providers are supported by the on-premises agent:
@@ -427,16 +472,84 @@ ldap:
     username: cn=Administrator
     password: foobar
     base: dc=acme,dc=com
+    ssl:
+      cert: /path/to/PEM-encoded-certificate-or-trusted-CA
+      trustAll: true
 ```
 
-where profile configuration properties are:
-
-| Property name | Description |
-|------------------|-------------------------------------------|
-| url | The URL of the LDAP server to use. The URL should be in the format `ldap://myserver.example.com:389`. For SSL access, use the ldaps protocol and the appropriate port, e.g. `ldaps://myserver.example.com:636`. If fail-over functionality is desired, more than one URL can be specified, separated using comma (,). |
-| username | The username (principal) to use when authenticating with the LDAP server. This will usually be the distinguished name of an admin user (e.g.cn=Administrator) |
-| password | The password (credentials) to use when authenticating with the LDAP server |
-| base | The base DN. When this attribute has been configured, all Distinguished Names supplied to and received from LDAP operations will be relative to the specified LDAP path. This can significantly simplify working against the LDAP tree; however there are several occasions when you will need to have access to the base path. For more information on this, please refer to Obtaining a reference to the base LDAP path |
+<table class="unchanged rich-diff-level-one">
+  <thead>
+    <tr>
+        <th colspan=2 width='25%'>Property name</th>
+        <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td colspan=2>
+        <b>url</b><br>
+        <i>required</i>
+      </td>
+      <td>
+        The URL of the LDAP server to use. The URL should be in the format <code>ldap://myserver.example.com:389</code>.<br><br>
+        For SSL access, use the LDAPS protocol. The URL format is in the same format <code>ldaps://myserver.example.com:636</code>.<br><br>
+        If fail-over functionality is desired, more than one URL can be specified, separated using comma (,).
+      </td>
+    </tr>
+    <tr>
+      <td colspan=2>
+        <b>username</b><br>
+        <i>required</i>
+      </td>
+      <td>
+        The username (principal) to use when authenticating with the LDAP server. This will usually be the distinguished name of an admin user. For example, <code>cn=Administrator</code>.
+      </td>
+    </tr>
+    <tr>
+      <td colspan=2>
+        <b>password</b><br>
+        <i>required</i>
+      </td>
+      <td>The password (credentials) to use when authenticating with the LDAP server</td>
+    </tr>
+    </tr>
+    <tr>
+      <td colspan=2>
+        <b>base</b><br>
+        <i>optional</i>
+      </td>
+      <td>
+        The base DN for all requests. When this attribute has been configured, all <b>Distinguished names</b> supplied to and received from LDAP operations will be relative to this LDAP path. This can significantly simplify working against a large LDAP tree.<br><br>
+        However there are several occasions when you will need to have access to the base path. For more information on this, please refer to Obtaining a reference to the base LDAP path.
+      </td>
+    </tr>
+    </tr>
+    <tr>
+      <td rowspan=4>
+        <b>ssl</b><br>
+        <i>optional</i>
+      </td>
+      <td>cert</td>
+      <td>Path the PEM encoded certificate or a trusted CA.</td>
+    </tr>
+    <tr>
+      <td>pem</td>
+      <td>Full content of a PEM encoded certificate.</td>
+    </tr>
+    <tr>
+      <td>key</td>
+      <td>
+        Private key for mutual SSL setup. <b>Required</b> if <code>pem</code> is provided.
+      </td>
+    </tr>
+    <tr>
+      <td>trustAll</td>
+      <td>
+        Set to <code>true</code> to enable self-signed certificates.
+      </td>
+    </tr>
+  </tbody>
+</table>
 
 ## HTTP resources
 
@@ -452,11 +565,21 @@ The agent may be configured to allow accessing internal HTTPS resources which us
 Normally a server certificate's Common Name (or Subject Alternate Name) field should match the target hostname. If you want the agent to accept server certificates with non-matching hostname, disable hostname verification by setting `verifyHost` property to `false` (defaults to `true`).
 
 ## NTLM connection profile
-Certain HTTP resources require NTLM authentication. This can be done using a NTLM connection profile. An example profile should look like this:
+Certain HTTP resources require NTLM authentication. This can be done using a NTLM connection profile. Here are some example NTLM profiles:
 ```YAML
 ntlm:
   MyNtlmProfile:
     auth: "username:password@domain/workstation"
+    base_url: "http://myntlmhost.com"
+    cm_default_max_per_route: 15
+    cm_max_total: 100
+    verifyHost: true
+    trustAll: false
+
+  AnotherNtlmProfile:
+    auth: "domain/workstation"
+    username: "username"
+    password: "password"
     base_url: "http://myntlmhost.com"
     cm_default_max_per_route: 15
     cm_max_total: 100
@@ -468,7 +591,9 @@ The following profile properties are supported:
 
 | Property name | Description |
 |------------------|-------------------------------------------|
-| auth | NTLM authentication credentials |
+| auth | Full NTLM authentication credentials. This can include username, password, domain and workstation.<br><br>For OPA version 2.4.7 or later, **username** and **password** can be configured separately if they contain special characters like `@` and `/`. |
+|username | Username for NTLM authentication.<br>**Only for OPA version 2.4.7 or later** |
+|password | Password for NTLM authentication.<br>**Only for OPA version 2.4.7 or later** |
 | base_url | The base URL for NTLM resources |
 | cm_default_max_per_route | **Optional**. Sets the number of connections per route/host (must be a positive number, default 5) |
 | cm_max_total | **Optional**. Sets the maximum number of connections (must be a positive number, default 10) |
