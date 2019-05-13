@@ -9,7 +9,7 @@ the API Platform page.
 
 The API Platform tool is accessible from the Tools menu. Once in the main API Platform page, select the **Clients** tab to create and manage API clients. A typical screen would look like this:
 
-![Create API Cliient](/assets/images/api-mgmt/api-new-client.png)
+![Create API Client](/assets/images/api-mgmt/api-new-client.png)
 *Create API Client*
 
 A client must have a name, and may have a description and an associated
