@@ -1,0 +1,53 @@
+---
+title: Developer program
+date: 2019-05-08 17:00:00 Z
+---
+
+[![Workato](/assets/images/workato_developer_program.png)](https://www.workato.com)
+
+# Introduction
+In Workato, we allow you to build custom connectors on our SDK using ruby. When you build custom connectors on our SDK, we allow you the ability to declare data objects as well as lambda functions. Using this, you'll be able to authenticate your custom connector on Workato with your chosen application as well as build robust triggers and actions for it to use in your recipes.
+
+These data objects and lambda functions that you declare are parsed by the Workato framework and we pull these objects and functions as needed when recipes are designed and run on our platform. Due to security reasons, we also only allow a subset of all native ruby methods for you to use. Using methods outside of this set of methods will result in compile errors and prevent your custom connector from running.
+
+## Overview
+Each SDK starts off with declaring your top level data object. This object contains all top level information about the connector. Below, we see a brief skeleton of what an SDK would look like. Later on we will elaborate more on the specifics inside each of the objects like the `connection` object. Take note that these names are strictly defined and must be spelt exactly for the SDK to know which object to when looking to authorise and perform an API request when needed.
+
+```ruby
+{
+  title: 'My sample connector',
+
+  connection: { ... ),
+  test: { ... },
+  actions: { ... },
+  triggers: { ... },
+  object_definitions: ( ... },
+  picklists: ( ... },
+  methods: ( ... },
+}
+```
+
+Inside each object, there will be further nested objects that allow you to declare input fields for connections, actions and triggers. These definitions will determine how Workato's SDK framework interacts with the application you are building a connection to.
+
+## SDK structure
+
+- Title - This is the name of your connector that will be displayed to end users. This is also be the title of the connector that users can search for your connector when searching for applications to make connections to.
+
+- Connection - This is where all connection configurations are stored for your custom connector. You will be able to declare the authentication type and input fields shown to the end user when they want to make a connection. We currently support basic, OAuth 2.0 natively as well as a custom authentication that allows you to connect to most other authentication types like digest and multi step authentication procedures.
+
+- test - This is where you can define a test to ensure that your connection is still valid. This is used in cases like basic auth where we do a preliminary call when you first make a connection to let you know the connection was successful.
+
+- actions - This is where you define actions that people using your custom connector can pick from after making a valid connection. You'll be able to define input fields for users to fill up as well as the exact mechanics of how the action handles data. Finally, you'll also be able to define the output schema of the action so that users can select these outputs for use in later steps.
+
+- triggers - This is where you define triggers that people can use with your custom connector. Triggers kick start recipes and can either be implemented via polling (checking every few minutes) or webhooks (static or dynamic). Similar to actions, you'll be able to define user input fields and the machanics behind how the trigger is executed. Our triggers also provide closure maintenance and pagination capabilities, allowing you to design for users with heavy use cases.
+
+- object_definitions - This is where you can define commonly used objects and reference them later on in your actions and triggers. Actions and triggers commonly reference these objects in input and output schema to reduce the amount of redundant code that you might have in your SDK. Object definitions are also able to make API requests - allowing you to access metadata whenever possible to generate dynamic input and output fields for users of your custom connector.
+
+- picklists - This is where you can define lists of values. Reference them later on when you define input fields that are dropdowns instead of free text fields. Picklists can be static, dynamic based on API requests or even dependant on the previous input of the user.
+
+- methods - This is where you can define functions in the same way that you would do in normal coding. Keep your code `DRY` by using methods. Methods can then be used in any object.
+
+### Next section
+Before we dive into the specifics of each of the objects above, lets go through some of the data formats that Workato's SDK can handle and how to do so.
+
+[### Data Formats]()

@@ -624,9 +624,3 @@ Which is extracted and converted into:
   "requireitem": "false"
 }
 ```
-
-### Other data Formats
-Check out the other data formats we support. [Learn more]()
-
-### Next section
-If you're already familiar with the data formats we support, check out the authentication types that our SDK supports as well as how to implement them. [Learn more]()
