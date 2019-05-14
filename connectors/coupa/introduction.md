@@ -53,7 +53,7 @@ In Workato, we grouped Coupa data into objects in our actions and triggers. Obje
   <tbody>
     <tr>
       <td>Account</td>
-      <td>Accounts that match your financial structure. For example, give marketing, IT and sale their own accounts to manage their own budgets</td>
+      <td>Query, create or update  accounts that match your financial structure. For example, give marketing, IT and sale their own accounts to manage their own budgets</td>
     </tr>
     <tr>
       <td>Address</td>
@@ -72,16 +72,36 @@ In Workato, we grouped Coupa data into objects in our actions and triggers. Obje
       <td>Query, create or update exchange rates.</td>
     </tr>
     <tr>
+      <td>Expense line</td>
+      <td>Query or create expense report lines used for expense management<td>
+    </tr>
+    <tr>
       <td>Expense report</td>
       <td>Query, create or update expense reports used for expense management<td>
     </tr>
     <tr>
+      <td>Integration</td>
+      <td>Query or create integrations in Coupa</td>
+    </tr>
+    <tr>
+      <td>Integration error</td>
+      <td>Query or create integrations errors in Coupa</td>
+    </tr>
+    <tr>
+      <td>Integration run</td>
+      <td>Query or create integrations runs in Coupa</td>
+    </tr>
+    <tr>
+      <td>Integration history record</td>
+      <td>Query or create integrations history records in Coupa</td>
+    </tr>
+    <tr>
       <td>Invoice</td>
-      <td>Query or update invoices in Coupa</td>
+      <td>Query, create or update invoices in Coupa</td>
     </tr>
     <tr>
       <td>Inventory Transaction</td>
-      <td>Query, create or update inventory transactions. Receipts of goods are the same as inventory transactions in Coupa</td>
+      <td>Query or create inventory transactions. Receipts of goods are the same as inventory transactions in Coupa</td>
     </tr>
     <tr>
       <td>Item</td>
@@ -89,15 +109,15 @@ In Workato, we grouped Coupa data into objects in our actions and triggers. Obje
     </tr>
     <tr>
       <td>Lookup value</td>
-      <td>Query, create or update the hierachy of accounts in Coupa.</td>
+      <td>Query, create or update lookup values in Coupa.</td>
     </tr>
     <tr>
       <td>Purchase order</td>
-      <td>Enter your API key which you have generated in your Coupa instance</td>
+      <td>Query, create or update purchase order in Coupa.</td>
     </tr>
     <tr>
       <td>Purchase order line</td>
-      <td>Query, create or update purchase order in Coupa</td>
+      <td>Query or create purchase order lines in Coupa</td>
     </tr>
     <tr>
       <td>Remit to address</td>
@@ -114,6 +134,14 @@ In Workato, we grouped Coupa data into objects in our actions and triggers. Obje
     <tr>
       <td>Supplier item</td>
       <td>Query, create or update items provided by suppliers that users can select when creating a requisition</td>
+    </tr>
+    <tr>
+      <td>Supplier site</td>
+      <td>Query, create or update supplier sites</td>
+    </tr>
+    <tr>
+      <td>User</td>
+      <td>Query, create or update a user</td>
     </tr>
   </tbody>
 </table>
