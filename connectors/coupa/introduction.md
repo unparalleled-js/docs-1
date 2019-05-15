@@ -146,7 +146,7 @@ In Workato, we grouped Coupa data into objects in our actions and triggers. Obje
   </tbody>
 </table>
 
-This is a non exhaustive list of Coupa objects and there are still more enhancements to come. Check out the rest of the [available Coupa objects on their resource portal](https://success.coupa.com/Integrate/Technical_Documentation/API/Resources). If you see an object that we currently don't support, Workato's Coupa connector allows for custom actions that allow you to send [custom HTTP requests](/developing-connectors/custom-actions.md).
+This is a non-exhaustive list of Coupa objects and there are still more enhancements to come. Check out the rest of the [available Coupa objects on their resource portal](https://success.coupa.com/Integrate/Technical_Documentation/API/Resources). If you see an object that we currently don't support, Workato's Coupa connector allows for custom actions that allow you to send [custom HTTP requests](/developing-connectors/custom-actions.md).
 
 ### Using Coupa actions and triggers on Workato
 The Coupa connector in Workato first requires you to select your action which is a mixture of generic actions as well as commonly used specific actions.
@@ -178,7 +178,7 @@ The Coupa connector on Workato automatically pulls all custom fields whenever yo
 
 
 ## List of triggers and actions
-Workato currently supports the following Coupa triggers and actions. Find out more details about each by clicking on the links below. You can also navigate to them through the side bar.
+Workato currently supports the following Coupa triggers and actions. Find out more details about each by clicking on the links below. You can also navigate to them through the sidebar.
 
   * [Object actions](/connectors/coupa/object-actions.md)
   * [Object triggers](/connectors/coupa/object-triggers.md)

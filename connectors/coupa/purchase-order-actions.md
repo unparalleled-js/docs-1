@@ -14,7 +14,7 @@ This action is traditionally used in response to recipes triggered when a purcha
 
 ____________
 ### Input fields for purchase order actions
-These actions requires a single input which is the purchase order's internal Coupa ID. When run, it will find that specific purchase order on Coupa and close/cancel it. If you currently do not have the specific internal Coupa ID, you can use our `search objects` to search purchase orders based on other attributes and use the resultant output which contains the internal Coupa ID.
+These actions require a single input which is the purchase order's internal Coupa ID. When run, it will find that specific purchase order on Coupa and close/cancel it. If you currently do not have the specific internal Coupa ID, you can use our `search objects` to search purchase orders based on other attributes and use the resultant output which contains the internal Coupa ID.
 
 ### Close purchase order
 When this action is executed in a recipe, it finds and closes the purchase order denoted in the step input.
@@ -26,7 +26,7 @@ When this action is executed in a recipe, it finds and cancels the purchase orde
 When cancelled or closed, Workato also returns the purchase order object so you can use its datapills in subsequent steps.
 
 ## List of triggers and actions
-Workato currently supports the following triggers and actions. Find out more details about each by clicking on the links below. You can also navigate to them through the side bar.
+Workato currently supports the following triggers and actions. Find out more details about each by clicking on the links below. You can also navigate to them through the sidebar.
 
   * [Introduction](/connectors/coupa/introduction.md)
   * [Object actions](/connectors/coupa/object-actions.md)

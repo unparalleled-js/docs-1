@@ -23,7 +23,7 @@ When this action is run, the integration run that you selected will be updated.
 This action returns the integration object affected with all attributes associated with it.
 
 ## List of triggers and actions
-Workato currently supports the following triggers and actions. Find out more details about each by clicking on the links below. You can also navigate to them through the side bar.
+Workato currently supports the following triggers and actions. Find out more details about each by clicking on the links below. You can also navigate to them through the sidebar.
 
   * [Introduction](/connectors/coupa/introduction.md)
   * [Object actions](/connectors/coupa/object-actions.md)

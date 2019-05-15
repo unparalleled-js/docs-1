@@ -1,5 +1,5 @@
 ---
-title: Workato connectors - Coupa Object actions
+title: Workato connectors - Coupa Object Triggers
 date: 2019-04-29 12:40:00 Z
 ---
 
@@ -18,13 +18,13 @@ Coupa triggers are easy to set up on Workato.  The only required input field is 
 Trigger conditions are like filters in Workato. Turning on trigger conditions in Workato means that you can selectively choose which events you want to trigger workflows. Conditions can be set on object attributes like approval status.  This allows you to build workflows that are only triggered on things such as approved purchase orders or invoices.
 
 ### New/updated object
-This action continuously polls for recently created or updated objects since the previous poll. When Workato finds newly created or updated objects, it checks whether it fulfills the trigger conditions and executes a new job run for each object it finds.
+This action continuously polls for recently created or updated objects since the previous poll. When Workato finds newly created or updated objects, it checks whether it fulfils the trigger conditions and executes a new job run for each object it finds.
 
 ### Output fields for object triggers
-Each new/updated object triggers a separate run. You can then use the output datapills in subsequent steps in your recipe. This trigger in Workato retrieves all object related information included custom fields. Custom fields are also useful to store the IDs of this same record which exist in other applications. For example, creating a custom field for an invoice in Coupa which stores the same invoice's ID in NetSuite allows you to quickly find and update that invoice in NetSuite based on the ID.
+Each new/updated object triggers a separate run. You can then use the output datapills in subsequent steps in your recipe. This trigger in Workato retrieves all object-related information included custom fields. Custom fields are also useful to store the IDs of this same record which exist in other applications. For example, creating a custom field for an invoice in Coupa which stores the same invoice's ID in NetSuite allows you to quickly find and update that invoice in NetSuite based on the ID.
 
 ## List of triggers and actions
-Workato currently supports the following triggers and actions. Find out more details about each by clicking on the links below. You can also navigate to them through the side bar.
+Workato currently supports the following triggers and actions. Find out more details about each by clicking on the links below. You can also navigate to them through the sidebar.
 
   * [Introduction](/connectors/coupa/introduction.md)
   * [Object actions](/connectors/coupa/object-actions.md)
