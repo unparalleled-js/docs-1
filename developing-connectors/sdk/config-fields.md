@@ -42,7 +42,7 @@ Here, the fields are different for each document, hence a user first chooses a d
 object_definition: {
   document: {
     fields: lambda do |_connection, config_fields|
-      return [] if config_fields.blank?
+      next [] if config_fields.blank?
       get("https://www.webmerge.me/api/documents/#{config_fields["document_id"]}/fields").
         map { |field| field.slice("name") }
     end

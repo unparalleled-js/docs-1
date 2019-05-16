@@ -146,6 +146,55 @@ This function checks the input and returns true if it is a null or an empty stri
 
 ---
 
+## even?
+
+This function checks the input and returns true if it is an even number.
+
+### Example
+| Example       | Result |
+| ------------- | ------ |
+| `2.even?`  | true   |
+| `3.even?` | false   |
+
+---
+
+## is_not_true?
+
+Converts a value to boolean and returns true if value is truthy.
+
+### Example
+| Example       | Result |
+| ------------- | ------ |
+| `"false".is_not_true?`  | true   |
+| `0.is_not_true?`  | true   |
+| `nil.is_not_true?`  | false   |
+
+---
+
+## is_true?
+
+Converts a value to boolean and returns true if value is truthy.
+
+### Example
+| Example       | Result |
+| ------------- | ------ |
+| `"false".is_true?`  | false   |
+| `1.is_true?`  | true   |
+| `nil.is_true?`  | true   |
+
+---
+## odd?
+
+This function checks the input and returns true if it is an odd number.
+
+### Example
+| Example       | Result |
+| ------------- | ------ |
+| `3.odd?`  | true   |
+| `2.odd?` | false   |
+
+---
+
 ## presence
 
 This function will check the input number, returning its value if there is one present, else returning nil.
