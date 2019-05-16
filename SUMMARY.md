@@ -209,7 +209,7 @@
         * [Custom Workbot vs Legacy slash commands](workbot/custom-workbot-vs-legacy-slash-commands.md)
 * [Workbot for MS Teams](/workbot-for-teams/workbot.md)
   * [Using Workbot for MS Teams](/workbot-for-teams/using-workbot-for-teams.md)
-  * [Getting started](/workbot-for-teams/getting-started.md#getting-started)
+  * [Getting started](/workbot-for-teams/getting-started.md)
   * [Workbot triggers](/workbot-for-teams/workbot-triggers.md)
   * [Workbot actions](/workbot-for-teams/workbot-actions.md)
   * [Workbot buttons task modules & pick lists](/workbot-for-teams/buttons-choices-task-modules.md)
