@@ -54,6 +54,7 @@ The **Post message** action allows you to post a message to a user or in a chann
 >To learn more about how the Post message action works, see [Workbot actions](/workbot-for-teams/workbot-actions.md).
 
 # Learn more
+- [Getting started](/workbot-for-teams/getting-started.md)
 - [Workbot triggers](/workbot-for-teams/workbot-triggers.md)
 - [Workbot actions](/workbot-for-teams/workbot-actions.md)
 - [Workbot buttons, pick lists, and task modules](/workbot-for-teams/buttons-choices-task-modules.md)
