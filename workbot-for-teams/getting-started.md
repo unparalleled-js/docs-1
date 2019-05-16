@@ -40,6 +40,27 @@ Workbot commands allow you to trigger recipes from Teams. These recipes can then
 
 >**For more info, go to [Workbot commands](/workbot-for-teams/workbot-triggers.md)**.
 
+## Getting started
+### Requirements
+To use Workbot for Teams, a [**Microsoft work or school account**](https://support.office.com/en-ie/article/what-account-do-i-use-with-office-and-why-do-i-need-one-914e6610-2763-47ac-ab36-602a81068235?ui=en-US&rs=en-IE&ad=IE#bkmk_msavsworkschool) is required. These accounts are created by your organization’s administrator to enable a member of your organization access to all Microsoft cloud services such as Microsoft Azure, Office 365, Microsoft Teams, and more.
+
+>**Microsoft accounts (typically created for personal use) are not supported.**
+
+### Microsoft work or school account permissions
+Workbot for Teams works best with the following Microsoft work or school account permissions:
+```
+User.ReadWrite.All
+User.Read.All
+User.Read
+Group.ReadWrite.All
+Group.Read.All
+Directory.Read.All
+Directory.ReadWrite.All
+offline_access
+```
+
+Contact your administrator to ensure that that your connected work or school account has been granted the permissions above.
+
 ## Setup Workbot
 In Teams, go to the Workbot welcome message and click on **Login**. If you don't have yet have a Workato account, click on **create a new one** instead.
 
