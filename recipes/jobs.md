@@ -96,9 +96,9 @@ In addition, to quickly view errors from the jobs report page, hover on the job 
 *Error popup on hover*
 
 ## Conditional step
-When conditional actions are expanded, there is a single "Output" tab. This shows whether the condition evaluated to true or false. If true, the the nested actions take place. If false, the nested actions do not take place, and the recipe proceeds to the next possible action.
+When conditional actions are expanded, there is a single "Output" tab. This shows the condition evaluated as true or false. If true, the the nested actions take place. If false, the nested actions do not take place, and the recipe proceeds to the next possible action.
 
-In the following example, we see that the conditional action in step 2 evaluated to false. In this case, steps 3-4 were not carried out as there were nested steps within the conditional action. The recipe therefore skipped to carry out step 5.
+In the following example, we see that the conditional action in step 2 as evaluated as false. In this case, steps 3-4 were not carried out as there were nested steps within the conditional action. The recipe therefore skipped to carry out step 5.
 
 ![Conditional action](/assets/images/job-details/conditional-action-job-details.png)
 *Job details for recipe with conditional action*
