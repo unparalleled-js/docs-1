@@ -71,7 +71,7 @@ This requires your username and password. An alternative to your username and pa
 *HTTP connector authentication type: Basic*
 
 ### Example - connecting to Jira via basic authentication and testing the connection via a GET action
-Let’s try to connect to Jira using basic authentication - Jira's documentation for basic authentication can be found [here](https://developer.atlassian.com/cloud/jira/platform/jira-rest-api-basic-authentication/?_ga=1.137752242.320850437.1478498822). In the case of JIRA, we need to provide several things: subdomain (which tells us what JIRA company instance to connect to, essentially - your company’s Jira database), username, password.
+Let’s try to connect to Jira using basic authentication - Jira's documentation for basic authentication can be found [here](https://developer.atlassian.com/cloud/jira/platform/jira-rest-api-basic-authentication/?_ga=1.137752242.320850437.1478498822). In the case of JIRA, we need to provide several things: subdomain (which tells us what JIRA company instance to connect to, essentially - your company’s Jira database), username and password.
 
 For this example, I’ve created a company instance in Jira with a company name Workato321, and Jira has automatically assigned my subdomain to be workato321.atlassian.net
 
@@ -106,7 +106,7 @@ Custom allows you to use a combination of input fields as needed.
 
 | Input field                                         | Description                                                                                                                                                                                                                                                                                                                                                                                                                                         |
 |-----------------------------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Authorization URL                                   | URL that Workato redirects you to when you click on the ‘Connect’ button. This usually brings you to the login screen of your app. Some APIs require that you include certain parameters in the authorization URL. Common examples are response_type (`code` or `token`) and scope (`read`, `write`, `admin`, etc).,This should be publicly available from the API documentation of the app you’re connecting to, under the Authentication section. |
+| Authorization URL                                   | URL that Workato redirects you to when you click on the ‘Connect’ button. This usually brings you to the login screen of your app. Some APIs require that you include certain parameters in the authorization URL. Common examples are response_type (`code` or `token`) and scope (`read`, `write`, `admin`, etc.),This should be publicly available from the API documentation of the app you’re connecting to, under the Authentication section. |
 | Token URL                                           | URL that Workato will retrieve an auth token from. This auth token is used to verify that we have permission to access your app and its data. This should be publicly available from the API documentation of the app you’re connecting to, under the Authentication section.                                                                                                                                                                       |
 | Client ID and client secret                         | The client ID identifies you as the user who’s sending these API calls, while the client secret authenticates that you as this user. This is usually found in the Settings or Integrations page (or equivalent) of your logged in app account that you wish to connect to. This is specific to your account and should be kept secret.                                                                                                              |
 
@@ -125,7 +125,7 @@ Using the client credentials grant, the client can request an access token using
 
 The client credentials grant type must only be used by confidential clients.
 
-![HTTP (OAuth2 client cred grnat) connector's connection fields](/assets/images/developing-connectors/httphttp-connector-auth-oauth2-cred-grant.PNG)
+![HTTP (OAuth2 client cred grant) connector's connection fields](/assets/images/developing-connectors/http/http-connector-auth-oauth2-cred-grant.PNG)
 *HTTP (OAuth2 client credentials grant) connector's connection fields*
 
 OAuth2 authentication type requires the following fields.
@@ -211,7 +211,7 @@ To create a sample Eventbrite venue, we used the recommended JSON request body a
       "city": "New York City",
       "region": "",
       "postal_code": "10001",
-      "country": "US"
+      "country": "USA"
     }
   }
 }
