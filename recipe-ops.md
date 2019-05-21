@@ -13,7 +13,7 @@ Stopped recipes and failed jobs can have automated responses and notifications t
 - Schedule on-call teams and build escalation policies using Workato recipe logic
 - Flag low transaction counts and notify integration managers
 - Build job history report logs or audit reports in Google Sheets
-- Build recipe reports of recipes for an overview of automations, connected apps, etc. in the company
+- Build recipe reports for an overview of automations, connected apps, etc. in the company
 
 ## Connection
 You can monitor recipes in your account, or someone else's account (if they have shared API keys).
@@ -51,7 +51,7 @@ Similar to the error notification emails, this trigger will trigger only once an
 
 - If the monitored recipe encounters 5 failed jobs with the same error within a 2-hour timespan, the recipe will only pick up 2 trigger events.
 
-- If the monitored recipe encounters 5 failed jobs with different errors within a 2-hour timespane, the recipe will pick up 5 trigger events.
+- If the monitored recipe encounters 5 failed jobs with different errors within a 2-hour timespan, the recipe will pick up 5 trigger events.
 
 ### Recipe stopped by Workato trigger
 Under certain error conditions, Workato will stop an active recipe, e.g. when 60 cumulative authentication errors occur in the trigger. Generally, Workato stops recipes when they encounter non-recoverable errors, i.e. when Workato has attempted to carry out the trigger or action without success for a consecutive number of times.
@@ -87,7 +87,7 @@ Action lists the last 100 jobs by default.
 - Users can filter by job status e.g. show failed jobs only
 - Users can filter by date range as well
 
-The following lists the available fields to filter for jobs by.
+The following lists the available fields that can be used to filter your jobs.
 
 ![Filters to retrieve jobs](/assets/images/recipe-ops/filters-to-retrieve-jobs.gif)
 *Filters to specify the jobs to retrieve*
@@ -100,7 +100,7 @@ The **Search job history** action output datatree returns a list of jobs, with s
 ### List recipes action
 Retrieves a list of up to 100 recipes.
 
-The following lists the available fields to filter for jobs by.
+The following lists the available fields that can be used to filter your jobs.
 
 ![Filters for list recipes](/assets/images/recipe-ops/filters-for-list-recipes.gif)
 *Filters to specify the recipes to retrieve*
