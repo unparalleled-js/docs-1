@@ -35,7 +35,7 @@ The recipe will return a failed job if it is processing the same faulty data fro
 
 If you are using a **New object** trigger, you would have to delete the existing trigger event, e.g. if you are using the **New Salesforce account** trigger, you would have to delete that Salesforce account and recreate a new Salesforce account for the recipe to pick up the Salesforce account (trigger event) with the new data.
 
-If you are using a **New/updated object** trigger, you wouldn't have to delete the record with the wrong data, but simply update the record and let the recipe pick up the update, e.g. if you are using the **New/updated Salesforce account** trigger, you can update the newly created/updated Salesforce account, and the recipe will pick up the change.
+If you are using a **New/updated object** trigger, you wouldn't have to delete the record with the old data, but simply update the record and let the recipe pick up the update, e.g. if you are using the **New/updated Salesforce account** trigger, you can update the newly created/updated Salesforce account, and the recipe will pick up the change.
 
 For both cases above, a new job will be picked up. Updating an event in your trigger app will not affect the cached data stored in the previous job, and a new job will be picked up.
 
@@ -66,7 +66,7 @@ Because the trigger is **New/updated Salesforce account**, we can simply create 
 
 Had the trigger been **New Salesforce account**, we would have to stage our tests differently. We would need to create a Salesforce account with a matching Zendesk organization, as well as a Salesforce account with no matching Zendesk organization, and check that both jobs are carried out correctly.
 
-Executing a rerun job during testing allows you to build your recipe incrementally. Rather than creating new trigger events each time you want to try a new version of your recipe, you can test your recipe with the same  event as a rerun job. Furthermore, this allows you to address issues as you encounter them. You can directly test your fix for the issue with a rerun job.
+Executing a rerun job during testing allows you to build your recipe incrementally. Rather than creating new trigger events each time you want to try a new version of your recipe, you can test your recipe with the same event as a rerun job. Furthermore, this allows you to address issues as you encounter them. You can directly test your fix for the issue with a rerun job.
 
 - Errors
 
