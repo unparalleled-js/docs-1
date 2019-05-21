@@ -216,6 +216,7 @@ To create a sample Eventbrite venue, we used the recommended JSON request body a
   }
 }
 ```
+*Note: there is an incorrect input value for "__country__" in this sample request*
 
 Once all required fields are filled in, we're able to click `Send request`. Workato sends the request you've built to the app, and provides the full response back. In the following, we see that there's an error with the country we sent to Eventbrite as they only accept 2 character country codes.
 
