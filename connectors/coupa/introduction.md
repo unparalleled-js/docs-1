@@ -29,11 +29,11 @@ API keys can be found under the `Setup` => `Integrations` => `API Keys` in the t
     </tr>
     <tr>
       <td>Host</td>
-      <td>Enter the Coupa URL for your instance</td>
+      <td>Enter the Coupa URL for your instance.</td>
     </tr>
     <tr>
       <td>API key</td>
-      <td>Enter your API key which you have generated in your Coupa instance</td>
+      <td>Enter your API key which you have generated in your Coupa instance.</td>
     </tr>
   </tbody>
 </table>
@@ -53,19 +53,19 @@ In Workato, we grouped Coupa data into objects in our actions and triggers. Obje
   <tbody>
     <tr>
       <td>Account</td>
-      <td>Query, create or update  accounts that match your financial structure. For example, give marketing, IT and sale their own accounts to manage their own budgets</td>
+      <td>Query, create or update  accounts that match your financial structure. For example, give marketing, IT and sale their own accounts to manage their own budgets.</td>
     </tr>
     <tr>
       <td>Address</td>
-      <td>Query, create or update personal or supplier remit-to address information</td>
+      <td>Query, create or update personal or supplier remit-to address information.</td>
     </tr>
     <tr>
       <td>Contract</td>
-      <td>Query, create or update a contract</td>
+      <td>Query, create or update a contract.</td>
     </tr>
     <tr>
       <td>Department</td>
-      <td>Query, create or update department information. Departments are used to mimic your company's operating structure and to organise groups and users accordingly</td>
+      <td>Query, create or update department information. Departments are used to mimic your company's operating structure and to organise groups and users accordingly.</td>
     </tr>
     <tr>
       <td>Exchange rate</td>
@@ -73,39 +73,39 @@ In Workato, we grouped Coupa data into objects in our actions and triggers. Obje
     </tr>
     <tr>
       <td>Expense line</td>
-      <td>Query or create expense report lines used for expense management<td>
+      <td>Query or create expense report lines used for expense management.<td>
     </tr>
     <tr>
       <td>Expense report</td>
-      <td>Query, create or update expense reports used for expense management<td>
+      <td>Query, create or update expense reports used for expense management.<td>
     </tr>
     <tr>
       <td>Integration</td>
-      <td>Query or create integrations in Coupa</td>
+      <td>Query or create integrations in Coupa.</td>
     </tr>
     <tr>
       <td>Integration error</td>
-      <td>Query or create integrations errors in Coupa</td>
+      <td>Query or create integrations errors in Coupa.</td>
     </tr>
     <tr>
       <td>Integration run</td>
-      <td>Query or create integrations runs in Coupa</td>
+      <td>Query or create integrations runs in Coupa.</td>
     </tr>
     <tr>
       <td>Integration history record</td>
-      <td>Query or create integrations history records in Coupa</td>
+      <td>Query or create integrations history records in Coupa.</td>
     </tr>
     <tr>
       <td>Invoice</td>
-      <td>Query, create or update invoices in Coupa</td>
+      <td>Query, create or update invoices in Coupa.</td>
     </tr>
     <tr>
       <td>Inventory Transaction</td>
-      <td>Query or create inventory transactions. Receipts of goods are the same as inventory transactions in Coupa</td>
+      <td>Query or create inventory transactions. Receipts of goods are the same as inventory transactions in Coupa.</td>
     </tr>
     <tr>
       <td>Item</td>
-      <td>Query, create or update items not provided by suppliers. If you are looking to work with items provided by suppliers, use the supplier item object</td>
+      <td>Query, create or update items not provided by suppliers. If you are looking to work with items provided by suppliers, use the supplier item object.</td>
     </tr>
     <tr>
       <td>Lookup value</td>
@@ -117,11 +117,11 @@ In Workato, we grouped Coupa data into objects in our actions and triggers. Obje
     </tr>
     <tr>
       <td>Purchase order line</td>
-      <td>Query or create purchase order lines in Coupa</td>
+      <td>Query or create purchase order lines in Coupa.</td>
     </tr>
     <tr>
       <td>Remit to address</td>
-      <td>Query, create or update supplier remit-to addresses. This address is used to send payment to suppliers</td>
+      <td>Query, create or update supplier remit-to addresses. This address is used to send payment to suppliers.</td>
     </tr>
     <tr>
       <td>Supplier</td>
@@ -133,20 +133,20 @@ In Workato, we grouped Coupa data into objects in our actions and triggers. Obje
     </tr>
     <tr>
       <td>Supplier item</td>
-      <td>Query, create or update items provided by suppliers that users can select when creating a requisition</td>
+      <td>Query, create or update items provided by suppliers that users can select when creating a requisition.</td>
     </tr>
     <tr>
       <td>Supplier site</td>
-      <td>Query, create or update supplier sites</td>
+      <td>Query, create or update supplier sites.</td>
     </tr>
     <tr>
       <td>User</td>
-      <td>Query, create or update a user</td>
+      <td>Query, create or update a user.</td>
     </tr>
   </tbody>
 </table>
 
-This is a non-exhaustive list of Coupa objects and there are still more enhancements to come. Check out the rest of the [available Coupa objects on their resource portal](https://success.coupa.com/Integrate/Technical_Documentation/API/Resources). If you see an object that we currently don't support, Workato's Coupa connector allows for custom actions that allow you to send [custom HTTP requests](/developing-connectors/custom-actions.md).
+This is a non-exhaustive list of Coupa objects and there are still more enhancements to come. Check out the rest of the [available Coupa objects on their resource portal](https://success.coupa.com/Integrate/Technical_Documentation/API/Resources). If you see an object that we currently don't support, you can use a custom actions that allow you to send [custom HTTP requests](/developing-connectors/custom-actions.md).
 
 ### Using Coupa actions and triggers on Workato
 The Coupa connector in Workato first requires you to select your action which is a mixture of generic actions as well as commonly used specific actions.
@@ -174,7 +174,7 @@ For generic actions and triggers, you'll be able to select the object you want t
 
 
 ### Custom object fields in Coupa
-The Coupa connector on Workato automatically pulls all custom fields whenever you request for an object. Search for custom fields you or your team have defined in the `add/remove optional fields` drop down.
+The Coupa connector on Workato automatically pulls all custom fields whenever you request for an object. Search for custom fields you or your team have defined in the `Add/remove optional fields` drop down.
 
 
 ## List of triggers and actions

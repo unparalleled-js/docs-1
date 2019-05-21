@@ -4,7 +4,7 @@ date: 2019-04-29 12:40:00 Z
 ---
 
 # Coupa - Object actions
-Workato allows you to create, update or search for objects on Coupa. In Workato, we classify things like invoices, expenses and even suppliers as objects. We currently work with a whole number of Coupa objects. [Find out which objects we work with.](/connectors/coupa/introduction.md#objects). When using actions in Workato that reference objects, you'll be able to specify which object you want to work with later on.
+Workato allows you to create, update or search for objects on Coupa. In Workato, we classify things like invoices, expenses and even suppliers as objects. We currently work with a long list of Coupa objects. [Find out which objects we work with](/connectors/coupa/introduction.md#objects). When using actions in Workato that reference objects, you'll be able to specify which object you want to work with later on.
 
 **Object actions available in Workato**
 - `Create object`
@@ -21,12 +21,13 @@ This step will perform the selected action on the object you select. For example
 ![Selecting an object](/assets/images/coupa/selecting-object.gif)
 <center><i>Selecting an object in the Coupa connector in the create/update object action</i></center>
 <br>
+
 After the object is selected, all relevant fields will be shown to you. For example, if you were to select the `Create Object` action and select `Invoice`, the action would populate with all relevant invoice related fields for you to fill in. Use datapills from earlier steps to make objects based on data in your workflow.
 
 Required fields will always show up in the recipe configuration. Remember to fill them in to prevent errors from happening. You can also find custom fields defined in your Coupa instance in the additional fields tab.
 
 #### List input fields
-Some Coupa objects actions in Workato can accept list input lines. This is often the case in invoices and purchase orders when looking to generate a list of invoice lines or purchase order lines. Workato allows you with a quick and easy way to generate these lists. When you are working with actions earlier on in your recipe that generates list outputs, easily map them using over with the list input fields. [Find out more about list inputs.](/features/list-management.md)
+Some Coupa objects actions in Workato can accept list input lines. This is often the case in invoices and purchase orders when looking to generate a list of invoice lines or purchase order lines. Workato gives you a quick and easy way to generate these lists. When you are working with actions earlier on in your recipe that generates list outputs, easily map them using over with the list input fields. [Find out more about list inputs.](/features/list-management.md)
 
 ### Create Object
 This action creates an object which you specify such as a purchase order or an invoice. The dynamically generated input fields will show you all input fields that are required to successfully create this object. Optional input fields may be hidden away in the fields tab below.

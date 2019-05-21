@@ -14,7 +14,7 @@ ____________
 ### Input fields for integration actions
 This action requires you to provide the integration run ID associated with the run you want to change. This action only allows you to set statuses for integration runs that already exist.
 
-Besides the run ID, you can select from a list of integration run statuses from Coupa or dynamically set the integration status by toggling the input field to manual.
+Besides the run ID, you can select from a list of integration run statuses from Coupa or dynamically set the integration status by toggling the input field to a text field.
 
 ### Get supplier sites by supplier
 When this action is run, the integration run that you selected will be updated.
