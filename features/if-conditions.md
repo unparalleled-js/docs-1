@@ -87,7 +87,7 @@ This condition is only valid for string data types.
 | `nil`               | `starts with` "(408)" | No                   |
 | 12345               | `starts with` 123     | Trigger error thrown |
 | <kbd>numeric_type_pill</kbd> | `starts with` 123     | Trigger error thrown |
-| <kbd>numeric_type_pill</kbd> | `starts with` "123"   | Yes   #if <kbd>pill</kbd> =12345 |
+| <kbd>numeric_type_pill</kbd> | `starts with` "123"   | Yes   #if <kbd>pill</kbd> = 12345 |
 
 ### Special non-string data type cases
 When we try to compare non-string data types with a `starts with` condition, it will throw a [trigger error](/recipes/error-notifications.md#trigger-errors). For example, comparing a number type with a number type will throw an error.
@@ -123,8 +123,8 @@ This condition is only valid for string data types.
 | `nil`               | `ends with` "6928"   | No                   |
 | 12345               | `ends with` 345      | Trigger error thrown |
 | <kbd>numeric_type_pill</kbd> | `ends with` 345      | Trigger error thrown |
-| <kbd>numeric_type_pill</kbd> | `ends with` "345"    | Yes   #if <kbd>pill</kbd> =12345 |
-| <kbd>numeric_type_pill</kbd> | `ends with` "345"    | No   #if <kbd>pill</kbd> =123    |
+| <kbd>numeric_type_pill</kbd> | `ends with` "345"    | Yes   #if <kbd>pill</kbd> = 12345 |
+| <kbd>numeric_type_pill</kbd> | `ends with` "345"    | No   #if <kbd>pill</kbd> = 123    |
 
 ### Special non-string data type cases
 When we try to compare non-string data types with a `ends with` condition, it will throw a [trigger error](/recipes/error-notifications.md#trigger-errors). For example, comparing a number type with a number type will throw an error.
@@ -187,8 +187,8 @@ This condition is only valid for string data types.
 | `nil`               | `doesn't start with` "(408)" or "(669)" | No                   |
 | 12345               | `doesn't start with` 123                | Trigger error thrown |
 | <kbd>numeric_type_pill</kbd> | `doesn't start with` 123                | Trigger error thrown |
-| <kbd>numeric_type_pill</kbd> | `doesn't start with` "123"              | No   #if <kbd>pill</kbd> =12345  |
-| <kbd>numeric_type_pill</kbd> | `doesn't start with` "123"              | Yes   #if <kbd>pill</kbd> =345   |
+| <kbd>numeric_type_pill</kbd> | `doesn't start with` "123"              | No   #if <kbd>pill</kbd> = 12345  |
+| <kbd>numeric_type_pill</kbd> | `doesn't start with` "123"              | Yes   #if <kbd>pill</kbd> = 345   |
 
 ### Special cases
 
@@ -394,7 +394,7 @@ This condition is only valid for boolean data types. We can use this condition t
 ### Examples
 | Trigger data                               | Condition/value | Picked up by recipe?                                               |
 |--------------------------------------------|-----------------|--------------------------------------------------------------------|
-| <kbd>pill</kbd>.present?                            | `is true`       | No  #if <kbd>pill</kbd> has a `nil` or `null value` or "is an empty string" |
+| <kbd>pill</kbd>.present?                            | `is true`       | No  #if <kbd>pill</kbd> has a `nil` or `null` value or "is an empty string" |
 | <kbd>pill</kbd>.present?                            | `is true`       | Yes  #if <kbd>pill</kbd> has a value                                        |
 | "Advanced Solutions".include?("Solutions") | `is true`       | Yes                                                                |
 | "Advanced Solutions".include?("solutions") | `is true`       | No                                                                 |
@@ -412,7 +412,7 @@ It can also be used to check that the formula provided in the trigger data input
 ### Examples
 | Trigger data                               | Condition/value | Picked up by recipe?                                               |
 |--------------------------------------------|-----------------|--------------------------------------------------------------------|
-| <kbd>pill</kbd>.present?                            | `is not true`   | No  #if <kbd>pill</kbd> has a `nil` or `null value` or "is an empty string"  |
+| <kbd>pill</kbd>.present?                            | `is not true`   | No  #if <kbd>pill</kbd> has a `nil` or `null` value or "is an empty string"  |
 | <kbd>pill</kbd>.present?                            | `is not true`   | No  #if <kbd>pill</kbd> has a value                                         |
 | "Advanced Solutions".include?("Solutions") | `is not true`   | No                                                                 |
 | "Advanced Solutions".include?("solutions") | `is not true`   | Yes                                                                |
