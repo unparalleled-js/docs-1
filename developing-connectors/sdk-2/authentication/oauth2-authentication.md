@@ -4,32 +4,6 @@ For a more secure method of authentication, we recommend using [OAuth 2.0](https
 
 There are many variants of the OAuth2 standard. By default, the Workato connector SDK supports the [Authorization Code Grant](https://tools.ietf.org/html/rfc6749#section-4.1) variant.
 
-
-```ruby
-connection: {
-
-  authorization: {
-    type: "oauth2",
-
-    authorization_url: lambda do
-      "https://www.pushbullet.com/authorize?response_type=code"
-    end,
-
-    token_url: lambda do
-      "https://api.pushbullet.com/oauth2/token"
-    end,
-
-    client_id: "YOUR_PUSHBULLET_CLIENT_ID",
-
-    client_secret: "YOUR_PUSHBULLET_CLIENT_SECRET",
-
-    apply: lambda do |connection, access_token|
-      headers("Authorization": "Bearer #{access_token}")
-    end
-  }
-}
-```
-
 ## Authorization Code Variant
 Required components in OAuth 2.0 Authorization Code Grant type connection:
 
@@ -42,35 +16,44 @@ Required components in OAuth 2.0 Authorization Code Grant type connection:
 Redirect URI will be appended to the authorization request by the framework, so there is no need to include it. If the application requires that you register the redirect URI beforehand, use:
 https://www.workato.com/oauth/callback
 
-Adjust headers format as required in the `apply` section
-
-For example, Pushbullet expects the header to include token in this format:
-`OAuth2: <access token>`
+Adjust headers format as required in the `apply` section. For example, Pushbullet expects the header to include tokens in this format:
+`OAuth2: <access token>`. This can be done in the `apply` portion of the `authorization` section of the `connection` block.
 
 So to adjust to suit this requirement, define the `apply` portion like so:
 
 ```ruby
-connection: {
+{
+  title: 'My Podio connector',
 
-  authorization: {
-    type: "oauth2",
+  connection: {
 
-    authorization_url: lambda do
-      "https://podio.com/oauth/authorize"
-    end,
+    authorization: {
+      type: "oauth2",
 
-    token_url: lambda do
-      "https://podio.com/oauth/token"
-    end,
+      authorization_url: lambda do
+        "https://podio.com/oauth/authorize"
+      end,
 
-    client_id: "YOUR_PODIO_CLIENT_ID",
+      token_url: lambda do
+        "https://podio.com/oauth/token"
+      end,
 
-    client_secret: "YOUR_PODIO_CLIENT_SECRET",
+      client_id: "YOUR_PODIO_CLIENT_ID",
 
-    apply: lambda do |connection, access_token|
-      headers("Authorization": "OAuth2 #{access_token}")
-    end
-  }
+      client_secret: "YOUR_PODIO_CLIENT_SECRET",
+
+      apply: lambda do |connection, access_token|
+        headers("Authorization": "OAuth2 #{access_token}")
+      end
+    }
+  },
+
+  test: { ... },
+  actions: { ... },
+  triggers: { ... },
+  object_definitions: ( ... },
+  picklists: ( ... },
+  methods: ( ... },
 }
 ```
 
@@ -82,51 +65,69 @@ Note:
   - For example, related to [Issuing an Access Token - Successful Response](https://tools.ietf.org/html/rfc6749#section-5.1), Workato will be expecting a response with `access_token` in the response. Returning the access token under a key of `accessToken` in a JSON response will result in an unsuccessful Workato request to your `token_url`.
   - Usually this will not be a problem because most OAuth libraries out there will do most of the heavy lifting for you, such as returning response in the right format etc. It is good to be aware of this!
 
-### Custom token authentication
+### Custom OAuth2 flows
 The `token_url` is called using a `POST` request with the provided `client_id` and `client_secret` appended into the header.
 
-However, some APIs require the authorization token to be obtained by using a `POST` request with basic authentication. Use the `acquire` hook instead.
+In cases that deviate from the normal standard authentication flows, use our `acquire` block. This block allows you to define the HTTP calls that occurs during the authentication process. For example, some APIs require the authorization token to be obtained by using a `POST` request with basic authentication.
+
+In the case below, we used the acquire block to send a `POST` HTTP call with basic authentication since our `token_url` block defaults to header authentication. You can then pull the `access_token` and `refresh_token` from the response to the `POST` call.
 
 ```ruby
-connection: {
+{
+  title: 'My Purecloud connector',
 
-  authorization: {
-    type: "oauth2",
+  connection: {
 
-    authorization_url: lambda do |connection|
-      params = {
-        response_type: "code",
-        client_id: connection["client_id"]
-      }.to_param
+    authorization: {
+      type: "oauth2",
 
-      "https://login.mypurecloud.com/oauth/authorize?" + params
-    end,
+      client_id: "YOUR_PURECLOUD_CLIENT_ID",
 
-    acquire: lambda do |connection, auth_code|
-      response = post("https://login.mypurecloud.com/oauth/token").
-        payload(
-          grant_type: "authorization_code",
-          code: auth_code,
-          redirect_uri: "https://www.workato.com/oauth/callback"
-        ).
-        user(connection["client_id"]).
-        password(connection["client_secret"]).
-        request_format_www_form_urlencoded
+      client_secret: "YOUR_PURECLOUD_CLIENT_SECRET",
 
-        [
-          {
-            access_token: response["access_token"],
-            refresh_token: response["refresh_token"],
-          },
-          nil,
-          { instance_id: nil }
-        ]
+      authorization_url: lambda do |connection|
+        params = {
+          response_type: "code",
+          client_id: connection["client_id"]
+        }.to_param
+
+        "https://login.mypurecloud.com/oauth/authorize?" + params
       end,
 
-      apply: lambda do |connection, access_token|
-        headers("Authorization": "Bearer #{connection["access_token"]}")
-      end
-    }
+      acquire: lambda do |connection, auth_code|
+        response = post("https://login.mypurecloud.com/oauth/token").
+          payload(
+            grant_type: "authorization_code",
+            code: auth_code,
+            redirect_uri: "https://www.workato.com/oauth/callback"
+          ).
+          user(connection["client_id"]).
+          password(connection["client_secret"]).
+          request_format_www_form_urlencoded
+
+          # After defining the POST method, we now need to define the output of the acquire block in a fashion that we can recognise
+          [
+            {
+              access_token: response["access_token"],
+              refresh_token: response["refresh_token"],
+            },
+            nil,
+            { instance_id: nil }
+          ]
+        end,
+
+        apply: lambda do |connection, access_token|
+          headers("Authorization": "Bearer #{connection["access_token"]}")
+        end
+      }
+    },
+
+    test: { ... },
+    actions: { ... },
+    triggers: { ... },
+    object_definitions: ( ... },
+    picklists: ( ... },
+    methods: ( ... },
   }
 ```
 
@@ -134,20 +135,33 @@ The methods `.user` and `.password` are the equivalent of appending `Authorizati
 
 Upon receiving a the request, the API returns a JSON response. These can be accessed using the `response[key...]` variable defined. For example, if the call returns
 
-```json
+```JSON
 {
   "access_token": 12345,
   "refresh_token": 12345,
   "settings": "no"
 }
 ```
-we can retrieve the `access_token` from `response[access_token]`. These parameters are also appended into the original `connection` object.
+Since we passed this output hash into the `response` variable, we can retrieve the `access_token` by referencing `response[access_token]`.
 
 When using custom OAuth2 type connection, the `acquire` hook must return an array with the following values in sequence:
 
 - Tokens
 - Owner ID
 - Other values
+
+```ruby
+[
+	{ # This hash is for your tokens
+	  access_token: response["access_token"],
+	  refresh_token: response["refresh_token"],
+	},
+  # This hash is for your Owner ID. It is optional
+	nil,
+  # This is for any other value you want to append to your connection object which you can reference later on.
+	{ instance_id: nil }
+]
+```
 
 #### Tokens
 Tokens provided must be a hash with the exact key names (`access_token`, `refresh_token`). If the API returns tokens with other keys (eg: `id_access` and `id_refresh` respectively), you can map them here like so:
@@ -174,10 +188,10 @@ Here you can supply an optional hash that will be merged with the **original con
 }
 ```
 
-and you wish to merge the `company_id` value from the response, you can pass it here with the following hash:
+and you wish to merge the `settings` value from the response earlier, you can pass it here with the following hash:
 
 ```ruby
-{ company_id: response["company_id"] }
+{ api_settings: response["settings"] }
 ```
 
 The resulting connection hash will look like this:
@@ -186,11 +200,11 @@ The resulting connection hash will look like this:
 {
   client_id: "CLIENT_ID",
   client_secret: "CLIENT_SECRET",
-  company_id: response["company_id"]
+  api_settings: response["settings"]
 }
 ```
 
-In the rest of the custom adapter, this value can be referenced with `connection["company_id"]`.
+In the rest of the custom adapter, this value can be referenced with `connection["api_settings"]`.
 
 ### Refresh tokens
 There may be situations in which the API expires the access token after a prescribed amount of time. In these cases, the refresh token is used to obtain a new access token. Refresh tokens do not usually expire.
@@ -200,45 +214,48 @@ Note that not all APIs issue refresh token credentials. Check with your provider
 In the below example, the Namely API asks for the `refresh_token` to be appended in the payload of the refresh request.
 
 ```ruby
-connection: {
-  fields: [
-    { name: "domain", control_type: "text", optional: false },
-    { name: "client_id", control_type: "password", optional: false },
-    { name: "client_secret", control_type: "password", optional: false }
-  ],
+{
+  title: 'My Purecloud connector',
 
-  authorization: {
-    type: "oauth2",
+  connection: {
+    fields: [
+      { name: "domain", control_type: "text", optional: false },
+      { name: "client_id", control_type: "password", optional: false },
+      { name: "client_secret", control_type: "password", optional: false }
+    ],
 
-    authorization_url: lambda do |connection|
-      params = {
-        response_type: "code",
-        client_id: connection["client_id"],
-        redirect_uri: "https://www.workato.com/oauth/callback",
-      }.to_param
+    authorization: {
+      type: "oauth2",
 
-      "https://#{connection["domain"]}.namely.com/api/v1/oauth2/authorize?" + params
-    end,
-
-    acquire: lambda do |connection, auth_code|
-      response = post("https://#{connection["domain"]}.namely.com/api/v1/oauth2/token").
-        payload(
-          grant_type: "authorization_code",
+      authorization_url: lambda do |connection|
+        params = {
+          response_type: "code",
           client_id: connection["client_id"],
-          client_secret: connection["client_secret"],
-          code: auth_code
-        ).
-        request_format_www_form_urlencoded
+          redirect_uri: "https://www.workato.com/oauth/callback",
+        }.to_param
 
-        [
-          {
-            access_token: response["access_token"],
-            refresh_token: response["refresh_token"]
-          },
-          nil,
-          nil
-        ]
+        "https://#{connection["domain"]}.namely.com/api/v1/oauth2/authorize?" + params
       end,
+
+      acquire: lambda do |connection, auth_code|
+        response = post("https://#{connection["domain"]}.namely.com/api/v1/oauth2/token").
+          payload(
+            grant_type: "authorization_code",
+            client_id: connection["client_id"],
+            client_secret: connection["client_secret"],
+            code: auth_code
+          ).
+          request_format_www_form_urlencoded
+
+          [
+            {
+              access_token: response["access_token"],
+              refresh_token: response["refresh_token"]
+            },
+            nil,
+            nil
+          ]
+        end,
 
       refresh_on: [401, 403],
 
@@ -253,7 +270,16 @@ connection: {
           ).
           request_format_www_form_urlencoded
         end,
-      },
+    }
+  },
+
+  test: { ... },
+  actions: { ... },
+  triggers: { ... },
+  object_definitions: ( ... },
+  picklists: ( ... },
+  methods: ( ... },
+}
 ```
 
 #### `refresh_on`
