@@ -177,7 +177,7 @@
   * [Data retention](data-retention.md)
   * [Job history replication](job-history-replication.md)
   * [Common data model](features/common-data-model.md)
-  * [API management](api-management.md)
+  * [API Platform](api-management.md)
     * [API tokens](api-management.md#api-tokens)
     * [API endpoints](api-management.md#service-catalog-endpoints)
 * [Workbot for Slack](workbot/workbot.md)
