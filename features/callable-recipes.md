@@ -41,7 +41,7 @@ Fill in a Name for the recipe, and fill up the Input Schema and the Response Sch
 ![Callable recipe trigger input](/assets/images/features/callable-recipes/callable-recipe-trigger-inputs.png)
 *Configure callable recipe trigger*
 
-In **simple terms**, the input schema determines what fields will be shown and need to be filled in when a callable recipe action is created in the calling recipe. The Response schema determines what pills will be available for use in the calling recipes Output data.
+In simple terms, the input schema determines what fields will be shown and need to be filled in when a callable recipe action is created in the calling recipe. The Response schema determines what pills will be available for use in the calling recipes Output data.
 
 Next, create your set of actions for the recipe. For this example, you would create a set of standard de-duplication steps, run a search, and if the search gives no results, create a customer. If an existing customer is found, update the customer.
 

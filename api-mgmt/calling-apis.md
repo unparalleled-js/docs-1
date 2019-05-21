@@ -5,7 +5,7 @@ date: 2018-04-08 13:25:00 Z
 
 # Calling APIs
 
-APIs that are exposed through the API Platform console can be called from recipes in accounts other than one owning the recipe, as well as from third-party tools, programs, and scripts. The API manager must provide the Auth Token value to the client in order to call any endpoints in an API Collection.
+APIs that are exposed through the API Platform console can be called from recipes in accounts other than one owning the recipe, as well as from third-party tools, programs, and scripts. The API manager must provide the Auth Token or JWT token value to the client in order to call any endpoints in an API Collection.
 
 # Authorization Headers
 

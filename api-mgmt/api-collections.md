@@ -7,7 +7,7 @@ date: 2018-02-02 18:26:00 Z
 
 ## Creating an API Collection
 
-The first step in setting up an API for external use is to define and test one or more recipes that use the **Callable recipes by Workato** connector as a trigger. Each such recipe is a potential Endpoint for a callable API, but when first created they are not enabled for external access.
+The first step in setting up an API for external use is to define and test one or more recipes that use the [Callable recipes by Workato](/features/callable-recipes.md) connector as a trigger. Each such recipe is a potential Endpoint for a callable API, but when first created they are not enabled for external access.
 
 The next step is to organize these recipes into one or more API Collections. Generally, an API Collection should contain endpoints whose access pattern has some common features, so that you can manage them together. For example, a set of Salesforce endpoints that are intended to be called by recipes used with the Sales team might be put together in an API Collection.
 
@@ -90,4 +90,6 @@ Once the required parameters are entered, click the Test button at the bottom of
 
 This shows a "Success" return code (200).
 
-If the response value is not 200, the test generates an error. There can be numerous reasons for an error. But probably the most common error when performing a test from the same account that owns the callable recipe is "Invalid request" (500). This usually indicates that input parameters were wrong: not all required parameters were supplied, or some had values that are invalid for the target recipe.
+If the response value is not 200, the test results in an error. There can be numerous reasons for an error.
+
+The most common error when performing a test from the same account that owns the callable recipe is "Invalid request" (500). This usually indicates that the input parameters were incorrect: not all required parameters were supplied or had values that are invalid for the target recipe.

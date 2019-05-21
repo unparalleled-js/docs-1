@@ -14,7 +14,10 @@ An Auth Token is automatically generated when an Access Profile is created. It i
 
 The Access Profile screen displays this string (but masked for security reasons) after a Profile is created. The auth token can be copied to the clipboard.
 
-The **Refresh** button will generate a new Auth Token value and invalidate any previous value.
+The **Refresh** button will generate a new Auth Token value and invalidates any previous value.
+
+![Auth Token for an Access profile](/assets/images/api-mgmt/auth-token.png)
+*Auth Token for an Access profile*
 
 When calling an endpoint, the Auth Token value is passed as the value of the `API-Key` header.
 
