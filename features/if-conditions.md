@@ -394,7 +394,7 @@ This condition is only valid for boolean data types. We can use this condition t
 ### Examples
 | Trigger data                               | Condition/value | Picked up by recipe?                                               |
 |--------------------------------------------|-----------------|--------------------------------------------------------------------|
-| <kbd>pill</kbd>.present?                            | `is true`       | No  #if <kbd>pill</kbd> has a `nil` or `null` value or "is an empty string" |
+| <kbd>pill</kbd>.present?                            | `is true`       | No  #if <kbd>pill</kbd> has a `nil` or `null` value or is an empty string "" |
 | <kbd>pill</kbd>.present?                            | `is true`       | Yes  #if <kbd>pill</kbd> has a value                                        |
 | "Advanced Solutions".include?("Solutions") | `is true`       | Yes                                                                |
 | "Advanced Solutions".include?("solutions") | `is true`       | No                                                                 |
@@ -412,7 +412,7 @@ It can also be used to check that the formula provided in the trigger data input
 ### Examples
 | Trigger data                               | Condition/value | Picked up by recipe?                                               |
 |--------------------------------------------|-----------------|--------------------------------------------------------------------|
-| <kbd>pill</kbd>.present?                            | `is not true`   | No  #if <kbd>pill</kbd> has a `nil` or `null` value or "is an empty string"  |
+| <kbd>pill</kbd>.present?                            | `is not true`   | No  #if <kbd>pill</kbd> has a `nil` or `null` value or is an empty string ""  |
 | <kbd>pill</kbd>.present?                            | `is not true`   | No  #if <kbd>pill</kbd> has a value                                         |
 | "Advanced Solutions".include?("Solutions") | `is not true`   | No                                                                 |
 | "Advanced Solutions".include?("solutions") | `is not true`   | Yes                                                                |
