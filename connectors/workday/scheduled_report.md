@@ -33,7 +33,7 @@ This datapill tells you the time that the report was ran.
 This datapill tells you the total number of rows generated in the scheduled run of the report. If this report has more than 200 rows, they will be split into batches of 200 rows per batch. Each batch will then be processed as individual jobs, in the same sequence as returned by the Workday RaaS endpoint.
 
 #### Starting offset/ending offset
-These 2 datapills are used to indicate the number of rows offset for this batch. For example, if there are a total of 1000 rows and the current job is on the 2th batch (rows `201` to `500`), the Starting offset will be `200` and ending offset will be `499`.
+These 2 datapills are used to indicate the number of rows offset for this batch. For example, if there are a total of 1000 rows and the current job is on the 2th batch (rows `201` to `400`), the Starting offset will be `200` and ending offset will be `399`.
 
 #### First batch/last batch
 These 2 datapills are boolean fields which indicate whether the batch is the first/last batch. This is useful in scenarios where you want to create a file from the output of a Workday report. Your recipe will contain the following logic:
