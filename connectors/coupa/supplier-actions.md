@@ -12,7 +12,7 @@ Workato supports the ability for you to get supplier sites by supplier in Coupa.
 ____________
 
 ### Input fields for supplier actions
-This action only requires you to define which supplier you want to retrieve the supplier site data from. Select from a drop-down list of suppliers which Workato pulls from your Coupa account or generate it dynamically by toggling the settings such that you can add datapills from earlier on in your recipe. For the second option, this field only accepts the Coupa internal supplier ID so be sure to use that instead of the name of the supplier.
+This action only requires you to define which supplier you want to retrieve the supplier site data from. Select from a drop-down list of suppliers which Workato pulls from your Coupa account or generate it dynamically by toggling the settings such that you can add datapills from earlier on in your recipe. For the second option (`Use custom value`), this field accepts the Coupa internal supplier ID so be sure to use that instead of the name of the supplier to avoid any unexpected behaviour in your recipes.
 
 ![Selecting an object](/assets/images/coupa/list-toggle-supplier-actions.png)
 <center><i>Selecting an object in the Coupa connector</i></center>
