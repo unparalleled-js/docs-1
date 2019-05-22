@@ -24,7 +24,7 @@ Authentication (or authorization) usually occurs in the following standard ways,
 
 In each of the highlighted authentication flows, an app user has to authorize Workato with the permission to access app data. The exact permissions Workato will get to read from and write to the app usually corresponds with the permissions of the connected app user.
 
-For more information on connecting to a specific app, refer to the specific app connector documentation.
+For more information on connecting to a specific app, refer to the specific [app connector documentation](/connectors.md).
 
 ### Example: Authentication flow for Salesforce
 The following recipe requires both Salesforce and a Zendesk connections, which are both OAuth2. The **Connection** tab within the recipe shows further details about the app connections.

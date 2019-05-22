@@ -19,7 +19,7 @@ These changes driven by user actively changing the recipe. e.g. adding or removi
 
 - Schema change
 
-These changes are driven by Workato when it notices that the underlying schema of objects in the recipe has changed. e.g. when using a Salesforce custom object has a new field added.
+These changes are driven by Workato when it notices that the underlying schema of objects in the recipe has changed. e.g. when a Salesforce custom object has a new field added.
 
 Such schema refreshes will auto create a new version of the recipe.
 
