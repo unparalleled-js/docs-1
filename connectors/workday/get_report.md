@@ -6,10 +6,10 @@ date: 2017-11-05 09:00:00 Z
 # Get report
 
 ## How to use
-Workday Report-as-a-Service is exposed as an action in Workato. This action will execute a run of the report and retrieve all data from that report as return them as an array. This data can be used in a recipe like any other actions. Learn how to setup a custom report [here](/connectors/workday/workday_raas.html).
+Workday Report-as-a-Service is exposed as an action in Workato. This action will execute a run of the report, retrieve all data from that report and return them as an array. This data can be used in a recipe like any other actions. Learn how to setup a custom report [here](/workday_raas.html).
 
 ### Inputs
-The only input required is the RaaS JSON URL. Find out how to get this URL in the Custom Reports section of this documentation. When this URL is provided, the Workday action will generate the appropriate output fields.
+The only input required is the RaaS JSON URL. Find out how to get this URL in the [Custom Reports](/connectors/workday/workday_raas.md) section of this documentation. When this URL is provided, the Workday action will generate the appropriate output fields.
 
 ![Run report input](/assets/images/workday/raas_input.png)
 *Run report input*
