@@ -54,7 +54,7 @@ In this example, Base Pay is assigned to Prompt Qualifier as Prompt #1, which wi
 
 #### Add filters
 
-Apply logic to filter prompt values
+Apply logic to filter prompt values.
 
 Use values from Prompt to compare against report column values. Example, assign Prompt parameter Base Pay as Prompt #1.
 
