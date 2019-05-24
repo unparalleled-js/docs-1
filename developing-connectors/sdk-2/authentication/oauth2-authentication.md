@@ -51,9 +51,9 @@ So to adjust to suit this requirement, define the `apply` portion like so:
   test: { ... },
   actions: { ... },
   triggers: { ... },
-  object_definitions: ( ... },
-  picklists: ( ... },
-  methods: ( ... },
+  object_definitions: { ... },
+  picklists: { ... },
+  methods: { ... },
 }
 ```
 
@@ -61,14 +61,16 @@ Note:
 
 - SDK makes a POST request to token endpoint. If a different type of request is expected, look at [Custom token authentication](#custom-token-authentication)
 - The `token_url` is required if the `acquire` or `refresh` hooks are not present (see below).
-- Ensure that your implementation of OAuth 2.0 is compliant with the specifications stated in the RFC document. Else, your custom adapter might not start.
+- Ensure that your implementation of OAuth 2.0 is compliant with the specifications stated in the [RFC document](https://tools.ietf.org/html/rfc6749). Else, your custom adapter might not start.
   - For example, related to [Issuing an Access Token - Successful Response](https://tools.ietf.org/html/rfc6749#section-5.1), Workato will be expecting a response with `access_token` in the response. Returning the access token under a key of `accessToken` in a JSON response will result in an unsuccessful Workato request to your `token_url`.
   - Usually this will not be a problem because most OAuth libraries out there will do most of the heavy lifting for you, such as returning response in the right format etc. It is good to be aware of this!
 
-### Custom OAuth2 flows
+## Custom OAuth2 flows
 The `token_url` is called using a `POST` request with the provided `client_id` and `client_secret` appended into the header.
 
 In cases that deviate from the normal standard authentication flows, use our `acquire` block. This block allows you to define the HTTP calls that occurs during the authentication process. For example, some APIs require the authorization token to be obtained by using a `POST` request with basic authentication.
+
+### Using the `acquire` block
 
 In the case below, we used the acquire block to send a `POST` HTTP call with basic authentication since our `token_url` block defaults to header authentication. You can then pull the `access_token` and `refresh_token` from the response to the `POST` call.
 
@@ -125,9 +127,9 @@ In the case below, we used the acquire block to send a `POST` HTTP call with bas
     test: { ... },
     actions: { ... },
     triggers: { ... },
-    object_definitions: ( ... },
-    picklists: ( ... },
-    methods: ( ... },
+    object_definitions: { ... },
+    picklists: { ... },
+    methods: { ... },
   }
 ```
 
@@ -144,7 +146,7 @@ Upon receiving a the request, the API returns a JSON response. These can be acce
 ```
 Since we passed this output hash into the `response` variable, we can retrieve the `access_token` by referencing `response[access_token]`.
 
-When using custom OAuth2 type connection, the `acquire` hook must return an array with the following values in sequence:
+Take note that an array of hashes is expected when using the `acquire` block for OAuth 2.0 authentication methods but we expect a hash when using the `acquire` block for custom authentication methods. When using custom OAuth2 type connection, the `acquire` hook must return an array with the following values in sequence:
 
 - Tokens
 - Owner ID
@@ -206,7 +208,7 @@ The resulting connection hash will look like this:
 
 In the rest of the custom adapter, this value can be referenced with `connection["api_settings"]`.
 
-### Refresh tokens
+## Refresh tokens
 There may be situations in which the API expires the access token after a prescribed amount of time. In these cases, the refresh token is used to obtain a new access token. Refresh tokens do not usually expire.
 
 Note that not all APIs issue refresh token credentials. Check with your provider about this requirement.
@@ -276,13 +278,13 @@ In the below example, the Namely API asks for the `refresh_token` to be appended
   test: { ... },
   actions: { ... },
   triggers: { ... },
-  object_definitions: ( ... },
-  picklists: ( ... },
-  methods: ( ... },
+  object_definitions: { ... },
+  picklists: { ... },
+  methods: { ... },
 }
 ```
 
-#### `refresh_on`
+### Using the `refresh_on` block
 This is an optional array of signals that is used to identify a need to re-acquire credentials . When an erroneous response is received (400, 401, 500...), the SDK framework checks it against this list of signals.
 
 This list is optional. If not defined, will default to one attempt at re-acquiring credentials for all errors.
@@ -305,7 +307,7 @@ The example here shows multiple ways that we can define "signals" to watch.
 
 If a match is found, it triggers a re-authorization (execute `refresh`, otherwise `acquire`).
 
-#### `detect_on`
+### Using the `detect_on` block
 Certain APIs don't signal errors with explicit response status code like a 401. Instead, they return a 200 (pseudo successful response) with a payload that signals the error.
 
 For such APIs, an error (expired credentials, bad requests etc.) will not be picked up since it is interpreted as a successful request (Status code 200). A match with the signals defined here will raise an error.

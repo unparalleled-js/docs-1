@@ -1,4 +1,4 @@
-# Basic Authentication
+{# Basic Authentication
 
 ## Standard example
 
@@ -37,9 +37,9 @@ In connection objects, you'll be able to define the input fields in the `fields`
   test: { ... },
   actions: { ... },
   triggers: { ... },
-  object_definitions: ( ... },
-  picklists: ( ... },
-  methods: ( ... },
+  object_definitions: { ... },
+  picklists: { ... },
+  methods: { ... },
 }
 ```
 
@@ -81,9 +81,9 @@ In the `apply` section, pass the api_key into `user()` and an empty string ("") 
   test: { ... },
   actions: { ... },
   triggers: { ... },
-  object_definitions: ( ... },
-  picklists: ( ... },
-  methods: ( ... },
+  object_definitions: { ... },
+  picklists: { ... },
+  methods: { ... },
 }
 ```
 Another variation is to have a generated api_token replace the user name and have the string `"api_token"` replacing password in the basic authentication format. In the example below, we should be used as a username with a password as "api_token" in the standard basic authentication format to match what toggl expects.
@@ -119,9 +119,9 @@ Another variation is to have a generated api_token replace the user name and hav
   test: { ... },
   actions: { ... },
   triggers: { ... },
-  object_definitions: ( ... },
-  picklists: ( ... },
-  methods: ( ... },
+  object_definitions: { ... },
+  picklists: { ... },
+  methods: { ... },
 }
 ```
 
@@ -176,8 +176,8 @@ Example:
   test: { ... },
   actions: { ... },
   triggers: { ... },
-  object_definitions: ( ... },
-  picklists: ( ... },
-  methods: ( ... },
+  object_definitions: { ... },
+  picklists: { ... },
+  methods: { ... },
 }
 ```

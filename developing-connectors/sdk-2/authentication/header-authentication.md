@@ -5,25 +5,36 @@ For APIs requiring header authentication, this can be easily accomplished if the
 ## Example header authentication
 
 ```ruby
-connection: {
+{
+  title: 'My connector',
 
-  fields: [
-    {
-      name: "token",
-      control_type: "string",
-      label: "Bearer token",
-      optional: false,
-      hint: "Available in 'My Profile' page"
+  connection: {
+
+    fields: [
+      {
+        name: "token",
+        control_type: "string",
+        label: "Bearer token",
+        optional: false,
+        hint: "Available in 'My Profile' page"
+      }
+    ],
+
+    authorization: {
+      type: 'custom_auth',
+
+      apply: lambda do |connection|
+        headers("Authorization": "Bearer #{connection["token"]}")
+      end
     }
-  ],
+  },
 
-  authorization: {
-    type: 'custom_auth',
-
-    apply: lambda do |connection|
-      headers("Authorization": "Bearer #{connection["token"]}")
-    end
-  }
+  test: { ... },
+  actions: { ... },
+  triggers: { ... },
+  object_definitions: { ... },
+  picklists: { ... },
+  methods: { ... }
 }
 ```
 
