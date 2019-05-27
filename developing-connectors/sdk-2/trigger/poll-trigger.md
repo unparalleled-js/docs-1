@@ -161,6 +161,7 @@ end
 With this, 2 occurence of a record with the same "ID" but with different "updated_at" values will be recorded as separate events.
 
 ## Descending Trigger
+Paging descending triggers should be used when the order of returned objects is known to be in descending order. You will be able to define the field in which the objects returned are sorted later on in the `sort_by` block. 
 
 ```ruby
 {
