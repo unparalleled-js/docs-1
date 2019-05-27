@@ -18,12 +18,12 @@ To use a custom client, you will need to create a custom connector. Use your cus
 
 ## Callback URL
 
-Many cloud apps use OAuth2 for authentication. Part of the OAuth2 flow involves a callback URL (or **Redirect URL**). Use the Workato callback URL `https://www.workato.com/oauth/callback` to complete the flow with Workato.
+Many cloud apps use OAuth2 for authentication. Part of the OAuth2 flow involves a callback URL (or **Redirect URL**). Use the callback URL `https://www.workato.com/oauth/callback` to complete the flow with Workato.
 
 Some cloud apps, like Google, require you to register this callback URL at the point of client registration. It may also involve authorizing this URL. This is a security measure to prevent unwanted access to your account. If you do not register the callback URL, you may encounter an error like this.
 
-![400 Error. Redirect URI Mismatch](/assets/images/developing-connectors/registering-new-clients/error-redirect-url-mismatch.png)
-*400 Error. Redirect URI Mismatch*
+![400 Error. Redirect URI mismatch](/assets/images/developing-connectors/registering-new-clients/error-redirect-url-mismatch.png)
+*400 Error. Redirect URI mismatch*
 
 ## Registering new client with callback URL
 
@@ -42,108 +42,132 @@ Let's go through an example of registering a new client on Google Cloud Platform
       <td>
         Select <b>Create credentials</b> -> <b>OAuth client ID</b><br>
         <br>
-        <img src="/assets/images/developing-connectors/registering-new-clients/gcp-api-credentials.png"></img>
+        <img src="/assets/images/developing-connectors/registering-new-clients/gcp-api-credentials.png"></img><br>
         <i>Google Cloud Platform API Credentials</i><br>
         </td>
     </tr>
     <tr>
       <td>2</td>
       <td>
-        Select <b>Web application</b>, and fill up the form accordingly.<br>
+        Select <b>Web application</b> and fill in the following fields:
+        <ul>
+          <li>Name</li>
+          <li>Authorized redirect URIs</li>
+          Use <code>https://www.workato.com/oauth/callback</code>
+        </ul>
         <br>
-        <img src="/assets/images/developing-connectors/registering-new-clients/create-oauth-client-web-app.png"></img>
+        <img src="/assets/images/developing-connectors/registering-new-clients/create-oauth-client-web-app.png"></img><br>
         <i>Create OAuth client ID</i><br>
-        <br>
-        <b>Name</b> the client as desired. Next, provide this Workato callback URL <code>https://www.workato.com/oauth/callback</code> under <b>Authorized redirect URIs</b>.
         </td>
     </tr>
     <tr>
       <td>3</td>
       <td>
-        Select <b>authorized domains list</b>.<br>
+        This is where most people encounter an <code>Invalid Redirect</code> message. To resolve this, select <b>authorized domains list</b>.<br>
         <br>
-        <img src="/assets/images/developing-connectors/registering-new-clients/create-oauth-client-id.png"></img>
-        <i>Create OAuth client ID</i><br>
+        <img src="/assets/images/developing-connectors/registering-new-clients/create-oauth-client-id.png"></img><br>
+        <i>Invalid redirect URL</i><br>
         <br>
-        Google Cloud Platform does not accept <code>workato.com</code> as it is not found in the <b>Authorized Domains List</b>.
-        </td>
+        <blockquote><i>Google Cloud Platform does not accept the callback URL because <code>workato.com</code> has not been added to the <b>Authorized Domains List</b></i>.</blockquote>
+        <br>
+        If the callback URL is valid, click <b>Create</b> and
+        skip to <a href="#retrieve-client-credentials">Client credentials</a>.
+      </td>
     </tr>
     <tr>
       <td>4</td>
       <td>
         You will be brought to the <b>OAuth consent screen</b> tab.<br>
         <br>
-        <img src="/assets/images/developing-connectors/registering-new-clients/oauth-Credentials.png"> </img><br>
+        Fill in the following fields (steps 5-7):<br>
+        <ul>
+          <li>Application name</li>
+          <li>Add scope</li>
+          <li>Authorized domain</li><br>
+        </ul>
+        <img src="/assets/images/developing-connectors/registering-new-clients/oauth-credentials-form.png"> </img><br>
         <i>OAuth consent screen</i><br>
         <br>
-        You can also access this page from  <b>APIs & Services</b> -> <b>Credentials</b> -> <b>OAuth consent screen</b>
+        Alternatively, you can access this page from  <b>APIs & Services</b> -> <b>Credentials</b> -> <b>OAuth consent screen</b>.<br>
       </td>
-    </tr>
-    <tr>
+    </tr><tr>
       <td>5</td>
       <td>
-        Select <b>Add scope</b> and copy the required scopes.<br>
+        Copy <code>Workato</code> into <b>Application name</b><br>
         <br>
-        <img src="/assets/images/developing-connectors/registering-new-clients/add-scope.png"></img><br>
-        <i>Add scope</i><br>
-        <br>
-        <u>Scopes for Google APIs</u><br>
-        - <code><i>https://www.googleapis.com/auth/admin.directory.group</i></code><br>
-        - <code><i>https://www.googleapis.com/auth/admin.directory.user</i></code><br>
-        <br>
-        To effectively enable Workato to automate your business processes, it is important to define the following scopes for the client.
-      </td>
+        <img src="/assets/images/developing-connectors/registering-new-clients/oauth-credentials.png"> </img><br>
+        <i>Application name</i><br>
+        </td>
     </tr>
     <tr>
       <td>6</td>
       <td>
-        Copy the domain name <code>workato.com</code> and <b>Save</b>.<br>
+        Select <b>Add scope</b> and copy the following scopes:<br>
+        - <code>https://www.googleapis.com/auth/admin.directory.group</code><br>
+        - <code>https://www.googleapis.com/auth/admin.directory.user</code><br>
         <br>
-        <img src="/assets/images/developing-connectors/registering-new-clients/authorize-workato.png"></img><br>
-        <i>Authorize Workato</i><br>
+        <img src="/assets/images/developing-connectors/registering-new-clients/add-scope.png"></img><br>
+        <i>Add scope</i><br>
         <br>
-        This register Workato as an authorized domain in your Google Cloud Platform account.<br>
-        <br>
-        Your will be brought back to the <b>Credentials</b> page.
+        <blockquote>To effectively enable Workato to automate your business processes, it is important to define the listed <i>scopes</i> for your client.</blockquote>
       </td>
     </tr>
-        <tr>
+    <tr>
       <td>7</td>
       <td>
-        You will be brought to the <b>Credentials</b> tab.<br>
+        Copy <code>workato.com</code> into <b>Authorized domains</b> and click <b>Save</b>.<br>
         <br>
-        <img src="/assets/images/developing-connectors/registering-new-clients/gcp-api-credentials-0.png"></img>
-        <i>Google Cloud Platform API Credentials</i><br>
-        </td>
+        <img src="/assets/images/developing-connectors/registering-new-clients/authorize-workato.png"></img><br>
+        <i>Authorize Workato.com</i><br>
+      </td>
     </tr>
     <tr>
       <td>8</td>
       <td>
-        Repeat Step 1 and 2.<br>
+        You will be brought to the <b>Credentials</b> tab.<br>
         <br>
-        Select <b>Create credentials</b> -> <b>OAuth client ID</b> -> <b>Web application</b><br>
+        Once again, select <b>Create credentials</b> -> <b>OAuth client ID</b><br>
         <br>
-        <img src="/assets/images/developing-connectors/registering-new-clients/valid-authoized-redirect-uri.png"></img><br>
-        <i>Authorized Redirect URL</i><br>
-        <br>
-        Now that you have authorized the <code>Workato.com</code> domain, the call back URL <code>https://www.workato.com/oauth/callback</code> will be valid <b>Authorized redirect URIs</b>.
-      </td>
+        <img src="/assets/images/developing-connectors/registering-new-clients/gcp-api-credentials.png"></img><br>
+        <i>Google Cloud Platform API Credentials</i><br>
+        </td>
     </tr>
     <tr>
       <td>9</td>
       <td>
-        You can now retrieve the <b>client credentials</b>.<br>
+        Select <b>Web application</b> and fill in the following fields:
+        <ul>
+          <li>Name</li>
+          <li>Authorized redirect URIs</li>
+          Use <code>https://www.workato.com/oauth/callback</code>
+        </ul>
+        Click <b>Create</b>.<br>
         <br>
-        <img src="/assets/images/developing-connectors/registering-new-clients/completed-client-credential.png"></img><br>
-        <i>Completed Client Credential Page</i><br>
+        <img src="/assets/images/developing-connectors/registering-new-clients/valid-authoized-redirect-uri.png"></img><br>
+        <i>Valid redirect URL</i><br>
+      </td>
+    </tr>
+    <tr>
+      <td>10</td>
+      <td>
+        Done! You have created a custom client on Google Cloud Platform.<br>
         <br>
-        Once done, you would be able to retrieve the necessary OAuth2 authentication information (<b>Client ID</b> and <b>Client Secret</b>) for your newly created custom Workato client.
+        <img src="/assets/images/developing-connectors/registering-new-clients/new-workato-client.png"></img><br>
+        <i>New custom client</i><br>
       </td>
     </tr>
   </tbody>
 </table>
 
+## Retrieve client credentials
+
 Now your custom client is ready to be used in your HTTP or SDK connector.
+
+Open your custom client to view the client credientials. You will need the OAuth2 authentication details  (**Client ID** and **Client Secret**) for your custom connector.
+
+![Client credentials](/assets/images/developing-connectors/registering-new-clients/completed-client-credential.png)
+*Client credentials*
+
 ___
 
 #### Frequently encountered problems
