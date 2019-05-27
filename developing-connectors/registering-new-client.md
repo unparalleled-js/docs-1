@@ -163,7 +163,7 @@ Let's go through an example of registering a new client on Google Cloud Platform
 
 Now your custom client is ready to be used in your HTTP or SDK connector.
 
-Open your custom client to view the client credientials. You will need the OAuth2 authentication details  (**Client ID** and **Client Secret**) for your custom connector.
+Open your custom client (e.g. `Workato`) to view the client credentials. You will these credentials for OAuth2 authentication with a [custom connector](/developing-connectors.md).
 
 ![Client credentials](/assets/images/developing-connectors/registering-new-clients/completed-client-credential.png)
 *Client credentials*
