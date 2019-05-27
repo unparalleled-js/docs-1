@@ -71,3 +71,9 @@ end
 > The `apply` block will not be applied to any requests made in `acquire`. So you will have to include the required credentials for a successful API request there.
 
 Check out our [custom authentication documents](developing-connectors/sdk/authentication/custom-authentication.md) to find out other ways to authenticate your custom connector on Workato.
+
+### Other authentication methods
+Check out the other authentication methods we support. [Learn more]()
+
+### Next section
+If you're already familiar with the authentication methods we support, check out the triggers that our SDK supports as well as how to implement them. [Learn more]()

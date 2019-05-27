@@ -1,4 +1,3 @@
-{# Basic Authentication
 
 ## Standard example
 
@@ -181,3 +180,9 @@ Example:
   methods: { ... },
 }
 ```
+
+### Other authentication methods
+Check out the other authentication methods we support. [Learn more]()
+
+### Next section
+If you're already familiar with the authentication methods we support, check out the triggers that our SDK supports as well as how to implement them. [Learn more]()

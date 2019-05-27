@@ -193,3 +193,9 @@ The example here shows multiple ways that we can define "signals" to watch
 - `/^\{"response":\{"error".+$/`: Regex matching the body of response
 
 This list is optional. If not defined, pseudo successful response will be treated as a successful request instead of raising exceptions. Note: output values of trigger and action will be affected.
+
+### Other authentication methods
+Check out the other authentication methods we support. [Learn more]()
+
+### Next section
+If you're already familiar with the authentication methods we support, check out the triggers that our SDK supports as well as how to implement them. [Learn more]()

@@ -333,3 +333,9 @@ There are two ways to match:
 This list is optional. If not defined, pseudo successful response will be treated as a successful request instead of raising exceptions. Note: output values of trigger and action will be affected.
 
 The `refresh_on`, `refresh` and `detect_on` hooks are also used in [Custom Authentication](custom-authentication.md#refresh_on).
+
+### Other authentication methods
+Check out the other authentication methods we support. [Learn more]()
+
+### Next section
+If you're already familiar with the authentication methods we support, check out the triggers that our SDK supports as well as how to implement them. [Learn more]()
