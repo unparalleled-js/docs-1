@@ -10,7 +10,7 @@ Additionally, Workbot also includes custom actions. This action allows you to ut
 
 Workbot supports 3 actions:
 * [Post reply](#post-reply)
-* [Post message](#post-messages)
+* [Post message](#post-message)
 * Custom action
 
 ## Post reply
