@@ -337,7 +337,7 @@ The properties below are required irrespective of the connection type, either Me
 These are required for SAP Outbound Connection properties:
 
 - **gwhost**: SAP Gateway Host, in the number format of `xx.xx.xx.xx`.
-- **gwserv**: Gateway server port. Depend on your SAP system, you will need to input text (e.g. `sapgw`) or number (e.g. `3301`). Test both versions to see which one works with your system.
+- **gwserv**: Gateway server port. Depending on your SAP system's configuration, you will need to input text (e.g. `sapgw`) or number (e.g. `3301`). Test both versions to see which one works with your system.
 - **progid**: SAP Program ID configured for Workato.
 
     The 3 properties above can be found in the SM59 Tcode for the created Workato RFC Destination:
