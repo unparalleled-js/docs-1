@@ -523,6 +523,7 @@
     * [Report-as-a-Service](connectors/workday/workday_raas.md)
 * [Developing connectors](developing-connectors.md)
   * [Custom actions](/developing-connectors/custom-actions.md)
+  * [Registering new client](developing-connectors/registering-new-client.md)
   * [HTTP vs SDK](developing-connectors/http-vs-sdk.md)
   * [HTTP connector V2](developing-connectors/http-v2.md)
     * [Connection setup](developing-connectors/http-v2.md#setup-your-http-connection)
