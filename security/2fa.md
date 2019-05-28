@@ -7,7 +7,7 @@ date: 2019-05-24 18:00:00 Z
 
 Two-Factor Authentication (2FA) is an industry standard for multi-layered authentication. It requires two separate methods of verifying your identity by requesting something you know (ID and password) and something you have (an **authenticator app** on your phone). This provides an additional layer of security and ensures that no one else has access your Workato account.
 
-### How does it Work
+### How it works
 
 Upon logging in with your ID and password, Workato will request authentication through an **authenticator app**.
 
@@ -21,7 +21,7 @@ Workato allows authentication through mobile applications and hardware security 
 - [Symantec VIP](https://vip.symantec.com/)
 - [Yubico](https://www.yubico.com/products/yubikey-hardware/) (hardware security key)
 
-### How to setup 2FA
+### Setup two-factor authentication
 
 Let's go through the activation for two-factor authentication. You will need to be logged in to your Workato account and have your [authenticator app](https://www.pcworld.com/article/3225913/what-is-two-factor-authentication-and-which-2fa-apps-are-best.html) ready. In this example, we will be using **Symantec VIP**.
 
@@ -65,7 +65,7 @@ Let's go through the activation for two-factor authentication. You will need to 
       <td>
         Copy the 6-digit <b>verification code</b> from Symantec VIP to the Workato setup.<br>
         <br>
-        <img src="/assets/images/security/2fa/symantec-workato.png" alt="Image" height="40%" width="50%"></img><br>
+        <img src="/assets/images/security/2fa/symantec-workato.png"></img><br>
         <i>Symantec VIP unique verification code</i><br>
         <br>
         The <code>Workato</code> label and <code>profile name</code> lets you know that the connection between Symantec VIP and Workato platform is functioning properly.<br><br>
@@ -81,7 +81,7 @@ Let's go through the activation for two-factor authentication. You will need to 
         <img src="/assets/images/security/2fa/setup-2fa-codes.png"></img><br>
         <i>Recovery codes</i><br>
         <br>
-        Remember to store your recovery codes in a secure location. They are <a href="#how-to-use-recovery-codes">single-use</a> codes to authenticate your login, in the event where you do not have your authenticator app with you.
+        Remember to store your recovery codes in a secure location. They are <a href="#recovery-codes">single-use</a> codes to authenticate your login, in the event where you do not have your authenticator app with you.
         </td>
     </tr>
     <tr>
@@ -89,7 +89,7 @@ Let's go through the activation for two-factor authentication. You will need to 
       <td>
         Done! You have completed the one-time setup of your Workato two-factor authentication.<br>
         <br>
-        <img src="/assets/images/security/2fa/trusted-device.png"></img><br>
+        <img src="/assets/images/security/2fa/account-setting-activated.png"></img><br>
         <i>Two-factor authentication enabled</i><br>
         </td>
     </tr>
@@ -122,7 +122,7 @@ In certain situations, you would have to disable your two-factor authentication.
       <td>
         Select <b>Two-factor authentication</b> > <b>Disable two-factor authentication</b><br>
         <br>
-        <img src="/assets/images/security/2fa/trusted-device.png"></img><br>
+        <img src="/assets/images/security/2fa/account-setting-activated.png"></img><br>
         <i>Two-factor authentication</i><br>
         <br>
         <blockquote>This will remove the <b>all trusted devices</b> that were logged in with the authenticator app.</blockquote>
@@ -131,7 +131,7 @@ In certain situations, you would have to disable your two-factor authentication.
   </tbody>
 </table>
 
-### How to use recovery codes
+### Recovery codes
 
 Recovery codes are alphanumeric strings that are uniquely tied to your Workato account. You can use the recovery code to verify your identity in place of the 6-digit verification code. Every recovery code can be use **only once**.
 
@@ -146,7 +146,7 @@ If you deleted your app, changed or lost your device (or security key), you can 
 
 Upon logging in, you are advised to **reset** your two-factor authentication settings. By changing the two-factor authentication setting, you are preventing unwanted access to your account thru a stolen device. This also resets two-factor authentication to your new device.
 
- First, [**disable two-factor authentication**](#disable-two-factor-authentication). Next, [**setup**](#how-to-setup-2fa) two-factor authentication with your new device.
+ First, [disable two-factor authentication](#disable-two-factor-authentication). Next, [setup two-factor authentication](#setup-two-factor-authentication) with your new device.
 
 #### Lost recovery codes
 
@@ -154,7 +154,7 @@ If you have not stored your recovery codes or have accidentally deleted them, yo
 
 To view your recovery codes, go to  **Account settings** > **Two-factor authentication** > **View recovery codes**.
 
-You are advised to store them in a secure but accessible location
+You are advised to store them in a secure but accessible location.
 
 #### Generate new recovery codes
 

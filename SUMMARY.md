@@ -571,7 +571,7 @@
     * [Users](workato-api/users.md)
     * [Recipe lifecycle management](workato-api/recipe-lifecycle-management.md)
 * [Security](security.md)
-  * [IP whitelists](security/ip-whitelists.md)
+  * [IP whitelists](security/ip-whitelist.md)
   * [Two-factor authentication](security/2fa.md)
 * [Product Updates](product-updates.md)
 * [Contact us](contact-us.md)
