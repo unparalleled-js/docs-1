@@ -18,3 +18,4 @@ The Workato webhooks gateway listens to all events. When an event is received, t
 ## Create your own webhook trigger
 * [Setup webhook using wizard](/connectors/workato-webhooks/wizard.md)
 * [Configure the webhook](/connectors/workato-webhooks/config.md)
+* [Debug common errors](/connectors/workato-webhooks/common-errors.md)
