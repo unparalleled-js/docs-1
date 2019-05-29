@@ -39,7 +39,7 @@ Workday asks for the following information to connect.
     <tr>
       <td>Password</td>
       <td>
-        This should be the login name for the <a href='#register-integration-system-user'>ISU</a>.
+        This should be the login password for the <a href='#register-integration-system-user'>ISU</a>.
       </td>
     </tr>
     <tr>
@@ -59,32 +59,36 @@ Workday asks for the following information to connect.
     <tr>
       <td>Use custom objects?</td>
       <td>
-        Choose <b>No</b> if your use cases do no involved custom objects.<br>
+        Choose <b>No</b> if your use cases do not involve custom objects.<br>
         Choose <b>Yes</b> if it does. Additional <a href='#register-api-client'>client information</a> will be required.
       </td>
     </tr>
     <tr>
       <td>Client ID</td>
       <td>
-        Client ID of the API Client you created to connect to Workato. Only required if using custom objects.
+        Client ID of the API Client you created to connect to Workato. <br>
+        Only required if using custom objects.
       </td>
     </tr>
     <tr>
       <td>Client secret</td>
       <td>
-        Client secret of the API Client you created to connect to Workato. Only required if using custom objects.
+        Client secret of the API Client you created to connect to Workato. <br>
+        Only required if using custom objects.
       </td>
     </tr>
     <tr>
       <td>Authorization endpoint</td>
       <td>
-        Authorization endpoint of the API Client you created to connect to Workato. Only required if using custom objects.
+        Authorization endpoint of the API Client you created to connect to Workato. <br>
+        Only required if using custom objects.
       </td>
     </tr>
     <tr>
       <td>Token endpoint</td>
       <td>
-        Token endpoint of the API Client you created to connect to Workato. Only required if using custom objects.
+        Token endpoint of the API Client you created to connect to Workato. <br>
+        Only required if using custom objects.
       </td>
     </tr>
   </tbody>
@@ -221,4 +225,4 @@ Navigate to "Register API Client" in your Workday instance.
 ![API Client credentials](/assets/images/workday/api-client-2.png)
 *API client details*
 
-Remember to save the Client ID, Client Secret, Authorization Endpoint and Token Endpoint. This will be required for connecting to Workday via Workato.
+Remember to save the **Client ID**, **Client Secret**, **Authorization Endpoint** and **Token Endpoint**. This will be required for connecting to Workday via Workato.
