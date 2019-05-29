@@ -1,10 +1,10 @@
 ---
-title: Workato connectors - Xendesk
+title: Workato connectors - Zendesk
 date: 2019-05-28 18:00:00 Z
 ---
 
 # Zendesk
-[Zendeks](https://www.zendeks.com/) is a cloud ticketing solution that empowers customer service and customer engagement through ...
+[Zendesk](https://www.zendeks.com/) is a cloud ticketing solution that empowers customer service and customer engagement through ...
 
 ## API version
 The Zendesk connector uses [Zendesk REST API](https://developer.zendesk.com/rest_api/docs/zendesk-apis/resources).
@@ -49,18 +49,19 @@ All versions of ServiceNow is supported. However, only Istanbul (or later) suppo
 
 ## How to connect to Zendesk on Workato
 
+<!---
 The ServiceNow connector authentications through basic authentication with your Username and Password.
 
 ### Username/Password authentications
+--->
+\\ The Zendesk connector uses OAuth2 authentication. Because Zendeks utilizes the standard OAuth2 authentication flow, usernames and passwords are provided only to Zendesk. Providing these credentials assure Zendesk that the user is giving permission for Workato to access their account data.
 
-To connect using username/password, input your Zendesk Sub-domain as seen in the example below.
+First, input your Zendesk subdomain as seen in the example below.
 
 ![Domain setup](/assets/images/connectors/zendesk/domain-setup.png)
 *Domain setup*
 
-Clicking **Link your account** generates a popup that request for your Zendesk login credentials. Because Zendeks utilizes the standard OAuth2 authentication flow, usernames and passwords are provided only to Zendesk. Providing these credentials assure Zendesk that the user is giving permission for Workato to access their account data.
-
-Input your **Username / Password** into the fields provided.
+Clicking **Link your account** generates a popup that request for your Zendesk login credentials. Input your **Username / Password** into the fields provided.
 
 ![Basic](/assets/images/connectors/zendesk/basic-authentication.png)
 *Username/Password connection*
@@ -74,28 +75,21 @@ Input your **Username / Password** into the fields provided.
   </thead>
   <tbody>
     <tr>
-      <td>Connection name</td>
-      <td>Give this ServiceNow connection a unique name that identifies which ServiceNow instance it is connected to.</td>
+      <td>Subdomain</td>
+      <td>Input the Zendesk company instance for Workato to connect to. If your Zendesk url is https://acme.zendesk.com, then instance name is <b>acme</b>.</td>
     </tr>
     <tr>
-      <td>Authentication type</td>
-      <td>Choose an authentication type for this ServiceNow connection. The ServiceNow connector supports Username/Password (Basic) authentication and OAuth 2.0 using the authorization code grant.</td>
-    </tr>
-    <tr>
-      <td>Instance name</td>
-      <td>If your ServiceNow url is https://acme.service-now.com, then instance name is <b>acme</b>.</td>
-    </tr>
-    <tr>
-      <td>Username</td>
-      <td>Username to connect to ServiceNow.</td>
+      <td>Email</td>
+      <td>Email of the Zendesk account to connect.</td>
     </tr>
     <tr>
       <td>Password</td>
-      <td>Password to connect to ServiceNow.</td>
+      <td>Password to connect to Zendesk.</td>
     </tr>
   </tbody>
 </table>
 
+<!---
 ### OAuth 2.0
 
 Select **OAuth 2.0** authentication type to connect to your ServiceNow instance without using your login credentials. This authentication type allows you to grant access to Workato by obtaining a token rather than disclosing your login credentials.
@@ -343,3 +337,4 @@ To enable this feature, the user account used to establish the ServiceNow connec
 </table>
 
 *Access Control required to use real-time triggers*
+--->
