@@ -1,16 +1,16 @@
 ---
-title: Zendesk - New ticket trigger
+title: Zendesk - New/updated ticket trigger
 data: 2019-05-28 18:00:00 Z
 ---
 
-# Zendesk - New ticket triggers (real time)
+# Zendesk - New/updated ticket trigger (real time)
 
-This trigger picks up tickets as soon they are created. Each ticket is processed as a separate job. It makes use of business rules to detect and trigger a new ticket event to be processed.
+This trigger picks up tickets as soon they are created or updated. Each ticket is processed as a separate job. It makes use of business rules to detect and trigger a new or updated ticket event to be processed.
 
-Fetches tickets as soon as they are created. This trigger automatically creates a Zendesk trigger that can be found in your Zendesk account under **Admin** > **Business rules** > **Triggers**.
+Fetches tickets as soon as they're created or updated. This trigger automatically creates a Zendesk trigger that can be found in your Zendesk account under **Admin** > **Business rules** > **Triggers**.
 
-![New ticket trigger](/assets/images/connectors/zendesk/new-ticket-trigger.png)
-*New ticket trigger*
+![New/updated ticket trigger](/assets/images/connectors/zendesk/updated-ticket-trigger.png)
+*New/updated ticket trigger*
 
 #### Input fields
 
@@ -70,4 +70,4 @@ The output of this trigger contains the full set of columns from the selected ti
   </tbody>
 </table>
 
-Click here for a full list of [ticket trigger output](/connectors/zendesk/ticket-output.md).
+Click here for a full list of [ticket trigger output](/connectors/zendesk/trigger/ticket-output.md).

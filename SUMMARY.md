@@ -523,7 +523,49 @@
     * [Report-as-a-Service](connectors/workday/workday_raas.md)
   * [Zendesk](connectors/zendesk.md)
     * [Connection setup](connectors/zendesk.md#how-to-connect-to-zendesk-on-workato)
-    * [New record trigger](connectors/zendesk/new-ticket-trigger.md)
+    * Triggers
+      * [New ticket trigger](connectors/zendesk/new-ticket-trigger.md)
+      * [New/updated ticket trigger](connectors/zendesk/updated-ticket-trigger.md)
+      * [Ticket trigger output](connectors/zendesk/ticket-output.md)
+      * [New user trigger](connectors/zendesk/new-user-trigger.md)
+      * [New/updated user trigger](connectors/zendesk/updated-user-trigger.md)
+      * [User trigger output](connectors/zendesk/user-output.md)
+      * [New organization trigger](connectors/zendesk/new-organization-trigger.md)
+      * [New/updated organization trigger](connectors/zendesk/updated-organization-triggers.md)
+      * [Organization output](connectors/zendesk/organization-output.md)
+    * Ticket actions
+      * [Create ticket]
+      * [Search ticket]
+      * [Get list of tickets by external ID]
+      * [Get ticket details by ID]
+      * [Get comments for ticket]
+      * [Update ticket]
+      * [Bulk update tickets]
+      * [Solve ticket]
+      * [Delete ticket]
+    * User actions
+      * [Create user]
+      * [Search user]
+      * [Get user details by ID]
+      * [Update user]
+      * [Delete user]
+    * Organization actions
+      * [Create organization]
+      * [Create organization membership]
+      * [Search organization]
+      * [Search organization membership]
+      * [Get organization by external ID]
+      * [Get organization details by ID]
+      * [Update organization]
+    * Custom object actions
+      * [Create custom object record]
+      * [Create relationship record]
+      * [Get list of custom object records by external ID]
+      * [Get custom object record by ID]
+      * [Get relationship records]
+      * [Update custom object record]
+      * [Delete custom object record by ID]
+      * [Delete relationship record by ID]
 * [Developing connectors](developing-connectors.md)
   * [Custom actions](/developing-connectors/custom-actions.md)
   * [Registering new client](developing-connectors/registering-new-client.md)
