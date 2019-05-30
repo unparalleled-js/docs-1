@@ -84,7 +84,7 @@ Clicking **Link your account** generates a popup that request for your Zendesk l
     </tr>
     <tr>
       <td>Password</td>
-      <td>Password to connect to Zendesk.</td>
+      <td>Password of this Zendesk account.</td>
     </tr>
   </tbody>
 </table>

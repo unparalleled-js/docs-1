@@ -30,7 +30,7 @@ https://developer.zendesk.com/rest_api/docs/support/users
     <tr>
       <td>Email</td>
       <td>
-        The user's primary email.
+        The user's primary email
       </td>
     </tr>
     <tr>

@@ -1,18 +1,16 @@
 ---
-title: Zendesk - New ticket trigger
-data: 2019-05-28 18:00:00 Z
+title: Workato connectors - Zendesk get ticket details by ID action
+date: 2019-05-30 18:00:00 Z
 ---
 
-# Zendesk - New ticket triggers (real time)
+# Zendesk - Get ticket details by ID action
 
-This trigger picks up tickets as soon they are created. Each ticket is processed as a separate job. It makes use of business rules to detect and trigger a new ticket event to be processed.
+This action retrieves a specific ticket your Zendesk instance that matches a search by ticket ID. Only results that matches the criteria will be returned.
 
-Fetches tickets as soon as they are created. This trigger automatically creates a Zendesk trigger that can be found in your Zendesk account under **Admin** > **Business rules** > **Triggers**.
+![Get ticket details by ID](/assets/images/connectors/zendesk/get-ticket-details-by-id.png)
+*Get ticket details by ID*
 
-![New ticket trigger](/assets/images/connectors/zendesk/new-ticket-trigger.png)
-*New ticket trigger*
-
-#### Input fields
+### Input fields
 
 <table class="unchanged rich-diff-level-one">
   <thead>
@@ -23,17 +21,17 @@ Fetches tickets as soon as they are created. This trigger automatically creates 
   </thead>
   <tbody>
     <tr>
-      <td>From</a></td>
+      <td>Ticket ID</a></td>
       <td>
-        Tickets created after this time will be processed by the recipe. If left blank, the default date will be set to <b>one day</b> before the recipe is first started.
+        The unique Zendesk ticket ID.
       </td>
     </tr>
-    </tbody>
+  </tbody>
 </table>
 
 #### Output fields
 
-The output of this trigger contains the full set of columns from the selected ticket. All default and custom columns are supported. Here are some of the commonly used trigger outputs.
+The output of this action contains the full set of columns from the ticket. Custom outputs are generated for custom ticket forms.
 
 <table class="unchanged rich-diff-level-one">
   <thead>
@@ -67,7 +65,13 @@ The output of this trigger contains the full set of columns from the selected ti
         The priority of the ticket. Allowed values are <code>urgent</code>, <code>high</code>, <code>normal</code>, or <code>low</code>.
       </td>
     </tr>
+    <tr>
+      <td>Ticket custom fields</td>
+      <td>
+        Includes data of custom ticket fields created.
+      </td>
+    </tr>
   </tbody>
 </table>
 
-Click here for a full list of [ticket output](/connectors/zendesk/ticket-output.md).
+Click here for a full list of [ticket output](/connectors/zendesk/ticket-output.md#ticket-output).

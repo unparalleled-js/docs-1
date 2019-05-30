@@ -534,15 +534,15 @@
       * [New/updated organization trigger](connectors/zendesk/updated-organization-triggers.md)
       * [Organization output](connectors/zendesk/organization-output.md)
     * Ticket actions
-      * [Create ticket]
-      * [Search ticket]
-      * [Get list of tickets by external ID]
-      * [Get ticket details by ID]
-      * [Get comments for ticket]
-      * [Update ticket]
-      * [Bulk update tickets]
-      * [Solve ticket]
-      * [Delete ticket]
+      * [Create ticket](connectors/zendesk/create-ticket-action.md)
+      * [Search ticket](connectors/zendesk/search-ticket-action.md)
+      * [Get list of tickets by external ID](connectors/zendesk/get-tickets-external-id.md)
+      * [Get ticket details by ID](connectors/zendesk/get-ticket-details-by-id.md)
+      * [Get comments for ticket](connectors/zendesk/get-comments-ticket.md)
+      * [Update ticket](connectors/zendesk/update-ticket-action.md)
+      * [Bulk update tickets](connectors/zendesk/update-ticket-action.md#bulk-update-tickets-actions)
+      * [Solve ticket](connectors/zendesk/solve-ticket-action.md)
+      * [Delete ticket](connectors/zendesk/delete-ticket-action.md)
     * User actions
       * [Create user]
       * [Search user]
