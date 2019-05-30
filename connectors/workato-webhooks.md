@@ -9,7 +9,7 @@ date: 2019-05-29 10:00:00 Z
 
 Webhooks are notifications sent out by an application to a target URL as soon as an event happens. Typically, you can define specific events you wish to receive notifications for.
 
-For example, you can choose to build a webhook trigger that notifies your recipe whenever an order is placed for new customer tickets are marked with status ‘Urgent’, and trigger a workflow to send out an SMS to the account manager for this customer. In this case, the recipe will help to ensure urgent tickets are responded to in a timely fashion.
+For example, you can choose to build a webhook trigger that notifies when 'Urgent' tickets are created (which sends out an SMS to the corresponding account manager). This ensures urgent tickets are responded to in a timely fashion.
 
 > **This connector does not require a connection.**
 

@@ -5,7 +5,11 @@ date: 2019-05-29 10:00:00 Z
 
 # Webhooks setup wizard
 
-The webhooks wizard makes it very easy to test and configure a webhook trigger for your recipe. It takes you on a guided flow to setup your unique webhooks address, listens to sample webhook events from your app and finally complete the trigger configuration automatically according to a successful event.
+The webhooks wizard makes it easy to test and configure a webhook trigger for your recipe. The guided flow takes you through:
+* setting up your unique webhook address
+* listening to a sample webhook event
+
+Once a successful event is received, the wizard will automatically configure the trigger based on that event.
 
 > **You may exit this setup wizard at any point if you wish to configure the trigger manually.**
 
@@ -23,7 +27,7 @@ Click on the **Setup webhook** button to start the wizard.
 ![Generate a Workato webhook address](/assets/images/webhooks/generating-webhook-address.gif)
 *Generate a Workato webhook address*
 
-At this point you should see the first step of the webhook setup wizard. Here, provide a meaningful event name. This event name will be used to generate a unique webhook address. Click next to start listening for webhook events from your App.
+At this point you should see the first step of the webhook setup wizard. Here, provide a meaningful event name. This event name will be used to generate a unique webhook address. Click **Next** to start listening for webhook events from your App.
 
 > **To avoid recipes receiving webhook events from multiple sources, the event name must be unique across all your webhook recipes.**
 
@@ -34,14 +38,14 @@ At this point you should see the first step of the webhook setup wizard. Here, p
 
 When you see this screen, the wizard is now ready to listen for webhook events from you App.
 
-Click on the **Copy URL** button to copy the unique webhook address. This URL should be used to register as the webhook URL in your App. For example, register URL as the **Payload URL** in Eventbrite.
+Click on the **Copy URL** button to copy the unique webhook address. This URL should be used to register as the webhook URL in your App. For example, you can register URL as the **Payload URL** in Eventbrite, shown below.
 
 ![Add a webhook in Eventbrite to send data to the webhook trigger](/assets/images/webhooks/register-webhook-url.png)
 *Add a webhook in Eventbrite to send data to the webhook trigger*
 
 ## Complete webhook setup
 
-When a webhook is successfully sent and received by Workato, you will see this screen.
+When a webhook event is successfully sent (by the app) and received by Workato, you will see this screen:
 
 ![Webhook event received](/assets/images/webhooks/webhook-event-received.png)
 *Webhook event received*
