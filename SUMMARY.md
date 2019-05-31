@@ -581,6 +581,6 @@
     * [Recipe lifecycle management](workato-api/recipe-lifecycle-management.md)
 * [Security](security.md)
   * [IP whitelists](/security/ip-whitelists.md)
-  * [Two-factor authentication](/security/2fa.md)
+  * [Two-factor authentication](/security/two-factor-authentication.md)
 * [Product Updates](product-updates.md)
 * [Contact us](contact-us.md)

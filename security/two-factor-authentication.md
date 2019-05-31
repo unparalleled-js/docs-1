@@ -16,14 +16,14 @@ Upon logging in with your ID and password, Workato will request authentication t
 
 A unique verification code is generated for you whenever you login to your Workato account. It is a temporary 6-digit code that lets us know it is indeed *you*. Afterwards, the code will expire and cannot be reused.
 
-Workato allows authentication through mobile applications and hardware security keys. Some of the common ones are:
+Workato allows authentication through mobile applications. Some of the common ones are:
+- [Google Authenticator](https://play.google.com/store/apps/details?id=com.google.android.apps.authenticator2&hl=en_SG)
 - [Authy](https://authy.com/download/)
 - [Symantec VIP](https://vip.symantec.com/)
-- [Yubico](https://www.yubico.com/products/yubikey-hardware/) (hardware security key)
 
 ### Setup two-factor authentication
 
-Let's go through the activation for two-factor authentication. You will need to be logged in to your Workato account and have your [authenticator app](https://www.pcworld.com/article/3225913/what-is-two-factor-authentication-and-which-2fa-apps-are-best.html) ready. In this example, we will be using **Symantec VIP**.
+Let's go through the activation for two-factor authentication. You will need to be logged in to your Workato account and have your [authenticator app](https://www.pcworld.com/article/3225913/what-is-two-factor-authentication-and-which-2fa-apps-are-best.html) ready. In this example, we will be using **Google Authenticator**.
 
 <table class="unchanged rich-diff-level-one">
   <thead>
@@ -54,38 +54,47 @@ Let's go through the activation for two-factor authentication. You will need to 
     <tr>
       <td>3</td>
       <td>
-        Using Symantec VIP, <b>scan</b> the QR code.<br>
+      If prompted to verify your password, input your password and click <b>verify password</b>. Find out why <a href="#why-verify-password">here</a>.<br>
+      <br>
+      <img src="/assets/images/security/2fa/verify-password.png"></img><br>
+      <i>Verify your password</i><br>
+    </tr>
+    <tr>
+      <td>4</td>
+      <td>
+        Using Google authenticator, <b>scan</b> the QR code. Otherwise, you can register with Google authenticator with code provided .<br>
         <br>
         <img src="/assets/images/security/2fa/setup-2fa.png"></img><br>
         <i>Two-factor authentication setup</i><br>
         </td>
     </tr>
     <tr>
-      <td>4</td>
+      <td>5</td>
       <td>
-        Copy the 6-digit <b>verification code</b> from Symantec VIP to the Workato setup.<br>
+        Copy the 6-digit <b>verification code</b> from Google authenticator to the Workato setup.<br>
         <br>
-        <img src="/assets/images/security/2fa/symantec-workato.png"></img><br>
-        <i>Symantec VIP unique verification code</i><br>
+        <img src="/assets/images/security/2fa/google-authenticator-workato.png"></img><br>
+        <i>Google authenticator unique verification code</i><br>
         <br>
-        The <code>Workato</code> label and <code>profile name</code> lets you know that the connection between Symantec VIP and Workato platform is functioning properly.<br><br>
+        The <code>Workato</code> label and <code>profile name</code> lets you know that the connection between Google authenticator and Workato platform is functioning properly.<br>
+        <br>
         <img src="/assets/images/security/2fa/setup-2fa-input.png"></img><br>
         <i>Confirming authenticator app with Workato account</i><br>
         </td>
     </tr>
     <tr>
-      <td>5</td>
+      <td>6</td>
       <td>
         Save or <code>download</code> a copy of the <b>recovery codes</b>.<br>
         <br>
         <img src="/assets/images/security/2fa/setup-2fa-codes.png"></img><br>
         <i>Recovery codes</i><br>
         <br>
-        Remember to store your recovery codes in a secure location. They are <a href="#recovery-codes">single-use</a> codes to authenticate your login, in the event where you do not have your authenticator app with you.
+        Remember to store them in a secure location. Find our more about recovery codes <a href="#recovery-codes">here</a>.<br>
         </td>
     </tr>
     <tr>
-      <td>6</td>
+      <td>7</td>
       <td>
         Done! You have completed the one-time setup of your Workato two-factor authentication.<br>
         <br>
@@ -122,11 +131,27 @@ In certain situations, you would have to disable your two-factor authentication.
       <td>
         Select <b>Two-factor authentication</b> > <b>Disable two-factor authentication</b><br>
         <br>
-        <img src="/assets/images/security/2fa/account-setting-activated.png"></img><br>
+        <img src="/assets/images/security/2fa/trusted-devices.png"></img><br>
         <i>Two-factor authentication</i><br>
         <br>
         <blockquote>This will remove the <b>all trusted devices</b> that were logged in with the authenticator app.</blockquote>
         </td>
+    </tr>
+    <tr>
+      <td>3</td>
+      <td>
+      If prompted to verify your password, input your password and click <b>verify password</b>. Find out why <a href="#why-verify-password">here</a>.<br>
+      <br>
+      <img src="/assets/images/security/2fa/verify-password.png"></img><br>
+      <i>Verify your password</i><br>
+    </tr>
+    <tr>
+      <td>4</td>
+      <td>
+      Click <b>Disable 2FA</b>.<br>
+      <br>
+      <img src="/assets/images/security/2fa/disable-2fa.png"></img><br>
+      <i>Disable two-factor authentication</i><br>
     </tr>
   </tbody>
 </table>
@@ -138,13 +163,13 @@ Recovery codes are alphanumeric strings that are uniquely tied to your Workato a
 ![Using recovery code](/assets/images/security/2fa/recovery-screen.png)
 *Using recovery code*
 
-A list of 10 recovery codes are auto-generated at the two-factor authentication setup. You should store them in a secure location, preferably not in the same location as your authenticator app (*i.e. not on your phone*).
+A list of 12 recovery codes are auto-generated at the two-factor authentication setup. You should store them in a secure location, preferably not in the same location as your authenticator app (*i.e. not on your phone*).
 
 #### Lost authentication device
 
 If you deleted your app, changed or lost your device (or security key), you can still access your Workato account. You can use a recovery code to perform two-factor authentication.
 
-Upon logging in, you are advised to **reset** your two-factor authentication settings. By changing the two-factor authentication setting, you are preventing unwanted access to your account thru a stolen device. This also resets two-factor authentication to your new device.
+Upon logging in, you are advised to **reset** your two-factor authentication settings. By changing the two-factor authentication setting, you are preventing unwanted access to your account thru a stolen device. This also reconfigures two-factor authentication to your new device.
 
  First, [disable two-factor authentication](#disable-two-factor-authentication). Next, [setup two-factor authentication](#setup-two-factor-authentication) with your new device.
 
@@ -175,3 +200,17 @@ Select **trust this device** during the two-factor authentication process.
 
 ![Trust this device for 30 days](/assets/images/security/2fa/trust-this-device.png)
 *Trust this device for 30 days*
+
+Your trusted devices will appear on the **Two-factor authentication** setting's page. You can revoke access to devices you do not recognize or to devices that are no longer in use.
+
+![Trusted devices](/assets/images/security/2fa/trusted-devices.png)
+*Trusted devices*
+
+### Why verify password
+
+Workato ask you for your password, as an additional layer of authentication, when initiating an action in your account security settings. This applies when making changes to your two-factor authentication configuration, which includes enabling or disabling two-factor authentication, and viewing or regenerating recovery codes.
+
+![Verify your password](/assets/images/security/2fa/verify-password.png)
+*Verify password*
+
+> After you have verified your password, we will not ask again in the next 15 mins.
