@@ -7,9 +7,12 @@ date: 2019-03-20 14:20:00 Z
 Workato's REST API provides you with access to Workato resources. With this, you can manage recipes, connections and jobs programmatically to expand the functionality of your Workato account. This API also allows you to auther new recipes and modify existing ones.
 
 ## Authentication
-All API requests must contain a `user_token` & `user_email` in the query parameters or in the request headers for it to be accepted by Workato. The `user_token` can be found in your [settings page](https://www.workato.com/users/current/edit#api_key).
+All API requests must contain:
 
-Alternatively, navigate to your account settings by clicking on `Account Settings` in the dropdown of the top right of your homepage in Workato. Your API key can be found in the left navigation panel in the subsequent page.
+- `X-USER-TOKEN` and `X-USER-EMAIL` in the request headers OR
+- `user_token` & `user_email` in the query parameters
+
+The `user_token`/`X-USER-TOKEN` can be found in your [settings page](https://www.workato.com/users/current/edit#api_key). Alternatively, navigate to your account settings by clicking on `Account Settings` in the dropdown of the top right of your homepage in Workato. Your API key can be found in the left navigation panel in the subsequent page.
 
 ## Workato API Resource Overview
 Workato's API has various endpoints that allows access functionality to different aspects of Workato. Here is a general overview of the endpoints available.
