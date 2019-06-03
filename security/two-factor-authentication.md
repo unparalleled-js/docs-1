@@ -17,9 +17,9 @@ Upon logging in with your ID and password, Workato will request authentication t
 A unique verification code is generated for you whenever you login to your Workato account. It is a temporary 6-digit code that lets us know it is indeed *you*. Afterwards, the code will expire and cannot be reused.
 
 Workato allows authentication through mobile applications. Some of the common ones are:
-- [Google Authenticator](https://play.google.com/store/apps/details?id=com.google.android.apps.authenticator2&hl=en_SG)
-- [Authy](https://authy.com/download/)
-- [Symantec VIP](https://vip.symantec.com/)
+- Google Authenticator ([iOS](https://itunes.apple.com/us/app/google-authenticator/id388497605) or [Android](https://play.google.com/store/apps/details?id=com.google.android.apps.authenticator2&))
+- Authy ([iOS](https://itunes.apple.com/us/app/authy/id494168017) or [Android](https://play.google.com/store/apps/details?id=com.authy.authy))
+- Microsoft Authenticator ([iOS](https://itunes.apple.com/sg/app/microsoft-authenticator/id983156458) or [Android](https://play.google.com/store/apps/details?id=com.azure.authenticator))
 
 ### Setup two-factor authentication
 
@@ -179,6 +179,9 @@ If you have not stored your recovery codes or have accidentally deleted them, yo
 
 To view your recovery codes, go to  **Account settings** > **Two-factor authentication** > **View recovery codes**.
 
+![View recovery codes](/assets/images/security/2fa/trusted-devices.png)
+*View recovery codes*
+
 You are advised to store them in a secure but accessible location.
 
 #### Generate new recovery codes
@@ -192,7 +195,7 @@ Select **Account settings** > **Two-factor authentication** > **View recovery co
 ![Generate new recovery codes](/assets/images/security/2fa/2fa-regenerate-codes.png)
 *Generate new recovery codes*
 
-#### Trusted devices
+### Trusted devices
 
 You can temporarily disable two-factor authentication for trusted devices, like a secured work laptop. This allows the device to login without authentication for 30 days.
 
@@ -201,14 +204,14 @@ Select **trust this device** during the two-factor authentication process.
 ![Trust this device for 30 days](/assets/images/security/2fa/trust-this-device.png)
 *Trust this device for 30 days*
 
-Your trusted devices will appear on the **Two-factor authentication** setting's page. You can revoke access to devices you do not recognize or to devices that are no longer in use.
+Your trusted devices will appear on the **two-factor authentication** setting's page. You can revoke access to devices you do not recognize or to devices that are no longer in use.
 
 ![Trusted devices](/assets/images/security/2fa/trusted-devices.png)
 *Trusted devices*
 
 ### Why verify password
 
-Workato ask you for your password, as an additional layer of authentication, when initiating an action in your account security settings. This applies when making changes to your two-factor authentication configuration, which includes enabling or disabling two-factor authentication, and viewing or regenerating recovery codes.
+When initiating changes in your account security settings, Workato will ask you for your password as an additional layer of authentication. This applies when making changes to your two-factor authentication configuration, which includes enabling or disabling two-factor authentication, and viewing or regenerating recovery codes.
 
 ![Verify your password](/assets/images/security/2fa/verify-password.png)
 *Verify password*
