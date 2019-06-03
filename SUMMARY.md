@@ -533,6 +533,7 @@
       * [New organization trigger](connectors/zendesk/new-organization-trigger.md)
       * [New/updated organization trigger](connectors/zendesk/updated-organization-triggers.md)
       * [Organization output](connectors/zendesk/organization-output.md)
+\\\ sort by Create actions, get actions, delete actions etc.
     * Ticket actions
       * [Create ticket](connectors/zendesk/create-ticket-action.md)
       * [Search ticket](connectors/zendesk/search-ticket-action.md)
@@ -544,19 +545,20 @@
       * [Solve ticket](connectors/zendesk/solve-ticket-action.md)
       * [Delete ticket](connectors/zendesk/delete-ticket-action.md)
     * User actions
-      * [Create user]
-      * [Search user]
-      * [Get user details by ID]
-      * [Update user]
-      * [Delete user]
+      * [Create user](connectors/zendesk/create-user-action.md)
+      * [Search user](connectors/zendesk/search-user-action.md)
+      * [Get user details by ID](connectors/zendesk/get-user-details-by-id.md)
+      * [List user identities](connectors/zendesk/list-user-identities-action.md)
+      * [Update user](connectors/zendesk/update-user-action.md)
     * Organization actions
-      * [Create organization]
-      * [Create organization membership]
-      * [Search organization]
-      * [Search organization membership]
-      * [Get organization by external ID]
-      * [Get organization details by ID]
-      * [Update organization]
+      * [Create organization](connectors/zendesk/create-organization-action.md)
+      * [Create organization membership](connectors/zendesk/create-organization-membership-action.,md)
+      * [Search organizations](connectors/zendesk/search-organization-action.md)
+      * [Search organization member](connectors/zendesk/search-organization-member-action.md)
+      * [Get organization by external ID](connectors/zendesk/get-organization--by-external-id.md)
+      * [Get organization details by ID](connectors/zendesk/get-organization-details-by-id.md)
+      * [Update organization](connectors/zendesk/update-organization-action.md)
+    [Search groups]
     * Custom object actions
       * [Create custom object record]
       * [Create relationship record]

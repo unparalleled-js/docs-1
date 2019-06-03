@@ -68,4 +68,4 @@ The output of this trigger contains the full set of columns from the selected us
   </tbody>
 </table>
 
-Click here for a full list of [user trigger output](/connectors/zendesk/user-output.md).
+Click here for a full list of [user output](/connectors/zendesk/user-output.md).
