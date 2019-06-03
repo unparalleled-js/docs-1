@@ -145,6 +145,7 @@
   * [Password encryption](on-prem/password-encryption.md)
   * [Proxy server](on-prem/proxy.md)
   * [Extensions](on-prem/extension.md)
+  * [Debugging](on-prem/logging.md)
 * [Key features](features.md)
   * [Scheduler](features/scheduler.md)
   * [Secondary connectors](features/secondary-connectors.md)
