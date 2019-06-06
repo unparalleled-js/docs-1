@@ -90,7 +90,7 @@ Let's go through the activation for two-factor authentication. You will need to 
         <img src="/assets/images/security/2fa/setup-2fa-codes.png"></img><br>
         <i>Recovery codes</i><br>
         <br>
-        Remember to store them in a secure location. Find our more about recovery codes <a href="#recovery-codes">here</a>.<br>
+        Remember to store them in a secure location. Find out more about recovery codes <a href="#recovery-codes">here</a>.<br>
         </td>
     </tr>
     <tr>
@@ -211,9 +211,9 @@ Your trusted devices will appear on the **two-factor authentication** setting's 
 
 ### Why verify password
 
-When initiating changes in your account security settings, Workato will ask you for your password as an additional layer of authentication. This applies when making changes to your two-factor authentication configuration, which includes enabling or disabling two-factor authentication, and viewing or regenerating recovery codes.
+When initiating changes in your account security settings, Workato will ask you for your password as an additional layer of authentication. This applies when making changes to your two-factor authentication configuration, which includes enabling two-factor authentication and viewing recovery codes.
 
-![Verify your password](/assets/images/security/2fa/verify-password.png)
+![Verify password](/assets/images/security/2fa/verify-password.png)
 *Verify password*
 
 > After you have verified your password, we will not ask again in the next 15 mins.
