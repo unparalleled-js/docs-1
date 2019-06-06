@@ -36,7 +36,7 @@ Recipes remember the jobs it has processed even across stopped and running state
 
 - No duplication
 
-Each recipe maintains a record of the trigger events it has seen, and will not process duplicate events. 
+Each recipe maintains a record of the trigger events it has seen, and will not process duplicate events.
 
 - Flow control
 
@@ -117,31 +117,8 @@ Batch triggers are similar to polling triggers in terms of how they fetch new ev
 
 For further details about batch triggers, refer to the Batch processing article [here](/features/batch-processing.md).
 
-## Since/From
-The **Since** or **From** setting enables recipes to fetch past trigger events from a specified date and time. i.e. instead of picking up new trigger events (events created since recipe was started) this enables picking events that have already occurred.
-
-In the example below, the **New Salesforce object** trigger has a **From** date as 1 Jan 2017, midnight PST and the 'accounts' object is selected.
-
-![Setting since date](/assets/images/recipes/triggers/set-since-date-for-trigger.gif)
-*Setting the Since date for the trigger. Trigger will only pick up new accounts created since midnight of Jan 1, 2017*
-
-When the recipe is started, only Salesforce accounts created after 1 Jan 2017, midnight PST will be picked up, as viewed from the created date column on the job report.
-
-![Since parameter](/assets/images/recipes/triggers/since_param_ran_recipe.png)
-*Job report shows that only Salesforce accounts created after Jan 1, 2017 were processed*
-
-If the trigger was **New/updated Salesforce object**, only Salesforce accounts created or updated after 1 Jan 2017, midnight PST will be picked up.
-
-However, not all triggers have the **Since/From** parameter. For such triggers, the date and time from which trigger events will be fetched is predetermined by default, usually as an offset from the time the recipe is started. Common values are:
-- When recipe is first started
-- An hour before recipe is first started
-- A day before recipe is first started.
-This offset is usually communicated in the trigger hint for the connector.
-
 ![Google Calendar since parameter](/assets/images/recipes/triggers/google_calendar_since_param.png)
 *Trigger hint regarding the default offset of 1 hour ago for Google Calendar*
-
-The **Since/From** value can only be set once, and will be locked from further changing after the recipe has been started for the first time.
 
 ## Trigger conditions
 Trigger conditions are additional rules that define what kind of trigger events should be selected for processing, e.g. you can specify that only Salesforce accounts from California must be processed.
