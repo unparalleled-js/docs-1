@@ -5,7 +5,7 @@ date: 2019-06-03 18:00:00 Z
 
 # Zendesk - Get list of tickets by external ID action
 
-This action retrieves a list of organizations in your Zendesk instance that matches a search by external ID. Only results that matches all the criteria will be returned
+This action retrieves a list of organizations in your Zendesk instance that matches a search by external ID. Only results that matches all the criteria will be returned.
 
 ![Get organization by external ID action](/assets/images/connectors/zendesk/get-organization-external-id.png)
 *Get organization by external ID action*

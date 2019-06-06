@@ -521,53 +521,69 @@
     * [Scheduled report](connectors/workday/scheduled_report.md)
     * [Call operation](connectors/workday/call_operation.md)
     * [Report-as-a-Service](connectors/workday/workday_raas.md)
+
+
+
+
+
+
+
+
+
+
+
+
+
   * [Zendesk](connectors/zendesk.md)
     * [Connection setup](connectors/zendesk.md#how-to-connect-to-zendesk-on-workato)
     * Triggers
       * [New ticket trigger](connectors/zendesk/new-ticket-trigger.md)
       * [New/updated ticket trigger](connectors/zendesk/updated-ticket-trigger.md)
-      * [Ticket trigger output](connectors/zendesk/ticket-output.md)
       * [New user trigger](connectors/zendesk/new-user-trigger.md)
       * [New/updated user trigger](connectors/zendesk/updated-user-trigger.md)
-      * [User trigger output](connectors/zendesk/user-output.md)
       * [New organization trigger](connectors/zendesk/new-organization-trigger.md)
       * [New/updated organization trigger](connectors/zendesk/updated-organization-triggers.md)
-      * [Organization output](connectors/zendesk/organization-output.md)
-\\\ sort by Create actions, get actions, delete actions etc.
-    * Ticket actions
+    * Create actions
       * [Create ticket](connectors/zendesk/create-ticket-action.md)
+      * [Create user](connectors/zendesk/create-user-action.md)
+      * [Create organization](connectors/zendesk/create-organization-action.md)
+      * [Create organization membership](connectors/zendesk/create-organization-membership-action.,md)
+      * [Create custom object record](connectors/zendesk/create-custom-object-record-action.md)
+      * [Create relationship record](/connectors/zendesk/create-relationship-record-action.md)
+    * Search actions
       * [Search ticket](connectors/zendesk/search-ticket-action.md)
       * [Get list of tickets by external ID](connectors/zendesk/get-tickets-external-id.md)
       * [Get ticket details by ID](connectors/zendesk/get-ticket-details-by-id.md)
       * [Get comments for ticket](connectors/zendesk/get-comments-ticket.md)
-      * [Update ticket](connectors/zendesk/update-ticket-action.md)
-      * [Bulk update tickets](connectors/zendesk/update-ticket-action.md#bulk-update-tickets-actions)
-      * [Solve ticket](connectors/zendesk/solve-ticket-action.md)
-      * [Delete ticket](connectors/zendesk/delete-ticket-action.md)
-    * User actions
-      * [Create user](connectors/zendesk/create-user-action.md)
       * [Search user](connectors/zendesk/search-user-action.md)
       * [Get user details by ID](connectors/zendesk/get-user-details-by-id.md)
       * [List user identities](connectors/zendesk/list-user-identities-action.md)
-      * [Update user](connectors/zendesk/update-user-action.md)
-    * Organization actions
-      * [Create organization](connectors/zendesk/create-organization-action.md)
-      * [Create organization membership](connectors/zendesk/create-organization-membership-action.,md)
       * [Search organizations](connectors/zendesk/search-organization-action.md)
       * [Search organization member](connectors/zendesk/search-organization-member-action.md)
       * [Get organization by external ID](connectors/zendesk/get-organization--by-external-id.md)
       * [Get organization details by ID](connectors/zendesk/get-organization-details-by-id.md)
+      * [Get list of custom object records by external ID](/connectors/zendesk/get-list-of-custom-object-records-by-external-id.md)
+      * [Get custom object record by ID](/connectors/zendesk/get-custom-object-record-by-id.md)
+      * [Get relationship records](connectors/zendesk/get-relationship-records-action.md)
+    * Update actions
+      * [Update ticket](connectors/zendesk/update-ticket-action.md)
+      * [Bulk update tickets](connectors/zendesk/update-ticket-action.md#bulk-update-tickets-actions)
+      * [Solve ticket](connectors/zendesk/solve-ticket-action.md)
+      * [Delete ticket](connectors/zendesk/delete-ticket-action.md)
+      * [Update user](connectors/zendesk/update-user-action.md)
       * [Update organization](connectors/zendesk/update-organization-action.md)
-    [Search groups]
-    * Custom object actions
-      * [Create custom object record]
-      * [Create relationship record]
-      * [Get list of custom object records by external ID]
-      * [Get custom object record by ID]
-      * [Get relationship records]
-      * [Update custom object record]
-      * [Delete custom object record by ID]
-      * [Delete relationship record by ID]
+      * [Update custom object record](/connectors/zendesk/update-custom-object-record-action.md)
+      * [Delete custom object record by ID](/connectors/zendesk/delete-custom-object-record-action.md)
+      * [Delete relationship record by ID](connectors/zendesk/delete-relationship-record-by-id-action.md)
+    * [Ticket trigger output](connectors/zendesk/ticket-output.md)
+    * [User trigger output](connectors/zendesk/user-output.md)
+    * [Organization output](connectors/zendesk/organization-output.md)
+    * [Zendesk custom objects](connectors/zendesk/sunshine-platform.md)
+
+
+
+
+
 * [Developing connectors](developing-connectors.md)
   * [Custom actions](/developing-connectors/custom-actions.md)
   * [Registering new client](developing-connectors/registering-new-client.md)
