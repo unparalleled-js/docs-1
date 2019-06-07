@@ -7,9 +7,7 @@ date: 2019-06-04 18:00:00 Z
 
 Zendesk allows you to create custom objects to model, store, and retrieve objects that are not native to Zendesk (e.g. Tickets, Users, Organization). Custom objects can be configured to suit your various use-cases. It could be "product", "orders", "devices" etc. Find out more about Zendesk custom objects [here](/connectors/zendesk/sunshine-platform.md)
 
-For more information on Zendesk custom objects, please visit their documentation on this topic [here](https://develop.zendesk.com/hc/en-us/articles/360002124307-What-is-the-Sunshine-platform-).
-
-After creating your custom object type, you can proceed to add new records, update existing records, and delete existing record.
+After configuring your custom object type, you can proceed to create new records, update existing records, and delete record.
 
 This action creates a single record of a custom object into your Zendesk instance.
 
@@ -35,9 +33,7 @@ This action creates a single record of a custom object into your Zendesk instanc
     <tr>
       <td>New record values</td>
       <td>
-        Provide data for each column of the record to be created.<br>
-        <br>
-        The <b>required</b> and <b>optional</b> fields will be displayed according to how you setup your custom object type. Find out more about Zendesk custom objects <a href="/connectors/zendesk/sunshine-platform.md">here</a>.
+        Provide data for each column of the record to be created. The input fields are configured as <b>required</b> and <b>optional</b> according to how you setup your custom object type.
       </td>
     </tr>
   </tbody>
@@ -69,7 +65,7 @@ The output of this trigger contains the full set of columns from the selected cu
     <tr>
       <td>External ID</td>
       <td>
-        A unique identifier from another system. The API treats the ID as case insensitive. For example, "ian1" is treated the same as "Ian1".
+        A unique identifier from another system. 
       </td>
     </tr>
     <tr>

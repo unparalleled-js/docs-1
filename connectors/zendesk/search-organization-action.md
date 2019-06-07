@@ -5,7 +5,7 @@ date: 2019-06-03 18:00:00 Z
 
 # Zendesk - Search organization action
 
-This action retrieves a list of all organizations in your Zendesk instance that matches your search criteria. Only results that matches all the criteria will be returned
+This action retrieves a list of all organizations that matches your search criteria. Only records in your Zendesk instance that matches all the criteria will be returned.
 
 ![Search organization action](/assets/images/connectors/zendesk/search-organization-action.png)
 *Search organization action*
@@ -20,8 +20,9 @@ This action retrieves a list of all organizations in your Zendesk instance that 
     </tr>
   </thead>
   <tbody>
+    <tbody>
     <tr>
-      <td>Name</a></td>
+      <td>Name</td>
       <td>
         The name of the organization.
       </td>
@@ -29,25 +30,25 @@ This action retrieves a list of all organizations in your Zendesk instance that 
     <tr>
       <td>Tags</td>
       <td>
-        The array of tags applied to the organization.
+        The tags applied to this organization. You can combine multiple tags with the <code>,</code> separator.
       </td>
     </tr>
     <tr>
       <td>Details</td>
       <td>
-        The details about the organization, it is stored as a <code>string</code>.
+        Details about the organization. It is stored as a <code>string</code>.
       </td>
     </tr>
     <tr>
       <td>Notes</td>
       <td>
-        The notes about the organization, it is stored as a <code>string</code>.
+        Notes about the organization. It is stored as a <code>string</code>.
       </td>
     </tr>
     <tr>
-      <td>Organization custom field</td>
+      <td>Organization custom fields</td>
       <td>
-        Data of the custom field.
+        Provide data for the organization custom field(s).
       </td>
     </tr>
   </tbody>
@@ -55,13 +56,13 @@ This action retrieves a list of all organizations in your Zendesk instance that 
 
 #### Output fields
 
-The output of this trigger contains the full set of columns from the selected organization. All default and custom columns are supported. Here are some of the commonly used outputs.
+The output of this trigger contains the full set of columns from the selected organization. Here are some of the commonly used outputs.
 
 <table class="unchanged rich-diff-level-one">
   <thead>
     <tr>
-      <th width='25%'>Output field</th>
-      <th>Description</th>
+        <th width='25%'>Output field</th>
+        <th>Description</th>
     </tr>
   </thead>
   <tbody>
@@ -70,7 +71,8 @@ The output of this trigger contains the full set of columns from the selected or
       <td>
         Unique Zendesk organization ID. This is automatically assigned when the ticket is created.
       </td>
-    </tr>  <tr>
+    </tr>  
+    <tr>
       <td>Group ID</td>
       <td>
         The group(s) that this organization is part of.
@@ -79,10 +81,10 @@ The output of this trigger contains the full set of columns from the selected or
     <tr>
       <td>Organization custom fields</td>
       <td>
-        Includes data of custom organization fields.
+        Includes data of organization custom fields.
       </td>
     </tr>
   </tbody>
 </table>
 
-Click here for a full list of [organization output](/connectors/zendesk/organization-output.md#organization-output).
+Click here for a full list of [organization output](/connectors/zendesk/organization-fields.md#organization-output-fields).

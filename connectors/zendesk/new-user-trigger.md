@@ -5,12 +5,12 @@ data: 2019-05-28 18:00:00 Z
 
 # Zendesk - New user triggers
 
-This trigger picks up users that are created. Each user is processed as a separate job. It checks for new users once every poll interval. The poll interval can be 10 mins or 5 mins, depending on your plan. Check the [Pricing and Plans page](https://www.workato.com/pricing?audience=general) to find out more.
+This trigger picks up new users that are created. Each user is processed as a separate job. It checks for new jobs once every poll interval. The poll interval can be 10 mins or 5 mins, depending on your plan. Check the [Pricing and Plans page](https://www.workato.com/pricing?audience=general) to find out more.
 
 ![New user trigger](/assets/images/connectors/zendesk/new-user-trigger.png)
 *New user trigger*
 
-#### Input fields
+### Input fields
 
 <table class="unchanged rich-diff-level-one">
   <thead>
@@ -29,9 +29,9 @@ This trigger picks up users that are created. Each user is processed as a separa
     </tbody>
 </table>
 
-#### Output fields
+### Output fields
 
-The output of this trigger contains the full set of columns from the selected user. All default and custom columns are supported. Here are some of the commonly used trigger outputs.
+The output of this action contains the full set of columns from the selected user. Here are some of the commonly used outputs.
 
 <table class="unchanged rich-diff-level-one">
   <thead>
@@ -44,28 +44,34 @@ The output of this trigger contains the full set of columns from the selected us
     <tr>
       <td>ID</td>
       <td>
-        Unique Zendesk user ID. This is automatically assigned when the ticket is created.
+        Unique Zendesk user ID. This is automatically assigned when the user is created.
       </td>
     </tr>
     <tr>
       <td>Role</td>
       <td>
-        The user's role. Allowed values are <code>end-user</code>, <code>agent</code>, or <code>admin</code>.
+        The role of the user. Permitted values are <code>End-user</code>, <code>Agent</code>, or <code>Administrator</code>.
       </td>
     </tr>
     <tr>
       <td>Email</td>
       <td>
-        The user's primary email.
+        The primary email of the user.
       </td>
     </tr>
     <tr>
       <td>Organization ID</td>
       <td>
-        The ID of the user's organization. If the user has more than one organization membership, it will display the ID fo the user's default organization.
+        The ID of the user's organization. If the user has more than one organization membership, it will display the user's default organization.
+      </td>
+    </tr>
+    <tr>
+      <td>User custom fields</td>
+      <td>
+        Includes data of user custom fields.
       </td>
     </tr>
   </tbody>
 </table>
 
-Click here for a full list of [user output](/connectors/zendesk/user-output.md).
+Click here for a full list of [user output](/connectors/zendesk/user-fields.md#user-output-fields).

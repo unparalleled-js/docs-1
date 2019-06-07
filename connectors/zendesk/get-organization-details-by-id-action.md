@@ -5,7 +5,7 @@ date: 2019-06-03 18:00:00 Z
 
 # Zendesk - Get organization details by ID action
 
-This action retrieves details about a specific organization your Zendesk instance that matches a search by user ID. Only results that matches the criteria will be returned.
+This action retrieves details about a specific organization that matches a search by organization ID. Only records in your Zendesk instance that matches all the criteria will be returned.
 
 ![Get organization details by ID](/assets/images/connectors/zendesk/get-organization-details-by-id.png)
 *Get organization details by ID*
@@ -31,7 +31,7 @@ This action retrieves details about a specific organization your Zendesk instanc
 
 #### Output fields
 
-The output of this trigger contains the full set of columns from the selected organization. All default and custom columns are supported. Here are some of the commonly used outputs.
+The output of this trigger contains the full set of columns from the selected organization. Here are some of the commonly used outputs.
 
 <table class="unchanged rich-diff-level-one">
   <thead>
@@ -46,7 +46,8 @@ The output of this trigger contains the full set of columns from the selected or
       <td>
         Unique Zendesk organization ID. This is automatically assigned when the ticket is created.
       </td>
-    </tr>  <tr>
+    </tr>  
+    <tr>
       <td>Group ID</td>
       <td>
         The group(s) that this organization is part of.
@@ -55,10 +56,10 @@ The output of this trigger contains the full set of columns from the selected or
     <tr>
       <td>Organization custom fields</td>
       <td>
-        Includes data of custom organization fields.
+        Includes data of organization custom fields.
       </td>
     </tr>
   </tbody>
 </table>
 
-Click here for a full list of [organization output](/connectors/zendesk/organization-output.md#organization-output).
+Click here for a full list of [organization output](/connectors/zendesk/organization-fields.md#organization-output-fields).

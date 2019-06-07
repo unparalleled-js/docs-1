@@ -5,9 +5,9 @@ date: 2019-05-30 18:00:00 Z
 
 # Zendesk - List user identities action
 
-This action retrieves a specific user and returns a list of user identities. It retrieves searches your Zendesk instance by user ID. Only results that matches the criteria will be returned.
+This action selects a specific user and returns a list of user identities. It retrieves the user through a search by user ID. Only records in your Zendesk instance that matches all the criteria will be returned.
 
-A user identity is something that can be used to identify an individual. For example, an email address, a Twitter handle, or a phone number. Zendesk Support supports a series of different such identities.
+A user identity is something that can be used to identify an individual. For example, an email address or a phone number.
 
 ![List user identities action](/assets/images/connectors/zendesk/list-user-identities-action.png)
 *List user identities action*
@@ -33,7 +33,7 @@ A user identity is something that can be used to identify an individual. For exa
 
 #### Output fields
 
-The output of this action contains a set of column details of the user. Only user identities are return.
+The output of this action contains the full set of user identities from the selected user.
 
 <table class="unchanged rich-diff-level-one">
   <thead>
@@ -46,7 +46,7 @@ The output of this action contains a set of column details of the user. Only use
     <tr>
       <td>ID</td>
       <td>
-        Unique Zendesk object ID. This is automatically assigned.
+        Unique Zendesk user identity ID. This is automatically assigned when the user identity is created.
       </td>
     </tr>
     <tr>
@@ -58,13 +58,13 @@ The output of this action contains a set of column details of the user. Only use
     <tr>
       <td>Type</td>
       <td>
-        The type of the user identity. For example, <code>email</code>, <code>phone_number</code>, <code>twitter</code>, or <code>sdk</code>.
+        The type of the user identity. Possible values are <code>email</code>, <code>phone_number</code>, <code>twitter</code>, or <code>sdk</code>.
       </td>
     </tr>
     <tr>
       <td>Value</td>
       <td>
-        The data of the user identity, it is stored as a <code>string</code>.
+        The data of the user identity. It is stored as a <code>string</code>.
       </td>
     </tr>
     <tr>
@@ -76,7 +76,7 @@ The output of this action contains a set of column details of the user. Only use
     <tr>
       <td>Primary</td>
       <td>
-        Is <code>True</code> if the identity if the identity is marked as the primary identity, otherwise it will display <code>False</code>. For more information on primary user identity, please see the <a href="https://developer.zendesk.com/rest_api/docs/support/user_identities#make-identity-primary">Zendesk API</a> on this topic.
+        Is <code>True</code> if the identity if the identity is marked as the primary identity, otherwise it will display <code>False</code>. For more information on primary user identity, please see the Zendesk documentation on this <a href="https://developer.zendesk.com/rest_api/docs/support/user_identities#make-identity-primary">topic</a>.
       </td>
     </tr>
     <tr>
@@ -94,7 +94,7 @@ The output of this action contains a set of column details of the user. Only use
     <tr>
       <td>List size</td>
       <td>
-        This is the size of the list, corresponding to the number of user identities retireved.
+        This is the size of the list, corresponding to the number of user identities retrieved.
       </td>
     </tr>
   </tbody>

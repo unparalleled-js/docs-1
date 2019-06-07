@@ -29,33 +29,25 @@ This action creates a single organization into your Zendesk instance.
     <tr>
       <td>External ID</td>
       <td>
-        A unique identifier from another system. The API treats the ID as case insensitive. For example, "ian1" is treated the same as "Ian1".
-      </td>
-    </tr>
-    <tr>
-      <td>Email</td>
-      <td>
-        Mandatory of the user's role is designated as <code>Agent</code>.<br>
-        <br>
-        The user's primary email.
+        A unique identifier from another system.
       </td>
     </tr>
     <tr>
       <td>Domain name</td>
       <td>
-        An array of domain names associated with this organization.
+        The domain names associated with this organization.
       </td>
     </tr>
     <tr>
       <td>Details</td>
       <td>
-        Any details about the organization, it is stored as a <code>string</code>.
+        Details about the organization. It is stored as a <code>string</code>.
       </td>
     </tr>
     <tr>
       <td>Notes</td>
       <td>
-        Any notes about the organization, it is stored as a <code>string</code>.
+        Notes about the organization. It is stored as a <code>string</code>.
       </td>
     </tr>
     <tr>
@@ -67,35 +59,35 @@ This action creates a single organization into your Zendesk instance.
     <tr>
       <td>Shared tickets</td>
       <td>
-        Is <code>True</code> if the end user in this organization are able to see each other's tickets, otherwise it will display <code>False</code>.
+        Select <code>Yes</code> if the end user in this organization are able to see each other's tickets, otherwise select <code>No</code>.
       </td>
     </tr>
     <tr>
       <td>Shared comments</td>
       <td>
-        Is <code>True</code> if the end user in this organization are able to see each other's comments on tickets, otherwise it will display <code>False</code>.
+        Select <code>Yes</code> if the end user in this organization are able to see each other's comments on tickets, otherwise select <code>No</code>.
       </td>
     </tr>
     <tr>
       <td>Tags</td>
       <td>
-        An array of tags applied to this organization.
+        The tags applied to this organization. You can combine multiple tags with the <code>,</code> separator.
       </td>
     </tr>
     <tr>
-      <td>Custom organization field</td>
+      <td>Organization custom fields</td>
       <td>
-        Data of a custom field, it is stored as a <code>string</code>.
+        Provide data for the organization custom field(s).
       </td>
     </tr>
   </tbody>
 </table>
 
-Click here for a full list of [organization input](/connectors/zendesk/organization-output.md#organization-input).
+Click here for more information about [organization input](/connectors/zendesk/organization-fields.md#organization-input-fields).
 
 #### Output fields
 
-The output of this trigger contains the full set of columns from the selected organization. All default and custom columns are supported. Here are some of the commonly used outputs.
+The output of this trigger contains the full set of columns from the selected organization. Here are some of the commonly used outputs.
 
 <table class="unchanged rich-diff-level-one">
   <thead>
@@ -110,7 +102,8 @@ The output of this trigger contains the full set of columns from the selected or
       <td>
         Unique Zendesk organization ID. This is automatically assigned when the ticket is created.
       </td>
-    </tr>  <tr>
+    </tr>  
+    <tr>
       <td>Group ID</td>
       <td>
         The group(s) that this organization is part of.
@@ -119,10 +112,10 @@ The output of this trigger contains the full set of columns from the selected or
     <tr>
       <td>Organization custom fields</td>
       <td>
-        Includes data of custom organization fields.
+        Includes data of organization custom fields.
       </td>
     </tr>
   </tbody>
 </table>
 
-Click here for a full list of [organization output](/connectors/zendesk/organization-output.md#organization-output).
+Click here for a full list of [organization output](/connectors/zendesk/organization-fields.md#organization-output-fields).

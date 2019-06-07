@@ -5,7 +5,7 @@ date: 2019-05-30 18:00:00 Z
 
 # Zendesk - Search ticket action
 
-This action retrieves a list of all ticket in your Zendesk instance that matches your search criteria. Only results that matches all the criteria will be returned
+This action retrieves a list of all users that matches your search criteria. Only records in your Zendesk instance that matches all the criteria will be returned.
 
 ![Search ticket action](/assets/images/connectors/zendesk/search-ticket-action.png)
 *Search ticket action*

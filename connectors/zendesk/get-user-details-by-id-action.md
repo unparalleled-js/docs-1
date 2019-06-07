@@ -1,18 +1,16 @@
 ---
-title: Workato connectors - Zendesk create user action
+title: Workato connectors - Zendesk get user details by ID action
 date: 2019-06-03 18:00:00 Z
 ---
 
-# Zendesk - Create user action
+# Zendesk - Get user details by ID action
 
-This action creates a single user into your Zendesk instance. 
+This action retrieves details about a specific user that matches a search by user ID. Only records in your Zendesk instance that matches all the criteria will be returned.
 
-![Create user action](/assets/images/connectors/zendesk/create-user-action.png)
-*Create user action*
+![Get user details by ID action](/assets/images/connectors/zendesk/get-user-by-id.png)
+*Get user details by ID action*
 
 ### Input fields
-
-Here are some of the commonly used inputs.
 
 <table class="unchanged rich-diff-level-one">
   <thead>
@@ -23,37 +21,17 @@ Here are some of the commonly used inputs.
   </thead>
   <tbody>
     <tr>
-      <td>Name</td>
+      <td>User ID</a></td>
       <td>
-        The name of the user.
-      </td>
-    </tr>
-    <tr>
-      <td>Role</td>
-      <td>
-        The user's role. Permitted values are <code>End-user</code>, <code>Agent</code>, or <code>Administrator</code>.
-      </td>
-    </tr>
-    <tr>
-      <td>Email</td>
-      <td>
-        Mandatory if the user's role is designated as <code>Agent</code>. The primary email of the user.
-      </td>
-    </tr>
-    <tr>
-      <td>User custom fields</td>
-      <td>
-        Provide data for the user custom field(s).
+        The unique Zendesk user ID.
       </td>
     </tr>
   </tbody>
 </table>
 
-Click here for more information about [user input](/connectors/zendesk/user-field.md#user-input-fields).
-
 ### Output fields
 
-The output of this action contains the full set of columns from the selected organization. Here are some of the commonly used outputs.
+The output of this trigger contains the full set of columns from the selected organization. Here are some of the commonly used outputs.
 
 <table class="unchanged rich-diff-level-one">
   <thead>
