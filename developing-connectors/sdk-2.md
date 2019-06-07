@@ -18,6 +18,8 @@ Connectors built on the SDK are called **custom connectors**. These connectors h
 ## Documentation Format
 This section will list everything you need to know about our SDK as well as provide some guides, walkthroughs and example connectors that our users have built. You may use the links below to skip ahead to your desired section but it is recommended that you go through this documentation in this format so as to not miss any of the features we have that might help you down the line.
 
+> In our documentation, we default to JSON when giving examples. It is highly recommended that you read about how other data formats can be handled if the API you plan to connect to requires that.
+
 * [SDK Conceptual Model]()
 * [Data Format]()
   * [JSON]()
@@ -35,9 +37,8 @@ This section will list everything you need to know about our SDK as well as prov
   * [Static Webhook triggers]()
   * [Dynamic Webhook triggers]()  
 * [Actions]()
-  * [Possible HTTP requests]()
+* [HTTP requests]()
 * [Object definitions]()
-  * [Config fields]()
 * [Picklists]()
   * [Static Picklists]()
   * [Dynamic Picklists]()
@@ -45,8 +46,8 @@ This section will list everything you need to know about our SDK as well as prov
   * [Whitelisted ruby methods]()
   * [Defining your own methods]()
 * [Error handling]()
-* [Troubleshooting]()
-* [How-to guides]()
 * [Walkthrough]()
-* [Example]()
+* [How-to guides]()
+* [Troubleshooting]()
+* [Examples]()
 * [Sharing the connector]()

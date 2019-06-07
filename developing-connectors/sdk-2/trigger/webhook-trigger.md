@@ -1,39 +1,51 @@
 # Dynamic Webhook Trigger
 
+A dynamic webhook trigger is one that can programmatically be set up and torn down. This is something should be explicitly stated in the API of application that you are building a connector to. In the example below, you can define the process of setting up and tearing down webhooks in various blocks in the trigger object.
+
 ```ruby
-triggers: {
-  new_message: {
-    type: :paging_desc,
+{
+  title: 'My Cisco connector',
 
-    input_fields: lambda do |object_definitions|
-      object_definitions["room"].only("id")
-    end,
+  connection: { ... },
+  test: {...},
+  actions: { ... },
+  triggers: {
+    new_message: {
+      type: :paging_desc,
 
-    webhook_subscribe: lambda do |webhook_url, connection, input, recipe_id|
-      post("https://api.ciscospark.com/v1/webhooks",
-           name: "Workato recipe #{recipe_id}",
-           targetUrl: webhook_url,
-           resource: "messages",
-           event: "created",
-           filter: "roomId=#{input['id']}")
-    end,
+      input_fields: lambda do |object_definitions|
+        object_definitions["room"].only("id")
+      end,
 
-    webhook_notification: lambda do |input, payload|
-      payload["data"]
-    end,
+      webhook_subscribe: lambda do |webhook_url, connection, input, recipe_id|
+        post("https://api.ciscospark.com/v1/webhooks",
+             name: "Workato recipe #{recipe_id}",
+             targetUrl: webhook_url,
+             resource: "messages",
+             event: "created",
+             filter: "roomId=#{input['id']}")
+      end,
 
-    webhook_unsubscribe: lambda do |webhook|
-      delete("https://api.ciscospark.com/v1/webhooks/#{webhook['id']}")
-    end,
+      webhook_notification: lambda do |input, payload|
+        payload["data"]
+      end,
 
-    dedup: lambda do |message|
-      message["id"]
-    end,
+      webhook_unsubscribe: lambda do |webhook|
+        delete("https://api.ciscospark.com/v1/webhooks/#{webhook['id']}")
+      end,
 
-    output_fields: lambda do |object_definitions|
-      object_definitions["message"]
-    end
+      dedup: lambda do |message|
+        message["id"]
+      end,
+
+      output_fields: lambda do |object_definitions|
+        object_definitions["message"]
+      end
+    }
   }
+  object_definitions: { ... },
+  picklists: { ... },
+  methods: { ... }
 }
 ```
 
@@ -42,6 +54,8 @@ triggers: {
 When a recipe is started, a webhook subscription should be created. This webhook subscription should be given the "callback url" specific to the recipe to receive and process as jobs. This block is responsible for this subscription.
 
 This block is executed whenever a recipe is started. The block usually contains the necessary API requests to create a webhook subscription. This request is typically a **POST** request with a payload containing the relevant data for successful event notifications.
+
+Below we have the block inside our `new_message` trigger that handles the subscription of our webhook_url. Inside this block, we send a **POST** request to the Cisco spark API endpoint with the relevant details documented [here](https://developer.webex.com/docs/api/v1/webhooks/create-a-webhook). Tailor your webhook_subscribe block to send the expected HTTP request.
 
 ```ruby
 webhook_subscribe: lambda do |webhook_url, connection, input, recipe_id|
@@ -63,9 +77,11 @@ end
 | input | `input` object: Data from trigger input fields. In this example, the input contains the Room ID to receive messages from. |
 | recipe_id | Recipe ID of the recipe using this trigger. This is useful to identify webhook-recipe pairs in the event of multiple pairs. |
 
+> Take note that the variable `webhook_url` is an argument that is passed into the block by Workato. This should not be hardcoded.
+
 ### Output
 
-Output of the webhook_subscribe block is the response from the **POST** request in this example. It usually contains useful information about the webhook that is used in the future. This output will be stored and passed to the webhook_unsubscribe block as an argument.
+Output of the webhook_subscribe block is the response from the **POST** request in this example. It usually contains useful information about the webhook that is used in the future. This output will be stored and passed to the webhook_unsubscribe block as an argument which can be referenced as the `webhook` object.
 
 ```json
 {
@@ -134,7 +150,7 @@ Extract from the CiscoSpark API documentation:
 }
 ```
 
-Looking at the sample payload, the main message data is bested in the "data" object. Hence, we just need to access and return this "data" object in the webhook_notification block output. This output is then processed in through the trigger into the recipe as a job.
+Looking at the sample payload, the main message data is contained in the "data" object. Hence, we just need to access and return this "data" object in the webhook_notification block output. This output is then processed in through the trigger into the recipe as a job. You can always configure this in the webhook_notification block to extract as much or as little from the payload object.
 
 ```ruby
 webhook_notification: lambda do |input, payload|

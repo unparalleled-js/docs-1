@@ -3,40 +3,51 @@
 A static webhook trigger is one that requires manual registration. This usually involves a user creating a webhook in the application user interface with a pre-defined webhook URL. It defers from a dynamic webhook because it requires a fixed webhook URL for use in the manual registration process, instead of having it be done in the background (programmatic subscription through the API when a user starts a recipe).
 
 ```ruby
-webhook_keys: lambda do |params, headers, payload|
-  params['spaceId']
-end,
+{
+  title: 'My connector',
 
-triggers: {
-  new_message: {
-    input_fields: lambda do
-      [
-        {
-          name: 'space_id',
-          label: "Space",
-          control_type: "select",
-          pick_list: "space_list",
-          optional: false
-        }
-      ]
-    end,
+  connection: { ... },
+  test: {...},
+  actions: { ... },
 
-    webhook_key: lambda do |connection, input|
-      input['space_id']
-    end,
+  webhook_keys: lambda do |params, headers, payload|
+    params['spaceId']
+  end,
 
-    webhook_notification: lambda do |connection, payload|
-      payload
-    end,
+  triggers: {
+    new_message: {
+      input_fields: lambda do
+        [
+          {
+            name: 'space_id',
+            label: "Space",
+            control_type: "select",
+            pick_list: "space_list",
+            optional: false
+          }
+        ]
+      end,
 
-    dedup: lambda do |messages|
-      messages['messageId']
-    end,
+      webhook_key: lambda do |connection, input|
+        input['space_id']
+      end,
 
-    output_fields: lambda do |object_definitions|
-      object_definitions['message']
-    end
+      webhook_notification: lambda do |connection, payload|
+        payload
+      end,
+
+      dedup: lambda do |messages|
+        messages['messageId']
+      end,
+
+      output_fields: lambda do |object_definitions|
+        object_definitions['message']
+      end
+    }
   }
+  object_definitions: { ... },
+  picklists: { ... },
+  methods: { ... }
 }
 ```
 
