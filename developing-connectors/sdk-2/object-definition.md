@@ -12,7 +12,7 @@ The most basic way to build an object definition is to define the field name and
 
 ```ruby
 {
-  title: 'My Cisco connector',
+  title: 'My close.io connector',
 
   connection: { ... },
   test: {...},
@@ -67,7 +67,6 @@ Object definitions can also be used to dynamically generate input and output sch
 
 ```ruby
 object_definitions: {
-
   form: {
     fields: lambda do |connection|
       get("https://api.unbounce.com/pages/#{connection['page_id']}/form_fields")["formFields"].
@@ -150,6 +149,8 @@ Up until now, our sample code snippets have largely only included the basic fiel
         </tr>
     </tbody>
 </table>
+
+> If no type is defined, we always default to string.
 
 ### Control types
 Control types are a way for you to declare how input fields are displayed to users of your connector.
