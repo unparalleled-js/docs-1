@@ -41,8 +41,6 @@ This section will list everything you need to know about our SDK as well as prov
 * [Object definitions]()
 * [Advanced object definitions - Picklists & toggle fields]()
 * [Methods]()
-  * [Whitelisted ruby methods]()
-  * [Defining your own methods]()
 * [Error handling]()
 * [Walkthrough]()
 * [How-to guides]()
