@@ -12,7 +12,7 @@ Fetches tickets as soon as they are created. This trigger automatically creates 
 ![New ticket trigger](/assets/images/connectors/zendesk/new-ticket-trigger.png)
 *New ticket trigger*
 
-#### Input fields
+### Input fields
 
 <table class="unchanged rich-diff-level-one">
   <thead>
@@ -31,9 +31,9 @@ Fetches tickets as soon as they are created. This trigger automatically creates 
     </tbody>
 </table>
 
-#### Output fields
+### Output fields
 
-The output of this trigger contains the full set of columns from the selected ticket. All default and custom columns are supported. Here are some of the commonly used trigger outputs.
+The output of this action contains the full set of columns from the selected ticket. Here are some of the commonly used outputs.
 
 <table class="unchanged rich-diff-level-one">
   <thead>
@@ -58,16 +58,22 @@ The output of this trigger contains the full set of columns from the selected ti
     <tr>
       <td>Type</td>
       <td>
-        The type of the ticket. Allowed values are <code>problem</code>, <code>incident</code>, <code>question</code>, or <code>task</code>.
+        The type of the ticket. Permitted values are <code>problem</code>, <code>incident</code>, <code>question</code>, or <code>task</code>.
       </td>
     </tr>
     <tr>
       <td>Priority</td>
       <td>
-        The priority of the ticket. Allowed values are <code>urgent</code>, <code>high</code>, <code>normal</code>, or <code>low</code>.
+        The priority of the ticket. Permitted values are <code>urgent</code>, <code>high</code>, <code>normal</code>, or <code>low</code>.
+      </td>
+    </tr>
+    <tr>
+      <td>Ticket custom fields</td>
+      <td>
+        Includes data of ticket custom field(s).
       </td>
     </tr>
   </tbody>
 </table>
 
-Click here for a full list of [ticket output](/connectors/zendesk/ticket-output.md).
+Click here for a full list of [ticket output](/connectors/zendesk/ticket-fields.md#ticket-output-fields).

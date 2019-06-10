@@ -3,12 +3,12 @@ title: Workato connectors - Zendesk get ticket details by ID action
 date: 2019-05-30 18:00:00 Z
 ---
 
-# Zendesk - Get ticket details by ID action
+# Zendesk - Get ticket details by ID actiom
 
-This action retrieves a specific ticket your Zendesk instance that matches a search by ticket ID. Only results that matches the criteria will be returned.
+This action retrieves a specific ticket your Zendesk instance that matches a search by ticket ID. Only records that matches the criteria will be returned.
 
-![Get ticket details by ID](/assets/images/connectors/zendesk/get-ticket-details-by-id.png)
-*Get ticket details by ID*
+![Get ticket details by ID action](/assets/images/connectors/zendesk/get-ticket-details-by-id.png)
+*Get ticket details by ID action*
 
 ### Input fields
 
@@ -31,7 +31,7 @@ This action retrieves a specific ticket your Zendesk instance that matches a sea
 
 #### Output fields
 
-The output of this action contains the full set of columns from the ticket. Custom outputs are generated for custom ticket forms.
+The output of this action contains the full set of columns from the selected ticket. Here are some of the commonly used outputs.
 
 <table class="unchanged rich-diff-level-one">
   <thead>
@@ -56,22 +56,22 @@ The output of this action contains the full set of columns from the ticket. Cust
     <tr>
       <td>Type</td>
       <td>
-        The type of the ticket. Allowed values are <code>problem</code>, <code>incident</code>, <code>question</code>, or <code>task</code>.
+        The type of the ticket. Permitted values are <code>problem</code>, <code>incident</code>, <code>question</code>, or <code>task</code>.
       </td>
     </tr>
     <tr>
       <td>Priority</td>
       <td>
-        The priority of the ticket. Allowed values are <code>urgent</code>, <code>high</code>, <code>normal</code>, or <code>low</code>.
+        The priority of the ticket. Permitted values are <code>urgent</code>, <code>high</code>, <code>normal</code>, or <code>low</code>.
       </td>
     </tr>
     <tr>
       <td>Ticket custom fields</td>
       <td>
-        Includes data of custom ticket fields created.
+        Includes data of ticket custom fields.
       </td>
     </tr>
   </tbody>
 </table>
 
-Click here for a full list of [ticket output](/connectors/zendesk/ticket-output.md#ticket-output).
+Click here for a full list of [ticket output](/connectors/zendesk/ticket-fields.md#ticket-output-fields).

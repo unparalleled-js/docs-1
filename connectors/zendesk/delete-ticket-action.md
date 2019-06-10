@@ -14,7 +14,6 @@ For this action to run successfully, the recipe has to find an existing ticket i
 
 ### Input fields
 
-
 <table class="unchanged rich-diff-level-one">
   <thead>
     <tr>

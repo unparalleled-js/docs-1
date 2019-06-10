@@ -49,11 +49,11 @@ Here are some of the commonly used inputs.
   </tbody>
 </table>
 
-Click here for more information about [user input](/connectors/zendesk/user-field.md#user-input-fields).
+Click here for more information about [user input](/connectors/zendesk/user-fields.md#user-input-fields).
 
 ### Output fields
 
-The output of this action contains the full set of columns from the selected organization. Here are some of the commonly used outputs.
+The output of this action contains the full set of columns from the selected user. Here are some of the commonly used outputs.
 
 <table class="unchanged rich-diff-level-one">
   <thead>

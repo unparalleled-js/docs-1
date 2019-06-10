@@ -23,37 +23,37 @@ Here are some of the commonly used inputs.
   </thead>
   <tbody>
     <tr>
+      <td> Organization ID</td>
+      <td>
+        The unique Zendesk organization ID.
+      </td>
+    </tr> 
+    <tr>
       <td>Name</td>
       <td>
-        The name of the user.
+        The name of the organization.
       </td>
     </tr>
     <tr>
-      <td>Role</td>
+      <td>External ID</td>
       <td>
-        The user's role. Permitted values are <code>End-user</code>, <code>Agent</code>, or <code>Administrator</code>.
+        A unique identifier from another system.
       </td>
     </tr>
-    <tr>
-      <td>Email</td>
+     <tr>
+      <td>Organization custom fields</td>
       <td>
-        Mandatory if the user's role is designated as <code>Agent</code>. The primary email of the user.
-      </td>
-    </tr>
-    <tr>
-      <td>User custom fields</td>
-      <td>
-        Provide data for the user custom field(s).
+        Provide data for the organization custom field(s).
       </td>
     </tr>
   </tbody>
 </table>
 
-Click here for more information about [user input](/connectors/zendesk/user-field.md#user-input-fields).
+Click here for more information about [organization input](/connectors/zendesk/organization-fields.md#organization-input-fields).
 
 ### Output fields
 
-The output of this action contains the full set of columns from the selected user. Here are some of the commonly used outputs.
+The output of this action contains the full set of columns from the selected organization. Here are some of the commonly used outputs.
 
 <table class="unchanged rich-diff-level-one">
   <thead>

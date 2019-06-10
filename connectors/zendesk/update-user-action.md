@@ -25,6 +25,12 @@ Here are some of the commonly used inputs.
   </thead>
   <tbody>
     <tr>
+      <td>User ID</td>
+      <td>
+        The unique Zendesk user ID.
+      </td>
+    </tr>
+    <tr>
       <td>Name</td>
       <td>
         The name of the user.
@@ -37,9 +43,9 @@ Here are some of the commonly used inputs.
       </td>
     </tr>
     <tr>
-      <td>Email</td>
+      <td>External ID</td>
       <td>
-        Mandatory if the user's role is designated as <code>Agent</code>. The primary email of the user.
+        A unique identifier from another system.
       </td>
     </tr>
     <tr>
@@ -51,7 +57,7 @@ Here are some of the commonly used inputs.
   </tbody>
 </table>
 
-Click here for more information about [user input](/connectors/zendesk/user-field.md#user-input-fields).
+Click here for more information about [user input](/connectors/zendesk/user-fields.md#user-input-fields).
 
 ### Output fields
 

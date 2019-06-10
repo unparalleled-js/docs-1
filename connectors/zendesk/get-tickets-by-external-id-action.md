@@ -5,7 +5,7 @@ date: 2019-05-30 18:00:00 Z
 
 # Zendesk - Get list of tickets by external ID action
 
-This action retrieves a list of all ticket in your Zendesk instance that matches a search by external ID. Only results that matches all the criteria will be returned
+This action retrieves a list of tickets that matches a search by external ID. Only records in your Zendesk instance that matches all the criteria will be returned
 
 ![Get list of tickets by external ID action](/assets/images/connectors/zendesk/get-ticket-external-id.png)
 *Get list of tickets by external ID action*
@@ -23,7 +23,7 @@ This action retrieves a list of all ticket in your Zendesk instance that matches
     <tr>
       <td>External ID</a></td>
       <td>
-        The ticket's external ID. You can combine multiple external IDs into a single query with a <code>,</code> separator.
+        The ticket's external ID. You can combine multiple external IDs with a <code>,</code> separator.
       </td>
     </tr>
   </tbody>
@@ -31,7 +31,7 @@ This action retrieves a list of all ticket in your Zendesk instance that matches
 
 #### Output fields
 
-The output of this action contains the full set of columns from the list of tickets. Custom outputs are generated for custom ticket forms.
+The output of this action contains the full set of columns from the list of tickets. Here are some of the commonly used outputs.
 
 <table class="unchanged rich-diff-level-one">
   <thead>
@@ -56,22 +56,28 @@ The output of this action contains the full set of columns from the list of tick
     <tr>
       <td>Type</td>
       <td>
-        The type of the ticket. Allowed values are <code>problem</code>, <code>incident</code>, <code>question</code>, or <code>task</code>.
+        The type of the ticket. Permitted values are <code>problem</code>, <code>incident</code>, <code>question</code>, or <code>task</code>.
       </td>
     </tr>
     <tr>
       <td>Priority</td>
       <td>
-        The priority of the ticket. Allowed values are <code>urgent</code>, <code>high</code>, <code>normal</code>, or <code>low</code>.
+        The priority of the ticket. Permitted values are <code>urgent</code>, <code>high</code>, <code>normal</code>, or <code>low</code>.
       </td>
     </tr>
     <tr>
       <td>Ticket custom fields</td>
       <td>
-        Includes data of custom ticket fields created.
+        Includes data of ticket custom fields.
+      </td>
+    </tr>
+    <tr>
+      <td>List size</td>
+      <td>
+        This is the size of the list, corresponding to the number of tickets retrieved.
       </td>
     </tr>
   </tbody>
 </table>
 
-Click here for a full list of [ticket output](/connectors/zendesk/ticket-output.md#ticket-output).
+Click here for a full list of [ticket output](/connectors/zendesk/ticket-fields.md#ticket-output-fields).

@@ -13,7 +13,7 @@ To register a new user into your Zendesk instance, you are required to fill up c
 
 ### User default input fields
 
-Zendesk's out-of-the-box user fields gathers basic information. At default, only "name" is configure as mandatory.
+Zendesk's out-of-the-box user fields gathers basic information. At default, only "name" is configured as mandatory.
 
 <table class="unchanged rich-diff-level-one">
   <thead>

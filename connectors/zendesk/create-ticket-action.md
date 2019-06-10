@@ -12,6 +12,8 @@ This action creates a single ticket into your Zendesk instance.
 
 ### Input fields
 
+Here are some of the commonly used inputs.
+
 <table class="unchanged rich-diff-level-one">
   <thead>
     <tr>
@@ -21,17 +23,15 @@ This action creates a single ticket into your Zendesk instance.
   </thead>
   <tbody>
     <tr>
-      <td>\\\\Ticket form</a></td>
+      <td>Ticket form</a></td>
       <td>
-        Selecting a ticket form will retrieve the corresponding form's custom fields. You can leave this field blank to use the default ticket form<br>
-        <br>
-        Mandatory????
+        Select a ticket form to open preconfigured custom fields.
       </td>
     </tr>
     <tr>
       <td>Comment</a></td>
       <td>
-        A description of the ticket. When creating a ticket, the first comment is <b>mandatory</b> and is set as the ticket description.
+        A description of the ticket.
       </td>
     </tr>
     <tr>
@@ -43,19 +43,19 @@ This action creates a single ticket into your Zendesk instance.
     <tr>
       <td>Type</td>
       <td>
-        The type of the ticket. Allowed values are <code>problem</code>, <code>incident</code>, <code>question</code>, or <code>task</code>.
+        The type of the ticket. Permitted values are <code>problem</code>, <code>incident</code>, <code>question</code>, or <code>task</code>.
       </td>
     </tr>
     <tr>
       <td>Priority</td>
       <td>
-        The priority of the ticket. Allowed values are <code>urgent</code>, <code>high</code>, <code>normal</code>, or <code>low</code>.
+        The priority of the ticket. Permitted values are <code>urgent</code>, <code>high</code>, <code>normal</code>, or <code>low</code>.
       </td>
     </tr>
     <tr>
       <td>Status</td>
       <td>
-        The status of the ticket. Allowed values are <code>open</code>, <code>pending</code>, <code>hold</code>, <code>solved</code>, or <code>closed</code>.
+        The status of the ticket. Permitted values are <code>open</code>, <code>pending</code>, <code>hold</code>, <code>solved</code>, or <code>closed</code>.
       </td>
     </tr>
     <tr>
@@ -65,19 +65,19 @@ This action creates a single ticket into your Zendesk instance.
       </td>
     </tr>
     <tr>
-      <td>Ticket form custom fields</td>
+      <td>Ticket custom fields</td>
       <td>
-        Selecting certain ticket forms will open different custom fields by default. For example, if your organization creates a custom "Product Inquiry" form, it may have a mandatory custom field <code>Product ID</code>. <br>
-        <br>
-        Custom fields can be any ticket field type. For more information on Zendesk's ticket field types, <a href="/connectors/zendesk/ticket-output.md#ticket-input">click here</a>.
+        Provide data for the ticket custom field(s).
       </td>
     </tr>
   </tbody>
 </table>
 
-#### Output fields
+Click here for more information about [ticket input](/connectors/zendesk/ticket-fields.md#ticket-input-fields).
 
-The output of this action contains the full set of columns from the selected ticket. Custom outputs are generated for custom ticket forms.
+### Output fields
+
+The output of this action contains the full set of columns from the selected ticket. Here are some of the commonly used outputs.
 
 <table class="unchanged rich-diff-level-one">
   <thead>
@@ -102,22 +102,22 @@ The output of this action contains the full set of columns from the selected tic
     <tr>
       <td>Type</td>
       <td>
-        The type of the ticket. Allowed values are <code>problem</code>, <code>incident</code>, <code>question</code>, or <code>task</code>.
+        The type of the ticket. Permitted values are <code>problem</code>, <code>incident</code>, <code>question</code>, or <code>task</code>.
       </td>
     </tr>
     <tr>
       <td>Priority</td>
       <td>
-        The priority of the ticket. Allowed values are <code>urgent</code>, <code>high</code>, <code>normal</code>, or <code>low</code>.
+        The priority of the ticket. Permitted values are <code>urgent</code>, <code>high</code>, <code>normal</code>, or <code>low</code>.
       </td>
     </tr>
     <tr>
       <td>Ticket custom fields</td>
       <td>
-        Includes data of custom ticket fields created.
+        Includes data of ticket custom fields.
       </td>
     </tr>
   </tbody>
 </table>
 
-Click here for a full list of [ticket output](/connectors/zendesk/ticket-output.md#ticket-output).
+Click here for a full list of [ticket output](/connectors/zendesk/ticket-fields.md#ticket-output-fields).
