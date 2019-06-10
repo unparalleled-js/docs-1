@@ -37,7 +37,7 @@ This action connects an existing user to an existing organization. Both the user
   </tbody>
 </table>
 
-#### Output fields
+### Output fields
 
 <table class="unchanged rich-diff-level-one">
   <thead>
@@ -62,7 +62,7 @@ This action connects an existing user to an existing organization. Both the user
     <tr>
       <td>ID</td>
       <td>
-        Unique Zendesk organisation membership ID. This is automatically assigned when the organization membership is created.
+        Unique Zendesk organization membership ID. This is automatically assigned when the organization membership is created.
       </td>
     </tr>  
     <tr>
@@ -74,7 +74,7 @@ This action connects an existing user to an existing organization. Both the user
     <tr>
       <td>Default</td>
       <td>
-        Is <code>True</code> if this is the default organization membership for the user, otherwise it will display <code>False</code> or  <code>null</code>.
+        Is <code>True</code> if this is the default organization membership for the user, otherwise it will display <code>False</code>.
       </td>
     </tr>
     <tr>

@@ -5,9 +5,9 @@ date: 2019-06-06 18:00:00 Z
 
 # Zendesk - Get relationship record action
 
-Zendesk allows you to configure custom objects to model, store, and retrieve objects that are not native to Zendesk (e.g. Tickets, Users, Organization). You can also configure custom relationships to define how objects are associated. Find out more about [here](/connectors/zendesk/custom objects.md).
+Zendesk allows you to configure custom objects to model, store, and retrieve objects that are not native to Zendesk (e.g. Tickets, Users, Organization). You can also configure custom relationships to define how objects are associated. Find out more about [here](/connectors/zendesk/custom-objects.md).
 
-This action will retrieve the relationship record(s) of a specified relationship type for a specified object record. It will retrieve the relationship record whose `Source` matches the object record specified in your search. Only results that matches the criteria will be returned.
+This action will retrieve the relationship records of a specified relationship type for a specified `source` object record. Only records that matches the criteria will be returned.
 
 ![Get relationship record action](/assets/images/connectors/zendesk/get-relationship-record-action.png)
 *Get relationship record action*
@@ -31,7 +31,7 @@ This action will retrieve the relationship record(s) of a specified relationship
     <tr>
       <td><kbd>Source object</kbd> ID</a></td>
       <td>
-        The unique Zendesk ID for the object record of the source.
+        The unique Zendesk ID of the source object.
       </td>
     </tr>
   </tbody>

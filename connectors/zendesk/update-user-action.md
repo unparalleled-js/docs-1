@@ -5,9 +5,9 @@ date: 2019-06-03 18:00:00 Z
 
 # Zendesk - Update user action
 
-This action updates a specific user your Zendesk instance. The user is identified by its Zendesk ID. You can update standard and custom fields, and add new comments to the user. The action will fail if the user cannot be found.
+This action updates a specific user your Zendesk instance. The user is identified by its Zendesk ID. You can update standard and custom fields, and add new comments.
 
-It is possible to change the role of an user between `End-user`, `Agent` and `Administrator`, but this will affect your Zendesk user licenses.
+It is possible to change the role of a user between `End-user`, `Agent` and `Administrator`, but this may affect your Zendesk user license.
 
 ![Update user action](/assets/images/connectors/zendesk/update-user-action.png)
 *Update user action*
@@ -39,7 +39,7 @@ Here are some of the commonly used inputs.
     <tr>
       <td>Role</td>
       <td>
-        The user's role. Permitted values are <code>End-user</code>, <code>Agent</code>, or <code>Administrator</code>.
+        The role of the user. Permitted values are <code>End-user</code>, <code>Agent</code>, or <code>Administrator</code>.
       </td>
     </tr>
     <tr>
@@ -57,7 +57,7 @@ Here are some of the commonly used inputs.
   </tbody>
 </table>
 
-Click here for more information about [user input](/connectors/zendesk/user-fields.md#user-input-fields).
+Click here for a full list of [user inputs](/connectors/zendesk/user-fields.md#user-input-fields).
 
 ### Output fields
 
@@ -98,10 +98,10 @@ The output of this action contains the full set of columns from the selected use
     <tr>
       <td>User custom fields</td>
       <td>
-        Includes data of user custom fields.
+        Includes data of user custom field(s).
       </td>
     </tr>
   </tbody>
 </table>
 
-Click here for a full list of [user output](/connectors/zendesk/user-fields.md#user-output-fields).
+Click here for a full list of [user outputs](/connectors/zendesk/user-fields.md#user-output-fields).

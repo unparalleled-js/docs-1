@@ -35,7 +35,7 @@ This action creates a single organization into your Zendesk instance.
     <tr>
       <td>Domain name</td>
       <td>
-        The domain names associated with this organization.
+        The domain name associated with this organization.
       </td>
     </tr>
     <tr>
@@ -59,19 +59,19 @@ This action creates a single organization into your Zendesk instance.
     <tr>
       <td>Shared tickets</td>
       <td>
-        Select <code>Yes</code> if the end user in this organization are able to see each other's tickets, otherwise select <code>No</code>.
+        Select <code>Yes</code> if the end-users in this organization are able to see each other's tickets, otherwise select <code>No</code>.
       </td>
     </tr>
     <tr>
       <td>Shared comments</td>
       <td>
-        Select <code>Yes</code> if the end user in this organization are able to see each other's comments on tickets, otherwise select <code>No</code>.
+        Select <code>Yes</code> if the end-users in this organization are able to see each other's comments on tickets, otherwise select <code>No</code>.
       </td>
     </tr>
     <tr>
       <td>Tags</td>
       <td>
-        The tags applied to this organization. You can combine multiple tags with the <code>,</code> separator.
+        The tags applied to this organization. You can add multiple tags with the <code>,</code> separator.
       </td>
     </tr>
     <tr>
@@ -83,9 +83,9 @@ This action creates a single organization into your Zendesk instance.
   </tbody>
 </table>
 
-Click here for more information about [organization input](/connectors/zendesk/organization-fields.md#organization-input-fields).
+Click here for a full list of [organization inputs](/connectors/zendesk/organization-fields.md#organization-input-fields).
 
-#### Output fields
+### Output fields
 
 The output of this trigger contains the full set of columns from the selected organization. Here are some of the commonly used outputs.
 
@@ -106,16 +106,16 @@ The output of this trigger contains the full set of columns from the selected or
     <tr>
       <td>Group ID</td>
       <td>
-        The group(s) that this organization is part of.
+        The group that this organization is part of.
       </td>
     </tr>
     <tr>
       <td>Organization custom fields</td>
       <td>
-        Includes data of organization custom fields.
+        Includes data of organization custom field(s).
       </td>
     </tr>
   </tbody>
 </table>
 
-Click here for a full list of [organization output](/connectors/zendesk/organization-fields.md#organization-output-fields).
+Click here for a full list of [organization outputs](/connectors/zendesk/organization-fields.md#organization-output-fields).

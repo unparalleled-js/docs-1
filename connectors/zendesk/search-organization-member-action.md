@@ -7,7 +7,7 @@ date: 2019-06-03 18:00:00 Z
 
 A membership links a user to an organization - An organization can have many users, and a users can be in many organizations.
 
-This action retrieves a list of all members in a specified organization. It will retrieve users that matches all your search criteria.
+This action retrieves a list of all members in a specified organization. Only records in your Zendesk instance that matches all the criteria will be returned.
 
 ![Search organization member action](/assets/images/connectors/zendesk/search-organization-member-action.png)
 *Search organization member action*
@@ -45,7 +45,7 @@ This action retrieves a list of all members in a specified organization. It will
 
 #### Output fields
 
-The output of this trigger contains the full set of columns from the list of members. All default and custom columns are supported. Here are some of the commonly used outputs.
+The output of this action contains the full set of columns from the list of members. All default and custom columns are supported. Here are some of the commonly used outputs.
 
 <table class="unchanged rich-diff-level-one">
   <thead>
@@ -82,7 +82,7 @@ The output of this trigger contains the full set of columns from the list of mem
     <tr>
       <td>User custom fields</td>
       <td>
-        Includes data of user custom fields.
+        Includes data of user custom field(s).
       </td>
     </tr>
     <tr>
@@ -94,4 +94,4 @@ The output of this trigger contains the full set of columns from the list of mem
   </tbody>
 </table>
 
-Click here for a full list of [user output](/connectors/zendesk/user-fields.md#user-output-fields).
+Click here for a full list of [user outputs](/connectors/zendesk/user-fields.md#user-output-fields).

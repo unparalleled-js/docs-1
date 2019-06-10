@@ -68,10 +68,10 @@ The output of this action contains the full set of columns from the selected use
     <tr>
       <td>User custom fields</td>
       <td>
-        Includes data of user custom fields.
+        Includes data of user custom field(s).
       </td>
     </tr>
   </tbody>
 </table>
 
-Click here for a full list of [user output](/connectors/zendesk/user-fields.md#user-output-fields).
+Click here for a full list of [user outputs](/connectors/zendesk/user-fields.md#user-output-fields).

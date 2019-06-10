@@ -7,8 +7,7 @@ date: 2019-05-30 18:00:00 Z
 
 This action updates a specific ticket your Zendesk instance and sets the ticket's status to `solved`. The ticket is identified by its Zendesk ID.
 
-Some ticket fields put constraints on a ticket's status. For example, Zendesk 
-requires a non-`null` input for **assignee** and **group**, before setting a ticket to `solved`. Check that you have satisfied all default and custom preconditions before making this action.
+Some ticket fields put constraints on a ticket's status. For example, Zendesk requires a non-`null` input for **assignee** and **group**, before allowing a ticket to be `solved`. Check that you have satisfied all default and custom preconditions before making this action.
 
 ![Solve ticket action](/assets/images/connectors/zendesk/solve-ticket-action.png)
 *solve ticket action*
@@ -31,11 +30,11 @@ requires a non-`null` input for **assignee** and **group**, before setting a tic
       </td>
     </tr>
     <tr>
-      <td>Ticket form custom fields</td>
+      <td>Ticket form</td>
       <td>
-        Select a ticket form to open required fields for that preconfigured ticket form.
+        Select a ticket form to open <b>required</b> fields for that preconfigured ticket form.
       </td>
-    </tr> 
+    </tr>
     <tr>
       <td>Ticket custom fields</td>
       <td>
@@ -84,10 +83,10 @@ The output of this action contains the full set of columns from the selected tic
     <tr>
       <td>Ticket custom fields</td>
       <td>
-        Includes data of ticket custom fields.
+        Includes data of ticket custom field(s).
       </td>
     </tr>
   </tbody>
 </table>
 
-Click here for a full list of [ticket output](/connectors/zendesk/ticket-fields.md#ticket-output-fields).
+Click here for a full list of [ticket outputs](/connectors/zendesk/ticket-fields.md#ticket-output-fields).

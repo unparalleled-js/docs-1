@@ -23,13 +23,13 @@ This action retrieves a list of tickets that matches a search by external ID. On
     <tr>
       <td>External ID</a></td>
       <td>
-        The ticket's external ID. You can query multiple external IDs with the <code>,</code> separator.
+        The external ID of the ticket(s). You can query multiple external IDs with the <code>,</code> separator.
       </td>
     </tr>
   </tbody>
 </table>
 
-#### Output fields
+### Output fields
 
 The output of this action contains the full set of columns from the list of tickets. Here are some of the commonly used outputs.
 
@@ -68,7 +68,7 @@ The output of this action contains the full set of columns from the list of tick
     <tr>
       <td>Ticket custom fields</td>
       <td>
-        Includes data of ticket custom fields.
+        Includes data of ticket custom field(s).
       </td>
     </tr>
     <tr>
@@ -80,4 +80,4 @@ The output of this action contains the full set of columns from the list of tick
   </tbody>
 </table>
 
-Click here for a full list of [ticket output](/connectors/zendesk/ticket-fields.md#ticket-output-fields).
+Click here for a full list of [ticket outputs](/connectors/zendesk/ticket-fields.md#ticket-output-fields).

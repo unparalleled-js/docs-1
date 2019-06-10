@@ -5,9 +5,9 @@ date: 2019-06-06 18:00:00 Z
 
 # Zendesk - Get list of custom object records by external id action
 
-Zendesk allows you to configure custom objects to model, store, and retrieve objects that are not native to Zendesk (e.g. Tickets, Users, Organization).  Find out more about [here](/connectors/zendesk/custom-objects.md)
+Zendesk allows you to configure custom objects to model, store, and retrieve objects that are not native to Zendesk (e.g. Tickets, Users, Organization).  Find out more [here](/connectors/zendesk/custom-objects.md).
 
-This action retrieves a list of custom object records that matches a search by external ID. Only results in your Zendesk instance that matches all the criteria will be returned.
+This action retrieves a list of custom object records that matches a search by external ID. Only results in your Zendesk instance that matches the criteria will be returned.
 
 ![Get list of organization by external ID action](/assets/images/connectors/zendesk/get-custom-object-records-by-external-id.png)
 *Get list of custom object records by external ID action*
@@ -31,7 +31,7 @@ This action retrieves a list of custom object records that matches a search by e
     <tr>
       <td>External ID</a></td>
       <td>
-        The organization's external ID. You can query multiple external IDs with a <code>,</code> separator.
+        The external ID of the organization(s). You can query multiple external IDs with a <code>,</code> separator.
       </td>
     </tr>
   </tbody>
@@ -39,7 +39,7 @@ This action retrieves a list of custom object records that matches a search by e
 
 ### Output fields
 
-The output of this trigger contains the full set of columns from the selected custom object type. 
+The output of this action contains the full set of columns from the selected custom object type.
 
 <table class="unchanged rich-diff-level-one">
   <thead>
@@ -79,9 +79,9 @@ The output of this trigger contains the full set of columns from the selected cu
       </td>
     </tr>
     <tr>
-      <td>Custom object custom fields</td>
+      <td>Attributes</td>
       <td>
-        Includes data of custom object custom fields.
+        Includes data of custom object custom field(s).
       </td>
     </tr>
   </tbody>

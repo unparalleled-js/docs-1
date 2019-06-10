@@ -5,9 +5,9 @@ date: 2019-05-30 18:00:00 Z
 
 # Zendesk - List user identities action
 
-This action selects a specific user and returns a list of user identities. It retrieves the user through a search by user ID. Only records in your Zendesk instance that matches all the criteria will be returned.
-
 A user identity is something that can be used to identify an individual. For example, an email address or a phone number.
+
+This action selects a specific user and returns a list of user identities. It retrieves the user through a search by user ID. Only records in your Zendesk instance that matches the criteria will be returned.
 
 ![List user identities action](/assets/images/connectors/zendesk/list-user-identities-action.png)
 *List user identities action*
@@ -31,7 +31,7 @@ A user identity is something that can be used to identify an individual. For exa
   </tbody>
 </table>
 
-#### Output fields
+### Output fields
 
 The output of this action contains the full set of user identities from the selected user.
 
@@ -64,7 +64,7 @@ The output of this action contains the full set of user identities from the sele
     <tr>
       <td>Value</td>
       <td>
-        The data of the user identity. It is stored as a <code>string</code>.
+        The actual data of the user identity. It is stored as a <code>string</code>.
       </td>
     </tr>
     <tr>

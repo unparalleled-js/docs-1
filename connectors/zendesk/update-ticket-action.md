@@ -5,7 +5,7 @@ date: 2019-05-30 18:00:00 Z
 
 # Zendesk - Update ticket action
 
-This action updates a specific ticket your Zendesk instance. The ticket to edit is identified by its Zendesk ID. You can update ticket fields and add new comments to a ticket.
+This action updates a specific ticket in your Zendesk instance identified by its Zendesk ID. You can update ticket fields and add new comments.
 
 ![Update ticket action](/assets/images/connectors/zendesk/update-ticket-action.png)
 *Update ticket action*
@@ -57,7 +57,7 @@ Here are some of the commonly used inputs.
     <tr>
       <td>Tags</td>
       <td>
-        Words and combination of words that add more context to the tickets.  
+        The tags applied to this ticket. You can add multiple tags with the <code>,</code> separator.
       </td>
     </tr>
     <tr>
@@ -69,7 +69,7 @@ Here are some of the commonly used inputs.
   </tbody>
 </table>
 
-Click here for more information about [ticket input](/connectors/zendesk/ticket-fields.md#ticket-input-fields).
+Click here for a full list of [ticket inputs](/connectors/zendesk/ticket-fields.md#ticket-input-fields).
 
 ### Output fields
 
@@ -116,11 +116,11 @@ The output of this action contains the full set of columns from the selected tic
   </tbody>
 </table>
 
-Click here for a full list of [ticket output](/connectors/zendesk/ticket-fields.md#ticket-output-fields).
+Click here for a full list of [ticket outputs](/connectors/zendesk/ticket-fields.md#ticket-output-fields).
 
 ## Bulk update tickets action
 
-This action updates multiple tickets in your Zendesk instance. The ickets are identified their Zendesk ticket ID. You can update ticket fields and add new comments to the tickets.
+This action updates multiple tickets in your Zendesk instance. The tickets are identified by their Zendesk ticket ID. You can update ticket fields and add new comments.
 
 ![Bulk update tickets action](/assets/images/connectors/zendesk/bulk-update-tickets-action.png)
 *Bulk update tickets action*
@@ -166,13 +166,13 @@ Here are some of the commonly used inputs.
       <td>
         The status of the ticket. Allowed values are <code>open</code>, <code>pending</code>, <code>hold</code>, <code>solved</code>, or <code>closed</code>.<br>
         <br>
-        Some ticket standard and custom field put constraints on the a ticket's status. For example, Zendesk requires that you allocate an <b>assignee</b> and <b>group</b> to the ticket before setting a ticket to <code>solved</code>. Check that you have satisfied all preconditions before making a <code>solved</code> action.
+        Some ticket fields put constraints on the a ticket's status. Check that you have satisfied all preconditions before making a <code>solved</code> action.
       </td>
     </tr>
     <tr>
       <td>Tags</td>
       <td>
-        Words and combination of words that add more context to the tickets.  
+        The tags applied to this ticket. You can add multiple tags with the <code>,</code> separator.
       </td>
     </tr>
     <tr>
@@ -184,12 +184,11 @@ Here are some of the commonly used inputs.
   </tbody>
 </table>
 
-Click here for more information about [ticket input](/connectors/zendesk/ticket-fields.md#ticket-input-fields).
+Click here a full list of [ticket inputs](/connectors/zendesk/ticket-fields.md#ticket-input-fields).
 
 ### Output fields
 
-The output of this action contains a job status of the bulk update action. 
-Zendesk produces this status record and you can temporarily access the job status data, after which the data is no longer available. You can use this job status data as inputs in your recipe. 
+The output of this action is a status record of the bulk update action. You can use this status record as inputs in your recipe.
 
 <table class="unchanged rich-diff-level-one">
   <thead>

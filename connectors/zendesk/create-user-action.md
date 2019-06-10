@@ -5,7 +5,7 @@ date: 2019-06-03 18:00:00 Z
 
 # Zendesk - Create user action
 
-This action creates a single user into your Zendesk instance. 
+This action creates a single user into your Zendesk instance.
 
 ![Create user action](/assets/images/connectors/zendesk/create-user-action.png)
 *Create user action*
@@ -49,7 +49,7 @@ Here are some of the commonly used inputs.
   </tbody>
 </table>
 
-Click here for more information about [user input](/connectors/zendesk/user-fields.md#user-input-fields).
+Click here for a full list of [user inputs](/connectors/zendesk/user-fields.md#user-input-fields).
 
 ### Output fields
 
@@ -96,4 +96,4 @@ The output of this action contains the full set of columns from the selected use
   </tbody>
 </table>
 
-Click here for a full list of [user output](/connectors/zendesk/user-fields.md#user-output-fields).
+Click here for a full list of [user outputs](/connectors/zendesk/user-fields.md#user-output-fields).

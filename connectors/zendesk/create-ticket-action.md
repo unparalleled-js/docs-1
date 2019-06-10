@@ -61,7 +61,7 @@ Here are some of the commonly used inputs.
     <tr>
       <td>Tags</td>
       <td>
-        Words and combination of words that add more context to the tickets.  
+        The tags applied to this ticket. You can add multiple tags with the <code>,</code> separator.  
       </td>
     </tr>
     <tr>
@@ -73,7 +73,7 @@ Here are some of the commonly used inputs.
   </tbody>
 </table>
 
-Click here for more information about [ticket input](/connectors/zendesk/ticket-fields.md#ticket-input-fields).
+Click here a full list of [ticket inputs](/connectors/zendesk/ticket-fields.md#ticket-input-fields).
 
 ### Output fields
 
@@ -114,10 +114,10 @@ The output of this action contains the full set of columns from the selected tic
     <tr>
       <td>Ticket custom fields</td>
       <td>
-        Includes data of ticket custom fields.
+        Includes data of ticket custom field(s).
       </td>
     </tr>
   </tbody>
 </table>
 
-Click here for a full list of [ticket output](/connectors/zendesk/ticket-fields.md#ticket-output-fields).
+Click here for a full list of [ticket outputs](/connectors/zendesk/ticket-fields.md#ticket-output-fields).

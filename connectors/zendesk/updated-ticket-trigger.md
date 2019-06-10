@@ -7,7 +7,7 @@ data: 2019-05-28 18:00:00 Z
 
 This trigger picks up tickets as soon they are created or updated. Each ticket is processed as a separate job. It makes use of business rules to detect and trigger a new or updated ticket event to be processed.
 
-Fetches tickets as soon as they're created or updated. This trigger automatically creates a Zendesk trigger that can be found in your Zendesk account under **Admin** > **Business rules** > **Triggers**.
+This trigger automatically creates a Zendesk trigger that can be found in your Zendesk account under **Admin** > **Business rules** > **Triggers**.
 
 ![New/updated ticket trigger](/assets/images/connectors/zendesk/updated-ticket-trigger.png)
 *New/updated ticket trigger*
@@ -76,4 +76,4 @@ The output of this action contains the full set of columns from the selected tic
   </tbody>
 </table>
 
-Click here for a full list of [ticket output](/connectors/zendesk/ticket-fields.md#ticket-output-fields).
+Click here for a full list of [ticket outputs](/connectors/zendesk/ticket-fields.md#ticket-output-fields).

@@ -5,9 +5,9 @@ date: 2019-06-06 18:00:00 Z
 
 # Zendesk - Delete relationship record by ID action
 
-Zendesk allows you to configure custom objects to model, store, and retrieve objects that are not native to Zendesk (e.g. Tickets, Users, Organization). You can also configure custom relationships to define how objects are associated. Find out more about [here](/connectors/zendesk/custom objects.md).
+Zendesk allows you to configure custom objects to model, store, and retrieve objects that are not native to Zendesk (e.g. Tickets, Users, Organization). You can also configure custom relationships to define how objects are associated. Find out more [here](/connectors/zendesk/custom-objects.md).
 
-This action selects a specific relationship record by its Zendesk ticket ID and deletes the record from your Zendesk instance. For this action to run successfully, the recipe has to find an existing relationship record in your Zendesk instance. After the each job has been successfully completed, you cannot rerun the job again.
+This action selects a specific relationship record by its Zendesk ticket ID and deletes the record from your Zendesk instance. For this action to run successfully, the recipe has to find an existing relationship record in your Zendesk instance.
 
 ![Delete relationship record by ID action](/assets/images/connectors/zendesk/delete-relationship-record-by-id-action.png)
 *Delete relationship record by ID action*
@@ -33,4 +33,4 @@ This action selects a specific relationship record by its Zendesk ticket ID and 
 
 ### Output fields
 
-There is no output data for this action.
+There is no output for this action.

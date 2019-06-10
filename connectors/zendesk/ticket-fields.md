@@ -29,7 +29,7 @@ Zendesk's out-of-the-box tickets fields gathers basic information. At default, o
     <tr>
       <td>Ticket form</a></td>
       <td>
-        Select a custom ticket form. If you leave this field blank, you will fill up the default ticket form.
+        Select a custom ticket form for your ticket. This opens preconfigured custom fields.
       </td>
     </tr>
     <tr>
@@ -83,11 +83,11 @@ Zendesk's out-of-the-box tickets fields gathers basic information. At default, o
     <tr>
       <td>Assignee ID</td>
       <td>
-        The ID of the <code>Agent</code> to assigned to the ticket.
+        The ID of the <code>Agent</code> assigned to the ticket.
       </td>
     </tr>
     <tr>
-      <td>Organisation ID</td>
+      <td>Organization ID</td>
       <td>
         The ID of requester's organization.
       </td>
@@ -125,7 +125,7 @@ Zendesk's out-of-the-box tickets fields gathers basic information. At default, o
     <tr>
       <td>Tags</td>
       <td>
-        The tags applied to this ticket. You can combine multiple tags with the <code>,</code> separator.
+        The tags applied to this ticket. You can add multiple tags with the <code>,</code> separator.
       </td>
     </tr>
   </tbody>
@@ -133,9 +133,7 @@ Zendesk's out-of-the-box tickets fields gathers basic information. At default, o
 
 ### Ticket custom input field
 
-Aside from the preconfigured fields, Zendesk allows you to customize ticket fields to suit your business use-cases.
-
-Below is an example of custom ticket fields.
+Aside from the preconfigured fields, Zendesk allows you to customize ticket fields to suit your business use-cases. Below is an example of ticket custom fields.
 
 <table class="unchanged rich-diff-level-one">
   <thead>
@@ -241,11 +239,11 @@ Depending on the field configuration, some fields might have `null` or default v
     <tr>
       <td>Assignee ID</td>
       <td>
-        The ID of the <code>Agent</code> to assigned to the ticket.
+        The ID of the <code>Agent</code> assigned to the ticket.
       </td>
     </tr>
     <tr>
-      <td>Organisation ID</td>
+      <td>Organization ID</td>
       <td>
         The ID of the requester's organization.
       </td>
@@ -283,7 +281,7 @@ Depending on the field configuration, some fields might have `null` or default v
     <tr>
       <td>Tags</td>
       <td>
-        The tags applied to this ticket. You can combine multiple tags with the <code>,</code> separator.
+        The tags applied to this ticket. You can add multiple tags with the <code>,</code> separator.
       </td>
     </tr>
     <tr>
@@ -295,13 +293,13 @@ Depending on the field configuration, some fields might have `null` or default v
     <tr>
       <td>Ticket form ID</td>
       <td>
-        For Enterprise accounts only. The ID of the ticket form associated with this request if the form is visible to end users.
+        For Enterprise accounts only. The ID of the ticket form associated with this request.
       </td>
     </tr>
     <tr>
       <td>Via</td>
       <td>
-        This object explains how the ticket was created. For more information on the Via object, please see the Zendesk documentation on this <a href="https://developer.zendesk.com/rest_api/docs/support/ticket_audits.html#the-via-object">topic</a>.
+        This explains how the ticket was created. For more information on the Via object, please see the Zendesk documentation on this <a href="https://developer.zendesk.com/rest_api/docs/support/ticket_audits.html#the-via-object">topic</a>.
         <table>
           <body>
             <tr>
@@ -344,7 +342,7 @@ Depending on the field configuration, some fields might have `null` or default v
 
 ### Ticket custom output fields
 
-If you have configured a ticket custom field, you can retrieve the corresponding output. Below is an example of ticket custom output fields.
+If you have configured ticket custom fields, you can retrieve the corresponding output. Below is an example of ticket custom output fields.
 
 <table class="unchanged rich-diff-level-one">
   <thead>

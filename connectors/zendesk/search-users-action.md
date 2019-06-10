@@ -1,9 +1,9 @@
 ---
-title: Workato connectors - Zendesk search user action
+title: Workato connectors - Zendesk search users action
 date: 2019-06-03 18:00:00 Z
 ---
 
-# Zendesk - Search user action
+# Zendesk - Search users action
 
 This action retrieves a list of all users that matches your search criteria. Only records in your Zendesk instance that matches all the criteria will be returned.
 
@@ -25,7 +25,7 @@ This action retrieves a list of all users that matches your search criteria. Onl
       <td>
         The name of the user.
       </td>
-    </tr> 
+    </tr>
     <tr>
       <td>Email</td>
       <td>
@@ -41,13 +41,13 @@ This action retrieves a list of all users that matches your search criteria. Onl
     <tr>
       <td>External ID</td>
       <td>
-        A unique identifier from another system. 
+        A unique identifier from another system.
       </td>
     </tr>
     <tr>
       <td>Tags</td>
       <td>
-        The tags applied to this user. You can combine multiple tags with the <code>,</code> separator.
+        The tags applied to this user. You can query multiple tags with the <code>,</code> separator.
       </td>
     </tr>
     <tr>
@@ -61,7 +61,7 @@ This action retrieves a list of all users that matches your search criteria. Onl
 
 ### Output fields
 
-The output of this action contains the full set of columns from the selected user. Here are some of the commonly used outputs.
+The output of this action contains the full set of columns from the list of users. Here are some of the commonly used outputs.
 
 <table class="unchanged rich-diff-level-one">
   <thead>
@@ -98,7 +98,7 @@ The output of this action contains the full set of columns from the selected use
     <tr>
       <td>User custom fields</td>
       <td>
-        Includes data of user custom fields.
+        Includes data of user custom field(s).
       </td>
     </tr>
     <tr>
@@ -110,4 +110,4 @@ The output of this action contains the full set of columns from the selected use
   </tbody>
 </table>
 
-Click here for a full list of [user output](/connectors/zendesk/user-fields.md#user-output-fields).
+Click here for a full list of [user outputs](/connectors/zendesk/user-fields.md#user-output-fields).

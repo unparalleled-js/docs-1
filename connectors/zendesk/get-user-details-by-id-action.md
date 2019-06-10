@@ -5,7 +5,7 @@ date: 2019-06-03 18:00:00 Z
 
 # Zendesk - Get user details by ID action
 
-This action retrieves details about a specific user that matches a search by user ID. Only records in your Zendesk instance that matches all the criteria will be returned.
+This action retrieves details about a specific user that matches a search by user ID. Only records in your Zendesk instance that matches the criteria will be returned.
 
 ![Get user details by ID action](/assets/images/connectors/zendesk/get-user-by-id.png)
 *Get user details by ID action*
@@ -31,7 +31,7 @@ This action retrieves details about a specific user that matches a search by use
 
 ### Output fields
 
-The output of this trigger contains the full set of columns from the selected organization. Here are some of the commonly used outputs.
+The output of this action contains the full set of columns from the selected user. Here are some of the commonly used outputs.
 
 <table class="unchanged rich-diff-level-one">
   <thead>
@@ -68,10 +68,10 @@ The output of this trigger contains the full set of columns from the selected or
     <tr>
       <td>User custom fields</td>
       <td>
-        Includes data of user custom fields.
+        Includes data of user custom field(s).
       </td>
     </tr>
   </tbody>
 </table>
 
-Click here for a full list of [user output](/connectors/zendesk/user-fields.md#user-output-fields).
+Click here for a full list of [user outputs](/connectors/zendesk/user-fields.md#user-output-fields).

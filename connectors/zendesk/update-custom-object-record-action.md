@@ -5,9 +5,9 @@ date: 2019-06-06 18:00:00 Z
 
 # Zendesk - Update custom object record action
 
-Zendesk allows you to configure custom objects to model, store, and retrieve objects that are not native to Zendesk (e.g. Tickets, Users, Organization).  Find out more about [here](/connectors/zendesk/custom objects.md).
+Zendesk allows you to configure custom objects to model, store, and retrieve objects that are not native to Zendesk (e.g. Tickets, Users, Organization).  Find out more about [here](/connectors/zendesk/custom-objects.md).
 
-This action updates a specific custom object record in your Zendesk instance. The record to edit is identified by its Zendesk ID. The action will fail if the record cannot be found.
+This action updates a specific custom object record in your Zendesk instance. The record to edit is identified by its Zendesk ID.
 
 ![Update custom object record action](/assets/images/connectors/zendesk/update-custom-object-action.png)
 *Update custom object record action*
@@ -45,7 +45,7 @@ This action updates a specific custom object record in your Zendesk instance. Th
 
 ### Output fields
 
-The output of this trigger contains the full set of columns from the selected custom object type. 
+The output of this action contains the full set of columns from the selected custom object type.
 
 <table class="unchanged rich-diff-level-one">
   <thead>
@@ -69,7 +69,7 @@ The output of this trigger contains the full set of columns from the selected cu
     <tr>
       <td>External ID</td>
       <td>
-        A unique identifier from another system. 
+        A unique identifier from another system.
       </td>
     </tr>
     <tr>
@@ -85,9 +85,9 @@ The output of this trigger contains the full set of columns from the selected cu
       </td>
     </tr>
     <tr>
-      <td>Custom object custom fields</td>
+      <td>Attributes</td>
       <td>
-        Includes data of custom object custom fields.
+        Includes data of custom object custom field(s).
       </td>
     </tr>
   </tbody>

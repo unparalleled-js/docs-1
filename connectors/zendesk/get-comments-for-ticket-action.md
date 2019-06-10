@@ -5,7 +5,7 @@ date: 2019-05-30 18:00:00 Z
 
 # Zendesk - Get comments for ticket action
 
-This action retrieves a specific ticket your Zendesk instance that matches a search by ticket ID. Only results that matches the criteria will be returned
+This action retrieves a specific ticket that matches a search by ticket ID. Only results in your Zendesk instance that matches the criteria will be returned
 
 ![Get comments for ticket action](/assets/images/connectors/zendesk/get-comments-ticket.png)
 *Get comments for ticket action*
@@ -29,9 +29,9 @@ This action retrieves a specific ticket your Zendesk instance that matches a sea
   </tbody>
 </table>
 
-#### Output fields
+### Output fields
 
-The output of this action contains the full list of comments for this ticket, including the description (first comment).
+The output of this action contains the full list of comments for this ticket, including the **description** (first comment).
 
 <table class="unchanged rich-diff-level-one">
   <thead>
@@ -50,7 +50,7 @@ The output of this action contains the full list of comments for this ticket, in
     <tr>
       <td>Type</td>
       <td>
-        The type of ticket comment. Allowed values are <code>Comment</code>, <code>incident</code> or <code>VoiceComment</code>.
+        The type of ticket comment. Permitted values are <code>Comment</code>, <code>incident</code> or <code>VoiceComment</code>.
       </td>
     </tr>
     <tr>
@@ -74,17 +74,25 @@ The output of this action contains the full list of comments for this ticket, in
     <tr>
       <td>Date created</td>
       <td>
-        When this comment was created.
+        The time this comment was created.
       </td>
-      <tr>
-        <td>Author ID</td>
-        <td>
-          The ID of the author of the comment.
-        </td>
-        <tr>
+    </tr>
+    <tr>
+      <td>Author ID</td>
+      <td>
+        The ID of the author of the comment.
+      </td>
+    </tr>
+    <tr>
       <td>Attachments</td>
       <td>
-        The attachment on this comments. For more information on attachment objects, please visit the Zendesk API documentation on <a href="https://developer.zendesk.com/rest_api/docs/support/attachmentsthis">topic</a>.
+        The attachment(s) on this comment.
+      </td>
+    </tr>
+    <tr>
+      <td>List size</td>
+      <td>
+        This is the size of the list, corresponding to the number of comments retrieved.
       </td>
     </tr>
   </tbody>

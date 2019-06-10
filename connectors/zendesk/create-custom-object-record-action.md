@@ -5,7 +5,7 @@ date: 2019-06-04 18:00:00 Z
 
 # Zendesk - Create custom object record action
 
-Zendesk allows you to configure custom objects to model, store, and retrieve objects that are not native to Zendesk (e.g. Tickets, Users, Organization).  Find out more about [here](/connectors/zendesk/sunshine-platform.md)
+Zendesk allows you to configure custom objects to model, store, and retrieve objects that are not native to Zendesk (e.g. Tickets, Users, Organization).  Find out more [here](/connectors/zendesk/custom-objects.md).
 
 This action creates a single record of a custom object into your Zendesk instance.
 
@@ -31,7 +31,7 @@ This action creates a single record of a custom object into your Zendesk instanc
     <tr>
       <td>New record values</td>
       <td>
-        Provide data for each column of the record to be created. The input fields are <b>required</b> and <b>optional</b> according to how you configured the custom object type.
+        Provide data for each column of the record to be created. The input fields are <b>required</b> or <b>optional</b> according to how you configured the custom object type.
       </td>
     </tr>
   </tbody>
@@ -39,7 +39,7 @@ This action creates a single record of a custom object into your Zendesk instanc
 
 ### Output fields
 
-The output of this trigger contains the full set of columns from the selected custom object type. 
+The output of this trigger contains the full set of columns from the selected custom object type.
 
 <table class="unchanged rich-diff-level-one">
   <thead>
@@ -63,7 +63,7 @@ The output of this trigger contains the full set of columns from the selected cu
     <tr>
       <td>External ID</td>
       <td>
-        A unique identifier from another system. 
+        A unique identifier from another system.
       </td>
     </tr>
     <tr>
@@ -79,9 +79,9 @@ The output of this trigger contains the full set of columns from the selected cu
       </td>
     </tr>
     <tr>
-      <td>Custom object custom fields</td>
+      <td>Attributes</td>
       <td>
-        Includes data of custom object custom fields.
+        Includes data of custom object custom field(s).
       </td>
     </tr>
   </tbody>

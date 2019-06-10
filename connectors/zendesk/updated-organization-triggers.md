@@ -10,7 +10,7 @@ This trigger picks up organizations that are created or updated. Each organizati
 ![New/updated organization trigger](/assets/images/connectors/zendesk/updated-organization-trigger.png)
 *New/updated organization trigger*
 
-#### Input fields
+### Input fields
 
 <table class="unchanged rich-diff-level-one">
   <thead>
@@ -29,7 +29,7 @@ This trigger picks up organizations that are created or updated. Each organizati
     </tbody>
 </table>
 
-#### Output fields
+### Output fields
 
 The output of this trigger contains the full set of columns from the selected organization. Here are some of the commonly used outputs.
 
@@ -56,10 +56,10 @@ The output of this trigger contains the full set of columns from the selected or
     <tr>
       <td>Organization custom fields</td>
       <td>
-        Includes data of organization custom fields.
+        Includes data of organization custom field(s).
       </td>
     </tr>
   </tbody>
 </table>
 
-Click here for a full list of [organization output](/connectors/zendesk/organization-fields.md#organization-output-fields).
+Click here for a full list of [organization outputs](/connectors/zendesk/organization-fields.md#organization-output-fields).

@@ -1,14 +1,14 @@
 ---
-title: Workato connectors - Zendesk search ticket action
+title: Workato connectors - Zendesk search tickets action
 date: 2019-05-30 18:00:00 Z
 ---
 
-# Zendesk - Search ticket action
+# Zendesk - Search tickets action
 
 This action retrieves a list of all tickets that matches your search criteria. Only records in your Zendesk instance that matches all the criteria will be returned.
 
-![Search ticket action](/assets/images/connectors/zendesk/search-ticket-action.png)
-*Search ticket action*
+![Search tickets action](/assets/images/connectors/zendesk/search-ticket-action.png)
+*Search tickets action*
 
 ### Input fields
 
@@ -82,7 +82,7 @@ This action retrieves a list of all tickets that matches your search criteria. O
     <tr>
       <td>Submitter</td>
       <td>
-        THe submitter of the ticket. You can specify using the full username, user ID, email, or phone number. You can also use keywords 'none' and 'me'.
+        The submitter of the ticket. You can specify using the full username, user ID, email, or phone number. You can also use keywords 'none' and 'me'.
       </td>
     </tr>
     <tr>
@@ -100,7 +100,7 @@ This action retrieves a list of all tickets that matches your search criteria. O
     <tr>
       <td>Tags</td>
       <td>
-        The tags applied to this ticket. You can combine multiple tags with the <code>,</code> separator.
+        The tags applied to this ticket. You can query multiple tags with the <code>,</code> separator.
       </td>
     </tr>
     <tr>
@@ -112,7 +112,7 @@ This action retrieves a list of all tickets that matches your search criteria. O
   </tbody>
 </table>
 
-#### Output fields
+### Output fields
 
 The output of this action contains the full set of columns from the list of tickets. Here are some of the commonly used outputs.
 
@@ -163,4 +163,4 @@ The output of this action contains the full set of columns from the list of tick
   </tbody>
 </table>
 
-Click here for a full list of [ticket output](/connectors/zendesk/ticket-fields.md#ticket-output-fields).
+Click here for a full list of [ticket outputs](/connectors/zendesk/ticket-fields.md#ticket-output-fields).

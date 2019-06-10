@@ -1,14 +1,14 @@
 ---
-title: Workato connectors - Zendesk search organization action
+title: Workato connectors - Zendesk search organizations action
 date: 2019-06-03 18:00:00 Z
 ---
 
-# Zendesk - Search organization action
+# Zendesk - Search organizations action
 
-This action retrieves a list of all organizations that matches your search criteria. Only records in your Zendesk instance that matches all the criteria will be returned.
+This action retrieves a list of organizations that matches your search criteria. Only records in your Zendesk instance that matches all the criteria will be returned.
 
-![Search organization action](/assets/images/connectors/zendesk/search-organization-action.png)
-*Search organization action*
+![Search organizations action](/assets/images/connectors/zendesk/search-organization-action.png)
+*Search organizations action*
 
 ### Input fields
 
@@ -30,7 +30,7 @@ This action retrieves a list of all organizations that matches your search crite
     <tr>
       <td>Tags</td>
       <td>
-        The tags applied to this organization. You can combine multiple tags with the <code>,</code> separator.
+        The tags applied to this organization. You can query multiple tags with the <code>,</code> separator.
       </td>
     </tr>
     <tr>
@@ -56,7 +56,7 @@ This action retrieves a list of all organizations that matches your search crite
 
 #### Output fields
 
-The output of this trigger contains the full set of columns from the selected organization. Here are some of the commonly used outputs.
+The output of this action contains the full set of columns from the selected organization. Here are some of the commonly used outputs.
 
 <table class="unchanged rich-diff-level-one">
   <thead>
@@ -69,22 +69,22 @@ The output of this trigger contains the full set of columns from the selected or
     <tr>
       <td>ID</td>
       <td>
-        Unique Zendesk organization ID. This is automatically assigned when the ticket is created.
+        Unique Zendesk organization ID. This is automatically assigned when the organization is created.
       </td>
     </tr>  
     <tr>
       <td>Group ID</td>
       <td>
-        The group(s) that this organization is part of.
+        The group that this organization is part of.
       </td>
     </tr>
     <tr>
       <td>Organization custom fields</td>
       <td>
-        Includes data of organization custom fields.
+        Includes data of organization custom field(s).
       </td>
     </tr>
   </tbody>
 </table>
 
-Click here for a full list of [organization output](/connectors/zendesk/organization-fields.md#organization-output-fields).
+Click here for a full list of [organization outputs](/connectors/zendesk/organization-fields.md#organization-output-fields).

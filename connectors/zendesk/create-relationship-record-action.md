@@ -5,7 +5,7 @@ date: 2019-06-06 18:00:00 Z
 
 # Zendesk - Create relationship record action
 
-Zendesk allows you to configure custom objects to model, store, and retrieve objects that are not native to Zendesk (e.g. Tickets, Users, Organization). You can also configure custom relationships to define how objects are associated. Find out more about [here](/connectors/zendesk/custom objects.md).
+Zendesk allows you to configure custom objects to model, store, and retrieve objects that are not native to Zendesk (e.g. Tickets, Users, Organization). You can also configure custom relationships to define how objects are related. Find out more about [here](/connectors/zendesk/custom-objects.md).
 
 This action creates a single relationship record between two objects. For this action to execute successfully, the recipe has to find existing object records in your Zendesk instance.
 
@@ -31,13 +31,13 @@ This action creates a single relationship record between two objects. For this a
     <tr>
       <td><kbd>Source object</kbd> ID</td>
       <td>
-        The unique Zendesk ID for the object record of the source.
+        The unique Zendesk ID of the source object.
       </td>
     </tr>
     <tr>
       <td><kbd>Target object</kbd> ID</td>
       <td>
-        The unique Zendesk ID for the object record of the target.
+        The unique Zendesk ID of the target object.
       </td>
     </tr>
   </tbody>
@@ -67,7 +67,7 @@ This action creates a single relationship record between two objects. For this a
     <tr>
       <td>Source</td>
       <td>
-        The ID fo the object record that is the source of the relationship.
+        The ID of the object record that is the source of the relationship.
       </td>
     </tr>
     <tr>
