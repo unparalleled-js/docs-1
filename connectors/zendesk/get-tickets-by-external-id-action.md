@@ -23,7 +23,7 @@ This action retrieves a list of tickets that matches a search by external ID. On
     <tr>
       <td>External ID</a></td>
       <td>
-        The ticket's external ID. You can combine multiple external IDs with a <code>,</code> separator.
+        The ticket's external ID. You can query multiple external IDs with the <code>,</code> separator.
       </td>
     </tr>
   </tbody>

@@ -5,9 +5,9 @@ date: 2019-06-06 18:00:00 Z
 
 # Zendesk - Delete custom object record action
 
-Zendesk allows you to create custom objects to model, store, and retrieve objects that are not native to Zendesk (e.g. Tickets, Users, Organization). Custom objects can be configured to suit your various use-cases. It could be "product", "orders", "devices" etc. Find out more about Zendesk custom objects [here](/connectors/zendesk/sunshine-platform.md).
+Zendesk allows you to configure custom objects to model, store, and retrieve objects that are not native to Zendesk (e.g. Tickets, Users, Organization).  Find out more about [here](/connectors/zendesk/sunshine-platform.md)
 
-This action deletes a specific custom object record in your Zendesk instance. The record to delete is identified by its Zendesk ID. After the each job has been successfully completed, you cannot rerun the job again.
+This action selects a specific custom object record by its Zendesk  ID and deletes the record from your Zendesk instance. For this action to run successfully, the recipe has to find an existing custom object record in your Zendesk instance. After the each job has been successfully completed, you cannot rerun the job again.
 
 ![Delete custom object action](/assets/images/connectors/zendesk/delete-custom-object-action.png)
 *Delete custom object action*

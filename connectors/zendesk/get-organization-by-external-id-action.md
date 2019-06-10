@@ -23,13 +23,13 @@ This action retrieves a list of organizations that matches a search by external 
     <tr>
       <td>External ID</a></td>
       <td>
-        The organization's external ID. You can combine multiple external IDs with the <code>,</code> separator.
+        The organization's external ID. You can query multiple external IDs with the <code>,</code> separator.
       </td>
     </tr>
   </tbody>
 </table>
 
-#### Output fields
+### Output fields
 
 The output of this trigger contains the full set of columns from the selected organization. Here are some of the commonly used outputs.
 

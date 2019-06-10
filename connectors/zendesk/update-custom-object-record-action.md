@@ -5,12 +5,12 @@ date: 2019-06-06 18:00:00 Z
 
 # Zendesk - Update custom object record action
 
-Zendesk allows you to create custom objects to model, store, and retrieve objects that are not native to Zendesk (e.g. Tickets, Users, Organization). Custom objects can be configured to suit your various use-cases. It could be "product", "orders", "devices" etc. Find out more about Zendesk custom objects [here](/connectors/zendesk/sunshine-platform.md).
+Zendesk allows you to configure custom objects to model, store, and retrieve objects that are not native to Zendesk (e.g. Tickets, Users, Organization).  Find out more about [here](/connectors/zendesk/custom objects.md).
 
-This action updates a specific custom object record in your Zendesk instance. The record to edit is identified by its Zendesk ID. You can update the **required** or **optional** fields of your custom object type. The action will fail if the record cannot be found.
+This action updates a specific custom object record in your Zendesk instance. The record to edit is identified by its Zendesk ID. The action will fail if the record cannot be found.
 
-![Update custom object action](/assets/images/connectors/zendesk/update-custom-object-action.png)
-*Update custom object action*
+![Update custom object record action](/assets/images/connectors/zendesk/update-custom-object-action.png)
+*Update custom object record action*
 
 ### Input fields
 
@@ -31,23 +31,21 @@ This action updates a specific custom object record in your Zendesk instance. Th
     <tr>
       <td>ID</a></td>
       <td>
-        Unique Zendesk ID for the custom object record. This is automatically assigned when the custom object record is created.
+        The unique Zendesk ID for the custom object record.
       </td>
     </tr>
     <tr>
       <td>Update record values</td>
       <td>
-        Provide data for each column of the record to be updated.<br>
-        <br>
-        The <b>required</b> and <b>optional</b> fields will be displayed according to how you setup your custom object type. Find out more about Zendesk custom objects <a href="/connectors/zendesk/sunshine-platform.md">here</a>.
+        Provide data for each column of the record to be created. The input fields are <b>required</b> and <b>optional</b> according to how you configured the custom object type.
       </td>
     </tr>
   </tbody>
 </table>
 
-#### Output fields
+### Output fields
 
-The output of this trigger contains the full set of columns from the selected custom object type. All default and custom columns are supported.
+The output of this trigger contains the full set of columns from the selected custom object type. 
 
 <table class="unchanged rich-diff-level-one">
   <thead>
@@ -66,12 +64,12 @@ The output of this trigger contains the full set of columns from the selected cu
     <tr>
       <td>ID</td>
       <td>
-        Unique Zendesk ID. This is automatically assigned when the custom object record is created.
+        Unique Zendesk custom object record ID. This is automatically assigned when the custom object record is created.
     </tr>  
     <tr>
       <td>External ID</td>
       <td>
-        A unique identifier from another system. The API treats the ID as case insensitive. For example, "ian1" is treated the same as "Ian1".
+        A unique identifier from another system. 
       </td>
     </tr>
     <tr>

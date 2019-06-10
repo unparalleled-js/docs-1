@@ -170,7 +170,6 @@ Zendesk's out-of-the-box user fields gathers basic information. At default, only
   </tbody>
 </table>
 
-
 ### User custom input field
 
 Aside from the preconfigured user fields, Zendesk allows you to customize user fields to suit your business use-cases.

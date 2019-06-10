@@ -118,7 +118,7 @@ The output of this action contains the full set of columns from the selected tic
 
 Click here for a full list of [ticket output](/connectors/zendesk/ticket-fields.md#ticket-output-fields).
 
-## Bulk update tickets actions
+## Bulk update tickets action
 
 This action updates multiple tickets in your Zendesk instance. The ickets are identified their Zendesk ticket ID. You can update ticket fields and add new comments to the tickets.
 

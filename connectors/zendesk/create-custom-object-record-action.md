@@ -5,9 +5,7 @@ date: 2019-06-04 18:00:00 Z
 
 # Zendesk - Create custom object record action
 
-Zendesk allows you to create custom objects to model, store, and retrieve objects that are not native to Zendesk (e.g. Tickets, Users, Organization). Custom objects can be configured to suit your various use-cases. It could be "product", "orders", "devices" etc. Find out more about Zendesk custom objects [here](/connectors/zendesk/sunshine-platform.md)
-
-After configuring your custom object type, you can proceed to create new records, update existing records, and delete record.
+Zendesk allows you to configure custom objects to model, store, and retrieve objects that are not native to Zendesk (e.g. Tickets, Users, Organization).  Find out more about [here](/connectors/zendesk/sunshine-platform.md)
 
 This action creates a single record of a custom object into your Zendesk instance.
 
@@ -33,15 +31,15 @@ This action creates a single record of a custom object into your Zendesk instanc
     <tr>
       <td>New record values</td>
       <td>
-        Provide data for each column of the record to be created. The input fields are configured as <b>required</b> and <b>optional</b> according to how you setup your custom object type.
+        Provide data for each column of the record to be created. The input fields are <b>required</b> and <b>optional</b> according to how you configured the custom object type.
       </td>
     </tr>
   </tbody>
 </table>
 
-#### Output fields
+### Output fields
 
-The output of this trigger contains the full set of columns from the selected custom object type. All default and custom columns are supported.
+The output of this trigger contains the full set of columns from the selected custom object type. 
 
 <table class="unchanged rich-diff-level-one">
   <thead>
@@ -60,7 +58,7 @@ The output of this trigger contains the full set of columns from the selected cu
     <tr>
       <td>ID</td>
       <td>
-        Unique Zendesk ID. This is automatically assigned when the custom object record is created.
+        Unique Zendesk custom object record ID. This is automatically assigned when the custom object record is created.
     </tr>  
     <tr>
       <td>External ID</td>

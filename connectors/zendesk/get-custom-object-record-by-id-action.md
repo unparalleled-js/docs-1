@@ -3,11 +3,11 @@ title: Workato connectors - Zendesk get custom object record by id action
 date: 2019-06-06 18:00:00 Z
 ---
 
-# Zendesk - Get custom object record by  id action
+# Zendesk - Get custom object record by id action
 
-Zendesk allows you to create custom objects to model, store, and retrieve objects that are not native to Zendesk (e.g. Tickets, Users, Organization). Custom objects can be configured to suit your various use-cases. It could be "product", "orders", "devices" etc. Find out more about Zendesk custom objects [here](/connectors/zendesk/sunshine-platform.md).
+Zendesk allows you to configure custom objects to model, store, and retrieve objects that are not native to Zendesk (e.g. Tickets, Users, Organization).  Find out more about [here](/connectors/zendesk/custom-objects.md)
 
-This action  retrieves a list of custom object records in your Zendesk instance that matches a search by Zendesk ID. Only results that matches all the criteria will be returned.
+This action  retrieves details about a specific custom object record that matches a search by Zendesk ID. Only records in your Zendesk instance that matches all the criteria will be returned.
 
 ![Get custom object records by ID action](/assets/images/connectors/zendesk/get-custom-object-records-by-id.png)
 *Get custom object records by ID action*
@@ -31,15 +31,15 @@ This action  retrieves a list of custom object records in your Zendesk instance 
     <tr>
       <td>ID</a></td>
       <td>
-        Unique Zendesk ID for the custom object record. This is automatically assigned when the custom object record is created.
+        The unique Zendesk ID for the custom object record.
       </td>
     </tr>
   </tbody>
 </table>
 
-#### Output fields
+### Output fields
 
-The output of this trigger contains the full set of columns from the selected custom object type. All default and custom columns are supported.
+The output of this trigger contains the full set of columns from the selected custom object type. 
 
 <table class="unchanged rich-diff-level-one">
   <thead>
@@ -63,7 +63,7 @@ The output of this trigger contains the full set of columns from the selected cu
     <tr>
       <td>External ID</td>
       <td>
-        A unique identifier from another system. The API treats the ID as case insensitive. For example, "ian1" is treated the same as "Ian1".
+        A unique identifier from another system.
       </td>
     </tr>
     <tr>

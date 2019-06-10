@@ -5,12 +5,12 @@ date: 2019-06-06 18:00:00 Z
 
 # Zendesk - Get list of custom object records by external id action
 
-Zendesk allows you to create custom objects to model, store, and retrieve objects that are not native to Zendesk (e.g. Tickets, Users, Organization). Custom objects can be configured to suit your various use-cases. It could be "product", "orders", "devices" etc. Find out more about Zendesk custom objects [here](/connectors/zendesk/sunshine-platform.md).
+Zendesk allows you to configure custom objects to model, store, and retrieve objects that are not native to Zendesk (e.g. Tickets, Users, Organization).  Find out more about [here](/connectors/zendesk/custom-objects.md)
 
-This action  retrieves a list of custom object records in your Zendesk instance that matches a search by external ID. Only results that matches all the criteria will be returned.
+This action retrieves a list of custom object records that matches a search by external ID. Only results in your Zendesk instance that matches all the criteria will be returned.
 
-![Get organization by external ID action](/assets/images/connectors/zendesk/get-custom-object-records-by-external-id.png)
-*Get custom object records by external ID action*
+![Get list of organization by external ID action](/assets/images/connectors/zendesk/get-custom-object-records-by-external-id.png)
+*Get list of custom object records by external ID action*
 
 ### Input fields
 
@@ -31,15 +31,15 @@ This action  retrieves a list of custom object records in your Zendesk instance 
     <tr>
       <td>External ID</a></td>
       <td>
-        The organization's external ID. You can combine multiple external IDs into a single query with a <code>,</code> separator.
+        The organization's external ID. You can query multiple external IDs with a <code>,</code> separator.
       </td>
     </tr>
   </tbody>
 </table>
 
-#### Output fields
+### Output fields
 
-The output of this trigger contains the full set of columns from the selected custom object type. All default and custom columns are supported.
+The output of this trigger contains the full set of columns from the selected custom object type. 
 
 <table class="unchanged rich-diff-level-one">
   <thead>
@@ -63,7 +63,7 @@ The output of this trigger contains the full set of columns from the selected cu
     <tr>
       <td>External ID</td>
       <td>
-        A unique identifier from another system. The API treats the ID as case insensitive. For example, "ian1" is treated the same as "Ian1".
+        A unique identifier from another system.
       </td>
     </tr>
     <tr>

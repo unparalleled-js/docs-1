@@ -5,7 +5,7 @@ date: 2019-06-06 18:00:00 Z
 
 # Zendesk - Get relationship record action
 
-Zendesk allows you to create custom objects to model, store, and retrieve objects that are not native to Zendesk (e.g. Tickets, Users, Organization). Custom objects can be configured to suit your various use-cases. It could be "product", "orders", "devices" etc. You can also create relationships; between two custom objects or between a custom object and Zendesk object (e.g. Zendesk:user). Find out more about Zendesk relationships [here](/connectors/zendesk/sunshine-platform.md#something)
+Zendesk allows you to configure custom objects to model, store, and retrieve objects that are not native to Zendesk (e.g. Tickets, Users, Organization). You can also configure custom relationships to define how objects are associated. Find out more about [here](/connectors/zendesk/custom objects.md).
 
 This action will retrieve the relationship record(s) of a specified relationship type for a specified object record. It will retrieve the relationship record whose `Source` matches the object record specified in your search. Only results that matches the criteria will be returned.
 
@@ -29,15 +29,15 @@ This action will retrieve the relationship record(s) of a specified relationship
       </td>
     </tr>
     <tr>
-      <td><kbd>Object name</kbd> ID</a></td>
+      <td><kbd>Source object</kbd> ID</a></td>
       <td>
-        Unique Zendesk ID of the <code>Source</code> of the relationship.
+        The unique Zendesk ID for the object record of the source.
       </td>
     </tr>
   </tbody>
 </table>
 
-#### Output fields
+### Output fields
 
 <table class="unchanged rich-diff-level-one">
   <thead>
@@ -61,7 +61,7 @@ This action will retrieve the relationship record(s) of a specified relationship
     <tr>
       <td>Source</td>
       <td>
-        The ID fo the object record that is the source of the relationship.
+        The ID of the object record that is the source of the relationship.
       </td>
     </tr>
     <tr>
@@ -79,7 +79,7 @@ This action will retrieve the relationship record(s) of a specified relationship
     <tr>
       <td>List size</td>
       <td>
-        The number of relationship records retrieved.
+        This is the size of the list, corresponding to the number of relationship records retrieved.
       </td>
     </tr>
   </tbody>

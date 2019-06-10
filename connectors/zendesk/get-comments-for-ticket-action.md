@@ -1,14 +1,14 @@
 ---
-title: Workato connectors - Zendesk comments of ticket action
+title: Workato connectors - Zendesk comments for ticket action
 date: 2019-05-30 18:00:00 Z
 ---
 
-# Zendesk - Get comments of ticket action
+# Zendesk - Get comments for ticket action
 
 This action retrieves a specific ticket your Zendesk instance that matches a search by ticket ID. Only results that matches the criteria will be returned
 
-![Get ticket comments](/assets/images/connectors/zendesk/get-comments-ticket.png)
-*Get ticket comments*
+![Get comments for ticket action](/assets/images/connectors/zendesk/get-comments-ticket.png)
+*Get comments for ticket action*
 
 ### Input fields
 
