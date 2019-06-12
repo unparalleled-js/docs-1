@@ -199,6 +199,7 @@
     * [Workbot basics: Command reply](workbot/workbot-command-reply.md)
   * [Workbot advanced topics](workbot/workbot-advanced-topics.md)
     * [Using Dialogs with Workbot](workbot/using-dialogs-with-workbot.md)
+    * [Dynamic menus in dialogs](/workbot/workbot-dynamic-menus.md)
     * [Updating messages](workbot/workbot-update-message.md)
     * [Workbot message menus](/workbot/workbot-message-menus.md)
     * [Workbot buttons](workbot/workbot-buttons.md)
