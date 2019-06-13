@@ -16,6 +16,8 @@ Upon logging in with your ID and password, Workato will request authentication t
 
 A unique verification code is generated for you whenever you login to your Workato account. It is a temporary 6-digit code that lets us know it is indeed *you*. Afterwards, the code will expire and cannot be reused.
 
+### Choose an authenticator app
+
 Workato allows authentication through mobile applications. Some of the common ones are:
 - Google Authenticator ([iOS](https://itunes.apple.com/us/app/google-authenticator/id388497605) or [Android](https://play.google.com/store/apps/details?id=com.google.android.apps.authenticator2&))
 - Authy ([iOS](https://itunes.apple.com/us/app/authy/id494168017) or [Android](https://play.google.com/store/apps/details?id=com.authy.authy))
@@ -62,7 +64,7 @@ Let's go through the activation for two-factor authentication. You will need to 
     <tr>
       <td>4</td>
       <td>
-        Using Google authenticator, <b>scan</b> the QR code. Otherwise, you can register with Google authenticator with code provided .<br>
+        Using Google authenticator, <b>scan</b> the QR code. Otherwise, you can register with the code provided .<br>
         <br>
         <img src="/assets/images/security/2fa/setup-2fa.png"></img><br>
         <i>Two-factor authentication setup</i><br>
@@ -197,7 +199,7 @@ Select **Account settings** > **Two-factor authentication** > **View recovery co
 
 ### Trusted devices
 
-You can temporarily disable two-factor authentication for trusted devices, like a secured work laptop. This allows the device to login without authentication for 30 days.
+You can temporarily disable two-factor authentication for trusted devices, like a secured work laptop. This allows the device to login without two-factor authentication for 30 days.
 
 Select **trust this device** during the two-factor authentication process.
 
