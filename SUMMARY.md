@@ -525,6 +525,17 @@
     * [Scheduled report](connectors/workday/scheduled_report.md)
     * [Call operation](connectors/workday/call_operation.md)
     * [Report-as-a-Service](connectors/workday/workday_raas.md)
+  * [Wrike](/connectors/wrike.md)
+    * Triggers
+    * Create actions
+    * Get actions
+    * Update actions
+    * Delete actions
+
+
+
+
+    
 * [Developing connectors](developing-connectors.md)
   * [Custom actions](/developing-connectors/custom-actions.md)
   * [Registering new client](developing-connectors/registering-new-client.md)
