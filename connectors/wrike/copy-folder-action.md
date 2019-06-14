@@ -182,7 +182,7 @@ This action selects a single folder and copies it into a specified Wrike folder.
         <table>
           <tbody>
             <tr>
-              <td>Folder ID</td>td>
+              <td>Folder ID</td>
               <td>The folder ID of the parent folder</td>
             </tr>
             <tr>

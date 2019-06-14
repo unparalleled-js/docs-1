@@ -7,7 +7,7 @@ date: 2019-05-30 18:00:00 Z
 
 Folders/projects are one of the main ways to organize, manage, and report on work within Wrike.
 
-This action updates a specific project in Wrike. You can change the project name, parent project, add or modify the title and description, as well as modify sharing users;
+This action updates a specific project in Wrike. You can change the project name, parent project, add or modify the title and description, as well as modify sharing users.
 
 ![Update project action](/assets/images/connectors/Wrike/update-project-action.png)
 *Update project action*

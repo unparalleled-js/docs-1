@@ -7,8 +7,7 @@ date: 2019-05-30 18:00:00 Z
 
 Folders are one of the main ways to organize, manage, and report on work within Wrike.
 
-This action retrieves a single that matches a search by folder ID. Only results in your Wrike instance that matches the criteria will be returned.
-
+This action retrieves a single folder that matches a search by folder ID. Only results in your Wrike instance that matches the criteria will be returned.
 
 ![Get folder by ID action](/assets/images/connectors/Wrike/get-folder-by-ID-action.png)
 *Get folder by ID action*

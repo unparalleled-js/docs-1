@@ -25,7 +25,7 @@ This action retrieves a list of projects that matches your search criteria. Only
     <tr>
       <td>Custom field list</td>
       <td>
-        Select a custom field to open the corresponding input field. This will be blank by default.
+        Select a custom field to open the corresponding input fields. This will be blank by default.
       </td>
     </tr>
     <tr>

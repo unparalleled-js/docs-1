@@ -69,7 +69,7 @@ This action creates a single folder in a specified Wrike folder. To create a mai
     <tr>
       <td>Users who share the folder</td>
       <td>
-        Select users who share this folder. You can input users with a source list or manually inputting the user ID. 
+        Select users who share this folder. You can define users with a source list or manually inputting the user ID. 
       </td>
     </tr>
     <tr>
@@ -152,7 +152,7 @@ This action creates a single folder in a specified Wrike folder. To create a mai
         <table>
           <tbody>
             <tr>
-              <td>Folder ID</td>td>
+              <td>Folder ID</td>
               <td>The folder ID of the parent folder</td>
             </tr>
             <tr>
