@@ -134,17 +134,12 @@ To retrieve a date for the beginning of the next month, we simply need to add a 
 ---
 
 ## End of current or next month
-While the beginning_of_month function will always give you the first day of the month, retrieving the end of the month is a little trickier because some months have 31 days while others have less.
+To retrieve a date for the end of the current month, use the .end_of_month method. It returns the date for the start of the month for the given date/timestamp. 
 
-Instead, we can apply some simple arithmetic to obtain the last date of the month.
-
-To retrieve the last date of the current month:
-
-![last date of current month](/assets/images/formula-docs/last_date_current_month.png)
-
-To retrieve the last date of the next month:
-
-![last date of next month](/assets/images/formula-docs/last_date_next_month.png)
+```ruby
+"2017-08-18T00:00:00".to_time.end_of_month # => 2017-08-31 23:59:59 +0000
+"2017-08-18T00:00:00".to_date.end_of_month # => Thu, 31 Aug 2017
+```
 
 # Display conversion
 
