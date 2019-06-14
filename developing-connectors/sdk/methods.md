@@ -45,6 +45,12 @@ Learn how to make HTTP requests using the HTTP verb methods [here](/developing-c
       <td>Iterator returned with an index<br><code>[1, 2, 3].each_with_index { |item, index| puts "#{index}:#{item}" }</code><br> <a href="https://apidock.com/ruby/Enumerator/each_with_index">More details here.</a></td>
     </tr>
     <tr>
+      <td>each_with_object</td>
+      <td>Iterator returned with an object which you can define
+        <code><pre>[%w(foo bar).each_with_object({}) { |str, hsh| hsh[str] = str.upcase }
+# => {'foo' => 'FOO', 'bar' => 'BAR'}</pre></code><a href="https://apidock.com/rails/Enumerable/each_with_object">More details here.</a></td>
+    </tr>
+    <tr>
       <td>even?</td>
       <td>Returns true if integer is an even number<br> <a href="https://apidock.com/ruby/Integer/even%3F">More details here.</a></td>
     </tr>
@@ -94,6 +100,18 @@ Learn how to make HTTP requests using the HTTP verb methods [here](/developing-c
       <td>
         Add payload to a request<br>
         <code>.payload(id: "345")</code>
+      </td>
+    </tr>
+     <tr>
+      <td>pop</td>
+      <td>
+        Removes the last element from self and returns it, or nil if the array is empty.<br>
+        If a number n is given, returns an array of the last n elements (or less) and removes it from array.
+        <code><pre>a = [ "a", "b", "c", "d" ]
+a.pop     #=> "d"
+a.pop(2)  #=> ["b", "c"]
+a         #=> ["a"]</pre></code>
+        <a href="https://apidock.com/ruby/Array/pop">More details here.</a></td>
       </td>
     </tr>
     <tr>
