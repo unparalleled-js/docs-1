@@ -69,7 +69,6 @@ This example connects to [Zoho CRM](https://www.zoho.com/crm/help/api/using-auth
 ```
 
 ### Using the `acquire` block
-
 Context is same as an action's execute block. You can write the require code here to acquire and store relevant credentials data to be used in the `apply` block.
 ```ruby
 acquire: lambda do |connection|

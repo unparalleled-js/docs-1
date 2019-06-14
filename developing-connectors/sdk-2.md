@@ -18,9 +18,12 @@ Connectors built on the SDK are called **custom connectors**. These connectors h
 ## Documentation Format
 This section will list everything you need to know about our SDK as well as provide some guides, walkthroughs and example connectors that our users have built. You may use the links below to skip ahead to your desired section but it is recommended that you go through this documentation in this format so as to not miss any of the features we have that might help you down the line.
 
-> In our documentation, we default to JSON when giving examples. It is highly recommended that you read about how other data formats can be handled if the API you plan to connect to requires that.
+First up, lets walkthrough the creation of a simple connector to get ourselves warmed up. This simple custom connector should take no longer than 30 minutes to configure from start to end.
+
+> In our documentation, we default to JSON when giving examples. It is highly recommended that you read about how other data formats can be handled if the API you plan to connect to uses a different dataformat.
 
 * [SDK Conceptual Model]()
+* [Walkthrough]()
 * [Data Format]()
   * [JSON]()
   * [XML]()
@@ -42,7 +45,6 @@ This section will list everything you need to know about our SDK as well as prov
 * [Advanced object definitions - Picklists & toggle fields]()
 * [Methods]()
 * [Error handling]()
-* [Walkthrough]()
 * [How-to guides]()
 * [Troubleshooting]()
 * [Examples]()
