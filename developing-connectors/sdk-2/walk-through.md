@@ -2,9 +2,9 @@
 
 Workato's SDK platform was designed to be simple to pick up but powerful enough to connect with most APIs out there. Workato offers various ways to connect to applications which we currently don't support. One important caveat is that the application you have in mind should have an API exposed.
 
-In this chapter, our aim is to get our feet wet by building a simple connector to something that most people can identify with - **Star Wars!** This API we will be using is free to use and allows us to access information about Star Wars characters, planets, vehicles and much more. **[Check out the API over here.](https://swapi.co/)**
+In this chapter, our aim is to get our feet wet by building a simple connector to something that most people can identify with - **Star Wars!** This API we will be using is free to use and allows us to access information about Star Wars characters, planets, vehicles and much more. For simplicity, we will refer to this API as SWAPI. **[Check out the API over here.](https://swapi.co/)**
 
-This walkthrough aims to show case how we can use the Workato SDK to create a custom connector to retrieve information from this API and how we can use this custom connector in building a recipe.
+This walkthrough aims to show case how we can use the Workato SDK to create a custom connector to retrieve information from this API and how we can use this custom connector in building a recipe. If you haven't already checked out the our **[overview]**, now is the time to do so!
 
 To find the fully built custom connector, **[click here])**
 
@@ -28,8 +28,49 @@ When we want to connect to an API, the first thing that we need to find out is t
 
 > Don't worry if these authentication terms seem foreign to you. For the purpose of this walkthrough, we will be using the most simple form of authentication. Other authentication methods will be covered in later chapters.
 
-While the Workato supports most forms of authentication, connecting to an API with no authentication is the most simple. A
+While the Workato supports most forms of authentication, connecting to an API with no authentication is the most simple. An API that requires no authentication is when you are able to send requests to that API over the internet without having to first verify who you are.
 
+### Sample Code Snippet
+``` ruby
+{
+  title: 'Star Wars information',
+
+  connection: {
+    fields:
+    [
+      {
+        name: "object",
+        hint: "Type in the object you would like to test your connection with",
+      }
+    ]
+  },
+
+  test: lambda do
+    get("https://swapi.co/api/#{connection["object"]}")
+  end,
+
+  # More code below but hidden for now!
+}
+```
+
+### connection:
+Since the Star Wars API we are looking to connect to doesn't require anything from us, our `connection:` object looks relatively empty as well. Inside the `connection:` object, you'll be able to declare input fields which will show up when users first make a connection using your connector. You'll be able to use the user input later on to authenticate the connector which we will cover in our section about authentication.
+
+In the example above, we have a `fields:` object which is where you can declare input fields. To see how it would look like to users, simply scroll down to the debugger console at the bottom of the page and open the connection tab.
+
+![Connection input field](/assets/images/sdk/Connection-input-fields.png)
+*How input fields look like to end users*
+
+User input can then be used whenever needed in any other part of the custom connector code even outside of the `connection:` object. There are other objects like just like `fields:` which you can declare inside the `connection:` object which we will go through later on.
+
+### test:
+Outside of our `connection:` object (not contained within the curly braces that belong to the `connection:` object), we see another important feature of establishing a connection. Since Workato needs a way to provide feedback to you or any user of your connector on whether a connection was successfully made, we need to declare a simple test that runs when `Link your account` is pressed.
+
+Tests are run by sending HTTP requests to specific URLs. HTTP requests are basically ways for applications to talk to each other over the internet. There are a few types of calls that fall under the family of HTTP requests but if you're unfamiliar, its sufficient to know that we are using a GET request for our test today.
+
+In the case of our SWAPI connector, we want to send a GET request to any URL endpoint that will successfully send us back information and a confirmation that our request was accepted. Declared in the `test:` block, you'll see the `get()` function that executes a GET request to the URL inside its brackets. Over here, you can even use user input by referencing the `connection` object. In our sample code snippet above, we referenced the user's input to determine where to send a HTTP call too.
+
+> The URL we sent the request to also affects whether our connection would be successful. SWAPI only listens for GET requests on a few URLs that it has documented [here](https://swapi.co/documentation#root)
 
 ## Making requests
 The custom connector framework supports building connectors to applications that offer an API reachable over HTTP/HTTPS.  The common request/response formats are supported: JSON (default), XML, `www-form-urlencoded` and `multipart`.
