@@ -134,7 +134,7 @@ To retrieve a date for the beginning of the next month, we simply need to add a 
 ---
 
 ## End of current or next month
-To retrieve a date for the end of the current month, use the .end_of_month method. It returns the date for the start of the month for the given date/timestamp. 
+To retrieve a date for the end of the current month, use the <code>.end_of_month method</code>. It returns the date for the start of the month for the given date/timestamp. 
 
 ```ruby
 "2017-08-18T00:00:00".to_time.end_of_month # => 2017-08-31 23:59:59 +0000
