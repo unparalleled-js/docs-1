@@ -1,22 +1,24 @@
 ---
-title: Workato connectors - Wrike search task action
+title: Workato connectors - Wrike search tasks action
 date: 2019-06-14 18:00:00 Z
+search:
+    keywords: ['wrike', 'tasks', 'search']
 ---
 
-# Wrike - Search task action
+# Wrike - Search tasks action
 
-This action retrieves a list of tasks that matches your search criteria. Only records in your Wrike instance that matches all the criteria will be returned. A maximum of 100 tasks can be retrieved.
+This action retrieves a list of tasks that matches your search criteria. Only records in your Wrike instance that matches all the criteria will be returned. A maximum of 100 tasks can be retrieved per job.
 
-![Search task action](/assets/images/connectors/Wrike/search-task-action.png)
-*Search task action*
+![Search tasks action](/assets/images/connectors/Wrike/search-tasks-action.png)
+*Search tasks action*
 
 ### Input fields
 
 <table class="unchanged rich-diff-level-one">
   <thead>
     <tr>
-        <th width='25%'>Input field</th>
-        <th>Description</th>
+      <th width='25%'>Input field</th>
+      <th>Description</th>
     </tr>
   </thead>
   <tbody>
@@ -45,7 +47,7 @@ This action retrieves a list of tasks that matches your search criteria. Only re
       </td>
     </tr>
     <tr>
-      <td>Compeleted date</td>
+      <td>Completed date</td>
       <td>
         Retrieve tasks completed after this date.
       </td>
@@ -53,7 +55,7 @@ This action retrieves a list of tasks that matches your search criteria. Only re
     <tr>
       <td>Permalink</td>
       <td>
-        The link to open the task in a web workspace. 
+        The link to open the task in a web workspace.
       </td>
     </tr>
     <tr>
@@ -65,7 +67,7 @@ This action retrieves a list of tasks that matches your search criteria. Only re
     <tr>
       <td>Status</td>
       <td>
-        Select the status of the task. Permitted values are <code>Active</code>, <code>Completed</code>, <code>Deferred</code>, and <code>Cancelled</code>.
+        Select the status of the task. Permitted values are <code>New</code>, <code>In progress</code>, <code>Completed</code>, <code>Deferred</code>, and <code>Cancelled</code>.
       </td>
     </tr>
     <tr>
@@ -88,21 +90,21 @@ This action retrieves a list of tasks that matches your search criteria. Only re
 <table class="unchanged rich-diff-level-one">
   <thead>
     <tr>
-        <th width='25%'>Output field</th>
-        <th>Description</th>
+      <th width='25%'>Output field</th>
+      <th>Description</th>
     </tr>
   </thead>
   <tbody>
     <tr>
       <td>Task ID</td>
       <td>
-        The Wrike ID of the task.
+        The ID of the task.
       </td>
     </tr>  
     <tr>
       <td>Account ID</td>
       <td>
-        The Wrike ID of the account.
+        The ID of the account.
       </td>
     </tr>
     <tr>
@@ -114,7 +116,7 @@ This action retrieves a list of tasks that matches your search criteria. Only re
     <tr>
       <td>Description</td>
       <td>
-        The description of the task. Will be blank if not specified. 
+        The description of the task. Will be blank if not specified.
       </td>
     </tr>
     <tr>
@@ -130,8 +132,8 @@ This action retrieves a list of tasks that matches your search criteria. Only re
         <table>
           <tbody>
             <tr>
-              <td>Folder ID</td>td>
-              <td>The folder ID of the parent folder</td>
+              <td>Folder ID</td>
+              <td>The folder ID of the parent folder.</td>
             </tr>
             <tr>
               <td>List size</td>
@@ -148,8 +150,8 @@ This action retrieves a list of tasks that matches your search criteria. Only re
         <table>
           <tbody>
             <tr>
-              <td>Folder ID</td>td>
-              <td>The folder ID of the super parent folder. Only applicable to 'selective sharing' labs feature.</td>
+              <td>Folder ID</td>
+              <td>The folder ID of the super parent folder.</td>
             </tr>
             <tr>
               <td>List size</td>
@@ -166,8 +168,8 @@ This action retrieves a list of tasks that matches your search criteria. Only re
         <table>
           <tbody>
             <tr>
-              <td>User ID</td>td>
-              <td>The ID of the user who shares this task</td>
+              <td>User ID</td>
+              <td>The ID of the user who shares this task.</td>
             </tr>
             <tr>
               <td>List size</td>
@@ -184,8 +186,8 @@ This action retrieves a list of tasks that matches your search criteria. Only re
         <table>
           <tbody>
             <tr>
-              <td>User ID</td>td>
-              <td>The ID of the user who shares this task</td>
+              <td>User ID</td>
+              <td>The ID of the user who shares this task.</td>
             </tr>
             <tr>
               <td>List size</td>
@@ -197,7 +199,9 @@ This action retrieves a list of tasks that matches your search criteria. Only re
     </tr>
     <tr>
       <td>Status</td>
-      <td>The status of the task. Permitted values are <code>Active</code>, <code>Completed</code>, <code>Defrred</code>, and <code>Cancelled</code>.</td>
+      <td>
+        The status of the task. Permitted values are <code>New</code>, <code>In progress</code>, <code>Completed</code>, <code>On hold</code>, and <code>Cancelled</code>.
+      </td>
     </tr>
     <tr>
       <td>Importance</td>
@@ -220,7 +224,7 @@ This action retrieves a list of tasks that matches your search criteria. Only re
     <tr>
       <td>Completed date</td>
       <td>
-       The date this tasl was completed.
+       The date this task was completed.
      </td>
     </tr>
     <tr>
@@ -258,7 +262,7 @@ This action retrieves a list of tasks that matches your search criteria. Only re
     <tr>
       <td>Scope</td>
       <td>
-        The scope of the task. 
+        The scope of the task.
       </td>
     </tr>
     <tr>
@@ -268,7 +272,7 @@ This action retrieves a list of tasks that matches your search criteria. Only re
         <table>
           <tbody>
             <tr>
-              <td>User ID</td>td>
+              <td>User ID</td>
               <td>The ID of the user.</td>
             </tr>
             <tr>
@@ -282,7 +286,7 @@ This action retrieves a list of tasks that matches your search criteria. Only re
      <tr>
       <td>Custom status ID</td>
       <td>
-        The custom status ID of the task. 
+        The custom status ID of the task.
       </td>
     </tr>
     <tr>
@@ -292,7 +296,7 @@ This action retrieves a list of tasks that matches your search criteria. Only re
         <table>
           <tbody>
             <tr>
-              <td>Name</td>td>
+              <td>Name</td>
               <td>The name of the custom status.</td>
             </tr>
             <tr>
@@ -304,15 +308,45 @@ This action retrieves a list of tasks that matches your search criteria. Only re
       </td>
     </tr>
     <tr>
+      <td>Has attachments</td>
+      <td>
+        Is <code>True</code> if the folder has attachments, otherwise it will display <code>False</code>.
+      </td>
+    </tr>
+    <tr>
       <td>Permalink</td>
       <td>
-        The link to open the task in a web workspace, this is only accessible if the user has the appropriate access. 
+        The link to open the task in a web workspace, this is only accessible if the user has the appropriate access.
       </td>
     </tr>
     <tr>
       <td>Priority</td>
       <td>
-        The ordering key that defines the task order in a tasklist. 
+        The ordering key that defines the task order in a task list.
+      </td>
+    </tr>
+    <tr>
+      <td>Followed by me</td>
+      <td>
+        Is <code>True</code> if the task is followed by the Wrike user, otherwise it will display <code>False</code>.
+      </td>
+    </tr>
+    <tr>
+      <td>Followers</td>
+      <td>
+        The users who follow this task.
+        <table>
+          <tbody>
+            <tr>
+              <td>Follower ID</td>
+              <td>The ID of the user who follows this task.</td>
+            </tr>
+            <tr>
+              <td>List size</td>
+              <td>The size of the list, corresponding to the number of users retrieved.</td>
+            </tr>
+          </tbody>
+        </table>
       </td>
     </tr>
     <tr>
@@ -322,7 +356,7 @@ This action retrieves a list of tasks that matches your search criteria. Only re
         <table>
           <tbody>
             <tr>
-              <td>Super task ID</td>td>
+              <td>Super task ID</td>
               <td>The ID of the task that is marked as a super task.</td>
             </tr>
             <tr>
@@ -340,7 +374,7 @@ This action retrieves a list of tasks that matches your search criteria. Only re
         <table>
           <tbody>
             <tr>
-              <td>Super task ID</td>td>
+              <td>Super task ID</td>
               <td>The ID of the task that is marked as a subtask.</td>
             </tr>
             <tr>
@@ -358,12 +392,30 @@ This action retrieves a list of tasks that matches your search criteria. Only re
         <table>
           <tbody>
             <tr>
-              <td>Dependency ID</td>td>
-              <td>The ID of the task that is marked as a dependecy.</td>
+              <td>Dependency ID</td>
+              <td>The ID of the task that is marked as a dependency.</td>
             </tr>
             <tr>
               <td>List size</td>
               <td>The size of the list, corresponding to the number of tasks retrieved.</td>
+            </tr>
+          </tbody>
+        </table>
+      </td>
+    </tr>
+    <tr>
+      <td>Metadata</td>
+      <td>
+        The metadata of this task. These are manual inputs of <code>Key</code>:<code>Value</code> pairs.
+        <table>
+          <tbody>
+            <tr>
+              <td><code>Key</code></td>
+              <td><code>Value</code></td>
+            </tr>
+            <tr>
+              <td>List size</td>
+              <td>The size of the list, corresponding to the number of metadata entries  retrieved.</td>
             </tr>
           </tbody>
         </table>
@@ -378,7 +430,7 @@ This action retrieves a list of tasks that matches your search criteria. Only re
     <tr>
       <td>List size</td>
       <td>
-        The size of the list, corresponding to the number of tasks retrived.
+        The size of the list, corresponding to the number of tasks retrieved.
       </td>
     </tr>
   </tbody>

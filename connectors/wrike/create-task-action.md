@@ -1,11 +1,13 @@
 ---
 title: Workato connectors - Wrike create task action
-date: 2019-06-14 18:00:00 Z
+ate: 2019-06-14 18:00:00 Z
+search:
+    keywords: ['wrike', 'task', 'create']
 ---
 
 # Wrike - Create task action
 
-This action creates a single task in a specified Wrike folder. To create a main folder, select **root** as the parent folder.
+This action creates a single task in a specified Wrike folder/project. To create a main task, select **root** as the parent folder.
 
 ![Create task action](/assets/images/connectors/Wrike/create-task-action.png)
 *Create task action*
@@ -15,8 +17,8 @@ This action creates a single task in a specified Wrike folder. To create a main 
 <table class="unchanged rich-diff-level-one">
   <thead>
     <tr>
-        <th width='25%'>Input field</th>
-        <th>Description</th>
+      <th width='25%'>Input field</th>
+      <th>Description</th>
     </tr>
   </thead>
   <tbody>
@@ -47,13 +49,13 @@ This action creates a single task in a specified Wrike folder. To create a main 
     <tr>
       <td>Assignee</td>
       <td>
-        Select users who will be assigned to this task. You can define users with a source list or with the user ID. 
+        Select users who will be assigned to this task. You can define users with a source list or manually input their user ID.
       </td>
     </tr>
     <tr>
       <td>Priority after</td>
       <td>
-        The newly created task will be put after this task in the task list. 
+        The newly created task will be put after this task in the task list.
       </td>    
     </tr>
     <tr>
@@ -71,31 +73,31 @@ This action creates a single task in a specified Wrike folder. To create a main 
     <tr>
       <td>Share task with users</td>
       <td>
-        Select users who will share this task. You can define users with a source list or by with the user ID. 
+        Select users who will share this task. You can define tasks with a source list or manually input their user ID.
       </td>
     </tr>
     <tr>
       <td>Add parent folders</td>
       <td>
-        Select folders to be marked as parent folders. You can define folders with a source list or with the folders ID. 
+        Select folders to be marked as parent folders. You can define folders with a source list or manually input their folder ID.
       </td>
     </tr>
     <tr>
       <td>Followers</td>
       <td>
-        Select users who will be marked as task followers. You can define users with a source list or with the user ID. 
+        Select users who will be marked as task followers. You can define users with a source list or manually input their user ID.
       </td>
     </tr>
     <tr>
       <td>Super tasks</td>
       <td>
-        The newly created task will be marked as a subtask to the specified task. You can define task with a source list or with the task ID. 
+        The newly created task will be marked as a subtask to this task. You can define tasks with a task list or manually input their task ID.
       </td>
     </tr>
     <tr>
       <td>Date</td>
       <td>
-        The start and due dates of this task. If left blank, a backlogged task will be created.
+        The start and due dates of this task. If left blank, a <code>backlog</code> task will be created.
         <table>
           <tbody>
             <tr>
@@ -113,12 +115,14 @@ This action creates a single task in a specified Wrike folder. To create a main 
     <tr>
       <td>Custom status</td>
       <td>
-        Select a custom status to dscribe this task. To use custom status ID, toggle "Enter a custom status ID". 
+        Select a custom status to describe this task. To use custom status ID, toggle "Enter a custom status ID".
       </td>
     </tr>
     <tr>
       <td>Status</td>
-      <td>The status of the task. Permitted values are <code>Green</code>, <code>Yellow</code>, <code>Red</code>, <code>Completed</code>, <code>On hold</code>, and <code>Cancelled</code>.</td>
+      <td>
+        Select the status of the task. Permitted values are <code>New</code>, <code>In progress</code>, <code>Completed</code>, <code>On hold</code>, and <code>Cancelled</code>.
+      </td>
     </tr>
     <tr>
       <td>Custom fields</a></td>
@@ -134,21 +138,21 @@ This action creates a single task in a specified Wrike folder. To create a main 
 <table class="unchanged rich-diff-level-one">
   <thead>
     <tr>
-        <th width='25%'>Output field</th>
-        <th>Description</th>
+      <th width='25%'>Output field</th>
+      <th>Description</th>
     </tr>
   </thead>
   <tbody>
     <tr>
       <td>Task ID</td>
       <td>
-        The Wrike ID of the task.
+        The ID of the task.
       </td>
     </tr>  
     <tr>
       <td>Account ID</td>
       <td>
-        The Wrike ID of the account.
+        The ID of the account.
       </td>
     </tr>
     <tr>
@@ -160,7 +164,7 @@ This action creates a single task in a specified Wrike folder. To create a main 
     <tr>
       <td>Description</td>
       <td>
-        The description of the task. Will be blank if not specified. 
+        The description of the task. Will be blank if not specified.
       </td>
     </tr>
     <tr>
@@ -176,8 +180,8 @@ This action creates a single task in a specified Wrike folder. To create a main 
         <table>
           <tbody>
             <tr>
-              <td>Folder ID</td>td>
-              <td>The folder ID of the parent folder</td>
+              <td>Folder ID</td>
+              <td>The folder ID of the parent folder.</td>
             </tr>
             <tr>
               <td>List size</td>
@@ -194,8 +198,8 @@ This action creates a single task in a specified Wrike folder. To create a main 
         <table>
           <tbody>
             <tr>
-              <td>Folder ID</td>td>
-              <td>The folder ID of the super parent folder. Only applicable to 'selective sharing' labs feature.</td>
+              <td>Folder ID</td>
+              <td>The folder ID of the super parent folder.</td>
             </tr>
             <tr>
               <td>List size</td>
@@ -212,8 +216,8 @@ This action creates a single task in a specified Wrike folder. To create a main 
         <table>
           <tbody>
             <tr>
-              <td>User ID</td>td>
-              <td>The ID of the user who shares this task</td>
+              <td>User ID</td>
+              <td>The ID of the user who shares this task.</td>
             </tr>
             <tr>
               <td>List size</td>
@@ -230,8 +234,8 @@ This action creates a single task in a specified Wrike folder. To create a main 
         <table>
           <tbody>
             <tr>
-              <td>User ID</td>td>
-              <td>The ID of the user who shares this task</td>
+              <td>User ID</td>
+              <td>The ID of the user who shares this task.</td>
             </tr>
             <tr>
               <td>List size</td>
@@ -243,7 +247,9 @@ This action creates a single task in a specified Wrike folder. To create a main 
     </tr>
     <tr>
       <td>Status</td>
-      <td>The status of the task. Permitted values are <code>Active</code>, <code>Completed</code>, <code>Defrred</code>, and <code>Cancelled</code>.</td>
+      <td>
+        The status of the task. Permitted values are <code>New</code>, <code>In progress</code>, <code>Completed</code>, <code>On hold</code>, and <code>Cancelled</code>.
+      </td>
     </tr>
     <tr>
       <td>Importance</td>
@@ -266,7 +272,7 @@ This action creates a single task in a specified Wrike folder. To create a main 
     <tr>
       <td>Completed date</td>
       <td>
-       The date this tasl was completed.
+       The date this task was completed.
      </td>
     </tr>
     <tr>
@@ -277,7 +283,7 @@ This action creates a single task in a specified Wrike folder. To create a main 
           <tbody>
             <tr>
               <td>Type</td>
-              <td>The type of task date. Permitted values are <code>Backlog</code>, <code>Milestone</code>, and <code>Planned</code>.</td>
+              <td>The type of task. Permitted values are <code>Backlogged</code>, <code>Milestone</code>, and <code>scheduled</code>.</td>
             </tr>
             <tr>
               <td>Duration</td>
@@ -287,11 +293,11 @@ This action creates a single task in a specified Wrike folder. To create a main 
             </tr>
             <tr>
               <td>Start date</td>
-              <td>The start date of this task.</td>
+              <td>The start date of this task. <code>Backlogged</code> tasks do not have start dates.</td>
             </tr>
             <tr>
               <td>Due date</td>
-              <td>The due date of this task.</td>
+              <td>The due date of this task. <code>Backlogged</code> tasks and <code>Milestone</code> tasks do not have due dates.</td>
             </tr>
             <tr>
               <td>Work on weekends</td>
@@ -304,7 +310,7 @@ This action creates a single task in a specified Wrike folder. To create a main 
     <tr>
       <td>Scope</td>
       <td>
-        The scope of the task. 
+        The scope of the task.
       </td>
     </tr>
     <tr>
@@ -314,7 +320,7 @@ This action creates a single task in a specified Wrike folder. To create a main 
         <table>
           <tbody>
             <tr>
-              <td>User ID</td>td>
+              <td>User ID</td>
               <td>The ID of the user.</td>
             </tr>
             <tr>
@@ -328,7 +334,7 @@ This action creates a single task in a specified Wrike folder. To create a main 
      <tr>
       <td>Custom status ID</td>
       <td>
-        The custom status ID of the task. 
+        The custom status ID of the task.
       </td>
     </tr>
     <tr>
@@ -338,7 +344,7 @@ This action creates a single task in a specified Wrike folder. To create a main 
         <table>
           <tbody>
             <tr>
-              <td>Name</td>td>
+              <td>Name</td>
               <td>The name of the custom status.</td>
             </tr>
             <tr>
@@ -352,25 +358,25 @@ This action creates a single task in a specified Wrike folder. To create a main 
     <tr>
       <td>Has attachments</td>
       <td>
-        Is <code>True</code> if the folder has attachments, otherwise it will display <code>False</code>. 
+        Is <code>True</code> if the folder has attachments, otherwise it will display <code>False</code>.
       </td>
     </tr>
     <tr>
       <td>Permalink</td>
       <td>
-        The link to open the task in a web workspace, this is only accessible if the user has the appropriate access. 
+        The link to open the task in a web workspace, this is only accessible if the user has the appropriate access.
       </td>
     </tr>
     <tr>
       <td>Priority</td>
       <td>
-        The ordering key that defines the task order in a tasklist. 
+        The ordering key that defines the task order in a task list.
       </td>
     </tr>
     <tr>
       <td>Followed by me</td>
       <td>
-        Is <code>True</code> if the task is followed by the Wrike user, otherwise it will display <code>False</code>. 
+        Is <code>True</code> if the task is followed by the Wrike user, otherwise it will display <code>False</code>.
       </td>
     </tr>
     <tr>
@@ -380,7 +386,7 @@ This action creates a single task in a specified Wrike folder. To create a main 
         <table>
           <tbody>
             <tr>
-              <td>Follower ID</td>td>
+              <td>Follower ID</td>
               <td>The ID of the user who follows this task.</td>
             </tr>
             <tr>
@@ -398,7 +404,7 @@ This action creates a single task in a specified Wrike folder. To create a main 
         <table>
           <tbody>
             <tr>
-              <td>Super task ID</td>td>
+              <td>Super task ID</td>
               <td>The ID of the task that is marked as a super task.</td>
             </tr>
             <tr>
@@ -416,7 +422,7 @@ This action creates a single task in a specified Wrike folder. To create a main 
         <table>
           <tbody>
             <tr>
-              <td>Super task ID</td>td>
+              <td>Super task ID</td>
               <td>The ID of the task that is marked as a subtask.</td>
             </tr>
             <tr>
@@ -434,8 +440,8 @@ This action creates a single task in a specified Wrike folder. To create a main 
         <table>
           <tbody>
             <tr>
-              <td>Dependency ID</td>td>
-              <td>The ID of the task that is marked as a dependecy.</td>
+              <td>Dependency ID</td>
+              <td>The ID of the task that is marked as a dependency.</td>
             </tr>
             <tr>
               <td>List size</td>
@@ -448,7 +454,7 @@ This action creates a single task in a specified Wrike folder. To create a main 
     <tr>
       <td>Metadata</td>
       <td>
-        The manually inputted metadata of this folder.
+        The metadata of this task. These are manual inputs of <code>Key</code>:<code>Value</code> pairs.
         <table>
           <tbody>
             <tr>

@@ -1,13 +1,15 @@
 ---
 title: Workato connectors - Wrike create folder action
-date: 2019-05-30 18:00:00 Z
+date: 2019-06-14 18:00:00 Z
+search:
+    keywords: ['wrike', 'folder', 'create']
 ---
 
 # Wrike - Create folder action
 
-Folders are one of the main ways to organize, manage, and report on work within Wrike.
+Folders are one of the main ways to organize and manage information on Wrike.
 
-This action creates a single folder in a specified Wrike folder. To create a main folder, select **root** as the parent folder.
+This action creates a single folder in a specified location. To create a main folder, select **root** as the parent folder.
 
 ![Create folder action](/assets/images/connectors/Wrike/create-folder-action.png)
 *Create folder action*
@@ -17,8 +19,8 @@ This action creates a single folder in a specified Wrike folder. To create a mai
 <table class="unchanged rich-diff-level-one">
   <thead>
     <tr>
-        <th width='25%'>Input field</th>
-        <th>Description</th>
+      <th width='25%'>Input field</th>
+      <th>Description</th>
     </tr>
   </thead>
   <tbody>
@@ -43,13 +45,33 @@ This action creates a single folder in a specified Wrike folder. To create a mai
     <tr>
       <td>Users who share the folder</td>
       <td>
-        Select users who share this folder. You can define users with a source list or manually input with the user ID. 
+        Select users who share this folder. You can define users with a source list or manually input with the user ID.
       </td>
     </tr>
     <tr>
-      <td>Project</a></td>
+      <td>Project fields</a></td>
       <td>
-        Wrike treats projects as folders with additional contraints. See the <a href="/connectors/wrike/create-project-action.md">Create project action</a> for more information.
+        Wrike projects are folders with additional properties. For more information, see the <a href="/connectors/wrike/create-project-action.md">Create project action</a> .
+        <table>
+          <tbody>
+            <tr>
+              <td>Status</td>
+              <td>The status of the project.</td>
+            </tr>
+            <tr>
+              <td>User IDs of Wrike users who should own this folder</td>
+              <td>The owners of the project.</td>
+            </tr>
+            <tr>
+              <td>Start date</td>
+              <td>The start date of the project.</td>
+            </tr>
+            <tr>
+              <td>End date</td>
+              <td>The end date of the project.</td>
+            </tr>
+          </tbody>
+        </table>
       </td>
     </tr>
     <tr>
@@ -66,21 +88,21 @@ This action creates a single folder in a specified Wrike folder. To create a mai
 <table class="unchanged rich-diff-level-one">
   <thead>
     <tr>
-        <th width='25%'>Output field</th>
-        <th>Description</th>
+      <th width='25%'>Output field</th>
+      <th>Description</th>
     </tr>
   </thead>
   <tbody>
     <tr>
       <td>Folder ID</td>
       <td>
-        The Wrike ID of the folder.
+        The ID of the folder.
       </td>
     </tr>  
     <tr>
       <td>Account ID</td>
       <td>
-        The Wrike ID of the account.
+        The ID of the account.
       </td>
     </tr>
     <tr>
@@ -104,7 +126,7 @@ This action creates a single folder in a specified Wrike folder. To create a mai
     <tr>
       <td>Description</td>
       <td>
-        The description of the folder. Will be blank if not specified. 
+        The description of the folder. Will be blank if not specified.
       </td>
     </tr>
     <tr>
@@ -114,12 +136,12 @@ This action creates a single folder in a specified Wrike folder. To create a mai
         <table>
           <tbody>
             <tr>
-              <td>User ID</td>td>
-              <td>The ID of the user who shares this folder</td>
+              <td>User ID</td>
+              <td>The ID of the user who shares this folder.</td>
             </tr>
             <tr>
               <td>List size</td>
-              <td>The size of the list, corresponding to the number of users retrieved</td>
+              <td>The size of the list, corresponding to the number of users retrieved.</td>
             </tr>
           </tbody>
         </table>
@@ -133,11 +155,11 @@ This action creates a single folder in a specified Wrike folder. To create a mai
           <tbody>
             <tr>
               <td>Folder ID</td>
-              <td>The folder ID of the parent folder</td>
+              <td>The folder ID of the parent folder.</td>
             </tr>
             <tr>
               <td>List size</td>
-              <td>The size of the list, corresponding to the number of parent folders retrieved</td>
+              <td>The size of the list, corresponding to the number of parent folders retrieved.</td>
             </tr>
           </tbody>
         </table>
@@ -150,12 +172,12 @@ This action creates a single folder in a specified Wrike folder. To create a mai
         <table>
           <tbody>
             <tr>
-              <td>Folder ID</td>td>
-              <td>The folder ID of the child folder</td>
+              <td>Folder ID</td>
+              <td>The folder ID of the child folder.</td>
             </tr>
             <tr>
               <td>List size</td>
-              <td>The size of the list, corresponding to the number of child folders retrieved</td>
+              <td>The size of the list, corresponding to the number of child folders retrieved.</td>
             </tr>
           </tbody>
         </table>
@@ -168,12 +190,12 @@ This action creates a single folder in a specified Wrike folder. To create a mai
         <table>
           <tbody>
             <tr>
-              <td>Folder ID</td>td>
-              <td>The folder ID of the super parent folder. Only applicable to 'selective sharing' labs feature.</td>
+              <td>Folder ID</td>
+              <td>The folder ID of the super parent folder.</td>
             </tr>
             <tr>
               <td>List size</td>
-              <td>The size of the list, corresponding to the number of super parent folders retrieved</td>
+              <td>The size of the list, corresponding to the number of super parent folders retrieved.</td>
             </tr>
           </tbody>
         </table>
@@ -182,35 +204,35 @@ This action creates a single folder in a specified Wrike folder. To create a mai
     <tr>
       <td>Scope</td>
       <td>
-        The scope of the folder. 
+        The scope of the folder.
       </td>
     </tr>
     <tr>
       <td>Has attachments</td>
       <td>
-        Is <code>True</code> if the folder has attachments, otherwise it will display <code>False</code>. 
+        Is <code>True</code> if the folder has attachments, otherwise it will display <code>False</code>.
       </td>
     </tr>
     <tr>
       <td>Permalink</td>
       <td>
-        The link to open the folder in a web workspace, this is only accessible if the user has the appropriate access. 
+        The link to open the folder in a web workspace, this is only accessible if the user has the appropriate access.
       </td>
     </tr>
     <tr>
       <td>Workflow ID</td>
       <td>
-        The ID of the folder workflow. 
+        The ID of the folder workflow.
       </td>
     </tr>
     <tr>
       <td>Metadata</td>
       <td>
-        The manually inputted metadata of this folder.
+        The metadata of this folder. These are manual inputs of <code>Key</code>:<code>Value</code> pairs.
         <table>
           <tbody>
             <tr>
-              <td><code>Key</code></td>td>
+              <td><code>Key</code></td>
               <td><code>Value</code></td>
             </tr>
             <tr>
@@ -238,7 +260,7 @@ This action creates a single folder in a specified Wrike folder. To create a mai
                 <table>
                   <tbody>
                     <tr>
-                      <td>User ID</td>td>
+                      <td>User ID</td>
                       <td>The user ID of the project owner.</td>
                     </tr>
                     <tr>
@@ -251,7 +273,7 @@ This action creates a single folder in a specified Wrike folder. To create a mai
             </tr>
             <tr>
               <td>Status</td>
-              <td>The status of the task. Permitted values are <code>Green</code>, <code>Yellow</code>, <code>Red</code>, <code>Completed</code>, <code>On hold</code>, and <code>Cancelled</code>.</td>
+              <td>The status of the task. Permitted values are <code>New</code>, <code>In progress</code>, <code>Completed</code>, <code>On hold</code>, and <code>Cancelled</code>.</td>
             </tr>
             <tr>
               <td>Start date</td>

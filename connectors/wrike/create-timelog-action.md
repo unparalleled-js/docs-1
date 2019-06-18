@@ -1,6 +1,8 @@
 ---
 title: Workato connectors - Wrike create timelog action
 date: 2019-06-14 18:00:00 Z
+search:
+    keywords: ['wrike', 'timelog', 'create']
 ---
 
 # Wrike - Create timelog action
@@ -15,13 +17,13 @@ This action creates a timelog record for a specified task in Wrike.
 <table class="unchanged rich-diff-level-one">
   <thead>
     <tr>
-        <th width='25%'>Input field</th>
-        <th>Description</th>
+      <th width='25%'>Input field</th>
+      <th>Description</th>
     </tr>
   </thead>
   <tbody>
     <tr>
-      <td>ID of task to add new timelog to</td>
+      <td>ID of task to add new timelog record</td>
       <td>
         The ID of the task to add new timelog record.
       </td>
@@ -35,19 +37,19 @@ This action creates a timelog record for a specified task in Wrike.
     <tr>
       <td>Timelog tracked hours</td>
       <td>
-        The tracked hours in the timlog record.
+        The tracked hours in the timelog record.
       </td>    
     </tr>
     <tr>
       <td>Tracked date</td>
       <td>
-        The data of the new timelog record
+        The date of the new timelog record
       </td>    
     </tr>
     <tr>
       <td>Timelog category</td>
       <td>
-        Select the category for your timelog. 
+        Select the category for your timelog.
       </td>
     </tr>
   </tbody>
@@ -66,24 +68,24 @@ This action creates a timelog record for a specified task in Wrike.
     <tr>
       <td>Timelog ID</td>
       <td>
-        The Wrike ID of the timelog.
+        The ID of the timelog record.
       </td>
     </tr><tr>
       <td>Task ID</td>
       <td>
-        The Wrike ID of the task that this timelog record tracks.
+        The ID of the task that this timelog record tracks.
       </td>
     </tr>  
     <tr>
       <td>User ID</td>
       <td>
-        The Wrike ID of the user who tracked the timelog record.
+        The ID of the user who tracked the timelog record.
       </td>
     </tr>
     <tr>
       <td>Category ID</td>
       <td>
-        The ID of the category of this timelog record. 
+        The ID of the category of this timelog record.
       </td>
     </tr>
     <tr>

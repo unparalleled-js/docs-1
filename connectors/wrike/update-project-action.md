@@ -1,13 +1,15 @@
 ---
 title: Workato connectors - Wrike update project action
-date: 2019-05-30 18:00:00 Z
+date: 2019-06-15 18:00:00 Z
+search:
+    keywords: ['wrike', 'project', 'update']
 ---
 
 # Wrike - Update project action
 
-Folders/projects are one of the main ways to organize, manage, and report on work within Wrike.
+Projects are one of the main ways to organize, manage, and report on work within Wrike. In essence, Wrike projects are folders with additional properties.
 
-This action updates a specific project in Wrike. You can change the project name, parent project, add or modify the title and description, as well as modify sharing users.
+This action updates a specific project in Wrike. You can change the project name, add or modify the title and description, as well as modify sharing users.
 
 ![Update project action](/assets/images/connectors/Wrike/update-project-action.png)
 *Update project action*
@@ -17,22 +19,21 @@ This action updates a specific project in Wrike. You can change the project name
 <table class="unchanged rich-diff-level-one">
   <thead>
     <tr>
-        <th width='25%'>Input field</th>
-        <th>Description</th>
+      <th width='25%'>Input field</th>
+      <th>Description</th>
     </tr>
   </thead>
   <tbody>
     <tr>
-      <td>project</td>
+      <td>Project</td>
       <td>
-        Select a project to retrieve. To use project ID, toggle "Enter a project ID".
+        Select a project to update. To use project ID, toggle "Enter a project ID".
       </td>
     </tr>
     <tr>
       <td>Title</td>
       <td>
-        The new title of the project. 
-        <br>\\\\\To retain the original title, use a data pill??
+        The new title of the project.
       </td>
     </tr>
     <tr>
@@ -44,25 +45,25 @@ This action updates a specific project in Wrike. You can change the project name
     <tr>
       <td>Users to share the project with</td>
       <td>
-        Select users to share this project with. You can define users with a source list or manually input with the user ID. 
+        Select users to share this project with. You can define users with a source list or manually input their user ID.
       </td>
     </tr>
     <tr>
       <td>Remove users from sharing of project</td>
       <td>
-        The users to remove from sharing of project. You can define users with a source list or manually input with the user ID. 
+        Select the users to remove from sharing this project. You can define users with a source list or manually input their user ID.
       </td>
     </tr>
-     <tr>
+    <tr>
       <td>Remove parent folders/projects</td>
       <td>
-        The parent folders to remove. You cannot remove the <b>root project</b> or the <b>recycle bin</b>.  You can define users with a source list or manually input with the user ID. 
+        Select the parent folders to remove. You cannot remove the <b>root folder</b> or the <b>recycle bin</b>. You can define folders with a source list or manually input the folder ID.
       </td>
     </tr>
     <tr>
       <td>Add parent folders/projects</td>
       <td>
-        Select parent folders/projects to add. You can define users with a source list or manually input with the user ID. 
+        Select parent folders/projects to add. You can define folders/projects with a source list or manually input the folders/projects ID.
       </td>
     </tr>
     <tr>
@@ -78,9 +79,29 @@ This action updates a specific project in Wrike. You can change the project name
       </td>
     </tr>
     <tr>
-      <td>Project</td>
+      <td>Project</a></td>
       <td>
-        \\\ insert table.
+        Update the project properties.
+        <table>
+          <tbody>
+            <tr>
+              <td>Status</td>
+              <td>The status of the task. Permitted values are <code>New</code>, <code>In progress</code>, <code>Completed</code>, <code>On hold</code>, and <code>Cancelled</code>.</td>
+            </tr>
+            <tr>
+              <td>Owner ID</td>
+              <td>Select users as project owners. You can define users with a source list or manually input their user ID.
+            </tr>
+            <tr>
+              <td>Start date</td>
+              <td>The date this project was started.</td>
+            </tr>
+            <tr>
+              <td>End date</td>
+              <td>The date this project will end.</td>
+            </tr>
+          </tbody>
+        </table>
       </td>
     </tr>
   </tbody>
@@ -91,21 +112,21 @@ This action updates a specific project in Wrike. You can change the project name
 <table class="unchanged rich-diff-level-one">
   <thead>
     <tr>
-        <th width='25%'>Output field</th>
-        <th>Description</th>
+      <th width='25%'>Output field</th>
+      <th>Description</th>
     </tr>
   </thead>
   <tbody>
     <tr>
-      <td>project ID</td>
+      <td>Project ID</td>
       <td>
-        The Wrike ID of the project.
+        The ID of the project.
       </td>
     </tr>  
     <tr>
       <td>Account ID</td>
       <td>
-        The Wrike ID of the account.
+        The ID of the account.
       </td>
     </tr>
     <tr>
@@ -115,27 +136,21 @@ This action updates a specific project in Wrike. You can change the project name
       </td>
     </tr>
     <tr>
-      <td>Created date</td>
-      <td>
-        The date this project was created.
-      </td>
-    </tr>
-    <tr>
       <td>Updated date</td>
       <td>
         The date this project was updated.
       </td>
     </tr>
     <tr>
-      <td>Brief description</td>
+      <td>Created date</td>
       <td>
-        A brief description of the project. Will be blank if not specified. 
+        The date this project was created.
       </td>
     </tr>
     <tr>
       <td>Description</td>
       <td>
-        The description of the project. Will be blank if not specified. 
+        The description of the project. Will be blank if not specified.
       </td>
     </tr>
     <tr>
@@ -145,12 +160,12 @@ This action updates a specific project in Wrike. You can change the project name
         <table>
           <tbody>
             <tr>
-              <td>User ID</td>td>
-              <td>The ID of the user who shares this project</td>
+              <td>User ID</td>
+              <td>The ID of the user who shares this project.</td>
             </tr>
             <tr>
               <td>List size</td>
-              <td>The size of the list, corresponding to the number of users retrieved</td>
+              <td>The size of the list, corresponding to the number of users retrieved.</td>
             </tr>
           </tbody>
         </table>
@@ -163,12 +178,12 @@ This action updates a specific project in Wrike. You can change the project name
         <table>
           <tbody>
             <tr>
-              <td>project ID</td>td>
-              <td>The project ID of the parent project</td>
+              <td>Project ID</td>
+              <td>The project ID of the parent project.</td>
             </tr>
             <tr>
               <td>List size</td>
-              <td>The size of the list, corresponding to the number of parent projects retrieved</td>
+              <td>The size of the list, corresponding to the number of parent projects retrieved.</td>
             </tr>
           </tbody>
         </table>
@@ -181,12 +196,12 @@ This action updates a specific project in Wrike. You can change the project name
         <table>
           <tbody>
             <tr>
-              <td>project ID</td>td>
-              <td>The project ID of the child project</td>
+              <td>Project ID</td>
+              <td>The project ID of the child project.</td>
             </tr>
             <tr>
               <td>List size</td>
-              <td>The size of the list, corresponding to the number of child projects retrieved</td>
+              <td>The size of the list, corresponding to the number of child projects retrieved.</td>
             </tr>
           </tbody>
         </table>
@@ -199,12 +214,12 @@ This action updates a specific project in Wrike. You can change the project name
         <table>
           <tbody>
             <tr>
-              <td>project ID</td>td>
-              <td>The project ID of the super parent project. Only applicable to 'selective sharing' labs feature.</td>
+              <td>Project ID</td>
+              <td>The project ID of the super parent project.</td>
             </tr>
             <tr>
               <td>List size</td>
-              <td>The size of the list, corresponding to the number of super parent projects retrieved</td>
+              <td>The size of the list, corresponding to the number of super parent projects retrieved.</td>
             </tr>
           </tbody>
         </table>
@@ -213,41 +228,35 @@ This action updates a specific project in Wrike. You can change the project name
     <tr>
       <td>Scope</td>
       <td>
-        The scope of the project. 
+        The scope of the project.
       </td>
     </tr>
     <tr>
       <td>Has attachments</td>
       <td>
-        Is <code>True</code> if the project has attachments, otherwise it will display <code>False</code>. 
-      </td>
-    </tr>
-    <tr>
-      <td>Attachment count</td>
-      <td>
-        The total number of attachments in this project
+        Is <code>True</code> if the project has attachments, otherwise it will display <code>False</code>.
       </td>
     </tr>
     <tr>
       <td>Permalink</td>
       <td>
-        The link to open the project in a web workspace, this is only accessible if the user has the appropriate access. 
+        The link to open the project in a web workspace, this is only accessible if the user has the appropriate access.
       </td>
     </tr>
     <tr>
       <td>Workflow ID</td>
       <td>
-        The ID of the project workflow. 
+        The ID of the project workflow.
       </td>
     </tr>
     <tr>
       <td>Metadata</td>
       <td>
-        The manually inputted metadata of this project.
+        The metadata of this project. These are manual inputs of <code>Key</code>:<code>Value</code> pairs.
         <table>
           <tbody>
             <tr>
-              <td><code>Key</code></td>td>
+              <td><code>Key</code></td>
               <td><code>Value</code></td>
             </tr>
             <tr>
@@ -275,7 +284,7 @@ This action updates a specific project in Wrike. You can change the project name
                 <table>
                   <tbody>
                     <tr>
-                      <td>User ID</td>td>
+                      <td>User ID</td>
                       <td>The user ID of the project owner.</td>
                     </tr>
                     <tr>
@@ -288,7 +297,7 @@ This action updates a specific project in Wrike. You can change the project name
             </tr>
             <tr>
               <td>Status</td>
-              <td>The status of the task. Permitted values are <code>Green</code>, <code>Yellow</code>, <code>Red</code>, <code>Completed</code>, <code>On hold</code>, and <code>Cancelled</code>.</td>
+              <td>The status of the task. Permitted values are <code>New</code>, <code>In progress</code>, <code>Completed</code>, <code>On hold</code>, and <code>Cancelled</code>.</td>
             </tr>
             <tr>
               <td>Start date</td>
@@ -314,12 +323,6 @@ This action updates a specific project in Wrike. You can change the project name
       <td>Custom fields</td>
       <td>
         Includes data from custom field(s).
-      </td>
-    </tr>
-    <tr>
-      <td>List size</td>
-      <td>
-        The size of the list, corresponding to the number of projects retrieved.
       </td>
     </tr>
   </tbody>

@@ -1,11 +1,13 @@
 ---
 title: Workato connectors - Wrike
-date: 2019-05-28 18:00:00 Z
+date: 2019-06-17 18:00:00 Z
+search:
+    keywords: ['wrike', 'connection', 'new', 'updated']
 ---
 
 # Wrike
 
-[Wrike](https://www.Wrike.com/) is an online project management software that provides user tracking and file sharing to enable collaboration between co-located and distributed teams.
+[Wrike](https://www.Wrike.com/) is an online project management software that enables collaboration between co-located and distributed teams.
 
 ## API version
 
@@ -13,19 +15,41 @@ The Wrike connector uses [Wrike REST API v4](https://developers.wrike.com/docume
 
 ## How to connect to Wrike on Workato
 
-To enable Workato to interact with Wrike data, you have to use the Wrike connector. The Wrike connector uses OAuth2 authentication. Providing these credentials assure Wrike that the user is giving permission for Workato to access their account data. 
+The Wrike connectors uses OAuth2 authentication. This allows you to:
+  * Define the scopes for the connector
+  * Authenticate with Wrike
 
 ![Wrike connector](/assets/images/connectors/wrike/wrike-connector.png)
 *Wrike connector*
 
-Entailed in the permissions are scopes that define how the connectors is allowed to interact with Wrike data. For example, the [create invitation action] requires the following scopes: *Default*, *amReadWriteInvitation*.
+### Scopes for Wrike connector
 
-You can edit the scope of the connectors by opening the **Advanced settings** dropdown. Select permissions to request for this connection. Defaults to **Default** if left blank. To enable the full suite of Workato triggers and action, you can use **select all** to request for all scopes. 
+Entailed in the permissions are scopes that define how the connectors is allowed to interact with Wrike data. For example, the [create task action](/connectors/wrike/create-task-action) requires the following scopes: *Default*, *wsReadWrite*.
+
+You can edit the scope of the connectors by selecting **Advanced settings** > **Api scope**.
 
 ![Wrike connector API scope](/assets/images/connectors/wrike/wrike-connector-permissions.png)
 *Wrike connector API scope*
 
-To set up your Wrike connector, click on **Link your account**.
+<table class="unchanged rich-diff-level-one">
+  <thead>
+    <tr>
+      <th width='25%'>Field</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Api scope</td>
+      <td>
+        Select permissions to request for this connection. To enable the full suite of Workato triggers and action, you can <b>select all</b> to request for all scopes. If left blank, the connector will only request: <i>Default</i>.
+      </td>
+    </tr>
+  </tbody>
+</table>
+### Authenticate with Wrike
+
+To log in with your user credentials, click on **Link your account**.
 
 A popup will appear that requests for your Wrike login credentials. Input your **Username / Password** into the fields provided.
 
@@ -35,8 +59,8 @@ A popup will appear that requests for your Wrike login credentials. Input your *
 <table class="unchanged rich-diff-level-one">
   <thead>
     <tr>
-        <th width='25%'>Field</th>
-        <th>Description</th>
+      <th width='25%'>Field</th>
+      <th>Description</th>
     </tr>
   </thead>
   <tbody>
@@ -46,8 +70,7 @@ A popup will appear that requests for your Wrike login credentials. Input your *
     </tr>
     <tr>
       <td>Password</td>
-      <td>The password of this Wrike account.</td>
+      <td>The password of the Wrike account to connect.</td>
     </tr>
   </tbody>
 </table>
-

@@ -1,11 +1,13 @@
 ---
 title: Workato connectors - Wrike create comment action
-date: 2019-05-30 18:00:00 Z
+date: 2019-06-14 18:00:00 Z
+search:
+    keywords: ['wrike', 'comment', 'create', 'folder', 'task']
 ---
 
 # Wrike - Create comment action
 
-In Wrike, you can create comments either in folders or in [tasks](#create-comment-in-task-action).
+In Wrike, you can create comments in [folders](#create-comment-in-folder-action) or [tasks](#create-comment-in-task-action).
 
 ## Create comment in folder action
 
@@ -19,15 +21,15 @@ This action creates a single comment in a specified Wrike folder.
 <table class="unchanged rich-diff-level-one">
   <thead>
     <tr>
-        <th width='25%'>Input field</th>
-        <th>Description</th>
+      <th width='25%'>Input field</th>
+      <th>Description</th>
     </tr>
   </thead>
   <tbody>
     <tr>
       <td>Folder ID</a></td>
       <td>
-        The ID of the folder to create a comment into.
+        The ID of the folder to create a comment.
       </td>
     </tr>
     <tr>
@@ -44,21 +46,21 @@ This action creates a single comment in a specified Wrike folder.
 <table class="unchanged rich-diff-level-one">
   <thead>
     <tr>
-        <th width='25%'>Output field</th>
-        <th>Description</th>
+      <th width='25%'>Output field</th>
+      <th>Description</th>
     </tr>
   </thead>
   <tbody>
     <tr>
       <td>Comment ID</td>
       <td>
-        The Wrike ID of the comment.
+        The ID of the comment.
       </td>
     </tr>  
     <tr>
       <td>Author ID</td>
       <td>
-        The Wrike ID of the author.
+        The ID of the author.
       </td>
     </tr>
     <tr>
@@ -82,12 +84,11 @@ This action creates a single comment in a specified Wrike folder.
     <tr>
       <td>Folder ID</td>
       <td>
-        The ID of the related folder. Either <code>Folder ID</code> or <code>Folder ID</code> is displayed.
+        The ID of the related folder.
       </td>
     </tr>
   </tbody>
 </table>
-
 
 ## Create comment in task action
 
@@ -109,7 +110,7 @@ This action creates a single comment in a specified Wrike task.
     <tr>
       <td>Task ID</a></td>
       <td>
-        The ID of the task to create a comment into.
+        The ID of the task to create a comment.
       </td>
     </tr>
     <tr>
@@ -134,13 +135,13 @@ This action creates a single comment in a specified Wrike task.
     <tr>
       <td>Comment ID</td>
       <td>
-        The Wrike ID of the comment.
+        The ID of the comment.
       </td>
     </tr>  
     <tr>
       <td>Author ID</td>
       <td>
-        The Wrike ID of the author.
+        The ID of the author.
       </td>
     </tr>
     <tr>
@@ -164,7 +165,7 @@ This action creates a single comment in a specified Wrike task.
     <tr>
       <td>Task ID</td>
       <td>
-        The ID of the related folder. Either <code>Folder ID</code> or <code>Task ID</code> is displayed.
+        The ID of the related folder.
       </td>
     </tr>
   </tbody>

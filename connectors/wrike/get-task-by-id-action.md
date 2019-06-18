@@ -1,11 +1,13 @@
 ---
 title: Workato connectors - Wrike get task by id action
 date: 2019-06-14 18:00:00 Z
+search:
+    keywords: ['wrike', 'task', 'search','id']
 ---
 
 # Wrike - Get task by id action
 
-This action retrieves a single task that matches a search by folder ID. Only results in your Wrike instance that matches the criteria will be returned.
+This action retrieves a single task that matches a search by task ID. Only results in your Wrike instance that matches the criteria will be returned.
 
 ![Get task by ID action](/assets/images/connectors/Wrike/get-task-by-id-action.png)
 *Get task by ID action*
@@ -15,8 +17,8 @@ This action retrieves a single task that matches a search by folder ID. Only res
 <table class="unchanged rich-diff-level-one">
   <thead>
     <tr>
-        <th width='25%'>Input field</th>
-        <th>Description</th>
+      <th width='25%'>Input field</th>
+      <th>Description</th>
     </tr>
   </thead>
   <tbody>
@@ -34,21 +36,21 @@ This action retrieves a single task that matches a search by folder ID. Only res
 <table class="unchanged rich-diff-level-one">
   <thead>
     <tr>
-        <th width='25%'>Output field</th>
-        <th>Description</th>
+      <th width='25%'>Output field</th>
+      <th>Description</th>
     </tr>
   </thead>
   <tbody>
     <tr>
       <td>Task ID</td>
       <td>
-        The Wrike ID of the task.
+        The ID of the task.
       </td>
     </tr>  
     <tr>
       <td>Account ID</td>
       <td>
-        The Wrike ID of the account.
+        The ID of the account.
       </td>
     </tr>
     <tr>
@@ -60,7 +62,7 @@ This action retrieves a single task that matches a search by folder ID. Only res
     <tr>
       <td>Description</td>
       <td>
-        The description of the task. Will be blank if not specified. 
+        The description of the task. Will be blank if not specified.
       </td>
     </tr>
     <tr>
@@ -76,8 +78,8 @@ This action retrieves a single task that matches a search by folder ID. Only res
         <table>
           <tbody>
             <tr>
-              <td>Folder ID</td>t
-              <td>The folder ID of the parent folder</td>
+              <td>Folder ID</td>
+              <td>The folder ID of the parent folder.</td>
             </tr>
             <tr>
               <td>List size</td>
@@ -95,7 +97,7 @@ This action retrieves a single task that matches a search by folder ID. Only res
           <tbody>
             <tr>
               <td>Folder ID</td>
-              <td>The folder ID of the super parent folder. Only applicable to 'selective sharing' labs feature.</td>
+              <td>The folder ID of the super parent folder.</td>
             </tr>
             <tr>
               <td>List size</td>
@@ -113,7 +115,7 @@ This action retrieves a single task that matches a search by folder ID. Only res
           <tbody>
             <tr>
               <td>User ID</td>
-              <td>The ID of the user who shares this task</td>
+              <td>The ID of the user who shares this task.</td>
             </tr>
             <tr>
               <td>List size</td>
@@ -131,7 +133,7 @@ This action retrieves a single task that matches a search by folder ID. Only res
           <tbody>
             <tr>
               <td>User ID</td>
-              <td>The ID of the user who shares this task</td>
+              <td>The ID of the user who shares this task.</td>
             </tr>
             <tr>
               <td>List size</td>
@@ -143,7 +145,9 @@ This action retrieves a single task that matches a search by folder ID. Only res
     </tr>
     <tr>
       <td>Status</td>
-      <td>The status of the task. Permitted values are <code>Active</code>, <code>Completed</code>, <code>Defrred</code>, and <code>Cancelled</code>.</td>
+      <td>
+        The status of the task. Permitted values are <code>New</code>, <code>In progress</code>, <code>Completed</code>, <code>On hold</code>, and <code>Cancelled</code>.
+      </td>
     </tr>
     <tr>
       <td>Importance</td>
@@ -166,7 +170,7 @@ This action retrieves a single task that matches a search by folder ID. Only res
     <tr>
       <td>Completed date</td>
       <td>
-       The date this tasl was completed.
+       The date this task was completed.
      </td>
     </tr>
     <tr>
@@ -177,7 +181,7 @@ This action retrieves a single task that matches a search by folder ID. Only res
           <tbody>
             <tr>
               <td>Type</td>
-              <td>The type of task date. Permitted values are <code>Backlog</code>, <code>Milestone</code>, and <code>Planned</code>.</td>
+              <td>The type of task. Permitted values are <code>Backlogged</code>, <code>Milestone</code>, and <code>scheduled</code>.</td>
             </tr>
             <tr>
               <td>Duration</td>
@@ -187,11 +191,11 @@ This action retrieves a single task that matches a search by folder ID. Only res
             </tr>
             <tr>
               <td>Start date</td>
-              <td>The start date of this task.</td>
+              <td>The start date of this task. <code>Backlogged</code> tasks do not have start dates.</td>
             </tr>
             <tr>
               <td>Due date</td>
-              <td>The due date of this task.</td>
+              <td>The due date of this task. <code>Backlogged</code> tasks and <code>Milestone</code> tasks do not have due dates.</td>
             </tr>
             <tr>
               <td>Work on weekends</td>
@@ -204,7 +208,7 @@ This action retrieves a single task that matches a search by folder ID. Only res
     <tr>
       <td>Scope</td>
       <td>
-        The scope of the task. 
+        The scope of the task.
       </td>
     </tr>
     <tr>
@@ -228,7 +232,7 @@ This action retrieves a single task that matches a search by folder ID. Only res
      <tr>
       <td>Custom status ID</td>
       <td>
-        The custom status ID of the task. 
+        The custom status ID of the task.
       </td>
     </tr>
     <tr>
@@ -252,25 +256,25 @@ This action retrieves a single task that matches a search by folder ID. Only res
     <tr>
       <td>Has attachments</td>
       <td>
-        Is <code>True</code> if the folder has attachments, otherwise it will display <code>False</code>. 
+        Is <code>True</code> if the folder has attachments, otherwise it will display <code>False</code>.
       </td>
     </tr>
     <tr>
       <td>Permalink</td>
       <td>
-        The link to open the task in a web workspace, this is only accessible if the user has the appropriate access. 
+        The link to open the task in a web workspace, this is only accessible if the user has the appropriate access.
       </td>
     </tr>
     <tr>
       <td>Priority</td>
       <td>
-        The ordering key that defines the task order in a tasklist. 
+        The ordering key that defines the task order in a task list.
       </td>
     </tr>
     <tr>
       <td>Followed by me</td>
       <td>
-        Is <code>True</code> if the task is followed by the Wrike user, otherwise it will display <code>False</code>. 
+        Is <code>True</code> if the task is followed by the Wrike user, otherwise it will display <code>False</code>.
       </td>
     </tr>
     <tr>
@@ -335,7 +339,7 @@ This action retrieves a single task that matches a search by folder ID. Only res
           <tbody>
             <tr>
               <td>Dependency ID</td>
-              <td>The ID of the task that is marked as a dependecy.</td>
+              <td>The ID of the task that is marked as a dependency.</td>
             </tr>
             <tr>
               <td>List size</td>
@@ -348,7 +352,7 @@ This action retrieves a single task that matches a search by folder ID. Only res
     <tr>
       <td>Metadata</td>
       <td>
-        The manually inputted metadata of this folder.
+        The metadata of this task. These are manual inputs of <code>Key</code>:<code>Value</code> pairs.
         <table>
           <tbody>
             <tr>

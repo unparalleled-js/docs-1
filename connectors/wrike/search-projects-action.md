@@ -1,24 +1,26 @@
 ---
-title: Workato connectors - Wrike Search project action
-date: 2019-05-30 18:00:00 Z
+title: Workato connectors - Wrike Search projects action
+date: 2019-06-11 18:00:00 Z
+search:
+    keywords: ['wrike', 'project', 'search']
 ---
 
-# Wrike - Search project action
+# Wrike - Search projects action
 
-Folder/projects are one of the main ways to organize, manage, and report on work within Wrike.
+Projects are one of the main ways to organize, manage, and report on work within Wrike. In essence, Wrike projects are folders with additional properties.
 
-This action retrieves a list of projects that matches your search criteria. Only records in your Wrike instance that matches all the criteria will be returned. A maximum of 100 projects can be retrieved.
+This action retrieves a list of projects that matches your search criteria. Only records in your Wrike instance that matches all the criteria will be returned. A maximum of 100 projects can be retrieved per job.
 
-![Search project action](/assets/images/connectors/Wrike/search-project-action.png)
-*Search project action*
+![Search projects action](/assets/images/connectors/Wrike/search-projects-action.png)
+*Search projects action*
 
 ### Input fields
 
 <table class="unchanged rich-diff-level-one">
   <thead>
     <tr>
-        <th width='25%'>Input field</th>
-        <th>Description</th>
+      <th width='25%'>Input field</th>
+      <th>Description</th>
     </tr>
   </thead>
   <tbody>
@@ -31,14 +33,13 @@ This action retrieves a list of projects that matches your search criteria. Only
     <tr>
       <td>Metadata</td>
       <td>
-        The metadata details to use in your search.
-        \\\\
+        The metadata details to use in your search. You can define metadata with a metadata source list or manually input the <code>Key</code>/<code>Value</code> pair information.
       </td>
     </tr>
     <tr>
       <td>Permalink</td>
       <td>
-        The link to open the project in a web workspace, this is only accessible if the user has the appropriate access. 
+        The link to open the project in a web workspace, this is only accessible if the user has the appropriate access.
       </td>
     </tr>
     <tr>
@@ -56,7 +57,7 @@ This action retrieves a list of projects that matches your search criteria. Only
     <tr>
       <td>Updated date</td>
       <td>
-        Select the date the project was last updated. The search will retrieve projects updated after this date. 
+        Retrieve projects created after this date.
       </td>
     </tr>
   </tbody>
@@ -67,21 +68,21 @@ This action retrieves a list of projects that matches your search criteria. Only
 <table class="unchanged rich-diff-level-one">
   <thead>
     <tr>
-        <th width='25%'>Output field</th>
-        <th>Description</th>
+      <th width='25%'>Output field</th>
+      <th>Description</th>
     </tr>
   </thead>
   <tbody>
     <tr>
-      <td>project ID</td>
+      <td>Project ID</td>
       <td>
-        The Wrike ID of the project.
+        The ID of the project.
       </td>
     </tr>  
     <tr>
       <td>Account ID</td>
       <td>
-        The Wrike ID of the account.
+        The ID of the account.
       </td>
     </tr>
     <tr>
@@ -91,27 +92,21 @@ This action retrieves a list of projects that matches your search criteria. Only
       </td>
     </tr>
     <tr>
-      <td>Created date</td>
-      <td>
-        The date this project was created.
-      </td>
-    </tr>
-    <tr>
       <td>Updated date</td>
       <td>
         The date this project was updated.
       </td>
     </tr>
     <tr>
-      <td>Brief description</td>
+      <td>Created date</td>
       <td>
-        A brief description of the project. Will be blank if not specified. 
+        The date this project was created.
       </td>
     </tr>
     <tr>
       <td>Description</td>
       <td>
-        The description of the project. Will be blank if not specified. 
+        The description of the project. Will be blank if not specified.
       </td>
     </tr>
     <tr>
@@ -121,12 +116,12 @@ This action retrieves a list of projects that matches your search criteria. Only
         <table>
           <tbody>
             <tr>
-              <td>User ID</td>td>
-              <td>The ID of the user who shares this project</td>
+              <td>User ID</td>
+              <td>The ID of the user who shares this project.</td>
             </tr>
             <tr>
               <td>List size</td>
-              <td>The size of the list, corresponding to the number of users retrieved</td>
+              <td>The size of the list, corresponding to the number of users retrieved.</td>
             </tr>
           </tbody>
         </table>
@@ -139,12 +134,12 @@ This action retrieves a list of projects that matches your search criteria. Only
         <table>
           <tbody>
             <tr>
-              <td>project ID</td>td>
-              <td>The project ID of the parent project</td>
+              <td>Project ID</td>
+              <td>The project ID of the parent project.</td>
             </tr>
             <tr>
               <td>List size</td>
-              <td>The size of the list, corresponding to the number of parent projects retrieved</td>
+              <td>The size of the list, corresponding to the number of parent projects retrieved.</td>
             </tr>
           </tbody>
         </table>
@@ -153,16 +148,16 @@ This action retrieves a list of projects that matches your search criteria. Only
     <tr>
       <td>Child project</td>
       <td>
-        The list of child projects of this project.
+        The list of child projects to this project.
         <table>
           <tbody>
             <tr>
-              <td>project ID</td>td>
-              <td>The project ID of the child project</td>
+              <td>Project ID</td>
+              <td>The project ID of the child project.</td>
             </tr>
             <tr>
               <td>List size</td>
-              <td>The size of the list, corresponding to the number of child projects retrieved</td>
+              <td>The size of the list, corresponding to the number of child projects retrieved.</td>
             </tr>
           </tbody>
         </table>
@@ -175,12 +170,12 @@ This action retrieves a list of projects that matches your search criteria. Only
         <table>
           <tbody>
             <tr>
-              <td>project ID</td>td>
-              <td>The project ID of the super parent project. Only applicable to 'selective sharing' labs feature.</td>
+              <td>Project ID</td>
+              <td>The project ID of the super parent project.</td>
             </tr>
             <tr>
               <td>List size</td>
-              <td>The size of the list, corresponding to the number of super parent projects retrieved</td>
+              <td>The size of the list, corresponding to the number of super parent projects retrieved.</td>
             </tr>
           </tbody>
         </table>
@@ -189,41 +184,35 @@ This action retrieves a list of projects that matches your search criteria. Only
     <tr>
       <td>Scope</td>
       <td>
-        The scope of the project. 
+        The scope of the project.
       </td>
     </tr>
     <tr>
       <td>Has attachments</td>
       <td>
-        Is <code>True</code> if the project has attachments, otherwise it will display <code>False</code>. 
-      </td>
-    </tr>
-    <tr>
-      <td>Attachment count</td>
-      <td>
-        The total number of attachments in this project
+        Is <code>True</code> if the project has attachments, otherwise it will display <code>False</code>.
       </td>
     </tr>
     <tr>
       <td>Permalink</td>
       <td>
-        The link to open the project in a web workspace, this is only accessible if the user has the appropriate access. 
+        The link to open the project in a web workspace, this is only accessible if the user has the appropriate access.
       </td>
     </tr>
     <tr>
       <td>Workflow ID</td>
       <td>
-        The ID of the project workflow. 
+        The ID of the project workflow.
       </td>
     </tr>
     <tr>
       <td>Metadata</td>
       <td>
-        The manually inputted metadata of this project.
+        The metadata of this project. These are manual inputs of <code>Key</code>:<code>Value</code> pairs.
         <table>
           <tbody>
             <tr>
-              <td><code>Key</code></td>td>
+              <td><code>Key</code></td>
               <td><code>Value</code></td>
             </tr>
             <tr>
@@ -251,7 +240,7 @@ This action retrieves a list of projects that matches your search criteria. Only
                 <table>
                   <tbody>
                     <tr>
-                      <td>User ID</td>td>
+                      <td>User ID</td>
                       <td>The user ID of the project owner.</td>
                     </tr>
                     <tr>
@@ -264,7 +253,7 @@ This action retrieves a list of projects that matches your search criteria. Only
             </tr>
             <tr>
               <td>Status</td>
-              <td>The status of the task. Permitted values are <code>Green</code>, <code>Yellow</code>, <code>Red</code>, <code>Completed</code>, <code>On hold</code>, and <code>Cancelled</code>.</td>
+              <td>The status of the task. Permitted values are <code>New</code>, <code>In progress</code>, <code>Completed</code>, <code>On hold</code>, and <code>Cancelled</code>.</td>
             </tr>
             <tr>
               <td>Start date</td>

@@ -1,6 +1,8 @@
 ---
-title: Wrike - New comment trigger
+title: Workato connectors - Wrike new comment trigger
 data: 2019-06-11 18:00:00 Z
+search:
+    keywords: ['wrike', 'comment', 'new']
 ---
 
 # Wrike - New comment trigger
@@ -15,15 +17,15 @@ This trigger picks up comments that are created. Each comment is processed as a 
 <table class="unchanged rich-diff-level-one">
   <thead>
     <tr>
-        <th width='25%'>Input field</th>
-        <th>Description</th>
+      <th width='25%'>Input field</th>
+      <th>Description</th>
     </tr>
   </thead>
   <tbody>
     <tr>
-      <td>From</a></td>
+      <td>When first start, this recipe should pick up events from</a></td>
       <td>
-        comments created after this time will be processed by the recipe. If left blank, the default date will be set to <b>one hour</b> before the recipe is first started.
+        Comments created after this time will be processed by the recipe. If left blank, the default date will be set to <b>one hour</b> before the recipe is first started.
       </td>
     </tr>
     </tbody>
@@ -31,26 +33,26 @@ This trigger picks up comments that are created. Each comment is processed as a 
 
 ### Output fields
 
-The output of this trigger contains the full set of columns from the selected comment. Here are some of the commonly used outputs.
+The output of this trigger contains the full set of columns from the selected comment. Here are some of the commonly used outputs. Since each Wrike comments are uniquely attached to folders or task, either the **Folder ID** or the **Task ID** will be displayed.
 
 <table class="unchanged rich-diff-level-one">
   <thead>
     <tr>
-        <th width='25%'>Output field</th>
-        <th>Description</th>
+      <th width='25%'>Output field</th>
+      <th>Description</th>
     </tr>
   </thead>
   <tbody>
     <tr>
       <td>Comment ID</td>
       <td>
-        The Wrike ID of the comment.
+        The ID of the comment.
       </td>
     </tr>  
     <tr>
       <td>Author ID</td>
       <td>
-        The Wrike ID of the author.
+        The ID of the author.
       </td>
     </tr>
     <tr>
