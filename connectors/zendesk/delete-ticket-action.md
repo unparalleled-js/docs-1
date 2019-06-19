@@ -1,10 +1,11 @@
 ---
 title: Workato connectors - Zendesk delete ticket action
 date: 2019-05-30 18:00:00 Z
+search:
+    keywords: ['zendesk', 'ticket', 'delete', 'update']
 ---
 
 # Zendesk - Delete ticket action
-
 This action selects a specific ticket by its Zendesk ticket ID and deletes the ticket from your Zendesk instance.
 
 For this action to run successfully, the recipe has to find an existing ticket in your Zendesk instance.
@@ -13,12 +14,11 @@ For this action to run successfully, the recipe has to find an existing ticket i
 *Delete ticket action*
 
 ### Input fields
-
 <table class="unchanged rich-diff-level-one">
   <thead>
     <tr>
-        <th width='25%'>Input field</th>
-        <th>Description</th>
+      <th width='25%'>Input field</th>
+      <th>Description</th>
     </tr>
   </thead>
   <tbody>
@@ -32,5 +32,4 @@ For this action to run successfully, the recipe has to find an existing ticket i
 </table>
 
 ### Output fields
-
 There is no output for this action.

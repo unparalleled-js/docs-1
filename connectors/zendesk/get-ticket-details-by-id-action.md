@@ -1,22 +1,22 @@
 ---
 title: Workato connectors - Zendesk get ticket details by ID action
 date: 2019-05-30 18:00:00 Z
+search:
+    keywords: ['zendesk', 'ticket', 'details', 'get', 'find']
 ---
 
-# Zendesk - Get ticket details by ID actiom
-
+# Zendesk - Get ticket details by ID action
 This action retrieves a specific ticket that matches a search by ticket ID. Only records in your Zendesk instance that matches the criteria will be returned.
 
 ![Get ticket details by ID action](/assets/images/connectors/zendesk/get-ticket-details-by-id.png)
 *Get ticket details by ID action*
 
 ### Input fields
-
 <table class="unchanged rich-diff-level-one">
   <thead>
     <tr>
-        <th width='25%'>Input field</th>
-        <th>Description</th>
+      <th width='25%'>Input field</th>
+      <th>Description</th>
     </tr>
   </thead>
   <tbody>
@@ -30,14 +30,13 @@ This action retrieves a specific ticket that matches a search by ticket ID. Only
 </table>
 
 ### Output fields
-
 The output of this action contains the full set of columns from the selected ticket. Here are some of the commonly used outputs.
 
 <table class="unchanged rich-diff-level-one">
   <thead>
     <tr>
-        <th width='25%'>Output field</th>
-        <th>Description</th>
+      <th width='25%'>Output field</th>
+      <th>Description</th>
     </tr>
   </thead>
   <tbody>

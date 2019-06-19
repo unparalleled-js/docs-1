@@ -1,24 +1,24 @@
 ---
 title: Workato connectors - Zendesk update ticket action
 date: 2019-05-30 18:00:00 Z
+search:
+    keywords: ['zendesk', 'ticket', 'update', 'bulk update']
 ---
 
 # Zendesk - Update ticket action
-
 This action updates a specific ticket in your Zendesk instance identified by its Zendesk ID. You can update ticket fields and add new comments.
 
 ![Update ticket action](/assets/images/connectors/zendesk/update-ticket-action.png)
 *Update ticket action*
 
 ### Input fields
-
 Here are some of the commonly used inputs.
 
 <table class="unchanged rich-diff-level-one">
   <thead>
     <tr>
-        <th width='25%'>Input field</th>
-        <th>Description</th>
+      <th width='25%'>Input field</th>
+      <th>Description</th>
     </tr>
   </thead>
   <tbody>
@@ -72,14 +72,13 @@ Here are some of the commonly used inputs.
 Click here for a full list of [ticket inputs](/connectors/zendesk/ticket-fields.md#ticket-input-fields).
 
 ### Output fields
-
 The output of this action contains the full set of columns from the selected ticket. Here are some of the commonly used outputs.
 
 <table class="unchanged rich-diff-level-one">
   <thead>
     <tr>
-        <th width='25%'>Output field</th>
-        <th>Description</th>
+      <th width='25%'>Output field</th>
+      <th>Description</th>
     </tr>
   </thead>
   <tbody>
@@ -119,21 +118,19 @@ The output of this action contains the full set of columns from the selected tic
 Click here for a full list of [ticket outputs](/connectors/zendesk/ticket-fields.md#ticket-output-fields).
 
 ## Bulk update tickets action
-
 This action updates multiple tickets in your Zendesk instance. The tickets are identified by their Zendesk ticket ID. You can update ticket fields and add new comments.
 
 ![Bulk update tickets action](/assets/images/connectors/zendesk/bulk-update-tickets-action.png)
 *Bulk update tickets action*
 
 ### Input fields
-
 Here are some of the commonly used inputs.
 
 <table class="unchanged rich-diff-level-one">
   <thead>
     <tr>
-        <th width='25%'>Input field</th>
-        <th>Description</th>
+      <th width='25%'>Input field</th>
+      <th>Description</th>
     </tr>
   </thead>
   <tbody>
@@ -187,21 +184,20 @@ Here are some of the commonly used inputs.
 Click here a full list of [ticket inputs](/connectors/zendesk/ticket-fields.md#ticket-input-fields).
 
 ### Output fields
-
 The output of this action is a status record of the bulk update action. You can use this status record as inputs in your recipe.
 
 <table class="unchanged rich-diff-level-one">
   <thead>
-    <tr>
-        <th width='25%'>Output field</th>
-        <th>Description</th>
+  <tr>
+      <th width='25%'>Output field</th>
+      <th>Description</th>
     </tr>
   </thead>
   <tbody>
     <tr>
       <td>ID</td>
       <td>
-        Unique Zendesk queue ID. This is automatically assigned when the <i>bulk update</i> action is requested.
+        Unique Zendesk queue ID. This is automatically assigned when the <b>bulk update</b> action is requested.
       </td>
     </tr>
     <tr>
@@ -225,13 +221,13 @@ The output of this action is a status record of the bulk update action. You can 
     <tr>
       <td>Status</td>
       <td>
-        The current status of the <i>bulk update</i> action. Permitted values are <code>queued</code>, <code>working</code>, <code>failed</code>, <code>completed</code>, or <code>killed</code>.
+        The status of the <b>bulk update</b> action. Permitted values are <code>queued</code>, <code>working</code>, <code>failed</code>, <code>completed</code>, or <code>killed</code>.
       </td>
     </tr>
     <tr>
       <td>Message</td>
       <td>
-        The message from the job worker, if any.
+        The message from the job worker.
       </td>
     </tr>
   </tbody>

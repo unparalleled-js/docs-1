@@ -1,10 +1,11 @@
 ---
 title: Workato connectors - Zendesk search organization member action
 date: 2019-06-03 18:00:00 Z
+search:
+    keywords: ['zendesk', 'organization', 'membership', 'member', 'search', 'find']
 ---
 
 # Zendesk - Search organization member action
-
 A membership links a user to an organization - An organization can have many users, and a users can be in many organizations.
 
 This action retrieves a list of all members in a specified organization. Only records in your Zendesk instance that matches all the criteria will be returned.
@@ -13,12 +14,11 @@ This action retrieves a list of all members in a specified organization. Only re
 *Search organization member action*
 
 ### Input fields
-
 <table class="unchanged rich-diff-level-one">
   <thead>
     <tr>
-        <th width='25%'>Input field</th>
-        <th>Description</th>
+      <th width='25%'>Input field</th>
+      <th>Description</th>
     </tr>
   </thead>
   <tbody>
@@ -44,14 +44,13 @@ This action retrieves a list of all members in a specified organization. Only re
 </table>
 
 #### Output fields
-
 The output of this action contains the full set of columns from the list of members. All default and custom columns are supported. Here are some of the commonly used outputs.
 
 <table class="unchanged rich-diff-level-one">
   <thead>
     <tr>
-        <th width='25%'>Output field</th>
-        <th>Description</th>
+      <th width='25%'>Output field</th>
+      <th>Description</th>
     </tr>
   </thead>
   <tbody>

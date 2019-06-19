@@ -1,22 +1,22 @@
 ---
-title: Zendesk - New/updated user trigger
+title: Workato connectors - Zendesk new/updated user trigger
 data: 2019-05-28 18:00:00 Z
+search:
+    keywords: ['zendesk', 'user', 'trigger', 'create', 'updated', 'new']
 ---
 
 # Zendesk - New/updated user triggers
-
 This trigger picks up users that are created or updated. Each user is processed as a separate job. It checks for new jobs once every poll interval. The poll interval can be 10 mins or 5 mins, depending on your plan. Check the [Pricing and Plans page](https://www.workato.com/pricing?audience=general) to find out more.
 
 ![New/updated user trigger](/assets/images/connectors/zendesk/updated-user-trigger.png)
 *New/updated user trigger*
 
 ### Input fields
-
 <table class="unchanged rich-diff-level-one">
   <thead>
     <tr>
-        <th width='25%'>Input field</th>
-        <th>Description</th>
+      <th width='25%'>Input field</th>
+      <th>Description</th>
     </tr>
   </thead>
   <tbody>
@@ -30,14 +30,13 @@ This trigger picks up users that are created or updated. Each user is processed 
 </table>
 
 ### Output fields
-
 The output of this action contains the full set of columns from the selected user. Here are some of the commonly used outputs.
 
 <table class="unchanged rich-diff-level-one">
   <thead>
     <tr>
-        <th width='25%'>Output field</th>
-        <th>Description</th>
+      <th width='25%'>Output field</th>
+      <th>Description</th>
     </tr>
   </thead>
   <tbody>

@@ -1,24 +1,24 @@
 ---
 title: Workato connectors - Zendesk create user action
 date: 2019-06-03 18:00:00 Z
+search:
+    keywords: ['zendesk', 'user', 'create']
 ---
 
 # Zendesk - Create user action
-
 This action creates a single user into your Zendesk instance.
 
 ![Create user action](/assets/images/connectors/zendesk/create-user-action.png)
 *Create user action*
 
 ### Input fields
-
 Here are some of the commonly used inputs.
 
 <table class="unchanged rich-diff-level-one">
   <thead>
     <tr>
-        <th width='25%'>Input field</th>
-        <th>Description</th>
+      <th width='25%'>Input field</th>
+      <th>Description</th>
     </tr>
   </thead>
   <tbody>
@@ -31,7 +31,7 @@ Here are some of the commonly used inputs.
     <tr>
       <td>Role</td>
       <td>
-        The user's role. Permitted values are <code>End-user</code>, <code>Agent</code>, or <code>Administrator</code>.
+        The role of the user. Permitted values are <code>End-user</code>, <code>Agent</code>, or <code>Administrator</code>.
       </td>
     </tr>
     <tr>
@@ -52,14 +52,13 @@ Here are some of the commonly used inputs.
 Click here for a full list of [user inputs](/connectors/zendesk/user-fields.md#user-input-fields).
 
 ### Output fields
-
 The output of this action contains the full set of columns from the selected user. Here are some of the commonly used outputs.
 
 <table class="unchanged rich-diff-level-one">
   <thead>
     <tr>
-        <th width='25%'>Output field</th>
-        <th>Description</th>
+      <th width='25%'>Output field</th>
+      <th>Description</th>
     </tr>
   </thead>
   <tbody>
@@ -90,7 +89,7 @@ The output of this action contains the full set of columns from the selected use
     <tr>
       <td>User custom fields</td>
       <td>
-        Includes data of user custom fields.
+        Includes data of user custom field(s).
       </td>
     </tr>
   </tbody>

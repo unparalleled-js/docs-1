@@ -1,22 +1,22 @@
 ---
 title: Workato connectors - Zendesk search users action
 date: 2019-06-03 18:00:00 Z
+search:
+    keywords: ['zendesk', 'users', 'search', 'find']
 ---
 
 # Zendesk - Search users action
-
 This action retrieves a list of all users that matches your search criteria. Only records in your Zendesk instance that matches all the criteria will be returned.
 
 ![Search user action](/assets/images/connectors/zendesk/search-user-action.png)
 *Search user action*
 
 ### Input fields
-
 <table class="unchanged rich-diff-level-one">
   <thead>
     <tr>
-        <th width='25%'>Input field</th>
-        <th>Description</th>
+      <th width='25%'>Input field</th>
+      <th>Description</th>
     </tr>
   </thead>
   <tbody>
@@ -60,14 +60,13 @@ This action retrieves a list of all users that matches your search criteria. Onl
 </table>
 
 ### Output fields
-
 The output of this action contains the full set of columns from the list of users. Here are some of the commonly used outputs.
 
 <table class="unchanged rich-diff-level-one">
   <thead>
     <tr>
-        <th width='25%'>Output field</th>
-        <th>Description</th>
+      <th width='25%'>Output field</th>
+      <th>Description</th>
     </tr>
   </thead>
   <tbody>

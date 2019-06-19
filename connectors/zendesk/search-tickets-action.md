@@ -1,22 +1,22 @@
 ---
 title: Workato connectors - Zendesk search tickets action
 date: 2019-05-30 18:00:00 Z
+search:
+    keywords: ['zendesk', 'ticket', 'search', 'find']
 ---
 
 # Zendesk - Search tickets action
-
 This action retrieves a list of all tickets that matches your search criteria. Only records in your Zendesk instance that matches all the criteria will be returned.
 
 ![Search tickets action](/assets/images/connectors/zendesk/search-ticket-action.png)
 *Search tickets action*
 
 ### Input fields
-
 <table class="unchanged rich-diff-level-one">
   <thead>
     <tr>
-        <th width='25%'>Input field</th>
-        <th>Description</th>
+      <th width='25%'>Input field</th>
+      <th>Description</th>
     </tr>
   </thead>
   <tbody>
@@ -113,14 +113,13 @@ This action retrieves a list of all tickets that matches your search criteria. O
 </table>
 
 ### Output fields
-
 The output of this action contains the full set of columns from the list of tickets. Here are some of the commonly used outputs.
 
 <table class="unchanged rich-diff-level-one">
   <thead>
     <tr>
-        <th width='25%'>Output field</th>
-        <th>Description</th>
+      <th width='25%'>Output field</th>
+      <th>Description</th>
     </tr>
   </thead>
   <tbody>

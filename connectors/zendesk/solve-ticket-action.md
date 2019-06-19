@@ -1,25 +1,24 @@
 ---
 title: Workato connectors - Zendesk solve ticket action
 date: 2019-05-30 18:00:00 Z
+search:
+    keywords: ['zendesk', 'ticket, 'update', 'solve']
 ---
 
 # Zendesk - Solve ticket action
-
 This action updates a specific ticket your Zendesk instance and sets the ticket's status to `solved`. The ticket is identified by its Zendesk ID.
 
 Some ticket fields put constraints on a ticket's status. For example, Zendesk requires a non-`null` input for **assignee** and **group**, before allowing a ticket to be `solved`. Check that you have satisfied all default and custom preconditions before making this action.
 
 ![Solve ticket action](/assets/images/connectors/zendesk/solve-ticket-action.png)
-*solve ticket action*
+*Solve ticket action*
 
 ### Input fields
-
-
 <table class="unchanged rich-diff-level-one">
   <thead>
     <tr>
-        <th width='25%'>Input field</th>
-        <th>Description</th>
+      <th width='25%'>Input field</th>
+      <th>Description</th>
     </tr>
   </thead>
   <tbody>
@@ -51,8 +50,8 @@ The output of this action contains the full set of columns from the selected tic
 <table class="unchanged rich-diff-level-one">
   <thead>
     <tr>
-        <th width='25%'>Output field</th>
-        <th>Description</th>
+      <th width='25%'>Output field</th>
+      <th>Description</th>
     </tr>
   </thead>
   <tbody>

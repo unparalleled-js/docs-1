@@ -1,10 +1,11 @@
 ---
 title: Workato connectors - Zendesk create organization membership action
 date: 2019-06-03 18:00:00 Z
+search:
+    keywords: ['zendesk', 'organization', 'membership', 'create']
 ---
 
 # Zendesk - Create organization membership action
-
 A membership links a user to an organization - An organization can have many users, and a users can be in many organizations.
 
 This action connects an existing user to an existing organization. Both the user and the organization are identified by their Zendesk ID.
@@ -13,12 +14,11 @@ This action connects an existing user to an existing organization. Both the user
 *Create organization membership action*
 
 ### Input fields
-
 <table class="unchanged rich-diff-level-one">
   <thead>
     <tr>
-        <th width='25%'>Input field</th>
-        <th>Description</th>
+      <th width='25%'>Input field</th>
+      <th>Description</th>
     </tr>
   </thead>
   <tbody>
@@ -38,12 +38,11 @@ This action connects an existing user to an existing organization. Both the user
 </table>
 
 ### Output fields
-
 <table class="unchanged rich-diff-level-one">
   <thead>
     <tr>
-        <th width='25%'>Output field</th>
-        <th>Description</th>
+      <th width='25%'>Output field</th>
+      <th>Description</th>
     </tr>
   </thead>
   <tbody>
@@ -74,7 +73,7 @@ This action connects an existing user to an existing organization. Both the user
     <tr>
       <td>Default</td>
       <td>
-        Is <code>True</code> if this is the default organization membership for the user, otherwise it will display <code>False</code>.
+        Is <code>True</code> if this is the default organization membership of the user, otherwise it will display <code>False</code>.
       </td>
     </tr>
     <tr>

@@ -1,10 +1,11 @@
 ---
 title: Workato connectors - Zendesk list user identities action
 date: 2019-05-30 18:00:00 Z
+search:
+    keywords: ['zendesk', 'user', 'identity','details', 'get', 'find']
 ---
 
 # Zendesk - List user identities action
-
 A user identity is something that can be used to identify an individual. For example, an email address or a phone number.
 
 This action selects a specific user and returns a list of user identities. It retrieves the user through a search by user ID. Only records in your Zendesk instance that matches the criteria will be returned.
@@ -13,12 +14,11 @@ This action selects a specific user and returns a list of user identities. It re
 *List user identities action*
 
 ### Input fields
-
 <table class="unchanged rich-diff-level-one">
   <thead>
     <tr>
-        <th width='25%'>Input field</th>
-        <th>Description</th>
+      <th width='25%'>Input field</th>
+      <th>Description</th>
     </tr>
   </thead>
   <tbody>
@@ -32,14 +32,13 @@ This action selects a specific user and returns a list of user identities. It re
 </table>
 
 ### Output fields
-
 The output of this action contains the full set of user identities from the selected user.
 
 <table class="unchanged rich-diff-level-one">
   <thead>
     <tr>
-        <th width='25%'>Output field</th>
-        <th>Description</th>
+      <th width='25%'>Output field</th>
+      <th>Description</th>
     </tr>
   </thead>
   <tbody>

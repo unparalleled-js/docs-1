@@ -1,10 +1,11 @@
 ---
 title: Workato connectors - Zendesk create custom object record action
 date: 2019-06-04 18:00:00 Z
+search:
+    keywords: ['zendesk', 'sunshine', 'custom object', 'create']
 ---
 
 # Zendesk - Create custom object record action
-
 Zendesk allows you to configure custom objects to model, store, and retrieve objects that are not native to Zendesk (e.g. Tickets, Users, Organization).  Find out more [here](/connectors/zendesk/custom-objects.md).
 
 This action creates a single record of a custom object into your Zendesk instance.
@@ -13,12 +14,11 @@ This action creates a single record of a custom object into your Zendesk instanc
 *Create custom object record action*
 
 ### Input fields
-
 <table class="unchanged rich-diff-level-one">
   <thead>
     <tr>
-        <th width='25%'>Input field</th>
-        <th>Description</th>
+      <th width='25%'>Input field</th>
+      <th>Description</th>
     </tr>
   </thead>
   <tbody>
@@ -38,14 +38,13 @@ This action creates a single record of a custom object into your Zendesk instanc
 </table>
 
 ### Output fields
-
 The output of this trigger contains the full set of columns from the selected custom object type.
 
 <table class="unchanged rich-diff-level-one">
   <thead>
     <tr>
-        <th width='25%'>Output field</th>
-        <th>Description</th>
+      <th width='25%'>Output field</th>
+      <th>Description</th>
     </tr>
   </thead>
   <tbody>

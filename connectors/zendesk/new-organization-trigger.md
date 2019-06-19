@@ -1,17 +1,17 @@
 ---
-title: Zendesk - New organization trigger
+title: Workato connectors - Zendesk new organization trigger
 data: 2019-05-29 18:00:00 Z
+search:
+    keywords: ['zendesk', 'organization', 'trigger', 'create', 'new']
 ---
 
 # Zendesk - New organization trigger
-
 This trigger picks up new organizations that are created. Each organization is processed as a separate job. It checks for new organizations once every poll interval. The poll interval can be 10 mins or 5 mins, depending on your plan. Check the [Pricing and Plans page](https://www.workato.com/pricing?audience=general) to find out more.
 
 ![New organization trigger](/assets/images/connectors/zendesk/new-organization-trigger.png)
 *New organization trigger*
 
 ### Input fields
-
 <table class="unchanged rich-diff-level-one">
   <thead>
     <tr>
@@ -30,7 +30,6 @@ This trigger picks up new organizations that are created. Each organization is p
 </table>
 
 ### Output fields
-
 The output of this trigger contains the full set of columns from the selected organization. Here are some of the commonly used outputs.
 
 <table class="unchanged rich-diff-level-one">
@@ -44,7 +43,7 @@ The output of this trigger contains the full set of columns from the selected or
     <tr>
       <td>ID</td>
       <td>
-        Unique Zendesk organization ID. This is automatically assigned when the ticket is created.
+        Unique Zendesk organization ID. This is automatically assigned when the organization is created.
       </td>
     </tr>  
     <tr>

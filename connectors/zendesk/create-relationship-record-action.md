@@ -1,10 +1,11 @@
 ---
 title: Workato connectors - Zendesk create relationship record action
 date: 2019-06-06 18:00:00 Z
+search:
+    keywords: ['zendesk', 'sunshine', 'custom objects', 'relationship, 'create']
 ---
 
 # Zendesk - Create relationship record action
-
 Zendesk allows you to configure custom objects to model, store, and retrieve objects that are not native to Zendesk (e.g. Tickets, Users, Organization). You can also configure custom relationships to define how objects are related. Find out more about [here](/connectors/zendesk/custom-objects.md).
 
 This action creates a single relationship record between two objects. For this action to execute successfully, the recipe has to find existing object records in your Zendesk instance.
@@ -13,12 +14,11 @@ This action creates a single relationship record between two objects. For this a
 *Create relationship record action*
 
 ### Input fields
-
 <table class="unchanged rich-diff-level-one">
   <thead>
     <tr>
-        <th width='25%'>Input field</th>
-        <th>Description</th>
+      <th width='25%'>Input field</th>
+      <th>Description</th>
     </tr>
   </thead>
   <tbody>
@@ -44,12 +44,11 @@ This action creates a single relationship record between two objects. For this a
 </table>
 
 ### Output fields
-
 <table class="unchanged rich-diff-level-one">
   <thead>
     <tr>
-        <th width='25%'>Output field</th>
-        <th>Description</th>
+      <th width='25%'>Output field</th>
+      <th>Description</th>
     </tr>
   </thead>
   <tbody>

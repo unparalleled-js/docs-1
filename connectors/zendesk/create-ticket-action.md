@@ -1,24 +1,24 @@
 ---
 title: Workato connectors - Zendesk create ticket action
 date: 2019-05-30 18:00:00 Z
+search:
+    keywords: ['zendesk', 'ticket', 'create']
 ---
 
 # Zendesk - Create ticket action
-
 This action creates a single ticket into your Zendesk instance.
 
 ![Create ticket action](/assets/images/connectors/zendesk/create-ticket-action.png)
 *Create ticket action*
 
 ### Input fields
-
 Here are some of the commonly used inputs.
 
 <table class="unchanged rich-diff-level-one">
   <thead>
     <tr>
-        <th width='25%'>Input field</th>
-        <th>Description</th>
+      <th width='25%'>Input field</th>
+      <th>Description</th>
     </tr>
   </thead>
   <tbody>
@@ -76,14 +76,13 @@ Here are some of the commonly used inputs.
 Click here a full list of [ticket inputs](/connectors/zendesk/ticket-fields.md#ticket-input-fields).
 
 ### Output fields
-
 The output of this action contains the full set of columns from the selected ticket. Here are some of the commonly used outputs.
 
 <table class="unchanged rich-diff-level-one">
   <thead>
     <tr>
-        <th width='25%'>Output field</th>
-        <th>Description</th>
+      <th width='25%'>Output field</th>
+      <th>Description</th>
     </tr>
   </thead>
   <tbody>

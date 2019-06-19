@@ -1,22 +1,22 @@
 ---
 title: Workato connectors - Zendesk search organizations action
 date: 2019-06-03 18:00:00 Z
+search:
+    keywords: ['zendesk', 'organization', 'search', 'find']
 ---
 
 # Zendesk - Search organizations action
-
 This action retrieves a list of organizations that matches your search criteria. Only records in your Zendesk instance that matches all the criteria will be returned.
 
 ![Search organizations action](/assets/images/connectors/zendesk/search-organization-action.png)
 *Search organizations action*
 
 ### Input fields
-
 <table class="unchanged rich-diff-level-one">
   <thead>
     <tr>
-        <th width='25%'>Input field</th>
-        <th>Description</th>
+      <th width='25%'>Input field</th>
+      <th>Description</th>
     </tr>
   </thead>
   <tbody>
@@ -36,13 +36,13 @@ This action retrieves a list of organizations that matches your search criteria.
     <tr>
       <td>Details</td>
       <td>
-        Details about the organization. It is stored as a <code>string</code>.
+        Details about the organization.
       </td>
     </tr>
     <tr>
       <td>Notes</td>
       <td>
-        Notes about the organization. It is stored as a <code>string</code>.
+        Notes about the organization.
       </td>
     </tr>
     <tr>
@@ -55,14 +55,13 @@ This action retrieves a list of organizations that matches your search criteria.
 </table>
 
 #### Output fields
-
 The output of this action contains the full set of columns from the selected organization. Here are some of the commonly used outputs.
 
 <table class="unchanged rich-diff-level-one">
   <thead>
     <tr>
-        <th width='25%'>Output field</th>
-        <th>Description</th>
+      <th width='25%'>Output field</th>
+      <th>Description</th>
     </tr>
   </thead>
   <tbody>

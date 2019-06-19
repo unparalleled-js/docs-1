@@ -1,10 +1,11 @@
 ---
 title: Workato connectors - Zendesk update user action
 date: 2019-06-03 18:00:00 Z
+search:
+    keywords: ['zendesk', 'user', 'update']
 ---
 
 # Zendesk - Update user action
-
 This action updates a specific user your Zendesk instance. The user is identified by its Zendesk ID. You can update standard and custom fields, and add new comments.
 
 It is possible to change the role of a user between `End-user`, `Agent` and `Administrator`, but this may affect your Zendesk user license.
@@ -13,14 +14,12 @@ It is possible to change the role of a user between `End-user`, `Agent` and `Adm
 *Update user action*
 
 ### Input fields
-
 Here are some of the commonly used inputs.
 
 <table class="unchanged rich-diff-level-one">
   <thead>
     <tr>
-        <th width='25%'>Input field</th>
-        <th>Description</th>
+        <th width='25%Q/th>
     </tr>
   </thead>
   <tbody>
@@ -60,14 +59,13 @@ Here are some of the commonly used inputs.
 Click here for a full list of [user inputs](/connectors/zendesk/user-fields.md#user-input-fields).
 
 ### Output fields
-
 The output of this action contains the full set of columns from the selected user. Here are some of the commonly used outputs.
 
 <table class="unchanged rich-diff-level-one">
   <thead>
     <tr>
-        <th width='25%'>Output field</th>
-        <th>Description</th>
+      <th width='25%'>Output field</th>
+      <th>Description</th>
     </tr>
   </thead>
   <tbody>

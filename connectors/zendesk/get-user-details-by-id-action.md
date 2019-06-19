@@ -1,22 +1,22 @@
 ---
 title: Workato connectors - Zendesk get user details by ID action
 date: 2019-06-03 18:00:00 Z
+search:
+    keywords: ['zendesk', 'user', 'details', 'get', 'find']
 ---
 
 # Zendesk - Get user details by ID action
-
 This action retrieves details about a specific user that matches a search by user ID. Only records in your Zendesk instance that matches the criteria will be returned.
 
 ![Get user details by ID action](/assets/images/connectors/zendesk/get-user-by-id.png)
 *Get user details by ID action*
 
 ### Input fields
-
 <table class="unchanged rich-diff-level-one">
   <thead>
     <tr>
-        <th width='25%'>Input field</th>
-        <th>Description</th>
+      <th width='25%'>Input field</th>
+      <th>Description</th>
     </tr>
   </thead>
   <tbody>
@@ -30,14 +30,13 @@ This action retrieves details about a specific user that matches a search by use
 </table>
 
 ### Output fields
-
 The output of this action contains the full set of columns from the selected user. Here are some of the commonly used outputs.
 
 <table class="unchanged rich-diff-level-one">
   <thead>
     <tr>
-        <th width='25%'>Output field</th>
-        <th>Description</th>
+      <th width='25%'>Output field</th>
+      <th>Description</th>
     </tr>
   </thead>
   <tbody>

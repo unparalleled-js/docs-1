@@ -1,10 +1,11 @@
 ---
-title: Zendesk - New ticket trigger
+title: Workato connectors - Zendesk new ticket trigger
 data: 2019-05-28 18:00:00 Z
+search:
+    keywords: ['zendesk', 'ticket', 'trigger', 'create', 'new']
 ---
 
 # Zendesk - New ticket triggers (real time)
-
 This trigger picks up tickets as soon they are created. Each ticket is processed as a separate job. It makes use of business rules to detect and trigger a new ticket event to be processed.
 
 > This trigger automatically creates a Zendesk trigger that can be found in your Zendesk account under **Admin** > **Business rules** > **Triggers**.
@@ -13,12 +14,11 @@ This trigger picks up tickets as soon they are created. Each ticket is processed
 *New ticket trigger*
 
 ### Input fields
-
 <table class="unchanged rich-diff-level-one">
   <thead>
     <tr>
-        <th width='25%'>Input field</th>
-        <th>Description</th>
+      <th width='25%'>Input field</th>
+      <th>Description</th>
     </tr>
   </thead>
   <tbody>
@@ -32,14 +32,13 @@ This trigger picks up tickets as soon they are created. Each ticket is processed
 </table>
 
 ### Output fields
-
 The output of this action contains the full set of columns from the selected ticket. Here are some of the commonly used outputs.
 
 <table class="unchanged rich-diff-level-one">
   <thead>
     <tr>
-        <th width='25%'>Output field</th>
-        <th>Description</th>
+      <th width='25%'>Output field</th>
+      <th>Description</th>
     </tr>
   </thead>
   <tbody>

@@ -1,10 +1,11 @@
 ---
 title: Workato connectors - Zendesk get list of custom object records by external id action
 date: 2019-06-06 18:00:00 Z
+search:
+    keywords: ['zendesk', 'sunshine', 'custom object', 'get', 'find', 'list', 'external id']
 ---
 
 # Zendesk - Get list of custom object records by external id action
-
 Zendesk allows you to configure custom objects to model, store, and retrieve objects that are not native to Zendesk (e.g. Tickets, Users, Organization).  Find out more [here](/connectors/zendesk/custom-objects.md).
 
 This action retrieves a list of custom object records that matches a search by external ID. Only results in your Zendesk instance that matches the criteria will be returned.
@@ -13,12 +14,11 @@ This action retrieves a list of custom object records that matches a search by e
 *Get list of custom object records by external ID action*
 
 ### Input fields
-
 <table class="unchanged rich-diff-level-one">
   <thead>
     <tr>
-        <th width='25%'>Input field</th>
-        <th>Description</th>
+      <th width='25%'>Input field</th>
+      <th>Description</th>
     </tr>
   </thead>
   <tbody>
@@ -38,14 +38,13 @@ This action retrieves a list of custom object records that matches a search by e
 </table>
 
 ### Output fields
-
 The output of this action contains the full set of columns from the selected custom object type.
 
 <table class="unchanged rich-diff-level-one">
   <thead>
     <tr>
-        <th width='25%'>Output field</th>
-        <th>Description</th>
+      <th width='25%'>Output field</th>
+      <th>Description</th>
     </tr>
   </thead>
   <tbody>

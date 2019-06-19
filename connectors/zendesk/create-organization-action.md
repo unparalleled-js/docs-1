@@ -1,22 +1,22 @@
 ---
 title: Workato connectors - Zendesk create organization action
 date: 2019-06-03 18:00:00 Z
+search:
+    keywords: ['zendesk', 'organization', 'create']
 ---
 
 # Zendesk - Create organization action
-
 This action creates a single organization into your Zendesk instance.
 
 ![Create organization action](/assets/images/connectors/zendesk/create-organization-action.png)
 *Create organization action*
 
 ### Input fields
-
 <table class="unchanged rich-diff-level-one">
   <thead>
     <tr>
-        <th width='25%'>Input field</th>
-        <th>Description</th>
+      <th width='25%'>Input field</th>
+      <th>Description</th>
     </tr>
   </thead>
   <tbody>
@@ -41,13 +41,13 @@ This action creates a single organization into your Zendesk instance.
     <tr>
       <td>Details</td>
       <td>
-        Details about the organization. It is stored as a <code>string</code>.
+        Details about the organization.
       </td>
     </tr>
     <tr>
       <td>Notes</td>
       <td>
-        Notes about the organization. It is stored as a <code>string</code>.
+        Notes about the organization.
       </td>
     </tr>
     <tr>
@@ -86,21 +86,20 @@ This action creates a single organization into your Zendesk instance.
 Click here for a full list of [organization inputs](/connectors/zendesk/organization-fields.md#organization-input-fields).
 
 ### Output fields
-
 The output of this trigger contains the full set of columns from the selected organization. Here are some of the commonly used outputs.
 
 <table class="unchanged rich-diff-level-one">
   <thead>
     <tr>
-        <th width='25%'>Output field</th>
-        <th>Description</th>
+      <th width='25%'>Output field</th>
+      <th>Description</th>
     </tr>
   </thead>
   <tbody>
     <tr>
       <td>ID</td>
       <td>
-        Unique Zendesk organization ID. This is automatically assigned when the ticket is created.
+        Unique Zendesk organization ID. This is automatically assigned when the organization is created.
       </td>
     </tr>  
     <tr>
