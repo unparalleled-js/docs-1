@@ -3,7 +3,7 @@ In this chapter, our aim is to get our feet wet by building a simple connector t
 
 This walkthrough will show how we can use the Workato Software Development Kit (SDK) to create a custom connector to retrieve information from this API and how we can use this custom connector in building a recipe. If you haven't already checked out the our **[brief introduction the SDK conceptual model](/developing-connectors/sdk-2/SDK-conceptual-model)**, now is the time to do so!
 
-To find the fully built custom connector for today's walkthrough, **[click here]()**. You will need to have a valid Workato account to install the connector before being able to see the connector code.
+To find the fully built custom connector for today's walkthrough, **[click here](https://www.workato.com/custom_adapters/11462?token=913765c0)**. You will need to have a valid Workato account to install the connector before being able to see the connector code.
 
 ## Getting started
 To create a new custom connector, you'll need to navigate to the connector SDK page which is located under `Tools > Connector SDK`.
@@ -275,5 +275,4 @@ Be sure to test your action in a recipe in addition to the tests on the debugger
 
 ## Next section
 Congratulations on making it this far! Now that we've learn't abit more about the Workato SDK and also built a simple custom connector, lets go a little bit deeper into the details.
-
 **[Supported data formats](/developing-connectors/sdk-2/data-format.md)**
