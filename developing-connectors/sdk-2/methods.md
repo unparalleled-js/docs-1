@@ -4,7 +4,6 @@ Not all ruby public instance methods are available when building connectors on W
 Furthermore, you'll be able to declare your own reusable methods to use in any block when using your SDK.
 
 ## Pre-defined Ruby methods
-
 <table class="unchanged rich-diff-level-one">
   <thead>
     <tr>
@@ -168,7 +167,7 @@ This list can and will be expanded constantly, feel free to [contact us](mailto:
 
 Reusable methods are supported in Workato. Reusable methods help keep your custom adapter code [DRY](https://en.wikipedia.org/wiki/Don%27t_repeat_yourself) and may be used in any code block.
 
-Such methods are declared using the `methods` block. This block is a top-level key, similar to triggers and actions.
+Such methods are declared using the `methods` block. This block is a top-level block, similar to triggers and actions.
 
 ### Sample code snippet
 ```ruby
@@ -250,4 +249,8 @@ end
 The SDK console only allows testing of actions and triggers. To test your reusable method, write an action which encapsulates it.
 
 ### Summary
-Reusable methods are powerful tools that can make development more efficient. It is especially useful when making schema introspection calls within the `object_definitions` or `input_schema` lambdas. 
+Reusable methods are powerful tools that can make development more efficient. It is especially useful when making schema introspection calls within the `object_definitions` or `input_schema` lambdas.
+
+## Next section
+Find out more about how to catch and expose errors that return from the API to users configuring your connector. This makes it much easier to debug actions or triggers using your custom connector.
+[Go to our error handling documentation](/developing-connectors/sdk-2/error-handling.md).

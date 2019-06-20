@@ -1,13 +1,11 @@
 # Custom Authentication
-
 Occasionally, the API requires an authentication mechanism different from the typical ones. The `custom_auth` type can be used in this case. The custom authentication provides you with the ability to do the following:
 
 - acquire and/or refresh credentials
 - Define when credentials should be refreshed
 - Store credentials data not provided directly by user (obtained from API requests)
 
-## Example custom authentication
-
+## Sample code snippet
 This example connects to [Zoho CRM](https://www.zoho.com/crm/help/api/using-authentication-token.html)
 
 ```ruby
@@ -59,16 +57,28 @@ This example connects to [Zoho CRM](https://www.zoho.com/crm/help/api/using-auth
     }
   },
 
-  test: { ... },
-  actions: { ... },
-  triggers: { ... },
-  object_definitions: { ... },
-  picklists: { ... },
-  methods: { ... }
+  test: {
+    # Some code here
+  },
+  actions: {
+    # Some code here
+  },
+  triggers: {
+    # Some code here
+  },
+  object_definitions: {
+    # Some code here
+  },
+  picklists: {
+    # Some code here
+  },
+  methods: {
+    # Some code here
+  }
 }
 ```
 
-### Using the `acquire` block
+### Using the `acquire:` block
 Context is same as an action's execute block. You can write the require code here to acquire and store relevant credentials data to be used in the `apply` block.
 ```ruby
 acquire: lambda do |connection|
@@ -114,11 +124,10 @@ This new connection object will be passed into all actions, triggers, test and p
 
 > Note: When using the acquire block, this block is run only if the refresh_on or detect_on block is triggered. In cases where an access token is retrieved via the acquire block, the refresh_on or detect_on block would need to be triggered first. This can be done by registering the bad request response expected from the failed API call with no access token.
 
-### Using the `apply` block
+### Using the `apply:` block
+Synonym of the `credentials` block. Basically how to apply the credentials to an action/trigger/test request. All requests made in actions, triggers, tests and pick lists will be applied with the credentials defined here.
 
-Synonym of the `credentials` block: Basically how to apply the credentials to an action/trigger/test request. All requests made in actions, triggers, tests and pick lists will be applied with the credentials defined here.
-
-Here are a list of accepted inputs into the apply block
+Here are a list of accepted inputs into the `apply:` block
 
 ```ruby
 apply: lambda do |connection|
@@ -146,7 +155,6 @@ end
 > The "apply" block will not be applied to any requests made in "acquire". So you will have to include the required credentials for a successful API request here.
 
 ### Using the `refresh_on` block
-
 This is an optional array of **signals** that is used to identify a need to re-acquire credentials . When an erroneous response is received (400, 401, 500...), the SDK framework checks it against this list of signals. If a match is found, it triggers a re-authorization (execute `acquire`).
 
 This list is optional. If not defined, will default to one attempt at re-acquiring credentials for all errors.
@@ -194,7 +202,7 @@ The example here shows multiple ways that we can define "signals" to watch
 This list is optional. If not defined, pseudo successful response will be treated as a successful request instead of raising exceptions. Note: output values of trigger and action will be affected.
 
 ### Other authentication methods
-Check out the other authentication methods we support. [Learn more]()
+Check out the other authentication methods we support as well as how to set up a custom connector that works for on-premise connections. [Go back to our list of authentication methods](/developing-connectors/sdk-2/authentication.md) or check our our [best practices](/developing-connectors/sdk-2/best-practices.md) for some tips.
 
 ### Next section
-If you're already familiar with the authentication methods we support, check out the triggers that our SDK supports as well as how to implement them. [Learn more]()
+If you're already familiar with the authentication methods we support, check out the actions that our SDK supports as well as how to implement them. [Learn more](/developing-connectors/sdk-2/action.md)

@@ -2,7 +2,6 @@
 In this section we cover the various HTTP methods that Workato supports. You should already be familiar with most of them. We also cover how you can do post-response processing of your HTTP calls to manipulate data into formats that are easier to use later on in your connector code.
 
 ## HTTP verb methods
-
 |HTTP verb | Method | Example |
 | -- | -- | ------- |
 | GET | `get()` | `get("url", parameters)` |
@@ -13,11 +12,9 @@ In this section we cover the various HTTP methods that Workato supports. You sho
 | OPTIONS | `options()` | `options("url", parameters)` |
 
 ### Forming a request
-
 Each HTTP verb method must be provided a `url` string as the first argument. The second argument (optional) can be in 2 forms.
 
 Firstly, `input` can be passed as a single hash. This hash can simply be the `input` of the `execute` or `poll` argument, such as the following:
-
 ```ruby
 execute: lambda do |connection, input|
   get("https://www.some_api_endpoint.com/api", input)
@@ -25,7 +22,6 @@ end
 ```
 
 The hash can also be formed before like this:
-
 ```ruby
 execute: lambda do |connection, input|
   params = {
@@ -36,7 +32,7 @@ execute: lambda do |connection, input|
 end
 ```
 
-The SDK framework processes this hash value and transforms it into the respective data format. For GET, DELETE OPTIONS requests, the hash data is converted to URL query parameters.
+The Workato SDK framework processes this hash value and transforms it into the respective data format. For GET, DELETE OPTIONS requests, the hash data is converted to URL query parameters.
 
 For POST, PUT and PATCH, the payload is formed into the request body into a format that you specify. Learn how to work with the various data formats [here](/developing-connectors/sdk/data-format.md).
 
@@ -49,7 +45,6 @@ end
 ```
 
 All arguments after the first will be transformed into request data. In this case, since the default data format is JSON, the following request body is formed:
-
 ```json
 {
   "name": "Ee Shan",
@@ -58,7 +53,6 @@ All arguments after the first will be transformed into request data. In this cas
 ```
 
 For a GET request, the following URL parameters are formed.
-
 ```ruby
 execute: lambda do |connection, input|
   get("https://www.some_api_endpoint.com/api", name: input["name"], email: input["email"])
@@ -80,7 +74,6 @@ Verify your HTTP requests directly on the code editor UI by heading over to the 
 ## Post-response processing
 
 ### Default response data
-
 By default, all HTTP verb methods will return the response body of the request. For example, the following request creates a user in **Okta**.
 
 ```ruby
@@ -90,7 +83,6 @@ end
 ```
 
 `response` variable will a hash that looks like this:
-
 ```ruby
 {
   "id": "00ub0oNGTSWTBKOLGLNR",
@@ -118,7 +110,6 @@ end
 ```
 
 ### Response handling
-
 `after_response` is an optional block that can be chained to the HTTP verb methods to handle the various parts of a HTTP response. Let's take a look at an example, again using the **Okta** API.
 
 When a request is sent to the [List all users](https://developer.okta.com/docs/api/resources/users#list-all-users) endpoint, the truncated response looks like this.
@@ -148,7 +139,6 @@ Link: <https://workatotest.okta.com/api/v1/users?limit=200>; rel="self"
 This response can be broken down into 3 parts. The HTTP response **code**, **header** and **body**.
 
 `after_response` can be used to handle all these parts of the HTTP response. Suppose I have an action that lists all users and outputs the entire response, including the link to the existing page from the header.
-
 ```ruby
 execute: lambda do |connection, input|
   get("/api/v1/users").after_response do |code, body, headers|
@@ -190,3 +180,6 @@ You can easily verify this while developing your custom connector. When you incl
 
 ![Output with response code and header values](/assets/images/sdk/response_with_headers.png)
 <center>Output with response code and header values*</center>
+
+### Next section
+Check out our object_definitions section, which details how you can use it to reduce the amount of redundant code in your connector. We also go through the different types of parameters you can declare in each input and output field hash. [Go to our object definitions documentation](/developing-connectors/sdk-2/object-definition.md) or check our our [best practices](/developing-connectors/sdk-2/best-practices.md) for some tips.

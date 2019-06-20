@@ -1,8 +1,9 @@
 # Poll Trigger
-
 Records (tickets, leads, items etc.) are called events in a poll. A poll trigger constantly executes a poll block for new events at fixed time intervals. This time interval depends on a user's subscription (5 or 10 minutes). At the same time, it is also able to support pagination. This is useful to prevent request timeouts when making requests with large response results. A trigger can execute immediate consecutive polls to retrieve events from successive pages.
 
-There are two types of trigger. The classic trigger type is used by default if `type` is not specified. The other type is called the "paging_desc" trigger, which can be used only for endpoints that provide events sorted in descending order. This trigger type has an auto-paging mechanism that lets you build a simple and efficient trigger. (described in detail below)
+There are two types of trigger. The classic trigger type is used by default if `type` is not specified. The other type is called the "paging_desc" trigger, which can be used only for endpoints that provide events sorted in descending order.
+
+> Due to the additional massaging and checking required of a "paging_desc" trigger, we always encourage our user's to create classic triggers whenever possible.
 
 A ruby hash is returned in each poll. This hash should contain a few keys.
 
@@ -13,15 +14,22 @@ A ruby hash is returned in each poll. This hash should contain a few keys.
 Usually, you will need to map outputs from the response to the HTTP request executed in the trigger to `events`, `next_page/next_poll` and `can_poll_more` in the ruby hash. We go through examples on how you would do so for classic and "paging_desc" triggers below.
 
 ## Classic Trigger
-No need to define any type to use the classic trigger. This type is usually used for APIs that only return responses sorted in ascending order. In the example below, we go through how you would create a `Updated ticket` trigger as well as the various components you need to define in the trigger object to create a classic polling trigger.
+No need to define any type to use the classic trigger. In the example below, we go through how you would create a `Updated ticket` trigger as well as the various components you need to define in the trigger object to create a classic polling trigger.
 
+### Sample code snippet
 ```ruby
 {
   title: 'My Freshdesk connector',
 
-  connection: { ... },
-  test: {...},
-  actions: { ... },
+  connection: {
+    # Some code here
+  },
+  test: {
+    # Some code here
+  },
+  actions: {
+    # Some code here
+  },
   triggers: {
 
     updated_ticket: {
@@ -66,9 +74,15 @@ No need to define any type to use the classic trigger. This type is usually used
     }
 
    },
-  object_definitions: { ... },
-  picklists: { ... },
-  methods: { ... }
+  object_definitions: {
+    # Some code here
+  },
+  picklists: {
+    # Some code here
+  },
+  methods: {
+    # Some code here
+  }
 }
 ```
 ### description
@@ -160,16 +174,67 @@ end
 ```
 With this, 2 occurence of a record with the same "ID" but with different "updated_at" values will be recorded as separate events.
 
+### sample_output
+This optional block populates the datapills defined in the `output_fields:` block with some sample information for users. It is exposed as grey text next to datapills. Check out [best practices](/developing-connectors/sdk-2/best-practices.md) section on how to use sample_outputs.
+
+```ruby
+sample_output: lambda do |_connection, _input|
+  {
+    accounts: call("format_api_output_field_names",
+                   get("/api/accounts",
+                       return_object: "shallow",
+                       limit: 1)&.compact)
+  }
+end
+```
+
+![Sample output](/assets/images/sdk/sample_output_sample.png)
+*Sample outputs make your datapills more usable by giving some context to users.*
+
+### Other optional blocks
+<table class="unchanged rich-diff-level-one">
+  <thead>
+    <tr>
+        <th width='10%'>Block</th>
+        <th width='45%' >Example</th>        
+        <th width='45%'>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code>subtitle:</code></td>
+      <td><code>subtitle: "This is a subtitle"</code></td>
+      <td>This shows up below the main action name when users are looking at the dropdown of possible actions</td>
+    </tr>
+    <tr>
+      <td><code>description:</code></td>
+      <td><code>description: "This is a description"</code></td>
+      <td>This is what shows up as the summary of an action when looking at the recipe.</td>
+    </tr>
+    <tr>
+      <td><code>help:</code></td>
+      <td><code>help: "This is a help text"</code></td>
+      <td>This shows up as the help hint when users are configuring the action. Use this to detail any important information the user should have</td>
+    </tr>  
+  </tbody>
+</table>
+
 ## Descending Trigger
-Paging descending triggers should be used when the order of returned objects is known to be in descending order. You will be able to define the field in which the objects returned are sorted later on in the `sort_by` block. 
+Paging descending triggers should be used when the order of returned objects is known to be in descending order. You will be able to define the field in which the objects returned are sorted later on in the `sort_by` block. Besides the blocks listed below, paging descending triggers can also accept blocks the optional blocks above like `help:`, `subtitle:` and `description:`.
 
 ```ruby
 {
   title: 'My pingdom connector',
 
-  connection: { ... },
-  test: {...},
-  actions: { ... },
+  connection: {
+    # Some code here
+  },
+  test: {
+    # Some code here
+  },
+  actions: {
+    # Some code here
+  },
   triggers: {
 
     new_alert: {
@@ -217,9 +282,15 @@ Paging descending triggers should be used when the order of returned objects is 
     }
 
    },
-  object_definitions: { ... },
-  picklists: { ... },
-  methods: { ... }
+  object_definitions: {
+    # Some code here
+  },
+  picklists: {
+    # Some code here
+  },
+  methods: {
+    # Some code here
+  },
 }
 ```
 
@@ -312,3 +383,10 @@ sort_by: lambda do |event|
   event["time"]
 end
 ```
+
+
+### Other trigger types
+Check out the other trigger types we support. [Go back to our list of triggers.](/developing-connectors/sdk-2/trigger.md)
+
+### Next section
+If you're already familiar with the trigger types we support, check out the various types of HTTP requests that our SDK supports as well as how to use them in your `connection:`, `actions:` and `triggers:` blocks. [Go to our HTTP methods documentation](/developing-connectors/sdk-2/http-requests-and-response-handling.md) or check our our [best practices](/developing-connectors/sdk-2/best-practices.md) for some tips on building triggers.

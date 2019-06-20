@@ -1,14 +1,19 @@
 # Dynamic Webhook Trigger
-
 A dynamic webhook trigger is one that can programmatically be set up and torn down. This is something should be explicitly stated in the API of application that you are building a connector to. In the example below, you can define the process of setting up and tearing down webhooks in various blocks in the trigger object.
 
 ```ruby
 {
   title: 'My Cisco connector',
 
-  connection: { ... },
-  test: {...},
-  actions: { ... },
+  connection: {
+    # Some code here
+  },
+  test: {
+    # Some code here
+  },
+  actions: {
+    # Some code here
+  },
   triggers: {
     new_message: {
       type: :paging_desc,
@@ -43,14 +48,19 @@ A dynamic webhook trigger is one that can programmatically be set up and torn do
       end
     }
   }
-  object_definitions: { ... },
-  picklists: { ... },
-  methods: { ... }
+  object_definitions: {
+    # Some code here
+  },
+  picklists: {
+    # Some code here
+  },
+  methods: {
+    # Some code here
+  },
 }
 ```
 
 ## webhook_subscribe
-
 When a recipe is started, a webhook subscription should be created. This webhook subscription should be given the "callback url" specific to the recipe to receive and process as jobs. This block is responsible for this subscription.
 
 This block is executed whenever a recipe is started. The block usually contains the necessary API requests to create a webhook subscription. This request is typically a **POST** request with a payload containing the relevant data for successful event notifications.
@@ -69,7 +79,6 @@ end
 ```
 
 ### webhook_subscribe Arguments
-
 | Argument | Description |
 | -- | ----- |
 | webhook_url | URL specific to the recipe. This URL is randomly generated and points to the recipe that uses this trigger. A second recipe that uses the same trigger will have a different unique URL. All webhook subscription will require this URL. |
@@ -79,9 +88,7 @@ end
 
 > Take note that the variable `webhook_url` is an argument that is passed into the block by Workato. This should not be hardcoded.
 
-### Output
-
-Output of the webhook_subscribe block is the response from the **POST** request in this example. It usually contains useful information about the webhook that is used in the future. This output will be stored and passed to the webhook_unsubscribe block as an argument which can be referenced as the `webhook` object.
+The output of the `webhook_subscribe:`` block is the response from the **POST** request in this example. It usually contains useful information about the webhook that is used in the future. This output will be stored and passed to the webhook_unsubscribe block as an argument which can be referenced as the `webhook` object.
 
 ```json
 {
@@ -97,7 +104,6 @@ Output of the webhook_subscribe block is the response from the **POST** request 
 ```
 
 ## webhook_unsubscribe
-
 This block will be called when a running recipe is stopped. It should contain an expression to unsubscribe from the existing webhook notifications.
 
 ```ruby
@@ -107,18 +113,15 @@ end
 ```
 
 ### webhook_unsubscribe Arguments
-
 | Argument | Description |
 | -- | ----- |
 | webhook | This will contain the output of the webhook_subscribe block. In this example, it will contain the JSON response shown above. For this particular API, making a DELETE request to the resource endpoint will unsubsribe the webhook from notifications and effectively stop the recipe from receive any new notifications. |
 | connection | `connection` object, frequently used to access domain or subdomain information from the user. |
 
 ## webhook_notification
-
 When the webhook trigger receives a webhook notification, the payload is processed through this block. Here, we can access the desired key that contains the webhook notification data.
 
 ### webhook_notification payload
-
 | Argument | Description |
 | -- | ----- |
 | input | `input` object: Data from trigger input fields. In this example, the input contains the Room ID to receive messages from. |
@@ -157,3 +160,54 @@ webhook_notification: lambda do |input, payload|
   payload["data"]
 end
 ```
+
+### sample_output
+This optional block populates the datapills defined in the `output_fields:` block with some sample information for users. It is exposed as grey text next to datapills. Check out [best practices](/developing-connectors/sdk-2/best-practices.md) section on how to use sample_outputs.
+
+```ruby
+sample_output: lambda do |_connection, _input|
+  {
+    accounts: call("format_api_output_field_names",
+                   get("/api/accounts",
+                       return_object: "shallow",
+                       limit: 1)&.compact)
+  }
+end
+```
+
+![Sample output](/assets/images/sdk/sample_output_sample.png)
+*Sample outputs make your datapills more usable by giving some context to users.*
+
+### Other optional blocks
+<table class="unchanged rich-diff-level-one">
+  <thead>
+    <tr>
+        <th width='10%'>Block</th>
+        <th width='45%' >Example</th>        
+        <th width='45%'>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code>subtitle:</code></td>
+      <td><code>subtitle: "This is a subtitle"</code></td>
+      <td>This shows up below the main action name when users are looking at the dropdown of possible actions</td>
+    </tr>
+    <tr>
+      <td><code>description:</code></td>
+      <td><code>description: "This is a description"</code></td>
+      <td>This is what shows up as the summary of an action when looking at the recipe.</td>
+    </tr>
+    <tr>
+      <td><code>help:</code></td>
+      <td><code>help: "This is a help text"</code></td>
+      <td>This shows up as the help hint when users are configuring the action. Use this to detail any important information the user should have</td>
+    </tr>  
+  </tbody>
+</table>
+
+### Other trigger types
+Check out the other trigger types we support. [Go back to our list of triggers.](/developing-connectors/sdk-2/trigger.md)
+
+### Next section
+If you're already familiar with the trigger types we support, check out the various types of HTTP requests that our SDK supports as well as how to use them in your `connection:`, `actions:` and `triggers:` blocks. [Go to our HTTP methods documentation](/developing-connectors/sdk-2/http-requests-and-response-handling.md) or check our our [best practices](/developing-connectors/sdk-2/best-practices.md) for some tips on building triggers.

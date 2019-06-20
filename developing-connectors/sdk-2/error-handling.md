@@ -4,10 +4,10 @@ date: 2018-05-01 06:00:00 Z
 ---
 
 # Error Handling
-Exposing detailed and helpful error message can improve the recipe building experience for you and the end users of your custom connector. However, default SDK actions and triggers do not expose response message. Additionally, you may want to expose error messages in other instances (such as when action/trigger input data does not meet certain business requirements). This can be achieved using the following helper methods.
+Exposing detailed and helpful error message can improve the recipe building experience for you and the end users of your custom connector. However, default custom connector actions and triggers do not expose response messages. Additionally, you may want to expose error messages in other instances (such as when action/trigger input data does not meet certain business requirements). This can be achieved using the following helper methods.
 
 ## Input validation
-You can raise custom errors for inputs that violate some business logic. Let's use an example of a search action that tries to search for a **Contact** using a search action. You want to make sure that the user is searching for records with at least one search criteria. In this case, you will want to raise an error if there are no input values, instead of sending a request with no query parameters.
+You can raise custom errors for inputs that violate business logic. Let's use an example of a search action that tries to search for a **Contact** using a search action. You want to make sure that the user is searching for records with at least one search criteria. In this case, you will want to raise an error if there are no input values, instead of sending a request with no query parameters.
 
 ### `error`
 This is a Workato SDK specific method to raise a job error with a custom message. The error method accepts arguments which will then be surfaced to end users in the Workato platform when they trigger an error using your custom connector. This can be used in a number of ways to improve usability for your custom connector.
@@ -75,7 +75,7 @@ When you try to update a row with an invalid ID, a HTTP error will be returned. 
 *Formatted error message in recipe job detail page*
 
 ## Picklist error handling
-The `after_error_response` helper method can also be chained to HTTP verb methods in other parts of your custom connector. For example, you may want to handling and provide custom error messages from dynamic [pick_lists](/developing-connectors/sdk/pick-list.md). In this example, we are looking at handling errors from [Docparser](https://dev.docparser.com/).
+The `after_error_response` helper method can also be chained to HTTP verb methods in other parts of your custom connector. For example, you may want to handling and provide custom error messages from dynamic [pick_lists](/developing-connectors/sdk-2/pick-list.md). In this example, we are looking at handling errors from [Docparser](https://dev.docparser.com/).
 
 #### Sample code snippet
 ```ruby
@@ -116,3 +116,7 @@ HTTP error will be displayed in the recipe editor when the custom adapter tries 
 
 ![Schema error message in recipe editor](/assets/images/sdk/extended-schema-error.png)
 *Schema error message in recipe editor*
+
+## Next section
+Check out our best practices section which gives you tips and tricks on the various components of our Workato SDK and how to make full use of the features we have in place.
+[Go to our best practices](/developing-connectors/sdk-2/best-practices.md) for some tips.

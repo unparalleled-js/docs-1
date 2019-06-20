@@ -1,21 +1,24 @@
 # Object Definitions and structuring input and output fields
+Object Definitions are an important component of the SDK. It allows you to define your schema for objects to be used in the actions and triggers. While we have gone through examples on how to do this directly from inside your `input_fields:` and `output_fields:` blocks, object_definitions allow you to declare it once and reuse it multiple times in various areas of your connector code.
 
-Object Definitions are an important component of the SDK. It allows you to define your schema for objects to be used in the actions and triggers.
+> Object definitions are a key indicator of well written code. It makes your custom connector more maintainable and easier to read.
 
-After that, we will dive deeper into the details of how you can clearly define your input and output fields. This will have important effects on what end users see when building recipes using your connector such as the data types input fields should expect and the data types of output fields which they will potentially map as datapills in subsequent steps.
+After that, we will dive deeper into the details of how you can clearly define your input and output fields. This will have important effects on what end users see when building recipes using your connector.
 
 ## Static object definitions
-
 The most basic way to build an object definition is to define the field name and type
 
 ### Sample code snippet
-
 ```ruby
 {
   title: 'My close.io connector',
 
-  connection: { ... },
-  test: {...},
+  connection: {
+    # Some code here
+  },
+  test: {
+    # Some code here
+  },
   actions: {
 
     get_lead_by_id: {
@@ -36,7 +39,9 @@ The most basic way to build an object definition is to define the field name and
 
   },
 
-  triggers: { ... },
+  triggers: {
+    # Some code here
+  },
 
   object_definitions: {
     lead: {
@@ -50,21 +55,21 @@ The most basic way to build an object definition is to define the field name and
     }
   }
 
-  picklists: { ... },
-  methods: { ... }
+  picklists: {
+    # Some code here
+  },
+  methods: {
+    # Some code here
+  },
 }
-
 ```
 
 In this example, the object `leads` is being defined in the fields lambda function. This can then be easily referenced in the action above. Defined as an array of objects. Each field object corresponds to a field in the lead object.
-
-Using object definitions allows you to have less redundancy in your code, especially when the same input and output fields are expected.
 
 ## Dynamic object definitions
 Object definitions can also be used to dynamically generate input and output schemas. This is often done by a HTTP requests to metadata endpoints which return data about what fields to expect. Below we go through a simple example of using a `GET` request to a metadata endpoint to know what fields to expect in a form.
 
 ### Sample code snippet
-
 ```ruby
 object_definitions: {
   form: {
@@ -82,7 +87,7 @@ Remember that the ultimate output of the lambda function would still have to be 
 Testing and debugging your object definitions can be done in the same way that you would for your actions or triggers. Make sure that your object definition is being used in a specific action and test that action in the code editor. HTTP calls from the object definition should be recorded in the `Network` tab and any `puts` functions in your object definition block should be displayed in the `Console` tab as well.
 
 ## Structuring input and output fields
-Up until now, our sample code snippets have largely only included the basic fields such as `name` when defining input and output fields. Workato allows you to define a much larger set of variables that affect the way your fields are displayed to end users.
+Up until now, our sample code snippets have largely only included the basic parameters such as `name` when defining input and output fields. Workato allows you to define a much larger set of variables that affect the way your fields are displayed to end users.
 
 <table class="unchanged rich-diff-level-one">
     <thead>
@@ -101,22 +106,27 @@ Up until now, our sample code snippets have largely only included the basic fiel
             <td>label</td>
             <td>An optional key. All fields will have default labels based on the field name. Use this to change the default value of the field label.
             </td>
-        </tr>        
+        </tr>
+        <tr>
+            <td>hint</td>
+            <td>An optional key. This allows you to add some hints below the input field to guide the user. Links to documentation can be given using HTML syntax.
+            </td>
+        </tr>           
         <tr>
             <td>type</td>
             <td>
-              The data type of this field. Default value is <code>:string</code>.
+              The data type of this field. <b>Default value is "string"</b>.
               Should be given the symbol notation (prepend colon).
               <ul>
-                <li><code>:string</code></li>
-                <li><code>:integer</code></li>
-                <li><code>:number</code></li>
-                <li><code>:date_time</code></li>
-                <li><code>:date</code></li>
-                <li><code>:timestamp</code></li>
-                <li><code>:boolean</code></li>
-                <li><code>:object</code> Must be accompanied with <code>:properties</code></li>
-                <li><code>:array</code> Must be accompanied with <code>:properties</code></li>
+                <li><code>"string"</code></li>
+                <li><code>"integer"</code></li>
+                <li><code>"number"</code></li>
+                <li><code>"date_time"</code></li>
+                <li><code>"date"</code></li>
+                <li><code>"timestamp"</code></li>
+                <li><code>"boolean"</code></li>
+                <li><code>"object"</code> Must be accompanied with <code>properties:</code></li>
+                <li><code>array</code> Must be accompanied with <code>properties:</code></li>
               <ul>
             </td>
         </tr>
@@ -132,7 +142,7 @@ Up until now, our sample code snippets have largely only included the basic fiel
             <td>pick_list</td>
             <td>
               If <code>control_type</code> is <code>:select</code> or <code>:multiselect</code>, this property is required.
-              See more in <a href="/developing-connectors/sdk/pick-list.html">Pick List</a> chapter.
+              See more in <a href="/developing-connectors/sdk-2/pick-list-toggle-fields.html">Pick List</a> chapter.
             </td>
         </tr>
         <tr>
@@ -144,13 +154,31 @@ Up until now, our sample code snippets have largely only included the basic fiel
         </tr>
         <tr>
             <td>sticky</td>
-            <td>Use this property to make the optional field visible on the Input section. For Ex: Since is optional field but to be displayed always under Input fields. Use <code>sticky: true</code>.
+            <td>Use this property to make the optional field visible on the Input section. For example: Since is optional field but to be displayed always under Input fields. Use <code>sticky: true</code>.
+            </td>
+        </tr>
+        <tr>
+            <td>render_input</td>
+            <td>An optional key. This must be accompanied with `parse_output`. Since our payloads are normally JSON objects, they are normally represented as strings. This field helps to convert them to other data types such like integers.
+            <ul>
+              <li><code>"integer_conversion"</code> - converts input into data type integer</li>
+              <li><code>"render_iso8601_timestamp" - converts input into date string that confirms to ISO8601</code></li>
+              <li><code>"boolean_conversion"</code> - converts input into data type boolean</li>
+            <ul>
+            </td>
+        </tr>
+        <tr>
+            <td>parse_output</td>
+            <td>An optional key. This must be accompanied with `render_output`. Since our payloads are normally JSON objects, they are normally represented as strings. This field helps to convert them to other data types such like integers.
+            <ul>
+              <li><code>"integer_conversion"</code> - converts output into data type integer/number</li>
+              <li><code>"date_time_conversion"</code> - converts input into a format that matches Javascript's Date objects <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date/toJSON">toJson</a> method</li>
+              <li><code>"boolean_conversion"</code> - converts input into data type boolean</li>
+            <ul>
             </td>
         </tr>
     </tbody>
 </table>
-
-> If no type is defined, we always default to string.
 
 ### Control types
 Control types are a way for you to declare how input fields are displayed to users of your connector.
@@ -481,3 +509,6 @@ While the config_fields is empty, document objects will have no fields (empty ar
 
 ![config_fields schema screenshot](/assets/images/sdk/config_fields_demo.gif)
  *Configuration fields in action*
+
+ ### Next section
+ The next section goes through some additional concepts related to object definitions. They relate to picklists which are the list of options when your input field is a dropdown as well as toggle fields which let a single input field have 2 control_types. [Go to our picklist and toggle field documentation](/developing-connectors/sdk-2/pick-list-toggle-fields.md) or check our our [best practices](/developing-connectors/sdk-2/best-practices.md) for some tips on how to use object definitions.

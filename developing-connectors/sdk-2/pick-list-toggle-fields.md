@@ -1,4 +1,6 @@
-# Pick lists and toggle fields
+{
+  # Some code here
+},
 A pick list is list of choices predefined for a user to select instead of having to input the actual values. It is useful when there is a list of accepted values for a field or when the field requires a value that is not visible.
 
 You'll be able to define both static pick lists which are hardcoded as well as dynamic picklists that generates a pick list by executing a HTTP call.
@@ -20,8 +22,12 @@ Pick list is defined as a array of selections. Each selection is an array made u
 {
   title: 'My Wrike connector',
 
-  connection: { ... },
-  test: {...},
+  connection: {
+    # Some code here
+  },
+  test: {
+    # Some code here
+  },
 
   actions: {
     create_task: {
@@ -45,8 +51,12 @@ Pick list is defined as a array of selections. Each selection is an array made u
     },
   },
 
-  triggers: { ... },
-  object_definitions: { ... },
+  triggers: {
+    # Some code here
+  },
+  object_definitions: {
+    # Some code here
+  },
 
   pick_lists: {
     folder: lambda do |connection|
@@ -58,7 +68,9 @@ Pick list is defined as a array of selections. Each selection is an array made u
     end
   },
 
-  methods: { ... }
+  methods: {
+    # Some code here
+  },
 }
 ```
 
@@ -72,8 +84,12 @@ Pick lists can also be dynamic by including a HTTP request in the lambda functio
 {
   title: 'My Wrike connector',
 
-  connection: { ... },
-  test: {...},
+  connection: {
+    # Some code here
+  },
+  test: {
+    # Some code here
+  },
 
   actions: {
     create_task: {
@@ -97,8 +113,12 @@ Pick lists can also be dynamic by including a HTTP request in the lambda functio
     },
   },
 
-  triggers: { ... },
-  object_definitions: { ... }
+  triggers: {
+    # Some code here
+  },
+  object_definitions: {
+    # Some code here
+  },
 
   pick_lists: {
     folder: lambda do |connection|
@@ -107,7 +127,9 @@ Pick lists can also be dynamic by including a HTTP request in the lambda functio
     end
   },
 
-  methods: { ... }
+  methods: {
+    # Some code here
+  },
 }
 ```
 After making a GET requests for all folders available, the pick list is populated with folder `id`s and displays the corresponding folder `title`
@@ -189,3 +211,6 @@ Toggle hints are displayed in the toggle dropdown when choosing between primary 
 `toggle_field` should be defined as a hash nested in the primary field. Within this hash should be a definition of a typical field. This means that the `toggle_field` hash should contain all the fields required for a field.
 
 Note: `toggle_field` keys do not have default behaviours. This means that all fields are required and must be explicitly defined. For a details of field definitions, check out [Object Definition](object-definition.md)
+
+### Next section
+The next section goes through what ruby methods you can use in the Workato SDK as well as how you can declare your own reusable methods. [Go to our methods documentation](/developing-connectors/sdk-2/pick-list-toggle-fields.md) or check out our [best practices](/developing-connectors/sdk-2/best-practices.md) for some tips.

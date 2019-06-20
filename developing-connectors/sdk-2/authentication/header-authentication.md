@@ -1,5 +1,4 @@
 # Header Authentication
-
 For APIs requiring header authentication, this can be easily accomplished if the token is supplied by the user directly through user input fields.
 
 ## Example header authentication
@@ -29,17 +28,28 @@ For APIs requiring header authentication, this can be easily accomplished if the
     }
   },
 
-  test: { ... },
-  actions: { ... },
-  triggers: { ... },
-  object_definitions: { ... },
-  picklists: { ... },
-  methods: { ... }
+  test: {
+    # Some code here
+  },
+  actions: {
+    # Some code here
+  },
+  triggers: {
+    # Some code here
+  },
+  object_definitions: {
+    # Some code here
+  },
+  picklists: {
+    # Some code here
+  },
+  methods: {
+    # Some code here
+  }
 }
 ```
 
 ## apply
-
 Synonym of the `credentials` block: Basically how to apply the credentials to an action/trigger/test request. All requests made in actions, triggers, tests and pick lists will be applied with the credentials defined here. In the example above, the apply block pulls the `token` field directly from user input fields in the `connection` object.
 
 Here are a list of accepted inputs into the apply block
@@ -70,10 +80,8 @@ end
 
 > The `apply` block will not be applied to any requests made in `acquire`. So you will have to include the required credentials for a successful API request there.
 
-Check out our [custom authentication documents](developing-connectors/sdk/authentication/custom-authentication.md) to find out other ways to authenticate your custom connector on Workato.
-
 ### Other authentication methods
-Check out the other authentication methods we support. [Learn more]()
+Check out the other authentication methods we support as well as how to set up a custom connector that works for on-premise connections. [Go back to our list of authentication methods](/developing-connectors/sdk-2/authentication.md) or check our our [best practices](/developing-connectors/sdk-2/best-practices.md) for some tips.
 
 ### Next section
-If you're already familiar with the authentication methods we support, check out the triggers that our SDK supports as well as how to implement them. [Learn more]()
+If you're already familiar with the authentication methods we support, check out the actions that our SDK supports as well as how to implement them. [Learn more](/developing-connectors/sdk-2/action.md)

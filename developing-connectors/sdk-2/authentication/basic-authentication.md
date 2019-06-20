@@ -1,10 +1,9 @@
-
-## Standard example
-
+# Basic Authentication
 Typically, a basic authentication requires a username and password combination when making requests. Make sure to include those two fields in the connection fields definition.
 
-In connection objects, you'll be able to define the input fields in the `fields` object array. Each object in the array represents a single input field. Inside, you'll be able to declare the name of the input field, hints that are displayed to the end user amongst other parameters. Below, we have a sample connection object inside the skeleton of a connector. This connection object is configured for basic authentication.
+In the `connection:` block, you'll be able to define the input fields in the `fields:` block in an array of hashes. Each hash in the array represents a single input field. Inside, you'll be able to declare the name of the input field, hints that are displayed to the end user amongst other parameters. Below, we have a sample custom connector skeleton with a `connection:` block filled in. This `connection:` block is configured for basic authentication.
 
+## Sample code snippet
 ```ruby
 {
   title: 'My cisco connector',
@@ -33,25 +32,39 @@ In connection objects, you'll be able to define the input fields in the `fields`
     }
   },
 
-  test: { ... },
-  actions: { ... },
-  triggers: { ... },
-  object_definitions: { ... },
-  picklists: { ... },
-  methods: { ... },
+  test: {
+    # Some code here
+  },
+  actions: {
+    # Some code here
+  },
+  triggers: {
+    # Some code here
+  },
+  object_definitions: {
+    # Some code here
+  },
+  picklists: {
+    # Some code here
+  },
+  methods: {
+    # Some code here
+  },
 }
 ```
 
-To set up a basic authentication, simply define type: 'basic_auth' and include the appropriate values in `user()` and `password()` in the `apply` section. All requests made through the connector will contain the values defined in `apply`.
+To set up a basic authentication, simply define `type:` as `basic_auth` and include the appropriate values in `user()` and `password()` in the `apply` section. All future HTTP requests made through the connector will contain the values defined in the `apply:` block.
 
-## Variations
+This means that in the snippet above, every HTTP request made in the connector would have the `user` and `password` attached in the header to help authenticate that specific request.
 
-Some APIs expect different conventions from a standard basic authentication. In the example below, Close.io API expects an API Key generated in the individual User’s account. It should be used as a username with a blank password in the standard basic authentication format.
+# Variations of basic authentication
+Some APIs expect different conventions from a standard basic authentication. In the example below, Close.io API expects an API key generated in the individual User’s account. It should be used as a username with a blank password in the standard basic authentication format.
 
 So, to adjust the connections portion of the code to suit this behaviour, simply request for an API instead of username + password.
 
 In the `apply` section, pass the api_key into `user()` and an empty string ("") to `password()`
 
+## Sample code snippet
 ```ruby
 {
   title: 'My Close.io connector',
@@ -77,12 +90,24 @@ In the `apply` section, pass the api_key into `user()` and an empty string ("") 
     }
   },
 
-  test: { ... },
-  actions: { ... },
-  triggers: { ... },
-  object_definitions: { ... },
-  picklists: { ... },
-  methods: { ... },
+  test: {
+    # Some code here
+  },
+  actions: {
+    # Some code here
+  },
+  triggers: {
+    # Some code here
+  },
+  object_definitions: {
+    # Some code here
+  },
+  picklists: {
+    # Some code here
+  },
+  methods: {
+    # Some code here
+  },
 }
 ```
 Another variation is to have a generated api_token replace the user name and have the string `"api_token"` replacing password in the basic authentication format. In the example below, we should be used as a username with a password as "api_token" in the standard basic authentication format to match what toggl expects.
@@ -115,17 +140,28 @@ Another variation is to have a generated api_token replace the user name and hav
     }
   },
 
-  test: { ... },
-  actions: { ... },
-  triggers: { ... },
-  object_definitions: { ... },
-  picklists: { ... },
-  methods: { ... },
+  test: {
+    # Some code here
+  },
+  actions: {
+    # Some code here
+  },
+  triggers: {
+    # Some code here
+  },
+  object_definitions: {
+    # Some code here
+  },
+  picklists: {
+    # Some code here
+  },
+  methods: {
+    # Some code here
+  },
 }
 ```
 
 ## API Key Authentication
-
 For APIs that expect API Key authentication, it is a slight variation from the basic authentication code above. Whilst API keys can be used in basic authentication and sent under usernames and passwords, some other API's expect them as URL parameters.
 
 This is easily done with Workato's SDK by defining the type as "api_key" and using the `params` function to declare the user-given API key.
@@ -172,17 +208,29 @@ Example:
     }
   },
 
-  test: { ... },
-  actions: { ... },
-  triggers: { ... },
-  object_definitions: { ... },
-  picklists: { ... },
-  methods: { ... },
+  test: {
+    # Some code here
+  },
+  actions: {
+    # Some code here
+  },
+  triggers: {
+    # Some code here
+  },
+  object_definitions: {
+    # Some code here
+  },
+  picklists: {
+    # Some code here
+  },
+  methods: {
+    # Some code here
+  },
 }
 ```
 
 ### Other authentication methods
-Check out the other authentication methods we support. [Learn more]()
+Check out the other authentication methods we support as well as how to set up a custom connector that works for on-premise connections. [Go back to our list of authentication methods](/developing-connectors/sdk-2/authentication.md) or check our our [best practices](/developing-connectors/sdk-2/best-practices.md) for some tips.
 
 ### Next section
-If you're already familiar with the authentication methods we support, check out the triggers that our SDK supports as well as how to implement them. [Learn more]()
+If you're already familiar with the authentication methods we support, check out the actions that our SDK supports as well as how to implement them. [Learn more](/developing-connectors/sdk-2/action.md)

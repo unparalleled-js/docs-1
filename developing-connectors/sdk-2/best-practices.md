@@ -1,5 +1,15 @@
 # Best Practices
-Below, we have compiled a list of best practices which makes development of your custom connector easier to build, test and maintain.
+Below, we have compiled a list of best practices which makes development of your custom connector easier to build, test and maintain. We have organised this best practices in the following way:
+1. [General best practices](#general-best-practices)
+2. [Block specific best practices](#block-specific-best-practices)
+    * [Connection block](#connection-block)
+    * [Test block](#test-block)
+    * [Object definitions block](#object-defintions-block)
+    * [Actions block](#actions-block)
+    * [Triggers block](#triggers-block)
+    * [Sample output block](#sample-output-block)
+    * [Error handling](#error-handling)
+3. [Usability and testing best practices](#usability-and-testing-best-practices)
 
 ## General best practices
 These best practices relate directly to the development of a custom connector on Workato's SDK platform.
@@ -30,6 +40,9 @@ These best practices relate directly to the development of a custom connector on
 
 * Use the `dig` method when you need to navigate data to two or more levels. [Learn more](http://ruby-doc.org/core-2.3.0_preview1/Hash.html#method-i-dig)
 
+* Use `#{}` instead of string concatenation (`"string" + "string"`) whenever possible
+  * `#{}` is more defensive as errors are not raised when the variable is not declared
+
 * Use Date fields and format cautiously, ensure the time zones are handled
 
 * Avoid puts inside the code except for when testing and debugging using the `Console` tab in the debugger console
@@ -41,7 +54,9 @@ These best practices relate directly to the development of a custom connector on
   - Standard convention: `<action/trigger> <object> in <applicationName>`
   - Example: Search invoices in Xero
 
-## Connection block
+## Block specific best practices
+
+### Connection block
 * Use control_type: password for sensitive data
 
 * Use control_type: subdomain and url when requesting user input about a subdomain parameter
@@ -68,6 +83,8 @@ These best practices relate directly to the development of a custom connector on
   * A simple thing like adding a link to the URL that lets you generate API keys or client IDs and secrets are go a long way for users of your custom connector.
 
 * Ensure required scopes are included in the authorization URL for Oauth 2 authentication
+
+* When using `type: "custom_auth"`, the `acquire:` block is only run if the `detect_on:` or `refresh_on:` is triggered. When using the `acquire:` block to retrieve credentials like tokens, be sure to include the error code that is returned when your `test:` block is executed without retrieving the proper tokens.
 
 * Include version of the API if the app supports multiple versions at the same time
 
@@ -150,6 +167,58 @@ These best practices relate directly to the development of a custom connector on
 
 * Actions that delete entire tables or impact object_definitions are not advisable in Workato
   * These actions have lasting impacts and potentially lead to data loss
-  * It is advised for these actions to be deliberate and done directly by the application admin instead of an automated workflow
+  * It is advised for these actions to be deliberate and done directly by the an admin on the application instead of through a recipe
 
-*
+## Triggers
+* Name of the trigger should be specific to what it does
+
+* E.g. New employee in Replicon - Triggers when new employee created in Replicon
+
+* Naming conventions for Triggers:
+  * New - Trigger that detects when objects are created
+  * New or updated - Trigger that detects when objects are either created or updated
+  * Deleted - Trigger that detects when objects are deleted
+
+* `Since` input fields are often useful for users to retrieve data from the past
+  * This could be an optional field to allow users the ability to pull records from a past date when first starting the recipe
+  * Traditionally, APIs should support this by allowing you to query records since a past date using a set parameter
+
+* Avoid making unnecessary API requests in the poll block as this block is executed at least once in each trigger poll
+
+* Use closure block to store query fields, page number, last modified date time (only if required)
+  * Information cached in closure is persisted across poll intervals.
+
+* Use methods as much as possible to reduce redundant code
+
+* Dynamic webhooks should be used in APIs that have functionality for programatic setting up and tearing down of webhook URLs
+  * Static webhooks are the alternative but require you to manually register Workato's given static URL
+
+### Sample output
+* In Workato recipes, every action or trigger should have sample output data populated with output data pills under app data section
+  * This gives user idea about the data that he uses in downstream systems and improves usability
+
+* Static static sample output data is preferred for the objects with fewer fields
+  * Dynamic sample outputs can be used for objects with large amounts of fields
+  * Avoid too much of data transformation and too many API calls to show sample data in the sample_output block
+  * For download files actions, use static data in sample output block
+
+* Ensure the sample data is populated for each trigger or action(output)
+  * This should show up as grey text next to each datapill
+  * When triggers do not have any input fields, the datatree does not show up until a second action is added
+
+### Error handling
+* Signal exceptions using the raise method
+
+* Catch validation errors early, instead of waiting for API to return errors.
+
+* Implement Error handling when you need to handle specific error codes in the SDK and define your own response
+
+* Don’t suppress exceptions, better to expose more API information than hide them
+
+## Usability and testing best practices
+* Check the Recipe UI for actions and triggers
+
+* Ensure the action names, triggers names, labels and help instructions clearly communicate their purpose to the end user
+
+* Remember to set up some end to end tests for your custom connector by creating recipes
+  * This is especially useful for pushing new versions of your connector to your production workspace by first testing it in recipes using your sandbox environment

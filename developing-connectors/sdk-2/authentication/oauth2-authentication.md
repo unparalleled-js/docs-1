@@ -1,32 +1,52 @@
 # OAuth 2.0
+For a more secure method of authentication, we recommend using [OAuth 2.0](https://tools.ietf.org/html/rfc6749). It is an open standard and a more secure way for users to log into third party websites without exposing their credentials.
 
-For a more secure method of authentication, we recommend using [OAuth 2.0](https://tools.ietf.org/html/rfc6749). It is an open standard and is generally a more secure way for users to log into third party websites without exposing their credentials.
+> OAuth 2.0 authenticates a user on our connector by sending their browser over to the target applications website. Users can log in over there directly and the application sends their browser back to Workato with a token which the connector can now use to authenticate any future HTTP requests. This improves security as the user never has to give their username and password credentials directly to Workato.
 
 There are many variants of the OAuth2 standard. By default, the Workato connector SDK supports the [Authorization Code Grant](https://tools.ietf.org/html/rfc6749#section-4.1) variant.
 
 ## Authorization Code Variant
-Required components in OAuth 2.0 Authorization Code Grant type connection:
+To create an OAuth 2.0 flow, we need to gather a few pieces of information from the API we want to build a connector to. This information should be readily available if the API has followed the open standard for OAuth 2.0.
 
-1. type (use "oauth2")
-2. authorization_url
-3. token_url
-4. client_id and client_secret
-5. apply
+<table class="unchanged rich-diff-level-one">
+  <thead>
+    <tr>
+        <th width='25%'>Information needed</th>
+        <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Authorization URL</td>
+      <td>This is the URL that we will send the user's browser to so that he/she can authenticate themselve directly</td>
+    </tr>
+    <tr>
+      <td>Token URL</td>
+      <td>This is where Workato goes to so that it can retrieve a token that can prove its identity to the API</td>
+    </tr>
+    <tr>
+      <td>Client ID</td>
+      <td>This is the "username" that this specific custom connector has registered with the API. This might mean signing Workato up as a verified application in the application</td>
+    </tr>
+    <tr>
+      <td>Client secret</td>
+      <td>This is the "password" that this specific custom connector has registered with the API. This might mean signing Workato up as a verified application in the application. <b>Never share your client secret with others</b></td>
+    </tr>
+  </tbody>
+</table>
 
-Redirect URI will be appended to the authorization request by the framework, so there is no need to include it. If the application requires that you register the redirect URI beforehand, use:
-https://www.workato.com/oauth/callback
+Without going into too much detail, when the user has authenticated himself at the authorization URL with the target application, he is redirected back to Workato with a code if successful. This code can then be used by this connector to send a POST request to the token URL along with a redirect URL which lets the API know where to send the token to. This token can be referenced in the `apply:` block using `access_token`.
 
-Adjust headers format as required in the `apply` section. For example, Pushbullet expects the header to include tokens in this format:
-`OAuth2: <access token>`. This can be done in the `apply` portion of the `authorization` section of the `connection` block.
+Redirect URLs will be appended to the authorization request by the framework, so there is no need to include it. If the application requires that you register the redirect URI beforehand, use: https://www.workato.com/oauth/callback
 
-So to adjust to suit this requirement, define the `apply` portion like so:
+Remember to adjust headers format as required in the `apply` section. For example, Pushbullet expects the header to include tokens in this format: `OAuth2: <access token>`. This can be done in the `apply` portion of the `authorization` section of the `connection` block.
 
+### Sample code snippet
 ```ruby
 {
   title: 'My Podio connector',
 
   connection: {
-
     authorization: {
       type: "oauth2",
 
@@ -48,17 +68,59 @@ So to adjust to suit this requirement, define the `apply` portion like so:
     }
   },
 
-  test: { ... },
-  actions: { ... },
-  triggers: { ... },
-  object_definitions: { ... },
-  picklists: { ... },
-  methods: { ... },
+  test: {
+    # Some code here
+  },
+  actions: {
+    # Some code here
+  },
+  triggers: {
+    # Some code here
+  },
+  object_definitions: {
+    # Some code here
+  },
+  picklists: {
+    # Some code here
+  },
+  methods: {
+    # Some code here
+  },
 }
 ```
 
-Note:
+## apply
+Synonym of the `credentials` block: Basically how to apply the credentials to an action/trigger/test request. All requests made in actions, triggers, tests and pick lists will be applied with the credentials defined here. In the example above, the apply block pulls the `token` field directly from user input fields in the `connection` object.
 
+Here are a list of accepted inputs into the apply block
+
+```ruby
+apply: lambda do |connection|
+  # Adds in URL parameters passed as a hash object
+  # i.e. authtoken=[connection['authtoken']]
+  params(authtoken: connection['authtoken'])
+
+  #Adds in payload fields (PATCH, POST, PUT only) pass as hash
+  payload(grant_type: "authorization_code",
+          client_id: connection["client_id"],
+          client_secret: connection["client_secret"],
+          code: auth_code)
+
+  # Adds in headers into every request passed as a hash.
+  # The variable access_token can be retrieved from input prompts defined in the 'fields' schema earlier or a return from the acquire block
+  # i.e. Authorization : Bearer [given access token]
+  headers("Authorization": "Bearer #{connection["access_token"]}")  
+
+  # Used in conjunction with password function
+  # i.e. sends the input as username and password in HTTP authentication
+  user(connection["username"])   
+  password(connection["username"])
+end
+```
+
+> The `apply` block will not be applied to any requests made in `acquire`. So you will have to include the required credentials for a successful API request there.
+
+Note:
 - SDK makes a POST request to token endpoint. If a different type of request is expected, look at [Custom token authentication](#custom-token-authentication)
 - The `token_url` is required if the `acquire` or `refresh` hooks are not present (see below).
 - Ensure that your implementation of OAuth 2.0 is compliant with the specifications stated in the [RFC document](https://tools.ietf.org/html/rfc6749). Else, your custom adapter might not start.
@@ -71,7 +133,6 @@ The `token_url` is called using a `POST` request with the provided `client_id` a
 In cases that deviate from the normal standard authentication flows, use our `acquire` block. This block allows you to define the HTTP calls that occurs during the authentication process. For example, some APIs require the authorization token to be obtained by using a `POST` request with basic authentication.
 
 ### Using the `acquire` block
-
 In the case below, we used the acquire block to send a `POST` HTTP call with basic authentication since our `token_url` block defaults to header authentication. You can then pull the `access_token` and `refresh_token` from the response to the `POST` call.
 
 ```ruby
@@ -124,12 +185,24 @@ In the case below, we used the acquire block to send a `POST` HTTP call with bas
       }
     },
 
-    test: { ... },
-    actions: { ... },
-    triggers: { ... },
-    object_definitions: { ... },
-    picklists: { ... },
-    methods: { ... },
+    test: {
+      # Some code here
+    },
+    actions: {
+      # Some code here
+    },
+    triggers: {
+      # Some code here
+    },
+    object_definitions: {
+      # Some code here
+    },
+    picklists: {
+      # Some code here
+    },
+    methods: {
+      # Some code here
+    },
   }
 ```
 
@@ -275,12 +348,24 @@ In the below example, the Namely API asks for the `refresh_token` to be appended
     }
   },
 
-  test: { ... },
-  actions: { ... },
-  triggers: { ... },
-  object_definitions: { ... },
-  picklists: { ... },
-  methods: { ... },
+  test: {
+    # Some code here
+  },
+  actions: {
+    # Some code here
+  },
+  triggers: {
+    # Some code here
+  },
+  object_definitions: {
+    # Some code here
+  },
+  picklists: {
+    # Some code here
+  },
+  methods: {
+    # Some code here
+  },
 }
 ```
 
@@ -335,7 +420,7 @@ This list is optional. If not defined, pseudo successful response will be treate
 The `refresh_on`, `refresh` and `detect_on` hooks are also used in [Custom Authentication](custom-authentication.md#refresh_on).
 
 ### Other authentication methods
-Check out the other authentication methods we support. [Learn more]()
+Check out the other authentication methods we support as well as how to set up a custom connector that works for on-premise connections. [Go back to our list of authentication methods](/developing-connectors/sdk-2/authentication.md) or check our our [best practices](/developing-connectors/sdk-2/best-practices.md) for some tips.
 
 ### Next section
-If you're already familiar with the authentication methods we support, check out the triggers that our SDK supports as well as how to implement them. [Learn more]()
+If you're already familiar with the authentication methods we support, check out the actions that our SDK supports as well as how to implement them. [Learn more](/developing-connectors/sdk-2/action.md)

@@ -1,7 +1,7 @@
 # Action
-Besides triggers, you'll also be able to create actions for your custom connector that users of your connector can place inside inside their recipes. Whilst triggers need to listen for events or poll for events from external APIs, actions receive data from earlier steps in a recipe and then can be defined to perform any amount of data transformation, data enrichment and the sending of data to your API through HTTP requests.
+This section will now dive deeper into the details of how to create actions. This assumes that you have already learn't how to create a successful connection using one of the available authentication methods our SDK supports. Actions receive data from earlier steps in a recipe, transform it and send this data to your target API through HTTP requests.
 
-A single action can make one or more requests to various endpoints. Because the framework handles the authentication side of a request, you will not have to worry about that here.
+A single action can make one or more requests to various endpoints. Because the framework handles the authentication side of a request, you will not have to worry about that here. Despite the ability to make multiple request, best practices in building actions dictate that you keep actions simple minimising the number of HTTP requests and limiting the scope of the action to a single operation. For example, a bad action would be one that "Creates records and performs a se"
 
 > All authentication is handled by the `apply` block declared earlier in the `connection` object.
 
@@ -14,8 +14,12 @@ The most important thing is to identify which endpoint will address the purpose 
 {
   title: 'My Cisco connector',
 
-  connection: { ... },
-  test: {...},
+  connection: {
+      # Some code here
+  },
+  test: {
+      # Some code here
+  },
 
   actions: {
 
@@ -37,10 +41,18 @@ The most important thing is to identify which endpoint will address the purpose 
 
   },
 
-  triggers: { ... },
-  object_definitions: { ... },
-  picklists: { ... },
-  methods: { ... }
+  triggers: {
+      # Some code here
+  },
+  object_definitions: {
+      # Some code here
+  },
+  picklists: {
+      # Some code here
+  },
+  methods: {
+      # Some code here
+  }
 }
 ```
 
@@ -58,6 +70,51 @@ Aside from the HTTP request, `execute` blocks can be used to do any pre processi
 
 ### output_fields
 You can define output_fields in the same way you define input_fields. This time, however, we have used something called object_definitions to define the output schema, where we defined the schema for the `lead` objects once and can continue to reuse this same schema by referencing it in multiple areas in the custom connector code.
+
+### sample_output
+This block populates the datapills defined in the `output_fields:` block with some sample information for users. It is exposed as grey text next to datapills. Check out [best practices](/developing-connectors/sdk-2/best-practices.md) section on how to use sample_outputs
+
+```ruby
+sample_output: lambda do |_connection, _input|
+  {
+    accounts: call("format_api_output_field_names",
+                   get("/api/accounts",
+                       return_object: "shallow",
+                       limit: 1)&.compact)
+  }
+end
+```
+
+![Sample output](/assets/images/sdk/sample_output_sample.png)
+*Sample outputs make your datapills more usable by giving some context to users.*
+
+### Other optional blocks
+<table class="unchanged rich-diff-level-one">
+  <thead>
+    <tr>
+        <th width='10%'>Block</th>
+        <th width='45%' >Example</th>        
+        <th width='45%'>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code>subtitle:</code></td>
+      <td><code>subtitle: "This is a subtitle"</code></td>
+      <td>This shows up below the main action name when users are looking at the dropdown of possible actions</td>
+    </tr>
+    <tr>
+      <td><code>description:</code></td>
+      <td><code>description: "This is a description"</code></td>
+      <td>This is what shows up as the summary of an action when looking at the recipe.</td>
+    </tr>
+    <tr>
+      <td><code>help:</code></td>
+      <td><code>help: "This is a help text"</code></td>
+      <td>This shows up as the help hint when users are configuring the action. Use this to detail any important information the user should have</td>
+    </tr>  
+  </tbody>
+</table>
 
 ### Testing
 After defining your action block, you'll be able to test this action directly immediately from the custom connector homepage. At the bottom of the code editor for each custom connector, you will be able to see a list of actions and triggers that you have defined.
@@ -116,6 +173,6 @@ See [Methods](/developing-connectors/sdk/methods.md) section for list of methods
 
 ___________
 
-## Next steps
-Find out more about how to work with various HTTP requests and how you can define them in both your actions and triggers.
-[Possible HTTP requests]()
+## Next section
+Find out more about how to build triggers for your connector that can listen for events and trigger recipes based on that.
+[Go to our triggers documentation](/developing-connectors/sdk-2/trigger.md) or check our our [best practices](/developing-connectors/sdk-2/best-practices.md) for some tips on building your actions.

@@ -1,10 +1,9 @@
 # Multipart form
-
 [Multipart form request](https://www.w3.org/TR/html401/interact/forms.html#h-17.13.4.2)  is typically used to send large files and data to a server.
 
 This request format can be declared in any blocks (`execute`, `acquire`, `fields` etc.) in your custom adapter code. It should be chained to one of the [base request](../walk-through.md#base-request).
 
-## Example
+## Sample code snippet
 Let's use the Convert document endpoint in [IBM Watson API](https://www.ibm.com/watson/developercloud/document-conversion/api/v1/#convert-document) as an example. This endpoint accepts a document in multipart/form-data format.
 
 A cURL example looks like this:
@@ -22,7 +21,13 @@ Workato:
 {
   title: "IBM Watson",
 
-  connection: {...},
+  connection: {
+    # Some code here
+  },
+
+  test: {
+    # Some code here
+  },
 
   actions: {
     upload_file: {
@@ -44,9 +49,24 @@ Workato:
       end
     },
 
-    output_fields: {...}
+    output_fields: {
+      # Some code here
+    }
   },
-  ...
+
+  triggers: {
+    # Some code here
+  },
+  object_definitions: {
+    # Some code here
+  },
+  picklists: {
+    # Some code here
+  },
+  methods: {
+    # Some code here
+  }
+
 ```
 
 In the SDK, notice that the `file` key in the payload takes an array of length 2. This defines the request as form data. The first item in the array is the file data and the second item is the media type (MIME type) of the input file.
@@ -76,7 +96,7 @@ In the SDK, notice that the `file` key in the payload takes an array of length 2
 </table>
 
 ### Other data Formats
-Check out the other data formats we support. [Learn more]()
+Check out the other data formats we support. [Learn more](/developing-connectors/sdk-2/data-format.md)
 
 ### Next section
-If you're already familiar with the data formats we support, check out the authentication types that our SDK supports as well as how to implement them. [Learn more]()
+If you're already familiar with the data formats we support, check out the authentication types that our SDK supports as well as how to implement them. [Learn more](/developing-connectors/sdk-2/authentication.md)

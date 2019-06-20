@@ -1,5 +1,4 @@
 # XML data format
-
 XML data format can be specified using the following SDK methods:
 
 Method | Description
@@ -9,12 +8,11 @@ Method | Description
 `format_xml` | Convert request and expect response body in XML format
 
 ## Forming XML payload in request
+Since custom connector actions receive data in the form of ruby hashes, you will have to convert these hashes into an XML by chaining one of the formatting methods to the end of the request. This example explores making requests to Intacct web services with XML data format.
 
-Since custom adapter actions receive data in the form of ruby hashes, you will have to convert these hashes into an XML by chaining one of the formatting methods to the end of the request. This example explores making requests to Intacct web services with XML data format.
+According to the [Intacct documentation](https://developer.intacct.com/wiki/web-services-api-30-calls), all requests should be made to the same endpoint as a POST request: `https://api.intacct.com/ia/xml/xmlgw.phtml` where requests are expected to be in XML data formats.
 
-According to the [Intacct documentation](https://developer.intacct.com/wiki/web-services-api-30-calls), all requests should be made to the same endpoint as a POST request: `https://api.intacct.com/ia/xml/xmlgw.phtml`
-
-Authentication and payload are expected in the XML payload. Example:
+### Sample code snippet
 ```xml
 <request>
   <control>
@@ -624,3 +622,9 @@ Which is extracted and converted into:
   "requireitem": "false"
 }
 ```
+
+### Other data Formats
+Check out the other data formats we support. [Learn more](/developing-connectors/sdk-2/data-format.md)
+
+### Next section
+If you're already familiar with the data formats we support, check out the authentication types that our SDK supports as well as how to implement them. [Learn more](/developing-connectors/sdk-2/authentication.md)
