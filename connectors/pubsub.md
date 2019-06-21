@@ -2,78 +2,78 @@
 title: Workato connectors - PubSub by Workato
 date: 2017-09-07 14:00:00 Z
 search:
-    keywords: ['message', 'multiple', 'publish', 'reuse', 'time to live', 'ttl']
+    keywords: ['message', 'publish', 'subscribe', 'reuse', 'time to live', 'time-to-live', 'ttl']
 ---
 
 # PubSub by Workato
-The PubSub connector enables you to implement integration solutions that require an event-driven, messsage-oriented architecture that decouples publishers and consumers. The connector implements a messaging system with support for guaranteed and persistent delivery. This allows us to chain recipes sequentially, as a recipe can publish a message that multiple other recipes consume as a trigger to kickstart their workflow.
+The PubSub connector enables you to implement integration solutions that require an event-driven, message-oriented architecture that decouples publishers and consumers. The connector implements a messaging system with support for guaranteed and persistent delivery. This allows us to chain recipes sequentially, as a recipe can publish a message that multiple other recipes consume as a trigger to kickstart their workflow.
 
 This connector allows us to add or modify recipes which are consumers without affecting recipes which are publishers. This enables zero downtime for the publisher recipe as we can add new consumers without impacting or requiring changes in the publisher recipe. This decoupling results in simpler recipes and reduces the time required to create, test, and maintain recipes.
 
 ## How to connect to the PubSub connector on Workato
 There is no connection required to use the PubSub connector, as schemas are stored in the Workato account for recipes to interact with.
 
-## Working with the PubSub connector
 In order to work with the PubSub connector, users require access to the PubSub topics feature, which is enabled only for certain plans. Check the [Pricing and Plans page](https://www.workato.com/pricing?audience=general) or reach out to Workato sales representatives at +1 (844) 469-6752 to find out more.
 
+## How to setup topics in PubSub
+You can go to the PubSub main feature page by clicking **Tools** > **View all Tools** > **Pub/Sub**.
+
+![Manage topics in PubSub](/assets/images/connectors/pubsub/manage-topics-empty.png)
+*Manage topics in PubSub*
+
+Here, you can view all the topics that you have created. You can use the **search topics** function to quickly locate topics by keyword.
+
 ### Creating and managing topics
-When using the PubSub connector, you can suscribe to messages in a topic or publish messages to a topic. In order to do so, you have to first create a topic, and define the message structure for that topic, so that publishers and consumers alike know what to expect when sending or receiving messages.
+In order to work with PubSub messages, you have to first create and define a topic. So publishers and consumers alike know what to expect when sending or receiving messages.
 
-You can create and manage your topics on the topics feature page, click on **Tools** > **View all Tools** > **Pub/Sub**.
+Click on **New topic** to get started.
 
-![Manage topics](/connector...\\)
-*Manage topics*
-<!---
-![Manage topics](/assets/images/connectors/pubsub/PubSub-nav.gif)
-*Manage and create topics on the topics page*
---->
+![New topic](/assets/images/connectors/pubsub/new-topic.png)
+*New topic*
 
-Here, you can view all your existing topics. You can use the search function to quickly locate topics by keyword.
+When creating topics, you will need to define what the messages will look like.
 
-\\insert picture of the search bar feature.
+| Field        | Description                                                        |
+|--------------|--------------------------------------------------------------------|
+| Name         | The name of your new topic. |
+| Time-to-live | The number of days until the message expires. See more [here](#time-to-live-configuration). |
+| Schema       | The message fields for this topic. See more [here](#topic-schema-configuration). |
 
-When creating topics, you will need to define what the messages will look like. This includes:
-* defining schema
-* defining TTL configuration
+#### Topic schema configuration
+When creating topics, you will need to define what the message will look like. This structure can be subsequently edited.
 
-#### Topic schema
-When creating topics, you will need to define what the data structure of the messages will look like. This structure can be subsequently edited.
+![Defining message field](/assets/images/connectors/pubsub/add-new-field.png)
+*Defining message field*
 
-<!---
-![Defining topic schema](/assets/images/connectors/pubsub/defining-topic-schema.gif)
-*Editing the topic message schema definition*
---->
+| Field     | Description                                              |
+|-----------|----------------------------------------------------------|
+| Name      | The name of a new message field.                         |
+| Data type | Select the data type from a dropdown.                    |
+| Optional  | Choose if this message field is optional. Default is No. |
+| Hint      | Provide a hint for this message field.                   |
 
-#### Time to live configuration
-Time to live (TTL) is a mechanism that limits the lifespan of data on a network. Your messages are configured with a lifespan on a per-topic basis. Once the prescribed lifespan has elapsed, the message is expired as can no longer be processed by recipes.
+#### Time-to-live configuration
+Time-to-live (TTL) is a mechanism that limits the lifespan of data on a network. All PubSub messages are configured with a lifespan (*max 90 days*). Once a message expires, it is discarded and can no longer be received by recipes.
 
 By constraining the lifespan of your data, you ensure that your sensitive data does not circulate endlessly. This systematically phases out old messages and prevents your recipe from processing obsolete data.
 
-To work with static and immutable data, see [Lookup tables by Workato](/features/lookup-tables.md).
+> To work with static and immutable data, see [Lookup tables by Workato](/features/lookup-tables.md).
 
-You can configure the lifespan of your topic messages according to your use-case requirements. Define the **number of days** until the message expires.
+Your messages TTL are configured on a per-topic basis. This allows you to customize the message TTL of each topic according to your use-case requirements.
 
-![Message TTL](/assets/images\\\\\\)
-Screenshot of indicating 91 days.
-
-* **Mininum**
-
-Your messages will stay on the topic for at least **1 day**
-
+* **Minimum**
+  * All messages will stay on the topic for at least **1 day**.
 * **Maximum**
+  * For all PubSub messages, the longest your message can remain on the topic is **90 days**.
+  * The maximum message TTL is also limited by your data retention policy. Workato can only store messages up to the configured limit in your data retention setting. For more information on data retention policies, click [here](/data-retention.md).
 
-For all PubSub messages, the longest your message can remain on the topic is **90 days**.
+![Message ttl exceed supported time range](/assets/images/connectors/pubsub/ttl-exceed-range.png)
+  *Message ttl exceed supported time range*
 
-The maximum message TTL is also affected by your data retention limit. Workato can only store messages up to the limit your data retention policy.
+> Note: The maximum lifespan of a message TTL is 90 days or the user data retention limit (*whichever is lower*). Users on the *base* plan will have a maximum TTL of 30 days, while users on the *enterprise* plan will have a maximum TTL of 90 days.
 
-> The maximum lifespan of a message TTL is 90 days or the user data retention limit (whichever is lower). Users on the *base* plan will have a maximum message TTL of 30 days, while users on the *enterprise* plan will have a maximum message TTL of 90 days.
-
-You can view your data retention settings from **Account settings** > **Data retention**.
-
-![Data retention settings](/assets/images\\)
-\\ retrieve the screenshot with the updated texts.
-
-For more information on data retention policies, click [here](/data-retention.md).
+## Working with the PubSub connector
+After configuring your topics schema, you can now subscribe to messages using the [New message trigger](#using-the-new-message-trigger) or publish messages using the [Publish message action](#using-the-publish-message-action)
 
 ### Using the new message trigger
 The new message trigger allows us to subscribe to a specific topic in Workato. Any messages published to that topic will be picked up by the trigger as a single trigger event.
