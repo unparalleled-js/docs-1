@@ -65,7 +65,9 @@ Your messages TTL are configured on a per-topic basis. This allows you to custom
   * All messages will stay on the topic for at least **1 day**.
 * **Maximum**
   * For all PubSub messages, the longest your message can remain on the topic is **90 days**.
-  * The maximum message TTL is also limited by your data retention policy. Workato can only store messages up to the configured limit in your data retention setting. For more information on data retention policies, click [here](/data-retention.md).
+  * The maximum message TTL is also limited by your data retention policy. Workato can only store messages up to the configured limit in your data retention setting.
+    * If it is not configured explicitly, Workato will use the maximal plan-based value. For more information on data retention policies, click [here](/data-retention.md).
+  * Each message has a 10KB size limit.
 
 ![Message ttl exceed supported time range](/assets/images/connectors/pubsub/ttl-exceed-range.png)
   *Message ttl exceed supported time range*
