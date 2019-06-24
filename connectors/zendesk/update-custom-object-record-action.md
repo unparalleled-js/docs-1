@@ -14,80 +14,20 @@ This action updates a specific custom object record in your Zendesk instance. Th
 *Update custom object record action*
 
 ### Input fields
-<table class="unchanged rich-diff-level-one">
-  <thead>
-    <tr>
-      <th width='25%'>Input field</th>
-      <th>Description</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>Custom object</td>
-      <td>
-        Select a custom object type for your search.
-      </td>
-    </tr>
-    <tr>
-      <td>ID</a></td>
-      <td>
-        The unique Zendesk ID for the custom object record.
-      </td>
-    </tr>
-    <tr>
-      <td>Update record values</td>
-      <td>
-        Provide data for each column of the record to be created. The input fields are <b>required</b> and <b>optional</b> according to how you configured the custom object type.
-      </td>
-    </tr>
-  </tbody>
-</table>
+| Input field   | Description                                        |
+|---------------|----------------------------------------------------|
+| Custom object | Select a custom object type for your search.       |
+| ID            | The unique Zendesk ID of the custom object record. |
+| Update record values |  Provide data for each column of the record to be created. The input fields are **required** and **optional** according to how you configured the custom object type. |
 
 ### Output fields
 The output of this action contains the full set of columns from the selected custom object type.
 
-<table class="unchanged rich-diff-level-one">
-  <thead>
-    <tr>
-      <th width='25%'>Output field</th>
-      <th>Description</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>Type</td>
-      <td>
-        The name of the custom object type.
-      </td>
-    </tr>  
-    <tr>
-      <td>ID</td>
-      <td>
-        Unique Zendesk custom object record ID. This is automatically assigned when the custom object record is created.
-    </tr>  
-    <tr>
-      <td>External ID</td>
-      <td>
-        A unique identifier from another system.
-      </td>
-    </tr>
-    <tr>
-      <td>Date created</td>
-      <td>
-        The time the custom object record was created.
-      </td>
-    </tr>
-    <tr>
-      <td>Date updated</td>
-      <td>
-        The time the custom object record was last updated.
-      </td>
-    </tr>
-    <tr>
-      <td>Attributes</td>
-      <td>
-        Includes data of custom object custom field(s).
-      </td>
-    </tr>
-  </tbody>
-</table>
+| Output field | Description                                     |
+|--------------|-------------------------------------------------|
+| Type         | The name of the custom object type.             |
+| ID           | The unique Zendesk ID of the custom object record. This is automatically assigned when the custom object record is created. |
+| External ID  | A unique identifier from another system.        |
+| Date created | The time the custom object record was created.  |
+| Date updated | The time the custom object record was updated.  |
+| Attributes   | Includes data of custom object custom field(s). |

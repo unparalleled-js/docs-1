@@ -12,78 +12,22 @@ This action retrieves a list of organizations that matches your search criteria.
 *Search organizations action*
 
 ### Input fields
-<table class="unchanged rich-diff-level-one">
-  <thead>
-    <tr>
-      <th width='25%'>Input field</th>
-      <th>Description</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tbody>
-    <tr>
-      <td>Name</td>
-      <td>
-        The name of the organization.
-      </td>
-    </tr>
-    <tr>
-      <td>Tags</td>
-      <td>
-        The tags applied to this organization. You can query multiple tags with the <code>,</code> separator.
-      </td>
-    </tr>
-    <tr>
-      <td>Details</td>
-      <td>
-        Details about the organization.
-      </td>
-    </tr>
-    <tr>
-      <td>Notes</td>
-      <td>
-        Notes about the organization.
-      </td>
-    </tr>
-    <tr>
-      <td>Organization custom fields</td>
-      <td>
-        Provide data for the organization custom field(s).
-      </td>
-    </tr>
-  </tbody>
-</table>
+| Input field | Description                                                   |
+|-------------|---------------------------------------------------------------|
+| Name        | The name of the organization.                                 |
+| Tags        | The tags applied to this organization. You can add multiple tags with the `,` separator. |
+| Details     | Details about the organization.                               |
+| Notes       | Notes about the organization.                                 |
+| Organization custom fields | Provide data for organization custom field(s). |
 
-#### Output fields
+### Output fields
 The output of this action contains the full set of columns from the selected organization. Here are some of the commonly used outputs.
 
-<table class="unchanged rich-diff-level-one">
-  <thead>
-    <tr>
-      <th width='25%'>Output field</th>
-      <th>Description</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>ID</td>
-      <td>
-        Unique Zendesk organization ID. This is automatically assigned when the organization is created.
-      </td>
-    </tr>  
-    <tr>
-      <td>Group ID</td>
-      <td>
-        The group that this organization is part of.
-      </td>
-    </tr>
-    <tr>
-      <td>Organization custom fields</td>
-      <td>
-        Includes data of organization custom field(s).
-      </td>
-    </tr>
-  </tbody>
-</table>
+| Output field | Description                                                  |
+|--------------|--------------------------------------------------------------|
+| ID           | Unique Zendesk organization ID. This is automatically assigned when the organization is created. |
+| Group ID     | The unique Zendesk ID of the group of this organization.     |
+| Organization custom fields | Includes data of organization custom field(s). |
+| List size    | The size of the list, corresponding to the number of organizations retrieved. |
 
 Click here for a full list of [organization outputs](/connectors/zendesk/organization-fields.md#organization-output-fields).

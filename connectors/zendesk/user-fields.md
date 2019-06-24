@@ -12,162 +12,34 @@ Zendesk user contains various user fields that add information about the user. S
 To register a new user into your Zendesk instance, you are required to fill up certain information about the user. This includes identifying information like the **name** and **email**, and permission controls.
 
 ### User default input fields
-Zendesk's out-of-the-box user fields gathers basic information. At default, only **name** is configured as mandatory.
+Zendesk's out-of-the-box user fields gather basic information. At default, only **name** is configured as mandatory.
 
-<table class="unchanged rich-diff-level-one">
-  <thead>
-    <tr>
-      <th width='25%'>Output field</th>
-      <th>Description</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>Name</td>
-      <td>
-        The name of the user.
-      </td>
-    </tr>
-    <tr>
-      <td>Role</td>
-      <td>
-        The role of the user. Permitted values are <code>End-user</code>, <code>Agent</code>, or <code>Administrator</code>.
-      </td>
-    </tr>
-    <tr>
-      <td>Email</td>
-      <td>
-        The primary email of the user.
-      </td>
-    </tr>
-    <tr>
-      <td>Organization ID</td>
-      <td>
-        The ID of the user's organization.
-      </td>
-    </tr>
-    <tr>
-      <td>External ID</td>
-      <td>
-        A unique identifier from another system.
-      </td>
-    </tr>
-    <tr>
-      <td>Signature</td>
-      <td>
-        Only for <code>Agent</code> and <code>Administrator</code> users. The signature of the user.
-      </td>
-    </tr>
-    <tr>
-      <td>Phone</td>
-      <td>
-        The primary phone number of the user.
-      </td>
-    </tr>
-    <tr>
-      <td>Details</td>
-      <td>
-        Details about the user.
-      </td>
-    </tr>
-    <tr>
-      <td>Notes</td>
-      <td>
-        Notes about the user.
-      </td>
-    </tr>
-    <tr>
-      <td>Active</td>
-      <td>
-        Select <code>Yes</code> if the user exists and has access to Zendesk, otherwise select <code>No</code>.
-      </td>
-    </tr>
-    <tr>
-      <td>Verified</td>
-      <td>
-        Select <code>Yes</code> if the user's primary identify is verified, otherwise select <code>No</code>.
-      </td>
-    </tr>
-    <tr>
-      <td>Shared</td>
-      <td>
-        For ticket sharing accounts only. Select <code>Yes</code> if the user is shared from a different Zendesk support instance, otherwise select <code>No</code>.
-      </td>
-    </tr>
-    <tr>
-      <td>Locale</td>
-      <td>
-        The locale of the user.
-      </td>
-    </tr>
-    <tr>
-      <td>Language</td>
-      <td>
-        The language of the user. It is displayed as an <code>int</code>.
-      </td>
-    </tr>
-    <tr>
-      <td>Timezone</td>
-      <td>
-        The timezone of the user.
-      </td>
-    </tr>
-    <tr>
-      <td>Ticket restrictions</td>
-      <td>
-        Specifies which tickets the user has access to. Possible values are: "organization", "groups", "assigned", <code>null</code>.
-      </td>
-    </tr>
-    <tr>
-      <td>Moderator</td>
-      <td>
-        Select <code>Yes</code> if the user has forum moderation capabilities, otherwise select <code>No</code>.
-      </td>
-    </tr>
-    <tr>
-      <td>Only private comments</td>
-      <td>
-         Select <code>Yes</code> if the user can only create private comments, otherwise select <code>No</code>.
-      </td>
-    </tr>
-    <tr>
-      <td>Tags</td>
-      <td>
-        The tags applied to this user. You can add multiple tags with the <code>,</code> separator.
-      </td>
-    </tr>
-    <tr>
-      <td>Alias</td>
-      <td>
-        Only for <code>Agent</code> users. The alias displayed to end-users.
-      </td>
-    </tr>
-    <tr>
-      <td>Custom role ID</td>
-      <td>
-        Only for <code>Agent</code> users on Zendesk enterprise plan. The custom role ID for this user.
-      </td>
-    </tr>
-    <tr>
-      <td>Restricted agent</td>
-      <td>
-        Only for <code>Agent</code> users. Select <code>Yes</code> if the user has any restrictions, otherwise select <code>No</code>.
-      </td>
-    </tr>
-    <tr>
-      <td>Suspended</td>
-      <td>
-        Only for <code>Agent</code> users. Select <code>Yes</code> if the user is suspended, otherwise select <code>No</code>.
-      </td>
-    </tr>
-    <tr>
-      <td>Shared agent</td>
-      <td>
-        For ticket sharing accounts only. Select <code>Yes</code> if the user is a shared agent from a different Zendesk support instance, otherwise select <code>No</code>.
-      </td>
-    </tr>
-  </tbody>
-</table>
+| Input field  | Description                                               |
+|--------------|-----------------------------------------------------------|
+| Name         | The name of the user.                                     |
+| Role         | The role of the user. Permitted values are `End-user`, `Agent`, or `Administrator`. |
+| Email        | Mandatory if the user's role is designated as `Agent`. The primary email of the user. |
+| Organization ID | The unique Zendesk ID of the user's organization.      |
+| External ID  | A unique identifier from another system.                  |
+| Signature    | Only for `Agent` and `Administrator` users. The signature of the user. |
+| Phone        | The primary phone number of the user.                     |
+| Details      | Details about the user.                                   |
+| Notes        | Notes about the users.                                    |
+| Active       | Select `Yes` if the user exists and has access to Zendesk, otherwise select `No`. |
+| Verified     | Select `Yes` of the user's primary identity is verified, otherwise select `No`. |
+| Shared       | Select `Yes` if the user is shared from a different Zendesk support instance, otherwise select `No`. |
+| Locale       | The locale of the user.                                   |
+| Language     | The language of the user.                                 |
+| Timezone     | The timezone of the user.                                 |
+| Ticket restrictions | Specifies which tickets the user has access to. Possible values are "organization", "groups", "assigned", `null`. |
+| Moderator    | Select `Yes` if the user has forum moderation capabilities, otherwise select `No`. |
+| Only private comments | Select `Yes` if the user can only create private comments, otherwise select `No`. |
+| Tags         | The tags applied to this user. You can add multiple tags with the `,` separator. |
+| Alias        | Only for `Agent` users. The alias displayed to end-users. |
+| Custom role ID | Only for `Agent` users on Zendesk enterprise plan. The custom role ID for this user. |
+| Restricted agent | Only for `Agent` users. Select `Yes` if the user has any restrictions, otherwise select `No`. |
+| Suspended    | Only for `Agent` users. Select `Yes` if the user is suspended, otherwise select `No`.
+| Shared agent | Select `Yes` if the user is a shared agent from a different Zendesk support instance, otherwise select `No`. |
 
 ### User custom input field
 Aside from the preconfigured user fields, Zendesk allows you to customize user fields to suit your business use-cases.
@@ -179,37 +51,11 @@ To view this list of user custom fields, go to **settings** > under **Manage** >
 
 Below is an example of user custom fields.
 
-<table class="unchanged rich-diff-level-one">
-  <thead>
-    <tr>
-      <th width='25%'>User custom field</th>
-      <th>Field type</th>
-      <th width='20%'>Mandatory</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>Gender</td>
-      <td><b>Drop-down</b>(<code>list</code>)</td>
-      <td>Yes</td>
-    </tr>
-    <tr>
-      <td>Birth year</td>
-      <td><b>Numeric</b>(<code>int</code>)</td>
-      <td>No</td>
-    </tr>
-    <tr>
-      <td>Street address</td>
-      <td><b>Text</b>(<code>string</code>)</td>
-      <td>No</td>
-    </tr>
-    <tr>
-      <td>Newsletter subscription</td>
-      <td><b>Checkbox</b>(<code>boolean</code>)</td>
-      <td>Yes</td>
-    </tr>
-  </tbody>
-</table>
+| User custom field       | Field type              | Mandatory |
+|-------------------------|-------------------------|:---------:|
+| Gender                  | **Dropdown**(`list`)    | Yes       |
+| Street address          | **Text**(`string`)      | No        |
+| Newsletter Subscription | **Checkbox**(`boolean`) | Yes       |
 
 ## User output fields
 Some user fields are manual inputs (e.g. Name), while others are generated by the system (e.g. User ID).
@@ -217,231 +63,44 @@ Some user fields are manual inputs (e.g. Name), while others are generated by th
 ### User default outputs fields
 Depending on the field configuration, some fields might have `null` or default values.
 
-<table class="unchanged rich-diff-level-one">
-  <thead>
-    <tr>
-      <th width='25%'>Output field</th>
-      <th>Description</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>Name</td>
-      <td>
-        The name of the user.
-      </td>
-    </tr>
-    <tr>
-      <td>Role</td>
-      <td>
-        The role of the user. Permitted values are <code>End-user</code>, <code>Agent</code>, or <code>Administrator</code>.
-      </td>
-    </tr>
-    <tr>
-      <td>Email</td>
-      <td>
-        The primary email of the user.
-      </td>
-    </tr>
-    <tr>
-      <td>Organization ID</td>
-      <td>
-        The ID of the user's organization. If the user has more than one organization membership, it will display the user's default organization.
-      </td>
-    </tr>
-    <tr>
-      <td>External ID</td>
-      <td>
-        A unique identifier from another system.
-      </td>
-    </tr>
-    <tr>
-      <td>Signature</td>
-      <td>
-        Only for <code>Agent</code> and <code>Administrator</code> users. The signature of the user.
-      </td>
-    </tr>
-    <tr>
-      <td>Phone</td>
-      <td>
-        The primary phone number of the user.
-      </td>
-    </tr>
-    <tr>
-      <td>Details</td>
-      <td>
-        Details about the user.
-      </td>
-    </tr>
-    <tr>
-      <td>Notes</td>
-      <td>
-        Notes about the user.
-      </td>
-    </tr>  
-    <tr>
-      <td>Active</td>
-      <td>
-        Set to <code>True</code> by default. It will display <code>False</code> if the user has been deleted.
-      </td>
-    </tr>
-    <tr>
-      <td>Verified</td>
-      <td>
-        Is <code>True</code> if the user's primary identity is verified, otherwise it will display <code>False</code>.
-      </td>
-    </tr>
-    <tr>
-      <td>Shared</td>
-      <td>
-        For ticket sharing accounts only. Is <code>True</code> if the user is shared from a different Zendesk support instance, otherwise it will display <code>False</code>.
-      </td>
-    </tr>
-    <tr>
-      <td>Locale</td>
-      <td>
-        The locale of the user.
-      </td>
-    </tr>
-    <tr>
-      <td>Language</td>
-      <td>
-        The langauge of the user. It is displayed as an <code>int</code>.
-      </td>
-    </tr>
-    <tr>
-      <td>Timezone</td>
-      <td>
-        The timezone of the user.
-      </td>
-    </tr>
-    <tr>
-      <td>Ticket restrictions</td>
-      <td>
-        Specifies which tickets the user has access to. Possible values are: "organization", "groups", "assigned", <code>null</code>.
-      </td>
-    </tr>
-    <tr>
-      <td>Moderator</td>
-      <td>
-        Is <code>True</code> if the user has forum moderation capabilities, otherwise it will display <code>False</code>.
-      </td>
-    </tr>
-    <tr>
-      <td>Only private comments</td>
-      <td>
-        Is <code>True</code> if the user can only create private comments, otherwise it will display <code>False</code>.
-      </td>
-    </tr>
-    <tr>
-      <td>Tags</td>
-      <td>
-        The tags applied to this user. You can add multiple tags with the <code>,</code> separator.
-      </td>
-    </tr>
-    <tr>
-      <td>Tags list</td>
-      <td>
-        A predefined list of tags that can be applied for this user.
-      </td>
-    </tr>
-    <tr>
-      <td>ID</td>
-      <td>
-        Unique Zendesk user ID. This is automatically assigned when the user is created.
-      </td>
-    </tr>
-    <tr>
-      <td>URL</td>
-      <td>
-        The API URL for this user.
-      </td>
-    </tr>
-    <tr>
-      <td>Date created</td>
-      <td>
-        The time the user was created.
-      </td>
-    </tr>
-    <tr>
-      <td>Date updated</td>
-      <td>
-        The time the user was last updated.
-      </td>
-    </tr>
-    <tr>
-      <td>Last login date</td>
-      <td>
-        The time the user was last logged in to Zendesk support.
-      </td>
-    </tr>
-    <tr>
-      <td>Alias</td>
-      <td>
-        Only for <code>Agent</code> users. The alias displayed to end-users.
-      </td>
-    </tr>
-    <tr>
-      <td>Custom role ID</td>
-      <td>
-        Only for <code>Agent</code> users on the Enterprise plan. The custom role ID for this user.
-      </td>
-    </tr>
-    <tr>
-      <td>Restricted agent</td>
-      <td>
-        Only for <code>Agent</code> users. Is <code>True</code> if the user has any restrictions, otherwise it will display <code>False</code>.
-      </td>
-    </tr>
-    <tr>
-      <td>Suspended</td>
-      <td>
-        Only for <code>Agent</code> users. Is <code>True</code> if the user is suspended, otherwise it will display <code>False</code>.
-      </td>
-    </tr>
-    <tr>
-      <td>Shared agent</td>
-      <td>
-        For ticket sharing accounts only. Is <code>True</code> if the user is a shared agent from a different Zendesk support instance, otherwise it will display <code>False</code>.
-      </td>
-    </tr>
-  </tbody>
-</table>
+| Output field | Description                                                 |
+|--------------|-------------------------------------------------------------|
+| Name         | The name of the user.                                       |
+| Role         | The role of the user. Permitted values are `End-user`, `Agent`, or `Administrator`. |
+| Email        | The primary email of the user.                              |
+| Organization ID | The unique Zendesk ID of the user's organization. If the user has more than one organization membership, it will display the user's default organization. |
+| External ID  | A unique identifier from another system.                    |
+| Signature    | The signature of the user. |
+| Phone        | The primary phone number of the user.                       |
+| Details      | Details about the user.                                     |
+| Notes        | Notes about the users.                                      |
+| Active       | Set to `True` by default. It will display `False` if the user has been deleted. |
+| Verified     | Is `True` if the user's primary identity is verified, otherwise it will display `False`. |
+| Shared       | Is `True` if the user is shared from a different Zendesk support instance, otherwise it will display `False`. |
+| Locale       | The locale of the user.                                     |
+| Language     | The language of the user. It is displayed as an `int`.      |
+| Timezone     | The timezone of the user.                                   |
+| Ticket restrictions | Specifies which tickets the user has access to. Possible values are "organization", "groups", "assigned", `null`. |
+| Moderator    | Is `True` if the user has forum moderation capabilities, otherwise it will display `False`. |
+| Only private comments | Is `True` if the user can only create private comments, otherwise it will display `False`. |
+| Tags         | The tags applied to this user.                             |
+| Tags list    | A predefined list of tags that can be applied to this user. |
+| ID           | The unique Zendesk ID of the user. This is automatically assigned when the user is created. |
+| URL          | The API URL for this user.                                  |
+| Date created | The time the user was created.                              |
+| Date updated | The time the user was last updated.                         |
+| Last login date | The time the user was last logged in.                    |
+| Alias        | The alias displayed to end-users.                           |
+| Custom role ID | The custom role ID for this user.                         |
+| Restricted agent | Is `True` if the user has any restrictions, otherwise it will display `False`. |
+| Suspended    | Is `True` if the user is suspended, otherwise it will display `False`.
+| Shared agent | Is `True` if the user is a shared agent from a different Zendesk support instance, otherwise it will display `False`. |
 
 ### User custom output fields
 If you have configured a user custom field, you can retrieve the corresponding output. Below is an example of user custom output fields.
 
-<table class="unchanged rich-diff-level-one">
-  <thead>
-    <tr>
-      <th width='25%'>User custom field</th>
-      <th width="25%">Field type</th>
-      <th>Output</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>Gender</td>
-      <td><b>Drop-down</b>(<code>list</code>)</td>
-      <td>
-        &#9673 <i>Male</i><br>
-        &#9675 <i>Female</i><br>
-      </td>
-    </tr>
-    <tr>
-      <td>Birth year</td>
-      <td><b>Numeric</b>(<code>int</code>)</td>
-      <td>1960</td>
-    </tr>
-    <tr>
-      <td>Street address</td>
-      <td><b>Text</b>(<code>string</code>)</td>
-      <td>Waters Park Drive</td>
-    </tr>
-    <tr>
-      <td>Newsletter subscription</td>
-      <td><b>Checkbox</b>(<code>boolean</code>)</td>
-      <td><code>False</code></td>
-    </tr>
-  </tbody>
-</table>
+| User custom field       | Field type              | Output            |
+|-------------------------|-------------------------|-------------------|
+| Gender                  | **Dropdown**(`list`)    | Male              |
+| Street address          | **Text**(`string`)      | Waters Park Drive |
+| Newsletter Subscription | **Checkbox**(`boolean`) | `False`           |

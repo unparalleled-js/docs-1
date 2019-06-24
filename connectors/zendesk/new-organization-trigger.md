@@ -12,53 +12,17 @@ This trigger picks up new organizations that are created. Each organization is p
 *New organization trigger*
 
 ### Input fields
-<table class="unchanged rich-diff-level-one">
-  <thead>
-    <tr>
-        <th width='25%'>Input field</th>
-        <th>Description</th>
-    </tr>
-  </thead>
-    <tbody>
-      <tr>
-        <td>From</td>
-        <td>
-          Organizations created after this time will be processed by the recipe. If left blank, the default date will be set to <b>one day</b> before the recipe is first started.
-        </td>
-      </tr>
-    </tbody>
-</table>
+| Input field | Description |
+|-------------|-------------|
+| From        | Organizations created after this time will be processed by the recipe. If left blank, the default date will be set to **one day** before the recipe is first started. |
 
 ### Output fields
 The output of this trigger contains the full set of columns from the selected organization. Here are some of the commonly used outputs.
 
-<table class="unchanged rich-diff-level-one">
-  <thead>
-    <tr>
-        <th width='25%'>Output field</th>
-        <th>Description</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>ID</td>
-      <td>
-        Unique Zendesk organization ID. This is automatically assigned when the organization is created.
-      </td>
-    </tr>  
-    <tr>
-      <td>Group ID</td>
-      <td>
-        The group(s) that this organization is part of.
-      </td>
-    </tr>
-    <tr>
-      <td>Organization custom fields</td>
-      <td>
-        Includes data of organization custom field(s).
-      </td>
-    </tr>
-  </tbody>
-</table>
+| Output field | Description                                                  |
+|--------------|--------------------------------------------------------------|
+| ID           | The unique Zendesk ID of the organization. This is automatically assigned when the organization is created. |
+| Group ID     | The unique Zendesk ID of the group of this organization.     |
+| Organization custom fields | Includes data of organization custom field(s). |
 
 Click here for a full list of [organization outputs](/connectors/zendesk/organization-fields.md#organization-output-fields).

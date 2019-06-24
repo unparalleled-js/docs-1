@@ -16,90 +16,26 @@ It is possible to change the role of a user between `End-user`, `Agent` and `Adm
 ### Input fields
 Here are some of the commonly used inputs.
 
-<table class="unchanged rich-diff-level-one">
-  <thead>
-    <tr>
-        <th width='25%Q/th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>User ID</td>
-      <td>
-        The unique Zendesk user ID.
-      </td>
-    </tr>
-    <tr>
-      <td>Name</td>
-      <td>
-        The name of the user.
-      </td>
-    </tr>
-    <tr>
-      <td>Role</td>
-      <td>
-        The role of the user. Permitted values are <code>End-user</code>, <code>Agent</code>, or <code>Administrator</code>.
-      </td>
-    </tr>
-    <tr>
-      <td>External ID</td>
-      <td>
-        A unique identifier from another system.
-      </td>
-    </tr>
-    <tr>
-      <td>User custom fields</td>
-      <td>
-        Provide data for the user custom field(s).
-      </td>
-    </tr>
-  </tbody>
-</table>
+| Input field  | Description                                  |
+|--------------|----------------------------------------------|
+| User ID      | The unique Zendesk ID of the user.           |
+| Name         | The name of the user.                        |
+| Role         | The role of the user. Permitted values are `End-user`, `Agent`, or `Administrator`. |
+| Email        | The primary email of the user.               |
+| Organization ID | The ID of the user's organization. If the user has more than one organization membership, it will display the user's default organization. |
+| User custom fields | Includes data of user custom field(s). |
 
 Click here for a full list of [user inputs](/connectors/zendesk/user-fields.md#user-input-fields).
 
 ### Output fields
 The output of this action contains the full set of columns from the selected user. Here are some of the commonly used outputs.
 
-<table class="unchanged rich-diff-level-one">
-  <thead>
-    <tr>
-      <th width='25%'>Output field</th>
-      <th>Description</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>ID</td>
-      <td>
-        Unique Zendesk user ID. This is automatically assigned when the user is created.
-      </td>
-    </tr>
-    <tr>
-      <td>Role</td>
-      <td>
-        The role of the user. Permitted values are <code>End-user</code>, <code>Agent</code>, or <code>Administrator</code>.
-      </td>
-    </tr>
-    <tr>
-      <td>Email</td>
-      <td>
-        The primary email of the user.
-      </td>
-    </tr>
-    <tr>
-      <td>Organization ID</td>
-      <td>
-        The ID of the user's organization. If the user has more than one organization membership, it will display the user's default organization.
-      </td>
-    </tr>
-    <tr>
-      <td>User custom fields</td>
-      <td>
-        Includes data of user custom field(s).
-      </td>
-    </tr>
-  </tbody>
-</table>
+| Output field | Description                                  |
+|--------------|----------------------------------------------|
+| ID           | The unique Zendesk ID of the user. This is automatically assigned when the user is created. |
+| Role         | The role of the user. Permitted values are `End-user`, `Agent`, or `Administrator`. |
+| Email        | The primary email of the user.               |
+| Organization ID | The unique Zendesk ID of the user's organization. If the user has more than one organization membership, it will display the user's default organization. |
+| User custom fields | Includes data of user custom field(s). |
 
 Click here for a full list of [user outputs](/connectors/zendesk/user-fields.md#user-output-fields).

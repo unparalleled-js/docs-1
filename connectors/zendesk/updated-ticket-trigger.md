@@ -14,65 +14,19 @@ This trigger picks up tickets as soon they are created or updated. Each ticket i
 *New/updated ticket trigger*
 
 ### Input fields
-<table class="unchanged rich-diff-level-one">
-  <thead>
-    <tr>
-      <th width='25%'>Input field</th>
-      <th>Description</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>From</a></td>
-      <td>
-        Tickets created after this time will be processed by the recipe. If left blank, the default date will be set to <b>one day</b> before the recipe is first started.
-      </td>
-    </tr>
-    </tbody>
-</table>
+| Input field | Description |
+|-------------|-------------|
+| From        | Tickets created or updated after this time will be processed by the recipe. If left blank, the default date will be set to **one day** before the recipe is first started. |
 
 ### Output fields
 The output of this action contains the full set of columns from the selected ticket. Here are some of the commonly used outputs.
 
-<table class="unchanged rich-diff-level-one">
-  <thead>
-    <tr>
-      <th width='25%'>Output field</th>
-      <th>Description</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>Ticket ID</td>
-      <td>
-        Unique Zendesk ticket ID. This is automatically assigned when the ticket is created.
-      </td>
-    </tr>
-    <tr>
-      <td>Subject</td>
-      <td>
-        The subject of the ticket.
-      </td>
-    </tr>
-    <tr>
-      <td>Type</td>
-      <td>
-        The type of the ticket. Permitted values are <code>problem</code>, <code>incident</code>, <code>question</code>, or <code>task</code>.
-      </td>
-    </tr>
-    <tr>
-      <td>Priority</td>
-      <td>
-        The priority of the ticket. Permitted values are <code>urgent</code>, <code>high</code>, <code>normal</code>, or <code>low</code>.
-      </td>
-    </tr>
-    <tr>
-      <td>Ticket custom fields</td>
-      <td>
-        Includes data of ticket custom field(s).
-      </td>
-    </tr>
-  </tbody>
-</table>
+| Output field | Description                                       |
+|--------------|---------------------------------------------------|
+| Ticket ID    | The unique Zendesk ID of the ticket. This is automatically assigned when the ticket is created. |
+| Subject      | The subject of the ticket.                        |
+| Type         | The type of ticket. Permitted values are `problem`, `incident`, `question`, or `task`. |
+| Priority     | The priority of the ticket. Permitted values are `urgent`, `high`, `normal`, or `low`. |
+| Ticket custom fields | Includes data of ticket custom fields(s). |
 
 Click here for a full list of [ticket outputs](/connectors/zendesk/ticket-fields.md#ticket-output-fields).

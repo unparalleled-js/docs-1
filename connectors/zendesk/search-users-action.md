@@ -12,101 +12,25 @@ This action retrieves a list of all users that matches your search criteria. Onl
 *Search user action*
 
 ### Input fields
-<table class="unchanged rich-diff-level-one">
-  <thead>
-    <tr>
-      <th width='25%'>Input field</th>
-      <th>Description</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>Name</td>
-      <td>
-        The name of the user.
-      </td>
-    </tr>
-    <tr>
-      <td>Email</td>
-      <td>
-        The email of the user.
-      </td>
-    </tr>
-    <tr>
-      <td>Organization</a></td>
-      <td>
-        The name of the user's organization.
-      </td>
-    </tr>
-    <tr>
-      <td>External ID</td>
-      <td>
-        A unique identifier from another system.
-      </td>
-    </tr>
-    <tr>
-      <td>Tags</td>
-      <td>
-        The tags applied to this user. You can query multiple tags with the <code>,</code> separator.
-      </td>
-    </tr>
-    <tr>
-      <td>Notes</td>
-      <td>
-        Notes about the user.
-      </td>
-    </tr>
-  </tbody>
-</table>
+| Input field  | Description                                |
+|--------------|--------------------------------------------|
+| Name         | The name of the user.                      |
+| Email        | The email of the user.                     |
+| Organization | The name of the user's organization.       |
+| External ID  | A unique identifier from another system.   |
+| Tags         | The tags applied to this user. You can query multiple tags with the `,` separator. |
+| Notes        | Notes about the user.                      |
 
 ### Output fields
 The output of this action contains the full set of columns from the list of users. Here are some of the commonly used outputs.
 
-<table class="unchanged rich-diff-level-one">
-  <thead>
-    <tr>
-      <th width='25%'>Output field</th>
-      <th>Description</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>ID</td>
-      <td>
-        Unique Zendesk user ID. This is automatically assigned when the user is created.
-      </td>
-    </tr>
-    <tr>
-      <td>Role</td>
-      <td>
-        The role of the user. Permitted values are <code>End-user</code>, <code>Agent</code>, or <code>Administrator</code>.
-      </td>
-    </tr>
-    <tr>
-      <td>Email</td>
-      <td>
-        The primary email of the user.
-      </td>
-    </tr>
-    <tr>
-      <td>Organization ID</td>
-      <td>
-        The ID of the user's organization. If the user has more than one organization membership, it will display the user's default organization.
-      </td>
-    </tr>
-    <tr>
-      <td>User custom fields</td>
-      <td>
-        Includes data of user custom field(s).
-      </td>
-    </tr>
-    <tr>
-      <td>List size</td>
-      <td>
-        This is the size of the list, corresponding to the number of user retrieved.
-      </td>
-    </tr>
-  </tbody>
-</table>
+| Output field | Description                                  |
+|--------------|----------------------------------------------|
+| ID           | The unique Zendesk ID of the user. This is automatically assigned when the user is created. |
+| Role         | The role of the user. Permitted values are `End-user`, `Agent`, or `Administrator`. |
+| Email        | The primary email of the user.               |
+| Organization ID | The unique Zendesk ID of the user's organization. If the user has more than one organization membership, it will display the user's default organization. |
+| User custom fields | Includes data of user custom field(s). |
+| List size    | The size of the list, corresponding to the number of users retrieved. |
 
 Click here for a full list of [user outputs](/connectors/zendesk/user-fields.md#user-output-fields).

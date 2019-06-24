@@ -14,28 +14,10 @@ This action selects a specific custom object record by its Zendesk  ID and delet
 *Delete custom object action*
 
 ### Input fields
-<table class="unchanged rich-diff-level-one">
-  <thead>
-    <tr>
-      <th width='25%'>Input field</th>
-      <th>Description</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>Custom object</td>
-      <td>
-        Select a custom object type for your search.
-      </td>
-    </tr>
-    <tr>
-      <td>ID</a></td>
-      <td>
-        Unique Zendesk ID for the custom object record. This is automatically assigned when the custom object record is created.
-      </td>
-    </tr>
-  </tbody>
-</table>
+| Input field   | Description                                        |
+|---------------|----------------------------------------------------|
+| Custom Object | Select a custom object type for your search.       |
+| ID            | The unique Zendesk ID of the custom object record. |
 
 ### Output fields
 There is no output for this action.

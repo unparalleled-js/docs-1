@@ -14,83 +14,22 @@ This action retrieves a list of all members in a specified organization. Only re
 *Search organization member action*
 
 ### Input fields
-<table class="unchanged rich-diff-level-one">
-  <thead>
-    <tr>
-      <th width='25%'>Input field</th>
-      <th>Description</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>Organization ID</td>
-      <td>
-        The ID of the organization.
-      </td>
-    </tr>
-    <tr>
-      <td>Name</a></td>
-      <td>
-        The name of the member.
-      </td>
-    </tr>
-    <tr>
-      <td>Email</td>
-      <td>
-        The email of the member.
-      </td>
-    </tr>
-  </tbody>
-</table>
+| Input field     | Description                                |
+|-----------------|--------------------------------------------|
+| Organization ID | The unique Zendesk ID of the organization. |
+| Name            | The name of the member.                    |
+| Email           | The email of the member.                   |
 
 #### Output fields
 The output of this action contains the full set of columns from the list of members. All default and custom columns are supported. Here are some of the commonly used outputs.
 
-<table class="unchanged rich-diff-level-one">
-  <thead>
-    <tr>
-      <th width='25%'>Output field</th>
-      <th>Description</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>ID</td>
-      <td>
-        Unique Zendesk user ID. This is automatically assigned when the user is created.
-      </td>
-    </tr>
-    <tr>
-      <td>Role</td>
-      <td>
-        The role of the user. Permitted values are <code>End-user</code>, <code>Agent</code>, or <code>Administrator</code>.
-      </td>
-    </tr>
-    <tr>
-      <td>Email</td>
-      <td>
-        The primary email of the user.
-      </td>
-    </tr>
-    <tr>
-      <td>Organization ID</td>
-      <td>
-        The ID of the user's organization. If the user has more than one organization membership, it will display the user's default organization.
-      </td>
-    </tr>
-    <tr>
-      <td>User custom fields</td>
-      <td>
-        Includes data of user custom field(s).
-      </td>
-    </tr>
-    <tr>
-      <td>List size</td>
-      <td>
-        This is the size of the list, corresponding to the number of members retrieved.
-      </td>
-    </tr>
-  </tbody>
-</table>
+| Output field | Description                                  |
+|--------------|----------------------------------------------|
+| ID           | Unique Zendesk user ID. This is automatically assigned when the user is created. |
+| Role         | The role of the user. Permitted values are `End-user`, `Agent`, or `Administrator`. |
+| Email        | The primary email of the user.               |
+| Organization ID | The unique Zendesk ID of the user's organization. If the user has more than one organization membership, it will display the user's default organization. |
+| User custom fields | Includes data of user custom field(s). |
+| List size    | The size of the list, corresponding to the number of members retrieved. |
 
 Click here for a full list of [user outputs](/connectors/zendesk/user-fields.md#user-output-fields).

@@ -14,79 +14,18 @@ This action connects an existing user to an existing organization. Both the user
 *Create organization membership action*
 
 ### Input fields
-<table class="unchanged rich-diff-level-one">
-  <thead>
-    <tr>
-      <th width='25%'>Input field</th>
-      <th>Description</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>User ID</td>
-      <td>
-        The Zendesk ID of the user to be connected.
-      </td>
-    </tr>
-    <tr>
-      <td>Organization ID</td>
-      <td>
-        The Zendesk ID of the organization to be connected.
-      </td>
-    </tr>
-  </tbody>
-</table>
+| Input field     | Description                                         |
+|-----------------|-----------------------------------------------------|
+| User ID         | The Zendesk ID of the user to be connected.         |
+| Organization ID | The Zendesk ID of the organization to be connected. |
 
 ### Output fields
-<table class="unchanged rich-diff-level-one">
-  <thead>
-    <tr>
-      <th width='25%'>Output field</th>
-      <th>Description</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>User ID</td>
-      <td>
-        The Zendesk ID of the user of this membership.
-      </td>
-    </tr>
-    <tr>
-      <td>Organization ID</td>
-      <td>
-        The Zendesk ID of the organization for this membership.
-      </td>
-    </tr>
-    <tr>
-      <td>ID</td>
-      <td>
-        Unique Zendesk organization membership ID. This is automatically assigned when the organization membership is created.
-      </td>
-    </tr>  
-    <tr>
-      <td>URL</td>
-      <td>
-        The API url of this membership.
-      </td>
-    </tr>
-    <tr>
-      <td>Default</td>
-      <td>
-        Is <code>True</code> if this is the default organization membership of the user, otherwise it will display <code>False</code>.
-      </td>
-    </tr>
-    <tr>
-      <td>Created at</td>
-      <td>
-        The time the organization membership was created.
-      </td>
-    </tr>
-    <tr>
-      <td>Updated at</td>
-      <td>
-        The time the organization membership was updated.
-      </td>
-    </tr>
-  </tbody>
-</table>
+| Output field    | Description                                             |
+|-----------------|---------------------------------------------------------|
+| User ID         | The unique Zendesk ID of the user of this membership.   |
+| Organization ID | The unique Zendesk ID of the organization of this membership. |
+| ID              | The unique Zendesk ID of the organization membership. This is automatically assigned when the membership is created. |
+| URL             | The API URL of this membership.                         |
+| Default         | Is `True` if this is the default organization membership of the user, otherwise it will display `False`. |
+| Created at      | The time the organization membership was created.       |
+| Updated at      | The time the organization membership was updated.       |

@@ -14,22 +14,9 @@ This action selects a specific relationship record by its Zendesk ticket ID and 
 *Delete relationship record by ID action*
 
 ### Input fields
-<table class="unchanged rich-diff-level-one">
-  <thead>
-    <tr>
-      <th width='25%'>Input field</th>
-      <th>Description</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>ID</td>
-      <td>
-        The unique Zendesk ID of the relationship record.
-      </td>
-    </tr>
-  </tbody>
-</table>
+| Input field | Description                                       |
+|-------------|---------------------------------------------------|
+| ID          | The unique Zendesk ID of the relationship record. |
 
 ### Output fields
 There is no output for this action.

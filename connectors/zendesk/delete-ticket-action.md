@@ -14,22 +14,10 @@ For this action to run successfully, the recipe has to find an existing ticket i
 *Delete ticket action*
 
 ### Input fields
-<table class="unchanged rich-diff-level-one">
-  <thead>
-    <tr>
-      <th width='25%'>Input field</th>
-      <th>Description</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>Ticket ID</a></td>
-      <td>
-        The unique Zendesk ticket ID.
-      </td>
-    </tr>
-  </tbody>
-</table>
+
+| Input field | Description                          |
+|-------------|--------------------------------------|
+| ID          | The unique Zendesk ID of the ticket. |
 
 ### Output fields
 There is no output for this action.

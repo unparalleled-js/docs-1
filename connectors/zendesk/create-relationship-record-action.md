@@ -14,72 +14,19 @@ This action creates a single relationship record between two objects. For this a
 *Create relationship record action*
 
 ### Input fields
-<table class="unchanged rich-diff-level-one">
-  <thead>
-    <tr>
-      <th width='25%'>Input field</th>
-      <th>Description</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>Relationship type</td>
-      <td>
-        Select the type of relationship for your new record.
-      </td>
-    </tr>
-    <tr>
-      <td><kbd>Source object</kbd> ID</td>
-      <td>
-        The unique Zendesk ID of the source object.
-      </td>
-    </tr>
-    <tr>
-      <td><kbd>Target object</kbd> ID</td>
-      <td>
-        The unique Zendesk ID of the target object.
-      </td>
-    </tr>
-  </tbody>
-</table>
+| Input field          | Description                                          |
+|----------------------|------------------------------------------------------|
+| Relationship type    | Select the type of relationship for your new record. |
+| `[Source object]` ID | The unique Zendesk ID of the source object.          |
+| `[Target object]` ID | The unique Zendesk ID of the target object.          |
 
 ### Output fields
-<table class="unchanged rich-diff-level-one">
-  <thead>
-    <tr>
-      <th width='25%'>Output field</th>
-      <th>Description</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>Relationship type</td>
-      <td>
-        The user-defined key of the relationship type.
-      </td>
-    </tr>  
-    <tr>
-      <td>ID</td>
-      <td>
-        Unique Zendesk ID. This is automatically assigned when the relationship record is created.
-    </tr>  
-    <tr>
-      <td>Source</td>
-      <td>
-        The ID of the object record that is the source of the relationship.
-      </td>
-    </tr>
-    <tr>
-      <td>Target</td>
-      <td>
-        The ID of the object record that is the target of the relationship
-      </td>
-    </tr>
-    <tr>
-      <td>Date created</td>
-      <td>
-        The time the relationship record was created.
-      </td>
-    </tr>
-  </tbody>
-</table>
+
+| Output field      | Description                                    |
+|-------------------|------------------------------------------------|
+| Relationship Type | The user-defined key of the relationship type. |
+| ID                | Unique Zendesk ID. This is automatically assigned when the relationship record is created. |
+| Source            | The ID of the source of the relationship.      |
+| Target            | The ID of the target of the relationship.      |
+| Date created      | The time the relationship record was created.  |
+
