@@ -114,6 +114,30 @@ object_definitions: {
             <td>Use this property to make the optional field visible on the Input section. For Ex: Since is optional field but to be displayed always under Input fields. Use <code>sticky: true</code>.
             </td>
         </tr>
+        <tr>
+            <td>render_input</td>
+            <td>An optional key. By default, Workato sends all input fields as strings in the JSON objects sent during HTTP requests. If another data type is required, use the render_input property to convert whatever input value into a certain data type. If the field is already of this format from the input field, it is allowed to pass through. This mainly pertains to <code>input_field:</code> blocks. The following values are possible.
+             <ul>
+              <li><code>"boolean_conversion"</code> - converts input into data type boolean i.e. true / false</li>
+              <li><code>"integer_conversion" - converts input into into data type integer i.e. 1 </code></li>
+              <li><code>"float_conversion"</code> - converts input into data type float</li>
+              <li><code>"date_iso8601_conversion"</code> - Parses a date string (or consumes a date object) into ISO8601 format</li>
+              <li><code>"date_time_iso8601_conversion"</code> - Parses a date/time string (or consumes a date/time object) into ISO8601 format</li>
+            </ul>
+            </td>
+        </tr>
+        <tr>
+            <td>parse_output</td>
+            <td>An optional key. This tells Workato to attempt to convert any output from the specified field in the received JSON object into a certain data type. If the field is already of this format from the JSON object received, it is allowed to pass through.  This mainly pertains to <code>output_field:</code> blocks. The following values are possible.
+             <ul>
+              <li><code>"boolean_conversion"</code> - converts field into data type boolean i.e. true / false</li>
+              <li><code>"integer_conversion" - converts input field into data type integer i.e. 1 </code></li>
+              <li><code>"float_conversion"</code> - converts field into data type float</li>
+              <li><code>"date_iso8601_conversion"</code> - Parses a date string (or consumes a date object) into ISO8601 format</li>
+              <li><code>"date_time_iso8601_conversion"</code> - Parses a date/time string (or consumes a date/time object) into ISO8601 format</li>
+            </ul>
+            </td>
+        </tr>
     </tbody>
 </table>
 
