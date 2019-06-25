@@ -14,9 +14,9 @@ Connector source code which you write on the SDK platform will be hosted in Work
 ## Overview
 A custom connector on Workato always starts off with curly braces that encapsulates all code (Curly braces look like this `{}`). Inside the curly braces, this is where you'll be able to declare something we call blocks which are basically the named objects followed by another set of curly braces which encapsulates code related to that object. For example, the code `connection: { ... }` is referred to as the `connection:` block.
 
-In the skeleton code below for example, all code related to my custom connector's connection logic will be written inside the object named `connection:`. This is the same for the other objects such as actions and triggers which house the logic for actions and triggers respectively.
+In the skeleton code below for example, all code related to a custom connector's connection logic will be written inside the object named `connection:`. This is the same for the other objects such as actions and triggers which house the logic for actions and triggers respectively.
 
-Take note that these names are strictly defined and must be spelt exactly for the Workato to know which object to reference when looking to authorise and perform an API request. Inside each object, there will be further nested objects that allow you to declare input fields for connections, actions and triggers which we will cover later on.
+Take note that these names are strictly defined and must be spelt exactly for the Workato to know which block to reference when looking to authorise the connector or perform any triggers or actions.. Inside each object, there will be further nested blocked that allow you to declare input fields for connections, actions and triggers which we will cover later on.
 
 ## SDK skeleton
 ```ruby
