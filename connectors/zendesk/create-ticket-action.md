@@ -16,7 +16,7 @@ Here are some of the commonly used inputs.
 
 | Input field | Description                                       |
 |-------------|---------------------------------------------------|
-| Ticket form | Select a ticket form to open preconfigured custom fields. |
+| Ticket form | Select a ticket form to use preconfigured custom fields. |
 | Comment     | A description of the ticket.                      |
 | Subject     | The subject of the ticket.                        |
 | Type        | The type of ticket. Permitted values are `problem`, `incident`, `question`, or `task`. |

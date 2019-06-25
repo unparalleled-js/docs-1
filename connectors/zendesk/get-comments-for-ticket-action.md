@@ -17,7 +17,7 @@ This action retrieves a specific ticket that matches a search by ticket ID. Only
 | ID          | The unique Zendesk ID of the ticket. |
 
 ### Output fields
-The output of this action contains the full list of comments for this ticket, including the **description** (first comment).
+The output of this action contains the full list of comments for this ticket, including the **description** (which is saved as the first comment of a ticket).
 
 | Output field | Description                                                 |
 |--------------|-------------------------------------------------------------|

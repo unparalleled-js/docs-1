@@ -22,7 +22,7 @@ This action retrieves a list of all users that matches your search criteria. Onl
 | Notes        | Notes about the user.                      |
 
 ### Output fields
-The output of this action contains the full set of columns from the list of users. Here are some of the commonly used outputs.
+The output of this action contains a list of user with their respective outputs. Here are some of the commonly used outputs.
 
 | Output field | Description                                  |
 |--------------|----------------------------------------------|

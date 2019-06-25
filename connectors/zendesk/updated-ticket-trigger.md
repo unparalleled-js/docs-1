@@ -1,6 +1,6 @@
 ---
 title: Workato connectors - Zendesk new/updated ticket trigger
-data: 2019-05-28 18:00:00 Z
+date: 2019-05-28 18:00:00 Z
 search:
     keywords: ['zendesk', 'ticket', 'trigger', 'create', 'updated','new']
 ---

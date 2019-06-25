@@ -21,7 +21,7 @@ This action retrieves a list of all members in a specified organization. Only re
 | Email           | The email of the member.                   |
 
 #### Output fields
-The output of this action contains the full set of columns from the list of members. All default and custom columns are supported. Here are some of the commonly used outputs.
+The output of this action contains a list of members with their respective outputs. Here are some of the commonly used outputs.
 
 | Output field | Description                                  |
 |--------------|----------------------------------------------|

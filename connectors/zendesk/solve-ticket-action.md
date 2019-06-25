@@ -8,7 +8,7 @@ search:
 # Zendesk - Solve ticket action
 This action updates a specific ticket your Zendesk instance and sets the ticket's status to `solved`. The ticket is identified by its Zendesk ID.
 
-Some ticket fields put constraints on a ticket's status. For example, Zendesk requires a non-`null` input for **assignee** and **group**, before allowing a ticket to be `solved`. Check that you have satisfied all default and custom preconditions before making this action.
+Some ticket fields put constraints on a ticket's status. For example, Zendesk requires a non-`null` input for **assignee** and **group**, before allowing a ticket to be `solved`. Check that you have satisfied all default and custom preconditions before using this action.
 
 ![Solve ticket action](/assets/images/connectors/zendesk/solve-ticket-action.png)
 *Solve ticket action*

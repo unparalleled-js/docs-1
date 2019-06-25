@@ -21,7 +21,7 @@ This action retrieves a list of organizations that matches your search criteria.
 | Organization custom fields | Provide data for organization custom field(s). |
 
 ### Output fields
-The output of this action contains the full set of columns from the selected organization. Here are some of the commonly used outputs.
+The output of this action contains a list of organizations with their respective outputs. Here are some of the commonly used outputs.
 
 | Output field | Description                                                  |
 |--------------|--------------------------------------------------------------|

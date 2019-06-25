@@ -8,7 +8,7 @@ search:
 # Zendesk - Delete ticket action
 This action selects a specific ticket by its Zendesk ticket ID and deletes the ticket from your Zendesk instance.
 
-For this action to run successfully, the recipe has to find an existing ticket in your Zendesk instance.
+The specified ticket must exist in your Zendesk instance for this action to execute successfully.
 
 ![Delete ticket action](/assets/images/connectors/zendesk/delete-ticket-action.png)
 *Delete ticket action*

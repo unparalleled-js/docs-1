@@ -12,50 +12,29 @@ search:
 The Zendesk connector uses [Zendesk REST API](https://developer.zendesk.com/rest_api/docs/zendesk-apis/resources).
 
 ## How to connect to Zendesk on Workato
-The Zendesk connector uses OAuth2 authentication. Providing these credentials assure Zendesk that the user is giving permission for Workato to access their account data.
+The Zendesk connector uses OAuth2 authentication.
+
+Authorize Workato to access your Zendesk via the OAuth2 standard. This will require you to login to Slack and authorize the permissions that Workato requests.
+
+The Zendesk connector uses the OAuth2 flow to authenticate with Zendesk and authorize Workato. This allows Workato to access This will allow Workato to access your Zendesk instance.
 
 ### Specify subdomain
-Input your Zendesk **subdomain** and click **link your account** as seen in the example below.
+Input your Zendesk **subdomain** and click **link your account**.
 
 ![Domain setup](/assets/images/connectors/zendesk/domain-setup.png)
 *Domain setup*
 
-<table class="unchanged rich-diff-level-one">
-  <thead>
-    <tr>
-        <th width='25%'>Field</th>
-        <th>Description</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>Subdomain</td>
-      <td>The Zendesk company instance to connect. If your Zendesk url is <code>https://acme.zendesk.com</code>, then the instance name is <code>acme</code>.</td>
-    </tr>
-  </tbody>
-</table>
+| Field     | Description |
+|-----------|-------------|
+| Subdomain | The Zendesk subdomain to connect. If your Zendesk url is `https://acme.zendesk.com`, then the subdomain is `acme`. |
 
-### Username/password login
-A popup will appear that requests for your Zendesk login credentials. Input your **Username / Password** into the fields provided.
+### Authentication flow for Zendesk
+You will be redirected to Zendesk to complete the authorization request. Authenticate yourself with Zendesk to complete the flow.
 
-![Username/password connection](/assets/images/connectors/zendesk/basic-authentication.png)
-*Username/Password connection*
+![Authentication on Zendesk](/assets/images/connectors/zendesk/basic-authentication.png)
+*Authentication on Zendesk*
 
-<table class="unchanged rich-diff-level-one">
-  <thead>
-    <tr>
-        <th width='25%'>Field</th>
-        <th>Description</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>Email</td>
-      <td>The email of the Zendesk account to connect.</td>
-    </tr>
-    <tr>
-      <td>Password</td>
-      <td>The password of this Zendesk account.</td>
-    </tr>
-  </tbody>
-</table>
+| Field    | Description |
+|----------|-------------|
+| Email    | The email of the Zendesk account to connect. |
+| Password | The password of the Zendesk account to connect. |

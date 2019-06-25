@@ -1,6 +1,6 @@
 ---
 title: Workato connectors - Zendesk new user trigger
-data: 2019-05-28 18:00:00 Z
+date: 2019-05-28 18:00:00 Z
 search:
     keywords: ['zendesk', 'user', 'trigger', 'create', 'new']
 ---

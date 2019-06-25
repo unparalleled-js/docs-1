@@ -1,8 +1,8 @@
 ---
 title: Workato connectors - Zendesk new/updated organization trigger
-data: 2019-05-29 18:00:00 Z
+date: 2019-05-29 18:00:00 Z
 search:
-    keywords: ['zendesk', 'organization', 'trigger', 'create', 'update, 'new']
+    keywords: ['zendesk','update','trigger']
 ---
 
 # Zendesk - New/updated organization trigger

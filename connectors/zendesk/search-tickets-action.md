@@ -25,12 +25,12 @@ This action retrieves a list of all tickets that matches your search criteria. O
 | Submitter    | The submitter of the ticket. You can define users with the full name, user ID, email, or phone number. You can also use 'none' and 'me'. |
 | Organization | The organization of the requester. You can define the organization with the name or organization ID. You can also use 'none' and 'me'. |
 | Tags         | The tags applied to this ticket. You can query multiple tages with the `,` separator. |
-| Channels     | Information about how the ticket was created. Possible values are "*web*", "*mobile*", or "*API*". |
+| Channels     | Information about how the ticket was created. Some possible values are "*web*", "*mobile*", "*API*" etc. |
 
 Click here a full list of [ticket inputs](/connectors/zendesk/ticket-fields.md#ticket-input-fields).
 
 ### Output fields
-The output of this action contains the full set of columns from the selected ticket. Here are some of the commonly used outputs.
+The output of this action contains a list of tickets with their respective outputs. Here are some of the commonly used outputs.
 
 | Output field | Description                                       |
 |--------------|---------------------------------------------------|

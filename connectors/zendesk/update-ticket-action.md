@@ -8,7 +8,7 @@ search:
 # Zendesk - Update ticket action
 This action updates a specific ticket in your Zendesk instance identified by its Zendesk ID. You can update ticket fields and add new comments.
 
-Some ticket fields put constraints on th ticket's status. Check that you have satisfied all preconditions before making a **solved** action. For more information, see the documentation on [solve ticket action](/connectors/zendesk/solve-ticket-action.md)
+Some ticket fields put constraints on a ticket's status. Check that you have satisfied all preconditions before updating to **solved**. For more information, see the documentation on the [solve ticket action](/connectors/zendesk/solve-ticket-action.md)
 
 ![Update ticket action](/assets/images/connectors/zendesk/update-ticket-action.png)
 *Update ticket action*
@@ -19,7 +19,7 @@ Here are some of the commonly used inputs.
 | Input field  | Description                                               |
 |--------------|-----------------------------------------------------------|
 | Ticket ID    | The unique Zendesk ID of the ticket.                      |
-| Ticket form  | Select a ticket form to open preconfigured custom fields. |
+| Ticket form  | Select a ticket form to use preconfigured custom fields.  |
 | Comment      | Create a new comment for the ticket.                      |
 | Priority     | Select the priority of the ticket. Permitted values are `urgent`, `high`, `normal`, or `low`. |
 | Status       | Select the status of the ticket. Permitted values are `open`, `pending`, `hold`, `solved`, or `closed`. |
