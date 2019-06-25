@@ -2,7 +2,7 @@
 title: Workato connectors - Zendesk solve ticket action
 date: 2019-05-30 18:00:00 Z
 search:
-    keywords: ['zendesk', 'ticket, 'update', 'solve']
+    keywords: ['zendesk', 'ticket', 'update', 'solve']
 ---
 
 # Zendesk - Solve ticket action

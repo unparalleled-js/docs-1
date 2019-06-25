@@ -2,7 +2,7 @@
 title: Workato connectors - Zendesk comments for ticket action
 date: 2019-05-30 18:00:00 Z
 search:
-    keywords: ['zendesk', 'ticket', 'comments','details', 'get', 'find']
+    keywords: ['zendesk', 'ticket', 'comments', 'details', 'get', 'find']
 ---
 
 # Zendesk - Get comments for ticket action
