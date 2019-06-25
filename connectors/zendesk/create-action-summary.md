@@ -2,7 +2,7 @@
 title: Workato connectors - Zendesk create action summary
 date: 2019-06-21 18:00:00 Z
 search:
-    keywords: ['zendesk', 'action', 'action']
+    keywords: ['zendesk', 'action']
 ---
 
 # Zendesk - Create action summary

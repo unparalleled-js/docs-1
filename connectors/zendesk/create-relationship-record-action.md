@@ -2,7 +2,7 @@
 title: Workato connectors - Zendesk create relationship record action
 date: 2019-06-06 18:00:00 Z
 search:
-    keywords: ['zendesk', 'sunshine', 'custom objects', 'relationship, 'create']
+    keywords: ['zendesk', 'sunshine', 'custom objects', 'relationship', 'create']
 ---
 
 # Zendesk - Create relationship record action
@@ -29,4 +29,3 @@ This action creates a single relationship record between two objects. For this a
 | Source            | The ID of the source of the relationship.      |
 | Target            | The ID of the target of the relationship.      |
 | Date created      | The time the relationship record was created.  |
-

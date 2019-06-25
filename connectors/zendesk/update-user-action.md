@@ -8,7 +8,7 @@ search:
 # Zendesk - Update user action
 This action updates a specific user your Zendesk instance. The user is identified by its Zendesk ID. You can update standard and custom fields, and add new comments.
 
-You can use this action to change the role of a user between `End-user`, `Agent` and `Administrator`. However, you are restricted by the limit  on your Zendesk user license.
+You can use this action to change the role of a user between `End-user`, `Agent` and `Administrator`. However, you are restricted by the limits on your Zendesk user license.
 
 ![Update user action](/assets/images/connectors/zendesk/update-user-action.png)
 *Update user action*

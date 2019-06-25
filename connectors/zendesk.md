@@ -12,24 +12,20 @@ search:
 The Zendesk connector uses [Zendesk REST API](https://developer.zendesk.com/rest_api/docs/zendesk-apis/resources).
 
 ## How to connect to Zendesk on Workato
-The Zendesk connector uses OAuth2 authentication.
-
-Authorize Workato to access your Zendesk via the OAuth2 standard. This will require you to login to Slack and authorize the permissions that Workato requests.
-
-The Zendesk connector uses the OAuth2 flow to authenticate with Zendesk and authorize Workato. This allows Workato to access This will allow Workato to access your Zendesk instance.
+The Zendesk connector uses OAuth2. This will require you to authorize Workato on Zendesk to give Workato access to your Zendesk instance.
 
 ### Specify subdomain
 Input your Zendesk **subdomain** and click **link your account**.
 
-![Domain setup](/assets/images/connectors/zendesk/domain-setup.png)
-*Domain setup*
+![Subdomain setup](/assets/images/connectors/zendesk/domain-setup.png)
+*Subdomain setup*
 
 | Field     | Description |
 |-----------|-------------|
 | Subdomain | The Zendesk subdomain to connect. If your Zendesk url is `https://acme.zendesk.com`, then the subdomain is `acme`. |
 
 ### Authentication flow for Zendesk
-You will be redirected to Zendesk to complete the authorization request. Authenticate yourself with Zendesk to complete the flow.
+You will be redirected to Zendesk. Login to Zendesk and complete a one-time authorization of Workato in your Zendesk instance.
 
 ![Authentication on Zendesk](/assets/images/connectors/zendesk/basic-authentication.png)
 *Authentication on Zendesk*
