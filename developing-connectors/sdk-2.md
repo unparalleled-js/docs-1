@@ -18,7 +18,7 @@ This section will list everything you need to know about our SDK as well as prov
 
 > In our documentation, we default to JSON when giving examples. It is highly recommended that you read about how other data formats can be handled if the API you plan to connect to uses a different dataformat.
 
-Firstly, we go through a brief overview of our SDK before getting our feet wet together with a guided walkthrough for our first connector!
+First up, we go through a brief overview of our SDK before getting our feet wet together with a guided walkthrough for our first connector!
 
 * [SDK Conceptual Model](/developing-connectors/sdk-2/SDK-conceptual-model.md)
 * [Walkthrough - Building your first connector!](/developing-connectors/sdk-2/walk-through.md)
