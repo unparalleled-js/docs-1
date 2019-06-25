@@ -1,6 +1,8 @@
 ---
 title: Team collaboration
 date: 2017-02-16 06:15:00 Z
+search:
+    keywords: ['Team', 'jit provisioning', 'custom role', 'sso']
 ---
 
 # Team collaboration
@@ -97,14 +99,14 @@ Create a new SAML application in Okta admin interface. Refer to the [Okta docume
 
 Fill the settings form as follows:
 
-| Field  | Value |
-| ------------- | ------------- |
-| Single Sign On URL  | `https://www.workato.com/saml/init`  |
-| Allow this app to request other SSO URLs  | Enable checkmark  |
-| Requestable SSO URLs  | Add `https://www.workato.com/saml/consume`  |
-| Audience Restriction  | Add `https://www.workato.com/saml/metadata`  |
-| Recipient URL  | Add `https://www.workato.com/saml/init`  |
-| Destination URL  | Add `https://www.workato.com/saml/init`  |
+| Field                 | Value                                   |
+| --------------------- | --------------------------------------- |
+| Single Sign On URL    | `https://www.workato.com/saml/init`     |
+| Allow this app to request other SSO URLs  | Enable checkmark    |  
+| Requestable SSO URLs  | `https://www.workato.com/saml/consume`  |
+| Audience Restriction  | `https://www.workato.com/saml/metadata` |
+| Recipient URL         | `https://www.workato.com/saml/init`     |
+| Destination URL       | `https://www.workato.com/saml/init`     |
 
 The final Okta settings screen should look like this:
 ![Okta Config View](/assets/images/user-accounts-and-teams/team-collaboration/okta-settings-view-mode.png)
@@ -128,12 +130,12 @@ Create a new SAML application in OneLogin admin interface. Refer to the [OneLogi
 
 Fill the settings form as follows:
 
-| Field  | Value |
-| ------------- | ------------- |
-| Audience | `https://www.workato.com/saml/metadata` |
-| Recipient | `https://www.workato.com/saml/init` |
-| ACS (Consumer) URL validator | `^https:\/\/www.workato.com\/saml\/*$` |
-| ACS (Consumer) URL | `https://www.workato.com/saml/consume` |
+| Field              | Value                                   |
+| ------------------ | --------------------------------------- |
+| Audience           | `https://www.workato.com/saml/metadata` |
+| Recipient          | `https://www.workato.com/saml/init`     |
+| ACS (Consumer) URL Validator | `^https:\/\/www.workato.com\/saml\/*$`|
+| ACS (Consumer) URL | `https://www.workato.com/saml/consume`  |
 
 ### Obtain OneLogin metadata URL for Workato SAML setup
 
@@ -147,7 +149,7 @@ Fill the settings form as follows:
 # Workato Single Sign-on setup
 
 - Enable SAML on **Team -> Settings** page
-- Enter Team ID - handle to identify team during login (no whitespace or special characters, just letters, numbers and dash)
+- Enter Team ID - handle to identify team during login (only letters, numbers, and dash; no whitespace or special characters)
 - Set SAML provider
 - Preferable way of SAML configuration is via metadata URL - get this URL from Identity Provider (see the instructions for [Okta](/user-accounts-and-teams/team-collaboration.html#obtain-okta-metadata-url-for-workato-saml-setup) and [OneLogin](/user-accounts-and-teams/team-collaboration.md#obtain-onelogin-metadata-url-for-workato-saml-setup))
 - Insert metadata URL and press **"Validate Settings"**, once validation succeeds press **"Save"**
@@ -175,15 +177,38 @@ Another way to login directly into SAML-enabled team is by providing a Team ID s
 
 Just-in-Time provisioning eliminates the needs for team admins to create Workato user accounts in advance on behalf of team members. When an employee signs up for a new Workato account via SAML SSO, they will automatically be added into the organization's team. When an employee with an existing Workato account logs in via SAML SSO for the first time, they will automatically be added into the organization's team as well. Team members will be given the role of `Operator` by default.
 
-Information about the new user is taken from the SAML attributes passed to Workato from the identity provider. If attributes are missing, default value are used. The following attributes are supported:
+You can create SAML attributes that will relay user information to Workato (e.g. `workato_email`, `workato_full_name`). New users on Workato will be provisioned with corresponding information provided by the SAML identity provider. If the attributes are not configured, a default value will be used. The following attributes are supported:
 
-| Workato user field  | SAML attribute | Default value |
-| ------------- | ------------- | ------------- |
-| User email | `workato_email` | SAML `NameID`<br>(in email format) |
-| User first and last name | `workato_full_name` | part of SAML `Name` |
-| User team role | `workato_role`<br>(could be `Admin`, `Analyst` or `Operator`, case-sensitive) | `Operator` |
+
+| Workato user field  | SAML attribute      | Default value |
+| ------------------- | ------------------- | ------------- |
+| User email          | `workato_email`     | SAML `NameID`<br>(in email format) |
+| User name           | `workato_full_name` | Part of SAML `Name` |
+| User team role      | `workato_role`      | `Operator` |
 
 You may enable SAML Just-In-Time provisioning on **Team** > **Settings** page.
 
 ![SAML JITP](/assets/images/user-accounts-and-teams/team-collaboration/saml-jitp.png)
 *Enable SAML Just-In-Time provisioning*
+
+## Just-In-Time provisioning for custom roles
+
+In addition, you can configure Just-in-Time provisioning to create a custom role for your new users. Outside of the default roles (`Admin`, `Analyst`, and `Operator`), custom roles can be configured with specific access to recipe permissions, connections, folders etc. This gives you more control to enforce security policies for Workato accounts.
+
+Also, this eliminates the need to manually provision Workato accounts with the **appropriate access privileges**. This leads to reduced operations cost and smoother onboarding.
+
+To enable Just-in-Time provisioning for custom roles, you first need complete the basic setup:
+- Enable [SAML based SSO](#workato-single-sign-on-setup) for Team
+- Enable [SAML Just-in-Time provisioning](#saml-just-in-time-provisioning) for Team
+- Create [custom role](#custom-roles) on Workato
+    + e.g. `mktg_ops` with specific access to the Marketing folder
+
+Next, configure your SAML attribute to hold Workato team roles. Add all roles into this SAML attribute, including default and custom roles.
+
+| SAML attribute | Stored values |
+| -------------- | ------------- |
+| `workato_role` | `Admin`, `Analyst`, `Operator`<br>`mktg_ops` |
+
+>Note: All values are case-sensitive (`Admin`, ~~`admin`~~). Ensure that you have configured the role names identical to the ones on your Team setting.
+
+Now, when a new user logs into Workato using SAML based SSO, the identity provider passes `workato_role` for this new user. For a new hire in the Marketing department, the provisioned Workato account with be configured with the custom role `mktg_ops`.
