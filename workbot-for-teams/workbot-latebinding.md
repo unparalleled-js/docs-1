@@ -28,7 +28,7 @@ When this feature is enabled, Workbot recipes will request individual users to a
 *Authentication*
 
 ![personal-connection-flow-3](/assets/images/workbot-for-teams/teams-flow-3.png)
-*Successful authentication*
+*Successfully connected*
 
 ![personal-connection-flow-4](/assets/images/workbot-for-teams/teams-flow-4.png)
 *Personal connection is now registered for your Workbot for Teams account*
