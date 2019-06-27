@@ -13,7 +13,7 @@ Using personal connections, Workbot allows individual users to authenticate them
 
 This ensures that actions carried out by the recipe in the connected apps are done using the authenticated users' identity and permissions.
 
-Personal connection persist, meaning that the user doesn't have to provide credentials every time they use the Workbot command.
+Personal connections persist, meaning that the user doesn't have to provide credentials every time they use the Workbot command.
 
 To enable personal connections, go to **Recipe > Settings** page and enable **Verify user access at runtime**. Currently, Workbot only supports personal connections to apps with OAuth2 connections, e.g. Salesforce, ServiceNow, Box.
 
