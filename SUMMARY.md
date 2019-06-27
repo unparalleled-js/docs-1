@@ -213,6 +213,7 @@
   * [Workbot triggers](/workbot-for-teams/workbot-triggers.md)
   * [Workbot actions](/workbot-for-teams/workbot-actions.md)
   * [Workbot buttons task modules & pick lists](/workbot-for-teams/buttons-choices-task-modules.md)
+  * [Workbot personal connections](/workbot-for-teams/workbot-latebinding.md)
 * [API Management](api-management.md)
   * [API Collections and Endpoint Management](api-mgmt/api-collections.md)
   * [API Access Policies](api-mgmt/api-access-policies.md)
