@@ -31,7 +31,7 @@ When this feature is enabled, Workbot recipes will request individual users to a
 *Successful authentication*
 
 ![personal-connection-flow-4](/assets/images/workbot-for-teams/teams-flow-4.png)
-*Successful connection*
+*Personal connection is now registered for your Workbot for Teams account*
 
 # Viewing personal connections
 You can view your personal connections by sending '*personal_connections*' in a DM to Workbot.
