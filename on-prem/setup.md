@@ -87,17 +87,17 @@ In some cases, the secure network is a Linux environment where you cannot set up
 
 5) Securely copy Agent package file to secure server
 ```bash
-$ scp -i ~/Projects/my_key.pem ~/Downloads/workato-agent-linux-x64-*.tar.gz ec2-user@ec2-XXX-XXX-XXX-XXX.compute-1.amazonaws.com:~/
+$ scp -i ~/my_key.pem ~/Downloads/workato-agent-linux-x64-*.tar.gz ec2-user@ec2-XXX-XXX-XXX-XXX.compute-1.amazonaws.com:~/
 ```
 
 6) Copy agent keys to secure server
 ```bash
-$ scp -i ~/Projects/mey_key.pem ~/Downloads/cert.zip ec2-user@ec2-XXX-XXX-XXX-XXX.compute-1.amazonaws.com:~/
+$ scp -i ~/my_key.pem ~/Downloads/cert.zip ec2-user@ec2-XXX-XXX-XXX-XXX.compute-1.amazonaws.com:~/
 ```
 
 7) Connect to secure server (Example: using SSH)
 ```bash
-$ ssh -i ~/Projects/my_key.pem ec2-user@ec2-XXX-XXX-XXX-XXX.compute-1.amazonaws.com
+$ ssh -i ~/my_key.pem ec2-user@ec2-XXX-XXX-XXX-XXX.compute-1.amazonaws.com
 ```
 
 8) Unpack agent package file. Provide a meaningful name for the agent directory. (Defaults to `workato-agent`)
@@ -123,13 +123,13 @@ $ sudo mv workato-agent /opt/workato
 
 12) Optional - create non-priviledged user for systemd to run OPA 
 
-```
+```bash
 # groupadd -r workato
 # useradd -c "Workato On-Premise Agent" -g workato -s /sbin/nologin -r -d /opt/workato workato
 ```
 
 13) Optional - add systemd service
-```
+```bash
 $ sudo cat > /lib/systemd/system/workato.service <<EOF
 # Systemd unit file for default Workato On-Premise Agent
 # 
@@ -154,7 +154,7 @@ EOF
 ```
 
 14) Launch OPA and set it to autostart
-```
+```bash
 # systemctl start workato
 # systemctl enable workato
 ```
