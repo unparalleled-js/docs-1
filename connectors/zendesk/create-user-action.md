@@ -6,7 +6,7 @@ search:
 ---
 
 # Zendesk - Create user action
-This action creates a single user into your Zendesk instance.
+This action creates a single user in your Zendesk instance.
 
 ![Create user action](/assets/images/connectors/zendesk/create-user-action.png)
 *Create user action*

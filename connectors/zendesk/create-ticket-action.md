@@ -6,7 +6,7 @@ search:
 ---
 
 # Zendesk - Create ticket action
-This action creates a single ticket into your Zendesk instance.
+This action creates a single ticket in your Zendesk instance.
 
 ![Create ticket action](/assets/images/connectors/zendesk/create-ticket-action.png)
 *Create ticket action*
@@ -14,16 +14,16 @@ This action creates a single ticket into your Zendesk instance.
 ### Input fields
 Here are some of the commonly used inputs.
 
-| Input field | Description                                       |
-|-------------|---------------------------------------------------|
+| Input field | Description                                              |
+|-------------|----------------------------------------------------------|
 | Ticket form | Select a ticket form to use preconfigured custom fields. |
-| Comment     | A description of the ticket.                      |
-| Subject     | The subject of the ticket.                        |
+| Comment     | A description of the ticket.                             |
+| Subject     | The subject of the ticket.                               |
 | Type        | The type of ticket. Permitted values are `problem`, `incident`, `question`, or `task`. |
 | Priority    | The priority of the ticket. Permitted values are `urgent`, `high`, `normal`, or `low`. |
 | Status      | The status of the ticket. Permitted values are `>open`, `pending`, `hold`, `solved`, or `closed`. |
-| Tags       | The tags applied to this ticket. You can add multiple tags with the `,` separator. |
-| Ticket custom fields | Provide data for ticket custom field(s). |
+| Tags        | The tags applied to this ticket. You can add multiple tags with the `,` separator. |
+| Ticket custom fields | Provide data for ticket custom field(s).        |
 
 Click here a full list of [ticket inputs](/connectors/zendesk/ticket-fields.md#ticket-input-fields).
 
