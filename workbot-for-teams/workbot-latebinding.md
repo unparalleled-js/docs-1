@@ -6,7 +6,7 @@ date: 2019-05-30 05:00:00 Z
 # Workbot personal connections
 By default, recipes perform actions based on the identity & permissions of the credentials used to connect the application.
 
-![Connection credentials](/assets/images/workbot/workbot-latebinding/connection-credentials.png)
+![Connection credentials](/assets/images/workbot-for-teams/connection-credentials.png)
 *A sales manager's credentials used in Salesforce connection*
 
 Using personal connections, Workbot allows individual users to authenticate themselves before carrying out actions for them in other apps, e.g. asking sales reps to log in to Salesforce before dispatching Workbot to create the opportunity in Salesforce on their behalf.
@@ -21,20 +21,23 @@ To enable personal connections, go to **Recipe > Settings** page and enable **Ve
 
 When this feature is enabled, Workbot recipes will request individual users to authenticate (i.e. login) to the app, from Teams, before carrying out the app action(s).
 
-![personal-connection-flow](/assets/images/workbot-for-teams/workbot-latebinding/teams-flow.png)
-*Personal connection setup for Salesforce Approval flow*
+![personal-connection-flow-1](/assets/images/workbot-for-teams/teams-flow-1.png)
+*Prompt to connect in Teams. Clicking Login will open a browser tab for you to authenticate*
+
+![personal-connection-flow-2](/assets/images/workbot-for-teams/teams-flow-2.png)
+*Authentication*
+
+![personal-connection-flow-3](/assets/images/workbot-for-teams/teams-flow-3.png)
+*Successful authentication*
+
+![personal-connection-flow-4](/assets/images/workbot-for-teams/teams-flow-4.png)
+*Successful connection*
 
 # Viewing personal connections
-You can view your personal connections sending '*personal_connections*' in a DM to Workbot.
+You can view your personal connections by sending '*personal_connections*' in a DM to Workbot.
 
-![Personal connections - DM 'personal_connections'](/assets/images/workbot-for-teams/dm-connections.gif)
-*Sending a 'personal_connections' DM to Workbot to view personal connections*
+![Personal connections - DM 'personal_connections'](/assets/images/workbot-for-teams/list-personal-connections.png)
+*Viewing your personal connections*
 
-![Viewing personal connections](/assets/images/workbot-for-teams/manage.gif)
-*Viewing personal connections*
-
-# Disconnecting your personal connections
-You can disconnect your personal connections anytime by viewing your personal connections and clicking 'Disconnect'.
-
-![Disconnecting personal connections](/assets/images/workbot-for-teams/disconnect-personal-connections.gif)
-*Disconnecting a personal connection*
+# Disconnecting or deleting your personal connections
+You can choose disconnect or delete your personal connections by selecting the connection in the picklist and clicking **Disconnect** or **Delete**.
