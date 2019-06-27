@@ -101,7 +101,7 @@ This action selects a single folder and copies it into a specified location. To 
     <tr>
       <td>Reschedule mode</td>
       <td>
-        Valid only of <b>Reschedule date</b> is present. Select <code>Start</code> to set the start date of the task in the new folder. Select <code>End</code> to set the end date to the task.
+        Valid only if <b>Reschedule date</b> is present. Select <code>Start</code> to set the start date of the task in the new folder. Select <code>End</code> to set the end date to the task.
       </td>    
     </tr>
     <tr>
