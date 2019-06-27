@@ -22,10 +22,10 @@ To enable personal connections, go to **Recipe > Settings** page and enable **Ve
 When this feature is enabled, Workbot recipes will request individual users to authenticate (i.e. login) to the app, from Teams, before carrying out the app action(s).
 
 ![personal-connection-flow-1](/assets/images/workbot-for-teams/teams-flow-1.png)
-*Prompt to connect in Teams. Clicking Login will open a browser tab for you to authenticate*
+*Prompt to connect in Teams. Clicking Login will open a browser tab for you to authorize the connection*
 
 ![personal-connection-flow-2](/assets/images/workbot-for-teams/teams-flow-2.png)
-*Authentication*
+*Authorization*
 
 ![personal-connection-flow-3](/assets/images/workbot-for-teams/teams-flow-3.png)
 *Successfully connected*
