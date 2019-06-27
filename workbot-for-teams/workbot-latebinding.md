@@ -9,7 +9,7 @@ By default, recipes perform actions based on the identity & permissions of the c
 ![Connection credentials](/assets/images/workbot-for-teams/connection-credentials.png)
 *A sales manager's credentials used in Salesforce connection*
 
-Using personal connections, Workbot allows individual users to authenticate themselves before carrying out actions for them in other apps, e.g. asking sales reps to log in to Salesforce before dispatching Workbot to create the opportunity in Salesforce on their behalf.
+Using personal connections, Workbot allows individual users to authenticate themselves before carrying out actions on their behalf in other apps, e.g. asking sales reps to log in to Salesforce before dispatching Workbot to create the opportunity in Salesforce on their behalf.
 
 This ensures that actions carried out by the recipe in the connected apps are done using the authenticated users' identity and permissions.
 
