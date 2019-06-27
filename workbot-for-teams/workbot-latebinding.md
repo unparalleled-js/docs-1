@@ -40,4 +40,4 @@ You can view your personal connections by sending '*personal_connections*' in a 
 *Viewing your personal connections*
 
 # Disconnecting or deleting your personal connections
-You can choose disconnect or delete your personal connections by selecting the connection in the picklist and clicking **Disconnect** or **Delete**.
+You can choose to disconnect or delete your personal connections by selecting the connection in the picklist and clicking **Disconnect** or **Delete**.
