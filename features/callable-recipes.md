@@ -20,7 +20,7 @@ Callable recipes can also be exposed as REST endpoints using the [API Platform f
 | Share across accounts and with partners | You can expose REST APIs to your business partners. e.g. a REST API that provides inventory status to your suppliers. |
 
 ## Other related chapters:
- * [Walk through](callable-recipes/walk-through.md)
+ * [Walk-through](callable-recipes/walk-through.md)
  * [New call for recipe trigger](callable-recipes/new-call-trigger.md)
  * [Call recipe actions](callable-recipes/call-recipe-action.md)
  * [Return response from recipe action](callable-recipes/return-response-action.md)
