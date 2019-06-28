@@ -133,7 +133,7 @@ The following recipe tries to update the Zendesk organization right after the se
 As the recipe catches failed actions within the error monitor block, failed **Update organization** actions will be caught, and the recipe proceeds to carry out steps within the **Error** block immediately, as no auto-retry was configured. In this case, it seems that the only reason for the update failing is because no matching Zendesk organization was found. Hence the remedial step creates a new Zendesk organization.
 
 ## Example: Error monitor with retry step
-If the actions in your **Monitor** block tends for fail for temporary reasons such as network issues or timeout issues, it would make sense to use auto-retry, such that the recipe will attempt to execute the steps again until it succeeds, for a maximum of 3 tries.
+If the actions in your **Monitor** block tends to fail for temporary reasons such as network issues or timeout issues, it would make sense to use auto-retry, such that the recipe will attempt to execute the steps again until it succeeds, for a maximum of 3 tries.
 
 We will reuse the same same error monitor example recipe from above, where we try to update the Zendesk organization right after the search step, regardless of whether any Zendesk organizations were found. In cases where no matching Zendesk organization is found, the **Update organization** action will fail.
 

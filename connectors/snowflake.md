@@ -4,7 +4,7 @@ date: 2019-01-10 06:10:00 Z
 ---
 
 # Snowflake
-Snowflake is a relational ANSI SQL data warehouse in the cloud. Due to its unique architecture designed for the cloud, Snowflake offers a data warehouse that is faster, easier to use, and far more flexible than traditional data warehouse
+Snowflake is a relational ANSI SQL data warehouse in the cloud. Due to its unique architecture designed for the cloud, Snowflake offers a data warehouse that is faster, easier to use, and far more flexible than traditional data warehouses
 
 ## How to connect to Snowflake on Workato
 The Snowflake connector uses username and password to authenticate with Snowflake. If your snowflake instance has network policies that restrict access based on IP address, you will need to whitelist [Workato IP addresses](/security.md#ip_whitelists) to successfully create a connection.
@@ -69,18 +69,28 @@ The Snowflake connector uses username and password to authenticate with Snowflak
     </tr>
     <tr>
       <td>Username</td>
-      <td>Username to connect to Snowflake.</td>
+      <td>Username to connect to Snowflake. 
+        <br>The role granted to the User should have SYSADMIN privileges or lower. 
+      </td>
     </tr>
     <tr>
       <td>Password</td>
-      <td>Password to connect to Snowflake.</td>
+      <td>Password to connect to Snowflake.
+      <br>The role granted to the User should have SYSADMIN privileges or lower. 
+      </td>
     </tr>
     <tr>
       <td>Schema</td>
       <td><b>Optional</b>. Name of the schema within the Snowflake database you wish to connect to. Defaults to <b>public</b>.</td>
     </tr>
+    <tr>
+      <td><a href="#database-timezone">Database timezone</a></td>
+      <td><b>Optional</b>. Apply this to all timestamps without timezone.</td>
+    </tr>
   </tbody>
 </table>
+
+> Workato connected Snowflake accounts should keep in line with the security considerations detailed [here](https://docs.snowflake.net/manuals/user-guide/security-access-control-configure.html). As a general guideline, SYSADMIN privileges can be used but custom roles should be created to restrict Workato access to **only** Snowflake objects which you want to build recipes with. Do not connect users with ACCOUNTADMIN privileges to Workato as this would throw errors and also represent a security concern. 
 
 ## Working with the Snowflake connector
 
@@ -112,6 +122,18 @@ A running warehouse maintains a cache of table data. This reduces the time taken
 
 Use cases with high frequency and low down time in between queries will benefit from a longer period of time before auto-suspend.
 
+### Database timezone
+
+Snowflake supports TIMESTAMP_NTZ data type ("wallclock" time information without timezone). This creates a challenge trying to integrate with external systems. When sending or reading data from these columns, it needs to be converted to a default timezone for APIs of other applications to process accurately.
+
+Select a timezone that your database operates in. This timezone will only be applied to these columns. Other timestamp columns with explicit timezone values will be unaffected.
+
+> **If left blank, your Workato account timezone will be used instead.**
+
+When **writing** timestamp values to such columns in a table, it will first be converted to this specified timezone. Then, only the "wallclock" value will be stored.
+
+When **reading** timestamp without timezone values in a table, the timestamp will be assigned the selected timezone and processed as a timestamp with timezone value.
+
 ### Table and view
 The Snowflake connector works with all tables and views available to the username used to establish the connection. These are available in pick lists in each trigger/action, or you can provide the exact name.
 
@@ -121,10 +143,10 @@ The Snowflake connector works with all tables and views available to the usernam
 ![Exact table name provided](/assets/images/snowflake/table_name_text.png)
 *Provide exact table/view name in a text field*
 
-<!-- ### Single row vs batch of rows
+### Single row vs batch of rows
 Snowflake connector can read or write to your database either as a single row or in batches. When using batch triggers/actions, you have to provide the batch size you wish to work with. The batch size can be any number between 1 and 100, with 100 being the maximum batch size.
 
-![Batch trigger inputs](/assets/images/mssql/batch_trigger_input.png)
+![Batch trigger inputs](/assets/images/snowflake/new-batch-of-rows-trigger.png)
 *Batch trigger inputs*
 
 Besides the difference in input fields, there is also a difference between the outputs of these 2 types of operations. A trigger that processes rows one at a time will have an output datatree that allows you to map data from that single row.
@@ -140,7 +162,7 @@ However, a trigger that processes rows in batches will output them as an array o
 As a result, the output of batch triggers/actions needs to be handled differently. The output of the trigger can be used in actions with batch operations (like Salesforce **Create objects in bulk action**) that requires mapping the <kbd>Rows</kbd> datapill into the source list. Learn how to work with lists in [List management](/features/list-management.md#using-datapills-in-an-action-with-a-list-input-action-handles-list-processing-implicitly).
 
 ![Using batch trigger output](/assets/images/snowflake/using_batch_output.png)
-*Using batch trigger output* -->
+*Using batch trigger output*
 
 ### WHERE condition
 This input field is used to filter and identify rows to perform an action on. It is used in multiple triggers and actions in the following ways:

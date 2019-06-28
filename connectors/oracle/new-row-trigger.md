@@ -9,7 +9,7 @@ date: 2018-03-23 06:00:00 Z
 This trigger picks up rows that are inserted in the selected table or view. Each row is processed as a separate job. It checks for new rows once every poll interval. The poll interval can be 10 mins or 5 mins, depending on your plan. Check the [Pricing and Plans page](https://www.workato.com/pricing?audience=general) to find out more.
 
 ![New row trigger](/assets/images/oracle/new-row-trigger.png)
-*New row trigger*
+<center><i>New row trigger</i></center>
 
 <table class="unchanged rich-diff-level-one">
   <thead>
@@ -20,19 +20,19 @@ This trigger picks up rows that are inserted in the selected table or view. Each
   </thead>
   <tbody>
     <tr>
-      <td><a href="#table">Table</a></td>
+      <td>Table</td>
       <td>
         First, select a table/view to process rows from.
       </td>
     </tr>
     <tr>
-      <td><a href="#unique-key">Unique key</a></td>
+      <td>Unique key</td>
       <td>
         Next, select a unique key column to uniquely identify rows. This list of columns are generated from the selected table/view.
       </td>
     </tr>
     <tr>
-      <td><a href="#where-condition">WHERE condition</a></td>
+      <td>WHERE condition</td>
       <td>
         Finally, provide an optional <code>WHERE</code> condition to filter rows.
       </td>
@@ -44,7 +44,7 @@ This trigger picks up rows that are inserted in the selected table or view. Each
 This trigger picks up rows that are inserted in the selected table or view. These rows are processed as a batch of rows for each job. This batch size can be configured in the trigger input. It checks for new rows once every poll interval. The poll interval can be 10 mins or 5 mins, depending on your plan. Check the [Pricing and Plans page](https://www.workato.com/pricing?audience=general) to find out more.
 
 ![New batch of rows trigger](/assets/images/oracle/new-batch-of-rows-trigger.png)
-*New batch of rows trigger*
+<center><i>New batch of rows trigger</i></center>
 
 <table class="unchanged rich-diff-level-one">
   <thead>
@@ -127,4 +127,20 @@ status = 'closed' and priority > 3
 
 Leave blank to process all rows from the selected table.
 
-Complex `WHERE` conditions with subqueries can also be used. Refer to the [WHERE condition](/connectors/oracle.md#where-condition) guide for more information.
+Complex `WHERE` conditions with subqueries can also be used. Refer to the [WHERE condition](/connectors/oracle/introduction.md#using-where-conditions) guide for more information.
+
+## List of Workato triggers and actions
+Workato currently supports the following triggers and actions. Find out more details about each by clicking on the links below. You can also navigate to them through the side bar.
+
+  * [New/updated row trigger](/connectors/oracle/updated-row-trigger.md)
+  * [Select actions](/connectors/oracle/select.md)
+  * [Insert actions](/connectors/oracle/insert.md)
+  * [Update actions](/connectors/oracle/update.md)
+  * [Upsert actions](/connectors/oracle/upsert.md)
+  * [Delete actions](/connectors/oracle/delete.md)
+  * [Run custom SQL action](/connectors/oracle/run_sql.md)
+  * [Execute stored procedure](/connectors/oracle/stored-procedure.md)
+
+  Or get busy building your recipes now! Check out our
+  * [Best practices](/connectors/oracle/best-practices.md)
+  * [Use cases](/connectors/database-common-use-cases.md)

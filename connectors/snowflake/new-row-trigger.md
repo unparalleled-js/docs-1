@@ -8,8 +8,8 @@ date: 2019-01-10 06:10:00 Z
 ## New row
 This trigger picks up rows that are inserted in the selected table or view. Each row is processed as a separate job. It checks for new rows once every poll interval. The poll interval can be 10 mins or 5 mins, depending on your plan. Check the [Pricing and Plans page](https://www.workato.com/pricing?audience=general) to find out more.
 
-<!-- ![New row trigger](/assets/images/snowflake/new-row-trigger.png)
-*New row trigger* -->
+![New row trigger](/assets/images/snowflake/new-row-trigger.png)
+*New row trigger*
 
 <table class="unchanged rich-diff-level-one">
   <thead>
@@ -43,8 +43,8 @@ This trigger picks up rows that are inserted in the selected table or view. Each
 ## New batch of rows
 This trigger picks up rows that are inserted in the selected table or view. These rows are processed as a batch of rows for each job. This batch size can be configured in the trigger input. It checks for new rows once every poll interval. The poll interval can be 10 mins or 5 mins, depending on your plan. Check the [Pricing and Plans page](https://www.workato.com/pricing?audience=general) to find out more.
 
-<!-- ![New batch of rows trigger](/assets/images/snowflake/new-batch-of-rows-trigger.png)
-*New batch of rows trigger* -->
+![New batch of rows trigger](/assets/images/snowflake/new-batch-of-rows-trigger.png)
+*New batch of rows trigger*
 
 <table class="unchanged rich-diff-level-one">
   <thead>
@@ -90,20 +90,6 @@ Select the table/view to process rows from. This can be done either by selecting
 Values from this selected column are used to deduplicate rows in the selected table, making sure that the same row is not processed twice in the same recipe.
 
 As such, the values in the selected column should not be repeated in your table. Typically, this column is the primary key of the table (e.g. `ID`). It should be incremental and sortable. This column can also be indexed for better performance.
-
-Only columns that have **PRIMARY KEY** or **UNIQUE** constraints can be used. Run this SQL query to find out which columns fulfill this requirement.
-
-```sql
-SELECT c.column_name
-FROM information_schema.key_column_usage AS c
-LEFT JOIN information_schema.table_constraints AS t
-ON t.constraint_name = c.constraint_name
-WHERE
-  t.table_schema = 'schema_name' AND
-  t.table_name = 'table_name' AND
-  t.constraint_type in ('PRIMARY KEY', 'UNIQUE')
-ORDER BY c.ordinal_position;
-```
 
 ### Batch size
 Batch size of rows to return in each job. This can be any number between **1** and the maximum batch size. Maximum batch size is **100** and default is **100**.

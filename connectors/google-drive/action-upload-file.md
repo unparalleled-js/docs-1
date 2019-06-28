@@ -10,7 +10,8 @@ This action uploads a file to Google Drive.
 
 | Field name | Description |
 |---|---|
-| File contents | Binary contents of the file to upload. Accept a data pill such as `File contents` from other Workato triggers and actions. |
+| File contents | Contents of the file to upload. Accept a data pill such as `File contents` from other Workato triggers and actions. |
+| File size | Size of the file in bytes. |
 | Mime type | Mime type of this file, as stated in [Google documentation](https://developers.google.com/drive/api/v3/mime-types). |
 | File name | Name of the uploaded file. |
 | Description | Description of the file. |

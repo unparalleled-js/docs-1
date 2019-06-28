@@ -124,6 +124,7 @@ WHERE
   con.table_name = cc.table_name AND
   con.constraint_name = cc.constraint_name
 ```
+If no column can be found, check out our [best practices](/connectors/oracle/best-practices.md#designing-tables-for-use-in-workato) to find out how to make one.
 
 ### Sort column
 Sort column is a column that is updated whenever a row in the table is updated. Typically, this is a timestamp column.
@@ -141,6 +142,8 @@ WHERE
   (data_type LIKE 'TIMESTAMP%' OR data_type LIKE 'DATE%')
 ```
 
+If no column can be found, check out our [best practices](/connectors/oracle/best-practices.md#designing-tables-for-use-in-workato) to find out how to make one.
+
 ### Batch size
 Batch size of rows to return in each job. This can be any number between **1** and the maximum batch size. Maximum batch size is **100** and default is **100**.
 
@@ -155,4 +158,20 @@ status = 'closed' and priority > 3
 
 Leave blank to process all rows from the selected table.
 
-Complex `WHERE` conditions with subqueries can also be used. Refer to the [WHERE condition](/connectors/oracle.md#where-condition) guide for more information.
+Complex `WHERE` conditions with subqueries can also be used. Refer to the [WHERE condition](/connectors/oracle/introduction.md#using-where-conditions) guide for more information.
+
+## List of Workato triggers and actions
+Workato currently supports the following triggers and actions. Find out more details about each by clicking on the links below. You can also navigate to them through the side bar.
+
+  * [New row trigger](/connectors/oracle/new-row-trigger.md)
+  * [Select actions](/connectors/oracle/select.md)
+  * [Insert actions](/connectors/oracle/insert.md)
+  * [Update actions](/connectors/oracle/update.md)
+  * [Upsert actions](/connectors/oracle/upsert.md)
+  * [Delete actions](/connectors/oracle/delete.md)
+  * [Run custom SQL action](/connectors/oracle/run_sql.md)
+  * [Execute stored procedure](/connectors/oracle/stored-procedure.md)
+
+  Or get busy building your recipes now! Check out our
+  * [Best practices](/connectors/oracle/best-practices.md)
+  * [Use cases](/connectors/database-common-use-cases.md)
