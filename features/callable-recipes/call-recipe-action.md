@@ -23,11 +23,11 @@ This action calls a recipe and waits for the response before proceeding to the n
 
 ### Output fields
 
-| Output fields | Description                                                                                           |
-| ------------- | ----------------------------------------------------------------------------------------------------- |
-| Job ID        | ID of the created job in the recipe that was called.                                                  |
-| Job URL       | URL of the created job in the recipe that was called.                                                 |
-| Reply         | The callable recipe response fields will be displayed according to the response schema configuration. |
+| Output fields | Description                                                                   |
+| ------------- | ----------------------------------------------------------------------------- |
+| Job ID        | ID of the created job in the recipe that was called.                          |
+| Job URL       | URL of the created job in the recipe that was called.                         |
+| Reply         | The callable recipe **Response schema** configuration will be displayed here. |
 
 ## Call recipe (asynchronous)
 
