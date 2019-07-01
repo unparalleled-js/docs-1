@@ -6,7 +6,7 @@ date: 2017-04-05 14:00:00 Z
 # Callable recipes
 Callable recipes are a type of recipe that can be called from another recipe. This helps to reduce the length of your recipes by separating a repeatable set of actions into a callable recipe that can be called from other recipes that require the same steps.
 
-A callable recipe is triggered by a call from another recipe instead of by a trigger event in an application.
+A callable recipe is triggered by a call from another recipe instead of a trigger event in an application.
 
 Callable recipes can also be exposed as REST endpoints using the [API Platform feature](/api-mgmt.md).
 

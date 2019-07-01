@@ -45,7 +45,7 @@ This action calls a recipe and does not wait for the response. It will proceed t
 
 ### Output fields
 
-Since this action does not wait for a response, there will not be any **Reply** outputs fields.
+Since this action does not wait for a response, there will not be any **Reply** output fields.
 
 | Output fields | Description                                           |
 | ------------- | ----------------------------------------------------- |

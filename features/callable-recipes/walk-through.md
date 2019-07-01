@@ -24,7 +24,7 @@ Fill in a Name for the recipe, and fill up the Input Schema and the Response Sch
 
 In simple terms, the input schema determines what fields will be shown and need to be filled in when a callable recipe action is created in the calling recipe. The Response schema determines what pills will be available for use in the calling recipes Output data.
 
-Learn more about **New call for recipe trigger** [here](/callable-recipes/new-call-trigger.md).
+Learn more about **New call for recipe trigger** [here](new-call-trigger.md).
 
 ### Add steps to the recipe
 
@@ -37,4 +37,4 @@ Create a recipe that requires the logic from the callable recipe we created earl
 ![Callable recipe action](/assets/images/features/callable-recipes/callable-recipe-action.png)
 *Call a recipe as an action*
 
-Learn more about **Call recipe actions** [here](/callable-recipes/call-recipe-trigger.md).
+Learn more about **Call recipe actions** [here](call-recipe-action.md).

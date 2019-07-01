@@ -18,11 +18,11 @@ This trigger creates a job whenever it is called, in real-time. It can be called
 
 | Input field     | Description                                                                       |
 | --------------- | --------------------------------------------------------------------------------- |
-| Name            | Give this callable recipe trigger a name that describes it's function             |
+| Name            | Give this callable recipe trigger a name that describes its function             |
 | Input schema    | If this recipe expects JSON, use this to describe the expected JSON structure.    |
 | Response schema | If this recipe responds with JSON data, use this to describe the JSON structure.  |
 | Request type    | Select the request data format. Defaults to **JSON request body** if left blank.  |
-| Response type   | Select the response data format. Defaults to **JSON request body** if left blank. |
+| Response type   | Select the response data format. Defaults to **JSON response** if left blank. |
 
 ### Output fields
 
