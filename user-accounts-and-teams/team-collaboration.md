@@ -102,7 +102,7 @@ Fill the settings form as follows:
 | Field                 | Value                                   |
 | --------------------- | --------------------------------------- |
 | Single Sign On URL    | `https://www.workato.com/saml/init`     |
-| Allow this app to request other SSO URLs  | Enable checkmark    |  
+| Allow this app to request other SSO URLs  | Enable checkmark    |
 | Requestable SSO URLs  | `https://www.workato.com/saml/consume`  |
 | Audience Restriction  | `https://www.workato.com/saml/metadata` |
 | Recipient URL         | `https://www.workato.com/saml/init`     |
@@ -207,7 +207,7 @@ Next, configure your SAML attribute to hold Workato team roles. Add all roles in
 
 | SAML attribute | Stored values |
 | -------------- | ------------- |
-| `workato_role` | `Admin`, `Analyst`, `Operator`<br>`mktg_ops` |
+| `workato_role` | `Admin`, `Analyst`, `Operator` and `mktg_ops` |
 
 >Note: All values are case-sensitive (`Admin`, ~~`admin`~~). Ensure that you have configured the role names identical to the ones on your Team setting.
 
