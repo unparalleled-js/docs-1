@@ -200,8 +200,8 @@ The table below lists the input fields in the post reply action.
         <tr>
             <td>Additional parameters (button)</td>
             <td>
-                Parameter values to be passed onto the next recipe when button is clicked, e.g. <br><br><pre>{<br>  "sys_id": "<kbd>sys_id</kbd>"<br>  "summary": "<kbd>Summary</kbd>",<br>  "description": "<kbd>Description</kbd>"<br>}
-                Datapills need to be wrapped in double quotes and parameter names must be in all lowercase. Parameters can be user-specified, like the urgency of an issue in ServiceNow, or recipe information, like the Message ID of a previous MS Teams message. 
+                Parameter values to be passed onto the next recipe when button is clicked, e.g. <br><br><pre>{<br>  "sys_id": "<kbd>sys_id</kbd>"<br>  "summary": "<kbd>Summary</kbd>",<br>  "description": "<kbd>Description</kbd>"<br>}</pre>
+                Datapills need to be wrapped in double quotes and parameter names must be in all lowercase. Parameters can be user-specified, like the urgency of an issue in ServiceNow, or recipe information, like the Message ID of a previous MS Teams message.
             </td>
         </tr>
         <tr>
@@ -260,7 +260,7 @@ The following table shows what goes into the dynamic buttons fields:
         <tr>
           <td>Additional parameters</td>
           <td>
-            Key in name-value pairs to pass onto the next recipe as additional parameters. Format should be JSON with name-value pairs, e.g.<br><br><pre>{<br>  "opportunity_id": "<kbd>Opportunity ID</kbd>",<br>  "stage": "<kbd>Stage</kbd>"<br>}<samp>
+            Key in name-value pairs to pass onto the next recipe as additional parameters. Format should be JSON with name-value pairs, e.g.<br><br><pre>{<br>  "opportunity_id": "<kbd>Opportunity ID</kbd>",<br>  "stage": "<kbd>Stage</kbd>"<br>}</pre>
             Datapills need to be wrapped in double quotes and parameter names must be in all lowercase. Parameters can be user-specified, like the urgency of an issue in ServiceNow, or recipe information, like the Message ID of a previous MS Teams message.
           </td>
         </tr>
