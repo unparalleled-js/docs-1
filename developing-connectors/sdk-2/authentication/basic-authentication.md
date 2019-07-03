@@ -55,6 +55,8 @@ In the `connection:` block, you'll be able to define the input fields in the `fi
 
 To set up a basic authentication, simply define `type:` as `basic_auth` and include the appropriate values in `user()` and `password()` in the `apply` section. All future HTTP requests made through the connector will contain the values defined in the `apply:` block.
 
+> Our user() and password() helper functions are already base64 encoded behind the scenes so you needn't have to worry about that!
+
 This means that in the snippet above, every HTTP request made in the connector would have the `user` and `password` attached in the header to help authenticate that specific request.
 
 # Variations of basic authentication
