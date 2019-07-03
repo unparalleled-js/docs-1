@@ -165,7 +165,7 @@ The table below lists the input fields in the post reply action.
         <tr>
             <td>Choice parameter</td>
             <td>
-                Parameter name to store the choice value. This is a required field when <a href="https://docs.workato.com/workbot-for-teams/passing-parameters.html">passing parameters</a> to another recipe, otherwise the value will be lost.
+                Parameter name to store the choice value. This is a required field when <a href="https://docs.workato.com/workbot-for-teams/passing-parameters.html">passing parameters</a> to another recipe, otherwise the value will not be passed.
             </td>
         </tr>
         <tr>
@@ -221,7 +221,7 @@ The table below lists the input fields in the post reply action.
 </table>
 &ast;Supports markdown
 
-## Using lists in action fields
+## Using dynamic lists in action fields
 Fact sets, pick lists and buttons can be generated dynamically using a list datapill (for more information on lists, see the [list management guide](https://docs.workato.com/features/list-management.html))
 
 From the fields, click on the horizontal ellipses on the top-right and choose 'Dynamic list'. This should bring up the dynamic list option.
