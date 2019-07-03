@@ -35,13 +35,12 @@ To create an OAuth 2.0 flow, we need to gather a few pieces of information from 
   </tbody>
 </table>
 
-Without going into too much detail, when the user has authenticated himself at the authorization URL with the target application, he is redirected back to Workato with a code if successful. This code can then be used by this connector to send a POST request to the token URL along with a redirect URL which lets the API know where to send the token to. This token can be referenced in the `apply:` block using `access_token`.
+Do read up about the OAuth 2.0 authorization flow over [here](https://tools.ietf.org/html/rfc6749) if you'd like to know more.
 
 Redirect URLs will be appended to the authorization request by the framework, so there is no need to include it. If the application requires that you register the redirect URI beforehand, use: https://www.workato.com/oauth/callback
 
-Remember to adjust headers format as required in the `apply` section. For example, Pushbullet expects the header to include tokens in this format: `OAuth2: <access token>`. This can be done in the `apply` portion of the `authorization` section of the `connection` block.
-
 ### Sample code snippet
+Here we have a example of an object with a connection block which has an OAuth 2.0 flow set up.
 ```ruby
 {
   title: 'My Podio connector',
@@ -88,9 +87,10 @@ Remember to adjust headers format as required in the `apply` section. For exampl
   },
 }
 ```
+> In cases where you plan to share your connector with others and do not want to expose your personal client ID and secret, you may ask users of your connector supply their own client IDs and secrets by declaring fields that accept these inputs. Check out our example below when we go through variations
 
-## apply
-Synonym of the `credentials` block: Basically how to apply the credentials to an action/trigger/test request. All requests made in actions, triggers, tests and pick lists will be applied with the credentials defined here. In the example above, the apply block pulls the `token` field directly from user input fields in the `connection` object.
+### apply:
+All requests made in actions, triggers, tests and pick lists will be applied with the credentials defined here. In the example above, the apply block pulls the `token` field directly from user input fields in the `connection` object.
 
 Here are a list of accepted inputs into the apply block
 
@@ -127,7 +127,7 @@ Note:
   - For example, related to [Issuing an Access Token - Successful Response](https://tools.ietf.org/html/rfc6749#section-5.1), Workato will be expecting a response with `access_token` in the response. Returning the access token under a key of `accessToken` in a JSON response will result in an unsuccessful Workato request to your `token_url`.
   - Usually this will not be a problem because most OAuth libraries out there will do most of the heavy lifting for you, such as returning response in the right format etc. It is good to be aware of this!
 
-## Custom OAuth2 flows
+## Variations
 The `token_url` is called using a `POST` request with the provided `client_id` and `client_secret` appended into the header.
 
 In cases that deviate from the normal standard authentication flows, use our `acquire` block. This block allows you to define the HTTP calls that occurs during the authentication process. For example, some APIs require the authorization token to be obtained by using a `POST` request with basic authentication.
@@ -140,13 +140,21 @@ In the case below, we used the acquire block to send a `POST` HTTP call with bas
   title: 'My Purecloud connector',
 
   connection: {
-
+    fields: [
+      {
+        name: 'client_id',
+        label: 'Client ID',
+        optional: false
+      },
+      {
+        name: 'client_secret',
+        label: 'Client secret',
+        control_type: 'password',
+        optional: false
+      }
+    ],
     authorization: {
       type: "oauth2",
-
-      client_id: "YOUR_PURECLOUD_CLIENT_ID",
-
-      client_secret: "YOUR_PURECLOUD_CLIENT_SECRET",
 
       authorization_url: lambda do |connection|
         params = {

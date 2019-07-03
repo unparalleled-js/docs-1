@@ -511,4 +511,4 @@ While the config_fields is empty, document objects will have no fields (empty ar
  *Configuration fields in action*
 
  ### Next section
- The next section goes through some additional concepts related to object definitions. They relate to picklists which are the list of options when your input field is a dropdown as well as toggle fields which let a single input field have 2 control_types. [Go to our picklist and toggle field documentation](/developing-connectors/sdk-2/pick-list-toggle-fields.md) or check our our [best practices](/developing-connectors/sdk-2/best-practices.md) for some tips on how to use object definitions.
+ The next section goes through some additional concepts related to object definitions which we call picklists. Pick lists allow you to declare dropdowns for your users instead of have to enter text. [Go to our picklist documentation](/developing-connectors/sdk-2/pick-list.md) or check our our [best practices](/developing-connectors/sdk-2/best-practices.md) for some tips on how to use object definitions.

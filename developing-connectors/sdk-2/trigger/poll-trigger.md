@@ -202,6 +202,11 @@ end
   </thead>
   <tbody>
     <tr>
+      <td><code>title:</code></td>
+      <td><code>title: "This is the title of the action"</code></td>
+      <td>This shows up as the main action name and override the name given to the action block</td>
+    </tr>
+    <tr>
       <td><code>subtitle:</code></td>
       <td><code>subtitle: "This is a subtitle"</code></td>
       <td>This shows up below the main action name when users are looking at the dropdown of possible actions</td>
