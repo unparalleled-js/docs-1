@@ -186,19 +186,19 @@ The table below lists the input fields in the post reply action.
             </td>
         </tr>
         <tr>
-            <td>Button text (button)</td>
+            <td>Button text</td>
             <td>
                 Text to be displayed on the button.<br><br><img src="/assets/images/workbot-for-teams/create-ticket-button.png"></img><br><br>
             </td>
         </tr>
         <tr>
-            <td>Submit button command (button)</td>
+            <td>Submit button command</td>
             <td>
                 Workbot command to execute when button is clicked, e.g. <code>create_ticket</code>. Only after <a href="https://docs.workato.com/workbot-for-teams/workbot-triggers.html#configuring-the-command">configuring the command</a> in a Workbot for MS Teams trigger block can that command be visible in the dropdown list.
             </td>
         </tr>
         <tr>
-            <td>Additional parameters (button)</td>
+            <td>Additional parameters</td>
             <td>
                 Parameter values to be passed onto the next recipe when button is clicked, e.g. <br><br><pre>{<br>  "sys_id": "<kbd>sys_id</kbd>"<br>  "summary": "<kbd>Summary</kbd>",<br>  "description": "<kbd>Description</kbd>"<br>}</pre>
                 Datapills need to be wrapped in double quotes and parameter names must be in all lowercase. Parameters can be user-specified, like the urgency of an issue in ServiceNow, or recipe information, like the Message ID of a previous MS Teams message.
