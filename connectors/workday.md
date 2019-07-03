@@ -10,7 +10,7 @@ Workday has multiple web services that can be used to integration data. Workday 
 
 Workday documentation contains the following chapters:
 - [Connection setup](workday/connection_setup.md)
-- [Workday RaaS](workday/workday_raas.md)
-- [Scheduled report trigger](workday/scheduled_report.md)
 - [Get report action](workday/get_report.md)
+- [Scheduled report trigger](workday/scheduled_report.md)
 - [Call operation action](workday/call_operation.md)
+- [Workday RaaS](workday/workday_raas.md)
