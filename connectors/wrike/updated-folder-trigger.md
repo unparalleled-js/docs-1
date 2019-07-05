@@ -13,8 +13,6 @@ Folders are one of the main ways to organize and manage information on Wrike.
 
 This trigger picks up folders that are created or updated and returns the folder tree data. Each record is processed as a separate job.
 
-\\\\ polling, polling interval?
-
 ![New/updated folder trigger](/assets/images/connectors/wrike/updated-folder-trigger.png)
 *New/updated folder trigger*
 

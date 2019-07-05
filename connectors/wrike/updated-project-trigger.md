@@ -13,8 +13,6 @@ Projects are one of the main ways to organize, manage, and report on work within
 
 This trigger picks up projects that are created or updated and returns the project tree data. Each record is processed as a separate job.
 
-\\\\ polling, polling interval?
-
 ![New/updated project trigger](/assets/images/connectors/wrike/updated-project-trigger.png)
 *New/updated project trigger*
 

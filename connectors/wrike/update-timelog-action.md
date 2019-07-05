@@ -7,7 +7,7 @@ search:
 
 # Wrike - Update timelog action
 
-This action updates a specified a timelog record.
+This action updates a specified timelog record.
 
 ![Update timelog action](/assets/images/connectors/Wrike/update-timelog-action.png)
 *Update timelog action*

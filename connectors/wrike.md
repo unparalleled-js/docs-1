@@ -19,8 +19,8 @@ The Wrike connectors uses OAuth2 authentication. This allows you to:
   * Define the scopes for the connector
   * Authenticate with Wrike
 
-![Wrike connector](/assets/images/connectors/wrike/wrike-connector.png)
-*Wrike connector*
+![Wrike connection](/assets/images/connectors/wrike/wrike-connector.png)
+*Wrike connection*
 
 ### Scopes for Wrike connector
 
