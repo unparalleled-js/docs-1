@@ -303,3 +303,98 @@ When you send a URL in Slack, you can have Workbot provide certain information i
 Simply select the application in the trigger (Currently only Salesforce and Github), and select the Document, and set up your actions as you prefer. By default, giving a Salesforce or Github URL in a channel that Workbot is in will trigger a prompt from Workbot asking you if you want to show details of the content of the URL that you have sent. Click on yes to trigger the recipe. You can also edit the recipe in Workato if you want to have more or less fields included in the message.
 
 ![workbot triggers](/assets/images/workbot/workbot-trigger/workbot-url-mention.gif)
+
+## New dynamic menu event
+In Workbot command recipes that invoke dialogs, a `select` field can be defined with dynamic menu options.
+
+![Dynamic menu](/assets/images/workbot/workbot-trigger/dynamic-menu.png/)
+*A Workbot command recipe with dynamic menu options*
+
+This trigger executes when a user types in such a field, and returns what the user typed (i.e. the `typeahead` value). At least 5 characters must be typed to trigger an event.
+
+Use this `typeahead` value to retrieve a list of records (from another app, e.g. Salesforce) to return to the main recipe (i.e. the recipe that posts the dialog where the `select` field is).
+
+![Typeahead example](/assets/images/workbot/workbot-trigger/typeahead-example.png)
+
+You can return the list of records to the dynamic menu by using the [Return menu options](/workbot/workbot-actions.md#return-menu-options/) action. Hence, this trigger should always be paired with a **Return menu options** action.
+
+### Input
+
+#### Dynamic menu name</td>
+Identifier for this menu.
+
+#### Command input fields
+A Workbot command recipe with dynamic menu options can pass parameters to a Dynamic menu recipe via the **Dynamic menu recipe params** field. The dynamic menu recipe can use these additional parameters in generating menu options.
+
+![Dynamic menu recipe params](/assets/images/workbot/workbot-trigger/dynamic-menu-recipe-params.png/)
+*A Workbot command recipe with a dynamic menu options field passing a 'stagename' parameter with value 'Closed Won'*
+
+Correspondingly, the trigger must also have the same parameter defined.
+
+![Params in dynamic menu trigger](/assets/images/workbot/workbot-trigger/params-in-dynamic-menu-trigger.png/)
+*The corresponding dynamic menu recipe with the same 'stagename' parameter defined*
+
+The dynamic menu recipe is then able to utilize the additional parameters in generating menu options. In the example below, the parameter `stagename` is passed to the dynamic menu recipe, allowing the SOQL search to be further refined.
+
+![Dynamic menu param example](/assets/images/workbot/workbot-trigger/dynamic-menu-param-example.png/)
+*'stagename' parameter is passed to refine the SOQL search*
+
+### Output
+<table class="unchanged rich-diff-level-one">
+    <thead>
+        <tr>
+            <th colspan='2'>Fields</th>
+            <th>Description</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+          <td rowspan='5'>Event context</td>
+          <td>Team</td>
+          <td>Team ID and domain where command was invoked.
+        </tr>
+        <tr>
+            <td>User</td>
+            <td>User ID and name of user who invoked command</td>
+        </tr>
+        <tr>
+            <td>Channel</td>
+            <td>
+              Channel ID and name where command was invoked.
+            </td>
+        </tr>
+        <tr>
+            <td>State</td>
+            <td>
+              System message containing dynamic menu recipe ID and parameter name-value pair.
+            </td>
+        </tr>
+        <tr>
+            <td>Action ts</td>
+            <td>
+              Timestamp of when action was invoked.
+            </td>
+        </tr>
+        <tr>
+            <td rowspan='3'>Typeahead</td>
+            <td>Name</td>
+            <td>Name of parameter where dynamic menu event was received from.
+        </tr>
+          <td>Value</td>
+          <td>Characters typed by user in the dynamic menu options field.
+        <tr>
+          <td>Callback ID</td>
+          <td>System message</td>
+        </tr>
+        <tr>
+        </tr>
+        <tr>
+        </tr>
+        <tr>
+            <td colspan='2'>Parameters</td>
+            <td>
+              Name-value pairs passed by a Workbot command recipe with dynamic menu options.
+            </td>
+        </tr>
+    </tbody>
+</table>

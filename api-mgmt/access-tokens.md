@@ -19,7 +19,7 @@ The **Refresh** button will generate a new Auth Token value and invalidates any 
 ![Auth Token for an Access profile](/assets/images/api-mgmt/auth-token.png)
 *Auth Token for an Access profile*
 
-When calling an endpoint, the Auth Token value is passed as the value of the `API-Key` header.
+When calling an endpoint, the Auth Token value is passed as the value of the `API-Token` header.
 
 ## JWT Tokens
 
@@ -67,7 +67,7 @@ A JWT token can encapsulate several pieces of information that the client commun
 }
 ```
 
-Here `sub` is the Auth Key that is obtainable from the Access Profile screen in Workato, and `name` is the name of the client.
+Here `sub` is the Auth token that is obtainable from the Access Profile screen in Workato, and `name` is the name of the client.
 
 The JWT token is a signed representation of the JSON structure. You can generate a JWT token using the tools at [JWT.IO](https://jwt.io/).
 
