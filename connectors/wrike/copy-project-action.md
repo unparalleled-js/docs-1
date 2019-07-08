@@ -9,7 +9,7 @@ search:
 
 Projects are one of the main ways to organize, manage, and report on work within Wrike. In essence, Wrike projects are folders with additional properties.
 
-This action selects a single project and copies it into a specified location. To copy the project as a main project, select **root** as the parent project.
+This action selects a single project and copies it into a specified location. To copy the project as a main project, select **Root** as the parent project.
 
 ![Copy project action](/assets/images/connectors/Wrike/copy-project-action.png)
 *Copy project action*
