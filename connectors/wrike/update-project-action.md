@@ -57,7 +57,7 @@ This action updates a specific project in Wrike. You can change the project name
     <tr>
       <td>Remove parent folders/projects</td>
       <td>
-        Select the parent folders to remove. You cannot remove the <b>root folder</b> or the <b>recycle bin</b>. You can define folders with a source list or manually input the folder ID.
+        Select the parent folders to remove. You cannot remove the <b>Root folder</b> or the <b>Recycle bin</b>. You can define folders with a source list or manually input the folder ID.
       </td>
     </tr>
     <tr>
@@ -86,11 +86,15 @@ This action updates a specific project in Wrike. You can change the project name
           <tbody>
             <tr>
               <td>Status</td>
-              <td>The status of the task. Permitted values are <code>New</code>, <code>In progress</code>, <code>Completed</code>, <code>On hold</code>, and <code>Cancelled</code>.</td>
+              <td>The status of the project.</td>
             </tr>
             <tr>
-              <td>Owner ID</td>
-              <td>Select users as project owners. You can define users with a source list or manually input their user ID.
+              <td>Add owner ID</td>
+              <td>Select users to add as project owners.</td>
+            </tr>
+            <tr>
+              <td>Remove owner ID</td>
+              <td>Select users to remove as project owners.</td>
             </tr>
             <tr>
               <td>Start date</td>
@@ -234,13 +238,13 @@ This action updates a specific project in Wrike. You can change the project name
     <tr>
       <td>Has attachments</td>
       <td>
-        Is <code>True</code> if the project has attachments, otherwise it will display <code>False</code>.
+        Indicates if the project has attachments.
       </td>
     </tr>
     <tr>
       <td>Permalink</td>
       <td>
-        The link to open the project in a web workspace, this is only accessible if the user has the appropriate access.
+        The link to open the project in a web workspace. This is only accessible if the user has the appropriate access.
       </td>
     </tr>
     <tr>
@@ -252,19 +256,7 @@ This action updates a specific project in Wrike. You can change the project name
     <tr>
       <td>Metadata</td>
       <td>
-        The metadata of this project. These are manual inputs of <code>Key</code>:<code>Value</code> pairs.
-        <table>
-          <tbody>
-            <tr>
-              <td><code>Key</code></td>
-              <td><code>Value</code></td>
-            </tr>
-            <tr>
-              <td>List size</td>
-              <td>The size of the list, corresponding to the number of metadata entries  retrieved.</td>
-            </tr>
-          </tbody>
-        </table>
+        The metadata of this project. The metadata list size corresponds to the number of metadata entries retrieved.
       </td>
     </tr>
     <tr>
@@ -297,7 +289,7 @@ This action updates a specific project in Wrike. You can change the project name
             </tr>
             <tr>
               <td>Status</td>
-              <td>The status of the task. Permitted values are <code>New</code>, <code>In progress</code>, <code>Completed</code>, <code>On hold</code>, and <code>Cancelled</code>.</td>
+              <td>The status of the project.</td>
             </tr>
             <tr>
               <td>Start date</td>

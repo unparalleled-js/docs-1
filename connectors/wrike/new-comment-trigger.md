@@ -7,7 +7,11 @@ search:
 
 # Wrike - New comment trigger
 
-This trigger picks up comments that are created. Each comment is processed as a separate job. It checks for new jobs once every poll interval. Retrieves up to 7 days of new comments for each poll. If the last new comment event is older than 7 days, more than 1 poll will be required to retrieve new comments up to current date & time. To manually retrieve new comments, go to the jobs tab and click 'Check now'.
+This trigger picks up comments that are created.
+
+Each comment is processed as a separate job. It checks for new jobs once every poll interval, retrieving up to 7 days of new comments for each poll.
+
+If the last new comment event is older than 7 days, more than 1 poll will be required to retrieve new comments up to current date & time.
 
 ![New comment trigger](/assets/images/connectors/Wrike/new-comment-trigger.png)
 *New comment trigger*

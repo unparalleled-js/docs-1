@@ -139,13 +139,15 @@ This action updates a specific task in Wrike. You can change the task name, stat
     <tr>
       <td>Custom status</td>
       <td>
-        Select a custom status to dscribe this task. To use custom status ID, toggle "Enter a custom status ID".
+        Select a custom status to describe this task. To use custom status ID, toggle "Enter a custom status ID".
       </td>
     </tr>
     <tr>
       <td>Status</td>
       <td>
-        Select the status of the task. Permitted values are <code>New</code>, <code>In progress</code>, <code>Completed</code>, <code>On hold</code>, and <code>Cancelled</code>.
+        Select the status of the task. Permitted values are <code>New</code>, <code>In progress</code>, <code>Completed</code>, <code>On hold</code>, and <code>Cancelled</code>.<br>
+        <br>
+        Ignore this field if you are using custom statuses.
       </td>
     </tr>
     <tr>
@@ -272,7 +274,7 @@ This action updates a specific task in Wrike. You can change the task name, stat
     <tr>
       <td>Status</td>
       <td>
-        The status of the task. Permitted values are <code>New</code>, <code>In progress</code>, <code>Completed</code>, <code>On hold</code>, and <code>Cancelled</code>.
+        The status of the task.
       </td>
     </tr>
     <tr>
@@ -325,7 +327,7 @@ This action updates a specific task in Wrike. You can change the task name, stat
             </tr>
             <tr>
               <td>Work on weekends</td>
-              <td>Is <code>True</code> if weekends are included in the task scheduling, otherwise it will display <code>False</code>.</td>
+              <td>Indicates if weekends are included in task scheduling.</td>
             </tr>
           </tbody>
         </table>
@@ -382,13 +384,13 @@ This action updates a specific task in Wrike. You can change the task name, stat
     <tr>
       <td>Has attachments</td>
       <td>
-        Is <code>True</code> if the folder has attachments, otherwise it will display <code>False</code>.
+        Indicates if the folder has attachments.
       </td>
     </tr>
     <tr>
       <td>Permalink</td>
       <td>
-        The link to open the task in a web workspace, this is only accessible if the user has the appropriate access.
+        The link to open the task in a web workspace. This is only accessible if the user has the appropriate access.
       </td>
     </tr>
     <tr>
@@ -400,7 +402,7 @@ This action updates a specific task in Wrike. You can change the task name, stat
     <tr>
       <td>Followed by me</td>
       <td>
-        Is <code>True</code> if the task is followed by the Wrike user, otherwise it will display <code>False</code>.
+        Indicates if the task is followed by the Wrike user registered on Workato.
       </td>
     </tr>
     <tr>
@@ -478,19 +480,7 @@ This action updates a specific task in Wrike. You can change the task name, stat
     <tr>
       <td>Metadata</td>
       <td>
-        The metadata of this task. These are manual inputs of <code>Key</code>:<code>Value</code> pairs.
-        <table>
-          <tbody>
-            <tr>
-              <td><code>Key</code></td>
-              <td><code>Value</code></td>
-            </tr>
-            <tr>
-              <td>List size</td>
-              <td>The size of the list, corresponding to the number of metadata entries  retrieved.</td>
-            </tr>
-          </tbody>
-        </table>
+        The metadata of this task. The metadata list size corresponds to the number of metadata entries retrieved.
       </td>
     </tr>
     <tr>

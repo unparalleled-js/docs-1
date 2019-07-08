@@ -9,7 +9,7 @@ search:
 
 Projects are one of the main ways to organize, manage, and report on work within Wrike. In essence, Wrike projects are folders with additional properties.
 
-This action creates a single project in a specified location. To create a main project, select **root** as the parent folder.
+This action creates a single project in a specified location. To create a main project, select **Root** as the parent folder.
 
 ![Create project action](/assets/images/connectors/Wrike/create-project-action.png)
 *Create project action*
@@ -44,7 +44,7 @@ This action creates a single project in a specified location. To create a main p
           <tbody>
             <tr>
               <td>Status</td>
-              <td>The status of the task. Permitted values are <code>New</code>, <code>In progress</code>, <code>Completed</code>, <code>On hold</code>, and <code>Cancelled</code>.</td>
+              <td>The status of the project.</td>
             </tr>
             <tr>
               <td>User IDs of Wrike users who should own this project</td>
@@ -210,13 +210,13 @@ This action creates a single project in a specified location. To create a main p
     <tr>
       <td>Has attachments</td>
       <td>
-        Is <code>True</code> if the project has attachments, otherwise it will display <code>False</code>.
+        Indicates if the project has attachments.
       </td>
     </tr>
     <tr>
       <td>Permalink</td>
       <td>
-        The link to open the project in a web workspace, this is only accessible if the user has the appropriate access.
+        The link to open the project in a web workspace. This is only accessible if the user has the appropriate access.
       </td>
     </tr>
     <tr>
@@ -228,19 +228,7 @@ This action creates a single project in a specified location. To create a main p
     <tr>
       <td>Metadata</td>
       <td>
-        The metadata of this project. These are manual inputs of <code>Key</code>:<code>Value</code> pairs.
-        <table>
-          <tbody>
-            <tr>
-              <td><code>Key</code></td>
-              <td><code>Value</code></td>
-            </tr>
-            <tr>
-              <td>List size</td>
-              <td>The size of the list, corresponding to the number of metadata entries  retrieved.</td>
-            </tr>
-          </tbody>
-        </table>
+        The metadata of this project. The metadata list size corresponds to the number of metadata entries retrieved.
       </td>
     </tr>
     <tr>
@@ -273,7 +261,7 @@ This action creates a single project in a specified location. To create a main p
             </tr>
             <tr>
               <td>Status</td>
-              <td>The status of the task. Permitted values are <code>New</code>, <code>In progress</code>, <code>Completed</code>, <code>On hold</code>, and <code>Cancelled</code>.</td>
+              <td>The status of the project.</td>
             </tr>
             <tr>
               <td>Start date</td>

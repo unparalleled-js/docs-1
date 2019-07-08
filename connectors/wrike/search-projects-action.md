@@ -9,7 +9,7 @@ search:
 
 Projects are one of the main ways to organize, manage, and report on work within Wrike. In essence, Wrike projects are folders with additional properties.
 
-This action retrieves a list of projects that matches your search criteria. Only records in your Wrike instance that matches all the criteria will be returned. A maximum of 100 projects can be retrieved per job.
+This action retrieves a list of projects that matches your search criteria. Only records in your Wrike instance that match all the criteria will be returned. A maximum of 100 projects can be retrieved per job.
 
 ![Search projects action](/assets/images/connectors/Wrike/search-projects-action.png)
 *Search projects action*
@@ -39,7 +39,7 @@ This action retrieves a list of projects that matches your search criteria. Only
     <tr>
       <td>Permalink</td>
       <td>
-        The link to open the project in a web workspace, this is only accessible if the user has the appropriate access.
+        The link to open the project in a web workspace. This is only accessible if the user has the appropriate access.
       </td>
     </tr>
     <tr>
@@ -190,13 +190,13 @@ This action retrieves a list of projects that matches your search criteria. Only
     <tr>
       <td>Has attachments</td>
       <td>
-        Is <code>True</code> if the project has attachments, otherwise it will display <code>False</code>.
+        Indicates if the project has attachments.
       </td>
     </tr>
     <tr>
       <td>Permalink</td>
       <td>
-        The link to open the project in a web workspace, this is only accessible if the user has the appropriate access.
+        The link to open the project in a web workspace. This is only accessible if the user has the appropriate access.
       </td>
     </tr>
     <tr>
@@ -208,19 +208,7 @@ This action retrieves a list of projects that matches your search criteria. Only
     <tr>
       <td>Metadata</td>
       <td>
-        The metadata of this project. These are manual inputs of <code>Key</code>:<code>Value</code> pairs.
-        <table>
-          <tbody>
-            <tr>
-              <td><code>Key</code></td>
-              <td><code>Value</code></td>
-            </tr>
-            <tr>
-              <td>List size</td>
-              <td>The size of the list, corresponding to the number of metadata entries  retrieved.</td>
-            </tr>
-          </tbody>
-        </table>
+        The metadata of this project. The metadata list size corresponds to the number of metadata entries retrieved.
       </td>
     </tr>
     <tr>
@@ -253,7 +241,7 @@ This action retrieves a list of projects that matches your search criteria. Only
             </tr>
             <tr>
               <td>Status</td>
-              <td>The status of the task. Permitted values are <code>New</code>, <code>In progress</code>, <code>Completed</code>, <code>On hold</code>, and <code>Cancelled</code>.</td>
+              <td>The status of the project.</td>
             </tr>
             <tr>
               <td>Start date</td>
