@@ -130,7 +130,7 @@ lookup(Entries, "Salesforce account ID": datapill)["Intacct account ID"]
 ![Lookup an in-memory table](/assets/images/features/lookup-tables/lookup-in-memory-tables.png)
 *Lookup an in-memory table*
 
-Like the example before this, the formula will lookup the **Intacct account ID** of the first entry in the **Account IDs** table that matches any given **Salesforce account ID**. This time however, it will lookup entries much quicker and only from the reduced list of entries from the initial search.
+Like the example before this, the formula will lookup the **Intacct account ID** of the first entry in the **Account IDs** table that matches any given **Salesforce account ID**. This time, however, it will lookup entries much quicker and only from the reduced list of entries from the initial search.
 
 ## Limits
 Each lookup table supports up to 5 columns of data and a maximum of 10,000 entries per lookup table.
