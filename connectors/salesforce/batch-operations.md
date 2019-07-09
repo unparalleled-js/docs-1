@@ -5,7 +5,7 @@ date: 2018-01-04 06:15:00 Z
 
 # Salesforce batch operations
 
-Apart from support for Salesforce [bulk operations](/connectors/salesforce.md#working-with-bulk-data-load-jobs-in-salesforce), Workato has included support for Salesforce **batch** operations, which make use of Salesforce's `sObject Collections` [API](https://developer.salesforce.com/docs/atlas.en-us.api_rest.meta/api_rest/resources_composite_sobjects_collections.htm).
+Apart from support for Salesforce [bulk operations](/connectors/salesforce/salesforce-bulk.md), Workato has included support for Salesforce **batch** operations, which make use of Salesforce's `sObject Collections` [API](https://developer.salesforce.com/docs/atlas.en-us.api_rest.meta/api_rest/resources_composite_sobjects_collections.htm).
 
 These operations allow the creation and update of up to **2,000 records** at a time. Users should make use of these operations when they are creating or updating smaller batches of Salesforce records, or if they wish to perform multiple operations without using Bulk API.  
 
@@ -29,7 +29,7 @@ The list input pill can come from various sources such as a new CSV file in a fi
 ![Select object](/assets/images/salesforce-docs/salesforce-batch-select-object.png)
 *Select list input pill*
 
-Thereafter, in the `Add/remove optional fields` section at the end of the action, proceed to select any additional optional Salesforce fields and map those fields. 
+Thereafter, in the `Add/remove optional fields` section at the end of the action, proceed to select any additional optional Salesforce fields and map those fields.
 
 ![Select optional fields](/assets/images/salesforce-docs/batch-select-optional-fields.png)
 *Select optional fields*
@@ -86,7 +86,7 @@ The list input pill can come from various sources such as a new CSV file in a fi
 ![Select object](/assets/images/salesforce-docs/salesforce-batch-select-object.png)
 *Select list input pill*
 
-Thereafter, in the `Add/remove optional fields` section at the end of the action, proceed to select any additional optional Salesforce fields and map those fields. 
+Thereafter, in the `Add/remove optional fields` section at the end of the action, proceed to select any additional optional Salesforce fields and map those fields.
 
 ![Select optional fields](/assets/images/salesforce-docs/batch-select-optional-fields.png)
 *Select optional fields*
