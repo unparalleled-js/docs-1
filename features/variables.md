@@ -1,32 +1,22 @@
 ---
 title: Variables by Workato
 date: 2019-07-08 18:00:00 Z
-search:
-  keywords: ['variables', 'data type', 'add']
 ---
 
 # Variables by Workato
-Variables by Workato is native application that allows you record, edit, and use a datapill (of any data type) for the duration of the job.
+Variables by Workato is native application that allows you create, edit, and store a datapill (of any data type) for the duration of the job.
 
-<!-- The list connector is a Workato utility built for users to create custom lists and store data in the list for the duration of a job, to be used in the same job. It is usually used for users to prepare a list to write to an action with a list input.
--->
+Suppose your recipe does not have a datapill type that is accepted by your target system. You can generate a new variable and use it as the input datapill.  
 
 ## Why use Variables
-Variables enable you to sync your data across platforms. It also allows you to perform operations on the data and use it as an input for subsequent actions.
+Variables enable you to sync key information across platforms. You can perform operations on a variable and use it as an input for subsequent actions.
 
-### Transformation
-Suppose that you want read a name (string) from a binary file (e.g. PNG) and. You can generate a `name` variable and add the values for **First name**, **Middle name**, and **Last Name**.
+For instance, if you want to find the entry with the *largest ARR*. Create a variable called `ARR`, run through your report with the [for each](recipes/steps.md#repeat-step) action, and update `ARR` whenever it finds a higher value.
 
-![Create name variable from PNG](/assets/images/features/variables/retrieve-name-from-png.png)
-*Create name variable from PNG*
-
-### Sifting through data
-Update your variable at multiple points throughout your recipe and call it when required. For instance, if you want to find the entry with the *largest ARR*. Create a variable called `ARR`, run through your report with the [for each](recipes/steps.md#repeat-step) action, and update `ARR` when it finds a higher value.
+Subsequently, use the `ARR` value to call up that specific entry.
 
 ![Iterate through report for highest ARR](/assets/images/features/variables/run-through-list-for-highest-arr.png)
 *Iterate through report for highest ARR*
-
-Subsequently, use the `ARR` value to call up that specific entry.
 
 ## Connection setup
 No connection setup is required. Simply select **App** > **Variables by Workato** to get started.
@@ -35,7 +25,9 @@ No connection setup is required. Simply select **App** > **Variables by Workato*
 *Variables by Workato*
 
 ## Actions
-Start working with Variables with [Create variable](#create-variable) and [Update variable](#create-list-in-collection-from-csv). To work with list or arrays, use [Create list](#create-list-in-collection) and [Add item to list](#create-list-in-collection-from-csv) actions.
+Start working with Variables with the create actions. To generate a  `string`, `number`, `date`, and `boolean` variable, use [Create variable](#create-variable). To work with lists, use [Create list](#create-list-in-collection).
+
+Update or edit your variable at any point throughout your recipe with the [Update variable](#update-variable) or [Add item to list](#add-item-to-list).
 
 ### Create variable
 This action creates a variable in the specified data type. You should configure this variable to match the data type that it will be used for.
@@ -50,7 +42,7 @@ This action creates a variable in the specified data type. You should configure 
 | Default value | The default value of the variable. Leave this blank to set the default value as `null`. |
 
 ### Update variable
-This action updates a variable that was previously created.
+This action updates an existing variable. You can only update variables managed by **Variables by Workato**.
 
 ![Update variable](/assets/images/features/variables/update-variable-action.png)
 *Update variable*
@@ -62,8 +54,14 @@ This action updates a variable that was previously created.
 
 > Note: this action does not generate a datapill. To use your variable, you would use the output of the **Create variable** step.
 
+### Example: Creating a string variable from an image
+Suppose that you want read a name from an image file (e.g. PNG) and. You can generate a `Name` variable and add the values for **First name**, **Middle name**, and **Last Name**.
+
+![Create name variable from PNG](/assets/images/features/variables/retrieve-name-from-png.png)
+*Create name variable from PNG*
+
 ### Create list
-This action creates a list data type. A list can contain multiple values and can hold multiple entries.
+This action creates an empty list with its item schema.
 
 ![Create list](/assets/images/features/variables/create-list-action.png)
 *Create list*
@@ -76,7 +74,7 @@ This action creates a list data type. A list can contain multiple values and can
 ### Add item to list
 This action adds a new item to an existing list.  
 
-Some list categories are mandatory. Check that you have valid inputs for the required fields before using this action.
+Some list fields are mandatory. Check that you have valid inputs for the required fields before using this action.
 
 ![Add item to list](/assets/images/features/variables/add-item-to-list-action.png)
 *Add item to list*
@@ -87,5 +85,20 @@ Some list categories are mandatory. Check that you have valid inputs for the req
 | Insert location | Select where to add your new item. You can add it to the **End of the list** or to the **Beginning of the list**          |
 | List item       | Define the values for the new item.    |
 
+If you append list items from the same list, it will take the value of the **First item** of the list. For instance, the `product` list as one line:
+```
+Typewriter, white, 126451
+```
+
+
+
 
 > Note: this action does not generate a datapill. To use your list, you would use the output of the **Create list** step.
+
+### Example: Creating a string variable from an image
+Suppose that you want read a name from an image file (e.g. PNG) and. You can generate a `Name` variable and add the values for **First name**, **Middle name**, and **Last Name**.
+
+![Create name variable from PNG](/assets/images/features/variables/retrieve-name-from-png.png)
+*Create name variable from PNG*
+
+For more information on list management, see [here](/features/list-management.md)
