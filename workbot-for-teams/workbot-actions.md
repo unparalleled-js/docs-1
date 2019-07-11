@@ -1,6 +1,6 @@
 ---
 title: Workbot actions for MS Teams
-date: 2019-06-24 05:00:00 Z
+date: 2019-07-11 05:00:00 Z
 ---
 
 # Workato actions for MS Teams
@@ -169,13 +169,13 @@ The table below lists the input fields in the post reply action.
             </td>
         </tr>
         <tr>
-            <td>Title (choice)</td>
-            <td>Text to display for choice. Cannot contain <code>:</code> or <code>,</code></td>
+            <td>Title</td>
+            <td>Text to display for choice. Cannot contain <code>:</code> or <code>,</code>.</td>
         </tr>
         <tr>
-            <td>Value (choice)</td>
+            <td>Value</td>
             <td>
-                Value to pass to <b>Choice parameter</b> if chosen. Cannot contain <code>:</code> or <code>,</code>
+                Value to pass to <b>Choice parameter</b> if chosen. Cannot contain <code>:</code> or <code>,</code>.
             </td>
         </tr>
         <tr>
