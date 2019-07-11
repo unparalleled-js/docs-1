@@ -169,6 +169,7 @@
      * [Callable recipe as a REST endpoint](features/callable-recipes/rest-endpoint.md)
   * [Account properties](features/account-properties.md)
   * [Utility](features/utilities.md)
+  * [Variables](features/variables.md)
   * [Data masking](features/data-masking.md)
   * [Single Sign-On \(SSO\)](signing-up/sso.md)
   * [List management](features/list-management.md)
