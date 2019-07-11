@@ -15,7 +15,39 @@ If the parameters of the recipe are known beforehand, the user can specify them 
 *Sending a 'newissue' command with additional parameters Urgency, Summary and Description*
 
 ## Buttons
-Buttons can be used in either a [post reply](/workbot-for-teams/workbot-actions.md#post-reply) or a [post message](/workbot-for-teams/workbot-actions.md#post-message) action. Each button has [input fields](/workbot-for-teams/workbot-actions.md#input-fields) **Button text**, **Submit button command** and **Additional parameters**.
+Buttons can be used in either a [post reply](/workbot-for-teams/workbot-actions.md#post-reply) or a [post message](/workbot-for-teams/workbot-actions.md#post-message) action.
+
+The following table shows what goes into the button fields:
+
+<table class="unchanged rich-diff-level-one">
+    <thead>
+        <tr>
+            <th>Input field</th>
+            <th>Description</th>
+        </tr>
+    <tbody>
+        <tr>
+            <td>Button text</td>
+            <td>
+                Text to be displayed on the button.<br><br><img src="/assets/images/workbot-for-teams/create-ticket-button.png"></img><br><br>
+            </td>
+        </tr>
+        <tr>
+            <td>Submit button command</td>
+            <td>
+                Workbot command to execute when button is clicked, e.g. <code>create_ticket</code>. Only after <a href="https://docs.workato.com/workbot-for-teams/workbot-triggers.html#configuring-the-command">configuring the command</a> in a Workbot for MS Teams trigger block can that command be visible in the dropdown list.
+            </td>
+        </tr>
+        <tr>
+            <td>Additional parameters</td>
+            <td>
+                Parameter values to be passed onto the next recipe when button is clicked, e.g. <br><br><pre>{<br>  "sys_id": "<kbd>sys_id</kbd>"<br>  "summary": "<kbd>Summary</kbd>",<br>  "description": "<kbd>Description</kbd>"<br>}</pre>
+                Datapills need to be wrapped in double quotes and parameter names must be in all lowercase. Parameters can be user-specified, like the urgency of an issue in ServiceNow, or recipe information, like the Message ID of a previous MS Teams message.
+            </td>
+        </tr>
+    </tbody>
+</table>
+&ast;Supports Markdown
 
 ![Command name in button](/assets/images/workbot-for-teams/button-command.png)
 *A button can be configured to invoke a Workbot command of another recipe*
@@ -48,7 +80,48 @@ Pick lists can be found in the [post reply](/workbot-for-teams/workbot-actions.m
 ![Choice param](/assets/images/workbot-for-teams/choice-param.png)
 *The 'Next' button also passes the 'opportunity_id' of 'Google' onto the command recipe that it invokes*
 
-Each pick list has [input fields](/workbot-for-teams/workbot-actions.md#input-fields) **Pick list name**, **Picklist style**, **Choice parameter** and **Choices**, and each **Choice** has **Title** and **Value** as input fields. 
+The following table shows what goes into the pick list and choice fields:
+
+<table class="unchanged rich-diff-level-one">
+    <thead>
+        <tr>
+            <th>Input field</th>
+            <th>Description</th>
+        </tr>
+    <tbody>
+        <tr>
+            <td>Pick list name</td>
+            <td>
+                Name of pick list. Displays before choices, and supports markdown.
+            </td>
+        </tr>
+        <tr>
+            <td>Pick list style</td>
+            <td>
+                <b>Compact</b> displays choices in a drop-down menu, while <b>Expanded</b> displays all choices with radio buttons.
+            </td>
+        </tr>
+        <tr>
+            <td>Choice parameter</td>
+            <td>
+                Parameter name to store the choice value. This is a required field when passing parameters to another recipe, otherwise the value will not be passed.
+            </td>
+        </tr>
+        <tr>
+            <td>Title</td>
+            <td>
+                Text to display for choice. Cannot contain <code>:</code> or <code>,</code>.
+            </td>
+        </tr>
+        <tr>
+            <td>Value</td>
+            <td>
+                Value to pass to <b>Choice parameter</b> if chosen. Cannot contain <code>:</code> or <code>,</code>.
+            </td>
+        </tr>
+    </tbody>
+</table>
+&ast;Supports Markdown
 
 ![Choice param recipe](/assets/images/workbot-for-teams/choice-param-recipe.png)
 *The choice parameter will take its value from a choice (if it's chosen)*
