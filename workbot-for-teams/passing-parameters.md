@@ -58,7 +58,11 @@ When the user chooses from the **Choices** available in the pick list, that valu
 The user can define only one pick list per **post reply** or **post message** action block, meaning that only one parameter can be passed to the downstream recipe using a pick list.
 
 ### Pick lists in task modules
-When [defining parameters](/workbot-for-teams/workbot-triggers.md#defining-parameters) in the Workbot for MS Teams trigger block, a pick list is created in the task module when the **Data type** is set to <code>String</code> and comma-separated options are added to the **Options** field. If the display name and the value are different, separate the two by a colon, e.g. High:1, Medium:2, Low: 3. That parameter's value thus takes on the option selected by the user and can be used further in the recipe as a datapill; a parameter gets passed through a pick list. It's important to note that pick list display name and value cannot contain <code>:</code> or <code>,</code>.
+When [defining parameters](/workbot-for-teams/workbot-triggers.md#defining-parameters) in the Workbot for MS Teams trigger block, a pick list is created in the task module when the **Data type** is set to <code>String</code> and comma-separated options are added to the **Options** field. 
+
+If the display name and the value are different, separate the two by a colon, e.g. High:1, Medium:2, Low: 3. That parameter's value thus takes on the option selected by the user and can be used further in the recipe as a datapill; a parameter gets passed through a pick list. 
+
+It's important to note that pick list display name and value cannot contain <code>:</code> or <code>,</code>.
 
 ![Picklist options in recipe](/assets/images/workbot-for-teams/parameter-picklist-1.png)
 *Options where display name and value are the same*
