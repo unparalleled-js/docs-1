@@ -1,6 +1,6 @@
 ---
 title: Workbot actions for MS Teams
-date: 2019-07-11 05:00:00 Z
+date: 2019-07-13 05:00:00 Z
 ---
 
 # Workato actions for MS Teams
@@ -51,24 +51,24 @@ Use post message if you:
 ### Post as raw JSON
   This field is for advanced users who want to fully customize the message formatting. When set to **Yes**, all other fields will be hidden. Should include <code>"type": "message"</code>, followed by <code>"attachments"</code>, e.g.
 ```
-  {
-   "type":"message",
-   "attachments":[
-      {
-         "contentType":"application/vnd.microsoft.card.adaptive",
-         "content":{
-            "type":"AdaptiveCard",
-            "version":"1.0",
-            "body":[
-               {
-                  "type":"TextBlock",
-                  "text":"Hello World!",
-                  "size":"large"
-               }
-            ]
-         }
-      }
-   ]
+{
+    "type": "message",
+    "attachments": [
+        {
+            "contentType": "application/vnd.microsoft.card.adaptive",
+            "content": {
+                "type": "AdaptiveCard",
+                "version": "1.0",
+                "body": [
+                    {
+                        "type": "TextBlock",
+                        "text": "Hello World!",
+                        "size": "large"
+                    }
+                ]
+            }
+        }
+    ]
 }
 ```
 For more details, refer to [Microsoft's Adaptive Card Designer](https://adaptivecards.io/designer).
