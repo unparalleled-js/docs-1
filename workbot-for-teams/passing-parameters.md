@@ -54,12 +54,14 @@ The following table shows what goes into the button fields:
 
 Parameters in the **Additional parameters** field of Recipe 1 are passed to the parameters defined in Recipe 2, invoked by the command within the **Submit button command** field.
 
+![Recipe chaining](/assets/images/workbot-for-teams/recipe-chaining.png)
+
 If there are more parameters passed in Recipe 1 than defined in Recipe 2, those extra parameters are not captured by Recipe 2; they are lost.
 
 Conversely, if there are less parameters passed in Recipe 1 than defined in Recipe 2, Workbot autofills the parameters that passed successfully and launches a [task module](#task-modules) to prompt the user to fill in the missing parameters.
 
 ![Task module with missing parameters](/assets/images/workbot-for-teams/task-module-with-missing-params.png)
-*Task module with missing parameters*
+*Half-filled task module*
 
 ## Task Modules
 Task modules are dialog boxes that appear when Workbot needs more parameter values from the user.
