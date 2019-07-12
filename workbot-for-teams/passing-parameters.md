@@ -1,12 +1,12 @@
 ---
 title: Passing parameters
-date: 2019-07-11 10:23:00 Z
+date: 2019-07-13 10:23:00 Z
 ---
 
 # Passing parameters
 Parameters are additional information to be used in the recipe in the form of datapills. [Defining parameters](/workbot-for-teams/workbot-triggers.md#defining-parameters) in the Workbot trigger block is vital for the parameters to be passed successfully into the recipe, without which there will be no datapills to be used in the recipe actions.
 
-There are two sources for these parameters - the user and another recipe - and four ways these parameters can be passed into the recipe - line commands, buttons, task modules and pick lists.
+There are two sources for these parameters - the user and another recipe - and four ways these parameters can be passed into the recipe - [line commands](#line-commands), [buttons](#buttons), [task modules](#task-modules) and [pick lists](#pick-lists).
 
 ## Line commands
 If the parameters of the recipe are known beforehand, the user can specify them with the Workbot command after a space, with the format parameter1: value1 parameter2: value2 parameter3: value3, etc. An example can be seen in the top right corner of the screenshot below.
@@ -48,6 +48,7 @@ The following table shows what goes into the button fields:
     </tbody>
 </table>
 &ast;Supports Markdown
+
 
 ![Command name in button](/assets/images/workbot-for-teams/button-command.png)
 *A button can be configured to invoke a Workbot command of another recipe*
@@ -130,6 +131,7 @@ The following table shows what goes into the pick list and choice fields:
     </tbody>
 </table>
 &ast;Supports Markdown
+
 
 ![Choice param recipe](/assets/images/workbot-for-teams/choice-param-recipe.png)
 *The choice parameter will take its value from a choice (if it's chosen)*
