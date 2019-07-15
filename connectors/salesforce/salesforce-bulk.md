@@ -29,14 +29,14 @@ There are 4 main sections/components in these bulk actions.
 
 | Action section                            | Description                                                                                                                                   |
 |-------------------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------|
-| [CSV file input](/connectors/salesforce.md#csv-file-input)                            | Define the schema of the CSV files containing Salesforce bulk load data.                                                                      |
-| [Salesforce object to create/update/upsert](connectors/salesforce.md#salesforce-object-to-createupdateupsert) | Define the Salesforce object to write to, as well as `External ID` for upsert operation. |
-| [CSV to Salesforce field mapping](/connectors/salesforce.md#csv-to-salesforce-field-mapping)           | Describe how the CSV data columns should map into Salesforce object fields.                                                                   |
-| [Advanced configuration](/connectors/salesforce.md#advanced-configuration)                    | Define the size per Salesforce bulk job. Define whether this action should be synchronous or asynchronous.                                    |
+| [CSV file input](connectors/salesforce/salesforce-bulk.md#csv-file-input)                            | Define the schema of the CSV files containing Salesforce bulk load data.                                                                      |
+| [Salesforce object to create/update/upsert](connectors/salesforce/salesforce-bulk.md#salesforce-object-to-createupdateupsert) | Define the Salesforce object to write to, as well as `External ID` for upsert operation. |
+| [CSV to Salesforce field mapping](connectors/salesforce/salesforce-bulk.md#csv-to-salesforce-field-mapping)           | Describe how the CSV data columns should map into Salesforce object fields.                                                                   |
+| [Advanced configuration](connectors/salesforce/salesforce-bulk.md#advanced-configuration)                    | Define the size per Salesforce bulk job. Define whether this action should be synchronous or asynchronous.                                    |
 
 Let's go into each section in detail.
 
-#### CSV file input
+### CSV file input
 In this section, define the schema of the CSV files containing Salesforce bulk load data. This enables Workato to read and extract data from your CSV files and move it into Salesforce accurately. These are the fields to fill in:
 
 ![Salesforce bulk action - unconfigured CSV file input section](/assets/images/salesforce-docs/unconfigured-bulk-action-csv-file-input-section.png)
@@ -89,12 +89,12 @@ This is how the section should look after configuration.
 ![Salesforce bulk upsert action - configured fields mapping section](/assets/images/salesforce-docs/bulk-action-configured-fields-mapping.png)
 *Salesforce bulk upsert action - configured fields mapping section*
 
-#### Advanced configuration
+### Advanced configuration
 In this section, define whether the action should be synchronous or asynchronous. If synchronous, Workato waits for Salesforce to complete the bulk job processing before moving to the next recipe action. If asynchronous, Workato simply uploads the CSV file content into Salesforce and move to the next recipe action without waiting for Salesforce to complete the bulk job processing.
 
 You can also define the size of the CSV file chunk per Salesforce bulk job. This defaults to 10MB.
 
-#### Understanding the output datatree
+## Understanding the output datatree
 The bulk operation's output datatree contains the following.
 
 ![Salesforce bulk operation output datatree](/assets/images/salesforce-docs/bulk-operation-datatree.gif)
