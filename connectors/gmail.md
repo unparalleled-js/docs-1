@@ -19,13 +19,9 @@ Based on Google's updated security policies, Gmail triggers or download attachme
 ## Whitelist Workato Gmail connector
 G Suite administrator must whitelist the Workato Gmail Connector app before connections can be made. The steps to whitelist an app are available in [Google FAQ](https://support.google.com/a/answer/7281227). Specifically in **Step 2. Add an app to the whitelist of trusted apps**, you will need to add the Workato Gmail connector.
 
-1. As a G Suite super-admin, go to **Security → API Permissions → Trusted Apps** (towards the bottom of page).
-
-2. Click on **+** icon at the bottom of the page. A popup titled **Add App To Trusted List** should appear.
-
-3. In this popup, select **Web Application** and add the Workato Gmail Connector’s client ID:
-   ```
-   763335457294-gp4359qrjgu7vl96eit0p2n725197oki.apps.googleusercontent.com
-   ```
-
-4. Finally, click **Add**.
+| Step | Description                                  |
+| ---- | -------------------------------------------- |
+| 1    | As a G Suite super-admin, go to **Security**.<br>![Security](/assets/images/gmail/security.png)<br>Navigate to **API Permissions**.<br>![API permissions](/assets/images/gmail/api-permissions.png) |
+| 2    | Click on to **Trusted Apps** at the bottom of the page<br>![Trusted Apps](/assets/images/gmail/trusted-apps.png) |
+| 3    | Click on **+** icon at the bottom of the page. A popup titled **Add App To Trusted List** should appear.<br>In this popup, select **Web Application** and add the Workato Gmail Connector’s client ID: `763335457294-gp4359qrjgu7vl96eit0p2n725197oki.apps.googleusercontent.com`<br><br>![](/assets/images/gmail/add-app-to-trusted-list.png)|
+| 4    | Finally, click **Add**. |
