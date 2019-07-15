@@ -23,7 +23,7 @@ G Suite administrator must whitelist the Workato Gmail Connector app before conn
 
 2. Click on **+** icon at the bottom of the page. A popup titled **Add App To Trusted List** should appear.
 
-3. In this popup, select **Web Application** and fill the Workato Gmail Connector’s client ID:
+3. In this popup, select **Web Application** and add the Workato Gmail Connector’s client ID:
    ```
    763335457294-gp4359qrjgu7vl96eit0p2n725197oki.apps.googleusercontent.com
    ```
