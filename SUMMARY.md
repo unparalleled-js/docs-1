@@ -537,6 +537,7 @@
     * [OAuth 2.0](/developing-connectors/sdk-2/authentication/oauth2-authentication.md)
     * [Custom Authentication](/developing-connectors/sdk-2/authentication/custom-authentication.md)
     * [Testing your connection](/developing-connectors/sdk-2/authentication/test.md)
+    * [Defining a base URI](/developing-connectors/sdk-2/authentication/base_uri.md)  
     * [On premises connections](/developing-connectors/sdk-2/authentication/secure_connection.md)
   * [Actions](/developing-connectors/sdk-2/action.md)
   * [Triggers](/developing-connectors/sdk-2/trigger.md)

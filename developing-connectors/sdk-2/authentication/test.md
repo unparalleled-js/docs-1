@@ -1,6 +1,5 @@
-# Test
-Test endpoint to ensure that connection is successful. Typically, this should be a request that will always be accessible to any user.
-
+# Testing your connection
+Workato requires you to define a simple test to ensure that connection is successful. Typically, this should be a request that will always be accessible to any user.
 
 ## Sample code snippet
 ```ruby
