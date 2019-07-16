@@ -39,7 +39,7 @@ At the bottom of the list of apps, click the **Trusted Apps** link.
 
 Click Whitelist an App **+** (Add icon) in the bottom right corner. The **Add App To Trusted List** window opens.
 
-![Trusted Apps](/assets/images/gmail/trusted-apps.png)
+![Trusted Apps](/assets/images/gmail/add-app.png)
 *Trusted Apps*
 
 In the Select App Type list, select **Web applications**.
@@ -52,7 +52,7 @@ Fill in the OAuth2 Client ID for the Workato Gmail Connector.
 763335457294-gp4359qrjgu7vl96eit0p2n725197oki.apps.googleusercontent.com
 ```
 
-![Fill in the OAuth2 Client ID](/assets/images/gmail/select-app-type.png)
+![Fill in the OAuth2 Client ID](/assets/images/gmail/add-client-id.png)
 *Fill in the OAuth2 Client ID*
 
 Click **Add** to save the changes.
