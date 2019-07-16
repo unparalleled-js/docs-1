@@ -39,7 +39,7 @@ At the bottom of the list of apps, click the **Trusted Apps** link.
 
 Click Whitelist an App **+** (Add icon) in the bottom right corner. The **Add App To Trusted List** window opens.
 
-![Trusted Apps](/assets/images/gmail/add-app.png)
+![Trusted Apps](/assets/images/gmail/add-trusted-app.png)
 *Trusted Apps*
 
 In the Select App Type list, select **Web applications**.
