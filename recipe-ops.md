@@ -13,7 +13,7 @@ Stopped recipes and failed jobs can have automated responses and notifications t
 - Schedule on-call teams and build escalation policies using Workato recipe logic
 - Flag low transaction counts and notify integration managers
 - Build job history report logs or audit reports in Google Sheets
-- Build recipe reports for an overview of automations, connected apps, etc. in the company
+- Build recipe reports for an overview of automations and connected apps in the company
 
 ## Connection
 You can monitor recipes in your account, or someone else's account (if they have shared API keys).
@@ -22,10 +22,13 @@ When establishing the connection, select from **My account** or **Someone else's
 - For **My account**, no further authentication information is needed
 - For **Someone else's account**, the account email and API key has to be provided
 
-The following shows the different fields required for the available connection options.
+The following shows the fields required for the connection to a different Workato account.
 
-![Establish RecipeOps connection](/assets/images/recipe-ops/establish-workato-admin-connection.gif)
-*Establishing RecipeOps connection*
+![Establish RecipeOps connection with other Workato account](/assets/images/recipe-ops/establish-connection.png)
+*Establishing RecipeOps connection with other Workato account*
+
+![Establish RecipeOps connection with other Workato account](/assets/images/recipe-ops/establish-workato-admin-connection.gif)
+*Establishing RecipeOps connection with other Workato account*
 
 The managed user has to retrieve the API key from their **Account settings > API key**.
 
@@ -37,15 +40,10 @@ The managed user has to retrieve the API key from their **Account settings > API
 ### New failed job trigger
 The **New failed job** trigger is able to monitor all active recipes, or  selected recipes, for failed jobs. This is useful in ensuring that key recipes are monitored and corrective actions, including notifications, can be automated.
 
-When monitoring selected recipes, provide the IDs of recipes to watch.
+When monitoring selected recipes, provide their [recipe IDs](#how-to-find-recipe-id).
 
 ![Specify recipes to monitor for failed jobs](/assets/images/recipe-ops/specify-recipes-to-monitor-failed-jobs.gif)
 *Specify recipes to monitor for failed jobs*
-
-Recipe IDs can be found in the recipe page URL as highlighted below.
-
-![Recipe URL](/assets/images/recipe-ops/recipe-url.png)
-*Recipe IDs can be found in recipe URL*
 
 Similar to the error notification emails, this trigger will trigger only once an hour for the same error type. For example:
 
@@ -56,14 +54,15 @@ Similar to the error notification emails, this trigger will trigger only once an
 ### Recipe stopped by Workato trigger
 Under certain error conditions, Workato will stop an active recipe, e.g. when 60 cumulative authentication errors occur in the trigger. Generally, Workato stops recipes when they encounter non-recoverable errors, i.e. when Workato has attempted to carry out the trigger or action without success for a consecutive number of times.
 
-This trigger allows users to build ‘restart’ logic or other custom escalation policies for key recipes that should not be stopped.
+This trigger allows users to build contingencies for key recipes that should not be stopped. For instance, you can enforce a **restart logic** or setup customer escalation policies to inform key personnel when the recipe has been stopped.
 
-When monitoring selected recipes, provide the IDs of recipes to watch.
+When monitoring selected recipes, provide their [recipe IDs](#how-to-find-recipe-id).
 
 ![Specify recipes to monitor for stopped state](/assets/images/recipe-ops/specify-recipes-to-monitor-stopped-recipes.gif)
 *Specify recipes to monitor whether the recipes are stopped by Workato*
 
-Recipe IDs can be found in the recipe page URL as highlighted below.
+### How to find recipe id
+Track your key recipes with their unique recipe IDs. You can find the recipe ID in URL of the recipe page. 
 
 ![Recipe URL](/assets/images/recipe-ops/recipe-url.png)
 *Recipe IDs can be found in recipe URL*
