@@ -17,7 +17,7 @@ The Gmail connector uses OAuth 2.0 for authentication. When prompted, follow the
 Based on Google's updated security policies, Gmail triggers or download attachment actions can only be used by paid G Suite accounts. These accounts must whitelist Workato's Gmail connector app and grant it read permission before it can successfully use these triggers and actions. The following section will guide you through the required steps.
 
 ## Whitelist Workato Gmail connector
-[Check out](https://support.google.com/a/answer/7281227) Google’s  detailed instructions for managing OAuth based access to connected apps. Below is a step-by-step guide to Whitelist Workato Gmail Connector app for your GSuite account.
+[Check out](https://support.google.com/a/answer/7281227) Google’s detailed instructions for managing OAuth based access to connected apps. Below is a step-by-step guide to Whitelist Workato Gmail Connector app for your GSuite account.
 
 ### Step 1. Login to the Google Admin Console
 You must be signed in as a [super administrator](https://support.google.com/a/answer/2405986#super_admin) to complete the actions listed below.
@@ -57,5 +57,5 @@ Fill in the OAuth2 Client ID for the Workato Gmail Connector.
 
 Click **Add** to save the changes.
 
-![Add to save chnges](/assets/images/gmail/add-app.png)
-*Add to save chnges*
+![Add to save changes](/assets/images/gmail/add-app.png)
+*Add to save changes*
