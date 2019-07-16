@@ -60,7 +60,7 @@ Click **Add** to save the changes.
 ![Add to save changes](/assets/images/gmail/add-app.png)
 *Add to save changes*
 
-Finally, select **Yes** to give Workato permission to read your email content.
+Lastly, set **Read Email Permission** to **Yes** when [setting up the connection](#how-to-connect-to-gmail-on-workato) for Gmail.
 
 ![Select Yes for read email permission](/assets/images/gmail/select-read-email-permission.png)
 *Select Yes for read email permission*
