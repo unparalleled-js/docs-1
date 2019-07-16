@@ -21,10 +21,11 @@ Data pills can be of the following data types
 - [String](/formulas/string-formulas.md)
 - [Integer or number](/formulas/number-formulas.md)
 - [Date or datetime](/formulas/date-formulas.md)
-- Boolean
 - [Array/hash (list)](/formulas/array-list-formulas.md)
+- Boolean <!--- consider removing boolean from this list, as it has oo formulas and supporting pages -->
+<!-- consider adding in "Workato also allows you to work with complex data types" -->
 
-When mapping (i.e. assigning data pill to an input field) it is important that they are 'type' compatible. Workato will do default type conversions where it can be done with no ambioguity or loss of information.
+When mapping (i.e. assigning data pill to an input field) it is important that they are 'type' compatible. Workato will do default type conversions where it can be done with no ambiguity or loss of information.
 
 # Type conversions
 Certain data types can be converted from one to the other using [formulas](/formulas.md). For example, if you wish to convert a text string of numbers into integer type so as to perform arithmetic on it, or if an app expresses a datetime as a string, but you wish to convert it into a proper datetime type.
