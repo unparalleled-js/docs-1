@@ -95,8 +95,22 @@ In the SDK, notice that the `file` key in the payload takes an array of length 2
   </tbody>
 </table>
 
-### Other data Formats
+## Variations
+In some cases, the `file:` key in the payload should be the name of the file and there is no need for the `file_name:` key value pair in the payload. To satisfy this, you can adjust your payload where to this.
+
+```ruby
+execute: lambda do |connection, input|
+  post("https://gateway.watsonplatform.net/document-conversion/api/v1/convert_document").
+    params(version: "2015-12-15").
+    request_format_multipart_form.
+    payload(file: [input['file_data'], 'application/pdf', input['file_name']],
+            config: "{\"conversion_target\":\"#{input['conversion_target']}\"}")
+end
+```
+
+
+## Other data Formats
 Check out the other data formats we support. [Learn more](/developing-connectors/sdk-2/data-format.md)
 
-### Next section
+## Next section
 If you're already familiar with the data formats we support, check out the authentication types that our SDK supports as well as how to implement them. [Learn more](/developing-connectors/sdk-2/authentication.md)

@@ -1,22 +1,9 @@
 # Poll Trigger
 Records (tickets, leads, items etc.) are called events in a poll. A poll trigger constantly executes a poll block for new events at fixed time intervals. This time interval depends on a user's subscription (5 or 10 minutes). At the same time, it is also able to support pagination. This is useful to prevent request timeouts when making requests with large response results. A trigger can execute immediate consecutive polls to retrieve events from successive pages.
 
-There are two types of trigger. The classic trigger type is used by default if `type` is not specified. The other type is called the "paging_desc" trigger, which can be used only for endpoints that provide events sorted in descending order.
+No need to define any type to use the classic trigger. In the example below, we go through how you would create a `Updated ticket` trigger as well as the various components you need to define in the trigger object to create a polling trigger.
 
-> Due to the additional massaging and checking required of a "paging_desc" trigger, we always encourage our user's to create classic triggers whenever possible.
-
-A ruby hash is returned in each poll. This hash should contain a few keys.
-
-1. The array of events, or data, should be passed into the `events` key.
-2. At the same time, a cursor is saved in `next_page`/`next_poll` (depending on the trigger type). This cursor provides information about where the current poll stopped, and used in the next poll.
-3. A classic type trigger has an additional boolean key `can_poll_more`, which can be defined to conditionally fire immediate polls for multi-page results.
-
-Usually, you will need to map outputs from the response to the HTTP request executed in the trigger to `events`, `next_page/next_poll` and `can_poll_more` in the ruby hash. We go through examples on how you would do so for classic and "paging_desc" triggers below.
-
-## Classic Trigger
-No need to define any type to use the classic trigger. In the example below, we go through how you would create a `Updated ticket` trigger as well as the various components you need to define in the trigger object to create a classic polling trigger.
-
-### Sample code snippet
+## Sample code snippet
 ```ruby
 {
   title: 'My Freshdesk connector',
@@ -33,8 +20,6 @@ No need to define any type to use the classic trigger. In the example below, we 
   triggers: {
 
     updated_ticket: {
-      description: "New/updated ticket in Freshdesk",
-
       input_fields: lambda do
         [
           {
@@ -64,8 +49,8 @@ No need to define any type to use the classic trigger. In the example below, we 
         }
       end,
 
-      dedup: lambda do |ticket|
-        ticket['id']
+      dedup: lambda do |event|
+        event['id']
       end,  
 
       output_fields: lambda do |object_definitions|
@@ -85,28 +70,28 @@ No need to define any type to use the classic trigger. In the example below, we 
   }
 }
 ```
-### description
-_____
-Inside each trigger object, you'll be able to define the description text that end users will see. Make sure that it is helpful so that they understand what your trigger should be expected to do.
+Now lets go through the various blocks that are required in every polling trigger.
 
-### input_fields
-____
+## `input_fields:`
 In this object, you can define the input fields that end users will have to fill in to begin running your trigger. Over here, we have defined a single input field called 'since'. You'll be able to add more input fields by adding more hashes into the array.
 
-For each input_fields, you can either manually define them as we have done in this case or you could declare them in object_definitions and reuse these templates in multiple triggers or actions. [Learn more]()
+```ruby
+input_fields: lambda do
+  [
+    {
+      name: 'since',
+      type: :timestamp,
+      optional: false
+    }
+  ]
+end,
+```
 
-### poll
-_____
-#### Arguments
-A poll block is given 3 arguments.
+> While we have kept this example relatively simple, we also offer capabilities to dynamically generate input fields as well as store these input field definitions in `object definitions` to keep your custom connector code DRY.
 
-The first argument is `connection`, used to access inputs from connection field values. This is frequently used to access domain or subdomain information from the user.
+## `poll:`
+This is analogous to the `execute:` block in actions. Over here, we do all the heavy lifting of sending out requests every polling interval and also define the logic of the trigger.
 
-`input` provides access to trigger input field values from the recipe. Inputs like "created_since" a particular date is usually used in a trigger to allow filtering historic records. In this case, Knack does not provide filtering by record created dates, input is given an empty array.
-
-The last argument, usually given the name `last_updated_since` or `last_created_since`, is the cursor "stored" from a previous poll. This is crucial to a good trigger design. It is used to determine where the last poll stopped and where to begin next. As an example, it is usually given the last (latest) "updated"/"created" time. When the trigger is first started, this value is `nil`.
-
-#### Output
 ```ruby
 poll: lambda do |connection, input, last_updated_since|
   page_size = 100
@@ -125,14 +110,28 @@ poll: lambda do |connection, input, last_updated_since|
     next_poll: next_updated_since,
     can_poll_more: tickets.length >= page_size
   }
-end
+end,
+```
+| Argument | Description |
+| -- | ----- |
+| connection | `connection` object, frequently used to access domain or subdomain information from the user. |
+| input | `input` object: Data from trigger input fields. In this example, the input contains the Room ID to receive messages from. |
+| last_updated_since | A cursor "stored" from a previous poll. This is crucial to a good trigger design. It is used to determine where the last poll stopped and where to begin next. As an example, it is usually given the last (latest) "updated"/"created" time. When the trigger is first started, this value is `nil`. |
+
+A ruby hash is returned in each poll. This hash is expected to follow the same structure below.
+```ruby
+  {
+    events: tickets,
+    next_poll: next_updated_since,
+    can_poll_more: tickets.length >= page_size
+  }
 ```
 
-In a classic type trigger, the expected output contains `events`, `next_poll` and `can_poll_more`.
+1. The array of events, or data, should be passed into the `events` key. Each index in the array will be processed as a separate job.
 
-`events` expects an array of individual results to be processed through the recipe as individual events.
+2. At the same time, a cursor is saved in `next_page`/`next_poll` (depending on the trigger type). This cursor provides information about where the current poll stopped, and used in the next poll.
 
-`next_poll` is a cursor that will be passed on to the successive poll (third argument of `poll` block.
+3. A classic type trigger has an additional boolean key `can_poll_more`, which can be defined to conditionally fire immediate polls for multi-page results.
 
 **Important**:
 This trigger type does not have automatic-immediate polling. Immediate polling is determined by `can_poll_more`, which is a boolean value for whether an immediate poll should be made.
@@ -156,26 +155,43 @@ When a get request receives this JSON response, it looks up the array for the la
 
 At the end of the loop. The last (latest) created date is passed as `next_poll`. This value will be used in the next poll cycle to pick up new records.
 
-### dedup
-_____
+## `dedup:`
 The dedup block is used to identify individual events. It is given a single argument "event", which corresponds to individual elements in the records array passed into "events".
 
-A typical dedup input is `event[‘id’]` where the `event` argument name can be replaced to make the code more readable. This should be used only in classic triggers.
 ```ruby
-dedup: lambda do |ticket|
-  ticket["id"]
+dedup: lambda do |event|
+  event["id"]
 end
 ```
-In some instances, a record needs to be proccessed as separate events. A typical scenario is updated records. To do this, append updated timestamp field to the dedup expression like so.
+| Argument | Description |
+| -- | ----- |
+| ticket | A typical dedup input is `event[‘id’]` where the `event` argument name can be replaced to make the code more readable.  |
+
+In some instances, a record needs to be processed as separate events. A typical scenario is updated records. To do this, append updated timestamp field to the dedup expression like so.
 ```ruby
 dedup: lambda do |ticket|
-  ticket["id"] + "@" + ticket["updated_at"]
+  event["id"] + "@" + event["updated_at"]
 end
 ```
 With this, 2 occurence of a record with the same "ID" but with different "updated_at" values will be recorded as separate events.
 
-### sample_output
-This optional block populates the datapills defined in the `output_fields:` block with some sample information for users. It is exposed as grey text next to datapills. Check out [best practices](/developing-connectors/sdk-2/best-practices.md) section on how to use sample_outputs.
+## `output_fields:`
+You can define output_fields in the same way you define input_fields. This time, however, we have used something called object_definitions to define the output schema, where we defined the schema for the `ticket` object once and can continue to reuse this same schema by referencing it in multiple areas in the custom connector code.
+
+```ruby
+output_fields: lambda do |object_definitions|
+  object_definitions["ticket"]
+end
+```
+
+| Argument | Description |
+| -- | ----- |
+| object_definitions | This allows us to access a static or dynamic definition declared in the object_definitions block |
+
+This is something we will cover later on in our [object definitions](/developing-connectors/sdk-2/object-definition.md) section.
+
+## `sample_output:`
+This is an optional block that populates the datapills defined in the `output_fields:` block with some sample information for users. It is exposed as grey text next to datapills. Check out [best practices](/developing-connectors/sdk-2/best-practices.md) section on how to use sample_outputs.
 
 ```ruby
 sample_output: lambda do |_connection, _input|
@@ -191,207 +207,49 @@ end
 ![Sample output](/assets/images/sdk/sample_output_sample.png)
 *Sample outputs make your datapills more usable by giving some context to users.*
 
-### Other optional blocks
+## Other optional blocks
 <table class="unchanged rich-diff-level-one">
   <thead>
     <tr>
         <th width='10%'>Block</th>
-        <th width='45%' >Example</th>        
-        <th width='45%'>Description</th>
+        <th width='20%'>Example</th>        
+        <th width='70%'>Description</th>
     </tr>
   </thead>
   <tbody>
     <tr>
       <td><code>title:</code></td>
       <td><code>title: "This is the title of the action"</code></td>
-      <td>This shows up as the main action name and override the name given to the action block</td>
+      <td>This shows up as the main action/trigger name and override the name given to the action block. This is useful in naming actions and triggers that have special characters<br>
+      <img src="/assets/images/sdk/title.png">
+      </td>
     </tr>
     <tr>
       <td><code>subtitle:</code></td>
       <td><code>subtitle: "This is a subtitle"</code></td>
-      <td>This shows up below the main action name when users are looking at the dropdown of possible actions</td>
+      <td>This shows up below the main action name when users are looking at the dropdown of possible actions<br>
+      <img src="/assets/images/sdk/subtitle.png">
+      </td>
     </tr>
     <tr>
       <td><code>description:</code></td>
       <td><code>description: "This is a description"</code></td>
-      <td>This is what shows up as the summary of an action when looking at the recipe.</td>
+      <td>This is what shows up as the summary of an action when looking at the recipe.<br>
+      <img src="/assets/images/sdk/description.png">
+      </td>
     </tr>
     <tr>
       <td><code>help:</code></td>
       <td><code>help: "This is a help text"</code></td>
-      <td>This shows up as the help hint when users are configuring the action. Use this to detail any important information the user should have</td>
+      <td>This shows up as the help hint when users are configuring the action. Use this to detail any important information the user should have<br>
+      <img src="/assets/images/sdk/help.png">
+      </td>
     </tr>  
   </tbody>
 </table>
 
-## Descending Trigger
-Paging descending triggers should be used when the order of returned objects is known to be in descending order. You will be able to define the field in which the objects returned are sorted later on in the `sort_by` block. Besides the blocks listed below, paging descending triggers can also accept blocks the optional blocks above like `help:`, `subtitle:` and `description:`.
-
-```ruby
-{
-  title: 'My pingdom connector',
-
-  connection: {
-    # Some code here
-  },
-  test: {
-    # Some code here
-  },
-  actions: {
-    # Some code here
-  },
-  triggers: {
-
-    new_alert: {
-      description: "New alert in pingdom",
-      type: :paging_desc,
-
-      input_fields: lambda do
-        [
-          {
-            name: 'since',
-            type: :timestamp,
-            optional: false
-          }
-        ]
-      end,
-
-      poll: lambda do |connection, input, page|
-        limit = 100
-        page ||= 0
-        created_since = (input['since'] || Time.now).to_i
-        offset = (limit * page)
-
-        response = get("https://api.pingdom.com/api/2.0/actions").
-                     params(from: created_since,
-                            limit: limit,
-                            offset: offset)
-
-        {
-          events: response,
-          next_page: (response.length >= limit) ? page + 1 : nil
-        }
-      end,
-
-      document_id: lambda do |response|
-        response['checkid']
-      end,
-
-      sort_by: lambda do |response|
-        response['time']
-      end,
-
-      output_fields: lambda do |object_definitions|
-        object_definitions['alert']
-      end
-    }
-
-   },
-  object_definitions: {
-    # Some code here
-  },
-  picklists: {
-    # Some code here
-  },
-  methods: {
-    # Some code here
-  },
-}
-```
-
-### type
-____
-`type: :paging_desc` - This type should be used only if results are in descending order. A `paging_desc` trigger works by assuming a descending order and continuously poll for all unique records. If the API is unable to return records in descending order, ignore this key to use the classic trigger.
-
-A record of all event IDs (defined in `document_id` ) is recorded for each recipe. Each recipe will "remember" all event IDs that is processed through a trigger.
-
-Based on assumption of order, the trigger can stop the polling cycle once a similar event IDs is observed. This is because further polls will return events "before" and would have already been processed by the trigger. At this point, the trigger stops polling and wait for the new poll cycle for new events. The Workato trigger framework handles deduplication in the background.
-
-### poll
-____
-Poll block is where you define how events are obtained. Typically, a GET request is used to retrieve a list of records to be processed as trigger events.
-
-#### Arguments
-Descending trigger `poll`s have the exact same argument structure. `connection`, `input` and `cursor`. The one difference is that the last argument is usually given the name `page`. In a descending trigger, this argument is usually used to pass the page number instead of record timestamp.
-
-#### Output
-Similar to a classic trigger, the `events` in output here expects an array of results.
-
-```ruby
-poll: lambda do |connection, input, page|
-  limit = 100
-  page ||= 0
-  created_since = (input['since'] || Time.now).to_i
-  offset = (limit * page)
-
-  response = get("https://api.pingdom.com/api/2.0/actions").
-               params(from: created_since,
-                      limit: limit,
-                      offset: offset)
-
-  {
-    events: response,
-    next_page: (response.length >= limit) ? page + 1 : nil
-  }
-end
-```
-
-Instead of `next_poll`, `paging_desc` type trigger should be given `next_page` as cursor. It is used for passing the next page to be polled.
-
-A typical response looks like this.
-
-```ruby
-{
-  "current": "https://api.sample.com/records?order=desc&from=2016-12-09T22%3A57%3A13Z&page=1",
-  "next": "https://api.sample.com/records?order=desc&from=2016-12-09T22%3A57%3A13Z&page=2",
-  "data": [
-    {
-      "checkid": 123,
-      "time": "2016-12-13T19:09:01Z",
-      ...
-    },
-    {
-      "checkid": 124,
-      "time": "2016-12-10T06:20:00Z",
-      ...
-    }
-  ]
-}
-```
-
-`response["data"]` is an array of results from the request, which should be passed to `events`. While it varies between APIs, most will provide some form of pointer to the next page of results. In this example,`response["next"]` is an API generated url to be used to retrieve the next page of results matching the request. Hence we can simply pass it to `next_page`. In the successive poll, this value is passed to the poll block and the next set of records is retrieved.
-
-On the last page, `response["next"]` is usually `null`. In that case, it will cause the successive poll to make the same request as in the first page. When this happens, the trigger framework detects a duplicate event (mechanism for detection explained in detail later) and halts all immediate polls. At this point, the trigger goes to "sleep" until the next poll cycle.
-
-New records being added in the cloud instance will appear in the first page of requests since records are returned in descending order. The trigger picks up new records and processes them until a duplicate event is detected, at which point it "sleeps". This trigger type depends on a descending order to retrieve only "new" records and stops upon detection of "old" records.
-
-This way, the trigger polls for new records efficiently, without making any repeated requests to retrieve the entire set of records in each poll cycle.
-
-### document_id
-____
-Similar to `dedup`, `paging_desc` type triggers uses `document_id` to identify unique records. Write an expression that can uniquely identify the "ID" of records.
-
-```ruby
-document_id: lambda do |event|
-  event["checkid"]
-end
-```
-
-Unlike classic triggers, there is no need to include timestamp fields into the `document_id` expression to deduplicate updated records. Descending triggers have an additional block `sort_by` to process this.
-
-### sort_by
-____
-In addition to `document_id`, this block is used to define the field that is used to sort records (in descending order). It could be "created_at" or "updated_at" or similar fields.
-
-```ruby
-sort_by: lambda do |event|
-  event["time"]
-end
-```
-
-
-### Other trigger types
+## Other trigger types
 Check out the other trigger types we support. [Go back to our list of triggers.](/developing-connectors/sdk-2/trigger.md)
 
-### Next section
+## Next section
 If you're already familiar with the trigger types we support, check out the various types of HTTP requests that our SDK supports as well as how to use them in your `connection:`, `actions:` and `triggers:` blocks. [Go to our HTTP methods documentation](/developing-connectors/sdk-2/http-requests-and-response-handling.md) or check our our [best practices](/developing-connectors/sdk-2/best-practices.md) for some tips on building triggers.

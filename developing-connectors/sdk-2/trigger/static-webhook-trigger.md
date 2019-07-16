@@ -63,13 +63,12 @@ A static webhook trigger is one that requires manual registration. This usually 
 }
 ```
 
-## webhook_keys
+## `webhook_keys:`
 This is a top level key (connnector-wide definition). This code block is called for each webhook notification. This code block should return the key(s) in the webhook notification that will be used to match any running triggers.
 
 In a statically-registered webhook, this will be compared with each recipe that has a trigger running under this connector.
 Those with matching results from their `webhook_key` hook (if any) will be "notified". When that happens, the webhook notification will be translated into trigger events to be processed in each respective recipe.
 
-### webhook_keys Arguments
 | Argument | Description |
 | -- | ----- |
 | params | A hash of all response URL parameters |
@@ -84,14 +83,8 @@ end
 
 In this example, the `webhook_keys` uses the spaceId of the webhook notification. Each webhook event received by this connector will be processed and identified by the spaceId. It is then matched against individual active triggers that have the same `webhook_key` value.
 
-## webhook_key
+## `webhook_key:`
 This code block is used to filter incoming webhook notifications. All webhook notifications that have `key`s matching the one defined here will be translated into trigger events.
-
-### webhook_key Arguments
-| Argument | Description |
-| -- | ----- |
-| connection | `connection` object, frequently used to access domain or subdomain information from the user. |
-| input | `input` object: Data from trigger input fields. In this example, the input contains the Room ID to receive messages from. |
 
 ```ruby
 webhook_key: lambda do |connection, input|
@@ -99,16 +92,15 @@ webhook_key: lambda do |connection, input|
 end
 ```
 
-In this example, the `key` defined here is the spaceId selected by the user from trigger input. When the recipe is started, only webhook notifications with matching spaceId values will be translated into a trigger event.
-
-## webhook_notification
-When the webhook trigger receives a webhook notification, the payload is processed through this block. Here, we can access the desired key that contains the webhook notification data.
-
-### webhook_notification payload
 | Argument | Description |
 | -- | ----- |
+| connection | `connection` object, frequently used to access domain or subdomain information from the user. |
 | input | `input` object: Data from trigger input fields. In this example, the input contains the Room ID to receive messages from. |
-| payload | Original payload from the webhook POST/PUT notification. |
+
+In this example, the `key` defined here is the spaceId selected by the user from trigger input. When the recipe is started, only webhook notifications with matching spaceId values will be translated into a trigger event.
+
+## `webhook_notification:`
+When the webhook trigger receives a webhook notification, the payload is processed through this block. Here, we can access the desired key that contains the webhook notification data.
 
 ```ruby
 webhook_notification: lambda do |input, payload|
@@ -116,8 +108,28 @@ webhook_notification: lambda do |input, payload|
 end
 ```
 
-### sample_output
-This optional block populates the datapills defined in the `output_fields:` block with some sample information for users. It is exposed as grey text next to datapills. Check out [best practices](/developing-connectors/sdk-2/best-practices.md) section on how to use sample_outputs.
+| Argument | Description |
+| -- | ----- |
+| input | `input` object: Data from trigger input fields. In this example, the input contains the Room ID to receive messages from. |
+| payload | Original payload from the webhook POST/PUT notification. |
+
+## `output_fields:`
+You can statically define output_fields in the same way you define input_fields. This time, however, we have used something called object_definitions to define the output schema, where we defined the schema for the `message` object once and can continue to reuse this same schema by referencing it in multiple areas in the custom connector code.
+
+```ruby
+output_fields: lambda do |object_definitions|
+  object_definitions["message"]
+end
+```
+
+| Argument | Description |
+| -- | ----- |
+| object_definitions | This allows us to access a static or dynamic definition declared in the object_definitions block |
+
+This is something we will cover later on in our [object definitions](/developing-connectors/sdk-2/object-definition.md) section.
+
+## `sample_output:`
+This is an optional block that populates the datapills defined in the `output_fields:` block with some sample information for users. It is exposed as grey text next to datapills. Check out [best practices](/developing-connectors/sdk-2/best-practices.md) section on how to use sample_outputs.
 
 ```ruby
 sample_output: lambda do |_connection, _input|
@@ -133,36 +145,49 @@ end
 ![Sample output](/assets/images/sdk/sample_output_sample.png)
 *Sample outputs make your datapills more usable by giving some context to users.*
 
-### Other optional blocks
+## Other optional blocks
 <table class="unchanged rich-diff-level-one">
   <thead>
     <tr>
         <th width='10%'>Block</th>
-        <th width='45%' >Example</th>        
-        <th width='45%'>Description</th>
+        <th width='20%'>Example</th>        
+        <th width='70%'>Description</th>
     </tr>
   </thead>
   <tbody>
     <tr>
+      <td><code>title:</code></td>
+      <td><code>title: "This is the title of the action"</code></td>
+      <td>This shows up as the main action/trigger name and override the name given to the action block. This is useful in naming actions and triggers that have special characters<br>
+      <img src="/assets/images/sdk/title.png">
+      </td>
+    </tr>
+    <tr>
       <td><code>subtitle:</code></td>
       <td><code>subtitle: "This is a subtitle"</code></td>
-      <td>This shows up below the main action name when users are looking at the dropdown of possible actions</td>
+      <td>This shows up below the main action name when users are looking at the dropdown of possible actions<br>
+      <img src="/assets/images/sdk/subtitle.png">
+      </td>
     </tr>
     <tr>
       <td><code>description:</code></td>
       <td><code>description: "This is a description"</code></td>
-      <td>This is what shows up as the summary of an action when looking at the recipe.</td>
+      <td>This is what shows up as the summary of an action when looking at the recipe.<br>
+      <img src="/assets/images/sdk/description.png">
+      </td>
     </tr>
     <tr>
       <td><code>help:</code></td>
       <td><code>help: "This is a help text"</code></td>
-      <td>This shows up as the help hint when users are configuring the action. Use this to detail any important information the user should have</td>
+      <td>This shows up as the help hint when users are configuring the action. Use this to detail any important information the user should have<br>
+      <img src="/assets/images/sdk/help.png">
+      </td>
     </tr>  
   </tbody>
 </table>
 
-### Other trigger types
+## Other trigger types
 Check out the other trigger types we support. [Go back to our list of triggers.](/developing-connectors/sdk-2/trigger.md)
 
-### Next section
+## Next section
 If you're already familiar with the trigger types we support, check out the various types of HTTP requests that our SDK supports as well as how to use them in your `connection:`, `actions:` and `triggers:` blocks. [Go to our HTTP methods documentation](/developing-connectors/sdk-2/http-requests-and-response-handling.md) or check our our [best practices](/developing-connectors/sdk-2/best-practices.md) for some tips on building triggers.

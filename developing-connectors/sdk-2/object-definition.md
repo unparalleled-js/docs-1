@@ -177,6 +177,21 @@ Up until now, our sample code snippets have largely only included the basic para
             <ul>
             </td>
         </tr>
+        <tr>
+            <td>change_on_blur</td>
+            <td>An optional boolean key. When true, config fields and dependent fields only evaluate the value when the user blurs out of the field instead of after every keystroke. This parameter often doesn't need to be configured.
+            </td>
+        </tr>
+        <tr>
+            <td>support_pills</td>
+            <td>An optional boolean key. When true, this field doesn't allow datapills to be mapped to it. This parameter often doesn't need to be configured.
+            </td>
+        </tr>
+        <tr>
+            <td>custom</td>
+            <td>An optional boolean key. When true, a special marker is introduced to indicate to the user that this field is custom. Normally used when dynamically generating object definitions which may contain custom fields.
+            </td>
+        </tr>
     </tbody>
 </table>
 
@@ -299,7 +314,6 @@ Control types are a way for you to declare how input fields are displayed to use
   </tbody>
 </table>
 
-___________
 ## Variations
 
 ### Nested objects
@@ -448,67 +462,5 @@ object_definitions: {
 }
 ```
 
-### Configuration Fields
-Occasionally, input/output fields depend on user input. For example, the fields for an object depends on the chosen object. Here, we introduce `config_fields`. It is an optional key available in both actions and triggers. It is a special type of input field that can be used to generate other dependent input/output fields. We see this in the merge_document action in Webmerge.
-
-#### Sample code snippet
-```ruby
-action: {
-  merge_document: {
-    config_fields: [
-      # this field shows up first in recipe as a picklist of documents to use
-      {
-        name: "document_id",
-        label: "Document",
-        control_type: :select,
-        pick_list: "documents",
-        optional: false
-      }
-    ],
-
-    input_fields: lambda do |object_definition|
-      object_definition["document"]
-    end,
-
-    execute: lambda do |_connection, input|
-      d = input["document_id"].split("|")
-      post(d.last.to_s, input)
-    end,
-
-    output_fields: lambda do |_object_definition|
-      [
-        {
-          name: "success"
-        }
-      ]
-    end
-  }
-}
-```
-
-Since the fields are different for each document, this can be set up such that users first chooses a document (from a pick list of documents available in the instance) which is then used to generate the remaining fields. This part is done by specifying that the "document" object definition is dependent on the value of "document_id" within config_field. Notice that the fields block accepts a second argument `config_fields`. This argument refers to the field(s) you define in `config_fields` in each action/trigger.
-
-```ruby
-object_definition: {
-  document: {
-    fields: lambda do |connection, config_fields|
-      return [] if config_fields.blank?
-      get("https://www.webmerge.me/api/documents/#{config_fields["document_id"]}/fields").
-        map { |field| field.slice("name") }
-    end
-  }
-}
-```
-
-|Argument | Details |
-| -- | -- |
-| connection | The connection object which is created during authentication. You'll be able to reference this in your object definition if needed |
-| config_field | The config_field object which you can reference to pull out user input before executing a request in your object definition.|
-
-While the config_fields is empty, document objects will have no fields (empty array of fields). As soon as config_fields is given a value, a request is made to retrieve the fields present in this document. From a recipe user perspective, the action will appear initially as a single input with a list of documents. After selecting a document, the corresponding set of fields will be generated, to be used in the recipe.
-
-![config_fields schema screenshot](/assets/images/sdk/config_fields_demo.gif)
- *Configuration fields in action*
-
- ### Next section
- The next section goes through some additional concepts related to object definitions which we call picklists. Pick lists allow you to declare dropdowns for your users instead of have to enter text. [Go to our picklist documentation](/developing-connectors/sdk-2/pick-list.md) or check our our [best practices](/developing-connectors/sdk-2/best-practices.md) for some tips on how to use object definitions.
+### Next section
+The next section goes through some additional concepts related to object definitions which we call picklists. Pick lists allow you to declare dropdowns for your users instead of have to enter text. [Go to our picklist documentation](/developing-connectors/sdk-2/pick-list.md) or check our our [best practices](/developing-connectors/sdk-2/best-practices.md) for some tips on how to use object definitions.

@@ -86,7 +86,7 @@ Now lets go through what happens when we run the `post_message` action that we j
 
 ### Request headers
 Since no data format was declared in our action, Workato defaults to JSON and assigns `Content-Type` to `application/json`. This tells the API we sent the request to that our request body is in a JSON data format.
-```
+```curl
 POST https://api.ciscospark.com/v1/messages
 Accept  application/json
 Content-Type  application/json
@@ -95,7 +95,7 @@ Authorization Bearer ---
 
 ### Request body:
 This request body is generated based on the user's input and transformed into a JSON format by Workato. This request body corresponds to a user's input for the `roomId` field being `1234` and `text` field being `testing`.
-```
+```json
 {
   "roomId":"1234",
   "text":"testing"
@@ -114,7 +114,7 @@ This is similar to request headers and contains metadata about the response body
 
 ### Response body:
 The response body is where the API sends the most of information in response to your request.
-```
+```json
 {
   "id":"1",
   "roomId":"1234",
