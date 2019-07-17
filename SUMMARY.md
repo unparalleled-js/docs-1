@@ -280,6 +280,7 @@
     * [Upload file contents action](connectors/dropbox/action-upload-file-contents.md)
   * [Freshdesk](connectors/freshdesk.md)
     * [Connection setup](connectors/freshdesk.md#how-to-connect-to-freshdesk-on-workato)
+  * [Gmail](connectors/gmail.md)
   * [Google Drive](connectors/google-drive.md)
     * [Connection setup](connectors/google-drive.md#how-to-connect-to-google-drive-on-workato)
     * [New file or folder trigger](connectors/google-drive/trigger-new-file.md)
