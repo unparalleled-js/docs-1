@@ -19,9 +19,6 @@ Some examples of text files commonly worked with:
 - Documents: txt, rtf
 - Web standards: html, [XML], [JSON] 
 - :
-- [CSV]
-- [JSON]
-- [XML]
 - [SOAP]
 - [YAML]
 

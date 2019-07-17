@@ -1,9 +1,9 @@
 ---
-title: Binary files
+title: Handing binary files
 date: 2019-07-16 18:00:00 Z
 ---
 
-# Binary file
+# Handing binary file
 Binary files are files that are in a non-text format. It uses a more complex storage configuration and is not written in a human-readable language. Workato allows you to sync such files across your business systems with recipes.
 
 Workato has 2 approaches for moving files across apps, it works the same for text or binary files. 
@@ -11,7 +11,7 @@ Workato has 2 approaches for moving files across apps, it works the same for tex
 1) [Moving files via public URL](#moving-files-via-public-url)
 Obtain a public URL for the specified file and pass it to the destination app. This moves the file as-is to the destination app and does not move through Workato. The URL will have to be publicly accessible for the duration of the job. 
 
-2) [Moving files via file content](#moving-files-via-file-content)
+2) [Moving files via download](#moving-files-via-file-content)
 Download the file content to Workato and subsequently upload it to the destination app. This approach allows you read and perform transformations on the file data (See [variables] for an example of how to do so). 
 
 However, it is **not** advisable to use this approach for very large files as it may slow down the processing speed of the job.
@@ -34,6 +34,8 @@ The recipe retrieves the public URl from the **New file** trigger. Next, it chec
 This is a 2-step process:
 1. Download the file content of the file to move. 
 2. Pass in this public URL to the destination app. 
+
+You can use the **Files by Workato** connector to achieve this. This is a native application tha
 
 Here is an example of how to move a attachment from gmail to Box. See the sample recipe [here](https://www.workato.com/recipes/485773).
 

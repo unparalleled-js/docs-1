@@ -3,7 +3,7 @@ title: Handling CSV files
 date: 2017-03-07 22:00:00 Z
 ---
 
-# CSV by Workato
+# Handing CSV files
 A Comma-separated values (CSV) files is a text file that stores tabular data. It stores the data in a human-readable plain text format. 
 
 On Workato, you can work with CSV files with the **CSV by Workato** connector. **CSV by Workato** is a native application that allows you to work with CSV files with [parse] and [compose] actions.
@@ -67,5 +67,5 @@ The output of a external parser will be the same as the output for **CSV by Work
 
 The columns defined in the **Box new CSV file** trigger shows up as usable variables in the output datatree. These variables can be used to map into subsequent recipe steps.
 
-![Using the varaibles defined in the Box trigger](/assets/images/features/handling-csv-files/use-defined-csv-variables.png)
+![Using the variables defined in the Box trigger](/assets/images/features/handling-csv-files/use-defined-csv-variables.png)
 *Using the variables defined in the Box trigger*
