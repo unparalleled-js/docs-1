@@ -23,8 +23,12 @@ Support has been added for the Company object in Hubspot with the following trig
 
 **Actions:**
 - Create company
-- Get company details by ID
 - Update company
+- Get company details by ID
+- Search companies by domain name
+
+#### HubSpot Additional OAuth Scopes 
+Support has been added for users to select multiple OAuth scopes when establishing a connection with our HubSpot connector. This will allow you to build custom actions for HubSpot APIs beyond the scope of Contacts, Deals, Engagements and Companies.
 
 
 ## Connector update: Wrike
