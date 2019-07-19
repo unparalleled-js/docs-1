@@ -130,6 +130,7 @@ $ sudo mv workato-agent /opt/workato
 
 13) Optional - add systemd service
 ```bash
+$ sudo touch /etc/sysconfig/workato
 $ sudo cat > /lib/systemd/system/workato.service <<EOF
 # Systemd unit file for default Workato On-Premise Agent
 # 
@@ -142,10 +143,9 @@ After=syslog.target network.target
 
 [Service]
 Type=simple
-Environment="NAME="
 EnvironmentFile=/etc/sysconfig/workato
 WorkingDirectory=/opt/workato
-ExecStart=/usr/bin/java -Djava.security.egd=file:/dev/urandom -cp "/opt/workato/lib/*" com.workato.agent.Main
+ExecStart=/opt/workato/jre/bin/java -Djava.security.egd=file:/dev/urandom -cp "/opt/workato/lib/*" com.workato.agent.Main
 User=workato
 
 [Install]
