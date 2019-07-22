@@ -96,7 +96,9 @@ In the SDK, notice that the `file` key in the payload takes an array of length 2
 </table>
 
 ## Variations
-In some cases, the `file:` key in the payload should be the name of the file and there is no need for the `file_name:` key value pair in the payload. To satisfy this, you can adjust your payload where to this.
+In some cases, the name of the file must be explicitly stated in the multipart form as part of the file payload, instead of a separate key-value pair, like the previous example. To satisfy this, you can adjust your payload to this.
+
+> Note: this file name is different from the payload key (`file:`)
 
 ```ruby
 execute: lambda do |connection, input|
