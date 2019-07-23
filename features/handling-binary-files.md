@@ -6,20 +6,20 @@ date: 2019-07-16 18:00:00 Z
 # Handing binary file
 Binary files are files that are in a non-text format. It uses a more complex storage configuration and is not written in a human-readable language. Workato allows you to sync such files across your business systems with recipes.
 
-Workato has 2 approaches for moving files across apps, it works the same for text or binary files. 
+Workato has 2 approaches for moving files across apps, it works the same for text or binary files.
 
 1) [Moving files via public URL](#moving-files-via-public-url)
-Obtain a public URL for the specified file and pass it to the destination app. This moves the file as-is to the destination app and does not move through Workato. The URL will have to be publicly accessible for the duration of the job. 
+Obtain a public URL for the specified file and pass it to the destination app. This moves the file as-is to the destination app and does not move through Workato. The URL will have to be publicly accessible for the duration of the job.
 
 2) [Moving files via download](#moving-files-via-file-content)
-Download the file content to Workato and subsequently upload it to the destination app. This approach allows you read and perform transformations on the file data (See [variables] for an example of how to do so). 
+Download the file content to Workato and subsequently upload it to the destination app. This approach allows you read and perform transformations on the file data (See [variables] for an example of how to do so).
 
 However, it is **not** advisable to use this approach for very large files as it may slow down the processing speed of the job.
 
 ## Moving files via public URL
 This is a 2-step process:
-1. Get the public URL of the file to move. 
-2. Pass this public URL to the destination app. 
+1. Get the public URL of the file to move.
+2. Pass this public URL to the destination app.
 
 Here is an example of how to move a file from Dropbox to Box. See the sample recipe [here](https://www.workato.com/recipes/485735).
 
@@ -32,8 +32,8 @@ The recipe retrieves the public URl from the **New file** trigger. Next, it chec
 
 ## Moving files via file content
 This is a 2-step process:
-1. Download the file content of the file to move. 
-2. Pass in this public URL to the destination app. 
+1. Download the file content of the file to move.
+2. Load the file to the target system.
 
 You can use the **Files by Workato** connector to achieve this. This is a native application tha
 
@@ -49,7 +49,7 @@ The `For each` is a repeat actions that recyles the download/upload steps for ev
 > In this case, file content is used as Gmail does not provide public URLs to attachments. Wherever possible, [moving of files via URLs](#moving-tfiles-via-public-url) is preferred for recipe efficiency.
 
 ## Download file content from public URL
-In cases where the file source app provides only a public URL to the file, but the destination app requires the actual file content, use **Files by Workato** to facilitate the download. This native connector has a **Download file from URL** action that will retrieves file content from a given public URL. 
+In cases where the file source app provides only a public URL to the file, but the destination app requires the actual file content, use **Files by Workato** to facilitate the download. This native connector has a **Download file from URL** action that will retrieves file content from a given public URL.
 
 Let's take the scenario where new files created in a shared Box folder needs to be uploaded and associated with a Salesforce account. This is how the recipe looks.
 
