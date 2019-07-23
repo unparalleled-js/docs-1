@@ -24,9 +24,9 @@ The SAP Concur connector authenticates with OAuth2 protocol. It uses the authori
       <td>Give this connection a unique name that identifies which SAP Concur instance it is connected to.</td>
     </tr>
     <tr>
-      <td>Sandbox</td>
+      <td>Implementation instance</td>
       <td>
-        Select <b>Yes</b> to collect to a Concur sandbox instance.<br>
+        Select <b>Yes</b> to connect to a Concur implementation server.<br>
         For existing connections, this is left blank and defaults to <b>No</b>.
       </td>
     </tr>
@@ -34,35 +34,35 @@ The SAP Concur connector authenticates with OAuth2 protocol. It uses the authori
       <td>Username</td>
       <td>
         Username or user ID to authenticate the password grant.<br>
-        Only required if using connecting to a sandbox instance.
+        Only required if using connecting to an implementation instance.
       </td>
     </tr>
     <tr>
       <td>Password</td>
       <td>
         Password to authenticate the password grant.<br>
-        Only required if using connecting to a sandbox instance.
+        Only required if using connecting to an implementation instance.
       </td>
     </tr>
     <tr>
       <td>Location</td>
       <td>
         Select the location of your Concur implementation server.<br>
-        Only required if using connecting to a sandbox instance.
+        Only required if using connecting to an implementation instance.
       </td>
     </tr>
     <tr>
       <td>Client ID</td>
       <td>
         Client ID of your implementation application.<br>
-        Only required if using connecting to a sandbox instance.
+        Only required if using connecting to an implementation instance.
       </td>
     </tr>
     <tr>
       <td>Client secret</td>
       <td>
         Client secret of your implementation application.<br>
-        Only required if using connecting to a sandbox instance.
+        Only required if using connecting to an implementation instance.
       </td>
     </tr>
   </tbody>
