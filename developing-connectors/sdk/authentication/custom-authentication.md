@@ -59,7 +59,7 @@ connection: {
 
 ## acquire
 
-Context is same as an action's execute block. You can write the require code here to acquire and store relevant credentials data to be used in the `apply` block.
+Context is same as an action's execute block. You can write the required code here to acquire and store relevant credentials data to be used in the `apply` block.
 ```ruby
 acquire: lambda do |connection|
   {

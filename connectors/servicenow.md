@@ -7,7 +7,7 @@ date: 2017-02-16 06:15:00 Z
 [ServiceNow](https://www.servicenow.com/) is a cloud software solution that offers a comprehensive suite of IT management software in the areas of IT service, IT operations, and IT business.
 
 ## API version
-The ServiceNow connector uses [ServiceNow REST API V1](http://wiki.servicenow.com/index.php?title=REST_API#ServiceNow_REST_API_Resources).
+The ServiceNow connector uses [ServiceNow REST API V2](http://wiki.servicenow.com/index.php?title=REST_API#ServiceNow_REST_API_Resources).
 
 ## Supported editions and versions
 The ServiceNow connector works with ServiceNow and ServiceNow Express editions.

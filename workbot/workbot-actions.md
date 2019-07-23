@@ -6,11 +6,12 @@ date: 2017-03-30 05:00:00 Z
 # Workato actions for Slack
 Workbot actions allow Workbot to post notifications into a specified channel when there are events to take note of, or respond to a command.
 
-Workbot supports 3 actions:
+Workbot supports 5 actions:
 * [Post command reply](#post-command-reply)
 * [Post notifications](#post-notifications)
 * [Post messages](#post-messages)
 * [Download attachment](#download-attachment)
+* [Return menu options](#return-menu-options)
 
 ## Post command reply
 Post command reply allows you to customize how Workbot replies when an event is completed. This reply can be a simple message about the task completion, or a prompt for the user to take a subsequent action once the first has been done, e.g. after retrieving data for a custom account in Salesforce, ask if the user wishes to copy that information across to another application.
@@ -190,3 +191,45 @@ The fields available are simillar to that of the **Post command reply** action, 
 
 ## Download attachment
 This action allows you to download attachments from Slack, received as input to [**New command** trigger](workbot-triggers.md#new-commands-building-custom-commands). Make sure command parameter for uploaded content has type *file*, e.g. `attachment type:file`. Pass file URL from **New command** output into the **URL** field to get attachment content. Then you may further pass this file content to Dropbox, Box or other connectors to upload them as files.
+
+## Return menu options
+This action allows you to dynamically generate menu options, then return them to a dynamic menu in a Slack dialog.
+
+For Workbot command recipes that invoke dialogs, a `select` field can be defined with dynamic menu options.
+
+![Dynamic menu](/assets/images/workbot/workbot-trigger/dynamic-menu.png/)
+*A Workbot command recipe with dynamic menu options*
+
+After retrieving a list of records from another app (e.g. Salesforce), you can return them back to the dynamic menu by using the **Return menu options** action.
+
+![Return menu options recipe](/assets/images/workbot/workbot-actions/return-menu-options-recipe.png)
+*Retrieving Salesforce opportunities before returning them as menu options back to the Slack dialog with the dynamic menu*
+
+Hence, this action should always be paired with a [New dynamic menu event](/workbot/workbot-triggers.md#new-dynamic-menu-event/) trigger.
+
+### Input
+By default, you can specify a static list of menu options by adding menu options 1-by-1.
+
+![Add static menu option](/assets/images/workbot/workbot-actions/add-static-menu-option.gif)
+*Adding static menu options 1-by-1*
+
+However, you can create a dynamic list by changing the input mode to dynamic. Simply pass a list datapill from the ouput of a previous action step.
+
+![Static to dynamic menu options](/assets/images/workbot/workbot-actions/switching-from-static-to-dynamic.gif)
+*Configuring dynamic menu options*
+
+Returned menu options are in an ungrouped list by default.
+
+![Ungrouped options in the recipe](/assets/images/workbot/workbot-actions/ungrouped-options-recipe.png)
+*Ungrouped options in recipe*
+
+![Ungrouped options](/assets/images/workbot/workbot-actions/ungrouped-options-slack.png)
+*Ungrouped options in Slack*
+
+When returning menu options, you can group menu options together by setting **Group menu options?** to **Yes**. This will require you to specify **Title of group** for each group you add.
+
+![Grouped options in the recipe](/assets/images/workbot/workbot-actions/grouped-options-recipe.png)
+*Groups options look in recipe*
+
+![Grouped options](/assets/images/workbot/workbot-actions/grouped-options.png)
+*Grouped options in Slack*

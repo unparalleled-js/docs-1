@@ -83,26 +83,26 @@ In some cases, the secure network is a Linux environment where you cannot set up
 
 4) When downloading the agent, select the Linux operating system to download the right agent installer.
 
-![On-premises option](/assets/images/on-prem/mac-os.png)
+![On-premises option](/assets/images/on-prem/linux-os.png)
 
 5) Securely copy Agent package file to secure server
 ```bash
-$ scp -i /Users/eeshan/Projects/my_key.pem /Users/eeshan/Downloads/workato-agent-linux-x64-2.4.8.tar.gz ec2-user@ec2-3-91-231-221.compute-1.amazonaws.com:~/
+$ scp -i ~/my_key.pem ~/Downloads/workato-agent-linux-x64-*.tar.gz ec2-user@ec2-XXX-XXX-XXX-XXX.compute-1.amazonaws.com:~/
 ```
 
 6) Copy agent keys to secure server
 ```bash
-$ scp -i /Users/eeshan/Projects/mey_key.pem /Users/eeshan/Downloads/cert.zip ec2-user@ec2-3-91-231-221.compute-1.amazonaws.com:~/
+$ scp -i ~/my_key.pem ~/Downloads/cert.zip ec2-user@ec2-XXX-XXX-XXX-XXX.compute-1.amazonaws.com:~/
 ```
 
 7) Connect to secure server (Example: using SSH)
 ```bash
-$ ssh -i /Users/eeshan/Projects/my_key.pem ec2-user@ec2-3-91-231-221.compute-1.amazonaws.com
+$ ssh -i ~/my_key.pem ec2-user@ec2-XXX-XXX-XXX-XXX.compute-1.amazonaws.com
 ```
 
 8) Unpack agent package file. Provide a meaningful name for the agent directory. (Defaults to `workato-agent`)
 ```bash
-$ tar xvzf workato-agent-linux-x64-2.4.8.tar.gz
+$ tar xvzf workato-agent-linux-x64-X.X.X.tar.gz
 ```
 
 9) Unzip agent keys
@@ -118,7 +118,45 @@ $ mv cert.pem workato-agent/conf/
 
 11) Optional - move Workato agent to a desired directory in your secure server.
 ```bash
-$ mv workato-agent integration/workato/
+$ sudo mv workato-agent /opt/workato
 ```
 
-12) You will now need to configure your agent by [creating connection profiles](/on-prem/profile.md).
+12) Optional - create non-priviledged user for systemd to run OPA 
+
+```bash
+# groupadd -r workato
+# useradd -c "Workato On-Premise Agent" -g workato -s /sbin/nologin -r -d /opt/workato workato
+```
+
+13) Optional - add systemd service
+```bash
+$ sudo touch /etc/sysconfig/workato
+$ sudo cat > /lib/systemd/system/workato.service <<EOF
+# Systemd unit file for default Workato On-Premise Agent
+# 
+# To create clones of this service:
+# DO NOTHING, use workato@.service instead.
+
+[Unit]
+Description=Workato On-Premise Agent
+After=syslog.target network.target
+
+[Service]
+Type=simple
+EnvironmentFile=/etc/sysconfig/workato
+WorkingDirectory=/opt/workato
+ExecStart=/opt/workato/jre/bin/java -Djava.security.egd=file:/dev/urandom -cp "/opt/workato/lib/*" com.workato.agent.Main
+User=workato
+
+[Install]
+WantedBy=multi-user.target
+EOF
+```
+
+14) Launch OPA and set it to autostart
+```bash
+# systemctl start workato
+# systemctl enable workato
+```
+
+15) You will now need to configure your agent by [creating connection profiles](/on-prem/profile.md).

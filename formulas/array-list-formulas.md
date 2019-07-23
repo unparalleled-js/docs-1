@@ -344,6 +344,16 @@ Results will be expressed as a list of hashes:
 ]
 ```
 
+### except
+Returns a hash that includes everything except given keys.
+
+```ruby
+hash = { a: true, b: false, c: nil }
+hash.except(:c)     # => { a: true, b: false }
+hash.except(:a, :b) # => { c: nil }
+hash                # => { a: true, b: false, c: nil }
+```
+
 ---
 
 ## pluck
