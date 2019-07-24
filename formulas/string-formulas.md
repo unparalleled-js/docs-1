@@ -488,9 +488,11 @@ Formats integers/numbers to a currency-style.
 
 A comma-separated combination of these may be used to achieve the desired currency format. For example:
 
-```"12345.678".to_currency(delimiter: ".", format: "%n %u", precision: 2, separator: ",", unit: "€")```
+```ruby
+"12345.678".to_currency(delimiter: ".", format: "%n %u", precision: 2, separator: ",", unit: "€")
+```
 
-will yield: "12.345,68 €".
+will yield: `"12.345,68 €"`.
 
 ---
 
