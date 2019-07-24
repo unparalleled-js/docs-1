@@ -9,7 +9,65 @@ date: 2018-06-05 21:45:00 Z
 Our engineers are hard at work daily to make Workato better! View the latest updates to our platform below.
 
 
-### Platform security: Just-in-Time provisioning now supports custom roles
+## Connector update: Hubspot
+###### Jul 20, 2019
+
+Check out our [last update](#major-connector-update-hubspot) on Hubspot for more information on the latest major Hubspot connector enhancement.
+
+#### HubSpot Companies API Support
+Support has been added for the Company object in Hubspot with the following triggers/actions:
+
+**Triggers:**
+- New company
+- New/updated company
+
+**Actions:**
+- Create company
+- Update company
+- Get company details by ID
+- Search companies by domain name
+
+#### HubSpot Additional OAuth Scopes 
+Support has been added for users to select multiple OAuth scopes when establishing a connection with our HubSpot connector. This will allow you to build custom actions for HubSpot APIs beyond the scope of Contacts, Deals, Engagements and Companies.
+
+
+## Connector update: Wrike
+###### Jul 17, 2019
+
+#### Custom fields selector on triggers and actions
+The custom field selector has been added to the Wrike connector's triggers and actions. This field selector is usually implemented on applications that usually have many customer-defined custom fields (eg. Salesforce, Quickbase).
+
+The Fields list input field allows users to select the fields they wish to use in the recipe. This ensures that the recipe will be affected only by changes to these subset of fields, and therefore minimize impact on the recipe due to schema changes. Some benefits include:
+
+- Improved recipe performance
+- Improved recipe usability due to smaller datatree with only relevant datapills
+- Minimizes impact on recipe by Salesforce object schema changes
+
+
+## Connector update: Marketo
+###### Jul 06, 2019
+
+#### Marketo upsert leads in batches
+The Marketo connector has been enhanced with a new action: Upsert lead (Batch). By utilizing bulk APIs to sync large amounts of data, fewer jobs are needed and fewer API calls to move the same amount of data. As a result, recipe run time often decreases.
+
+The action accepts a list of 300 leads at maximum.
+
+
+## Major connector update: Hubspot
+###### Jun 30, 2019
+
+
+#### Update details
+The Hubspot connector has been updated to support [new triggers, actions and custom fields](https://www.workato.com/integrations/hubspot).
+
+The new set of triggers and actions enables automation of marketing workflows for campaign management, email list generation, lead enrichment, lead tracking, customer onboarding, partner onboarding, and more. They enable Hubspot customers to build custom workflows, connect to on-prem apps/databases, and perform bulk operations e.g. syncing millions of contacts with Salesforce or Mailchimp.
+
+#### Resources
+- [Connector Overview](https://www.workato.com/integrations/hubspot)
+- [Popular Automations](https://www.workato.com/recipes/browse?q=hubspot)
+
+
+## Platform security: Just-in-Time provisioning now supports custom roles
 ###### Jun 23, 2019
 
 #### What is Just-in-time provisioning
@@ -40,15 +98,17 @@ This eliminates the need to manually provision user accounts in advance. For exa
 - [Documentation](https://docs.workato.com/user-accounts-and-teams/team-collaboration.html#saml-just-in-time-provisioning)
 ___
 
-### Platform security: Two-factor authentication
+## Platform security: Two-factor authentication
 ###### Jun 12, 2019
 
 #### What is Two-Factor Authentication (2FA)
-2FA is an extra layer of security used to make sure that people trying to gain access to an online account are who they say they are. First, a user will enter their username and a password. Then, instead of immediately gaining access, they will be required to provide another piece of information. This second factor could come from one of the following categories:
+Two-Factor Authentication is an extra layer of security used to make sure that people trying to gain access to an online account are who they say they are. First, a user will enter their username and a password. Then, instead of immediately gaining access, they will be required to provide another piece of information. This second factor could come from one of the following categories:
 
 1. **Something you know:** This could be a personal identification number (PIN), a password, answers to “secret questions” or a specific keystroke pattern
 2. **Something you have:** Typically, a user would have something in their possession, like a credit card, a smartphone, or a small hardware token
 3. **Something you are:** This category is a little more advanced, and might include biometric pattern of a fingerprint, an iris scan, or a voice print
+
+**Source**: https://authy.com/what-is-2fa/
 
 #### For Whom
 - Available for all plans
@@ -72,7 +132,7 @@ Workato's two-factor authentication uses a software generated time-based, one-ti
 
 ___
 
-### Connector update: Zendesk Sunshine
+## Connector update: Zendesk Sunshine
 ###### Jun 03, 2019
 
 #### Introduction to Zendesk Sunshine
@@ -101,7 +161,7 @@ Workato is the first, and currently the only integration platform to support Zen
 
 ___
 
-### Webhooks wizard
+## Webhooks wizard
 ###### Jun 03, 2019
 
 #### Background: Why webhooks?
@@ -133,7 +193,7 @@ Lastly, it is difficult to verify that a webhook trigger is configured correctly
 
 ___
 
-### New connector: Airtable
+## New connector: Airtable
 ###### May 26, 2019
 
 #### For Whom
@@ -158,7 +218,7 @@ The Airtable Connector provides:
 
 ___
 
-### New connector: Coupa
+## New connector: Coupa
 ###### May 19, 2019
 
 #### For Whom
@@ -195,7 +255,7 @@ The Coupa Connector provides:
 
 ___
 
-### API Platform with JWT authentication
+## API Platform with JWT authentication
 ###### May 12, 2019
 
 #### For Whom
@@ -234,7 +294,7 @@ API platform provides the following:
 
 ___
 
-### Automation Dashboard And Job History Search
+## Automation Dashboard And Job History Search
 ###### May 05, 2019
 
 #### For Whom
@@ -273,7 +333,7 @@ For other iPaaS vendors:
 
 ___
 
-### Recipe Lifecycle Management automation with Manifests and APIs
+## Recipe Lifecycle Management automation with Manifests and APIs
 ###### Apr 28, 2019
 
 #### For Whom
