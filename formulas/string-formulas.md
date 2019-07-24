@@ -480,11 +480,12 @@ Formats integers/numbers to a currency-style.
 | ------------------| ------------- | -------- |
 | "345.60".to_currency                | Adds default currency symbol "$" | "$345.60"  |
 | "345.60".to_currency(unit: "€") | Changes the default currency unit | "€345.60" |
-| "345.60".to_currency(format: "%n %u") | Changes the position of the number relative to the unit (where the number is represented by `%n` and the currency unit is represented by `%u`). Accepts 0 or 1 spaces in between. | "345.60 $" |
+| "345.60".to_currency(format: "%n %u") | Changes the position of the number relative to the unit (where the number is represented by `%n` and the currency unit is represented by `%u`). Accepts 0 or 1 spaces in between. Defaults to `"%u%n"`. | "345.60 $" |
+| "-345.60".to_currency(negative_format: "(%u%n)") | Specifies the format when the number is negative (where the number is represented by `%n` and the currency unit is represented by `%u`). | "($345.60)" |
 | "345.678".to_currency               | Precision defaults to 2 decimal places | "$345.68"  |
 | "345.678".to_currency(precision: 3) | Change the precision by specifying the number of decimal places | "$345.678" |
-| "345.678".to_currency(separator: ",") | Change the **decimal separator** from "." to ","  |  "$345,68" |  
-| "12345.678".to_currency(delimiter: ".") | Change the **thousands separator** from "," to "."| ""$12.345.68"|
+| "345.678".to_currency(separator: ",") | Specify the **decimal separator** as ".", "," or " ". Defaults to ".". |  "$345,68" |  
+| "12345.678".to_currency(delimiter: ".") | Specify the **thousands separator** as ",", "." or " ". Defaults to ",".| ""$12.345.68"|
 
 A comma-separated combination of these may be used to achieve the desired currency format. For example:
 
