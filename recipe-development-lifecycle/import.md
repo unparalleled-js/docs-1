@@ -9,7 +9,11 @@ To import recipes and dependencies into a Workato instance, you will need a pack
 
 ## Import process
 
-After exporting a package as a zip file, import the file into another Workato instance. From the main recipe development lifecycle page, click on the ‘Import’ tab to begin.
+Navigate to the main recipe development lifecycle page.
+
+![RLM in tools gif](/assets/images/features/packages/navigate-to-recipelifecycle.gif)
+
+From the recipe development lifecycle page, click on the ‘Import’ tab to begin.
 
 > :loudspeaker: If you had import logs before the UX update on {date}, all imports that were done will be logged in auto-created import target folders depending on the target folder.
 
