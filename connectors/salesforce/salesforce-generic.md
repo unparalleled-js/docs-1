@@ -63,10 +63,18 @@ All data fields of your selected base and related join objects will be available
 
 By limiting the datatree to the fields we're interested in using, we mitigate the effects of Salesforce schema changes on our recipe.
 
+## Deleted record trigger in Salesforce
+The deleted record trigger allows you to trigger a recipe when a record is deleted. The object picklist fetches only soft-deleted records which are still stored in Salesforce (usually for 15 days) after deletion.
+
+If you cannot find the object you need in the picklist, this may mean that the records for the object are hard deleted immediately when you delete them - Salesforce does not store them in the recycle bin. These objects cannot be supported by the Deleted object trigger.
+
+To try and resolve the issue, configure the object to have records be soft deleted (and placed on a deleted item list/Recycle Bin for 15 days), depending on the record setup. Note that junction records (records that create many-to-many relationships between objects) are usually hard deleted and cannot be configured for soft-deletion. Check with your Salesforce administrator if more information is needed regarding soft/hard deletions.
+
 ### Create/update/search/upsert actions in Salesforce
 When working with Salesforce Actions on Workato, you should find it extremely easy if you are familiar with the fields in the objects on your Salesforce account.
 
 When you select an object to use in a create/update/search action, you will see all the fields associated with that object appearing in your action. For example, if you were to choose **Lead** you will see fields like phone, email, lead status etc. Simply drag and drop pills into the associated fields you want to populate in a create/update action, or for the field you want to search with in the search action.
+
 
 ## Attachments in Salesforce
 
