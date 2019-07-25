@@ -7,7 +7,7 @@ search:
 
 # Callable Recipes - New call for recipe trigger
 
-This trigger creates a job whenever it is called, in real-time. It can be called from [another recipe](call-recipe-action.md) or from another system as a [API Platform REST endpoint](/api-mgmt.md).
+This trigger creates a job whenever it is called, in real-time. It can be called from [another recipe](call-recipe-action.md) or from another system as a [API Platform REST endpoint](/api-management.md).
 
 > API Platform must be enabled for your account before a callable recipe can be exposed as a REST endpoint. Check the [Pricing and Plans](https://www.workato.com/pricing?audience=general) page to find out more.
 

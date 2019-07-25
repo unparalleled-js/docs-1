@@ -19,7 +19,7 @@ Workato's API Platform allows a Workato user to control and monitor access to AP
 
 # Concepts
 ## Endpoints
-An endpoint is a single callable REST interface. It has an associated public URL. Calls to the URL initiate a recipe that has a Callable Action as a trigger.
+An endpoint is a single callable REST interface. It has an associated public URL. Calls to the URL initiate a recipe that has a [Callable Recipe trigger](/features/callable-recipes/new-call-trigger.md).
 
 ## API Collections
 Endpoints are organized into API Collections. An API Collection is a set of Endpoints that can be managed together.
