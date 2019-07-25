@@ -29,7 +29,7 @@ This trigger creates a job whenever it is called, in real-time. It can be called
 <table class="unchanged rich-diff-level-one">
   <thead>
     <tr>
-        <th colspan=2 width='40%'>Input field</th>
+        <th colspan=2 width='40%'>Output field</th>
         <th>Description</th>
     </tr>
   </thead>
@@ -90,7 +90,7 @@ This trigger creates a job whenever it is called, in real-time. It can be called
       </td>
     </tr>
     <tr>
-      <td colspan=2>Recipe input<br><i>only if request type is <b>Raw request body</b></i></td>
+      <td colspan=2>Recipe output<br><i>only if request type is <b>Raw request body</b></i></td>
       <td>This output object will contain all the fields defined in <b>Input schema<b>.</td>
     </tr>
   </tbody>
