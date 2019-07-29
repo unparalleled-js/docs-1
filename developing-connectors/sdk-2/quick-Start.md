@@ -130,3 +130,6 @@ You'll be reminded again of any stopped recipes that will be affected by the del
 
 ![Delete popup warning](/assets/images/sdk/delete-popup-warning.png)
 *Once you delete a custom connector, there is no recovering it*
+
+## Building your custom connector
+Now that you're familiar with the platform, its time for you to build your custom connector! Check out our articles on the SDK conceptual model to get you going. [Learn more](/developing-connectors/sdk-2/SDK-conceptual-model.md)
