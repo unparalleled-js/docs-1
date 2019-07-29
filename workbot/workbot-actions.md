@@ -273,7 +273,7 @@ The following table lists the fields available in an **Upload file** action.
     <tr>
       <td>File type</td>
       <td>Type of file</td>
-      <td>Provide the filetype of your file. For the full list of filetypes which Slack supports, see <a href='https://api.slack.com/types/file#file_types'>here.</td>
+      <td>Provide the file type of your file. For the full list of file types which Slack supports, see <a href='https://api.slack.com/types/file#file_types'>here.</td>
     </tr>
     <tr>
       <td>File content</td>
