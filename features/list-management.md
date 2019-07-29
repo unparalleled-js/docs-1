@@ -20,7 +20,7 @@ Sierra Gardening, MS-323, Gardening supplies, Cedar wood potting bench, MS-323, 
 
 In most of the examples, the **Box** trigger **New CSV file** will be used to read this CSV file from a Box folder and parse it to Workato as a list of three CSV lines. Create a CSV file with the above CSV sample and upload into a specific Box folder for the **New CSV file** trigger to pick up.
 
-If the above CSV file is the only CSV file in the selected Box folder in the trigger configuration, the fields list will be populated automatically with the column names. The column names has to correspond exactly with the header line in the CSV file in order for the CSV data to be mapped accurately to their columns.
+If the above CSV file is the only CSV file in the selected Box folder in the trigger configuration, the fields list will be populated automatically with the column names. The column names have to correspond exactly with the header line in the CSV file in order for the CSV data to be mapped accurately to their columns.
 
 ![Defining expected CSV columns](/assets/images/features/list-management/defining-expected-csv-columns.gif)
 *Defining the expected columns in the CSV files that the recipe will pick up. [Example recipe](https://www.workato.com/recipes/485023)*
@@ -69,12 +69,12 @@ The following is an example scenario that imports new products from a Box CSV fi
 ![Example recipe using list input](/assets/images/features/list-management/example-recipe-using-input-list.png)
 *Example recipe using list input. [Example recipe](https://www.workato.com/recipes/549955)*
 
-Actions that take lists as inputs will have a input field called **Source list**, which will only take in list pills. When these list input fields are selected, the datatree changes to offer only list pills. The Rows list object pill is mapped into the Salesforce product source list input field.
+Actions that take lists as inputs will have an input field called **Source list**, which will only take in list pills. When these list input fields are selected, the datatree changes to offer only list pills. The Rows list object pill is mapped into the Salesforce product source list input field.
 
 ![Example input source list](/assets/images/features/list-management/example-input-source-list.png)
 *Rows list object is mapped into the Salesforce products input source list*
 
-For the list object passed into the input source list, the list will be transferred from the source app to the target app, with the values being trasnferred based on the fields mapped in the recipe. The three inventory items will be moved from Box into Salesforce as products.
+For the list object passed into the input source list, the list will be transferred from the source app to the target app, with the values being transferred based on the fields mapped in the recipe. The three inventory items will be moved from Box into Salesforce as products.
 
 ![Mapping list data pills to list](/assets/images/features/list-management/mapping-list-datapills-to-list.gif)
 *Mapping of list datapills to list input*
@@ -170,7 +170,7 @@ Let's take the scenario whereby closed won Salesforce opportunities with a list 
 The NetSuite connector's **Create sales order** action takes in a list of line items that reference the inventory items' internal NetSuite ID. This means that users similarly need to have a list of NetSuite inventory item IDs to create the NetSuite sales order in a single action. However, from Salesforce, only Salesforce opportunity products' IDs are available. In order to obtain the NetSuite inventory items' internal IDs, users would have to search for the correct NetSuite inventory item by its Salesforce opportunity product name, and then pass the NetSuite internal ID of the found NetSuite inventory item into the **Create sales order** action.
 
 There are two ways of building this recipe:
-**1) Using accumulator + list input. Iteratively build a custom list of NetSuite inventory items from the Saleforce opportunity product list, then create the complete NetSuite sales order with lines in a single action**
+**1) Using accumulator + list input. Iteratively build a custom list of NetSuite inventory items from the Salesforce opportunity product list, then create the complete NetSuite sales order with lines in a single action**
 
 Iterate through the Salesforce list of opportunity products via a Repeat step to find corresponding NetSuite inventory items, and accumulate that in a custom list. Subsequently, create a complete NetSuite sales order with a list of line items in a single action, by passing in the custom list built with accumulator.
 
