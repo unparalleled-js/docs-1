@@ -9,9 +9,10 @@ Workbot actions allow Workbot to post notifications into a specified channel whe
 Workbot supports 5 actions:
 * [Post command reply](#post-command-reply)
 * [Post notifications](#post-notifications)
-* [Post messages](#post-messages)
+* [Post message](#post-message)
 * [Download attachment](#download-attachment)
 * [Return menu options](#return-menu-options)
+* [Upload file](#upload-file)
 
 ## Post command reply
 Post command reply allows you to customize how Workbot replies when an event is completed. This reply can be a simple message about the task completion, or a prompt for the user to take a subsequent action once the first has been done, e.g. after retrieving data for a custom account in Salesforce, ask if the user wishes to copy that information across to another application.
@@ -233,3 +234,65 @@ When returning menu options, you can group menu options together by setting **Gr
 
 ![Grouped options](/assets/images/workbot/workbot-actions/grouped-options.png)
 *Grouped options in Slack*
+
+## Upload file
+This action will upload a file to the specified channel, DM or thread. You can also include a simple message together with the file.
+
+![Upload file with simple message](/assets/images/workbot/workbot-actions/upload-file-with-message.png)
+
+The following table lists the fields available in an **Upload file** action.
+
+<table class="unchanged rich-diff-level-one">
+    <thead>
+        <tr>
+            <th>Field</th>
+            <th>Explanation</th>
+            <th>What goes in here</th>
+        </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td>Channel name/DM</td>
+      <td>
+        Upload a file to a specified Slack channel or direct message (DM).
+        </td>
+      <td>
+        Use the <kbd>Channel/DM</kbd> datapill from a Post command trigger, or key in the channel name e.g. <b>#general</b> or username e.g. <b>@johndonahue</b>.<img src="/assets/images/workbot/workbot-actions/channel-dm.png"></img>
+      </td>
+    </tr>
+    <tr>
+      <td>Initial comment</td>
+      <td>Simple message to post together with the uploaded file.</td>
+      <td>Include a simple message to give more context to your file.<img src="/assets/images/workbot/workbot-actions/upload-file-with-message.png"></img></td>
+    </tr>
+    <tr>
+      <td>File name</td>
+      <td>Name of your file.</td>
+      <td>Provide a name for your file, e.g. <b>chat_history.json</b>. This will be the name of the file when any user downloads it from Slack.</td>.
+    </tr>
+    <tr>
+      <td>File type</td>
+      <td>Type of file</td>
+      <td>Provide the filetype of your file. For the full list of filetypes which Slack supports, see <a href='https://api.slack.com/types/file#file_types'>here.</td>
+    </tr>
+    <tr>
+      <td>File content</td>
+      <td>Contents of the file</td>
+      <td>
+        Use a <kbd>Content</kbd> datapill from the output of preceding action or trigger, e.g. a File contents datapills from a Google Drive Download attachment action.
+      </td>
+    </tr>
+    <tr>
+      <td>Title</td>
+      <td>Display title of the file</td>
+      <td>Displays the title of the file. If left blank, the <b>File name</b> will be displayed instead.</td>
+    </tr>
+    <tr>
+      <td>Thread ID</td>
+      <td>Uploads the file within an existing thread</td>
+      <td>
+        Use the <kbd>Thread ID</kbd> datapill from the output datatree of a <b>Post message</b> or <b>Post command reply</b> to upload the file to an existing thread. <br><img src="/assets/images/workbot/workbot-actions/thread-id-example.png"></img><br>If no thread exists yet, use the <kbd>Message ID</kbd> datapill instead. This will create a new thread for the uploaded file.
+      </td>
+    </tr>
+    </tbody>
+</table>

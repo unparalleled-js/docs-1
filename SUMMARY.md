@@ -199,6 +199,7 @@
     * [Post message](/workbot/workbot-actions.md#post-message)
     * [Post notifications](/workbot/workbot-actions.md#post-notifications)
     * [Return menu options](/workbot/workbot-actions.md#return-menu-options/)
+    * [Upload file](/workbot/workbot-actions.md#upload-file/)
   * [Workbot basics](/workbot/workbot-commands.md)
     * [Workbot basics: Commands](workbot/workbot-commands.md)
     * [Workbot basics: Command reply](workbot/workbot-command-reply.md)
