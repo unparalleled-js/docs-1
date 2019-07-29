@@ -4,7 +4,7 @@ date: 2017-03-02 02:00:00 Z
 ---
 
 # RecipeOps by Workato
-The RecipeOps connector enables building of recipes to monitor and manage active recipes.
+The RecipeOps connector enables the building of recipes to monitor and manage active recipes.
 
 Stopped recipes and failed jobs can have automated responses and notifications to mitigate their impact on critical business processes. Account, recipe and job details can also be retrieved via the RecipeOps connector.
 
@@ -27,9 +27,6 @@ The following shows the fields required for the connection to a different Workat
 ![Establish RecipeOps connection with other Workato account](/assets/images/recipe-ops/establish-connection.png)
 *Establishing RecipeOps connection with other Workato account*
 
-![Establish RecipeOps connection with other Workato account](/assets/images/recipe-ops/establish-workato-admin-connection.gif)
-*Establishing RecipeOps connection with other Workato account*
-
 The managed user has to retrieve the API key from their **Account settings > API key**.
 
 ![API key](/assets/images/recipe-ops/api-key.png)
@@ -38,7 +35,7 @@ The managed user has to retrieve the API key from their **Account settings > API
 ## Triggers
 
 ### New failed job trigger
-The **New failed job** trigger is able to monitor all active recipes, or  selected recipes, for failed jobs. This is useful in ensuring that key recipes are monitored and corrective actions, including notifications, can be automated.
+The **New failed job** trigger is able to monitor all active recipes or selected recipes, for failed jobs. This is useful in ensuring that key recipes are monitored and corrective actions, including notifications, can be automated.
 
 When monitoring selected recipes, provide their [recipe IDs](#how-to-find-recipe-id).
 
@@ -62,7 +59,7 @@ When monitoring selected recipes, provide their [recipe IDs](#how-to-find-recipe
 *Specify recipes to monitor whether the recipes are stopped by Workato*
 
 ### How to find recipe id
-Track your key recipes with their unique recipe IDs. You can find the recipe ID in URL of the recipe page. 
+Track your key recipes with their unique recipe IDs. You can find the recipe ID in URL of the recipe page.
 
 ![Recipe URL](/assets/images/recipe-ops/recipe-url.png)
 *Recipe IDs can be found in recipe URL*
