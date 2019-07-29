@@ -4,9 +4,9 @@ date: 2019-07-05 18:00:00 Z
 ---
 
 # REST Endpoint - Raw content
-You can configure callable recipes to accept raw content when exposed as a REST endpoint. This allow you to integrate more datatypes (e.g. XML/SOAP) into your workflow.
+You can configure callable recipes to accept raw content when exposed as a REST endpoint. This allows you to integrate more datatypes (e.g. XML/SOAP) into your workflow.
 
-Receiving a raw content body cURL statement :
+For example, you can trigger a callable recipe with a raw content body cURL statement:
 ```
 curl -X POST \
      -d '<string>' \
@@ -15,7 +15,7 @@ curl -X POST \
 ```
 
 ## Raw request body
-When creating your callable recipe, configure the **Request type** to **Raw request body**. This configures the recipe to interact with data not formatted with JSON parameters.
+When creating your callable recipe, select **Raw request body**. This configures the recipe to interact with data not formatted with JSON parameters.
 
 ![Select raw request body](/assets/images/features/callable-recipes/select-raw-request-body.png)
 *Select raw request body*
@@ -40,7 +40,7 @@ In this example below, we are receiving XML content from the API call. We use th
 You can configure your callable recipe to return raw content (text).
 1. Select the **raw response** for your [recipe trigger](/features/callable-recipes/new-call-trigger.md#input-fields) .
 
-![select raw response](/assets/images/features/callable-recipes/select-raw-response.png)
+![Select raw response](/assets/images/features/callable-recipes/select-raw-response.png)
 *Select raw response*
 
 2. Configure the reply in the **return response action**.

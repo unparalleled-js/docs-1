@@ -49,4 +49,6 @@ See the following pages for more details on Workato's API Platform:
 
 * [Calling APIs](/api-mgmt/calling-apis.md)
 
+* [Setting up endpoints to handle raw content](/features/callable-recipes/handling-raw-content.md)
+
 * [Security Best Practices for APIs](/api-mgmt/api-security.md)
