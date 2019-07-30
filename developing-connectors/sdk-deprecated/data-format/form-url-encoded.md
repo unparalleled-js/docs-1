@@ -1,9 +1,9 @@
-# Form URL Encoded
+# Form urlencoded
 
-This request format can be declared in any blocks (`execute`, `acquire`, `fields` etc.) in your custom connector code.
+This request format can be declared in any blocks (`execute`, `acquire`, `fields` etc.) in your custom adapter code. It should be chained to one of the [base request](../walk-through.md#base-request).
 
-## Sample code snippet
-Let's use the submit data to a form endpoint in [HubSpot API](https://developers.hubspot.com/docs/methods/forms/submit_form) as an example. This endpoint accepts form data in form urlencoded format.
+## Example
+Let's use the Submit data to a form endpoint in [HubSpot API](https://developers.hubspot.com/docs/methods/forms/submit_form) as an example. This endpoint accepts form data in form urlencoded format.
 
 A cURL example looks like this:
 ```sh
@@ -20,46 +20,19 @@ This cURL command can be replicated in Workato:
 {
   title: "HubSpot",
 
-  connection: {
-    # Some code here
-  },
-
-  test: {
-    # Some code here
-  },
+  connection: {...},
 
   actions: {
     submit_form: {
       input_fields: lambda do
         [
-          {
-            name: "portal_id",
-            type: "string"
-          },
-          {
-            name: "form_guid",
-            type: "string"
-          },
-          {
-            name: "hutk",
-            type: "string"
-          },
-          {
-            name: "ipAddress",
-            type: "string"
-          },
-          {
-            name: "pageUrl",
-            type: "string"
-          },
-          {
-            name: "pageName",
-            type: "string"
-          },
-          {
-            name: "redirectUrl",
-            type: "string"
-          }
+          { name: "portal_id", type: :string },
+          { name: "form_guid", type: :string },
+          { name: "hutk", type: :string },
+          { name: "ipAddress", type: :string },
+          { name: "pageUrl", type: :string },
+          { name: "pageName", type: :string },
+          { name: "redirectUrl", type: :string }
         ]
       end,
 
@@ -72,21 +45,8 @@ This cURL command can be replicated in Workato:
       end
     },
 
-    output_fields: { ... }
+    output_fields: {...}
   },
-
-  triggers: {
-    # Some code here
-  },
-  object_definitions: {
-    # Some code here
-  },
-  picklists: {
-    # Some code here
-  },
-  methods: {
-    # Some code here
-  }
 ```
 
 ## Components
@@ -112,9 +72,3 @@ This cURL command can be replicated in Workato:
     </tr>
   </tbody>
 </table>
-
-### Other data Formats
-Check out the other data formats we support. [Learn more](/developing-connectors/sdk/data-format.md)
-
-### Next section
-If you're already familiar with the data formats we support, check out the authentication types that our SDK supports as well as how to implement them. [Learn more](/developing-connectors/sdk/authentication.md)

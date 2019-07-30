@@ -1,60 +1,66 @@
+---
+title: Developer program
+date: 2019-05-08 17:00:00 Z
+---
+
 [![Workato](/assets/images/workato_developer_program.png)](https://www.workato.com)
 
 # Introduction
+Here you will find the documentation you need to build custom connectors to applications Workato currently doesn't support using our SDK. Creating your own connector is normally only necessary when our platform has not yet built a connector for the application you are looking for or we dont support the triggers or actions you need. Building a custom connector is made much easier with basic understanding of coding and allows you to connect to any application that has an API exposed. Workato also has custom actions and our own HTTP connectors that might be more suitable if your integration needs aren't so complex. [Learn more about whether to use the SDK, custom actions or our HTTP connection for your integration needs.](/developing-connectors.md)
 
-Here you will find the documentation you need to build application connectors using our SDK.
+## What is a custom connector?
+A connector allows Workato to interact with a single application through a series of [triggers](/recipes/triggers.md) and [actions](/recipes/actions.md). Triggers monitor for events that occur in the application you hope to connect to and kickstart a workflow of actions which we call a [recipes](/workato-concepts.md#recipes). Actions carry out specific pre-defined operations in the target application.
 
-## Connector
+Connectors built on the SDK are called **custom connectors**. These connectors have a private scope by default which means that they are only visible and available to the connector owner. After the connector is built and ready, you also have the ability to share it with others on various levels.
 
-A connector allows you to interact with an application. Each connector have [triggers](/recipes/triggers.md) and/or [actions](/recipes/actions.md). Triggers monitor for events that happen in your app, while actions carry out read/write operations with the connected account. Users typically build [recipes](/workato-concepts.md#recipes), which are sets of predefined instructions to be executed, with these triggers and actions.
+## Documentation Format
+This section will list everything you need to know about our SDK as well as provide some guides, walkthroughs and example connectors that our users have built. You may use the links below to skip ahead to your desired section but it is recommended that you go through this documentation the order stated so as to not miss any of the features we have that might help you down the line.
 
-Connectors built on the SDK are called **custom connectors**. These connectors have a private scope by default. This means that they are only visible and available to the connector owner.
+> In our documentation, we default to JSON when giving examples. It is highly recommended that you read about how other data formats can be handled if the API you plan to connect to uses a different dataformat.
 
-## Format
+First up, lets go through a brief overview of our SDK before getting our feet wet together with a guided walkthrough for our first connector!
 
-Presently, we support the following types
-  - JSON
-  - XML
-  - www-form-urlencoded
-  - multipart-form
+* [SDK Conceptual Model](/developing-connectors/sdk/SDK-conceptual-model.md)
+* [Walkthrough - Building your first connector!](/developing-connectors/sdk/walk-through.md)
+* [Data Format](/developing-connectors/sdk/data-format.md)
+  * [JSON](/developing-connectors/sdk/data-format/json-format.md)
+  * [XML](/developing-connectors/sdk/data-format/xml-format.md)
+  * [request_format_multipart_form](/developing-connectors/sdk/data-format/request_format_multipart_form.md)
+  * [Form-url-encoded](/developing-connectors/sdk/data-format/form-url-encoded.md)
+* [Authentication](/developing-connectors/sdk/authentication.md)
+  * [Basic Authentication](/developing-connectors/sdk/authentication/basic-authentication.md)
+  * [Header Authentication](/developing-connectors/sdk/authentication/header-authentication.md)
+  * [OAuth 2.0](/developing-connectors/sdk/authentication/oauth2-authentication.md)
+  * [Custom Authentication](/developing-connectors/sdk/authentication/custom-authentication.md)
+  * [Testing your connection](/developing-connectors/sdk/authentication/test.md)
+  * [Defining a base URI](/developing-connectors/sdk/authentication/base_uri.md)  
+  * [On premises connections](/developing-connectors/sdk/authentication/secure_connection.md)
+* [Actions](/developing-connectors/sdk/action.md)
+* [Triggers](/developing-connectors/sdk/trigger.md)
+  * [Polling triggers](/developing-connectors/sdk/trigger/poll-trigger.md)
+  * [Static Webhook triggers](/developing-connectors/sdk/trigger/static-webhook-trigger.md)
+  * [Dynamic Webhook triggers](/developing-connectors/sdk/trigger/webhook-trigger.md)  
+* [HTTP requests](/developing-connectors/sdk/http-requests-and-response-handling.md)
+* [Object definitions](/developing-connectors/sdk/object-definition.md)
+* [Object definitions - Pick lists](/developing-connectors/sdk/pick-list.md)
+* [Object definitions - Toggle fields](/developing-connectors/sdk/toggle-fields.md)
+* [Object definitions - Config fields](/developing-connectors/sdk/config-fields.md)
+* [Methods](/developing-connectors/sdk/methods.md)
+* [Error handling](/developing-connectors/sdk/error-handling.md)
+* [Best Practices](/developing-connectors/sdk/best-practices.md)
+  * [General best practices](/developing-connectors/sdk/best-practices.md#general-best-practices)
+  * [Block specific best practices](/developing-connectors/sdk/best-practices.md#block-specific-best-practices)
+      * [Connection block](/developing-connectors/sdk/best-practices.md#connection-block)
+      * [Test block](/developing-connectors/sdk/best-practices.md#test-block)
+      * [Object definitions block](/developing-connectors/sdk/best-practices.md#object-defintions-block)
+      * [Actions block](/developing-connectors/sdk/best-practices.md#actions-block)
+      * [Triggers block](/developing-connectors/sdk/best-practices.md#triggers-block)
+      * [Sample output block](/developing-connectors/sdk/best-practices.md#sample-output-block)
+      * [Error handling](/developing-connectors/sdk/best-practices.md#error-handling)
+  * [Usability and testing best practices](/developing-connectors/sdk/best-practices.md#usability-and-testing-best-practices)  
+* [Examples](developing-connectors/sdk/examples.md)
 
-## Pagination
-
-Pagination helps with response data that is more manageable. It is definitely a bonus if the intended API supports that.
-
-## Query
-
-It is very useful to be able to query resources instead of locating them based on IDs. With Search by query, the API allows you to return a list of results that matches your field criterias. You may also want to look out for the ability to query based on created/updated time which will be crucial when building out your triggers.
-
-## Custom connector sharing
-
-There are 3 modes of using a custom SDK based connector
-
-1. Private connector
-2. Shared connector
-3. Public connector
-
-## Build a private custom connector
-When you create a custom connector on the SDK, it is visible and available only in your account by default, i.e. it is private. You will be the only one who can use the triggers and actions of this custom connector when building recipes.
-
-If someone else tries to install a copy of your recipe in their account to use it, they will be notified that this recipe utilizes a custom connector that they don't have access to.
-
-## Share your custom connector
-Custom connectors can be shared with other Workato accounts. As owner of the custom connector, you can allow specific Workato accounts to view and install the connector in their own account for use.
-
-Sharing is achieved by copying. Each Workato account you share the connector with will have the ability to make a copy of your custom connector code at that point in time. Subsequently, these Workato accounts can make modifications on their copy of the custom connector.
-
-### Install someone else's connector
-When users try to copy a recipe that uses a custom connector, they will be asked if they wish to request a **share link** for the custom connector. If they request for it, as the custom connector owner, you will be notified via email, and you can choose to share this link with them. Workato will send the requester a **share link**. The requester can click through this link to install the connector in their account.
-
-This creates a copy of the connector in their account.
-
-### Upgrade your copied connector to the latest available version
-When the custom connector owner makes a change to the custom connector code, all Workato accounts with a copy of this custom connector will see an upgrade link. They can choose to upgrade their installed connector by clicking the link.
-
-The upgrade function will overwrite the copy of the custom connector code with the latest version of the master copy of the custom connector. This means that any changes to the custom connector code made by the requester will be overwritten. Do take note that this upgrade link appears whenever there is any change to the master copy of the custom connector, not necessarily when the custom connector owner has made a curated change.
-
-## Public connector
-To enable global scope for your private connector, and make it such that all Workato users will be able to view and use your custom connector, you have to submit your code to Workato for review. Our team will approve or request for modifications within a few days.
-
-You can begin this process by submitting a pull request to our [custom connectors repository](https://github.com/workato/custom_connector_docs).
+## Coming soon
+* How-to guides
+* Troubleshooting
+* Sharing the connector
