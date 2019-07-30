@@ -1,4 +1,4 @@
-# Best Practices
+# Best Practices on developing custom connectors in Workato
 Below, we have compiled a list of best practices which makes development of your custom connector easier to build, test and maintain. We have organised this best practices in the following way:
 1. [General best practices](#general-best-practices)
 2. [Block specific best practices](#block-specific-best-practices)
@@ -214,6 +214,122 @@ These best practices relate directly to the development of a custom connector on
 * Implement Error handling when you need to handle specific error codes in the SDK and define your own response
 
 * Don’t suppress exceptions, better to expose more API information than hide them
+
+## Ruby coding guidelines for Workato SDK
+Here are some coding guidelines that we adhere to at Workato. These are especially important for developers looking to submit custom connectors for listing on our developer site! Following these guidelines not only makes your code easier to read and maintain but also helps us verify them more quickly.
+
+* Use [snake case](https://en.wikipedia.org/wiki/Snake_case) for variables, methods, symbols, actions and triggers
+
+* Use two space indentation
+
+* A single line of code should not exceed 80 characters.
+
+* Use \ at the end of the line instead of + or << to concatenate multi-line strings
+
+```ruby
+# This is preferred
+"This is a string that is way too long and" \
+"needs to be continued in a new line."
+
+# This is not preferred
+"This is a string that is way too long and" +
+"needs to be continued in a new line."
+```
+
+* Prefer %w over string literal array e.g. %w(draft open closed)
+
+* Prefer string interpolation instead of string concatenation, it may lead to errors in the code especially when the string being concatenated is not defined.
+
+```ruby
+# This is preferred
+apply: lambda do |_connection, access_token|
+        headers('Authorization': "Bearer #{access_token}")
+      end
+
+# This is not preferred
+apply: lambda do |_connection, access_token|
+        headers('Authorization': "Bearer " + {access_token})
+      end
+```
+
+* With interpolated expressions, there should be no space inside the braces
+
+* Don’t use to_s on interpolated objects, it’s invoked automatically.
+
+```ruby
+# This is preferred
+apply: lambda do |_connection, access_token|
+        headers('Authorization': "Bearer #{access_token}")
+      end
+
+# This is not preferred
+apply: lambda do |_connection, access_token|
+        headers('Authorization': "Bearer #{access_token.to_s}")
+      end
+```
+
+* Use single quotes over double quotes. Double quotes should be used only in string interpolation.
+
+* Indent when as deep as case.
+
+* Align function arguments either all on the same line or one per line.
+
+```ruby
+# This is preferred
+execute: lambda do |_connection, input|
+        call('format_schema',input['properties'],input['object_type'])
+      end
+
+# This is preferred
+execute: lambda do |_connection, input|
+        call('format_schema',
+             input['properties'],
+             input['object_type'])
+      end
+
+# This is not preferred
+execute: lambda do |_connection, input|
+        call('format_schema',input['properties'],
+             input['object_type'])
+      end
+```
+
+* Never leave trailing whitespace.
+
+* When making inline comments, include a space between the end of the code and the start of your comment
+
+* Use spaces around operators; after commas, colons, and semicolons; and around { and before }. (except for string interpolation)
+
+* Do not include space before comma
+
+* Do not include space between block parameters between pipes
+
+* Do not leave spaces after (, [ or before ], )
+
+* Do not use puts statements in your final version. This should only be done for debugging purposes but scrubbed afterwards.
+
+* Remove unused methods, blocks, API calls
+
+* Do not use space when using string interpolation
+
+* Add a new line after conditionals, blocks, case statements etc.
+
+* Avoid multiple conditions in ternaries, Ternaries are best used in single conditions
+
+* Avoid multi-line ?: (ternary) operators, instead use if/then/else/end
+
+* Prefer {....} over do….end for single line blocks.
+
+* Don’t use ||= to initialise boolean variables. The operator ||= sets a variables value if its value were `false` or `nil`. This might result in unwanted changes when working with boolean variables.
+
+* Prefer map over collect.
+
+* Favour unless over if for negative conditions
+
+Note:
+Not all ruby methods are not supported by default. If you find any method which is not white-listed in SDK framework reach out support@workato.com with enhancement request
+All the methods used in Recipe Editor are available by default in SDK framework
+
 
 ## Usability and testing best practices
 * Check the Recipe UI for actions and triggers
