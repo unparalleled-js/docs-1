@@ -6,7 +6,7 @@ date: 2018-10-04 06:00:00 Z
 # SAP Concur - New expense report trigger
 
 ## New expense report trigger
-
+This trigger picks up expense reports when they are created or submitted. Each report is processed as a separate job. It checks for new reports once every poll interval. The polling interval is determined by your Workato plan. Check the [Pricing and Plans page](https://www.workato.com/pricing?audience=general) to find out more.
 
 ![New expense report trigger](/assets/images/concur/new-expense-report-trigger.png)
 *New expense report trigger*
@@ -30,7 +30,7 @@ date: 2018-10-04 06:00:00 Z
     <tr>
       <td>Approval status</td>
       <td>
-        Select an Approval status to filter from this list of statuses:<br>
+        Filter the expense reports by selecting an Approval status from this list:<br>
         - Not submitted<br>
         - Submitted<br>
         - Submission triggered an anomaly and fraud check<br>
@@ -50,7 +50,7 @@ date: 2018-10-04 06:00:00 Z
     <tr>
       <td>Payment status</td>
       <td>
-        Select a Payment status to filter from this list of statuses:<br>
+        Filter the expense reports by selecting a Payment status from this list:<br>
         - On hold<br>
         - Not paid<br>
         - Confirmed<br>
