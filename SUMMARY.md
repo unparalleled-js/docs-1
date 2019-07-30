@@ -464,6 +464,7 @@
     * [Check IDoc status action](connectors/sap/action-check-idoc.md)
     * [Run RFC action](connectors/sap/action-run-rfm.md)
   * [SAP Concur](connectors/concur.md)
+    * [New expense report trigger](connectors/concur/new-expense-report-trigger.md)
   * [SharePoint](connectors/sharepoint.md)
     * [Connection setup](connectors/sharepoint.md#how-to-connect-to-sharepoint-on-workato)
   * [Salesforce](connectors/salesforce.md)
