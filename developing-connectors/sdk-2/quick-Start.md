@@ -50,12 +50,12 @@ In situations where you want to revert to an older version of your custom connec
 When viewing a specific version, you are given the ability to restore your custom connector to this version by clicking "Restore this version" in the top right of the page. This restores the version by making a copy of that version's source code as a new latest version. You'll be able to begin editing from there or immediately deploy this version.
 
 ## Using the debugger console
-Below the code editor on the "Source code" tab, you'll see our debugger console which allows you to test various portions of your custom connector before deploying it.
+Below the code editor on the "Source code" tab, you'll see our debugger console which allows you to test various portions of your custom connector before deploying it. This debugger console allows you to run tests on the latest version of your custom connector code.
 
 ![Debugger console](/assets/images/sdk/debugger-console.png)
 *Debugger console*
 
-This debugger console allows you to run tests on the latest version of your custom connector code. Any unsaved changes that are currently in the code editor will result in the custom connector creating a new latest version before running any tests are executed. There will be a notification to tell you when this is the case.
+ **The debugger console always runs on the latest version of your connector code currently in your code editor. Any unsaved changes that are currently in the code editor will result in the custom connector creating a new latest version before running any tests are executed. There will be a notification to tell you when this is the case.**
 
 In cases when there is an error in your latest version, the debugger console will be hidden instead. Fix the error in the line of code stated so you can start testing again.
 
@@ -130,6 +130,25 @@ You'll be reminded again of any stopped recipes that will be affected by the del
 
 ![Delete popup warning](/assets/images/sdk/delete-popup-warning.png)
 *Once you delete a custom connector, there is no recovering it*
+
+## Frequently Asked Questions
+##### 1. I've accidentally deployed an unstable version of my connector. How can I deploy the last version of my connector again?
+Restoring an old stable version of your connector is easy. Simply look through your version history to find the version of your connector that was stable, using the deployed at column to guide you. Restore that version as your latest version and deploy it to restore a stable version for all your recipes to run off.
+
+##### 2. Why does an autosave occur before deployment or use of the debugger console?
+Autosaves only occur when there are any unsaved changes to your connector code. This was done to ensure that any last minute changes you may have made to your code without saving are picked up. It is always advised to test using the debugger console thoroughly before deploying a version.
+
+##### 3. Which should I use to move my connector from my sandbox environment to my production environment - the connector share link or packages?
+Packages through recipe lifecycle management is only available on certain plans. While both functionalities can accomplish the migration of your SDK connector, we highly recommend building and testing your custom connector and its associated recipes in your sandbox Workato environment. When you're ready, packages would be the fastest ways in bringing your custom connector from your sandbox environment to production.
+
+##### 4. What happens to all my existing connectors that existed before this enhancement?
+All existing connectors will be immediately deployed during release with a staggered version history. You'll be able to see versions all the way since the creation of your custom connector. Creating new versions will require you to deploy them to use the changes in your recipes.
+
+##### 5. If I've cloned a custom connector and it's parent has been updated(deployed) multiple times since I last updated, what happens when I press the update button in the notification?
+Update notifications are always pegged to the latest deployed version of its parent connector. Choosing to update always create a new version on top of your custom connector. Be sure to verify that the new updated connector has changes that make sense to you before deploying. You can always make edits to the new connector code to suit your purpose.
+
+##### 6. How do I know what changes occur across each version and who created that version when working in a team workspace?
+Our version history table gives you insight into the a snapshot of the current actions and triggers for each version. Our versions table also showcases the user who created a version and who deployed a certain version. More functionality will come to showcase more fine grained details about specific changes in the code across versions and the ability to attach notes to different versions. Stay tuned!
 
 ## Building your custom connector
 Now that you're familiar with the platform, its time for you to build your custom connector! Check out our articles on the SDK conceptual model to get you going. [Learn more](/developing-connectors/sdk-2/SDK-conceptual-model.md)
