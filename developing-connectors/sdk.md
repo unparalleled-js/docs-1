@@ -20,7 +20,7 @@ This section will list everything you need to know about our SDK as well as prov
 
 First up, lets go through a brief overview of our SDK before getting our feet wet together with a guided walkthrough for our first connector!
 
-* [SDK Conceptual Model](/developing-connectors/sdk/SDK-conceptual-model.md)
+* [SDK Conceptual Model](/developing-connectors/sdk/sdk-conceptual-model.md)
 * [Walkthrough - Building your first connector!](/developing-connectors/sdk/walk-through.md)
 * [Data Format](/developing-connectors/sdk/data-format.md)
   * [JSON](/developing-connectors/sdk/data-format/json-format.md)
