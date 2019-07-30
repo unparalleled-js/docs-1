@@ -38,7 +38,7 @@ The **•••** icon in the upper-right corner of the listed endpoint within t
 ![Edit endpoint dialog](/assets/images/api-mgmt/edit-endpoint.png)
 *Edit endpoint dialog*
 
-Editing allows chawnging the name, recipe, HTTP Method (such as POST), and the URL path to the API.
+Editing allows changing the name, recipe, HTTP Method (such as POST), and the URL path to the API.
 
 Note that changes may require clients of the API to make adjustments on their end, so that their recipes, scripts, etc. still work. Deleting an endpoint removes it from the collection and makes it inaccessible to any clients that had previously been granted access to it through the collection.
 

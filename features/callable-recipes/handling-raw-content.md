@@ -4,18 +4,18 @@ date: 2019-07-05 18:00:00 Z
 ---
 
 # REST Endpoint - Raw content
-You can configure callable recipes to accept raw content when exposed as a REST endpoint. This allows you to integrate more datatypes (e.g. XML/SOAP) into your workflow.
+You can configure callable recipes to accept raw content when exposed as a REST endpoint. This allows you to integrate more datatypes (e.g. XML/SOAP and URL Encoded Form) into your workflow.
 
 For example, you can trigger a callable recipe with a raw content body cURL statement:
-```
-curl -X POST \
+```bash
+curl -X POST 'https://apim.workato.com/API-collection-v1/send-raw-content' \
      -d '<string>' \
      -H 'content-type:text/xml' \
-     -H 'API-TOKEN: <YOUR_TOKEN>' 'https://apim.workato.com/API-collection-1/send-raw-content'
+     -H 'API-TOKEN: <YOUR_TOKEN>'
 ```
 
 ## Raw request body
-When creating your callable recipe, select **Raw request body**. This configures the recipe to interact with data not formatted with JSON parameters.
+When creating your callable recipe, select **Raw request body**. This configures the recipe to accept any data type.
 
 ![Select raw request body](/assets/images/features/callable-recipes/select-raw-request-body.png)
 *Select raw request body*
