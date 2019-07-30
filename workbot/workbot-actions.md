@@ -239,6 +239,7 @@ When returning menu options, you can group menu options together by setting **Gr
 This action will upload a file to the specified channel, DM or thread. You can also include a simple message together with the file.
 
 ![Upload file with simple message](/assets/images/workbot/workbot-actions/upload-file-with-message.png)
+*A short message before the Chat history.json file*
 
 The following table lists the fields available in an **Upload file** action.
 
@@ -262,8 +263,10 @@ The following table lists the fields available in an **Upload file** action.
     </tr>
     <tr>
       <td>Initial comment</td>
-      <td>Simple message to post together with the uploaded file.</td>
-      <td>Include a simple message to give more context to your file.<img src="/assets/images/workbot/workbot-actions/upload-file-with-message.png"></img></td>
+      <td>
+        Simple message to post together with the uploaded file.</td>
+        <td>Include a simple message to give more context to your file.<br><img src="/assets/images/workbot/workbot-actions/upload-file-with-message.png"></img>
+      </td>
     </tr>
     <tr>
       <td>File name</td>
@@ -279,7 +282,7 @@ The following table lists the fields available in an **Upload file** action.
       <td>File content</td>
       <td>Contents of the file</td>
       <td>
-        Use a <kbd>Content</kbd> datapill from the output of preceding action or trigger, e.g. a File contents datapills from a Google Drive Download attachment action.
+        Use a <kbd>Content</kbd> datapill from the output of preceding action or trigger, e.g. a File contents datapills from a Google Drive Download attachment action.<br><br><img src="/assets/images/workbot/workbot-actions/file-content-pill-example.png"></img>
       </td>
     </tr>
     <tr>
