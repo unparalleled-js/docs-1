@@ -1,7 +1,7 @@
 # Connector Walkthrough
-In this chapter, our aim is to get our feet wet by building a simple connector to something that most people can identify with - **Star Wars!** The API we will be using is free to use and allows us to access information about Star Wars characters, planets, vehicles and much more. For simplicity, we will refer to this API as SWAPI. **[Check out the SWAPI over here.](https://swapi.co/)**
+In this chapter, our aim is to get our feet wet by building a simple connector to something that most people can identify with - **Star Wars!** The API we will be using is free to use and allows us to access information about Star Wars characters, planets, vehicles and much more. For simplicity, we will refer to this API as SWAPI. **[Check out SWAPI over here.](https://swapi.co/)**
 
-This walkthrough will show how we can use the Workato Software Development Kit (SDK) to create a custom connector to retrieve information from this API and how we can use this custom connector in building a recipe. If you haven't already checked out the our **[brief introduction the SDK conceptual model](/developing-connectors/sdk/SDK-conceptual-model)**, now is the time to do so!
+This walkthrough will show how we can use the Workato Software Development Kit (SDK) to create a custom connector to retrieve information from this API and how we can use this custom connector in building a recipe. If you haven't already checked out the our **[brief introduction the SDK conceptual model](/developing-connectors/sdk/sdk-conceptual-model)**, now is the time to do so!
 
 To find the fully built custom connector for today's walkthrough, **[click here](https://www.workato.com/custom_adapters/11462?token=913765c0)**. You will need to have a valid Workato account to install the connector before being able to see the connector code.
 

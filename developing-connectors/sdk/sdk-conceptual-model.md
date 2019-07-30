@@ -9,7 +9,7 @@ In Workato, we allow you to build custom connectors on our SDK using ruby (a cod
 
 Through out the whole process, you'll be able to build, test and push out your custom connector directly from Workato's platform. This means working directly from the browser you have open right now and never having to install anything onto your computer. Pretty neat right?
 
-Connector source code which you write on the SDK platform will be hosted in Workato's servers and is executed whenever a recipe using that connector is triggered. Before we go any further, lets start with a quick overview of what a connector looks like when written in code.
+Connector source code which you write on the SDK platform will be hosted in Workato's servers and is executed whenever a recipe using that connector is triggered. Before we begin, lets start with a quick overview of what a connector would look like on Workato's SDK.
 
 ## Overview
 A custom connector on Workato always starts off with curly braces that encapsulates all code (Curly braces look like this `{}`). Inside the curly braces, this is where you'll be able to declare something we call blocks which are basically the named objects followed by another set of curly braces which encapsulates code related to that object. For example, the code `connection: { ... }` is referred to as the `connection:` block.
