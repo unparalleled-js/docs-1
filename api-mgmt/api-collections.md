@@ -33,7 +33,7 @@ Click on **Create API Collection** to create the collection. This returns you to
 
 Clicking on **Create new endpoint** within the API Collection tab brings up a dialog that allows you to add a new Endpoint to the API Collection. The recipe for this endpoint can be chosen from any callable recipe: it does not have to be in the same folder as other existing collection endpoints.
 
-The **•••** icon in the upper left corner of the listed endpoint within the API Collection brings up a menu that allows editing or deleting an individual endpoint within the collection. The editing dialog looks like this:
+The **•••** icon in the upper-right corner of the listed endpoint within the API Collection brings up a menu that allows editing or deleting an individual endpoint within the collection. The editing dialog looks like this:
 
 ![Edit endpoint dialog](/assets/images/api-mgmt/edit-endpoint.png)
 *Edit endpoint dialog*
@@ -50,7 +50,7 @@ Sliding the slider back to **Inactive** makes the endpoint not callable again. I
 
 ## Machine-readable documentation (Open API)
 
-The API Collection page has a link in the upper-left-hand corner, labeled **Download Open API spec**. This gives you access to a downloadable file that contains documentation for all the endpoints within the collection, in a format that can be used by programs and tools. This format is called Open API, also known as Swagger. Currently, Workato supports [version 2.0](https://github.com/OAI/OpenAPI-Specification/blob/master/versions/2.0.md) of the specification.
+The API Collection page has a link in the upper-right corner, labeled **Download Open API spec**. This gives you access to a downloadable file that contains documentation for all the endpoints within the collection, in a format that can be used by programs and tools. This format is called Open API, also known as Swagger. Currently, Workato supports [version 2.0](https://github.com/OAI/OpenAPI-Specification/blob/master/versions/2.0.md) of the specification.
 
 ## Viewing an Endpoint
 
