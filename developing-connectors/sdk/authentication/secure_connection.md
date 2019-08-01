@@ -17,6 +17,7 @@ To enable the option for connecting through an OPA, all you have to do is add th
 {
   title: "Mandrill",
 
+  # This is needed for OPA
   secure_tunnel: true,
 
   connection: {
@@ -29,6 +30,25 @@ To enable the option for connecting through an OPA, all you have to do is add th
       }
     ],
   },
+
+  test: {
+    # Some code here
+  },
+  actions: {
+    # Some code here
+  },
+  triggers: {
+    # Some code here
+  },
+  object_definitions: {
+    # Some code here
+  },
+  picklists: {
+    # Some code here
+  },
+  methods: {
+    # Some code here
+  },
 }
 ```
 
@@ -38,3 +58,9 @@ With this property added, an input field will be visible when setting up a conne
 *Connection with option to use OPA*
 
 Learn how to setup an on-prem agent [here](/on-prem/setup.md).
+
+### Other authentication methods
+Check out the other authentication methods we support as well as how to set up a custom connector that works for on-premise connections. [Go back to our list of authentication methods](/developing-connectors/sdk/authentication.md) or check our our [best practices](/developing-connectors/sdk/best-practices.md) for some tips.
+
+### Next section
+If you're already familiar with the authentication methods we support, check out the actions that our SDK supports as well as how to implement them. [Learn more](/developing-connectors/sdk/action.md)

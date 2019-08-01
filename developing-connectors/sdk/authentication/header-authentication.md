@@ -1,34 +1,55 @@
 # Header Authentication
-
 For APIs requiring header authentication, this can be easily accomplished if the token is supplied by the user directly through user input fields.
 
 ## Example header authentication
 
 ```ruby
-connection: {
+{
+  title: 'My connector',
 
-  fields: [
-    {
-      name: "token",
-      control_type: "string",
-      label: "Bearer token",
-      optional: false,
-      hint: "Available in 'My Profile' page"
+  connection: {
+
+    fields: [
+      {
+        name: "token",
+        control_type: "string",
+        label: "Bearer token",
+        optional: false,
+        hint: "Available in 'My Profile' page"
+      }
+    ],
+
+    authorization: {
+      type: 'custom_auth',
+
+      apply: lambda do |connection|
+        headers("Authorization": "Bearer #{connection["token"]}")
+      end
     }
-  ],
+  },
 
-  authorization: {
-    type: 'custom_auth',
-
-    apply: lambda do |connection|
-      headers("Authorization": "Bearer #{connection["token"]}")
-    end
+  test: {
+    # Some code here
+  },
+  actions: {
+    # Some code here
+  },
+  triggers: {
+    # Some code here
+  },
+  object_definitions: {
+    # Some code here
+  },
+  picklists: {
+    # Some code here
+  },
+  methods: {
+    # Some code here
   }
 }
 ```
 
 ## apply
-
 Synonym of the `credentials` block: Basically how to apply the credentials to an action/trigger/test request. All requests made in actions, triggers, tests and pick lists will be applied with the credentials defined here. In the example above, the apply block pulls the `token` field directly from user input fields in the `connection` object.
 
 Here are a list of accepted inputs into the apply block
@@ -59,4 +80,8 @@ end
 
 > The `apply` block will not be applied to any requests made in `acquire`. So you will have to include the required credentials for a successful API request there.
 
-Check out our [custom authentication documents](developing-connectors/sdk/authentication/custom-authentication.md) to find out other ways to authenticate your custom connector on Workato.
+### Other authentication methods
+Check out the other authentication methods we support as well as how to set up a custom connector that works for on-premise connections. [Go back to our list of authentication methods](/developing-connectors/sdk/authentication.md) or check our our [best practices](/developing-connectors/sdk/best-practices.md) for some tips.
+
+### Next section
+If you're already familiar with the authentication methods we support, check out the actions that our SDK supports as well as how to implement them. [Learn more](/developing-connectors/sdk/action.md)
