@@ -16,17 +16,11 @@ A connector allows Workato to interact with a single application through a serie
 Connectors built on the SDK are called **custom connectors**. These connectors have a private scope by default which means that they are only visible and available to the connector owner. After the connector is built and ready, you also have the ability to share it with others on various levels.
 
 ## Before we begin...
-Understanding your motivation for building a custom connector can help us understand how to best help you achieve success.
-
-### Are you a power user looking to build a custom connector for your team's own use?
 Workato has a whole host of other features and functionalities that might help you acheive what you are hoping for such as our universal HTTP connector or custom actions if your integration needs aren't so complex.[Learn more](/developing-connectors.md)
 
 If you've still decided that a custom connector is necessary, do check in at our [developer portal](https://developer.workato.com/) to see if anyone has contributed a custom connector to the application you're looking for. Our friendly support team via chat on our main website can also help you check our internal repository of custom connectors built by our custom success team.
 
 Reading the SDK documentation is still useful as you'll be able to install these custom connectors and continue working on them if you wish to do so.
-
-### Are you a developer looking to build a custom connector to your own application for listing on our developer portal?
-Workato is a great way for our community of users to discover new business applications and see how they can work with their existing ones. For all teams looking to develop connectors to your application on Workato, take a look over here first to see the steps to publishing your connector and getting a Workato developer account provisioned. [Learn more]()
 
 ## Documentation Format
 This section will list everything you need to know about our SDK as well as provide some guides, walkthroughs and example connectors that our users have built. You may use the links below to skip ahead to your desired section but it is recommended that you go through this documentation the order stated so as to not miss any of the features we have that might help you down the line.
@@ -56,12 +50,22 @@ This section will list everything you need to know about our SDK as well as prov
   * [Dynamic Webhook triggers](/developing-connectors/sdk/trigger/webhook-trigger.md)  
 * [HTTP requests](/developing-connectors/sdk/http-requests-and-response-handling.md)
 * [Object definitions](/developing-connectors/sdk/object-definition.md)
-* [Advanced object definitions - Pick lists](/developing-connectors/sdk/pick-list.md)
-* [Advanced object definitions - Toggle fields](/developing-connectors/sdk/toggle-fields.md)
-* [Advanced object definitions - Config fields](/developing-connectors/sdk/config-fields.md)
+* [Object definitions - Pick lists](/developing-connectors/sdk/pick-list.md)
+* [Object definitions - Toggle fields](/developing-connectors/sdk/toggle-fields.md)
+* [Object definitions - Config fields](/developing-connectors/sdk/config-fields.md)
 * [Methods](/developing-connectors/sdk/methods.md)
 * [Error handling](/developing-connectors/sdk/error-handling.md)
 * [Best Practices](/developing-connectors/sdk/best-practices.md)
+  * [General best practices](/developing-connectors/sdk/best-practices.md#general-best-practices)
+  * [Block specific best practices](/developing-connectors/sdk/best-practices.md#block-specific-best-practices)
+      * [Connection block](/developing-connectors/sdk/best-practices.md#connection-block)
+      * [Test block](/developing-connectors/sdk/best-practices.md#test-block)
+      * [Object definitions block](/developing-connectors/sdk/best-practices.md#object-defintions-block)
+      * [Actions block](/developing-connectors/sdk/best-practices.md#actions-block)
+      * [Triggers block](/developing-connectors/sdk/best-practices.md#triggers-block)
+      * [Sample output block](/developing-connectors/sdk/best-practices.md#sample-output-block)
+      * [Error handling](/developing-connectors/sdk/best-practices.md#error-handling)
+  * [Usability and testing best practices](/developing-connectors/sdk/best-practices.md#usability-and-testing-best-practices)  
 * [Examples](developing-connectors/sdk/examples.md)
 
 ## Coming soon
