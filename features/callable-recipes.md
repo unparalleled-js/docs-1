@@ -8,7 +8,7 @@ Callable recipes are a type of recipe that can be called from another recipe. Th
 
 A callable recipe is triggered by a call from another recipe instead of a trigger event in an application.
 
-Callable recipes can also be exposed as REST endpoints using the [API Platform feature](/api-mgmt.md).
+Callable recipes can also be exposed as REST endpoints using the [API Platform feature](/api-management.md).
 
 ## Advantages of using callable recipes
 
@@ -25,3 +25,4 @@ Callable recipes can also be exposed as REST endpoints using the [API Platform f
  * [Call recipe actions](callable-recipes/call-recipe-action.md)
  * [Return response from recipe action](callable-recipes/return-response-action.md)
  * [Callable recipe as a REST endpoint](callable-recipes/rest-endpoint.md)
+ * [Setting up callable recipes to handle raw content](callable-recipes/handling-raw-content.md)

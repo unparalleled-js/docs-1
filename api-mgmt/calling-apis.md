@@ -7,6 +7,8 @@ date: 2018-04-08 13:25:00 Z
 
 APIs that are exposed through the API Platform console can be called from recipes in accounts other than one owning the recipe, as well as from third-party tools, programs, and scripts. The API manager must provide the Auth Token or JWT token value to the client in order to call any endpoints in an API Collection.
 
+With raw content support, the API platform allow clients to send text based (e.g. XML/SOAP) request and receive custom responses from the callable recipes exposed as REST endpoints. This extends the security benefits of Workato's recipes to API calls from other systems. See more [here](/features/callable-recipes/handling-raw-content.md).
+
 # Authorization Headers
 
 If the Access Profile specifies the **Auth Token** method of authentication, then the Auth Token value must be passed by the client as the value of the `API-Token` header. If the authorization method is **JSON Web Token**, then the value of the encoded and signed token is passed in the `Authorization` header, using the `Bearer` scheme.
@@ -30,10 +32,11 @@ Also, note that an `API-Token` request header has been added. Its value should b
 Using the recipe test feature, you can run the recipe a single time and have it generate a call to the REST API. If successful, the API will return a 200 status and the recipe execution will continue to completion. There are several possible errors that can occur. Here are some of the common ones.
 
 | Error code | Description | Details |
-| -- | -- | ----|
-| 500 | Internal error | This usually indicates that the request parameters were missing or invalid for the API. |
-| 401 | Unauthorized | This indicates a problem with the API token. It is missing or does not match the correct code for the API you are trying to call. |
-| 404 | Not found | This may indicate that you have the incorrect URL in the request configuration on your side. Another possible cause is that the recipe you are calling is not running. Yet another possibility is that the recipe owner has either the API Collection or your client configuration set to **Disabled**. |
+| ---------- | -- | ----|
+| 401       | Unauthorized | This indicates a problem with the API token. It is missing or does not match the correct code for the API you are trying to call. |
+| 404         | Not found | This may indicate that you have the incorrect URL in the request configuration on your side. Another possible cause is that the recipe you are calling is not running. Yet another possibility is that the recipe owner has either the API Collection or your client configuration set to **Disabled**. |
+| 422       | Processing error | This indicate that there is an issue with the callable recipe - the job failed to complete. It could due to a mismatch between the request syntax and the expected syntax written in the recipe. |
+| 500       | Server error | This usually indicates that the request parameters were missing or invalid for the API. |
 
 # Calling the API from other clients
 

@@ -75,4 +75,4 @@ Toggle hints are displayed in the toggle dropdown when choosing between primary 
 Note: `toggle_field` keys do not have default behaviours. This means that all fields are required and must be explicitly defined. For a details of field definitions, check out [Object Definition](object-definition.md)
 
 ## Next section
-The next section goes through what ruby methods you can use in the Workato SDK as well as how you can declare your own reusable methods. [Go to our methods documentation](/developing-connectors/sdk-2/methods.md) or check out our [best practices](/developing-connectors/sdk-2/best-practices.md) for some tips.
+The next section goes through what ruby methods you can use in the Workato SDK as well as how you can declare your own reusable methods. [Go to our methods documentation](/developing-connectors/sdk/methods.md) or check out our [best practices](/developing-connectors/sdk/best-practices.md) for some tips.

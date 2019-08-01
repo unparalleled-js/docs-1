@@ -182,4 +182,4 @@ You can easily verify this while developing your custom connector. When you incl
 <center>Output with response code and header values*</center>
 
 ### Next section
-Check out our object_definitions section, which details how you can use it to reduce the amount of redundant code in your connector. We also go through the different types of parameters you can declare in each input and output field hash. [Go to our object definitions documentation](/developing-connectors/sdk-2/object-definition.md) or check our our [best practices](/developing-connectors/sdk-2/best-practices.md) for some tips.
+Check out our object_definitions section, which details how you can use it to reduce the amount of redundant code in your connector. We also go through the different types of parameters you can declare in each input and output field hash. [Go to our object definitions documentation](/developing-connectors/sdk/object-definition.md) or check our our [best practices](/developing-connectors/sdk/best-practices.md) for some tips.
