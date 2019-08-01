@@ -20,12 +20,21 @@ When first creating your custom connector, it is given a default title, logo and
 
 Custom connector title changes can be done by clicking on the pencil icon next to the customer connector and editing the name in the box that appears. Saving your changes can be done by clicking the green tick when you are done. Clear any unsaved changes by clicking the grey cross instead.
 
-Custom connector logo changes can be done by clicking on the logo image. This should prompt your browser to open up a system upload window for you to select the logo you would want to upload. This logo will not only represent your custom connector in your personal registry but also show up as the logo when using your custom connector in recipes.
+![Changing title input field](/assets/images/sdk/change-title-view.png)
+*Click on the green tick or blur out of the field to save*
+
+Custom connector logo changes can be done by clicking on the logo image. This should prompt your browser to open up a system upload window for you to select the logo you would want to upload. This logo not only represents your custom connector in your personal registry but also show up as the logo when using your custom connector in recipes.
+
+![Changing logo](/assets/images/sdk/change-logo-view.gif)
+*Click on the icon logo to upload a icon from your local machine*
 
 Changing your description can be done by navigating to the `Settings` tab in your custom connector home page. This tab will contain information including a text input field for a description about your connector. This description will let others know more about your connector when they are deciding to clone your connector.
 
+![Changing description in settings tab](/assets/images/sdk/change-description-view.png)
+*Head over to the settings tab to change your description*
+
 ## Using the Workato Code editor
-The Workato SDK platform uses [Code Mirror](https://codemirror.net/) for editing your connector code. Whilst writing your connector code, you'll be able to see any syntax errors or code errors in real time. Workato has a set of [white-listed ruby methods](developing-connectors/sdk-2/methods.md) that we allow for use in the code editor. This means that any ruby methods not on our white list that are called inside your connector code would also result in errors being highlighted.
+The Workato SDK platform uses [Code Mirror](https://codemirror.net/) for editing your connector code. Whilst writing your connector code, you'll be able to see any syntax errors or code errors in real time. Workato has a set of [white-listed ruby methods](/developing-connectors/sdk/methods.md) that we allow for use in the code editor. This means that any ruby methods not on our white list that are called inside your connector code would also result in errors being highlighted.
 
 The code editor has a set of basic hotkeys that make your experience easier.
 
@@ -57,25 +66,25 @@ Version control in the Workato SDK platform can be done directly through the UI.
 
 Since the latest version of your custom connector may not be a version which you want your active recipes to be working off, we've also introduced the concept of releasing a specific version of your connector to be used by all recipes in your account.
 
-In this way, you can have a stable version of your custom connector released and continue on developing before releasing the next version which you believe is stable.
+In this way, you can have a stable version of your custom connector released for use in all your recipes and continue on developing before releasing the next version which you believe is stable.
 
 >You can always check the latest released version of a custom connector in the top right corner of a custom connector's homepage.
 
 ### Editing the latest version
 The Workato SDK platform only allows you to edit the latest version of a custom connector's source code. By making changes directly in the code editor in "Source Code" tab, you are effectively making edits to the latest version. These changes will not be saved until you explicitly press the save changes button in the top left corner of the page or start debugging through the debugger console. When these changes are saved, the new custom connector source code is saved as a new latest version.
 
-### Deploying the latest version
-Workato only allows you to release the latest version as well. When you release a new version of a custom connector, this means that each recipe in your Workato account using this custom connector will begin using this version from the next job onwards. Be sure to do your relevant tests using the debugger console to make sure that your code is reliable before releasing it.
+### Releasing the latest version
+The SDK platform only supports releasing of the latest version. When you release the latest version of a custom connector, this means that each recipe in your Workato account using this custom connector will begin using this version from the next job onwards. Be sure to do your relevant tests using the debugger console to make sure that your code is reliable before releasing it.
 
 Workato actively searches for any errors in your code and prevents you from releasing a version with errors. This is to prevent any of your recipes from breaking. You'll be informed of the line of code which contains the error so you can jump to it and fix it.
 
->When you first create your connector, you need to release a version before you can search for it while building a recipe.
+>When you first create your connector, you need to release a version before you can search for it while building a recipe. The currently released version of the connector can be seen in the top right hand corner.
 
-### Reverting to an old version
+### Viewing and reverting to an old version
 In situations where you want to revert to an older version of your custom connector, you can easily go to the "Versions" tab of the custom connector homepage to view a table of versions. Clicking on any version will bring you to a page which contains a snapshot of the source code at that point in time as well as a snapshot of the triggers and actions based on that source code.
 
 ![View old version](/assets/images/sdk/viewing-old-version.gif)
-*Click on a specific version to view details about it*
+*Click on a specific version to view details about it and you can choose to revert to that specific version*
 
 When viewing a specific version, you are given the ability to restore your custom connector to this version by clicking "Restore this version" in the top right of the page. This restores the version by making a copy of that version's source code as a new latest version. You'll be able to begin editing from there or immediately release this version.
 
@@ -102,7 +111,7 @@ When the connection you make is successful, the debugger will immediately displa
 
 >You can't test actions or triggers until a successful connection is made. Without a successful connection, HTTP requests sent during triggers and actions would not be able to actively authenticate itself with the API endpoint.
 
-Find out more about the configuring a connection in our SDK and what connection types we support. [Learn more](/developing-connectors/sdk-2/authentication.md)
+Find out more about the configuring a connection in our SDK and what connection types we support. [Learn more](/developing-connectors/sdk/authentication.md)
 
 ### Testing actions and triggers
 After establishing a successful connection, you'll be able to test any actions and triggers you have defined using the debugger console.
@@ -180,5 +189,8 @@ Update notifications are always pegged to the latest released version of its par
 ##### 6. How do I know what changes occur across each version and who created that version when working in a team workspace?
 Our version history table gives you insight into the a snapshot of the current actions and triggers for each version. Our versions table also showcases the user who created a version and who released a certain version. More functionality will come to showcase more fine grained details about specific changes in the code across versions and the ability to attach notes to different versions. Stay tuned!
 
+##### 7. I don't have teams enabled on my Workato account. How can I test a specific version of my custom connector in recipes before releasing them to all my active recipes?
+We are currently working on improving the coding experience further on the SDK platform to include the ability to run a wider variety of automated tests on different versions of your custom connector. In the meantime, a valid workaround would be to create a dummy custom connector which hosts the same code as the version you are hoping to release. We would suggest testing this new version on copies of both existing recipes that use the custom connector and new recipes to ensure there are no regressions
+
 ## Building your custom connector
-Now that you're familiar with the platform, its time for you to build your custom connector! Check out our articles on the SDK conceptual model to get you going. [Learn more](/developing-connectors/sdk-2/SDK-conceptual-model.md)
+Now that you're familiar with the platform, its time for you to build your custom connector! Check out our articles on the SDK conceptual model to get you going. [Learn more](/developing-connectors/sdk/SDK-conceptual-model.md)
