@@ -632,7 +632,7 @@
     * [JSON](/developing-connectors/sdk/data-format/json-format.md)
     * [XML](/developing-connectors/sdk/data-format/xml-format.md)
     * [Multipart Form](/developing-connectors/sdk/data-format/request_format_multipart_form.md)
-    * [Form URL Encoded](/developing-connectors/sdk/data-format/form-url-encoded.md)
+    * [URL Encoded Form](/developing-connectors/sdk/data-format/form-url-encoded.md)
   * [Authentication](/developing-connectors/sdk/authentication.md)
     * [Basic Authentication](/developing-connectors/sdk/authentication/basic-authentication.md)
     * [Header Authentication](/developing-connectors/sdk/authentication/header-authentication.md)

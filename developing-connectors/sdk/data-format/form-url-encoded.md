@@ -1,4 +1,4 @@
-# Form URL Encoded
+# URL Encoded Form
 
 This request format can be declared in any blocks (`execute`, `acquire`, `fields` etc.) in your custom connector code.
 

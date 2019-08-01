@@ -13,8 +13,57 @@ Furthermore, you'll be able to declare your own reusable methods to use in any b
   </thead>
   <tbody>
     <tr>
+       <td>at</td>
+       <td>Creates a new time object with the given argument. <br>
+       <a href="https://apidock.com/ruby/Time/at/class">More details here.</a>  	
+       </td>
+     </tr>
+     <tr>
+       <td>compact</td>
+       <td>Returns a hash with non nil values. <br>
+       <a href="https://apidock.com/rails/Hash/compact">More details here.</a>  	
+       </td>
+     </tr>
+     <tr>
+       <td>dig</td>
+       <td>Retrieves the value object corresponding to the index passed in <br>
+       The dig method is often used to strip away layers in nested arrays/hashes. For example, we use the dig method often when dealing with XML data formats. <br>
+      <a href="https://docs.workato.com/developing-connectors/sdk/data-format/XML-format.html">More details here.</a></td>
+    </tr>
+    <tr>
       <td>each</td>
       <td>Basic iterator<br><code>[1, 2, 3].each { |i| puts i }</code></td>
+    </tr>
+    <tr>
+      <td>each_with_index</td>
+      <td>Iterator returned with an index<br><code>[1, 2, 3].each_with_index { |item, index| puts "#{index}:#{item}" }</code><br> <a href="https://apidock.com/ruby/Enumerator/each_with_index">More details here.</a></td>
+    </tr>
+    <tr>
+      <td>each_with_object</td>
+      <td>Iterator returned with an object which you can define
+        <pre><code style="display: block; white-space: pre-wrap;">[%w(foo bar).each_with_object({}) { |str, hsh| hsh[str] = str.upcase }
+# => {'foo' => 'FOO', 'bar' => 'BAR'}</code></pre>
+      <a href="https://apidock.com/rails/Enumerable/each_with_object">More details here.</a></td>
+    </tr>
+    <tr>
+      <td>even?</td>
+      <td>Returns true if integer is an even number<br> <a href="https://apidock.com/ruby/Integer/even%3F">More details here.</a></td>
+    </tr>
+    <tr>
+      <td>fetch</td>
+      <td>Returns a value from the hash for the given key.<br> <a href="https://apidock.com/ruby/Hash/fetch">More details here.</a></td>
+    </tr>
+    <tr>
+      <td>format_json</td>
+    <td>
+        Convert request to json format and expect response body in json format
+    </td>
+    </tr>
+    <tr>
+      <td>format_xml</td>
+    <td>
+        Convert request to XML format and expect response body in XML format
+    </td>
     </tr>
     <tr>
       <td>group_by</td>
@@ -22,6 +71,10 @@ Furthermore, you'll be able to declare your own reusable methods to use in any b
         Group arrays into sets.<br>
         <a href="http://apidock.com/rails/Enumerable/group_by">More details here.</a>
       </td>
+    </tr>
+    <tr>
+      <td>has_key?</td>
+      <td>Returns true if the given key is present in hash.<br> <a href="https://apidock.com/ruby/v1_9_3_392/Hash/has_key">More details here.</a></td>
     </tr>
     <tr>
       <td>headers</td>
@@ -38,10 +91,36 @@ Furthermore, you'll be able to declare your own reusable methods to use in any b
       </td>
     </tr>
     <tr>
+      <td>parse_json</td>
+      <td>
+        Works the same way as json.parse <br>
+        <a href="https://apidock.com/ruby/v1_9_3_392/JSON/parse">More details here.</a>
+      </td>
+    </tr>
+    <tr>
+      <td>pluralize</td>
+      <td>
+        Returns the plural form of the word in the string <br>
+        <a href="https://apidock.com/rails/String/pluralize">More details here.</a>
+      </td>
+    </tr>
+    <tr>
       <td>payload</td>
       <td>
         Add payload to a request<br>
         <code>.payload(id: "345")</code>
+      </td>
+    </tr>
+    <tr>
+      <td>pop</td>
+      <td>
+        Removes the last element from self and returns it, or nil if the array is empty.<br>
+        If a number n is given, returns an array of the last n elements (or less) and removes it from array.
+        <pre><code style="display: block; white-space: pre-wrap;">a = [ "a", "b", "c", "d" ]
+  a.pop     #=> "d"
+  a.pop(2)  #=> ["b", "c"]
+  a         #=> ["a"]</code></pre>
+        <a href="https://apidock.com/ruby/Array/pop">More details here<.</a></td>
       </td>
     </tr>
     <tr>
@@ -52,11 +131,57 @@ Furthermore, you'll be able to declare your own reusable methods to use in any b
       </td>
     </tr>
     <tr>
+      <td>odd?</td>
+      <td>Returns true if integer is an odd number<br> <a href="https://apidock.com/ruby/Integer/odd%3F">More details here.</a></td>
+    </tr>
+    <tr>
       <td>only</td>
       <td>
         White list a comma-separate  of fields<br>
         <code>object_definition["user"].only("id", "name")</code>
       </td>
+    </tr>
+    <tr>
+    <td>response_format_json</td>
+      <td>
+        Expect response in json format
+      </td>
+    </tr>
+    <tr>
+      <td>response_format_raw</td>
+      <td>
+        Expect response in raw format
+      </td>
+    </tr>
+    <tr>
+      <td>response_format_xml</td>
+      <td>
+        Expect response in XML format
+      </td>
+    </tr>
+    <tr>
+      <td>request_format_json</td>
+    <td>
+        Convert request to json format
+    </td>
+    </tr>
+    <tr>
+      <td>request_format_multipart_form</td>
+    <td>
+        Convert request to multipart_form format
+    </td>
+    </tr>
+    <tr>
+      <td>request_format_www_form_urlencoded</td>
+    <td>
+        Convert request to url-encoded format
+    </td>
+    </tr>
+    <tr>
+      <td>request_format_xml</td>
+    <td>
+        Convert request to XML format
+    </td>
     </tr>
     <tr>
       <td>required</td>
@@ -77,6 +202,19 @@ Furthermore, you'll be able to declare your own reusable methods to use in any b
       <td>Convert a date/date-time variable to ISO8601 format</td>
     </tr>
     <tr>
+      <td>is_a?</td>
+      <td>Returns true if class is the class of obj, or if class is one of the superclasses of obj or modules included in obj.<br> Workato currently supports the following classes - Array, Hash, Time, String, Integer, Float <br>
+      <a href="https://apidock.com/ruby/Object/is_a%3F">More details here.</a></td>
+    </tr>
+    <tr>
+      <td>is_true?</td>
+      <td>Converts a value to boolean and returns true if value is truthy.</td>
+    </tr>
+    <tr>
+      <td>is_not_true?</td>
+      <td>Converts a value to boolean and returns true if value is not truthy.</td>
+    </tr>
+    <tr>
       <td>map</td>
       <td>Returns a new array after invoking block on each element</td>
     </tr>
@@ -87,6 +225,23 @@ Furthermore, you'll be able to declare your own reusable methods to use in any b
         <a href="https://ruby-doc.org/core-2.2.0/Hash.html#method-i-merge">More details here.</a>
       </td>
     </tr>
+    <tr>
+  <td>next</td>
+  <td>
+    Returns the next object in the enumerator, and move the internal position forward.<br>
+    This is often used in config_fields where you can use <code>next</code> as a way to add a guard clause that checks inputs before the lambda function is executed.
+    <pre><code style="display: block; white-space: pre-wrap;">object_definition: {
+document: {
+fields: lambda do |connection, config_fields|
+  next [] if config_fields.blank?
+  get("https://www.webmerge.me/api/documents/#{config_fields["document_id"]}/fields").
+    map { |field| field.slice("name") }
+end
+}
+}</code></pre>
+    <a href="https://apidock.com/ruby/Enumerator/next">More details here.</a>
+  </td>
+</tr>
     <tr>
       <td>pluck</td>
       <td>
@@ -108,6 +263,24 @@ Furthermore, you'll be able to declare your own reusable methods to use in any b
         Selectively returns elements for which the block returns true.<br>
         <a href="http://apidock.com/ruby/v1_9_3_392/Array/select">More details here.</a>
       </td>
+    </tr>
+    <tr>
+      <td>tap</td>
+      <td>
+        Yields x to the block, and then returns x.<br>
+        The tap method is often used for transformation. For example, we use the tap method below to transform a webhook's payload. If a webhook payload is deliever in this format.
+        <pre><code style="display: block; white-space: pre-wrap;">{
+  "id" => {"value" => 1},
+  "name" => {"value" => 2}
+}</code></pre>
+        You can use tap to transform it into a more user friendly JSON.<br>
+        <pre><code style="display: block; white-space: pre-wrap;">webhook_notification: lambda do |input, payload|
+  payload.tap do |output|
+    output.each { |k, v| output[k] = v["value"] }
+  end
+end</code></pre>
+      The final JSON will look like this <code>{"id"=>1, "name"=>2}</code><br>
+      <a href="https://apidock.com/ruby/Object/tap">More details here.</a></td>
     </tr>
     <tr>
       <td>error</td>
@@ -157,6 +330,25 @@ Furthermore, you'll be able to declare your own reusable methods to use in any b
         while loop statement.<br>
         <a href="https://www.tutorialspoint.com/ruby/ruby_loops.htm">More details here.</a>
       </td>
+    </tr>
+    <td>wrap</td>	      
+      <td>
+        Wraps its argument in an array unless it is already an array <br> The wrap method is often used in the execute block.	        while loop statement.<br>
+        <pre><code>execute: lambda do |connection, input|	        <a href="https://www.tutorialspoint.com/ruby/ruby_loops.htm">More details here.</a>
+  {
+    accounts: Array.wrap(get("/accounts", input)["records"])
+  }
+end</code></pre>
+        This ensures that the <code>accounts</code> variable is always an array in spite of whatever return. At Workato, we often use this to guard against unexpected returns from the various APIs we work with.
+        <br>
+        <a href="https://apidock.com/rails/Array/wrap/class">More details here.</a>
+      </td>
+    </tr>
+    <tr>
+      <td>zip</td>
+      <td>Used as a method called by arrays. Converts any arguments to arrays, then merges elements of self with corresponding elements from each argument. <br>
+      <a href="https://apidock.com/ruby/Array/zip">More details here.</a>
+      </td>	      </td>
     </tr>
   </tbody>
 </table>
