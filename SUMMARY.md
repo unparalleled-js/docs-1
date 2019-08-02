@@ -119,7 +119,7 @@
   * [Maximize data throughput](features/batch-processing.md#maximize-data-throughput-with-batch-processing)
 * [Teams and collaboration](user-accounts-and-teams/team-collaboration.md)
   * [Role-based access](user-accounts-and-teams/team-collaboration.md#team-roles)
-  * [Audit logs](user-accounts-and-teams/team-collaboration.md#audit-logs)
+  * [Tracking changes from team collaborators](user-accounts-and-teams/team-collaboration.md#tracking-changes-made-by-collaborators)
   * [Single sign on](/user-accounts-and-teams/single-sign-on.md)
     * [Okta SSO](/user-accounts-and-teams/single-sign-on.md#okta-single-sign-on)
     * [OneLogin SSO](/user-accounts-and-teams/single-sign-on.md#onelogin-single-sign-on)

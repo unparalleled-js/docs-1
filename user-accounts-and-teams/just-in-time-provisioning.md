@@ -45,11 +45,11 @@ Let's configure the SAML attributes for `workato_role` on Okta.
 | 1. Locate **Profile Editor**       | ![Profile editor](/assets/images/user-accounts-and-teams/jit-provisioning/okta-profile-editor.png) |
 | 2. Select Okta > **Profile**       | ![Okta profile](/assets/images/user-accounts-and-teams/jit-provisioning/okta-profile.png) |
 | 3. Select **Add attribute**        | ![Add attribute](/assets/images/user-accounts-and-teams/jit-provisioning/add-attribute.png) |
-| 4. Fill in the **attributes**      | For more information see [here](#setting-up-`workato-role`-attribute).<br>![Attribute fields](/assets/images/user-accounts-and-teams/jit-provisioning/attribute-fields.png) |
+| 4. Fill in the **attributes**      | For more information see [here](#setting-up-`workato-role`-attribute).<br><br>![Attribute fields](/assets/images/user-accounts-and-teams/jit-provisioning/attribute-fields.png) |
 | 5. Locate the Workato **SAML app** | ![Workato SAML app](/assets/images/user-accounts-and-teams/jit-provisioning/workato-saml-app.png) |
 | 6. Find **SAML settings** > edit   | ![Add attribute](/assets/images/user-accounts-and-teams/jit-provisioning/saml-app-setting.png) |
 | 7. Skip to **Configure SAML**      | ![Configure SAML](/assets/images/user-accounts-and-teams/jit-provisioning/configure-saml.png) |
-| 8. Locate **Attribute statement**  | The `Name` value is passed to workato (this is case-sensitive), `user.workato_role` is the attribute you just configured.<br><br> ![Attribute statement](/assets/images/user-accounts-and-teams/jit-provisioning/attribute-statement.png) |
+| 8. Locate **Attribute statement**  | The `Name` value is passed to workato (this is case-sensitive), `user.workato_role` is the attribute you just configured.<br><br> ![Attribute statement](/assets/images/user-accounts-and-teams/jit-provisioning/attribute-statement.png)<br><br>Instead of the `user.workato_role` attribute, it is possible to input a fixed value (e.g. Analyst). This will set the default for all users to be provisioned with the `Analyst` role. |
 | 9. Save and exit SAML setting       | Note that existing users will not be affect. In order to implement JIT custom role provisioning, define the user's `workato_role` in their [profile page](#assign-roles-for-team-members). |
 
 #### Setting up `workato_role` attribute
@@ -58,6 +58,7 @@ Workato accepts certain attributes and converts them into user values when provi
 For example, we created a custom role in workato Team called `mktg_ops` with custom permissions to certain folders and recipes.
 
 Thus, the SAML attribute will be as follows:
+
 | SAML attribute | Stored values |
 | -------------- | ------------- |
 | `workato_role` | `Admin`, `Analyst`, `Operator` and `mktg_ops` |

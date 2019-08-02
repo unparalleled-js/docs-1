@@ -142,5 +142,5 @@ Once SAML is enabled, access to Team is controlled by SAML Identity Provider (Ok
 
 - From the Workato platform, switching from a personal account to a (SAML-enabled) Team account will require authentication through the SAML provider.
 
-![Team Switch with Okta](/assets/images/user-accounts-and-teams/team-collaboration/okta-team-switch.gif)
+![Team Switch with Okta](/assets/images/user-accounts-and-teams/single-sign-on/okta-team-switch.gif)
 *Switch to Team account with Okta authorization*
