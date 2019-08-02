@@ -12,7 +12,7 @@ This action has no input fields.
 
 ### Output fields
 
-| Output field    | Description |
+| Output field    | Description                                          |
 | --------------- | ---------------------------------------------------- |
 | Descriptor      | Title of the inbox task.                             |
 | ID              | Workday ID of the inbox task.                        |

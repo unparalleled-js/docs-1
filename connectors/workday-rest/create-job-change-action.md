@@ -12,23 +12,23 @@ Use this action to initiate a job change for a specified worker. Refer to [Workd
 
 ### Input fields
 
-| Input field              | Description |
-| ------------------------ | ----------- |
-| Worker ID                | Workday ID of the worker record to initiate the job change for. |
-| Job change reason        | Reason for the job change. Select from the list or provide the Job change reason ID. |
-| Supervisory organization | Target organization for the job change. The worker will be in this organization after the job change is complete. Select from the list or provide the organization ID. |
+| Input field              | Description                                                                            |
+| ------------------------ | -------------------------------------------------------------------------------------- |
+| Worker ID                | Workday ID of the worker record to initiate the job change for.                        |
+| Job change reason        | Reason for the job change. Select from the list or provide the Job change reason ID.   |
+| Supervisory organization | The worker will be in this organization after the job change. Select from the list or provide the organization ID. |
 | Effective date           | **Optional**. Effective date of the job change. If left blank, is set to current date. |
-| Move manager team?       | **Optional**. Choose to transfer the manager team to the new organization. |
-| Proposed organizations   | **Optional**. Set of proposed organizations to which the worker is to be assigned. |
+| Move manager team?       | **Optional**. Choose to transfer the manager team to the new organization.             |
+| Proposed organizations   | **Optional**. Set of proposed organizations to which the worker is to be assigned.     |
 
 ### Output fields
 
-| Output field             | Description |
-| ------------------------ | ----------- |
-| Descriptor               | Indicates *Approval by Manager* task. |
-| ID                       | Workday ID of the inbox task.         |
-| HREF                     | API resource URL of the inbox task.   |
-| Job change reason        | Job change reason object. Contains descriptor, Workday ID and HREF. |
+| Output field             | Description                                                                           |
+| ------------------------ | ------------------------------------------------------------------------------------- |
+| Descriptor               | Indicates *Approval by Manager* task.                                                 |
+| ID                       | Workday ID of the inbox task.                                                         |
+| HREF                     | API resource URL of the inbox task.                                                   |
+| Job change reason        | Job change reason object. Contains descriptor, Workday ID and HREF.                   |
 | Move manager team?       | Boolean value indicating if the manager team was transferred to the new organization. |
-| Proposed organizations   | List of proposed organizations to which the worker is to be assigned. |
-| Supervisory organization | The worker will be in this organization after the job change is complete. |
+| Proposed organizations   | List of proposed organizations to which the worker is to be assigned.                 |
+| Supervisory organization | The worker will be in this organization after the job change is complete.             |
