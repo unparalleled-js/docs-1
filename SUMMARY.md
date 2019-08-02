@@ -122,7 +122,7 @@
   * [Audit logs](user-accounts-and-teams/team-collaboration.md#audit-logs)
   * [Single sign on](/user-accounts-and-teams/single-sign-on.md)
     * [Okta SSO](/user-accounts-and-teams/single-sign-on.md#okta-single-sign-on)
-    * [OneLogin SSO](u/user-accounts-and-teams/single-sign-on.md#onelogin-single-sign-on)
+    * [OneLogin SSO](/user-accounts-and-teams/single-sign-on.md#onelogin-single-sign-on)
     * [Workato SSO settings](/user-accounts-and-teams/single-sign-on.md#workato-single-sign-on-setup)
     * [Logging into SAML-enabled team](/user-accounts-and-teams/single-sign-on.md#logging-into-saml-enabled-team)
   * [SAML Just-In-Time provisioning](/user-accounts-and-teams/just-in-time-provisioning.md)
