@@ -68,9 +68,6 @@ You can also define the folders, and correspondingly the recipes and connections
 ## Invite collaborators
 To invite collaborators, provide the full name of the collaborator and their email.
 
-[![https://gyazo.com/6fe635f951ea2a67e622e5b90bcb9975](https://i.gyazo.com/6fe635f951ea2a67e622e5b90bcb9975.gif)](https://gyazo.com/6fe635f951ea2a67e622e5b90bcb9975)
-*Invite collaborators to the team*
-
 ![Invite collaborators](/assets/images/user-accounts-and-teams/team-collaboration/invite-collaborators.gif)
 *Invite collaborators*
 Existing Workato users will be prompted to login to Workato and accept the team invite.
