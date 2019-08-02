@@ -133,4 +133,3 @@ If there are no existing refresh tokens, select **Generate new refresh token** a
    - [Approve/reject inbox task](workday-rest/approve-reject-inbox-task-action.md)
    - [Get worker by ID](workday-rest/get-worker-action.md)
    - [Search workers](workday-rest/search-worker-action.md)
-   - [Custom action](workday-rest/custom-action.md)
