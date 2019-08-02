@@ -5,7 +5,7 @@ date: 2019-08-01 00:00:00 Z
 
 # Workday REST - Search workers action
 
-Use this action to get details of workers matching names.
+Use this action to search for workers by name.
 
 ![Search workers by name action](/assets/images/workday-rest/search-worker.png)
 *Search workers action*
