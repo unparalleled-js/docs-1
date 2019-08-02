@@ -7,6 +7,8 @@ date: 2019-08-01 00:00:00 Z
 
 This action returns all the inbox task record(s) for the connected user. Only the first 100 tasks are returned in descending order with the latest inbox task first.
 
+> **If an integration user is used to connect, only inbox tasks for the integration user will be returned.**
+
 ### Input fields
 This action has no input fields.
 

@@ -7,7 +7,7 @@ date: 2019-08-01 00:00:00 Z
 [Workday](https://www.workday.com/) is a cloud financial management and human capital management software that seamlessly combines finance and HR for greater business performance and visibility into organizational data.
 
 ## How to connect to Workday on Workato
-The Workday connector uses the [Workday REST API](https://doc.workday.com/reader/wsiU0cnNjCc_k7shLNxLEA/HvgwLwxCHVdBlZUTNd9s7A). Workday recommends using an [Integration System User (ISU)](#register-integration-system-user) for integration using third party services like Workato.
+The Workday connector uses the [Workday REST API](https://doc.workday.com/reader/wsiU0cnNjCc_k7shLNxLEA/HvgwLwxCHVdBlZUTNd9s7A). Workday recommends using an Integration System User (ISU) for integration using third party services like Workato.
 
 ### Connect to Workday on Workato
 
@@ -71,7 +71,7 @@ You will need to create an API client to connect to Workday REST API. There are 
 ### API Client for user account
 Use a regular **API Client** to authorize a connection to the REST API using a user account.
 
-First, navigate to the **View API Clients** page by typing it into the search bar. You should see this screen. Here, you will see the endpoints required for the connection. Take note of **REST API endpoint**, **Authorization endpoint** and **Token endpoint**.
+First, navigate to the **View API Clients** page by typing it into the search bar. You should see this screen. Here, you will see the endpoints required for the connection. Take note of **REST API endpoint**, **Token endpoint** and **Authorization endpoint**.
 
 ![View API Clients](/assets/images/workday-rest/view-api-client-endpoints.png)
 *View API clients*
@@ -81,7 +81,7 @@ Click on an existing API Clients that is available to integration if there are a
 ![Register API Client](/assets/images/workday-rest/register-api-client.png)
 *Registering a new client*
 
-- Enter a meaning name to indicate that this API client is used for Workato recipes
+- Enter a meaningful name to indicate that this API client is used for Workato recipes
 - Select **Authorization Code Grant** for **Client Grant Type**
 - Select **Bearer** for **Access Token Type**
 - Use `https://www.workato.com/oauth/callback` as the Redirection URL
@@ -101,7 +101,7 @@ Navigate to **Register API Client for integration** in your Workday instance.
 *Registering a new client for Integrations*
 
 - Enter a meaning name to indicate that this API client is used for Workato recipes
-- Select **Non-Expiring Refresk Tokens** to avoid regenerating and reconnecting
+- Select **Non-Expiring Refresh Tokens** to avoid regenerating and reconnecting
 - Select all the **OAuth2 scopes** and **Functional Area scope** that you need for the recipes you intend to create
 
 ![API client details](/assets/images/workday-rest/api-client-for-integration-details.png)

@@ -5,7 +5,7 @@ date: 2019-08-01 00:00:00 Z
 
 # Workday REST - Approve/reject inbox task action
 
-Use this action to approve or reject an inbox task. For this action to be successful, the inbox task must have a stepType descriptor of **Approval**.
+Use this action to approve or reject an inbox task. For this action to be successful, the inbox task must have a **Step type** (API name: stepType) descriptor of **Approval**.
 
 ![Approve/reject inbox task action](/assets/images/workday-rest/approve-reject-inbox-task.png)
 *Approve/reject inbox task action*

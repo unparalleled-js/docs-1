@@ -4,7 +4,7 @@ date: 2019-08-01 00:00:00 Z
 ---
 
 # Workday REST - New worker trigger
-This trigger picks up workers that are created in your Workday instance. Each row is processed as a separate job. When first started, all existing workers will be processed as individual jobs. Subsequently, triggers when a worker is created.
+This trigger picks up workers that are created in your Workday instance. Each row is processed as a separate job. When first started, all existing workers will be processed as individual jobs. Subsequently, it triggers when a worker is created.
 
 It checks for new rows once every poll interval. The poll interval can be 10 mins or 5 mins, depending on your plan. Check the [Pricing and Plans page](https://www.workato.com/pricing?audience=general) to find out more.
 
