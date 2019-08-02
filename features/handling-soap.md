@@ -33,11 +33,7 @@ SOAP data is mostly hidden from regular Workato users because we expose data as 
 ## SOAP Parser
 The easiest way to convert an SOAP document into a format that can be used in Workato recipes is to parse it using the SOAP Parser by Workato.
 
-### Connection setup
 No connection setup is required. Simply select **App** > **CSV by Workato** to get started.
-
-![SOAP parser by Workato](/assets/images/features/csv-by-workato.png)
-*SOAP parser by Workato*
 
 ### Parse SOAP document
 
