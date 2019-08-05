@@ -40,17 +40,17 @@ To assign user information during JIT provisioning, you first need complete the 
 ### Configure SAML attribute on SAML provider
 Let's configure the SAML attributes for `workato_role` on Okta.
 
-| Steps                              | Description |
-| ---------------------------------- | --- |
-| 1. Locate **Profile Editor**       | ![Profile editor](/assets/images/user-accounts-and-teams/jit-provisioning/okta-profile-editor.png) |
-| 2. Select Okta > **Profile**       | ![Okta profile](/assets/images/user-accounts-and-teams/jit-provisioning/okta-profile.png) |
-| 3. Select **Add attribute**        | ![Add attribute](/assets/images/user-accounts-and-teams/jit-provisioning/add-attribute.png) |
-| 4. Fill in the **attributes**      | For more information see [here](#setting-up-`workato-role`-attribute).<br><br>![Attribute fields](/assets/images/user-accounts-and-teams/jit-provisioning/attribute-fields.png) |
-| 5. Locate the Workato **SAML app** | ![Workato SAML app](/assets/images/user-accounts-and-teams/jit-provisioning/workato-saml-app.png) |
-| 6. Find **SAML settings** > edit   | ![Add attribute](/assets/images/user-accounts-and-teams/jit-provisioning/saml-app-setting.png) |
-| 7. Skip to **Configure SAML**      | ![Configure SAML](/assets/images/user-accounts-and-teams/jit-provisioning/configure-saml.png) |
-| 8. Locate **Attribute statement**  | The `Name` value is passed to workato (this is case-sensitive), `user.workato_role` is the attribute you just configured.<br><br> ![Attribute statement](/assets/images/user-accounts-and-teams/jit-provisioning/attribute-statement.png)<br><br>Instead of the `user.workato_role` attribute, it is possible to input a fixed value (e.g. Analyst). This will set the default for all users to be provisioned with the `Analyst` role. |
-| 9. Save and exit SAML setting       | Note that existing users will not be affect. In order to implement JIT custom role provisioning, define the user's `workato_role` in their [profile page](#assign-roles-for-team-members). |
+| Steps                                | Description |
+| ------------------------------------ | --- |
+| 1. Locate **Profile Editor**         | ![Profile editor](/assets/images/user-accounts-and-teams/jit-provisioning/okta-profile-editor.png) |
+| 2. Select Okta > **Profile**         | ![Okta profile](/assets/images/user-accounts-and-teams/jit-provisioning/okta-profile.png) |
+| 3. Select **Add attribute**          | ![Add attribute](/assets/images/user-accounts-and-teams/jit-provisioning/add-attribute.png) |
+| 4. Fill in the **attribute** details | For more information see [here](#setting-up-workatorole-attribute).<br>![Attribute fields](/assets/images/user-accounts-and-teams/jit-provisioning/attribute-fields.png) |
+| 5. Locate the Workato **SAML app**   | ![Workato SAML app](/assets/images/user-accounts-and-teams/jit-provisioning/workato-saml-app.png) |
+| 6. Select **SAML settings** > edit   | ![Add attribute](/assets/images/user-accounts-and-teams/jit-provisioning/saml-app-setting.png) |
+| 7. Skip to **Configure SAML**        | ![Configure SAML](/assets/images/user-accounts-and-teams/jit-provisioning/configure-saml.png) |
+| 8. Locate **Attribute statement**    | The `Name` value is passed to workato (this is case-sensitive), `user.workato_role` is the attribute you just configured.<br><br> ![Attribute statement](/assets/images/user-accounts-and-teams/jit-provisioning/attribute-statement.png)<br><br>Instead of the `user.workato_role` attribute, it is possible to input a fixed value (e.g. Analyst). This will set the default for all users to be provisioned with the `Analyst` role. |
+| 9. Save and exit SAML setting        | Note that existing users will not be affect. In order to implement JIT custom role provisioning, define the user's `workato_role` in their [profile page](#assign-roles-for-team-members). |
 
 #### Setting up `workato_role` attribute
 Workato accepts certain attributes and converts them into user values when provisioning a new account. In order to facilitate this, all values have to be identical to the roles in Workato Team.
@@ -73,7 +73,7 @@ All values are case-sensitive (`Admin`, ~~`admin`~~). Ensure that you have confi
 ![Select workato_role for new user](/assets/images/user-accounts-and-teams/jit-provisioning/new-user-custom-role.png)
 *Select `workato_role` for new user*
 
-- Assign `workato_role` to existing Okta users on their profile page. This only applies if this Okta user **does not have** an existing Workato account.
+- For existing Okta users, assign `workato_role` on their profile page. This only applies if this Okta user **does not have** an existing Workato account.
 
 ![Configure workato_role for an existing user](/assets/images/user-accounts-and-teams/jit-provisioning/assign-current-user.gif)
 *Configure `workato_role` for an existing user*
