@@ -1,7 +1,7 @@
 # Configuration Fields
+Occasionally, input/output fields depend on user input. For example, when input fields for an action depend on a user's input in the same action. Here, we introduce `config_fields`. It is an optional key available in both actions and triggers. It is a special type of input field that can be used to generate other dependent input/output fields. We see this in the merge_document action in Webmerge.
 
-Occassionally, input/output fields depend on user input. For example, the fields for an object depends on the chosen object. Here, we introduce `config_fields`. It is an optional key available in both actions and triggers. It is a special type of input field that can be used to generate other dependent input/output fields. We see this in the merge_document action in Webmerge.
-
+## Sample code snippet
 ```ruby
 action: {
   merge_document: {
@@ -42,7 +42,7 @@ Here, the fields are different for each document, hence a user first chooses a d
 object_definition: {
   document: {
     fields: lambda do |_connection, config_fields|
-      return [] if config_fields.blank?
+      next [] if config_fields.blank?
       get("https://www.webmerge.me/api/documents/#{config_fields["document_id"]}/fields").
         map { |field| field.slice("name") }
     end

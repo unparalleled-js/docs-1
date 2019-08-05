@@ -31,3 +31,4 @@ Follow the links below to continue reading about advanced Workbot topics:
   * [Legacy slash commands](/workbot/legacy-slash-commands.md)
 * [Custom Workbots](/workbot/workbot-custom-bots.md)
     * [Custom Workbot vs Legacy slash commands](/workbot/custom-workbot-vs-legacy-slash-commands.md)
+* [Dynamic menus](/workbot/workbot-dynamic-menus.md)

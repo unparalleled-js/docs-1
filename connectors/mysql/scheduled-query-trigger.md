@@ -6,7 +6,7 @@ date: 2018-05-08 06:00:00 Z
 # MySQL - Scheduled query trigger
 
 ## New/updated batch of rows via scheduled custom SQL
-This trigger picks up rows that are inserted/updated in the selected table or view. Each row is processed as a separate job. It checks for new/updated rows once every poll interval. The poll interval can be 10 mins or 5 mins, depending on your plan. Check the [Pricing and Plans page](https://www.workato.com/pricing?audience=general) to find out more.
+This trigger picks up rows that are returned from a user defined query which is run at an interval which is user defined. It is a batch action trigger and handles these returned rows in batches.
 
 ![New/updated row trigger](/assets/images/mysql/scheduled-query-trigger.png)
 *New/updated row trigger*
@@ -62,7 +62,13 @@ This trigger picks up rows that are inserted/updated in the selected table or vi
 ## Input field details
 
 ### SQL
-Provide the SQL to be executed to select rows. The SQL here will be used to generate the output datatree. To do this, the SQL will be executed once when you provide it. You can map datapills here to execute dynamically changing SQL statements. Remember to wrap datapills in quotes (`''`).
+Provide the SQL to be executed to select rows. The SQL here will be used to generate the output datatree. To do this, the SQL will be executed once when you provide it. You can map datapills here to execute dynamically changing SQL statements. Remember to wrap datapills in quotes (`''`). Be sure to include some `WHERE` clauses which can help prevent retrieving rows you have already processed in an earlier job run if that is your intention. This can be done by qualifying rows based on their `updated_at` or `created_at` timestamp columns in your table. 
+
+```sql
+select * 
+from contacts
+where contacts.created_at between now() and now() + INTERVAL 1 DAY;
+```
 
 Avoid using limit clauses like `TOP` in your SQL. This is because the limit to the number of rows returned in the query is based on the value defined in the [**Batch size** input field](#batch-size). Adding your own limit clause will cause the action to fail.
 

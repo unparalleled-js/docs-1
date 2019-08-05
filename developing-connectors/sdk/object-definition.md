@@ -1,47 +1,77 @@
-# Object Definition
+# Object Definitions and structuring input and output fields
+Object Definitions are an important component of the SDK. It allows you to define your schema for objects to be used in the actions and triggers. While we have gone through examples on how to do this directly from inside your `input_fields:` and `output_fields:` blocks, object_definitions allow you to declare it once and reuse it multiple times in various areas of your connector code.
 
-Object Definitions is an important component of the SDK. It allows you to define your schema for objects to be used in the actions and triggers. It allows you to easily define outputs and inputs later on.
+> Object definitions are a key indicator of well written code. It makes your custom connector more maintainable and easier to read.
 
-## Static Definition
+After that, we will dive deeper into the details of how you can clearly define your input and output fields. This will have important effects on what end users see when building recipes using your connector.
 
+## Static object definitions
 The most basic way to build an object definition is to define the field name and type
 
+### Sample code snippet
 ```ruby
-object_definitions: {
-  push: {
-    fields: lambda do
-      [
-        { name: "active", type: :boolean },
-        { name: "body" },
-        { name: "created" },
-        { name: "direction" },
-        { name: "dismissed", type: :boolean },
-        { name: "iden" },
-        { name: "modified" },
-        { name: "receiver_email" },
-        { name: "receiver_email_normalized" },
-        { name: "receiver_iden" },
-        { name: "sender_email" },
-        { name: "sender_email_normalized" },
-        { name: "sender_iden" },
-        { name: "sender_name" },
-        { name: "title" },
-        { name: "type" },
-      ]
-    end
+{
+  title: 'My close.io connector',
+
+  connection: {
+    # Some code here
+  },
+  test: {
+    # Some code here
+  },
+  actions: {
+
+    get_lead_by_id: {
+      input_fields: lambda do
+        [
+          { name: "lead_id", optional: false }
+        ]
+      end,
+
+      execute: lambda do |connection, input|
+        get("https://app.close.io/api/v1/lead/#{input["lead_id"]}/")
+      end,
+
+      output_fields: lambda do |object_definitions|
+        object_definitions["lead"]
+      end
+    }
+
+  },
+
+  triggers: {
+    # Some code here
+  },
+
+  object_definitions: {
+    lead: {
+      fields: lambda do
+        [
+          { name: "name", type: :boolean },
+          { name: "email" },
+          { name: "number"}
+        ]
+      end
+    }
   }
+
+  picklists: {
+    # Some code here
+  },
+  methods: {
+    # Some code here
+  },
 }
 ```
 
-In this example, the object “Push” is being defined in the fields lambda literal.
+In this example, the object `leads` is being defined in the fields lambda function. This can then be easily referenced in the action above. Defined as an array of objects. Each field object corresponds to a field in the lead object.
 
-Defined as an array of objects. Each field object corresponds to a field in the comment object.
+## Dynamic object definitions
+Object definitions can also be used to dynamically generate input and output schemas. This is often done by a HTTP requests to metadata endpoints which return data about what fields to expect. Below we go through a simple example of using a `GET` request to a metadata endpoint to know what fields to expect in a form.
 
-## Dynamic Definition
-
+### Sample code snippet
 ```ruby
 object_definitions: {
-
   form: {
     fields: lambda do |connection|
       get("https://api.unbounce.com/pages/#{connection['page_id']}/form_fields")["formFields"].
@@ -51,7 +81,13 @@ object_definitions: {
 }
 ```
 
-## Components
+Remember that the ultimate output of the lambda function would still have to be in the format that Workato expects. This often means using ruby methods like `map` to transform the response from an HTTP call.
+
+### Testing
+Testing and debugging your object definitions can be done in the same way that you would for your actions or triggers. Make sure that your object definition is being used in a specific action and test that action in the code editor. HTTP calls from the object definition should be recorded in the `Network` tab and any `puts` functions in your object definition block should be displayed in the `Console` tab as well.
+
+## Structuring input and output fields
+Up until now, our sample code snippets have largely only included the basic parameters such as `name` when defining input and output fields. Workato allows you to define a much larger set of variables that affect the way your fields are displayed to end users.
 
 <table class="unchanged rich-diff-level-one">
     <thead>
@@ -70,36 +106,49 @@ object_definitions: {
             <td>label</td>
             <td>An optional key. All fields will have default labels based on the field name. Use this to change the default value of the field label.
             </td>
-        </tr>        
+        </tr>
+        <tr>
+            <td>hint</td>
+            <td>An optional key. This allows you to add some hints below the input field to guide the user. Links to documentation can be given using HTML syntax.
+            </td>
+        </tr>           
         <tr>
             <td>type</td>
             <td>
-              The data type of this field. Default value is <code>:string</code>.
+              The data type of this field. <b>Default value is "string"</b>.
               Should be given the symbol notation (prepend colon).
               <ul>
-                <li><code>:string</code></li>
-                <li><code>:integer</code></li>
-                <li><code>:number</code></li>
-                <li><code>:date_time</code></li>
-                <li><code>:date</code></li>
-                <li><code>:timestamp</code></li>
-                <li><code>:boolean</code></li>
-                <li><code>:object</code> Must be accompanied with <code>:properties</code></li>
-                <li><code>:array</code> Must be accompanied with <code>:properties</code></li>
+                <li><code>"string"</code></li>
+                <li><code>"integer"</code></li>
+                <li><code>"number"</code></li>
+                <li><code>"date_time"</code></li>
+                <li><code>"date"</code></li>
+                <li><code>"timestamp"</code></li>
+                <li><code>"boolean"</code></li>
+                <li><code>"object"</code> Must be accompanied with <code>properties:</code></li>
+                <li><code>array</code> Must be accompanied with <code>properties:</code></li>
               <ul>
             </td>
         </tr>
         <tr>
             <td>control_type</td>
             <td>
-              The input field type to expose in a recipe. Refer to the list of <a href="#control-types">Control types</a> supported.
+              This field relates only to input fields and it dictates the input field type to expose in a recipe. Refer to the list of <a href="#control-types">Control types</a> supported.
+              <br>
+              If this is declared for output fields, whether as an object definition or if it is hardcoded, it would be ignored.
+            </td>
+        </tr>
+        <tr>
+            <td>default</td>
+            <td>
+              Allows you to set a default value for that input field. This is useful in defaulting certain inputs to values that you believe most customers would choose and improve the usability of your connector.
             </td>
         </tr>
         <tr>
             <td>pick_list</td>
             <td>
               If <code>control_type</code> is <code>:select</code> or <code>:multiselect</code>, this property is required.
-              See more in <a href="/developing-connectors/sdk/pick-list.html">Pick List</a> chapter.
+              See more in <a href="/developing-connectors/sdk/pick-list-toggle-fields.html">Pick List</a> chapter.
             </td>
         </tr>
         <tr>
@@ -111,13 +160,49 @@ object_definitions: {
         </tr>
         <tr>
             <td>sticky</td>
-            <td>Use this property to make the optional field visible on the Input section. For Ex: Since is optional field but to be displayed always under Input fields. Use <code>sticky: true</code>.
+            <td>Use this property to make the optional field visible on the Input section. For example: Since is optional field but to be displayed always under Input fields. Use <code>sticky: true</code>.
+            </td>
+        </tr>
+        <tr>
+            <td>render_input</td>
+            <td>An optional key. This must be accompanied with `parse_output`. Since our payloads are normally JSON objects, they are normally represented as strings. This field helps to convert them to other data types such like integers.
+            <ul>
+              <li><code>"integer_conversion"</code> - converts input into data type integer</li>
+              <li><code>"render_iso8601_timestamp" - converts input into date string that confirms to ISO8601</code></li>
+              <li><code>"boolean_conversion"</code> - converts input into data type boolean</li>
+            <ul>
+            </td>
+        </tr>
+        <tr>
+            <td>parse_output</td>
+            <td>An optional key. This must be accompanied with `render_output`. Since our payloads are normally JSON objects, they are normally represented as strings. This field helps to convert them to other data types such like integers.
+            <ul>
+              <li><code>"integer_conversion"</code> - converts output into data type integer/number</li>
+              <li><code>"date_time_conversion"</code> - converts input into a format that matches Javascript's Date objects <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date/toJSON">toJson</a> method</li>
+              <li><code>"boolean_conversion"</code> - converts input into data type boolean</li>
+            <ul>
+            </td>
+        </tr>
+        <tr>
+            <td>change_on_blur</td>
+            <td>An optional boolean key. When true, config fields and dependent fields only evaluate the value when the user blurs out of the field instead of after every keystroke. This parameter often doesn't need to be configured.
+            </td>
+        </tr>
+        <tr>
+            <td>support_pills</td>
+            <td>An optional boolean key. When true, this field doesn't allow datapills to be mapped to it. This parameter often doesn't need to be configured.
+            </td>
+        </tr>
+        <tr>
+            <td>custom</td>
+            <td>An optional boolean key. When true, a special marker is introduced to indicate to the user that this field is custom. Normally used when dynamically generating object definitions which may contain custom fields.
             </td>
         </tr>
     </tbody>
 </table>
 
-## Control types
+### Control types
+Control types are a way for you to declare how input fields are displayed to users of your connector.
 
 <table class="unchanged rich-diff-level-one">
   <thead>
@@ -235,14 +320,12 @@ object_definitions: {
   </tbody>
 </table>
 
-## Nested fields
+## Variations
 
-Often, data returned from API request is not a simple one-level JSON. More often than not, the object is much more complex, with multiple levels of nesting. This section aims to illustrate how to define nested fields.
+### Nested objects
+Often, data returned from API request is not a simple one-level JSON. More often than not, the returned JSON object is much more complex, with multiple levels of nesting. This section aims to illustrate how to define nested fields.
 
-### Nested object
-
-Take this sample User JSON from Okta:
-
+#### Sample code snippet
 ```json
 {
   "id": "00ub0oNGTSWTBKOLGLNR",
@@ -327,9 +410,9 @@ object_definitions: {
 ```
 
 ### Nested Arrays
-
 The other common type of nested field is array of objects. This type of field contains a list of repeated objects of the same fields. The defining such fields will be very similar to defining objects. Take the following sample `user` object from Asana for instance.
 
+#### Sample code snippet
 ```json
 {
   "data": {
@@ -384,3 +467,6 @@ object_definitions: {
   }
 }
 ```
+
+### Next section
+The next section goes through some additional concepts related to object definitions which we call picklists. Pick lists allow you to declare dropdowns for your users instead of have to enter text. [Go to our picklist documentation](/developing-connectors/sdk/pick-list.md) or check our our [best practices](/developing-connectors/sdk/best-practices.md) for some tips on how to use object definitions.

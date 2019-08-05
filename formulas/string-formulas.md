@@ -16,7 +16,7 @@ In the examples below, we will look at some of the methods that can be used to m
 
 # Conditionals
 
-This section will cover formulas which allow you to apply conditions (if-else) to your strings. Find out more about how to use conditionals [here](http://docs.workato.com/formulas.html#conditionals)
+This section will cover formulas which allow you to apply conditions (if-else) to your strings. Find out more about how to use conditionals [here](/formulas/formula-mode.md#conditionals).
 
 ---
 
@@ -30,6 +30,32 @@ This function checks the input string and returns true if it is an empty string 
 | `"Jean Marie".blank?` | false  |
 | `" ".blank?`          | true   |
 | `nil.blank?`          | true   |
+
+---
+
+## is_not_true?
+
+Converts a value to boolean and returns true if value is truthy.
+
+### Example
+| Example       | Result |
+| ------------- | ------ |
+| `"false".is_not_true?`  | true   |
+| `0.is_not_true?`  | true   |
+| `nil.is_not_true?`  | false   |
+
+---
+
+## is_true?
+
+Converts a value to boolean and returns true if value is truthy.
+
+### Example
+| Example       | Result |
+| ------------- | ------ |
+| `"false".is_true?`  | false   |
+| `1.is_true?`  | true   |
+| `nil.is_true?`  | true   |
 
 ---
 
@@ -177,6 +203,17 @@ This function removes the white space at the beginning and the end of the input 
 | Example                      | Result         |
 | ---------------------------- | -------------- |
 | `"   Jean   Marie   ".strip` | "Jean   Marie" |
+
+------
+
+## strip_tags
+
+This function removes html tags embedded in a string.
+
+### Example
+| Example                      | Result         |
+| ---------------------------- | -------------- |
+| `"<p>Jean Marie</p>".strip_tags` | "Jean Marie" |
 
 ------
 
@@ -435,15 +472,28 @@ Convert alpha-2/3 country code or country name to ISO3166 country name.
 
 ## to_currency
 
-Formats integers/numbers to a currency-style. You may add the precision as well. (Defaults to 2 decimal points)
+Formats integers/numbers to a currency-style.
 
 ### Example
 
-| Example                               | Result     |
-| ------------------------------------- | ---------- |
-| "12345.60".to_currency                | "$12345.60"  |
-| "12345.678".to_currency               | "$12345.68"  |
-| "12345.678".to_currency(precision: 3) | "$12345.678" |
+| Example    |  Description  |  Result  |
+| ------------------| ------------- | -------- |
+| "345.60".to_currency                | Adds default currency symbol "$" | "$345.60"  |
+| "345.60".to_currency(unit: "€") | Changes the default currency unit | "€345.60" |
+| "345.60".to_currency(format: "%n %u") | Changes the position of the number relative to the unit (where the number is represented by `%n` and the currency unit is represented by `%u`). Accepts 0 or 1 spaces in between. Defaults to `"%u%n"`. | "345.60 $" |
+| "-345.60".to_currency(negative_format: "(%u%n)") | Specifies the format when the number is negative (where the number is represented by `%n` and the currency unit is represented by `%u`). | "($345.60)" |
+| "345.678".to_currency               | Precision defaults to 2 decimal places | "$345.68"  |
+| "345.678".to_currency(precision: 3) | Change the precision by specifying the number of decimal places | "$345.678" |
+| "345.678".to_currency(separator: ",") | Specify the **decimal separator** as ".", "," or " ". Defaults to ".". |  "$345,68" |  
+| "12345.678".to_currency(delimiter: ".") | Specify the **thousands separator** as ",", "." or " ". Defaults to ",".| ""$12.345.68"|
+
+A comma-separated combination of these may be used to achieve the desired currency format. For example:
+
+```ruby
+"12345.678".to_currency(delimiter: ".", format: "%n %u", precision: 2, separator: ",", unit: "€")
+```
+
+will yield: `"12.345,68 €"`.
 
 ---
 

@@ -4,7 +4,7 @@ date: 2017-03-23 14:00:00 Z
 ---
 
 # Jobs
-When an active recipe processes a trigger event, i.e. actions in the recipe are executed, it results in a **job**. Each job conists of a trigger event and the sequence of actions it carried out, according to the recipe logic. This set and sequence of actions executed depends on the data of the specific trigger event.
+When an active recipe processes a trigger event, i.e. actions in the recipe are executed, it results in a **job**. Each job consists of a trigger event and the sequence of actions carried out according to the recipe logic. This set and sequence of actions executed depends on the data of the specific trigger event.
 
 Workato provides complete details into the execution flow of a job, i.e. what steps were executed, and the data input and output from every step. Workato also supports rerunning of jobs, in cases whereby an error stops a job from full completion.
 
@@ -96,9 +96,9 @@ In addition, to quickly view errors from the jobs report page, hover on the job 
 *Error popup on hover*
 
 ## Conditional step
-When conditional actions are expanded, there is a single "Output" tab. This shows whether the condition evaluated to true or false. If true, the the nested actions take place. If false, the nested actions do not take place, and the recipe proceeds to the next possible action.
+When conditional actions are expanded, there is a single "Output" tab. This shows the condition evaluated as true or false. If true, the nested actions take place. If false, the nested actions do not take place, and the recipe proceeds to the next possible action.
 
-In the following example, we see that the conditional action in step 2 evaluated to false. In this case, steps 3-4 were not carried out as there were nested steps within the conditional action. The recipe therefore skipped to carry out step 5.
+In the following example, we see that the conditional action in step 2 was evaluated as false. In this case, steps 3-4 were not carried out as they were nested steps within the conditional action. The recipe therefore skipped to carry out step 5.
 
 ![Conditional action](/assets/images/job-details/conditional-action-job-details.png)
 *Job details for recipe with conditional action*
@@ -119,6 +119,6 @@ Rerun of a job will always use the latest version of the recipe. i.e. if the rec
 You can find out more about job reruns [here](rerun-job.md).
 
 # Timeouts
-If a job or a single step is taking too long to execute, it will time out. The current limit is 25 seconds for a single step, and 90 seconds for a single job. The error message for a job that times out will explicitly mention the reason.
+If a job or a single step is taking too long to execute, it will time out. The current limit is 25 seconds for a single step, and 90 minutes for a single job. The error message for a job that times out will explicitly mention the reason.
 
 In these cases, you might have to further optimize your recipe to ensure that they don't hit this time limit.
