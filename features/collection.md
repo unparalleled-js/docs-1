@@ -6,20 +6,20 @@ search:
 ---
 
 # Collection by Workato
-Collection by Workato is robust native application that provides you with the tools to manipulate datasets. You can use Collection to synchronize related data across multiple systems (databases, web services).
+Collection by Workato is a robust native application that provides you with the tools to manipulate table data. You can use Collection to synchronize related data across multiple systems (databases, web services).
 
 ## Why use Collection
-Collection allows you manipulate data with smartlists. smartlist can reformat CSV files to match the format in your target system. You can create smartlists using flattened arrays with no nesting or import CSV files. Customize the column headers according to your use case requirements.
+Collection allows you to run SQL statements with data from multiple sources. You can create temporary tables from a list input or CSV file. Subsequently, you can perform a variety of SQL queries to arrive at the required output for your use case.
 
-Workato smartlists are temporary meaning it exists only for the duration of the job and it will not persist across multiple jobs. Once you are done processing the data, load them directly to your target system.
+Collection tables (also called **Collection lists**) are temporary meaning it exists only for the duration of the job and it will not persist across multiple jobs. Once you are done processing the data, load them directly to your target system.
 
 ### Transformation
-Collection is built on SQL lite and functions like any database. You can create list and query them using standard SQL operators. Filter the data with `JOIN`, `WHERE`, `DELETE` statements to shiv through the smartlist for the important information.
+Collection is built on SQL lite and functions like any database. You can create lists and query them using standard SQL syntax. Use common SQL keywords like `WHERE`, `GROUP BY` and `JOIN` to manipulate data from tables into your desired format.
 
 Subsequently, load them directly into your target system with the Collection output or export the data as a CSV file.
 
 ### Collection works with large datasets
-Collection excels at moving large datasets. Batch your tables and run them in parallel for optimal speed. Run a recipes with 1,000 or 1,000,000 records with the same ease.
+Collection excels at moving large datasets. Batch your tables and run them in parallel for optimal speed. Run recipes with 1,000 or 1,000,000 records with the same ease.
 
 You will not have to worry about storage capacity with Collection. Extract them to Workato directly for processing without needing to recruit a third-party application.
 
@@ -30,74 +30,77 @@ No connection setup is required. Simply select **App** > **Collection by Workato
 *Collection by Workato*
 
 ## Actions
-Start working with smartlists with the [Create list in Collection](#create-list-in-collection) and [Create list in Collection from CSV file](#create-list-in-collection-from-csv) actions. Perform data transformations with flexible SQL queries using the [Query list in Collection](#query-list-in-collection) action.
+Start working with lists with the [Create list in Collection](#create-list-in-collection) and [Create list in Collection from CSV file](#create-list-in-collection-from-csv) actions. Perform data transformations with flexible SQL queries using the [Query list in Collection](#query-list-in-collection) action.
 
 ### Create list in collection action
-This action creates a smartlist in the recipe from a list input. The smartlist will contain the column headers according to the schema of the list. Collections support a maximum of 50,000 list entries.
+This action creates a Collection list in the recipe from a list input. The Collection list will contain the column headers according to the schema of the list. Collections support a maximum of 50,000 list entries.
 
 For example, you can take a list of all workers from **Workday**.
 
 ![Create list in Collection](/assets/images/features/collection/create-list-in-collection.png)
 *Create list in Collection*
 
-| Input field     | Description                                                   |
-| --------------- | ------------------------------------------------------------- |
-| List source     | Select a list [`pill`].                                       |
-| List name       | The name of the smartlist.                                   |
-| Index primary   | Select a column(s) as the primary index of your smartlist.   |
-| Index secondary | Select a column(s) as the secondary index of your smartlist. |
+| Input field     | Description                                                            |
+| --------------- | ---------------------------------------------------------------------- |
+| List source     | Select a list [`datapill`]. Ensure that this field is in formula mode. |
+| List name       | The name of the list.                                                  |
+| Index primary   | Select one or more columns as the primary index of your list.          |
+| Index secondary | Select one or more columns as the secondary index of your list.        |
 
 ### Create list in Collection from CSV
-This action creates a smartlist in the recipe from a CSV input. The smartlist will contain the column headers according to the schema of the CSV string. Collections support a maximum of 50,000 rows in the smartlist.
+This action creates a Collection list from a CSV input. It will contain the column headers according to the schema of the CSV string. Collection supports a maximum of 50,000 CSV rows.
 
 For example, if you are retrieving files from your **on-prem** systems, you can download a CSV file and use it directly with Collection.
 
 ![Create list in Collection from CSV](/assets/images/features/collection/create-list-in-collection-from-csv.png)
 *Create list in Collection from CSV*
 
-| Input field       | Description                                                                 |
-| ----------------- | --------------------------------------------------------------------------- |
-| CSV source        | Select a CSV string as source input.                                        |
-| List name         | The name of the smartlist.                                                  |
-| File encoded type | Select the file encoded type. Default value is UTF08.                       |
-| Column names      | The column headers in your CSV source input. Select **use a sample CSV file** to define your schema with a CSV file. |
-| Ignore CSV header row | Select `Yes` if the CSV source has a header row, otherwise select `No`. |
-| Column delimiter  | Select the character used to separate value in each line of the CSV.        |
-| Index primary     | Select a column(s) as the primary index of your smartlist.                  |
-| Index secondary   | Select a column(s) as the secondary index of your smartlist.                |
+| Input field           | Description                                                                 |
+| --------------------- | --------------------------------------------------------------------------- |
+| CSV source            | Select a CSV string as source input.                                        |
+| List name             | The name of the list.                                                       |
+| File encoded type     | Select the file encoded type. The default value is UTF-8.                   |
+| Column names          | The column headers in your CSV source input. Select **use a sample CSV file** to define your schema with a CSV file. |
+| Ignore CSV header row | Select `Yes` if the CSV source has a header row, otherwise select `No`.     |
+| Column delimiter      | Select the character used to separate value in each line of the CSV.        |
+| Index primary         | Select one or more columns as the primary index of your list.               |
+| Index secondary       | Select one or more columns as the secondary index of your list.             |
 
 ### Query list in Collection
-This action allows you to perform standard SQL queries on your smartlists.
+This action allows you to perform standard SQL queries on your lists.
 
+![Query list in Collection](/assets/images/features/collection/query-list-in-collection.png)
+*Query list in Collection*
+
+| Input field        | Description                                                                      |
+| ------------------ | -------------------------------------------------------------------------------- |
+| SQL query          | Write your SQL query. Normal SQL syntax applies.                                 |
+| Output list schema | Define the schema according to your column headers in your output list. Select **use sample JSON** to define your schema with JSON. |
+| Write to CSV       | Select `Yes` to convert the query results to a CSV string, this will display the input fields below. To use this query output in further SQL queries, select `No`. |
+| Add CSV header     | Select `Yes` to use the column names as a CSV header row, otherwise select `No`. |
+| Column delimiter   | Select the character used to separate values in each line of the CSV.            |
+
+Here are some of the commonly used SQL keywords that can be used in the **Query list** action.
+
+| SQL keywords | Description                                                                  |
+| ------------ | ---------------------------------------------------------------------------- |
+| SELECT       | Use the SQL wildcard `*` to call all the columns in this list.               |
+| WHERE        | Define conditions that specify what data you want to retrieve from the list. |
+| JOIN         | Use `LEFT JOIN`, `INNER JOIN`, `RIGHT JOIN` to combine lists.                |
+| INSERT INTO  | Define new entries for your list.                                            |
+| DELETE       | Define rows to remove from your list.                                        |
+
+Remember to query the full list before exporting or loading unto your target systems. Some SQL keywords (e.g. `INSERT INTO`, `DELETE`) do not return list outputs. Therefore, datapills from these actions will not contain all the rows/columns in your Collection list.
+
+#### Example query: delete rows from list
 For example, you can tailor your workers list from **Workday** to exclude certain groups of people.
 
 ![Delete rows with Query list in Collection](/assets/images/features/collection/query-list-in-collection-delete.png)
 *Delete rows with Query list in Collection*
 
-| Input field        | Description                                                            |
-| ------------------ | ---------------------------------------------------------------------- |
-| SQL query          | Write your SQL query. Normal SQL syntax applies.                       |
-| Output list schema | The column headers in your smartlist. Select **use sample JSON** to define your schema with JSON. |
-| Write to CSV       | Select `Yes` to convert the query results to a CSV string, this will open the input fields below. To use this query output in further SQL queries, select `No`. |
-| Add CSV header     | Select `Yes` query result contain a header row, otherwise select `No`. |
-| Column delimiter   | Select the character used to separate value in each line of the CSV.   |
+Since a `Delete` query does not return a list output, datapills from this step **should not be used** to export your list.
 
-<!--- ![Query list in Collection](/assets/images/features/collection/query-list-in-collection.png)
-*Query list in Collection* --->
-
-Here are some of the commonly used SQL operators that can be applied to the **Query list** action.
-
-| Input field | Description                                                                          |
-| ----------- | ------------------------------------------------------------------------------------ |
-| SELECT      | Use the SQL wildcard `*` to call the entire smartlist with full rows and columns.    |
-| WHERE       | Define conditions that specifies what data you want to retrieve from the smartlist.  |
-| JOIN        | Use `LEFT JOIN`, `INNER JOIN`, `RIGHT JOIN` to combine smartlists.                   |
-| INSERT INTO | Define new entries for your smartlist.                                               |
-| DELETE      | Define rows to remove from your smartlist.                                           |
-
-Remember to query the full smartlist before exporting or loading unto your target systems. Some SQL queries (e.g. `INSERT INTO`, `DELETE`) do not return the full smartlist, datapills from these actions will not contain all the rows in your smartlist.
-
-Run a `SELECT` query and use the datapill from that step.
-```
-SELECT * FROM <smart_list_name>
+Instead, run a `SELECT` query and use the datapills from that step.
+```SQL
+SELECT * FROM workers_list
 ```
