@@ -38,7 +38,7 @@ No connection setup is required. Simply select **App** > **CSV by Workato** to g
 *XML parser by Workato*
 
 ### Parse XML document
-We input the sample XML document and fill in the corresponding fields for the **parse XML document** action.
+We input the supply the XML document and fill in the corresponding fields for the **parse XML document** action.
 
 ![XML parser by Workato input fields](/assets/images/features/handling-xml/xml-parser-by-workato.png)
 *XML parser by Workato input fields*
