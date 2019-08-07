@@ -182,6 +182,7 @@
     * [Fixed & Dynamic lists](/features/fixed-dynamic-lists.md)
     * [Common repeat step mistakes](features/list-management.md#common-mistake-when-using-repeat-step)
     * [List connector](features/list-management.md#list-connector-accumulator)
+  * [Collection by Workato](/features/collection.md)
   * [Data retention](data-retention.md)
   * [Job history replication](job-history-replication.md)
   * [Common data model](features/common-data-model.md)
