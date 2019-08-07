@@ -9,17 +9,15 @@ Workato Teams is built with a vision of facilitating agile and iterative develop
 
 - **Role Based Access Control:** Admins can set fine grained access control for various assets/objects (e.g. recipes, connections, folders, jobs) and operations (e.g. read, edit, operate)  are grouped into pre-defined roles.
 
-- **Custom Roles that fit your business:** In addition to the out-of-box roles that admins can use, they can also create custom roles e.g. for Marketing Admin, Marketing Ops
+- **Custom Roles that fit your business:** In addition to the out-of-box roles that admins can use, they can also create custom roles e.g. for Marketing Admin, Marketing Ops.
 
 - **Work with multiple teams:** A single user/account can be part of multiple teams and contribute to building/deploying or operating recipes. Very useful when you have a single admin/expert that needs to govern multiple departments.
 
-- **Better Security w/ SAML based SSO Access:** Instead of creating separate accounts for team members, Workato accounts can be provisioned using SAML based [Single Sign On](/user-accounts-and-teams/single-sign-on.md) apps like OKTA, OneLogin etc. Centralizes security, faster provisioning and de-provisioning. Workato also allows for [ through SAML providers and [Just in time provisioning](/user-accounts-and-teams/just-in-time-provisioning.md) for custom roles.
+- **Better Security w/ SAML based SSO Access:** Instead of creating separate accounts for team members, Workato accounts can be provisioned using SAML based [Single Sign On](/user-accounts-and-teams/single-sign-on.md) apps like OKTA, OneLogin etc. Centralizes security, faster provisioning and de-provisioning. Workato also allows for [Just in time provisioning](/user-accounts-and-teams/just-in-time-provisioning.md) for custom roles.
 
-- **Audit Trail:** When collaborating multiple users can work on the same recipe. Hence it is important to keep audit trail of the changes. [Auto-versioning](#tracking-changes-made-by-collaborators) provides the ability to roll back or roll-forward changes without losing any work
+- **Audit Trail:** When collaborating, multiple users can work on the same recipe. Hence, it is important to keep an audit trail of the changes. [Auto-versioning](#tracking-changes-made-by-collaborators) provides the ability to roll back or roll-forward changes without losing any work.
 
-- **Recipe Ownership:** Recipes created by users as part of a team are owned by the team. Hence when a consultant leaves or an employee changes group/jobs, their contribution to the team doesn't go away with them. Each user owns recipes created inside their account.
-
-When investing in a feature like teams it is important to understand the team dynamics and how multiple users will collaborate, how admins can govern and protect data/work. It is understandable they may not appreciate some or all the features at the outset, but sooner than later the limitations of an umbrella account showing multiple accounts is not what will drive true collaboration, provide the governance and security their business will need.
+- **Recipe Ownership:** Recipes created by users as part of a team are owned by the team. When a consultant leaves or an employee changes group/jobs, their contribution to the team doesn't go away with them. 
 
 The Teams feature is enabled only for certain plans. Check the [Pricing and Plans page](https://www.workato.com/pricing?audience=general) or reach out to Workato sales representatives at +1 (844) 469-6752 to find out more.
 
@@ -32,6 +30,8 @@ Other tools like Integromat/Tray.io/Zapier provide basic multi-user access capab
 - The team owner or other users in the team cannot view/edit or operate the integrations built by another user. Consequently when someone is on vacation or have left the team, any issues in integrations owned by them will have to wait till they are back or need to be rebuilt.
 
 - Furthermore, there is no or limited capability to give users different permissions such that some users can only operate workflows, while others can create/edit it.This is a critical feature for lifecycle and change management
+
+When investing in a feature like teams it is important to understand the team dynamics and how multiple users will collaborate, how admins can govern and protect data/work. Workato Teams translates to more control over data governance, more flexibility in collaboration across team members, and more granularity over security enforcement. Most importantly, these features drive true collaboration.
 
 ## Team owner permissions
 For Workato users who are team owners, they can access the team admin page from the tools menu.
