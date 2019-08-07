@@ -8,10 +8,10 @@ date: 2017-02-16 06:15:00 Z
 Workato Teams is built with a vision of facilitating agile and iterative development through collaboration, and at the same time providing tools to admins to govern and keep things secure. Using the Teams features allow:
 
 - **Role Based Access Control:** Admins can set fine grained access control for various assets/objects (e.g. recipes, connections, folders, jobs) and operations (e.g. read, edit, operate)  are grouped into pre-defined roles.
-Custom Roles that fit your business- In addition to the out-of-box roles that admins can use, they can also create custom roles e.g. for Marketing Admin, Marketing Ops
 
-- **Work with multiple teams:** A single user/account can be part of multiple
- teams and contribute to building/deploying or operating recipes. Very useful when you have a single admin/expert that needs to govern multiple departments.
+- **Custom Roles that fit your business:** In addition to the out-of-box roles that admins can use, they can also create custom roles e.g. for Marketing Admin, Marketing Ops
+
+- **Work with multiple teams:** A single user/account can be part of multiple teams and contribute to building/deploying or operating recipes. Very useful when you have a single admin/expert that needs to govern multiple departments.
 
 - **Better Security w/ SAML based SSO Access:** Instead of creating separate accounts for team members, Workato accounts can be provisioned using SAML based [Single Sign On](/user-accounts-and-teams/single-sign-on.md) apps like OKTA, OneLogin etc. Centralizes security, faster provisioning and de-provisioning. Workato also allows for [ through SAML providers and [Just in time provisioning](/user-accounts-and-teams/just-in-time-provisioning.md) for custom roles.
 
