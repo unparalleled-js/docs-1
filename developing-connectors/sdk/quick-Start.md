@@ -192,7 +192,7 @@ Our version history table gives you insight into the actions and triggers presen
 ##### 7. I don't have teams enabled on my Workato account. How can I test a specific version of my custom connector in recipes before releasing them to all my active recipes?
 We are currently working on improving the coding experience further on the SDK platform to include the ability to run a variety of automated tests on different versions of your custom connector.
 
-In the meantime, a valid workaround would be to create a dummy custom connector that hosts the same code as the version you are hoping to release. We would suggest testing this new version on copies of both existing recipes that use the custom connector and new recipes to ensure there are no regressions.
+In the meantime, a valid workaround would be to create a dummy custom connector which hosts the same code as the version latest stable version. You may introduce improvements to this dummy custom connector and test it separately with dedicated recipes. We would suggest testing this new version on copies of both existing recipes that use the custom connector and new recipes to ensure there are no regressions.
 
 ## Building your custom connector
 Now that you're familiar with the platform, its time for you to build your custom connector! Check out our articles on the SDK conceptual model to get you going. [Learn more](/developing-connectors/sdk/SDK-conceptual-model.md)
