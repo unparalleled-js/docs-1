@@ -19,7 +19,6 @@ You can add these IP addresses to your application/firewall whitelist. Add all t
 If you have a recipe that accesses a MySQL server running on an Amazon EC2 machine, with a special user called **integrationuser**, you can run the following SQL command on your database to whitelist the Workato IP addresses.
 
 ```sql
-
 GRANT ALL ON db1.*
 TO 'integrationuser'@'52.5.142.59',
 'integrationuser'@'34.226.132.221',
