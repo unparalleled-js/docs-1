@@ -98,7 +98,7 @@ For example, you can tailor your workers list from **Workday** to exclude certai
 ![Delete rows with Query list in Collection](/assets/images/features/collection/query-list-in-collection-delete.png)
 *Delete rows with Query list in Collection*
 
-Since a `Delete` query does not return a list output, datapills from this step **should not be used** to export your list.
+Since a `DELETE` query does not return a list output, datapills from this step **should not be used** to export your list.
 
 Instead, run a `SELECT` query and use the datapills from that step.
 ```SQL
