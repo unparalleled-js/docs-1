@@ -636,6 +636,7 @@
     * [Example: Get Eventbrite order](developing-connectors/http.md#example---building-a-get-order-details-action-in-eventbrite)
     * [Example: Create Jira project](developing-connectors/http.md#example---building-a-create-project-action-in-jira)
 * [Connector SDK](developing-connectors/sdk.md)
+  * [Platform Quick start](/developing-connectors/sdk/quick-Start.md)
   * [Overview](developing-connectors/sdk/sdk-conceptual-model.md)
   * [Walkthrough - Building your first connector!](/developing-connectors/sdk/walk-through.md)
   * [Data Format](/developing-connectors/sdk/data-format.md)
