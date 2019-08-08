@@ -12,13 +12,13 @@ In the main Workato recipes page, head over to the tools tab and click on connec
 ![Navigating to SDK](/assets/images/sdk/Navigating-to-SDK.png)
 *Located in the top navigation bar in Workato. This might look different depending on your plan.*
 
-### Creating a new custom connectors
+### Creating a new custom connector
 In the top right corner of the page, you'll see a button to create a new custom connector. Clicking this will take you to your new custom connector's home page. This page will be where you can begin writing custom connector code and find useful information about it like its share link and version history.
 
-### Changing your connector title, description, and logo
-When first creating your custom connector, it is given a default title, logo and empty description. You should populate these fields first to make it easier to search for your customer connector when looking through your registry in the future.
+### Changing your connector title, description and logo
+When first creating your custom connector, it is given a default title, logo and empty description. You should populate these fields first to make it easier to search for your custom connector when looking through your personal registry in the future.
 
-Custom connector title changes can be done by clicking on the pencil icon next to the customer connector and editing the name in the box that appears. Saving your changes can be done by clicking the green tick when you are done. Clear any unsaved changes by clicking the grey cross instead.
+Custom connector title changes can be done by clicking on the pencil icon next to the custom connector and editing the name in the box that appears. Saving your changes can be done by clicking the green tick when you are done. Clear any unsaved changes by clicking the grey cross instead.
 
 ![Changing title input field](/assets/images/sdk/change-title-view.png)
 *Click on the green tick or blur out of the field to save*
@@ -48,7 +48,7 @@ The code editor has a set of basic hotkeys that make your experience easier.
   <tbody>
     <tr>
       <td>Persistent Search</td>
-      <td><code>Ctrl-F / Cmd-F</code></td>
+      <td><code>Ctrl-F</code> / <code>Cmd-F</code></td>
     </tr>
     <tr>
       <td>Replace</td>
@@ -111,7 +111,7 @@ When the connection you make is successful, the debugger will immediately displa
 
 >You can't test actions or triggers until a successful connection is made. Without a successful connection, HTTP requests sent during triggers and actions would not be able to actively authenticate itself with the API endpoint.
 
-Find out more about configuring a connection in our SDK and what connection types we support. [Learn more](/developing-connectors/sdk/authentication.md)
+Find out more about configuring a connection in our SDK and what connection types we support. [Learn more](/developing-connectors/sdk/authentication.md.
 
 ### Testing actions and triggers
 After establishing a successful connection, you'll be able to test any actions and triggers you have defined using the debugger console.
@@ -119,7 +119,7 @@ After establishing a successful connection, you'll be able to test any actions a
 ![Testing actions or triggers](/assets/images/sdk/testing-actions-triggers.png)
 *Open up the dropdowns for triggers or actions to see the full list available in your latest version*
 
-When attempting to test and action or trigger, you'll need to define the input parameters expected. This is done via a popup when pressing the "Test" button next to any action or trigger. When testing actions, we immediately populate the JSON with a skeleton to help you along. When you run the action or trigger, it is executed based on the latest version in the code editor and the output is shown in the console to the right of the debugger.
+When attempting to test an action or trigger, you'll need to define the input parameters expected. This is done via a popup when pressing the "Test" button next to any action or trigger. When testing actions, we immediately populate the JSON with a skeleton to help you along. When you run the action or trigger, it is executed based on the latest version in the code editor and the output is shown in the console to the right of the debugger.
 
 ![Input popup](/assets/images/sdk/test-input-popup.png)
 *Action popup during testing*
@@ -152,10 +152,10 @@ When a child custom connector is updated, a new latest version is created. This 
 [Recipe lifecycle management](/recipe-development-lifecycle.md) is a tool used to export and import entire folders of recipes from a sandbox environment to a production environment in Workato. Often, recipes that you want to export from one account and import into another contain custom connectors that you have built or cloned. When exporting these recipes, Workato helps to export any custom connectors in the manifests as well.
 
 ### Exporting a manifest
-When exporting a manifest, the **latest released version** of your custom connector that is used in recipes is exported as well. [Find out more about exporting here](/recipe-development-lifecycle/export.md)
+When exporting a manifest, the **latest released version** of your custom connector that is used in recipes is exported as well. [Find out more about exporting here](/recipe-development-lifecycle/export.md).
 
 ### Importing a manifest
-When importing a manifest, Workato first checks to see if you have an existing copy of the custom connector. If no existing copy is found, a new one is created with the latest released version as version 1. If an existing copy is found, a new latest version is created instead. In both cases, importing a manifest will immediately release the latest version of the custom connector for you since the recipes you are importing will be using that latest version. [Find out more about importing here](/recipe-development-lifecycle/import.md)
+When importing a manifest, Workato first checks to see if you have an existing copy of the custom connector. If no existing copy is found, a new one is created with the latest released version as version 1. If an existing copy is found, a new latest version is created instead. In both cases, importing a manifest will immediately release the latest version of the custom connector for you since the recipes you are importing will be using that latest version. [Find out more about importing here](/recipe-development-lifecycle/import.md).
 
 >Be sure to explore any dependencies that your existing recipes in your production account might have when importing a manifest that overwrites a connector.
 
@@ -165,7 +165,7 @@ A Workato account can have any number of custom connectors in its registry. Howe
 ![Delete prevention popup](/assets/images/sdk/prevent-delete-popup.png)
 *Stop or edit these recipes to delete a custom connector*
 
-You'll be reminded again of any stopped recipes that will be affected by the deletion of this custom connector before you delete it. Any of this custom connector's cloned children will not be deleted.
+You'll be reminded again of any stopped recipes that will be affected by the deletion of this custom connector before you are able to delete it. Any custom connector(s) cloned from this will not be deleted.
 
 ![Delete popup warning](/assets/images/sdk/delete-popup-warning.png)
 *Once you delete a custom connector, there is no recovering it*
@@ -189,10 +189,10 @@ Update notifications are always pegged to the latest released version of its par
 ##### 6. How do I know what changes occur across each version and who created that version when working in a team workspace?
 Our version history table gives you insight into the actions and triggers present in each version. Our versions table also showcases the user who created a version and who released a certain version. More functionality will come to showcase more fine-grained details about specific changes in the code across versions and the ability to attach notes to different versions. Stay tuned!
 
-##### 7. I don't have teams enabled on my Workato account. How can I test a specific version of my custom connector in recipes before releasing them to all my active recipes?
+##### 7. How can I test a specific version of my custom connector in recipes before releasing them to all my active recipes?
 We are currently working on improving the coding experience further on the SDK platform to include the ability to run a variety of automated tests on different versions of your custom connector.
 
-In the meantime, a valid workaround would be to create a dummy custom connector which hosts the same code as the version latest stable version. You may introduce improvements to this dummy custom connector and test it separately with dedicated recipes. We would suggest testing this new version on copies of both existing recipes that use the custom connector and new recipes to ensure there are no regressions.
+In the meantime, a valid workaround would be to create a dummy custom connector that hosts the same code as the latest stable version. You may introduce improvements to this dummy custom connector and test it separately with dedicated recipes. We would suggest testing this new version on copies of both existing recipes that use the custom connector and new recipes to ensure there are no regressions.
 
 ## Building your custom connector
-Now that you're familiar with the platform, its time for you to build your custom connector! Check out our articles on the SDK conceptual model to get you going. [Learn more](/developing-connectors/sdk/SDK-conceptual-model.md)
+Now that you're familiar with the platform, its time for you to build your custom connector! Check out our articles on the SDK conceptual model to get you going. [Learn more](/developing-connectors/sdk/SDK-conceptual-model.md).
