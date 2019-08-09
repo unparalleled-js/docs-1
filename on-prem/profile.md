@@ -469,7 +469,7 @@ Active Directory connection profiles must be defined in the `ldap` section.  Exa
 ldap:
   active_directory_main:
     url: ldaps://acme.ldap.com:636
-    username: cn=Administrator
+    username: Administrator
     password: foobar
     base: dc=acme,dc=com
     ssl:
@@ -502,7 +502,7 @@ ldap:
         <i>required</i>
       </td>
       <td>
-        The username (principal) to use when authenticating with the LDAP server. This will usually be the distinguished name of an admin user. For example, <code>cn=Administrator</code>.
+        The username (principal) to use when authenticating with the LDAP server. This will usually be the distinguished name of an admin user. For example, <code>cn=Administrator</code> or simply <code>Administrator</code>.
       </td>
     </tr>
     <tr>
