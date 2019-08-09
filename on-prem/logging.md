@@ -29,7 +29,7 @@ These are the supported logging levels.
 | `logging_level` | Description |
 | --------------- | ----------- |
 | trace           | Information useful for identify steps leading up to an error. Typically used for diagnosis by engineering support.<br>Example: Starting secure tunnel |
-| debug           | Information useful for troubleshooting or diagnosis and understandable by users.<br>Example: Failure due to unknown exception. |
+| debug           | Information useful for troubleshooting or diagnosis and understandable by users.<br>Example: Failure due to an unknown exception. |
 | info            | Information that should be logged under normal conditions.<br>Example: agent starting/stopping. |
 | warn            | Information about an occurrence that could be a problem, but does not require immediate user attention.<br>Example: transient network interruption. |
 | error           | Information about an error that needs investigation.<br>Example: Agent failed to start. |

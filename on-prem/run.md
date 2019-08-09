@@ -18,6 +18,8 @@ If you are accessing the server through SSH and want to let the agent run in the
 sh <INSTALL_HOME>/bin/run.sh > opa_output.txt &
 ```
 
+Level of details of the OPA logs depend on your configuration. [Learn more](/on-prem/logging.md).
+
 ## Windows 64-bit
 For on-premises agents installed in Windows, run the agent as a Windows console application or as a [Windows Service](#using-windows-service).
 
@@ -30,6 +32,8 @@ The installer automatically registers the agent as a Windows service called `Wor
 
 ### Browsing log files
 When the on-premises agent is running as a Windows service, log files can be found at: `%SYSTEMROOT%\System32\LogFiles\Workato`. There's also a shortcut to the Workato log directory in the `Workato` group found in the Start Menu.
+
+Level of details of the OPA logs depend on your configuration. [Learn more](/on-prem/logging.md).
 
 ## Confirming your on-premises agent is running and connected
 
