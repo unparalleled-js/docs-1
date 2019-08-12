@@ -48,11 +48,11 @@ Take note that these names are strictly defined and must be spelt exactly for th
 ```
 
 ## SDK structure
-- **title** - This is where you may assign a name to your connector. It should match the title you've given to it on the SDK homepage.
+- **title** - This is where you may assign a name to your connector. It should match the title you've given to it on the SDK homepage. The connector is named against the application, e.g. Concur, for SAP concur application.
 
-- **connection** - This is where all connection configurations are stored for your custom connector. You will be able to declare the authentication type and input fields shown to the end user when they want to make a connection. We currently support basic, OAuth 2.0 natively as well as a custom authentication that allows you to connect to most other authentication types like digest and multi step authentication procedures.
+- **connection** - This is where all connection configurations are stored for your custom connector. You should declare all the properties used in estabilishing the connection, e.g. user name, password, client id, client secret in the fields section. the connection object stores all details proivded on connection form. Inside connection block, the fields section contains all the properties, that are accepted from the user before making connection. the authorization block contains, the type of the authentication used in estabilishing connection, followed by acquire(to get the token) and apply block to set the credentials/headers. We currently support basic, OAuth 2.0 natively as well as a custom authentication that allows you to connect to most other authentication types like digest and multi step authentication procedures.
 
-- **test** - This is where you can define a test to ensure that your connection is valid. When a user attempts to configure a connection on your connector, this test is executed to verify whether a connection has successfully been made.
+- **test** - This is where you can define a test to ensure that your connection is valid. When a user attempts to configure a connection on your connector, the test block/method is executed to verify whether a connection has successfully been made.
 
 - **actions** - This is where you define actions that are available to users using your connector. You'll be able to define input fields for users to fill up, the exact mechanics of how the action handles data and the output fields(datapills) of the action so that users can select these outputs for use in later steps.
 
