@@ -4,9 +4,9 @@ date: 2017-03-07 22:00:00 Z
 ---
 
 # Handing CSV
-A Comma-separated values (CSV) file is a text file that stores tabular data. It stores the data in a human-readable plain text.
+A Comma-separated values (CSV) file is a text file that stores tabular data. It stores the data in plain text and is human-readable.
 
-In order to convert CSV content into useable datapills, parse it with [Workato's built-in CSV parser](parsing-csv-files-via-csv-by-workato) or use a [connector-specific CSV parser](#parsing-csv-files-via-external-parser).
+To convert CSV content into useable datapills, parse it with [Workato's built-in CSV parser](csv-by-workato) or use a [connector-specific CSV parser](#parsing-csv-files-via-external-parser).
 
 We will be using the following sample CSV content:
 ```
@@ -16,26 +16,28 @@ Sierra Gardening, MS-322, Gardening supplies, Cherry wood potting bench, MS-322,
 Sierra Gardening, MS-323, Gardening supplies, Cedar wood potting bench, MS-323, Oakwood potting bench, 74.50, 119.99, Yes, 0.0875, Cedar, Black, 30 inches
 ```
 
-### Parsing CSV files via CSV by Workato
-Most triggers return CSV files without additional processing. You can use **CSV by Workato** to read the text content of the CSV file. This will allow you to move individual rows and transform the data as required by your use-case.
+## CSV by Workato
+Most web applications return CSV files without additional processing. You can use **CSV by Workato** to read the text content of the CSV file. This will allow you to move individual rows and transform the data as required by your use-case.
 
-In this example, new CSV files are picked up in Dropbox. However, the file content is not yet accessible. Run the **Parse CSV** action to obtain a list of lines/rows (each line has a set of inventory item values).
+This parser requires you to download the CSV file onto Workato beforehand. You can do so with a connector's built-in download action or with [File by Workato](/handling-files-and-attachments.md).
+
+In this example, a new CSV file is picked up in Dropbox. However, the file content is not yet accessible. Download the CSV file and run the **Parse CSV** action to obtain a list of lines/rows.
 
 ![Download file and parse CSV](/assets/images/features/handling-csv-files/download-file-and-parse-csv.png)
 *Download file and parse CSV. See the sample recipe [here](https://www.workato.com/recipes/492685)*
 
-#### Input field
+### Input field
 | Input fields     | Description                                                  |
 | ---------------- | ------------------------------------------------------------ |
 | CSV contents     | Select the CSV file as input.                                |
 | Column separator | Select the character that separates columns in the CSV file. |
 | CSV contents contain header line | Indicate if there is a header line.          |
 | Header line      | Specify the header line of your CSV file.                    |
-| Keep track of columns by | Configure this if your CSV contents does not have a fixed column order. |
-| Quote Character  | The character used to quote the CSV cell values. Select `none` if no quote character is used. |
+| Keep track of columns by | Configure this if your CSV content does not have a fixed column order. |
+| Quote Character  | The character used to quote CSV cell values. Select `none` if no quote character is used. |
 
-#### Output field
-This action will generate an arrays of lines, with each line containing the schema as defined in your **header line**. As this is an array object, you would have to use a [repeat action](/recipes/steps.md#repeat-step) to iterate through the rows.
+### Output field
+This action will generate an array of lines, with each line containing the schema as defined in your **header line**. As this is an array object, you would have to use a [repeat action](/recipes/steps.md#repeat-step) to iterate through the rows.
 
 In our sample recipe, we iterate through each line of the array object and create a task in Wrike.
 
@@ -44,22 +46,22 @@ In our sample recipe, we iterate through each line of the array object and creat
 
 For more information on working with list, see [here](/features/list-management.md)
 
-### Parsing CSV files via external parser
-Certain connectors have triggers/actions that parse CSV content. The [Box connector](/connectors/box.md) has this capability. You can simply listen to **new CSV files** and parse them via the same trigger.
+## Parsing CSV files via external parser
+Certain connectors have triggers/actions that can parse CSV content. The [Box connector](/connectors/box.md) has this capability. You can simply listen to **new CSV files** and parse them via the same trigger.
 
 ![CSV file parsing in Box trigger](/assets/images/features/handling-csv-files/csv-file-parsing-recipe.png)
 *CSV file parsing in Box trigger. See the sample recipe [here](https://www.workato.com/recipes/485023)*
 
-#### Input field
+### Input field
 Similarly, input the header line for the CSV in the **Field names**. This is necessary to generate datapills in the output.
 
 ![Define expected columns in CSV](/assets/images/features/handling-csv-files/define-expected-csv-columns.png)
-*Defining the expected columns in the CSV files that the recipe will pick up. [Example recipe](https://www.workato.com/recipes/485023)*
+*Defining the expected columns in the CSV files that the recipe will pick up. [Example recipe](https://www.workato.com/recipes/485023).*
 
-> Note - even if you have CSV files with other schema and different header lines in the selected folder and sub-folders, the **New CSV file** trigger will pick up those CSV files as well and attempt to process them with the header specified. This may lead to job errors or bad data being moved into your app. Ensure that you're only picking up the files you want by keeping all the relevant CSV files in the monitored folder, or by adding a trigger filter to filter only files to pick up.
+> This trigger picks out all new CSV files regardless if they share the same schema or header lines. This may lead to job errors or bad data being moved into your app. If you have shared folders or sub-folders, ensure that only relevant CSV files are stored there or add a trigger filter to specify which files to pick up.
 
-#### Output field
-The output from the **Box CSV parser** is the the same as the output from **CSV by Workato**. The columns in the CSV content (as defined in the trigger) will show up as usable variables which can be used to map into subsequent recipe steps.
+### Output field
+The output from the **Box CSV parser** is the same as the output from **CSV by Workato**. The columns in the CSV content (as defined in the trigger) will show up as usable variables which can be used to map into subsequent recipe steps.
 
 Similarly, run a **repeat action** to iterate through the list of CSV rows.
 

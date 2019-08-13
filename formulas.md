@@ -12,4 +12,3 @@ Workato allows you to work with the following standard data types:
 - [Date or datetime](/formulas/date-formulas.md)
 - [Array/hash (list)](/formulas/array-list-formulas.md)
 - To work with complex data types, see [here](/formulas/complex-data-types.md)
-- <!-- suggestion, link complex data types to files & attachment / parsers -->

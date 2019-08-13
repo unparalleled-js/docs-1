@@ -3,7 +3,7 @@ title: Handing binary files
 date: 2019-07-16 18:00:00 Z
 ---
 
-# Handing binary file
+# Handing binary files
 Binary files are files that are in a non-text format. It uses a more complex storage configuration and is not written in a human-readable language. Workato allows you to sync such files across your business systems with recipes.
 
 Workato has 2 approaches for moving files across apps, it works the same for text or binary files.

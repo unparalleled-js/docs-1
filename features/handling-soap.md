@@ -1,42 +1,51 @@
 ---
-title: Handling SOAP files
+title: Handling SOAP
 date: 2019-07-23 16:00:00 Z
 ---
 
-# Handling SOAP files
-Simple Object Access Protocol (SOAP) is a messaging protocol for communication over the internet. SOAP messages are based on XML and contains. It follows standardize protocol on how it structures the body message. Security, authorization, and error-handling are built into the protocol and is the preferred protocol for high security transactions.
+# Handling SOAP 
+Simple Object Access Protocol (SOAP) is a messaging protocol for communication over the internet. SOAP messages follow a standardized protocol on how it structures the body message. This allows SOAP to develop security, authorization, and error-handling standards that work across web systems.
 
-SOAP parser by Workato allows you to read SOAP messages and retrieve its content in the datatree.
+SOAP acts as a specification on how XML messages are structured and is therefore encoded in XML. Similar to [handling raw XML content](/features/handling-xml.md), convert SOAP content into usable datapills with the built-in parser.
 
-<!--
-SOAP (eXtensible Markup Language) is a syntax for storing and transferring data. It is a common data format for APIs. SOAP data is stored in a systematic hierarchy of tags. While JSON format has being increasingly preferred over SOAP format, SOAP is still used widely and provides some advantages over the former.
+## SOAP tools by Workato
+**SOAP tools by Workato** is a native application that does not require any connection setup.
 
-SOAP data is mostly hidden from regular Workato users because we expose data as input fields and output datapills in the recipe. However, you may occassionally require raw SOAP data for your use case. Workato provides a few options for handling such instances. -->
+Select **App** > **SOAP tools by Workato** to get started.
 
-```xml
-<env:Envelope xmlns:env="http://www.w3.org/2003/05/soap-envelope">
-  <env:Header>
-    <n:alertcontrol xmlns:n="http://example.org/alertcontrol">
-      <n:priority>1</n:priority>
-      <n:expires>2001-06-22T14:00:00-05:00</n:expires>
-    </n:alertcontrol>
-  </env:Header>
-  <env:Body>
-    <m:alert xmlns:m="http://example.org/alert">
-      <m:msg>Pick up Mary at school at 2pm</m:msg>
-    </m:alert>
-  </env:Body>
-</env:Envelope>
-```
-*Sample SOAP request body*
+![Parse SOAP message](/assets/images/features/handling-soap/parse-soap-message.png)
+*Parse SOAP message*
 
-## SOAP Parser
-The easiest way to convert an SOAP document into a format that can be used in Workato recipes is to parse it using the SOAP Parser by Workato.
+| Input field     | Description |
+| --------------- | ----------- |
+| Sample document | A sample SOAP/XML that has the same format as the SOAP document to be parsed. |
+| Document        | The input SOAP content to be parsed. |
 
-No connection setup is required. Simply select **App** > **CSV by Workato** to get started.
+Datapills are generated according to the **sample document** provided. It includes all SOAP tags and all attributes associated with each tag.
 
-### Parse SOAP document
+![Datatree output for parse SOAP message](/assets/images/features/handling-soap/parse-soap-message-datatree.png)
+*Datatree output for parse SOAP message*
 
-### Create SOAP document
+## Create SOAP message
+**SOAP tools by Workato** also allows you to create SOAP messages. Use the **Create SOAP message** action to return a SOAP message. It will take in datapills as `tags` and generate a SOAP document.
 
-## Developing custom connectors
+For example, we can create a SOAP/XML document that contains a list of employee names, roles, and department details.
+
+![Create SOAP message](/assets/images/features/handling-soap/create-soap-message.png)
+*Create SOAP message*
+
+| Input field      | Description                                    |
+| ---------------- | ---------------------------------------------- |
+| Message template | Select a message template. To learn how to setup a new SOAP message template, see [below](#setup-message-template). |
+| Template input   | The inputs required as defined in the message. |
+
+### Output
+The output of this action is a file data object, encoded in SOAP/XML. You can upload this directly to your target web system.
+
+### Setup message template
+To effectively draft a SOAP/XML message, you first have to setup the SOAP/XML schema in Message templates. You can find out more about Message templates [here](features/message-template.md).
+
+Setup a message template for your use case. Define the schema of the output SOAP document and use `{tags}` to indicate where datapills are being used.
+
+![SOAP message template for employee list](/assets/images/features/handling-soap/SOAP-message-template.png)
+*SOAP message template for employee list*
