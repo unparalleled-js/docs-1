@@ -173,6 +173,7 @@
      * [Setting up callable recipes to handle raw content](/features/callable-recipes/handling-raw-content.md)
   * [Account properties](features/account-properties.md)
   * [Utility](features/utilities.md)
+  * [Variables](features/variables.md)
   * [Data masking](features/data-masking.md)
   * [Single Sign-On \(SSO\)](signing-up/sso.md)
   * [List management](features/list-management.md)
