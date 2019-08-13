@@ -86,7 +86,7 @@ Here are some of the commonly used SQL keywords that can be used in the **Query 
 | ------------ | ---------------------------------------------------------------------------- |
 | SELECT       | Use the SQL wildcard `*` to call all the columns in this list.               |
 | WHERE        | Define conditions that specify what data you want to retrieve from the list. |
-| JOIN         | Use `JOIN`, `LEFT JOIN`, `INNER JOIN` to combine lists.                              |
+| JOIN         | Use `JOIN`, `LEFT JOIN`, `INNER JOIN` to combine lists.                      |
 | INSERT INTO  | Define new entries for your list.                                            |
 | DELETE       | Define rows to remove from your list.                                        |
 
