@@ -19,11 +19,11 @@ APIs use a wide variety of authentication mechanisms. Some as simple as basic (u
 |:-----|:-:|:-:|
 | JSON on REST | Yes | Yes |
 | XML on REST | Yes | Yes |
-| Form URL encoded | Yes | Yes |
+| URL encoded Form| Yes | Yes |
 | Multipart form | No  | Yes |
-| Binary | No | Yes| 
+| Binary | No | Yes|
 
-## Capabilities 
+## Capabilities
 |   | HTTP | SDK |
 |:-----|:-:|:-:|
 | Trigger closure | No  | Yes |

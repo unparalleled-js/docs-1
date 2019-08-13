@@ -121,7 +121,7 @@ $ mv cert.pem workato-agent/conf/
 $ sudo mv workato-agent /opt/workato
 ```
 
-12) Optional - create non-priviledged user for systemd to run OPA 
+12) Optional - create non-priviledged user for systemd to run OPA
 
 ```bash
 # groupadd -r workato
@@ -133,7 +133,7 @@ $ sudo mv workato-agent /opt/workato
 $ sudo touch /etc/sysconfig/workato
 $ sudo cat > /lib/systemd/system/workato.service <<EOF
 # Systemd unit file for default Workato On-Premise Agent
-# 
+#
 # To create clones of this service:
 # DO NOTHING, use workato@.service instead.
 

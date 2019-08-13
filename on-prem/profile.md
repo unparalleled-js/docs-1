@@ -175,7 +175,7 @@ files:
     base: "C:/Documents/HR"
 ```
 
-In another example, if wish to provide access to the `employees` folder in the Desktop directory, the configuration will have a file path that looks something like this:
+In another example, if you wish to provide access to the `employees` folder in the Desktop directory, the configuration will have a file path that looks something like this:
 
 ```YAML
 files:
@@ -331,7 +331,7 @@ The properties below are required irrespective of the connection type, either Me
 
     ![System number](/assets/images/connectors/sap/system-number.png)
 
-- **pool_capacity**: Default to `3`. Maximum number of idle connections that kept open for a SAP connection.
+- **pool_capacity**: Default to `3`. Maximum number of idle connections that can be kept open for a SAP connection.
 - **peak_limit**: Default to `10`. Maximum number of active connections that can be created for SAP simultaneously.
 
 These are required for SAP Outbound Connection properties:
@@ -469,7 +469,7 @@ Active Directory connection profiles must be defined in the `ldap` section.  Exa
 ldap:
   active_directory_main:
     url: ldaps://acme.ldap.com:636
-    username: cn=Administrator
+    username: Administrator
     password: foobar
     base: dc=acme,dc=com
     ssl:
@@ -502,7 +502,7 @@ ldap:
         <i>required</i>
       </td>
       <td>
-        The username (principal) to use when authenticating with the LDAP server. This will usually be the distinguished name of an admin user. For example, <code>cn=Administrator</code>.
+        The username (principal) to use when authenticating with the LDAP server. This will usually be the distinguished name of an admin user. For example, <code>cn=Administrator</code> or simply <code>Administrator</code>.
       </td>
     </tr>
     <tr>
