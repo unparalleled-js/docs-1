@@ -39,18 +39,7 @@ Type in IMPORT into the field and click on **IMPORT** button.
 The IssuesBot should now be in your api.ai account.
 
 ## Connecting Dialogflow to Workato
-See [How to connect Dialogflow on Workato](/connectors/dialogflow.md#how-to-connect-dialogflow-on-workato)
-
-Back in your Workato account,
-- Go to App Connections
-- From the Application list, choose Google api.ai
-- Set the connection name
-- Paste the client access token (the one you copied from IssuesBot in api.ai. You copied that, right?)
-- Hit **Connect**
-
-![Google api.ai connection](/assets/images/workbot/workbot-dialogflow-nlu/google-apiai-connection.png)
-
-Your IssuesBot should now be connected to Workato.
+See [How to connect Dialogflow on Workato](/connectors/dialogflow.md#how-to-connect-dialogflow-on-workato).
 
 ## Linking the Google api.ai NLU connection to your Workbot
 - Go to your Workbot connection and click on Edit connection (you may have to disconnect if the connection is active, so take care that its not being used in active recipes).
