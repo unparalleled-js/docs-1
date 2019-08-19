@@ -15,42 +15,54 @@ This guide will enable users to use the Workato Dashboard to the fullest and obt
 
 ## Usage dashboard
 
-![main dashboard](/assets/images/features/admin-dashboard/recipe-graph.png)
+![Workato Dashboard](/assets/images/features/admin-dashboard/dashboard-default.png)
+*Workato Dashboard*
 
-The main component of the Dashboard gives users information about their recipes and recipe jobs. The following sections give a breakdown of each of the components:
+The main preview consists of:
+- A **Jobs graph** for a big picture view of recipe health
+- A **Recipe details table** for a detailed breakdown by recipe
 
-- Date, status & folder filters
-- Recipe job graph
-- Job details table
+Aside from the main preview of your recipes and jobs (left), there is a small snippet (right) containing information about your active connections.
 
-### Date, status & folder filters
+### Jobs graph
+This gives users an overview of their recipes' health in a given timeframe. This snapshot is dynamic and will morph according to the filter parameters that you define. Use the filter tools to modify the **Jobs graph** to show information about key folders/recipes.
 
-The top-most element in the dashboard — the date, recipe status and folder filters control the other 2 elements. Using any of the filters will change the view in the recipe job graph and the job details table below.
+For example, we can filter for **all active recipes** in the **Admin** folder that transpired in the **first half of 2019**
 
-By default, the filters are set to `Last 7 days`, `All recipes` and `All folders`. This gives users an overview of their recipe's health in the past week when they login to their Workato account. 
+![Jobs Graph](/assets/images/features/admin-dashboard/jobs-graph.png)
+*Jobs Graph*
 
-#### Date filter
+#### Date, status, & folder filters
+Workato Dashboard allows you to customize your filters by Date, Recipe status, and Folders. By default, the filters are set to `Last 7 days`, `All recipes` and `All folders`.
 
-The date filter has several default options:
+| Date filter | Recipe Status filter | Folder filter |
+| -- | -- | -- |
+| Select the timeframe that you want to observe.  | Filter your jobs by recipe status. | Get more insights by diving into folders and sub-folders.  |
+| Use one of the dropdown selections or define a custom range. The default is set at `7 days`. | Select from `All recipes` (default), `Recipe with errors` and `Active recipes`. | Select the folder you want to examine or default to the `Home` folder. |
 
-- Last 7 days
-- Last hour
-- Last 24 hours
-- Last 30 days
-- Pick a date range
+To define a custom date range, select **Pick a date range** from the date filter. Fill in the start date and end date in the `mm/dd/yy` format. You can use the calendar picker for convenience. There is no limit on the number of days that can be selected.
 
-Selecting the last option in the dropdown, 'Pick a date range' will allow the selection of a custom date range. Identify a particular day, week, month or season that needs to be analyzed or choose to view the jobs that were processed over the weekend. There is no limit on the number of days that can be selected.
+### Recipe details table
+This section further dissects the jobs graph by individual recipes. It displays key information like **successful jobs**, **failed jobs**, and a description of the **latest job**.
 
-#### Status filter
+![Recipe details table](/assets/images/features/admin-dashboard/recipe-details-table.png)
+*Recipe details table*
 
-The status filter allows the selection of the following recipe statuses:
+Click on the relevant cells to find out more. For example, find out more about the **Failed jobs** by click on `13 Failed`. This will bring you to the corresponding [recipe page](/recipes/jobs.md).
 
-- All recipes
-- Recipes with errors
-- Active recipes
+The filter feature allows you to rearrange the list by different priorities.
+- Choose `Recipe status` to see easily view inactive recipes.
+- Choose `Successful job count` to view the recipes with the highest traffic.
+- Choose `Recent job` to view the most recent job.
+- Choose `Failed job count` to identify the recipes that require troubleshooting. This is the default selection.
 
-The default filter shows 'All recipes'.
+### Connection overview
 
-#### Folder filter
+This section provides a quick peak at the connections currently available on this Workato account.
 
-The folder filter allows users to
+| Feature | Description |
+| -- | -- |
+| App connections | The total number of active connections. This refers to connections that are currently used in a recipe. |
+| OPA | The total number of On-Prem Agents on this account. |
+| Accounts connected | A list of accounts that were recently connected. |
+| Accounts disconnected | A list of accounts that were recently disconnected. |
