@@ -18,5 +18,5 @@ Only binary files can be downloaded. Trying to download a folder or a Google Doc
 
 | Field name | Description |
 |---|---|
-| File contents | The binary contents of the file. Can be used in `Upload file` actions of other file connectors such as Box, Dropbox, Amazon S3, etc. to upload the file into those applications.  |
+| File contents | The full contents of the file. This is a [streaming object](/features/file-streaming.md). Can be used in `Upload file` actions of other file connectors such as Box, Dropbox, Amazon S3, etc. to upload the file into those applications.  |
 | Size | Size of the file in bytes. |

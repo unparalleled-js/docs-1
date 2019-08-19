@@ -1,492 +1,278 @@
-# Connector SDK Basics
+# Connector Walkthrough
+In this chapter, our aim is to get our feet wet by building a simple connector to something that most people can identify with - **Star Wars!** The API we will be using is free to use and allows us to access information about Star Wars characters, planets, vehicles and much more. For simplicity, we will refer to this API as SWAPI. **[Check out SWAPI over here.](https://swapi.co/)**
 
-This chapter provides a step-by-step walk through of building your own custom connector. Less common features are not included here. For details and examples, navigate to the respective chapters.
+This walkthrough will show how we can use the Workato Software Development Kit (SDK) to create a custom connector to retrieve information from this API and how we can use this custom connector in building a recipe. If you haven't already checked out the our **[brief introduction the SDK conceptual model](/developing-connectors/sdk/sdk-conceptual-model)**, now is the time to do so!
 
-## Making requests
+To find the fully built custom connector for today's walkthrough, **[click here](https://www.workato.com/custom_adapters/11462?token=913765c0)**. You will need to have a valid Workato account to install the connector before being able to see the connector code.
 
-The custom connector framework supports building connectors to applications that offer an API reachable over HTTP/HTTPS.  The common request/response formats are supported: JSON (default), XML, `www-form-urlencoded` and `multipart`.
+## Getting started
+To create a new custom connector, you'll need to navigate to the connector SDK page which is located under `Tools > Connector SDK`.
 
-In parts of the connector that need to make requests, the HTTP verbs (GET, POST etc) are supported as ruby methods.  Let's use an example of an API that uses simple token-based authentication passed as a URL parameter, and returns customer records wrapped in a superfluous `customer` JSON object that we want the connector to peel off as it's not useful to recipe authors using it:
+![Navigating to SDK](/assets/images/sdk/Navigating-to-SDK.png)
+*Located in the top navigation bar in Workato*
 
-`GET https://api.my-app.com/v1/customers.json?id=1234&api_token=xyz`
+In the following page, you'll be able to see a button in the top right corner to create connector. Clicking on that will bring you to the homepage for your new custom connector.
 
-```javascript
+![Naming your custom connector](/assets/images/sdk/custom-connector-title-description.png)
+*Fill in the name of your custom connector*
+
+In the example, I've named my custom connector **Star Wars information** because it returns Star Wars information (duh). I've also added in a cool Star Wars logo which shows up in any recipes that I use this connector with. After this, go ahead and remove any skeleton code that might be inside the code editor below.
+
+> Don't forget to give your new custom connector an appropriate name, description and logo. The name of your connector is how you can find your connector amongst the many that show up during the app search bar when building a recipe.
+
+## Creating a connection
+When we want to connect to an API, the first thing that we need to find out is the authentication method that that particular API requires. Authentication is a process that applications use to verify your identity before they choose to send information to you. This is similar to how we have usernames and passwords to protect our social media accounts by forcing us to verify our identities. There are many different forms of authentication types for APIs like basic-auth or OAuth 2.0.
+
+> Don't worry if these authentication terms seem foreign to you. For the purpose of this walkthrough, SWAPI uses the most simple form of authentication - no authentication. Other authentication types will be covered in later chapters.
+
+While the Workato supports most forms of authentication, SWAPI requires no form of authentication. This means we are able to send requests to that API over the internet without having to first verify who you are.
+
+### Sample Code Snippet
+``` ruby
 {
-  "customer": {
-    "id": 1234,
-    "name": "John Smith",
-    "email": "john.smith@email.com",
-    "address": {
-      "street": "123 Main St",
-      "city": "Anytown",
-      "state": "CA",
-      "zip": "94321",
-      "country": "USA"
-    }
-  }
-}
-```
-
-A request to do the above could be written in a custom connector as:
-
-```ruby
-get('https://api.my-app.com/v1/customers.json?id=1234&api_token=xyz')['customer']
-```
-
-or
-
-```ruby
-get('https://api.my-app.com/v1/customers.json').params(id: 1234, api_token: 'xyz')['customer']
-```
-
-## Request execution
-
-Let's dissect the different parts of the second form of the request above:
-
-```ruby
-get('https://api.my-app.com/v1/customers.json').params(id: 1234, api_token: 'xyz')['customer']
-```
-
-This chains three method calls:
-
-- Create the base request.
-- Mix in more request options.
-- Access the response, at which point the request is lazy-executed.
-
-### Base request
-
-`GET https://api.my-app.com/v1/customers.json`
-
-```ruby
-get('https://api.my-app.com/v1/customers.json')
-```
-
-No request has been made yet: The result so far is the cued-up request for the base URL, and with the request and expected response format set to the default, JSON.
-
-### Mix in request options
-
-`id=1234&api_token=xyz`
-
-```ruby
-params(id: 1234, api_token: 'xyz')
-```
-
-`params` is one of the methods available on the request object, adding URL parameters, which are passed as a hash object.  More methods can be similarly chained to mix in other aspects of the request that is to be made:
-
-  - `payload`
-
-    Payload fields (PATCH, POST, PUT only), also passed as a hash.
-
-  - `headers`
-
-    Request headers, passed as a hash
-
-  - Methods to change the request/response (or both) formats from the JSON default:
-
-    `request_format_json`, `response_format_json`, `format_json`, `request_format_xml`, `response_format_xml`, `format_xml`, `request_format_www_form_urlencoded`, `request_format_multipart_form`
-
-  - HTTP authentication
-
-    `user`, `password`
-
-### Execute request and process the response
-
-  ```ruby
-  ['customer']
-  ```
-
-By calling any method (`[]` here) that is not a request option, the connector signals that it is time to make the request so that we can process the API response.  In this JSON default case, the response is parsed into a ruby hash:
-
-```ruby
-{
-  "customer" => {
-    "id" => 1234,
-    "name" => "John Smith",
-    "email" => "john.smith@email.com",
-    "address" => {
-      "street" => "123 Main St",
-      "city" => "Anytown",
-      "state" => "CA",
-      "zip" => "94321",
-      "country" => "USA"
-    }
-  }
-}
-```
-
-Which then has the `['customer']` method evaluated on it, peeling off the `customer` envelope and resulting in the action's output:
-
-```ruby
-{
-  "id" => 1234,
-  "name" => "John Smith",
-  "email" => "john.smith@email.com",
-    "address" => {
-      "street" => "123 Main St",
-      "city" => "Anytown",
-      "state" => "CA",
-      "zip" => "94321",
-      "country" => "USA"
-    }
-}
-```
-
-## Schema - describing input/output
-
-There are several components where the connector needs to describe the expected fields for input, output or configuration.  This is done using schema notation:
-
-```ruby
-[
-  { name: "id", type: :integer },
-  { name: "name" },
-  { name: "email" },
-  {
-    name: "address",
-    type: :object,
-    properties: [
-      { name: "street" },
-      { name: "city" },
-      { name: "zip" },
-      { name: "country" }
-    ]
-  }
-]
-```
-
-# Connector components
-
-With these basics out of the way, we can now walk through an example connector, and show how its various parts relate to how users will edit and run recipes.
-
-```ruby
-{
-  title: 'My sample connector',
+  title: 'Star Wars information',
 
   connection: {
-```
-
-## Connection fields
-
-The optional connection `fields` use the [schema](#schema---describing-inputoutput) notation to describe the connection configuration fields, if any are needed.  Using the example API above that requires an `api_token` URL parameter, this might be:
-
-```ruby
-    fields: [
+    fields:
+    [
       {
-        name: 'api_token',
-        label: 'API token',
-        optional: false,
-        hint: 'You can find your MyApp API token under "Account Settings"'
+        name: "object",
+        hint: "Type in the object you would like to test your connection with",
       }
-    ],
-```
-
-use the [schema](#schema---describing-inputoutput) notation to describe the connection's properties, shown wherever the connection configuration is displayed, for example in the recipe's connection tab:
-
-![screenshot from 2017-01-23 15-06-44](https://cloud.githubusercontent.com/assets/428200/22226964/91da3d50-e17d-11e6-8f04-c266e5546404.png)
-
-## Authorization
-
-`connection` can optionally also contain an `authorization` component to consolidate the API's authorization logic.  `authorization` can contain several components, its most important one being `apply`, which lets us define [request options](#mix-in-request-options) that will be added to any API request made by the connector:
-
-```ruby
-    authorization: {
-      apply: lambda do |connection|
-        params(api_token: connection['api_token'])
-      end
-    },
-```
-
-This way our [requests](#request-execution) don't need to repeat the authorization options:
-
-```ruby
-get('https://api.my-app.com/v1/customers.json').params(id: 1234)['customer']
-```
-
-## Connection test
-
-Back outside `connection`, the `test` component lets the connection be tested, e.g. to make sure the credentials, like `api_token` in this example, are still valid.
-
-```ruby
+    ]
   },
 
-  test: lambda do |connection|
-    get('https://api.my-app.com/v1/customers.json').params(limit: 1)
+  test: lambda do
+    get("https://swapi.co/api/#{connection["object"]}")
   end,
+
+  # More code below but hidden for now!
+}
 ```
 
-As long as the lambda does not raise an exception, the connection is considered live.  It is invoked:
+> In this walkthrough, we first show sample code before going through each component. Feel free to copy this sample code into your code editor to follow along this walkthrough.
 
-- With non-OAuth connectors only: when the `Connect` button is clicked.
+### `connection:`
+Since SWAPI doesn't require anything from us, our `connection:` block looks relatively empty as well. Inside the `connection:` block, one of the things you'll be able to declare are input fields which will show up when users first make a connection using your connector. You'll then be able to reference this user input later.
 
-- In all cases:  When starting a recipe, each connection used in it has the corresponding `test` called; starting the recipe fails if any `test` raises an error.
+Nested inside the `connection:` block,  we have a `fields:` block which is where we have declared input fields. To see how it would look like to users, simply scroll down to the debugger console at the bottom of the page and open the connection tab.
 
-# Actions
+![Connection input field](/assets/images/sdk/Connection-input-fields.png)
+*How input fields look like to end users*
 
-```ruby
+User input collected inside the `fields:` block can be used whenever needed in any other part of the custom connector code even outside of the `connection:` block. There are other possible blocks just like `fields:` which you can declare nested inside the `connection:` block which we will go through later in detail in our section on authentication.
+
+### `test:`
+Outside of our `connection:` block (outside of the curly braces `connection: { ... }`), we see another important feature of establishing a connection. Since Workato needs a way to provide feedback to you or any user of your connector on whether a connection has been successfully made, we need to declare a simple test that runs when the `Link your account` button is pressed.
+
+Tests are run by sending HTTP requests to specific URLs. HTTP requests are one of the ways that applications talk to each other over the internet. There are a few types of calls that fall under the family of HTTP requests but if you're unfamiliar, its sufficient to know that we are using a GET request for our test today.
+
+In the case of our SWAPI connector, we have configured it to send a GET request to any URL endpoint that will successfully send us back information and a confirmation that our request was accepted (response returned with code: 200). Declared in the `test:` block, you'll see the `get()` function that executes a GET request to the URL inside its brackets. Over here, we used user input by referencing the user input inside the `connection` block through `connection["object"]`. In our sample code snippet above, we referenced the user's input to determine what URL to send a HTTP call to.
+
+> Whenever we reference a variable inside a string, `#{` and `}` must be prepended and appended to the variable reference.
+
+> The URL we sent the request to affects whether our connection would be successful. SWAPI only listens for GET requests on a few URLs documented [here](https://swapi.co/documentation#root). That means that you need to type either "films", "people", "planets", "species", "starships", "vehicles" into the input field to send a request to a valid URL.
+
+### Testing your connection
+Now that this is done, you can go ahead and press the `Link your account` button in the debugger console. With a valid input field for Object, you should see a success message.
+
+![successful-connection](/assets/images/sdk/successful-connection.png)
+*Congratulations! A connection was established*
+
+That wasn't so hard right? Now that we've established a connection, lets get going with creating an action! While triggers kickstart recipes, actions are the subsequent steps that users can configure on Workato. Actions traditionally do things like create, search, update, delete or retrieve operations but can be chained together in a recipe to create complex workflows.
+
+## Creating an action
+SWAPI allows us to send GET requests and receive information about most things in Star Wars such as people, planets and even films. Today, we'll go through how we can build an action called `Get person by ID` that can retrieve information about a character in Star Wars and allow the information returned to be used in subsequent steps of the recipe through [datapills](/recipes/data-pills-and-mapping.md).
+
+![Action revealed to user](/assets/images/sdk/get-character-by-id-action.png)
+*How the Get person by ID action looks like when building a recipe*
+
+### Sample Code Snippet
+``` ruby
+{
+  title: 'Star Wars information',
+
+  # Code for connection block is hidden but identical to the code snippet above.
+  connection: {
+    # Some code here
+  },
+
+  test: {
+    # Some code here
+  },
+
   actions: {
-    get_customer_by_id: {
-```
-
-## Input form
-
-When one of the connector's actions is used in a recipe, its input form is based on its `input_fields` lambda, which also uses the [schema](#schema---describing-inputoutput) notation.
-
-Continuing with our "get customer by ID" action example:
-
-```ruby
+    get_person_by_id: {
       input_fields: lambda do
         [
-          { name: 'id', type: :integer, optional: false }
-        ]
-      end,
-```
-
-![screenshot from 2017-01-23 18-47-05](https://cloud.githubusercontent.com/assets/428200/22232125/61f40ff2-e19c-11e6-97e5-b7fe7816e010.png)
-
-## Output tree
-
-Using the same [schema](#schema---describing-inputoutput) notation, `output_fields` describes the action's output that will appear downstream in the recipe job data:
-
-```ruby
-      output_fields: lambda do
-        [
-          { name: "id", type: :integer },
-          { name: "name" },
-          { name: "email" },
           {
-            name: "address",
-            type: :object,
-            properties: [
-              { name: "street" },
-              { name: "city" },
-              { name: "zip" },
-              { name: "country" }
-            ]
+            name: 'id',
+            label: 'Person ID',
+            type: 'integer',
+            optional: false
           }
         ]
       end,
-```
 
-![screenshot from 2017-01-23 18-59-17](https://cloud.githubusercontent.com/assets/428200/22232411/1274adf4-e19e-11e6-83a7-dadd1ceebde3.png)
-
-## `execute`
-
-At runtime, when the job reaches a recipe line that uses this action, its `execute` lambda is called.
-
-- The first argument is the [`connection`](#connection-fields) fields, packaged in a hash object.
-
-- The second argument is the action's input, evaluated based on how the [input form](#input-form) is configured in the recipe.  Also packaged as a hash object.
-
-As discussed earlier, the `execute` lambda [makes the request](#request-execution).  The result, lazy-evaluated either within the lambda or right after it returns, is expected to contain the specified [output fields](#output-tree).
-
-```ruby
       execute: lambda do |connection, input|
-        get('https://api.my-app.com/v1/customers.json').params(id: input['id'])['customer']
+        get("https://swapi.co/api/people/#{input["id"]}/")
+      end,
+
+      output_fields: lambda do
+        [
+          {
+            name: "name",
+            label: "Person name",
+            type: "string"
+          },
+          {
+            name: "birth_year",
+            label: "Birth year",
+            type: "string"
+          },
+          {
+            name: "eye_color",
+            label: "Eye color",
+            type: "string"
+          },
+          {
+            name: "gender",
+            label: "Gender",
+            type: "string"
+          },
+          {
+            name: "hair_color",
+            label: "Hair color",
+            type: "string"
+          },
+          {
+            name: "height",
+            label: "Height"
+          },
+          {
+            name: "mass",
+            label: "Weight"
+          },
+          {
+            name: "vehicles",
+            label: "Vehicles",
+            type: "array",
+            of: "string"
+          },
+        ]
       end
-```
-
-```ruby
-    } # get_customer_by_id
-  }, # actions:
-```
-
-# Triggers
-
-```ruby
-  triggers: {
-    new_customer: {
-```
-
-## Input form
-
-Same as the one for [actions](#input-form)
-
-## Output tree
-
-Similar to [actions](#output-tree), but describes what each __one__ of the collection of records that the trigger's `poll` (see below) contains.
-
-## Polling for trigger events
-
-There are two types of trigger, to cater to two common patterns in such API endpoints: "Ascending" (the default), and "paging", a.k.a. descending.
-
-### "Ascending" endpoints
-
-These are API endpoints that list records in the same order as we would want them consumed.  This is typically ascending in creation or modification time.
-
-`GET /v1/customers.json?created_since=2017-01-01T12:00:00Z&order=asc&limit=100`
-
-```javascript
-{
-  "customers": [
-     {
-       id: 1234,
-       created_at: "2017-01-02T12:34:56Z",
-       ...
-     },
-     ... (up to 100 total customer records)
-     {
-       id: 2345,
-       created_at: "2017-01-03T12:34:56Z",
-       ...
-     }
-  ]
+    },
+  },
 }
 ```
 
-#### `poll`
+### `actions:`
+In the sample code snippet, we see another high level block - `actions:` - just like the `connection:` block and the `test:` block. The `actions:` block contains the code that we will use to declare a new action. Remember to use indents to make sure your code is readable and that you don't get lost with all the curly braces and brackets.
 
+#### `get_person_by_id:`
+Now we get to the exciting part where we are able to define our `Get person by ID` action. This block can be named however you want but it should match what your action is trying to accomplish. Your action will also inherit this name but with the `_` replaced by spaces.
+
+> The name of your action block should not contain any spaces. Use underscores instead which will be replaced by spaces on the front end.
+
+Once you've created your action block, you'll now need to declare a few things in the action block.
+
+<table class="unchanged rich-diff-level-one">
+  <thead>
+    <tr>
+        <th width='25%'>Block</th>
+        <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code>input_fields:</code></td>
+      <td>This is where you can declare the input fields which are shown when users configure your action when building a recipe</td>
+    </tr>
+    <tr>
+      <td><code>execute:</code></td>
+      <td>This is where you can declare the HTTP request, the URL to send it to as well as any other follow up actions needed</td>
+    </tr>
+    <tr>
+      <td><code>output_fields:</code></td>
+      <td>This is where you can declare the datapills that are returned from the action.</td>
+    </tr>
+  </tbody>
+</table>
+
+##### `input_fields:`
+In our action to get a Star Wars person by ID, we need the user to give this action an ID to send over to SWAPI. To do this, we need to define an input field inside the `input_fields:` that can capture this.
+
+This is done by declaring an array (the square brackets `[]` inside the `input_fields:` block) of ruby hashes inside a lambda function. These hashes (there can be multiple hashes separated by commas to represent multiple input fields) contain certain fields that you must define so Workato understands how to show this to the user and how to reference it later on.
+
+> A lambda function is also referred to as a block except that we replace `{}` with `lambda do` and `end`.  
+
+Back to our example, we have declared a single input field with its `name:` as `id`. You can declare the input field name that is shown to end users on the front end using `label:`. The variable `type:` defines what users would see in terms of the expected input data type. Lastly, the variable `optional` is set to `false` to indicate that this action requires the input to be filled in.
+
+![Input fields](/assets/images/sdk/input-field-screen.png)
+*How the input field looks like in a recipe*
+
+##### `execute:`
+The `execute:` block is where we define what happens when this action is executed during a recipe in Workato. Over here, the execute block is run and the final output of all lines of code between the `lambda do` and `end` are passed back to Workato as the output.
+
+For this example, we have declared a GET request to the URL `https://swapi.co/api/people/#{input["id"]}/` where the input["id"] is referenced from the user's input field. The `input["id"]` referenced here corresponds to the user's input for the field where `name:` is `id` inside the `input_fields:` block.
+
+##### `output_fields:`
+After the `execute:` is run, your custom connector still needs to know how to make sense of the return from the GET request. In Workato, input and output fields are defined in the exact same way using an array of hashes. The different variables inside alter the way output fields look like and behave on the front end.
+
+In the case of our `Get person by ID` action and most other actions, this means properly defining the output fields to match the returned JSON object from the GET request in the `execute:` block. Lets take a look how this is done by first studying a truncated sample returned object from the GET request where ID = 1.
+
+**Sample returned JSON object from SWAPI where ID = 1**
 ```ruby
-    new_customer_ascending: {
-      poll: lambda do |connection, input, last_created_since|
-        created_since = last_created_since || input['created_since']
-        customers = get('https://api.my-app.com/v1/customers.json').
-                      params(created_since: created_since.iso8601,
-                             order: 'asc',
-                             limit: 100)['customers'] || []
-        {
-          events: customers,
-          next_poll: (customers.length > 0 && customers.last['created_at'] ||
-                        created_since),
-          can_poll_more: (customers.length >= 100)
-        }
-      end,
-```
-
-The `poll` response contains three parts:
-
-##### `events`
-
-This is the array of events polled (customer objects in this case), out of which jobs may be started with the recipe.
-
-##### `next_poll`
-
-An object to be passed as the last argument (named to `last_created_since` in this example) to the next poll cycle.  Use this to maintain a "cursor" for the next request.
-
-##### `can_poll_more`
-
-A flag that informs the runtime whether more results may be immediately available.  If true, a further poll will be made (almost) immediately.
-
-#### `dedup`
-
-```ruby
-      dedup: lambda do |customer|
-        customer['id']
-      end,
-    }, # closing out the trigger
-```
-
-It is not always possible to prevent the same record from appearing in separate `poll` invocations.  To avoid duplicate recipe jobs, the runtime uses `dedup`, passing it each item returned in [`events`](#events).  The output is a unique identifier associated with the recipe job that results from that item.
-
-For triggers that track the creation of new objects, the unique identifier is typically the application-specific unique ID for that object.
-
-Another common trigger pattern is tracking object modification.  To reflect that, the connector would typically mix the object's modification timestamp into the event's unique ID:
-
-```ruby
-"#{customer['id']}@#{customer['modified_at']}"
-```
-
-
-### "Descending" endpoints
-
-These are endpoints that list records in the opposite order from the one we want them consumed.
-
-`GET /v1/customers.json?created_since=2017-01-01T12:00:00Z&created_before=2017-01-21T00:00:00Z&order=desc&limit=100`
-
-```javascript
 {
-  "customers": [
-     {
-       id: 9876,
-       created_at: "2017-01-20T12:34:56Z",
-       ...
-     }
-     ... (up to 100 total customer records)
-     {
-       id: 8765,
-       created_at: "2017-01-19T12:34:56Z",
-       ...
-     }
-  ]
+  "name":"Luke Skywalker",
+  "height":"172",
+  "mass":"77",
+  "hair_color":"blond",
+  "skin_color":"fair",
+  "eye_color":"blue",
+  "birth_year":"19BBY",
+  "gender":"male",
+  "vehicles":[
+    "https://swapi.co/api/vehicles/14/",
+    "https://swapi.co/api/vehicles/30/"
+  ],
+  # Some portions of the response have been omitted
 }
 ```
 
-#### `poll`
+> Knowing what to expect in terms of the content of the returned object from your execute block is essential in defining your `output_fields:` block properly.
 
-The polling strategy for these endpoints is to "page" backwards, until we reach the beginning of the result set (or results we have processed before).  At that point the runtime handles creating the recipe jobs in the "correct" order.
+From the returned sample returned object above, we see that there are at least 9 fields that we need to define in our `output_fields:` block. In the `output_fields:` block above, you'll observe that the `name:` of each hash inside the array matches the name of each variable inside the sample returned JSON object.
 
-```ruby
-    new_customer_descending: {
-      type: :paging_desc, # marks this as a "descending" trigger
+For example, the variable named `height` in the sample returned JSON object would be mapped directly to the output_field block where `name:` is `height`. Labels come in useful over here to change the name of the datapill in the recipe to something more readable for end users. In this case, we have changed the datapill's label to `Height` instead of `height`.
 
-      poll: lambda do |connection, input, last_created_before|
-        created_before = last_created_before || Time.now
-        customers = get('https://api.my-app.com/v1/customers.json').
-                      params(created_since: input['created_since'].iso8601,
-                             created_before: created_before.iso8601,
-                             order: 'desc',
-                             limit: 100)['customers'] || []
-        {
-          events: customers,
-          next_page: (customers.length >= 100 && customers.last['created_at']).presence
-        }
-      end,
-```
+![Output fields](/assets/images/sdk/output-field-screen.png)
+*How the output fields looks like in a recipe*
 
-This trigger variant's `poll` response contains two parts:
+Workato's SDK also allows you to define output fields for nested arrays and objects as well. For today's example, we can see that there is an array named `vehicles` in the sample returned object which contains a series of URLs which point to information about those vehicles. This is expected as Luke Skywalker could have driven multiple vehicles. To define an array, we need to declare the `type:` to `array` so that Workato knows to expect an array which could give multiple values. Lastly, we need to define the data inside the array using `of:`. Since we are URLs are represented as strings, we declare `of:` to be assigned to the `string`.
 
-##### `events`
+### Testing your action
+At the bottom of your code editor on Workato's SDK platform, you'll find our debugger console which is perfect for testing and debugging your actions and triggers before creating recipes with them.
 
-Similar to the ascending variant's [`events`](#events), but expected to be in descending order.
+![Debugger console](/assets/images/sdk/debugger-console-screen.png)
+*Debugger console appears after successfully testing an action*
 
-##### `next_page`
+When testing an action, you are prompted on the screen for the input fields. We currently support a basic way to mimic user input to test an action. In the pop-up box, you'll see that the skeleton for an input object has been generated for you. Simply fill in the ID of your chosen person and click `test` to execute the `Get person by ID` action.
 
-If present (not `nil`), this signals the runtime that there may be more, "earlier", events available in the endpoint.
+The debugger console should open up which would give you feedback on the input_fields you supplied, the output fields generated and the HTTP requests sent and the response received. An `Error` tab would also show up if an error occurred  during the running of the action and a `Console` tab would show up if you had any `puts` methods executed at any point in the action code.
 
-This value will be passed to the next `poll` as the third argument, named `last_created_before` in this example.
+> `puts` is a ruby method that allows you to print anything to the console. This is useful in debugging by allowing you to print objects and variables, checking them in the `Console` tab and seeing if they match what you expected. Learn more about [puts here](https://www.codesdope.com/ruby-putsputsputs/)
 
-In comparison with the ascending trigger variant, this value plays the roles of both the "cursor" ([`next_poll`](#next_poll)) and poll timing hint ([`can_poll_more`](#can_poll_more)).
+If all went well (you can just copy our sample code snippets and successfully run the action **after making a connection**), you should see the debugger console open up with green highlights to indicate a successful action. Be reminded that this only mean't that no errors occurred during the execution of the recipe and that other errors may remain such as logic errors.
 
-The connector doesn't need to keep track of how far we can go before we encounter already-seen events; the runtime handles that state, in combination with the rest of the descending trigger components:
+## Creating a recipe using your new custom
+With our new SWAPI custom connector and action, you can now use this action in any recipe you build within the account. Simply search for the name of your new SWAPI connector when choosing an application and start building!
 
-#### `document_id`
+![Debugger console](/assets/images/sdk/building-recipe.png)
+*Debugger console appears after successfully testing an action*
 
-```ruby
-      document_id: lambda do |customer|
-        customer['id']
-      end,
-```
+Be sure to test your action in a recipe in addition to the tests on the debugger console to ensure that your action is usable. Often, this means exploring how you can define your `input_fields:` and `output_fields:` blocks to make it easy for users to configure your action.
 
-Extracts the unique ID of the underlying object.  This is optional, if absent then the default behavior is to use the field called `id` (case insensitive) in the object (the example above just illustrates the default).
-
-__Note__: This is not the same as [`dedup`](#dedup-1) below.
-
-#### `sort_by`
-
-```ruby
-      sort_by: lambda do |customer|
-        customer['created_at']
-      end,
-```
-
-Extracts a sorting/ranking value for the underlying object, so the runtime can determine whether we have polled "far enough" backwards.
-
-#### `dedup`
-
-```ruby
-      dedup: lambda do |customer|
-        "#{customer['id']}@#{customer['created_at']}"
-      end
-    }, # closing out the trigger
-```
-
-Performs the same de-duplication logic as in [the case](#dedup) of ascending triggers.  However in the case of descending triggers it is optional; example above is the default, of combining the result of `document_id` and `sort_by`, separated by a `@` character.
-
-# Complete connector
-
-At this point, after closing the remaining "open" braces in the connector description:
-
-```ruby
-  } # triggers
-} # top-level connector hash
-```
-
-The connector should be ready to be used.
+## Next section
+Congratulations on making it this far! Now that we've learn't abit more about the Workato SDK and also built a simple custom connector, lets go a little bit deeper into the details.
+**[Supported data formats](/developing-connectors/sdk/data-format.md)**

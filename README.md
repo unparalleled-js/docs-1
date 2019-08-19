@@ -34,7 +34,7 @@ Workato addresses these issues with an enterprise-class integration tool that ca
 The Workato platform has a powerful feature set to handle real-world problems, including the integration of applications, data and people. Both cloud-based and on-premise systems are supported. The runtime system is designed for security, robustness, reliability and high performance.
 
 ## Citizen integrators
-Workato is the only integration platform that was built from the ground up to support a single design interface for developer/IT and citizen integrators, ensuring that citizens and IT have access to the same ease-of-use driven productivity improvements, and at at same time offering citizens the same power and capability available to IT.
+Workato is the only integration platform that was built from the ground up to support a single design interface for developer/IT and citizen integrators, ensuring that citizens and IT have access to the same ease-of-use driven productivity improvements, and at the same time offering citizens the same power and capability available to IT.
 
 ## Conversational integration
 Workato provides a chat based (Slack, Microsoft Teams, Cisco Spark, IBM Workspace, etc.) bot building platform for building compelling UX centered around integrations and workflows.

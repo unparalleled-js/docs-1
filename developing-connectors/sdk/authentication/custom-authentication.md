@@ -1,68 +1,84 @@
 # Custom Authentication
-
 Occasionally, the API requires an authentication mechanism different from the typical ones. The `custom_auth` type can be used in this case. The custom authentication provides you with the ability to do the following:
 
 - acquire and/or refresh credentials
 - Define when credentials should be refreshed
 - Store credentials data not provided directly by user (obtained from API requests)
 
-## Example custom authentication
-
+## Sample code snippet
 This example connects to [Zoho CRM](https://www.zoho.com/crm/help/api/using-authentication-token.html)
 
 ```ruby
-connection: {
-  fields: [
-    {
-      name: 'email'
-    },
-    {
-      name: 'password',
-      control_type: 'password'
-    }
-  ],
+{
+  title: 'My Zoho connector',
 
-  authorization: {
-    type: 'custom_auth',
-
-    acquire: lambda do |connection|
+  connection: {
+    fields: [
       {
-        authtoken:
-          get('https://accounts.zoho.com/apiauthtoken/nb/create').
-          params('SCOPE' => 'ZohoCRM/crmapi',
-                 'EMAIL_ID' => connection['email'],
-                 'PASSWORD' => connection['password'],
-                 'DISPLAY_NAME' => 'Workato test adapter').
-          response_format_raw[/(?<=AUTHTOKEN=)\h+/]
+        name: 'email'
+      },
+      {
+        name: 'password',
+        control_type: 'password'
       }
-    end,
-
-    refresh_on: [
-      # Three ways to match:
-      401, # Integer HTTP response code.
-      'Unauthorized', # String that equals the whole body or whole title of the error response.
-      /Unauthorized/, # Regex that matches with the body or title of the error response.
-      /Invalid Ticket Id/ # The actual "signal" that we need to re-authorize in Zoho.
     ],
 
-    detect_on: [
-      # Two ways to match: String (matches whole body of the response), and:
-      /^\{"response":\{"error"/, # Regex that matches the body of the response.
-    ],
+    authorization: {
+      type: 'custom_auth',
 
-    apply: lambda do |connection|
-      params(authtoken: connection['authtoken'])
-    end
+      acquire: lambda do |connection|
+        {
+          authtoken:
+            get('https://accounts.zoho.com/apiauthtoken/nb/create').
+            params('SCOPE' => 'ZohoCRM/crmapi',
+                   'EMAIL_ID' => connection['email'],
+                   'PASSWORD' => connection['password'],
+                   'DISPLAY_NAME' => 'Workato test adapter').
+            response_format_raw[/(?<=AUTHTOKEN=)\h+/]
+        }
+      end,
+
+      refresh_on: [
+        # Three ways to match:
+        401, # Integer HTTP response code.
+        'Unauthorized', # String that equals the whole body or whole title of the error response.
+        /Unauthorized/, # Regex that matches with the body or title of the error response.
+        /Invalid Ticket Id/ # The actual "signal" that we need to re-authorize in Zoho.
+      ],
+
+      detect_on: [
+        # Two ways to match: String (matches whole body of the response), and:
+        /^\{"response":\{"error"/, # Regex that matches the body of the response.
+      ],
+
+      apply: lambda do |connection|
+        params(authtoken: connection['authtoken'])
+      end
+    }
+  },
+
+  test: {
+    # Some code here
+  },
+  actions: {
+    # Some code here
+  },
+  triggers: {
+    # Some code here
+  },
+  object_definitions: {
+    # Some code here
+  },
+  picklists: {
+    # Some code here
+  },
+  methods: {
+    # Some code here
   }
 }
 ```
 
-## apply
-
-Synonym of the `credentials` block: Basically how to apply the credentials to an action/trigger/test request. All requests made in actions, triggers, tests and pick lists will be applied with the credentials defined here.
-
-## acquire
-
+### Using the `acquire:` block
 Context is same as an action's execute block. You can write the require code here to acquire and store relevant credentials data to be used in the `apply` block.
 ```ruby
 acquire: lambda do |connection|
@@ -78,7 +94,7 @@ acquire: lambda do |connection|
 end
 ```
 
-The output of this block should be a **hash**, which will be merged with the original connection object.
+The output of this block should be a **hash**, which will be merged with the original connection object. Take note that a hash is expected when using the `acquire` block for custom authentication but we expect an array of hashes when using the `acquire` block for OAuth 2.0 authentication methods.
 
 This API request to the Auth token endpoint returns a raw text response with the Auth token like this:
 ```
@@ -106,10 +122,39 @@ Original `connection` object
 
 This new connection object will be passed into all actions, triggers, test and pick lists as the `connection` argument.
 
+> Note: When using the acquire block, this block is run only if the refresh_on or detect_on block is triggered. In cases where an access token is retrieved via the acquire block, the refresh_on or detect_on block would need to be triggered first. This can be done by registering the bad request response expected from the failed API call with no access token.
+
+### Using the `apply:` block
+Synonym of the `credentials` block. Basically how to apply the credentials to an action/trigger/test request. All requests made in actions, triggers, tests and pick lists will be applied with the credentials defined here.
+
+Here are a list of accepted inputs into the `apply:` block
+
+```ruby
+apply: lambda do |connection|
+  # Adds in URL parameters passed as a hash object
+  # i.e. authtoken=[connection['authtoken']]
+  params(authtoken: connection['authtoken'])
+
+  #Adds in payload fields (PATCH, POST, PUT only) pass as hash
+  payload(grant_type: "authorization_code",
+          client_id: connection["client_id"],
+          client_secret: connection["client_secret"],
+          code: auth_code)
+
+  # Adds in headers into every request passed as a hash.
+  # i.e. Authorization : Bearer [given access token]
+  headers("Authorization": "Bearer #{connection["access_token"]}")  
+
+  # Used in conjunction with password function
+  # i.e. sends the input as username and password in HTTP authentication
+  user(connection["username"])   
+  password(connection["username"])
+end
+```
+
 > The "apply" block will not be applied to any requests made in "acquire". So you will have to include the required credentials for a successful API request here.
 
-## refresh_on
-
+### Using the `refresh_on` block
 This is an optional array of **signals** that is used to identify a need to re-acquire credentials . When an erroneous response is received (400, 401, 500...), the SDK framework checks it against this list of signals. If a match is found, it triggers a re-authorization (execute `acquire`).
 
 This list is optional. If not defined, will default to one attempt at re-acquiring credentials for all errors.
@@ -130,7 +175,7 @@ The example here shows multiple ways that we can define "signals" to watch.
 - `/Unauthorized/`: Regex matching the body or title of response
 - `/Invalid Ticket Id/`: The actual "message" to watch for in the case of the Zoho API
 
-## detect_on
+### Using the `detect_on` block
 
 Certain APIs don't signal errors with explicit response status code like a `401`. Instead, they return a `200` (pseudo successful response) with a payload that signals the error.
 
@@ -155,3 +200,9 @@ The example here shows multiple ways that we can define "signals" to watch
 - `/^\{"response":\{"error".+$/`: Regex matching the body of response
 
 This list is optional. If not defined, pseudo successful response will be treated as a successful request instead of raising exceptions. Note: output values of trigger and action will be affected.
+
+### Other authentication methods
+Check out the other authentication methods we support as well as how to set up a custom connector that works for on-premise connections. [Go back to our list of authentication methods](/developing-connectors/sdk/authentication.md) or check our our [best practices](/developing-connectors/sdk/best-practices.md) for some tips.
+
+### Next section
+If you're already familiar with the authentication methods we support, check out the actions that our SDK supports as well as how to implement them. [Learn more](/developing-connectors/sdk/action.md)

@@ -69,11 +69,15 @@ The Snowflake connector uses username and password to authenticate with Snowflak
     </tr>
     <tr>
       <td>Username</td>
-      <td>Username to connect to Snowflake.</td>
+      <td>Username to connect to Snowflake. 
+        <br>The role granted to the User should have SYSADMIN privileges or lower. 
+      </td>
     </tr>
     <tr>
       <td>Password</td>
-      <td>Password to connect to Snowflake.</td>
+      <td>Password to connect to Snowflake.
+      <br>The role granted to the User should have SYSADMIN privileges or lower. 
+      </td>
     </tr>
     <tr>
       <td>Schema</td>
@@ -85,6 +89,8 @@ The Snowflake connector uses username and password to authenticate with Snowflak
     </tr>
   </tbody>
 </table>
+
+> Workato connected Snowflake accounts should keep in line with the security considerations detailed [here](https://docs.snowflake.net/manuals/user-guide/security-access-control-configure.html). As a general guideline, SYSADMIN privileges can be used but custom roles should be created to restrict Workato access to **only** Snowflake objects which you want to build recipes with. Do not connect users with ACCOUNTADMIN privileges to Workato as this would throw errors and also represent a security concern. 
 
 ## Working with the Snowflake connector
 

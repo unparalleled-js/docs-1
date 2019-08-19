@@ -10,7 +10,7 @@ Additionally, Workbot also includes custom actions. This action allows you to ut
 
 Workbot supports 3 actions:
 * [Post reply](#post-reply)
-* [Post message](#post-messages)
+* [Post message](#post-message)
 * Custom action
 
 ## Post reply
@@ -23,7 +23,7 @@ This reply can be a simple text message about a task's completion, or more advan
 
 You can optionally include 1 fact set (a set of name-value pairs), 1 pick list, buttons and images.
 
->Post reply must always be paired with a Workbot commands
+>**Post reply must always be paired with a Workbot commands**
 
 ![Post reply recipe](/assets/images/workbot-for-teams/post-reply-recipe.png)
 *Recipe perspective of the post reply example above*
@@ -91,106 +91,133 @@ The post reply action follows a fixed structure, with a preceding **Envelope tex
 The table below lists the input fields in the post reply action.
 
 <table class="unchanged rich-diff-level-one">
-<colgroup>
-<col style="width: 117px">
-<col style="width: 165px">
-<col style="width: 632px">
-</colgroup>
-  <tr>
-    <th>Group</th>
-    <th>Input</th>
-    <th>Description<br></th>
-  </tr>
-  <tr>
-    <td></td>
-    <td>Envelope text&ast;</td>
-    <td>First message, preceding any text, images, or other elements in the message container. Support markdown.</td>
-  </tr>
-  <tr>
-    <td rowspan="4">Heading*</td>
-    <td>Heading</td>
-    <td>Heading text.</td>
-  </tr>
-  <tr>
-    <td>Subheading&ast;</td>
-    <td>Subheading text. Support markdown.</td>
-  </tr>
-  <tr>
-    <td>Link text&ast;</td>
-    <td>Use markdown to add text links, e.g. <code>[Salesforce](https://www.salesforce.com/)</code>.</td>
-  </tr>
-  <tr>
-    <td>Heading thumbnail</td>
-    <td>Provide image URL of thumbnail. Displays to the left of heading text.</td>
-  </tr>
-  <tr>
-    <td rowspan="2">Body&ast;</td>
-    <td>Body text</td>
-    <td>Main body text of message. Supports markdown</td>
-  </tr>
-  <tr>
-    <td>Image</td>
-    <td>Provide image URL. Displays below body text.</td>
-  </tr>
-  <tr>
-    <td rowspan="2">Fact set<br></td>
-    <td>Text*</td>
-    <td>Title of fact.</td>
-  </tr>
-  <tr>
-    <td>Value&ast;</td>
-    <td>Value of fact.</td>
-  </tr>
-  <tr>
-    <td rowspan="5">Pick list</td>
-    <td>Pick list name&ast;</td>
-    <td>Name of picklist. Displays before choices.</td>
-  </tr>
-  <tr>
-    <td>Pick list style</td>
-    <td>Compact displays choices in a drop-down menu, while Expanded displays all choices with radio buttons.</td>
-  </tr>
-  <tr>
-    <td>Choice parameter</td>
-    <td>Parameter name to store the choice value. This parameter-value pair will be passed on as additional parameters.</td>
-  </tr>
-  <tr>
-    <td>Text (choice)</td>
-    <td>Text to display for choice.</td>
-  </tr>
-  <tr>
-    <td>Value (choice)</td>
-    <td>Value to pass to <b>Choice parameter</b> if chosen.</td>
-  </tr>
-  <tr>
-    <td rowspan="4">Buttons</td>
-    <td>Prompt text for buttons*</td>
-    <td>Prompt that displays before buttons. Useful in providing context for the buttons that follow.</td>
-  </tr>
-  <tr>
-    <td>Text (button)</td>
-    <td>Text to display for button.</td>
-  </tr>
-  <tr>
-    <td>Submit button command</td>
-    <td>Workbot command to invoke when users submit this button.</td>
-  </tr>
-  <tr>
-    <td>Additional parameters</td>
-    <td>Pass additional parameters when user submits by clicking a button. Format should be JSON with name-value pairs, e.g.<br><br><pre>{
-   "opportunity_id":"<kbd>Opportunity ID</kbd>",
-   "stage":"<kbd>Stage</kbd>"
-}<samp></td>
-  </tr>
-  <tr>
-    <td rowspan="2">Advanced</td>
-    <td>Post as raw JSON</td>
-    <td>For advanced users to fully customize the message formatting.</td></td>
-  </tr>
-  <tr>
-    <td>Message to update</td>
-    <td>Use message ID from the output of a post reply or post message action to update that message with this one.</td>
-  </tr>
+  <thead>
+    <tr>
+      <th>Group</th>
+      <th>Input</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+      <tr>
+        <td></td>
+        <td>Envelope text&ast;</td>
+        <td>
+          First message, preceding any text, images, or other elements in the message container. Support markdown.
+        </td>
+      </tr>
+      <tr>
+        <td rowspan="4">Heading*</td>
+        <td>Heading</td>
+        <td>Heading text.</td>
+      </tr>
+      <tr>
+        <td>Subheading&ast;</td>
+        <td>Subheading text. Supports markdown.</td>
+      </tr>
+      <tr>
+        <td>Link text&ast;</td>
+        <td>
+          Use markdown to add text links, e.g. <code>[Salesforce](https://www.salesforce.com/)</code>.
+        </td>
+      </tr>
+      <tr>
+        <td>Heading thumbnail</td>
+        <td>
+          Provide image URL of thumbnail. Displays to the left of heading text.
+        </td>
+      </tr>
+      <tr>
+        <td rowspan="2">Body&ast;</td>
+        <td>Body text</td>
+        <td>
+          Main body text of message. Supports markdown.
+        </td>
+      </tr>
+      <tr>
+        <td>Image</td>
+        <td>
+          Provide image URL. Displays below body text.
+        </td>
+      </tr>
+      <tr>
+        <td rowspan="2">Fact set</td>
+        <td>Text*</td>
+        <td>Title of fact.</td>
+      </tr>
+      <tr>
+        <td>Value&ast;</td>
+        <td>Value of fact.</td>
+      </tr>
+      <tr>
+        <td rowspan="5">Pick list</td>
+        <td>Pick list name&ast;</td>
+        <td>
+          Name of picklist. Displays before choices.
+        </td>
+      </tr>
+      <tr>
+        <td>Pick list style</td>
+        <td>
+          Compact displays choices in a drop-down menu, while Expanded displays all choices with radio buttons.
+        </td>
+      </tr>
+      <tr>
+        <td>Choice parameter</td>
+        <td>
+          Parameter name to store the choice value. This parameter-value pair will be passed on as additional parameters.
+        </td>
+      </tr>
+      <tr>
+        <td>Text (choice)</td>
+        <td>Text to display for choice.</td>
+      </tr>
+      <tr>
+        <td>Value (choice)</td>
+        <td>
+          Value to pass to <b>Choice parameter</b> if chosen.
+        </td>
+      </tr>
+      <tr>
+        <td rowspan="4">Buttons</td>
+        <td>Prompt text for buttons*</td>
+        <td>
+          Prompt that displays before buttons. Useful in providing context for the buttons that follow.
+        </td>
+      </tr>
+      <tr>
+        <td>Text (button)</td>
+        <td>Text to display for button.</td>
+      </tr>
+      <tr>
+        <td>Submit button command</td>
+        <td>
+          Workbot command to invoke when users submit this button.
+        </td>
+      </tr>
+      <tr>
+        <td>Additional parameters</td>
+        <td>
+          Pass additional parameters when user submits by clicking a button. Format should be JSON with name-value pairs, e.g.<br><br><pre>{
+       "opportunity_id":"<kbd>Opportunity ID</kbd>",
+       "stage":"<kbd>Stage</kbd>"
+}</pre>
+      </td>
+      </tr>
+      <tr>
+        <td rowspan="2">Advanced</td>
+        <td>Post as raw JSON</td>
+        <td>
+          For advanced users to fully customize the message formatting.
+        </td>
+      </tr>
+      <tr>
+        <td>Message to update</td>
+        <td>
+          Use message ID from the output of a post reply or post message action to update that message with this one.
+        </td>
+      </tr>
+    </tbody>
 </table>
 &ast;Supports markdown
 

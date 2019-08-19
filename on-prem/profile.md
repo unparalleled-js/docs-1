@@ -12,7 +12,7 @@ A single Workato on-premises agent can be used to connect with multiple on-premi
  - [SAP](#sap-connection-profile)
  - [Java messaging service](#jms-connection-profile)
  - [Apache Kafka](#apache-kafka-connection-profile)
- - [Active directory](#active-directory-connection-profile)
+ - [Active Directory](#active-directory-connection-profile)
  - [HTTP resource](#http-resources)
  - [NTLM](#ntlm-connection-profile)
  - [Command-line scripts](#command-line-scripts-profile)
@@ -175,7 +175,7 @@ files:
     base: "C:/Documents/HR"
 ```
 
-In another example, if wish to provide access to the `employees` folder in the Desktop directory, the configuration will have a file path that looks something like this:
+In another example, if you wish to provide access to the `employees` folder in the Desktop directory, the configuration will have a file path that looks something like this:
 
 ```YAML
 files:
@@ -331,13 +331,13 @@ The properties below are required irrespective of the connection type, either Me
 
     ![System number](/assets/images/connectors/sap/system-number.png)
 
-- **pool_capacity**: Default to `3`. Maximum number of idle connections that kept open for a SAP connection.
+- **pool_capacity**: Default to `3`. Maximum number of idle connections that can be kept open for a SAP connection.
 - **peak_limit**: Default to `10`. Maximum number of active connections that can be created for SAP simultaneously.
 
 These are required for SAP Outbound Connection properties:
 
 - **gwhost**: SAP Gateway Host, in the number format of `xx.xx.xx.xx`.
-- **gwserv**: Gateway server port.
+- **gwserv**: Gateway server port. Depending on your SAP system's configuration, you will need to input text (e.g. `sapgw`) or number (e.g. `3301`). Test both versions to see which one works with your system.
 - **progid**: SAP Program ID configured for Workato.
 
     The 3 properties above can be found in the SM59 Tcode for the created Workato RFC Destination:
@@ -469,19 +469,87 @@ Active Directory connection profiles must be defined in the `ldap` section.  Exa
 ldap:
   active_directory_main:
     url: ldaps://acme.ldap.com:636
-    username: cn=Administrator
+    username: Administrator
     password: foobar
     base: dc=acme,dc=com
+    ssl:
+      cert: /path/to/PEM-encoded-certificate-or-trusted-CA
+      trustAll: true
 ```
 
-where profile configuration properties are:
-
-| Property name | Description |
-|------------------|-------------------------------------------|
-| url | The URL of the LDAP server to use. The URL should be in the format `ldap://myserver.example.com:389`. For SSL access, use the ldaps protocol and the appropriate port, e.g. `ldaps://myserver.example.com:636`. If fail-over functionality is desired, more than one URL can be specified, separated using comma (,). |
-| username | The username (principal) to use when authenticating with the LDAP server. This will usually be the distinguished name of an admin user (e.g.cn=Administrator) |
-| password | The password (credentials) to use when authenticating with the LDAP server |
-| base | The base DN. When this attribute has been configured, all Distinguished Names supplied to and received from LDAP operations will be relative to the specified LDAP path. This can significantly simplify working against the LDAP tree; however there are several occasions when you will need to have access to the base path. For more information on this, please refer to Obtaining a reference to the base LDAP path |
+<table class="unchanged rich-diff-level-one">
+  <thead>
+    <tr>
+        <th colspan=2 width='25%'>Property name</th>
+        <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td colspan=2>
+        <b>url</b><br>
+        <i>required</i>
+      </td>
+      <td>
+        The URL of the LDAP server to use. The URL should be in the format <code>ldap://myserver.example.com:389</code>.<br><br>
+        For SSL access, use the LDAPS protocol. The URL format is in the same format <code>ldaps://myserver.example.com:636</code>.<br><br>
+        If fail-over functionality is desired, more than one URL can be specified, separated using comma (,).
+      </td>
+    </tr>
+    <tr>
+      <td colspan=2>
+        <b>username</b><br>
+        <i>required</i>
+      </td>
+      <td>
+        The username (principal) to use when authenticating with the LDAP server. This will usually be the distinguished name of an admin user. For example, <code>cn=Administrator</code> or simply <code>Administrator</code>.
+      </td>
+    </tr>
+    <tr>
+      <td colspan=2>
+        <b>password</b><br>
+        <i>required</i>
+      </td>
+      <td>The password (credentials) to use when authenticating with the LDAP server</td>
+    </tr>
+    </tr>
+    <tr>
+      <td colspan=2>
+        <b>base</b><br>
+        <i>optional</i>
+      </td>
+      <td>
+        The base DN for all requests. When this attribute has been configured, all <b>Distinguished names</b> supplied to and received from LDAP operations will be relative to this LDAP path. This can significantly simplify working against a large LDAP tree.<br><br>
+        However there are several occasions when you will need to have access to the base path. For more information on this, please refer to Obtaining a reference to the base LDAP path.
+      </td>
+    </tr>
+    </tr>
+    <tr>
+      <td rowspan=4>
+        <b>ssl</b><br>
+        <i>optional</i>
+      </td>
+      <td>cert</td>
+      <td>Path the PEM encoded certificate or a trusted CA.</td>
+    </tr>
+    <tr>
+      <td>pem</td>
+      <td>Full content of a PEM encoded certificate.</td>
+    </tr>
+    <tr>
+      <td>key</td>
+      <td>
+        Private key for mutual SSL setup. <b>Required</b> if <code>pem</code> is provided.
+      </td>
+    </tr>
+    <tr>
+      <td>trustAll</td>
+      <td>
+        Set to <code>true</code> to enable self-signed certificates.
+      </td>
+    </tr>
+  </tbody>
+</table>
 
 ## HTTP resources
 
@@ -497,11 +565,21 @@ The agent may be configured to allow accessing internal HTTPS resources which us
 Normally a server certificate's Common Name (or Subject Alternate Name) field should match the target hostname. If you want the agent to accept server certificates with non-matching hostname, disable hostname verification by setting `verifyHost` property to `false` (defaults to `true`).
 
 ## NTLM connection profile
-Certain HTTP resources require NTLM authentication. This can be done using a NTLM connection profile. An example profile should look like this:
+Certain HTTP resources require NTLM authentication. This can be done using a NTLM connection profile. Here are some example NTLM profiles:
 ```YAML
 ntlm:
   MyNtlmProfile:
     auth: "username:password@domain/workstation"
+    base_url: "http://myntlmhost.com"
+    cm_default_max_per_route: 15
+    cm_max_total: 100
+    verifyHost: true
+    trustAll: false
+
+  AnotherNtlmProfile:
+    auth: "domain/workstation"
+    username: "username"
+    password: "password"
     base_url: "http://myntlmhost.com"
     cm_default_max_per_route: 15
     cm_max_total: 100
@@ -513,7 +591,9 @@ The following profile properties are supported:
 
 | Property name | Description |
 |------------------|-------------------------------------------|
-| auth | NTLM authentication credentials |
+| auth | Full NTLM authentication credentials. This can include username, password, domain and workstation.<br><br>For OPA version 2.4.7 or later, **username** and **password** can be configured separately if they contain special characters like `@` and `/`. |
+|username | Username for NTLM authentication.<br>**Only for OPA version 2.4.7 or later** |
+|password | Password for NTLM authentication.<br>**Only for OPA version 2.4.7 or later** |
 | base_url | The base URL for NTLM resources |
 | cm_default_max_per_route | **Optional**. Sets the number of connections per route/host (must be a positive number, default 5) |
 | cm_max_total | **Optional**. Sets the maximum number of connections (must be a positive number, default 10) |

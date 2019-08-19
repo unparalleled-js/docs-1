@@ -7,9 +7,12 @@ date: 2019-03-20 14:20:00 Z
 Workato's REST API provides you with access to Workato resources. With this, you can manage recipes, connections and jobs programmatically to expand the functionality of your Workato account. This API also allows you to auther new recipes and modify existing ones.
 
 ## Authentication
-All API requests must contain a `user_token` & `user_email` in the query parameters or in the request headers for it to be accepted by Workato. The `user_token` can be found in your [settings page](https://www.workato.com/users/current/edit#api_key).
+All API requests must contain:
 
-Alternatively, navigate to your account settings by clicking on `Account Settings` in the dropdown of the top right of your homepage in Workato. Your API key can be found in the left navigation panel in the subsequent page.
+- `X-USER-TOKEN` and `X-USER-EMAIL` in the request headers OR
+- `user_token` & `user_email` in the query parameters
+
+The `user_token`/`X-USER-TOKEN` can be found in your [settings page](https://www.workato.com/users/current/edit#api_key). Alternatively, navigate to your account settings by clicking on `Account Settings` in the dropdown of the top right of your homepage in Workato. Your API key can be found in the left navigation panel in the subsequent page.
 
 ## Workato API Resource Overview
 Workato's API has various endpoints that allows access functionality to different aspects of Workato. Here is a general overview of the endpoints available.
@@ -142,3 +145,29 @@ Workato's API has various endpoints that allows access functionality to differen
   </tr>
   </tbody>
 </table>
+
+### [Recipe lifecycle management](/workato-api/recipe-lifecycle-management.md)
+<table class="unchanged rich-diff-level-one">
+  <thead>
+    <tr>
+        <th width='40%'>Resource</th>
+        <th width='60%'>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+  <tr>
+    <td width =400> <a href="/workato-api/recipe-lifecycle-management.md#export-package-based-on-a-manifest">POST /api/packages/export/:manifest_id </a> </td>
+    <td>Export package based on a manifest</td>
+  </tr>
+  <tr>
+    <td width =400> <a href="/workato-api/recipe-lifecycle-management.md#import-package-into-a-folder">POST /api/packages/import/:folder_id </a> </td>
+    <td>Import package into a folder </td>
+  </tr>
+  <tr>
+    <td width =400> <a href="/workato-api/recipe-lifecycle-management.md#get-package-by-id">GET /api/packages/:id</a> </td>
+    <td>Get package by ID</td>
+  </tr>
+  <tr>
+    <td width =400> <a href="/workato-api/recipe-lifecycle-management.md#download-package">GET /api/packages/:id/download </a> </td>
+    <td>Download package</td>
+  </tr>

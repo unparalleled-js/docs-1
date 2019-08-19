@@ -17,7 +17,7 @@ To rerun jobs from the jobs report page, check the jobs to rerun and click on th
 ![Job rerun from jobs report page](/assets/images/rerun-jobs/job-rerun-from-report.gif)
 *Rerunning jobs from jobs report page*
 
-You can also rerun jobs when within the job details page. Simply click on the rerun button.
+You can also rerun jobs from the job details page. Simply click on the rerun button.
 
 ![Job rerun from job details page](/assets/images/rerun-jobs/job-rerun-from-details.gif)
 *Job rerun from job details page*
@@ -29,13 +29,16 @@ All job reruns use cached data. This means that the original trigger event's dat
 
 - when the failed job is due to data issues in the trigger
 
+The recipe will return a failed job if it is processing the same faulty data from the trigger app, regardless of the number of reruns.
+
 - when you update the trigger event and wish to see how the recipe processes the new trigger event
 
-In such cases, if you are using a **New object** trigger, you might need to delete the existing trigger event (data from your app) and recreate a new trigger event, e.g. if you have a **New Salesforce account** trigger, you would have to delete that newly created Salesforce account and recreate a new Salesforce account for the recipe to pick up the Salesforce account with the correct data.
+If you are using a **New object** trigger, you would have to delete the existing trigger event, e.g. if you are using the **New Salesforce account** trigger, you would have to delete that Salesforce account and recreate a new Salesforce account for the recipe to pick up the Salesforce account (trigger event) with the new data.
 
-However, if you have a **New/updated object** trigger, you wouldn't have to delete the record with the wrong data, but simply update the record and let the recipe pick up the update, e.g. if you have a *New/updated Salesforce account** trigger, you can update the newly created/updated Salesforce account to fix the wrong data, and the recipe will pick up that account again with the correct data.
+If you are using a **New/updated object** trigger, you wouldn't have to delete the record with the old data, but simply update the record and let the recipe pick up the update, e.g. if you are using the **New/updated Salesforce account** trigger, you can update the newly created/updated Salesforce account, and the recipe will pick up the change.
 
-For both cases above, a new job will be picked up.
+For both cases above, a new job will be picked up. Updating an event in your trigger app will not affect the cached data stored in the previous job, and a new job will be picked up.
+
 
 # Job rerun history
 Within the job details page, you can view the rerun history of the job.
@@ -63,9 +66,7 @@ Because the trigger is **New/updated Salesforce account**, we can simply create 
 
 Had the trigger been **New Salesforce account**, we would have to stage our tests differently. We would need to create a Salesforce account with a matching Zendesk organization, as well as a Salesforce account with no matching Zendesk organization, and check that both jobs are carried out correctly.
 
-For any times, during testing, people incrementally build and test a recipe with the same job. During the testing phase, rerunning jobs is commonly used to fix the errors encountered in recipes.
-
-Rather than creating new trigger events, rerunning the same job will allow you to fix the errors 1 step at a time with the same event.
+Executing a rerun job during testing allows you to build your recipe incrementally. Rather than creating new trigger events each time you want to try a new version of your recipe, you can test your recipe with the same event as a rerun job. Furthermore, this allows you to address issues as you encounter them. You can directly test your fix for the issue with a rerun job.
 
 - Errors
 
