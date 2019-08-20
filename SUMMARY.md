@@ -149,6 +149,7 @@
   * [Logging](on-prem/logging.md)
   * [Extensions](on-prem/extension.md)
 * [Key features](features.md)
+  * [Workato Dashboard](features/admin-dashboard.md)
   * [Scheduler](features/scheduler.md)
   * [Secondary connectors](features/secondary-connectors.md)
   * [Lookup tables](features/lookup-tables.md)
