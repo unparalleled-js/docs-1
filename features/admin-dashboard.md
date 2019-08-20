@@ -21,14 +21,14 @@ This guide will enable users to use the Workato Dashboard to the fullest and obt
 The main preview consists of:
 - A **Jobs graph** for a big picture view of recipe health
 - A **Recipe details table** for a detailed breakdown by recipe
-- An **App connection overview** for changes made to connection in the last 7 days
+- An **App connection overview** for changes made to connections in the last 7 days
 
 Aside from the main preview of your recipes and jobs (left), there is a small snippet (right) containing information about your active connections.
 
 ### Jobs graph
 This gives users an overview of their recipes' health in a given timeframe. This snapshot is dynamic and will change according to the filter parameters that you define. Use the filter tools to modify the **Jobs graph** to show information about key folders/recipes.
 
-For example, we can filter for **all active recipes** in the **Admin** folder that transpired in the **date range here**
+For example, we can filter for **all active recipes** in the **Admin** folder that transpired between `01/01/19` to `06/30/19`.
 
 ![Jobs Graph](/assets/images/features/admin-dashboard/jobs-graph.png)
 *Jobs Graph*
@@ -51,7 +51,7 @@ This section further dissects the jobs graph by individual recipes. It displays 
 
 Click on the relevant cells to find out more. For example, find out more about the **Failed jobs** by click on `13 Failed`. This will bring you to the corresponding [jobs tab](/recipes/jobs.md) on the recipe page.
 
-If you have applied data and time filters, you will find that the jobs will be filtered automatically when you are redirected to this page
+If you have applied date and time filters, you will find that the jobs will be filtered automatically when you are redirected to this page
 
 ![Jobs tab filtered with specified date range](/assets/images/features/admin-dashboard/jobs-tab-with-date-range.png)
 *Jobs tab filtered with specified date range*
