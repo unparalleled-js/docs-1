@@ -107,7 +107,7 @@ Furthermore, you'll be able to declare personal reusable methods to use in any b
      </tr>
      <tr>
        <td>decode_urlsafe_base64</td>
-       <td>Decode using urlsafe modification of Base64 algorithm
+       <td>Decode using URL-safe modification of Base64 algorithm
        </td>
      </tr>
      <tr>
@@ -164,7 +164,7 @@ Furthermore, you'll be able to declare personal reusable methods to use in any b
     </tr>
     <tr>
       <td>encode_urlsafe_base64</td>
-      <td>Encode using urlsafe modification of Base64 algorithm
+      <td>Encode using URL-safe modification of Base64 algorithm
       </td>
     </tr>
     <tr>
@@ -182,7 +182,7 @@ Furthermore, you'll be able to declare personal reusable methods to use in any b
     <tr>
       <td>ends_with?</td>
       <td>Returns true if string ends with a specific pattern. False otherwise<br>
-      <pre><code style="display: block; white-space: pre-wrap;">"Hello!".ends_with?(\"!\") #true</code></pre>
+      <pre><code style="display: block; white-space: pre-wrap;">"Hello!".ends_with?("!") #true</code></pre>
       </td>
     </tr>
     <tr>
@@ -385,7 +385,7 @@ Furthermore, you'll be able to declare personal reusable methods to use in any b
       <td>Returns a new array after invoking block on each element</td>
     </tr>
     <tr>
-      <td>md5_hexdigest?</td>
+      <td>md5_hexdigest</td>
       <td>Creates message digest using the MD5 Message-Digest Algorith.
       <pre><code style="display: block; white-space: pre-wrap;">"hello".md5_hexdigest #5d41402abc4b2a76b9719d911017c592</code></pre>
     </tr>
@@ -407,14 +407,15 @@ Furthermore, you'll be able to declare personal reusable methods to use in any b
         Returns the next object in the enumerator, and move the internal position forward.<br>
         This is often used in config_fields where you can use <code>next</code> as a way to add a guard clause that checks inputs before the lambda function is executed.
         <pre><code style="display: block; white-space: pre-wrap;">object_definition: {
-    document: {
+  document: {
     fields: lambda do |connection, config_fields|
       next [] if config_fields.blank?
-      get("https://www.webmerge.me/api/documents/#{config_fields["document_id"]}/fields").
-        map { |field| field.slice("name") }
+      get("https://www.webmerge.me/api/documents/#{config_fields["document_id"]}/fields").map {
+        |field| field.slice("name")
+      }
     end
-    }
-    }</code></pre>
+  }
+}</code></pre>
         <a href="https://apidock.com/ruby/Enumerator/next">More details here.</a>
       </td>
     </tr>
@@ -884,7 +885,7 @@ today + 2.days #2016-07-15</code></pre>
     <tr>
       <td>uniq</td>
       <td>
-        Return unique items in an arra<br>
+        Return unique items in an array<br>
         <pre><code style="display: block; white-space: pre-wrap;">[1.0, 1.5, 1.0].uniq #[1.0, 1.5]</code></pre>
       </td>
     </tr>
