@@ -600,6 +600,8 @@ Generates CSV line from an array. This handles escaping. Nil values and empty st
 | `["John Smith", "No-Email", " ", nil, "555-1212"].to_csv` | "John Smith,No-Email, ,,555-1212 " |
 | `["John Smith", "No-Email", " ", nil, 1212].to_csv` | "John Smith,No-Email, ,,1212"      |
 
+---
+
 ## to_json
 
 Converts hash or array to JSON string
@@ -608,6 +610,29 @@ Converts hash or array to JSON string
 | ---------------------------------------- | ---------------------------- |
 | Hash: `{"pet" => "cat", "color" => "gray"}.to_json` | {"pet":"cat","color":"gray"} |
 | Array: `["1","2","3"].to_json`           | ["1", "2", "3"]              |
+
+---
+
+## to_xml
+
+Converts hash or array into XML string
+
+| Example                                  | Result                     |
+| ---------------------------------------- | -------------------------- |
+| `{"name" => "Ken"}.to_xml(root: "user")` | <user><name>Ken</a></user> |
+| `[{"name" => "Ken"}].to_xml(root: "users")`| <users><user><name>Ken</a></user></users>|
+
+---
+
+## encode_www_form
+
+Join hash into url-encoded string of parameters
+
+### Example
+
+| Example                    | Result          |
+| -------------------------- | --------------- |
+| `{"apple" => "red green", "2" => "3"}.encode_www_form` | "apple=red+green&2=3" |
 
 ---
 
