@@ -1,7 +1,7 @@
 # Methods
-Not all ruby public instance methods are available when building connectors on Workato's SDK framework. Below we go through a list of whitelisted ruby methods which you can use in any block when building your connector.
+Not all ruby public instance methods are available when building connectors on Workato's SDK framework. Below we go through a list of whitelisted ruby methods that you can use in any block when building your connector.
 
-Furthermore, you'll be able to declare your own reusable methods to use in any block when using your SDK.
+Furthermore, you'll be able to declare personal reusable methods to use in any block when using your SDK.
 
 ## Pre-defined Ruby methods
 <table class="unchanged rich-diff-level-one">
@@ -15,7 +15,7 @@ Furthermore, you'll be able to declare your own reusable methods to use in any b
      <tr>
        <td>at</td>
        <td>Creates a new time object with the given argument. <br>
-       <a href="https://apidock.com/ruby/Time/at/class">More details here.</a>  	
+       <a href="https://apidock.com/ruby/Time/at/class">More details here.</a>      
        </td>
      </tr>
      <tr>
@@ -29,7 +29,7 @@ Furthermore, you'll be able to declare your own reusable methods to use in any b
        <pre><code style="display: block; white-space: pre-wrap;">2.days.ago #2017-01-15T12:30:00.000000-07:00 if time now is 2017-01-17T12:30:00.000000-07:00
 30.minutes.ago #2017-01-15T12:30:00.000000-07:00 if time now is 2017-01-15T13:00:00.000000-07:00
 30.seconds.ago #2017-01-15T12:30:00.000000-07:00 if time now is 2017-01-15T12:30:30.000000-07:00</code></pre>
-       <a href="https://apidock.com/rails/ActiveSupport/Duration/ago">More details here.</a>  	
+       <a href="https://apidock.com/rails/ActiveSupport/Duration/ago">More details here.</a>      
        </td>
      </tr>
      <tr>
@@ -46,12 +46,12 @@ Furthermore, you'll be able to declare your own reusable methods to use in any b
      </tr>
      <tr>
        <td>blank?</td>
-       <td>Returns true if value is null or an empty string, otherwise false 	
+       <td>Returns true if value is null or an empty string, otherwise false     
        </td>
      </tr>
      <tr>
        <td>binary?</td>
-       <td>Returns true if value is a binary array 	
+       <td>Returns true if value is a binary array     
        </td>
      </tr>
      <tr>
@@ -92,7 +92,7 @@ Furthermore, you'll be able to declare your own reusable methods to use in any b
      <tr>
        <td>compact</td>
        <td>Returns a hash with non nil values. <br>
-       <a href="https://apidock.com/rails/Hash/compact">More details here.</a>  	
+       <a href="https://apidock.com/rails/Hash/compact">More details here.</a>      
        </td>
      </tr>
      <tr>
@@ -915,10 +915,10 @@ today + 2.days #2016-07-15</code></pre>
       </td>
     </tr>
     <tr>
-    <td>wrap</td>	      
+    <td>wrap</td>          
       <td>
-        Wraps its argument in an array unless it is already an array <br> The wrap method is often used in the execute block.	        while loop statement.<br>
-        <pre><code>execute: lambda do |connection, input|	        <a href="https://www.tutorialspoint.com/ruby/ruby_loops.htm">More details here.</a>
+        Wraps its argument in an array unless it is already an array <br> The wrap method is often used in the execute block.            while loop statement.<br>
+        <pre><code>execute: lambda do |connection, input|            <a href="https://www.tutorialspoint.com/ruby/ruby_loops.htm">More details here.</a>
   {
     accounts: Array.wrap(get("/accounts", input)["records"])
   }
@@ -946,7 +946,7 @@ end</code></pre>
       <td>zip</td>
       <td>Used as a method called by arrays. Converts any arguments to arrays, then merges elements of self with corresponding elements from each argument. <br>
       <a href="https://apidock.com/ruby/Array/zip">More details here.</a>
-      </td>	      </td>
+      </td>          </td>
     </tr>
   </tbody>
 </table>
@@ -1013,7 +1013,7 @@ Use the `call()` method to reference a method. This method takes in two paramete
 1. Method name
   - Use the method name defined. You can use either `:method_name` (symbol) or `"method_name"` (string) representations.
 2. Input hash (optional)
-  - This is a hash of input variables. Leave blank if your method does not take in an input.
+  - This is a hash of input variables. Leave blank if your method does not take inputs.
 
 The input hash is passed into the method as an argument, which you may reference as so:
 
@@ -1025,7 +1025,7 @@ methods: {
 ```
 
 ### Recursion
-Methods can also be called within method code blocks. This means that a method can be called by another method or by itself. In the case of the factorial example provided above, note that the `factorial` method has some degree of recursion. Be careful when writing recursive loops by setting failsafes as in the example below:
+Methods can also be called within method code blocks. This means that a method can be called by another method or by itself. In the case of the factorial example provided above, note that the `factorial` method has some degree of recursion. Be careful when writing recursive loops by setting a failsafe as in the example below:
 
 ```ruby
 if number > 1
@@ -1036,7 +1036,7 @@ end
 ```
 
 ### Testing
-The SDK console only allows testing of actions and triggers. To test your reusable method, write an action which encapsulates it.
+The SDK console only allows testing of actions and triggers. To test your reusable method, write an action that encapsulates it.
 
 ### Summary
 Reusable methods are powerful tools that can make development more efficient. It is especially useful when making schema introspection calls within the `object_definitions` or `input_schema` lambdas.
