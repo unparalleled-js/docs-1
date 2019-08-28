@@ -35,8 +35,11 @@ For Workato accounts with the Recipe lifecycle management feature enabled, users
 
 Learn more about the process of using the recipe lifecycle management feature in the following documents:
 
-- [Export](/recipe-development-lifecycle/export.md)
-- [Import](/recipe-development-lifecycle/import.md)
+- [Planning for lifecycle management]((/rdlc-guide-planning.md))
+- [Exporting: Packaging recipes and dependencies](/recipe-development-lifecycle/export.md)
+- [Importing: Deployment](/recipe-development-lifecycle/import.md)
+- [Working with external source control systems](/rdlc-guide-source-control.md)
+- Automated testing (Coming soon)
 
 ## Recipe lifecycle management automation
 
