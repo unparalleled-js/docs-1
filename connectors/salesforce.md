@@ -76,6 +76,19 @@ To use real-time triggers in Salesforce, workflow rules have to be set up in you
 ![Customize application permission - profile setup](/assets/images/salesforce-docs/customize-application-permission.png)
 *Customize application permission - profile setup*
 
+### Connecting to custom domains
+Salesforce allows custom domains to be defined on both Salesforce organization and [Salesforce Communities](https://help.salesforce.com/articleView?id=networks_resources.htm&type=5). Workato allows connections to be created to both.
+
+If your Salesforce organization is hosted on a custom domain, connect your account by clicking on 'Use custom domain' on the OAuth 2 pop-up. Then, enter your custom domain and the username and password.
+
+![Salesforce custom domains](/assets/images/salesforce-docs/customize-application-permission.png)
+*Use a custom domain*
+
+If you are connecting to a Salesforce community with a custom domain, expand the 'Advanced settings' in the connection. Here, enter your Salesforce community's custom domain before clicking on 'Link your account'. You will see the login page for your community where you can simply enter your username and password to connect.
+
+![Salesforce Communities custom domains](/assets/images/salesforce-docs/customize-application-permission.png)
+*Use a Salesforce Communities custom domain*
+
 ## Working with the Salesforce connector
 
 ### Can I connect more than one Salesforce account in a single recipe?
