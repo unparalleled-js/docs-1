@@ -136,7 +136,7 @@
     * [Approver view](workflow.md#approver-view)
     * [Approving tasks](workflow.md#approving-tasks)
 * [Recipe lifecycle management](recipe-development-lifecycle.md)
-  * [Planning for lifecycle management]((/recipe-development-lifecycle/rdlc-guide-planning.md))
+  * [Planning for lifecycle management](/recipe-development-lifecycle/rdlc-guide-planning.md)
   * [Exporting: Packaging recipes and dependencies](/recipe-development-lifecycle/export.md)
   * [Importing: Deployment](/recipe-development-lifecycle/import.md)
   * [Working with external source control systems](/recipe-development-lifecycle/rdlc-guide-source-control.md)

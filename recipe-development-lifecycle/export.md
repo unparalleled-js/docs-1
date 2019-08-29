@@ -20,7 +20,7 @@ After the export process is complete, you can [import](/recipe-development-lifec
 
 This section covers how Workato recipes and dependencies can be converted to shareable assets known as packages. If you have already exported a package, you may move on to our other sections:
 
-- [Planning for lifecycle management]((/recipe-development-lifecycle/rdlc-guide-planning.md))
+- [Planning for lifecycle management](/recipe-development-lifecycle/rdlc-guide-planning.md))
 - **Exporting: Packaging recipes and dependencies** _(current)_
 - [Importing: Deployment](/recipe-development-lifecycle/import.md)
 - [Working with external source control systems](/recipe-development-lifecycle/rdlc-guide-source-control.md)

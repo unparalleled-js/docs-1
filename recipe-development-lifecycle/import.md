@@ -18,7 +18,7 @@ There are multiple ways to deploy a tested package to a new environment.
 
 This section covers how Workato recipes and dependencies are deployed (imported). If you have already imported a package, you may move on to the last section on working with external source control systems:
 
-- [Planning for lifecycle management]((/recipe-development-lifecycle/export.md))
+- [Planning for lifecycle management](/recipe-development-lifecycle/export.md)
 - [Exporting: Packaging recipes and dependencies](/recipe-development-lifecycle/export.md)
 - **Importing: Deployment** _(current)_
 - [Working with external source control systems](/recipe-development-lifecycle/rdlc-guide-source-control.md)
