@@ -5,10 +5,9 @@ date: 2019-04-18 15:00:00 Z
 
 # Export: Packaging recipes and dependencies
 
-Workato packages allow users to create a distributable file that contains related recipes and their dependencies.
-The Export function builds a package in the form of a zip file that can be downloaded from the Workato system.
+Exporting packages allows users to create a distributable file that contains related recipes and their dependencies.
 
-The export process in recipe lifecycle management typically happens after the development of a set of recipes and their related assets are completed or when a new change in your business process requires the recipes to be edited. In Workato, recipes and assets are exported as packages in the form of zip files. The files contain json file representations of every one of the exported assets.
+The export process in recipe lifecycle management typically happens after the development of a set of recipes and their related assets are completed or when a new change in your business process requires the recipes to be edited. In Workato, recipes and assets are exported as packages in the form of a zip file. The file contains json file representations of every one of the exported assets.
 
 Packages are used to:
 
@@ -21,10 +20,10 @@ After the export process is complete, you can [import](/recipe-development-lifec
 
 This section covers how Workato recipes and dependencies can be converted to shareable assets known as packages. If you have already exported a package, you may move on to our other sections:
 
-- [Planning for lifecycle management]((/rdlc-guide-planning.md))
+- [Planning for lifecycle management]((/recipe-development-lifecycle/rdlc-guide-planning.md))
 - **Exporting: Packaging recipes and dependencies** _(current)_
 - [Importing: Deployment](/recipe-development-lifecycle/import.md)
-- [Working with external source control systems](/rdlc-guide-source-control.md)
+- [Working with external source control systems](/recipe-development-lifecycle/rdlc-guide-source-control.md)
 
 ## Export manifests
 To begin exporting a package, start by defining an export manifest. A manifest is a record of all the selected recipes and dependencies that users can use for export and re-export. The manifest can also be edited after the creation and first export.

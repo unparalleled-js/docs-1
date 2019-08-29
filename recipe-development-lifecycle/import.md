@@ -16,12 +16,12 @@ There are multiple ways to deploy a tested package to a new environment.
 
 ## Contents
 
-This section covers how Workato recipes and dependencies are deployed (imported). If you have already imported a package, you may move on to our next sections:
+This section covers how Workato recipes and dependencies are deployed (imported). If you have already imported a package, you may move on to the last section on working with external source control systems:
 
 - [Planning for lifecycle management]((/recipe-development-lifecycle/export.md))
 - [Exporting: Packaging recipes and dependencies](/recipe-development-lifecycle/export.md)
 - **Importing: Deployment** _(current)_
-- [Working with external source control systems](/rdlc-guide-source-control.md)
+- [Working with external source control systems](/recipe-development-lifecycle/rdlc-guide-source-control.md)
 
 ## Import process
 
@@ -41,7 +41,7 @@ Select the .zip file to import from the computer as well as the target folder. T
 
 On the import preview screen, each item is assigned a tag that will inform the user of its import status.
 
-### Recipes:
+### Recipes
 ![RLM in tools gif](/assets/images/features/packages/recipe-tags.png)
 *All possible status tags for recipes*
 
@@ -63,15 +63,15 @@ The list of stopped recipes are temporarily stored and will be automatically res
 
 If errors occur with starting a recipe after the import process, you should click on the link to the recipe, resolve any errors and restart the recipe manually.
 
-### Connections:
+### Connections
 
-One of the main advantages of separate accounts for the different lifecycle phases is that each can have its own set of connections, and these can be different: for example, a Workato development account can use an application sandbox account for its recipes, while a production Workato account uses the production application account with live data.
+One of the main advantages of separate accounts for the different lifecycle phases is that each can have its own set of connections, and these can be different: for example, a development account can use an application sandbox account for its recipes, while a production account uses the production application account with live data.
 
-For security reasons, exporting a package does not export any credentials, keys or other private data needed to make a connection to applications. Those are kept private. Only the connection name, application type and other non-sensitive information is exported. Here, a placeholder connection is created. This placeholder contains only the application and name of the connection. **Authentication to this placeholder is required after import**.
+For security reasons, exporting a package does not export any credentials, keys or other private data needed to make a connection to applications. Those are kept private. Only the connection name, application type and other non-sensitive information will be exported. Here, a placeholder connection is created. This placeholder contains only the application and name of the connection. **Authentication to this placeholder is required after import**.
 
-When importing a package, if connections are needed and an existing connection of the same type exists in the importing account, and there are not multiple connections of that type (for example, multiple Gmail accounts), then the connections the recipe(s) that are imported require are made to the corresponding connection in the importing account, automatically. If this is not possible, then you may need to manually re-establish connections needed by the recipes after import.
+When importing a package, Workato will attempt to automatically fill in connection details with existing connections in the importing account. Workato checks that this **connection type exists** and that that there are **no multiple connections** of that type (for example, multiple Gmail accounts). If these conditions are met, the connections required in the imported recipes will be configured automatically. If this is not possible, then you may need to manually re-establish connections needed by the recipes after import.
 
-### Lookup tables:
+### Lookup tables
 Lookup tables in the zip file will always contain schema data (name and column names) but may or may not contain data. During import, users can specify if the table data should be or overwritten or ignored.
 
 If the lookup table contains no data, it will be created/updated with only column names. If the lookup table contains data, use the radio buttons to select if the data should be overwritten or ignored.
@@ -81,7 +81,7 @@ If the lookup table contains no data, it will be created/updated with only colum
 
 ‘Overwrite’ will cause all table data to be overwritten and all data in the table to be replaced permanently. ‘Ignore’ will disregard all table data even though the table was exported with data.
 
-Workato recommends you establish rules and procedures for the use of these options. The simplest approach is probably to use the defaults: “include data” on export and “overwrite data” on import. This assumes, however, that the lookup table in the importing account can be safely overwritten, without affecting recipes that are not part of the package being imported.
+Workato recommends you establish rules and procedures for the use of these options. The simplest approach is to use the defaults: “include data” on export and “overwrite data” on import. This assumes, however, that the lookup table in the importing account can be safely overwritten, without affecting recipes that are not part of the package being imported.
 
 ### Other dependencies
 Other recipe dependencies will have the following tags according to their statuses.

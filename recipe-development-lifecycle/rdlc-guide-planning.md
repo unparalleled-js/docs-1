@@ -9,16 +9,16 @@ Before starting to use lifecycle management in Workato, it is recommended that y
 
 - **Planning for lifecycle management** _(current)_
 - [Exporting: Packaging recipes and dependencies](/recipe-development-lifecycle/export.md)
-- [Importing: Deployment](/recipe-development-lifecycle/import.md)
-- [Working with external source control systems](/rdlc-guide-source-control.md)
+- [Importing: Deployment](/recipe-development-lifecycle/recipe-development-lifecycle/import.md)
+- [Working with external source control systems](/recipe-development-lifecycle/rdlc-guide-source-control.md)
 
 ## Defining environments, promotion criteria, and responsibilities
 
 This planning process for lifecycle management is recommended to include:
 
 - Defining the software lifecycle stages
-- Identifying how many different teams you need to support, and
-- Identifying individual roles/responsibilities e.g., who manages a team, who develops, tests or deploys; and who should be responsible for moving assets between stages
+- Identifying how many different teams you need to support  
+- Identifying individual roles/responsibilities (e.g. who manages a team, who develops, tests or deploys, and who should be responsible for moving assets between stages)
 
 You should document the criteria for moving recipes across stages: for example, what tests must be run before promotion. Your organization may already have standards in some of these areas, but these may have to be adapted to the terminology and features used in the Workato environment.
 
@@ -34,7 +34,7 @@ A Team owner can organize a team and invite other members, and set their roles a
 
 Once a user has been invited to and joined a team, that user will have both an individual and a Team account. It is recommended that the Team account be used for development work.
 
-Teams can optionally be configured to use [SAML-based Single-Sign On](user-accounts-and-teams/single-sign-on.md). It is recommended that this be enabled if possible, so that users can login using their standard corporate accounts, and so that uniform login policies can be applied from the SAML identity provider (a directory system).
+Teams can optionally be configured to use [SAML-based Single-Sign On](/user-accounts-and-teams/single-sign-on.md). It is recommended that this be enabled if possible, so that users can login using their standard corporate accounts, and so that uniform login policies can be applied from the SAML identity provider (a directory system).
 
 ## Organizing accounts
 Each development lifecycle stage should take place within a different Workato account, usually a Team account with multiple users. The simplest organization of accounts is just to have one team account per stage.
@@ -59,7 +59,7 @@ Firstly, have the team owner create a new Team and invite other users. While onl
 
 For simplicity, it is recommended that team members be given one of the standard roles such as Analyst if possible. But, if it is desired to segment the team so that some team members have access to only some folders, while other team members access different folders, or if non-Administrator team members need Import or Export privileges, then you will need to define and use a custom role for those team members. Only a custom role can restrict access to folders, and currently default non-Administrator roles can’t import or export (this may change).
 
-Another reason to consider using custom roles is to more finely segment the actions that users can perform. For example, some users might be empowered to create and manage connections to applications, while others are able to use the connections but not change them.
+Another reason to consider using [custom roles](/user-accounts-and-teams/team-collaboration.md#custom-roles) is to more finely segment the actions that users can perform. For example, some users might be empowered to create and manage connections to applications, while others are able to use the connections but not change them.
 
 ## Folders
 It is also worth thinking about how recipes should be organized into folders, and what naming conventions should be used for this. As mentioned earlier, you may want to use folders together with custom roles so that members within a Team account can be assigned responsibility for recipes within a particular folder or folders.
@@ -74,7 +74,9 @@ Folders are also the unit that is used for import and export of assets, so recip
 If you are planning to move assets across accounts, for example from development to test, you might want to establish a rule that the folder names and structure are the same in the accounts for different stages, although this is not required by Workato.
 
 ## Connections
-Connections can be scoped to a folder in Workato. By default, their scope is the Home folder. However, when preparing to use Lifecycle Management, you may want to associate the connections required by the recipes in a folder you plan to export to that folder. This can be done by visiting the App Connections tab and dragging the connection(s) that you want to be folder scoped into a folder shown on the left-hand side of the page. This will help organize your connections and ensure that the correct connections are used for each exported folder.
+Connections can be scoped into folders in Workato. By default, their scope is the Home folder. However, when preparing to use Lifecycle Management, you may want to associate the connections required by the recipes in a folder you plan to export to that folder.
+
+This can be done by visiting the App Connections tab and dragging the corresponding connection(s) into a folder shown on the left-hand side of the page. This will help organize your connections and ensure that the correct connections are used for each exported folder.
 
 ![App connections](/assets/images/features/packages/app-connections.png)
 *App connections can be organized and managed by folders*

@@ -15,9 +15,9 @@ However, it isn’t recommended that you make changes to the recipe files while 
 
 ## Contents
 
-- Planning for lifecycle management
-- Exporting: Packaging projects
-- Importing: Deployment
+- [Planning for lifecycle management]((/recipe-development-lifecycle/rdlc-guide-planning.md))
+- [Exporting: Packaging recipes and dependencies](/recipe-development-lifecycle/export.md)
+- [Importing: Deployment](/recipe-development-lifecycle/recipe-development-lifecycle/import.md)
 - **Working with external source control systems** _(current)_
 
 ## Workato project to GitHub repository mapping
@@ -28,7 +28,7 @@ In the example below, the Acme Workato team contains three projects and they map
 ![Github workato packages](/assets/images/features/packages/source-control.png)
 *Mapping Workato packages to GitHub repos*
 
-## Pull requests
+## Pull requests (PRs)
 
 ### Creation
 Each new feature development starts in the Workato development account. After feature completion, the recipe developer should build a package based on the latest version of the recipes. The package should be extracted to the local Git repository directory for the project and unzipped. Then the changes should be committed to a feature branch, and pushed to a central GitHub repository.
@@ -36,7 +36,7 @@ Each new feature development starts in the Workato development account. After fe
 ![Create PR](/assets/images/features/packages/pr-creation.png)
 *Commit latest package to existing GitHub repo*
 
-Once the feature branch exists in Github, the developer can submit a pull request for review.
+Once the feature branch exists in Github, the developer can submit a pull request (PR) for review.
 
 ![Created PR](/assets/images/features/packages/pr-created.png)
 *Create PR in GitHub*
@@ -48,4 +48,4 @@ One or more reviewers can examine the new code in Github and add comments. The d
 *Viewing recipe changes (against previous version) in GitHub*
 
 ### Merge and promotion across environments
-Once all PR comments are resolved, the feature branch can be merged into a master branch. At this point the code for recipes and other artifacts can be imported into a different Workato account corresponding to the next lifecycle stage. This can be done either by export followed by import in Workato or by a script that zips the Github code back into a Workato package.
+Once all PR comments are resolved, the feature branch can be merged into a master branch. At this point, the code for recipes and other artifacts can be imported into a different Workato account corresponding to the next lifecycle stage. This can be done either by export followed by import directly on Workato's UI or by a script that zips the Github code back into a Workato package which will be used for import.
