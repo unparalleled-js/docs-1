@@ -135,6 +135,14 @@ Go to Teams and send Workbot the **view_opportunities** command, or type **help*
 ![Post reply](/assets/images/workbot-for-teams/post-reply.png)
 *Example of a post reply listing open opportunities from Salesforce*
 
+## The 'help' command
+Bot commands can be displayed using 'help' when your Workato account meets all the following conditions:
+- has a connected Workbot for Teams connection,
+- has a recipe with the Workbot for Teams `New command` trigger and
+- the recipe has been started
+
+![Help command](/assets/images/workbot-for-teams/teams-help.png)
+
 ## Additional info
 Head over to our documentation for more information on how Workbot works!
 
