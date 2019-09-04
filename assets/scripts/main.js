@@ -1,17 +1,25 @@
 require(['gitbook', 'jquery'], function (gitbook, $) {
   var CONTENT_CONTAINER = '.body-inner';
+  var currentPath = getPathFromLocation();
   var currentHash = getHashFromLocation();
+  var isFF = /firefox/i.test(navigator.userAgent);
 
   // Storing a new hash in a variable on link click
   $(document).on('click', 'a[href]', function () {
-    var hashMatch = /#(.+)$/.exec(this.getAttribute('href'));
-    currentHash = hashMatch ? hashMatch[1] : '';
+    handleUrlChange(this.pathname, this.hash.slice(1));
   });
 
   // Storing a new hash in a variable on "back/forward" navigations
   window.addEventListener('popstate', function () {
-    currentHash = getHashFromLocation();
+    handleUrlChange(getPathFromLocation(), getHashFromLocation());
   });
+
+  // Firefox doesn't fire 'popstate' when hash changes
+  if (isFF) {
+    window.addEventListener('hashchange', function () {
+      handleUrlChange(getPathFromLocation(), getHashFromLocation());
+    });
+  }
 
   gitbook.events.on('page.change', function () {
     // Should do it on `page.change` because buttons are being redrawn on every page change for some reason
@@ -44,13 +52,29 @@ require(['gitbook', 'jquery'], function (gitbook, $) {
   });
 
   function updatePageScroll() {
-    var scrollToElem = $(document.getElementById(getHashFromLocation()));
+    var scrollToElem = $(document.getElementById(currentHash));
     var scrollTop = scrollToElem.length ? scrollToElem.position().top : 0;
     $(CONTENT_CONTAINER).scrollTop(scrollTop);
   }
 
+  function getPathFromLocation() {
+    return location.pathname;
+  }
+
   function getHashFromLocation() {
     return location.hash.slice(1);
+  }
+
+  function handleUrlChange(path, hash) {
+    // GitBook doesn't automatically scroll to the new anchor in Firefox
+    var needScrollUpdate = (isFF && path === currentPath && hash !== currentHash);
+
+    currentPath = path;
+    currentHash = hash;
+
+    if (needScrollUpdate) {
+      updatePageScroll();
+    }
   }
 
   function updateToolbarButtons() {
