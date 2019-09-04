@@ -3,11 +3,11 @@
   "version": "1.0.0",
   "description": "Workato docs",
   "scripts": {
-    "imagemin": "./node_modules/.bin/gulp"
+    "imagemin": "gulp"
   },
   "homepage": "https://github.com/workato/docs#readme",
   "dependencies": {
-    "gulp": "^4.0.0",
-    "gulp-imagemin": "^5.0.3"
+    "gulp": "4.0.2",
+    "gulp-imagemin": "6.1.0"
   }
 }
