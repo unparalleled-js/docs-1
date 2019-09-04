@@ -1,6 +1,6 @@
 ---
 title: Workbot actions for MS Teams
-date: 2019-07-13 05:00:00 Z
+date: 2019-09-04 05:00:00 Z
 ---
 
 # Workato actions for MS Teams
@@ -50,7 +50,7 @@ Use post message if you:
 
 ### Post as raw JSON
   This field is for advanced users who want to fully customize the message formatting. When set to **Yes**, all other fields will be hidden. Should include <code>"type": "message"</code>, followed by <code>"attachments"</code>, e.g.
-```
+```json
 {
     "type": "message",
     "attachments": [
