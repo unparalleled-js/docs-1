@@ -117,8 +117,8 @@ We can make use of certain keywords such as **days**, **months**, **years**, **m
 # Getting first/last timestamp of the current/next periods
 Using a combination of date formulas, and date arithmetics, we can easily obtain the first and last days of a current or subsequent time period using some helper functions. Not all time periods are supported just yet.
 
-## Beginning of current hour
-Firstly, turn on formula mode and we have access to the .beginning_of_hour function. It returns timestamp for top-of-the-hour for given timestamp.
+## beginning_of_hour
+Firstly, turn on formula mode and we have access to the `.beginning_of_hour` function. It returns timestamp for top-of-the-hour for given timestamp.
 
 ### Example
 | Example                 | Result |
@@ -127,8 +127,8 @@ Firstly, turn on formula mode and we have access to the .beginning_of_hour funct
 | `"2017-06-01T12:15:00.000000-00:00".to_time.beginning_of_hour`  | `"2017-06-01T12:00:00.000000-00:00"`   |
 ---
 
-## Beginning of current day
-Firstly, turn on formula mode and we have access to the .beginning_of_hour function. It returns timestamp for midnight on date of given date/timestamp.
+## beginning_of_day
+Firstly, turn on formula mode and we have access to the `.beginning_of_day` function. It returns timestamp for midnight on date of given date/timestamp.
 
 ### Example
 | Example                 | Result |
@@ -138,33 +138,33 @@ Firstly, turn on formula mode and we have access to the .beginning_of_hour funct
 
 ---
 
-## Beginning of current week
-Firstly, turn on formula mode and we have access to the .beginning_of_hour function. It returns date for start of week (Mon) for given date/timestamp.
+## beginning_of_week
+Firstly, turn on formula mode and we have access to the `.beginning_of_week` function. It returns the date for start of week (Mon) for a given date/timestamp.
 
 ### Example
 | Example                 | Result |
 | -------------           | ------ |
 | `"2017-08-18T00:00:00.000000-07:00".to_time.beginning_of_week`  | `"2017-08-14T00:00:00.000000-07:00"`   |
-| `"2017-08-20T00:00:00.000000-00:00".to_time.beginning_of_day`  | `"2017-08-14T00:00:00.000000-00:00"`   |
+| `"2017-08-20T00:00:00.000000-00:00".to_time.beginning_of_week`  | `"2017-08-14T00:00:00.000000-00:00"`   |
 
 ---
 
-## Beginning of current month
-Firstly, turn on formula mode and we have access to the .beginning_of_month function. It returns the date for the start of the month for the given date/timestamp.
+## beginning_of_month
+Firstly, turn on formula mode and we have access to the `.beginning_of_month` function. It returns the date for the start of the month for the given date/timestamp.
 
 ![beginning of current month](/assets/images/formula-docs/beginning_of_current_month.png)
 
 ---
 
 
-## Beginning of current year
-Firstly, turn on formula mode and we have access to the .beginning_of_month function. It returns the date for the start of the month for the given date/timestamp.
+## beginning_of_year
+Firstly, turn on formula mode and we have access to the `.beginning_of_year` function. It returns the date for the start of the year for the given date/timestamp.
 
 ### Example
 | Example                 | Result |
 | -------------           | ------ |
 | `"2017-01-25T00:00:00.000000-07:00".to_time.beginning_of_year`  | `"2017-01-01T00:00:00.000000-07:00"`   |
-| `"2015-12-25T22:30:00.000000-00:00".to_time.beginning_of_day`  | `"2015-01-01T00:00:00.000000-00:00"`   |
+| `"2015-12-25T22:30:00.000000-00:00".to_time.beginning_of_year`  | `"2015-01-01T00:00:00.000000-00:00"`   |
 
 ---
 
@@ -176,7 +176,7 @@ To retrieve a date for the beginning of the next month, we simply need to add a 
 ---
 
 ## End of current or next month
-To retrieve a date for the end of the current month, use the <code>.end_of_month method</code>. It returns the date for the start of the month for the given date/timestamp.
+To retrieve a date for the end of the current month, use the `.end_of_month` method. It returns the date for the start of the month for the given date/timestamp.
 
 ```ruby
 "2017-08-18T00:00:00".to_time.end_of_month # => 2017-08-31 23:59:59 +0000

@@ -29,9 +29,9 @@ Generates an UUID.
 
 ### Example
 
-| Example    | Result |
-| -------------------- | ------ |
-| uuid | "c52d735a-aee4-4d44-ba1e-bcfa3734f553"|
+| Example    | Result                                |
+| -----------| ------------------------------------- |
+| uuid       | "c52d735a-aee4-4d44-ba1e-bcfa3734f553"|
 
 ---
 
@@ -63,17 +63,34 @@ _Note: The encryption key should not be hard coded in the recipe. Use account pr
 
 Encodes a string or binary array using SHA256 algorithm
 
+### Example
+
+`"hello".encode_sha256`
+
 ---
 
 ## encode_hex
 
 Converts binary string to its hex representation
 
+### Example
+
+| Example                               | Result                            |
+| --------------------------------------| ----------------------------------|
+| `"0101010101011010".encode_hex`       | "30313031303130313031303131303130"|
+
+
 ---
 
 ## decode_hex
 
 Decode hexadecimal into binary string
+
+### Example
+
+| Example                                               | Result            |
+| ------------------------------------------------------| ------------------|
+| `"30313031303130313031303131303130".decode_hex`       | "0101010101011010"|
 
 ---
 

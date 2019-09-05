@@ -619,8 +619,8 @@ Converts hash or array into XML string
 
 | Example                                  | Result                     |
 | ---------------------------------------- | -------------------------- |
-| `{"name" => "Ken"}.to_xml(root: "user")` | <user><name>Ken</a></user> |
-| `[{"name" => "Ken"}].to_xml(root: "users")`| <users><user><name>Ken</a></user></users>|
+| `{"name" => "Ken"}.to_xml(root: "user")` | <user><name>Ken</name></user> |
+| `[{"name" => "Ken"}].to_xml(root: "users")`| <users><user><name>Ken</name></user></users>|
 
 ---
 
