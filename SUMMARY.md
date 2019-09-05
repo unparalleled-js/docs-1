@@ -320,7 +320,7 @@
   * [Google Vision](connectors/google-vision.md)
     * [Connection setup](connectors/google-vision.md#how-to-connect-to-google-vision-on-workato)
     * [Read text from image](connectors/google-vision/action-read-text.md)
-  * [HTTP](developing-connectors/http-v2.md)
+  * [HTTP](connectors/http-connector-landing-page.md)
   * [JDBC](connectors/jdbc.md)
     * [Connection setup](connectors/jdbc.md#how-to-connect-to-jdbc-on-workato)
     * [Select actions](connectors/jdbc/select.md)
