@@ -31,9 +31,7 @@ The source file for the On-prem extension is located in
 Run `./gradlew jar` on the root folder to bootstrap Gradle and build the project. You will find the output in `build/libs/opa-extensions-0.1.jar`
 
 #### Install Extension
-To install the OPA extension, create a new directory called `ext` under the Workato agent directory and place `opa-extensions-0.1.jar` in the `ext` folder. Your directory should look like this:
-
-![OPA Directory](/assets/images/on-prem/opa_directory.png)
+To install the OPA extension, create a new directory called `ext` under the Workato agent directory and place `opa-extensions-0.1.jar` in the `ext` folder.
 
 Update `conf/config.yml` with the classpath and newly added extension. This tells the on-prem agent where to find the jar files:
 ```YAML

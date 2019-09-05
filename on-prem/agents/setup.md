@@ -29,8 +29,6 @@ date: 2018-05-09 12:00:00 Z
 
 4) Select **Windows** to download the right agent installer.
 
-![On-prem option](/assets/images/on-prem/windows-os.png)
-
 5) Run the agent installer and follow the installation instructions.
 
 6) By default, the agent is installed into `C:\Program Files\Workato Agent` folder and a `Workato` group is created in the Start Menu.
@@ -56,9 +54,7 @@ An installation instruction video for Windows is also available [here](https://w
 
 ![On-prem option](/assets/images/on-prem/download-key-and-agent.png)
 
-4) Select your operating system to download the right agent installer.
-
-![On-prem option](/assets/images/on-prem/mac-os.png)
+4) Select **macOS** to download the right agent installer.
 
 5) Unpack the agent package file into a folder of your choice, which we will refer to as `<INSTALL_HOME>` folder.
 
@@ -82,8 +78,6 @@ In some cases, the secure network is a Linux environment where you cannot set up
 ![On-prem option](/assets/images/on-prem/download-key-and-agent.png)
 
 4) When downloading the agent, select the Linux operating system to download the right agent installer.
-
-![On-prem option](/assets/images/on-prem/linux-os.png)
 
 5) Securely copy Agent package file to secure server
 ```bash
