@@ -1,5 +1,5 @@
 ---
-title: On-premises Agent - Password Encryption
+title: On-prem Agent - Password Encryption
 date: 2018-05-09 12:00:00 Z
 ---
 
@@ -8,11 +8,11 @@ To avoid exposure of any sensitive data (like passwords or private keys) in your
 
 1. Make sure you have your agent keys properly downloaded and placed into the `conf` folder. They are required for encryption.
 2. Run the encryptor tool in your command line.
-   - `bin\encryptor.cmd` in Windows
-   - `bin/encryptor.sh` script for Unix/MacOS
+   - For Windows: `bin\encryptor.cmd`
+   - For Linux and Mac: `bin/encryptor.sh`
 3. When prompted, enter your secret value twice.
 4. The script will print an encrypted text. Example:
-```
+```bash
 {encrypted: 'RCVtuGPjJWNqwkFQvhT...'}
 ```
 5. Copy and paste the provided text as a value into `config.yml`. Make sure your value is  in a single line. For example, in a database profile:

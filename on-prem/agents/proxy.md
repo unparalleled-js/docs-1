@@ -1,10 +1,10 @@
 ---
-title: On-premises Agent - Proxy Server Support
+title: On-prem Agent - Proxy Server Support
 date: 2018-05-09 12:00:00 Z
 ---
 
 # Proxy Server Support
-The on-premises agent can be run in the environment with limited internet connectivity by using a proxy server. Proxy settings are defined by adding a `proxy` section to the configuration file:
+The on-prem agent can be run in the environment with limited internet connectivity by using a proxy server. Proxy settings are defined by adding a `proxy` section to the configuration file:
 
 ```YAML
 proxy:

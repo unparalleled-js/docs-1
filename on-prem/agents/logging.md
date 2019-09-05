@@ -1,10 +1,10 @@
 ---
-title: On-premises Agent - Logging
+title: On-prem Agent - Logging
 date: 2019-08-09 00:00:00 Z
 ---
 
-# On-premises Agent logs
-The on-premises agent contains code to log various types of events. The log file will contain OPA activity, errors, warnings and traces. The log file is useful for many scenarios; The most common one is troubleshooting.
+# On-prem Agent logs
+The on-prem agent contains code to log various types of events. The log file will contain OPA activity, errors, warnings and traces. The log file is useful for many scenarios; The most common one is troubleshooting.
 
 ## Logging OPA activity
 At the top level of your `config.yml` file, add the `logging` definition to record the various level of activity logs.

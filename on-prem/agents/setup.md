@@ -1,9 +1,9 @@
 ---
-title: On-premises Agent - Setting up On-premises Agent
+title: On-prem Agent - Setting up On-prem Agent
 date: 2018-05-09 12:00:00 Z
 ---
 
-# Setting up On-premises Agent
+# Setting up On-prem Agent
 
 1) [Install agent](#install-agent)
 
@@ -15,21 +15,21 @@ date: 2018-05-09 12:00:00 Z
 
 ## Install agent
 ### Windows
-1) On the top navigation bar, click `Tools` > `On-prem agent`. Alternatively, you can access the [On-premises agent page](https://www.workato.com/secure_agents) directly.
+1) On the top navigation bar, click `Tools` > `On-prem agent`. Alternatively, you can access the [On-prem agent page](https://www.workato.com/secure_agents) directly.
 
-![On-premises option](/assets/images/on-prem/navigate-to-opa.gif)
+![On-prem option](/assets/images/on-prem/navigate-to-opa.gif)
 
 2) Click `Create a new agent`
 
-![On-premises option](/assets/images/on-prem/create-opa.png)
+![On-prem option](/assets/images/on-prem/create-opa.png)
 
 3) Click `Download key` and `Download agent`, which downloads a `cert.zip` file and an agent installer respectively.
 
-![On-premises option](/assets/images/on-prem/download-key-and-agent.png)
+![On-prem option](/assets/images/on-prem/download-key-and-agent.png)
 
 4) Select **Windows** to download the right agent installer.
 
-![On-premises option](/assets/images/on-prem/windows-os.png)
+![On-prem option](/assets/images/on-prem/windows-os.png)
 
 5) Run the agent installer and follow the installation instructions.
 
@@ -44,21 +44,21 @@ date: 2018-05-09 12:00:00 Z
 An installation instruction video for Windows is also available [here](https://www.youtube.com/watch?v=Pu3GCk7OY6Q&feature=youtu.be).
 
 ### Mac OS
-1) On the top navigation bar, click `Tools` > `On-premises agent`
+1) On the top navigation bar, click `Tools` > `On-prem agent`
 
-![On-premises option](/assets/images/on-prem/navigate-to-opa.gif)
+![On-prem option](/assets/images/on-prem/navigate-to-opa.gif)
 
 2) Click `Create a new agent`
 
-![On-premises option](/assets/images/on-prem/create-opa.png)
+![On-prem option](/assets/images/on-prem/create-opa.png)
 
 3) Click `Download key` and `Download agent`, which downloads a `cert.zip` file and an agent installer respectively.
 
-![On-premises option](/assets/images/on-prem/download-key-and-agent.png)
+![On-prem option](/assets/images/on-prem/download-key-and-agent.png)
 
 4) Select your operating system to download the right agent installer.
 
-![On-premises option](/assets/images/on-prem/mac-os.png)
+![On-prem option](/assets/images/on-prem/mac-os.png)
 
 5) Unpack the agent package file into a folder of your choice, which we will refer to as `<INSTALL_HOME>` folder.
 
@@ -69,21 +69,21 @@ An installation instruction video for Windows is also available [here](https://w
 ### Linux
 In some cases, the secure network is a Linux environment where you cannot set up the OPA files using an interface. The setup will need to be done in 2 separate steps. First, download agent and cert files into a local machine (usually a work device with access to the secure remote server). Then, securely move these files into the secure remote server and set up the OPA.
 
-1) On the top navigation bar, click `Tools` > `On-premises agent`
+1) On the top navigation bar, click `Tools` > `On-prem agent`
 
-![On-premises option](/assets/images/on-prem/navigate-to-opa.gif)
+![On-prem option](/assets/images/on-prem/navigate-to-opa.gif)
 
 2) Click `Create a new agent`
 
-![On-premises option](/assets/images/on-prem/create-opa.png)
+![On-prem option](/assets/images/on-prem/create-opa.png)
 
 3) Click `Download key` and `Download agent`, which downloads a `cert.zip` file and an agent installer respectively.
 
-![On-premises option](/assets/images/on-prem/download-key-and-agent.png)
+![On-prem option](/assets/images/on-prem/download-key-and-agent.png)
 
 4) When downloading the agent, select the Linux operating system to download the right agent installer.
 
-![On-premises option](/assets/images/on-prem/linux-os.png)
+![On-prem option](/assets/images/on-prem/linux-os.png)
 
 5) Securely copy Agent package file to secure server
 ```bash
