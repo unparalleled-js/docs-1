@@ -3,14 +3,14 @@ title: On-prem Agent
 date: 2019-09-05 12:00:00 Z
 ---
 
-# On-prem agent
+# On-prem Agent
 The Workato on-prem agent provides a secure way for Workato to selectively access customer-authorized on-prem apps, databases, and folders without having to open ports in the corporate firewall.
 
 Users can communication securely with Workato by installing the agent within the protected server.
 
 The on-prem agent is used to create connections that are used by recipes to perform requests. These on-prem connections can be connected to one or more agents in an [on-prem group](/on-prem/groups.md).
 
-> **Adding multiple on-prem agents to a single on-prem group allows you to achieve high availability with fault tolerance and load balancing capabilities.**
+> **Adding multiple on-prem agents to an on-prem group allows you to achieve high availability with fault tolerance and load balancing capabilities.**
 
 ![On-prem menu option](/assets/images/on-prem/navigate-to-opa.gif)
 *On-prem menu option*
