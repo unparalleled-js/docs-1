@@ -20,3 +20,5 @@ Clicking on **Add on-prem agent** will bring you through an agent creation wizar
 | Add key    | Download agent key and move it into the appropriate folder in the agent directory according to the instructions provided.<br><br>![Add key](/assets/images/on-prem/add-key.png) |
 | Run agent  | Following the instructions to setup and run the agent.<br><br>![Run agent](/assets/images/on-prem/run-agent-wizard.png) |
 | Test       | Once the agent is active, click **Test** to verify that the connection is successful.<br><br>![test](/assets/images/on-prem/test-agent-setup.png) |
+
+Learn more about how to setup an on-prem agent [here](/on-prem/agents/setup.md).
