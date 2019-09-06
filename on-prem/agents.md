@@ -4,7 +4,7 @@ date: 2019-09-05 12:00:00 Z
 ---
 
 # On-prem Agent
-The Workato on-prem agent provides a secure way for Workato to selectively access customer-authorized on-prem apps, databases and folders without having to open ports in the corporate firewall.
+The Workato on-prem agent provides a secure way for Workato to selectively access customer-authorized on-prem apps, databases, and folders without having to open ports in the corporate firewall.
 
 Once the on-prem feature is enabled for your account, view the on-prem option in the **Tools** menu.
 

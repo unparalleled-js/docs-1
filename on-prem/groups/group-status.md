@@ -18,8 +18,8 @@ Clicking into an on-prem group will show you the state of each agent in the grou
 
 | Status         | Description |
 | -------------- | :---------- |
-| Awaiting setup | This agent has not completed the setup. Agent setup is complete only when it has successfully connected for the first time. |
-| No response    | This agent is currently not responding. This could be due to a number of reasons. Usually, this is because the agent is shut down or if the secure connection between Workato and the server is broken. |
+| Awaiting setup | This agent setup is incomplete. The agent setup is complete only when it has successfully connected for the first time. |
+| No response    | This agent is currently not responding. This could be due to several reasons. Usually, this is because the agent is shut down or if the secure connection between Workato and the server is broken. |
 | Active         | This agent is active and can process requests from Workato. |
 | Disabled       | This agent is manually disabled. Requests will not be sent to this agent. It can be manually enabled to establish an active connection again. |
 
