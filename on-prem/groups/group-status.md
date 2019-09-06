@@ -31,6 +31,10 @@ An on-prem group must have at least one active agent for it to be an active grou
 When the group has only a single active agent, it will continue to process the jobs but without the advantages of load balancing.
 
 ## Connections
+
+![On-prem connections](/assets/images/on-prem/on-prem-connections.png)
+*On-prem connections*
+
 A connection that uses on an on-prem group will depend on the status of the group to be connected. Recipes that make use of these connections can only process jobs successfully when the group is active.
 
 As long as a single agent within that group is active, on-prem requests can still be sent successfully.
