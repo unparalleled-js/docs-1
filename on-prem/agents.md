@@ -8,7 +8,7 @@ The Workato on-prem agent provides a secure way for Workato to selectively acces
 
 Once the on-prem feature is enabled for your account, view the on-prem option in the **Tools** menu.
 
-![On-prem option](/assets/images/on-prem/navigate-to-opa.gif)
+![On-prem menu option](/assets/images/on-prem/navigate-to-opa.gif)
 *On-prem menu option*
 
 ## Overview
