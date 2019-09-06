@@ -1,0 +1,26 @@
+---
+title: On-prem Group - Status
+date: 2019-09-05 12:00:00 Z
+---
+
+# Status
+The status of an on-prem group depends on the status of the on-prem agents that belong to a group. The group must be active for it to be used in a recipe.
+
+![On-prem groups statuses](/assets/images/on-prem/groups-statuses.png)
+*On-prem groups statuses*
+
+## On-prem agent status
+
+![On-prem agents in a group](/assets/images/on-prem/agents-in-groups-statuses.png)
+*On-prem agents in a group*
+
+Clicking into an on-prem group will show you the state of each agent in the group. A group must have at least one active agent for it to be an active group.
+
+> **Groups with more than one active agent will achieve high availability with redundancy and load balancing.**
+
+When the group has only a single active agent, it will continue to process the jobs but without the advantages of load balancing.
+
+## Connections
+A connection that uses on an on-prem group will depend on the status of the group to be connected. Recipes that make use of these connections can only process jobs successfully when the group is active.
+
+As long as a single agent within that group is active, on-prem requests can still be sent successfully.
