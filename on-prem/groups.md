@@ -8,7 +8,7 @@ date: 2019-09-05 12:00:00 Z
 ![On-prem groups](/assets/images/on-prem/on-prem-groups.png)
 *On-prem groups*
 
-On-prem group is a logical grouping of one or more on-prem agents into a common connection pool. Workload is distributed evenly to all agents in an non-prem group. A recipe that uses an on-prem group with more than one active agent achieves high availability and has a few advantages.
+On-prem group is a logical grouping of one or more on-prem agents into a common connection pool. Workload is distributed evenly to all agents in an non-prem group. A recipe that uses an on-prem group with more than one active agent achieves **High availability**. This has a few advantages.
 
 ## High Availability
 High Availability is the ability of a system to be continuously operational for a long period of time. For any system to be highly available, every part of a system needs to be present and functional in order for the whole to be operational. This is typically achieved through **Redundancy** and **Load balancing**.
