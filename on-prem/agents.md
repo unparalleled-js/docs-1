@@ -3,10 +3,14 @@ title: On-prem Agent
 date: 2019-09-05 12:00:00 Z
 ---
 
-# On-prem Agent
+# On-prem agent
 The Workato on-prem agent provides a secure way for Workato to selectively access customer-authorized on-prem apps, databases, and folders without having to open ports in the corporate firewall.
 
-Once the on-prem feature is enabled for your account, view the on-prem option in the **Tools** menu.
+Users can communication securely with Workato by installing the agent within the protected server.
+
+The on-prem agent is used to create connections that are used by recipes to perform requests. These on-prem connections can be connected to one or more agents in an [on-prem group](/on-prem/groups.md).
+
+> **Adding multiple on-prem agents to a single on-prem group allows you to achieve high availability with fault tolerance and load balancing capabilities.**
 
 ![On-prem menu option](/assets/images/on-prem/navigate-to-opa.gif)
 *On-prem menu option*
@@ -20,11 +24,11 @@ The following is a conceptual model of Workato's on-prem agent and how it intera
 Workato on-prem connectivity has 2 core components:
 
 - Tunneling
-- Database and filesystem access.
+- Database, file system, and application access.
 
-The on-prem agent runs within the customer’s data center, behind the firewall, and establishes a TLS websocket tunnel to connect out to Workato.
+The on-prem agent runs within the user's server, typically behind a firewall, and establishes a TLS websocket tunnel to connect out to Workato.
 
-The on-prem agent can be configured to access the selected databases and filesystems behind the firewall. Since 2.2.x it also supports connections to [JMS-compliant systems](/connectors/jms.md).
+Since the on-prem agent is within the same network as systems behind the firewall, it can safely access them and act as the agent to communicate securely out to Workato.
 
 ## Supported operating systems
 The on-prem agent runs on the following systems:

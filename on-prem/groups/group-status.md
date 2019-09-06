@@ -26,7 +26,7 @@ Clicking into an on-prem group will show you the state of each agent in the grou
 ### Active on-prem group
 An on-prem group must have at least one active agent for it to be an active group.
 
-> **Groups with more than one active agent will achieve high availability with redundancy and load balancing.**
+> **Groups with more than one active agent will achieve high availability with fault tolerance and load balancing.**
 
 When the group has only a single active agent, it will continue to process the jobs but without the advantages of load balancing.
 
