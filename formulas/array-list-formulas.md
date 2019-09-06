@@ -306,6 +306,19 @@ These rows will be expressed as a list of hashes:
 ]
 ```
 
+#### Using datapills in pattern matching
+
+You may use data pills within a regex pattern to dynamically change the string that you are matching. However, using variables in a regex pattern requires escaping within the regex expression.
+
+For example: ```contacts.where(state: /#{datapill}/)```
+
+The image below shows the method used to obtain all the 'Emails' in lookup table where the value in the 'State' column contains the string in the datapill from Salesforce, `State | Step 2`.
+
+![Datapill in regex expression](/assets/images/formula-docs/regex-datapill.png)
+*Using datapills in regex expressions*
+
+**Note:** All regex metacharacters will need to be escaped if they should not be interpreted as metacharacters.
+
 ### Example of complex reduction
 If a series of WHERE conditions are chained, the formula evaluates each where condition in series.
 
