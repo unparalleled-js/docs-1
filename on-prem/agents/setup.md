@@ -7,11 +7,11 @@ date: 2018-05-09 12:00:00 Z
 
 1) [Install agent](#install-agent)
 
-2) [Create connection profiles](/on-prem/profile.md)
+2) [Create connection profiles](/on-prem/agents/profile.md)
 
-3) [Run agent](/on-prem/run.md)
+3) [Run agent](/on-prem/agents/run.md)
 
-4) [Upgrade agent](/on-prem/upgrade.md)
+4) [Upgrade agent](/on-prem/agents/upgrade.md)
 
 ## Install agent
 ### Windows
@@ -37,7 +37,7 @@ date: 2018-05-09 12:00:00 Z
 
 8) Unzip the `cert.zip` file and move the contents (`cert.key` and `cert.pem`) to `C:\Program Files\Workato Agent/conf` directory. It should be in the same folder as the sample `config.yml` file.
 
-9) After installing your agent on your machine, you will now need to configure your agent by [creating connection profiles](/on-prem/profile.md)
+9) After installing your agent on your machine, you will now need to configure your agent by [creating connection profiles](/on-prem/agents/profile.md)
 
 An installation instruction video for Windows is also available [here](https://www.youtube.com/watch?v=Pu3GCk7OY6Q&feature=youtu.be).
 
@@ -60,7 +60,7 @@ An installation instruction video for Windows is also available [here](https://w
 
 6) Unzip the `cert.zip` file and move the contents (`cert.key` and `cert.pem`) to `<INSTALL_HOME>/conf` directory. It should be in the same folder as the sample `config.yml` file.
 
-7) After installing your agent on your machine, you will now need to configure your agent by [creating connection profiles](/on-prem/profile.md)
+7) After installing your agent on your machine, you will now need to configure your agent by [creating connection profiles](/on-prem/agents/profile.md)
 
 ### Linux
 In some cases, the secure network is a Linux environment where you cannot set up the OPA files using an interface. The setup will need to be done in 2 separate steps. First, download agent and cert files into a local machine (usually a work device with access to the secure remote server). Then, securely move these files into the secure remote server and set up the OPA.
@@ -115,7 +115,7 @@ $ mv cert.pem workato-agent/conf/
 $ sudo mv workato-agent /opt/workato
 ```
 
-12) Optional - create non-priviledged user for systemd to run OPA
+12) Optional - create non-privileged user for systemd to run OPA
 
 ```bash
 # groupadd -r workato
@@ -153,4 +153,4 @@ EOF
 # systemctl enable workato
 ```
 
-15) You will now need to configure your agent by [creating connection profiles](/on-prem/profile.md).
+15) You will now need to configure your agent by [creating connection profiles](/on-prem/agents/profile.md).

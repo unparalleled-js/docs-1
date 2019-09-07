@@ -35,6 +35,6 @@ When the group has only a single active agent, it will continue to process the j
 ![On-prem connections](/assets/images/on-prem/on-prem-connections.png)
 *On-prem connections*
 
-A connection that uses on an on-prem group will depend on the status of the group to be connected. Recipes that make use of these connections can only process jobs successfully when the group is active.
+A connection that connects through an on-prem group depends on the status of the group. Recipes that make use of these connections can only process jobs successfully when the group is active.
 
 As long as a single agent within that group is active, on-prem requests can still be sent successfully.

@@ -20,3 +20,9 @@ Fault tolerance allows a system to continue operating properly in the event of t
 Load balancing is the distribution of work across multiple resources. In this case, we are distributing requests across multiple on-prem agents in the same group. This avoids overloading a single server, improves responsiveness and overall performance of a recipe using on-prem connections.
 
 > On-prem groups feature is available only for certain plans. Check the [Pricing and Plans page](https://www.workato.com/pricing?audience=general) or reach out to Workato sales representatives at **+1 (844) 469-6752** to find out more.
+
+This section contains the following chapters:
+* [Create a group](on-prem/groups/create-group.md)
+* [Add agent to a group](on-prem/groups/add-agent.md)
+* [Status of a group](on-prem/groups/group-status.md)
+* [Common configuration for agents](on-prem/groups/common-config.md)

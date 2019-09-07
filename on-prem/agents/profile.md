@@ -18,7 +18,7 @@ A single Workato on-prem agent can be used to connect with multiple on-prem appl
  - [Command-line scripts](#command-line-scripts-profile)
  - [Extensions](#extensions-profile)
 
- Additionally, you can configure [proxy servers](/on-prem/proxy.md) for on-prem agents installed in a server with limited internet connectivity.
+ Additionally, you can configure [proxy servers](/on-prem/agents/proxy.md) for on-prem agents installed in a server with limited internet connectivity.
 
  A typical config file will look something like this:
 
@@ -47,7 +47,7 @@ ldap:
 **Do not use spaces or special characters in connection profile names.**
 
 ## Running your agent
-After configuring your connection profiles, you will need to run your on-prem agent on your machine. [Check out how to do so on your operating system.](/on-prem/run.md)
+After configuring your connection profiles, you will need to run your on-prem agent on your machine. [Check out how to do so on your operating system.](/on-prem/agents/run.md)
 
 ## Applying a new configuration
 A running on-prem agent automatically applies any changes made to the configuration file. Changes to proxy server settings require you to restart the agent.
@@ -737,4 +737,4 @@ Each **extensions** profile configuration properties are as follows:
 | controllerClass | A required field to inform the OPA which Java class to map the extension to. |
 | secret | Optional environment property that is used in the Java class. Multiple properties can be added. |
 
-Find out [how to create a Java extension](/on-prem/extension.md).
+Find out [how to create a Java extension](/on-prem/agents/extension.md).
