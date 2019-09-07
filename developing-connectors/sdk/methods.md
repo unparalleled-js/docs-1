@@ -857,7 +857,7 @@ end</code></pre>
       <td>to_xml</td>
       <td>
         Converts hash or array into XML string<br>
-        <pre><code style="display: block; white-space: pre-wrap;">{"name" => "Ken"}.to_xml(root: "user") #<user><name>Ken</a></user></code></pre>
+        <pre><code style="display: block; white-space: pre-wrap;">{"name" => "Ken"}.to_xml(root: "user") # &#60;user&#62;&#60;name&#62;Ken&#60;/name&#62;&#60;/user&#62;</code></pre>
       </td>
     </tr>
     <tr>
