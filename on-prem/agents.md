@@ -45,7 +45,7 @@ Minimum hardware requirements for the system running the on-prem agent are:
 - 250 MB of disk space
 - 800 Mhz 64-bit CPU (Intel/AMD).
 
-[Detailed instructions on how to set up for each operating system](https://docs.workato.com/on-prem/agent/setup.html)
+[Detailed instructions on how to set up for each operating system](https://docs.workato.com/on-prem/agents/setup.html).
 
 ## Common errors when using the on-prem agent
 If connecting to on-prem applications fail, check that:
