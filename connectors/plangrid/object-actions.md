@@ -9,15 +9,15 @@ When building recipes on Workato using PlanGrid, you'll be able to design recipe
 ## Objects
 | Object name                   | Available actions types                     | Triggers              |
 | ------------------------------|---------------------------------------------|-----------------------|
-| [Document in a project]()     | Get, Update, Upload                         | New/updated           |
-| [Photo in a project]()        | Get, Update, Upload                         | New/updated           |
-| [RFI in a project]()          | Create, Get, Get status, Update             | New/updated           |
-| [Annotation in a project]()   |                                             | New/updated           |
-| [Field report in a project]() | Get                                         | New/updated           |
-| [Project]()                   | Create, Get, Update                         | New/updated           |
-| [Sheet in a project]()        | Create version upload, Complete version upload, Create sheet packet, Get, Get sheet packet, Upload file to sheet version| New/updated |
-| [Snapshot in a project]()     | Get                                         | New/updated           |
-| [Task in a project]()         | Create, Create task list, Get task, Get task list, Update task, Update task list | New/updated |
+| [Document in a project](#document-in-a-project-actions)     | Get, Update, Upload                         | New/updated           |
+| [Photo in a project](#photo-in-a-project)        | Get, Update, Upload                         | New/updated           |
+| [RFI in a project](#rfi-in-a-project)          | Create, Get, Get status, Update             | New/updated           |
+| [Annotation in a project](#annotation-in-a-project)   |                                             | New/updated           |
+| [Field report in a project](#field-report-in-a-project) | Get                                         | New/updated           |
+| [Project](#project)                   | Create, Get, Update                         | New/updated           |
+| [Sheet in a project](#sheet-in-a-project)        | Create version upload, Complete version upload, Create sheet packet, Get, Get sheet packet, Upload file to sheet version| New/updated |
+| [Snapshot in a project](#snapshot-in-a-project)     | Get                                         | New/updated           |
+| [Task in a project](#task-in-a-project-trigger)         | Create, Create task list, Get task, Get task list, Update task, Update task list | New/updated |
 
 ## Document in a project actions
 
