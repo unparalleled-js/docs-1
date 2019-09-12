@@ -56,9 +56,8 @@ Creates a new OEM customer account. Requires 'oem_vendor' privilege.
 | `401` | Unauthorized |
 | `500` | Server error |
 
-### Sample responses
+### Sample response
 
-#### Success: 200
 
 ```JSON
 POST /api/managed_users
@@ -66,14 +65,6 @@ POST /api/managed_users
   "id": 3498583,
   "plan_id": "oem_plan",
   "trial": false
-}
-```
-
-#### Server error: 500
-```JSON
-{
-  "message":"Server error",
-  "id": "32y2298sjbjdwejweg"
 }
 ```
 
@@ -143,7 +134,7 @@ Returns details of the given OEM customer account. Requires 'oem_vendor' privile
 
 | Name | Type | Description |
 | --- | --- | --- |
-| id | **string**</br>_required_ | OEM user Account ID/External ID. External should be prefixed with a E(eg: EA2300) and the resulting id should be URL encoded. |
+| id | **string**<br>_required_ | OEM user Account ID/External ID. External should be prefixed with a E(eg: EA2300) and the resulting id should be URL encoded. |
 
 ### Responses
 | Code | Description |
@@ -155,8 +146,6 @@ Returns details of the given OEM customer account. Requires 'oem_vendor' privile
 | `500` | Server error |
 
 ### Sample response
-
-#### Success: 200
 
 ```json
 {
@@ -192,8 +181,6 @@ Returns a list of connections in OEM customer's account. Requires 'oem_vendor' p
 | `500` | Server error |
 
 ### Sample response
-
-#### Success: 200
 
 ```json
 {
@@ -243,7 +230,6 @@ Deletes a member from given user's team. Requires 'oem_vendor' privilege.
 
 ### Sample response
 
-#### Success: 200
 ```json
 {
   "id": 3485434779
@@ -260,7 +246,7 @@ Upgrades the customer account from trial OR free to the plan specified in the OE
 ### Parameters
 | Name | Type | Description |
 | --- | --- | --- |
-| id | **integer**</br>required | OEM customer ID.<br/>**Example:** */api/managed_users/3485434779/upgrade* |
+| id | **integer**<br>required | OEM customer ID.<br/>**Example:** */api/managed_users/3485434779/upgrade* |
 
 ### Responses
 | Code | Description |
@@ -272,8 +258,6 @@ Upgrades the customer account from trial OR free to the plan specified in the OE
 | `500` | Server error |
 
 ### Sample response
-
-#### Success: 200
 
 ```json
 {
@@ -304,8 +288,6 @@ Downgrades the customer account to free plan.
 | `500` | Server error |
 
 ### Sample response
-
-#### Success: 200
 
 ```json
 {
