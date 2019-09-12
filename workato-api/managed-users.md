@@ -6,10 +6,8 @@ date: 2019-03-21 11:20:00 Z
 # Managed Users
 Use the following endpoints to manage OEM customers.
 
-### Supported Formats
-* JSON
+### Quick reference
 
-### Contents
 | Resource | Description |
 |----------------|-------------|
 |[POST /api/managed_users](#create-new-oem-customer) | Create a new OEM customer. Requires 'oem_vendor' privilege.
@@ -24,7 +22,6 @@ Use the following endpoints to manage OEM customers.
 
 > POST /api/managed_users
 
-### Description
 Creates a new OEM customer account. Requires 'oem_vendor' privilege.
 
 - The new account is assigned the plan specified in the master account's OEM configuration.
@@ -39,7 +36,8 @@ Creates a new OEM customer account. Requires 'oem_vendor' privilege.
 | notification_email | **string**<br>_required_  | Email for error notifications. |
 | external_id | **string**<br>_optional_ | External identifier for the user. |
 
-#### Example request parameters
+#### Sample request
+
 ```JSON
 {
   "name": "Kevin O'Leary",
@@ -50,6 +48,7 @@ Creates a new OEM customer account. Requires 'oem_vendor' privilege.
 ```
 
 ### Responses
+
 | Code | Description |
 | --- | --- |
 | `200` | Success |
@@ -57,9 +56,10 @@ Creates a new OEM customer account. Requires 'oem_vendor' privilege.
 | `401` | Unauthorized |
 | `500` | Server error |
 
-### Examples
+### Sample responses
 
-#### Success: EA2300
+#### Success: 200
+
 ```JSON
 POST /api/managed_users
 {
@@ -81,7 +81,6 @@ POST /api/managed_users
 
 > POST /api/managed_users/:id/member  
 
-### Description
 Adds a member to the OEM customer account. Requires 'oem_vendor' privilege.
 - Creates a new Workato member account and makes the user member of the given customer account's team.
 - Configures preferred authentication mode for the member based on the value specified in the master account's OEM configuration.
@@ -94,7 +93,7 @@ Adds a member to the OEM customer account. Requires 'oem_vendor' privilege.
 | role_name | **string**<br>_optional_  | Membership role name. |
 | external_id | **string**<br>_optional_ | External identifier for the user. |
 
-#### Example request parameters
+#### Sample request
 ```json
 {
   "name": "Jack Smith",
@@ -113,9 +112,10 @@ Adds a member to the OEM customer account. Requires 'oem_vendor' privilege.
 | `404` | Not found |
 | `500` | Server error |
 
-### Examples
+### Sample responses
 
 #### Success: 200
+
 ```json
 POST /api/managed_users/12/member
 {
@@ -127,7 +127,7 @@ POST /api/managed_users/12/member
 
 #### Server error: 500
 ```json
-<pre><code style="display: block; white-space: pre-wrap;">{
+{
   "message":"Server error",
   "id": "32y2298sjbjdwejweg"
 }
@@ -137,7 +137,6 @@ POST /api/managed_users/12/member
 
 > GET /api/managed_users/:id
 
-### Description
 Returns details of the given OEM customer account. Requires 'oem_vendor' privilege.
 
 ### Parameters
@@ -155,7 +154,7 @@ Returns details of the given OEM customer account. Requires 'oem_vendor' privile
 | `404` | Not found |
 | `500` | Server error |
 
-### Examples
+### Sample response
 
 #### Success: 200
 
@@ -175,7 +174,6 @@ Returns details of the given OEM customer account. Requires 'oem_vendor' privile
 
 > GET /api/managed_users/:id/connections
 
-### Description
 Returns a list of connections in OEM customer's account. Requires 'oem_vendor' privilege.
 
 ### Parameters
@@ -193,7 +191,7 @@ Returns a list of connections in OEM customer's account. Requires 'oem_vendor' p
 | `404` | Not found |
 | `500` | Server error |
 
-### Examples
+### Sample response
 
 #### Success: 200
 
@@ -226,7 +224,6 @@ Returns a list of connections in OEM customer's account. Requires 'oem_vendor' p
 
 > DELETE /api/managed_users/:id/member
 
-### Description
 Deletes a member from given user's team. Requires 'oem_vendor' privilege.
 
 ### Parameters
@@ -244,7 +241,7 @@ Deletes a member from given user's team. Requires 'oem_vendor' privilege.
 | `404` | Not found |
 | `500` | Server error |
 
-### Examples
+### Sample response
 
 #### Success: 200
 ```json
@@ -253,7 +250,7 @@ Deletes a member from given user's team. Requires 'oem_vendor' privilege.
 }
 ```
 
-## Upgrading a customer account
+## Upgrading OEM customer account
 
 > PUT /api/managed_users/:id/upgrade
 
@@ -274,9 +271,10 @@ Upgrades the customer account from trial OR free to the plan specified in the OE
 | `404` | Not found |
 | `500` | Server error |
 
-### Examples
+### Sample response
 
 #### Success: 200
+
 ```json
 {
   "id": 3498583,
@@ -289,7 +287,6 @@ Upgrades the customer account from trial OR free to the plan specified in the OE
 
 > PUT /api/managed_users/:id/downgrade
 
-### Description
 Downgrades the customer account to free plan.
 
 ### Parameters
@@ -306,9 +303,10 @@ Downgrades the customer account to free plan.
 | `404` | Not found |
 | `500` | Server error |
 
-### Examples
+### Sample response
 
 #### Success: 200
+
 ```json
 {
   "id": 3498583,
