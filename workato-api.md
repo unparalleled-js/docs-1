@@ -17,25 +17,25 @@ The `user_token`/`X-USER-TOKEN` can be found in your [settings page](https://www
 ## Workato API Resource Overview
 Workato's API has various endpoints that allows access functionality to different aspects of Workato. Here is a general overview of the endpoints available.
 
-### [Adapters](/workato-api/adapters.md)
+### [Adapters]
 
 | Resource | Description |
 |----------------|-------------|
 |[GET /api/integrations](/workato-api/adapters.md#list-connector-metadata) | Query connector metadata. Requires 'oem_vendor' privilege.|
 
-### [Connections](/workato-api/connections.md)
+### [Connections]
 
 | Resource | Description |
 |----------------|-------------|
 |[GET /api/connections](/workato-api/connections.md) | List connections belonging to user |
 
-### [Jobs](/workato-api/jobs.md)
+### [Jobs]
 
 | Resource | Description |
 |----------------|-------------|
 |[GET /api/recipes/:recipe_id/jobs](/workato-api/jobs.md#list-jobs-belonging-to-a-recipe) | List jobs belonging to recipe |
 
-### [Managed Users](/workato-api/managed-users.md)
+### [Managed Users]
 
 | Resource | Description |
 |----------------|-------------|
@@ -47,7 +47,7 @@ Workato's API has various endpoints that allows access functionality to differen
 |[PUT /api/managed_users/:id/upgrade](/workato-api/managed-users.md#upgrading-a-customer-account) | Upgrades the customer account from trial OR free to the plan specified in the OEM configuration.
 |[PUT /api/managed_users/:id/downgrade](/workato-api/managed-users.md#downgrading-a-customer-account) | Downgrades the customer account to free plan. |
 
-### [Recipes](/workato-api/recipes.md)
+### [Recipes]
 
 | Resource | Description |
 |----------------|-------------|
@@ -60,13 +60,13 @@ Workato's API has various endpoints that allows access functionality to differen
 | [PUT /api/recipes/:id/stop](/workato-api/recipes.md#stop-recipe) | Stop recipe |
 | [DELETE /api/recipes/:id](/workato-api/recipes.md#delete-recipe) | Delete recipe |
 
-### [Users](/workato-api/users.md)
+### [Users]
 
  |Resource|Description|
 |--- |--- |
 |[GET /api/users/me](/workato-api/users.md#get-user-details)|Get details of authenticated user|
 
-### [Recipe lifecycle management](/workato-api/recipe-lifecycle-management.md)
+### [Recipe lifecycle management]
 
 |Resource|Description|
 |--- |--- |
