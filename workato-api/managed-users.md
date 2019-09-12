@@ -56,11 +56,10 @@ Creates a new OEM customer account. Requires 'oem_vendor' privilege.
 | `401` | Unauthorized |
 | `500` | Server error |
 
-### Sample response
+#### Sample response
 
 
 ```JSON
-POST /api/managed_users
 {
   "id": 3498583,
   "plan_id": "oem_plan",
@@ -103,24 +102,13 @@ Adds a member to the OEM customer account. Requires 'oem_vendor' privilege.
 | `404` | Not found |
 | `500` | Server error |
 
-### Sample responses
-
-#### Success: 200
+#### Sample response
 
 ```json
-POST /api/managed_users/12/member
 {
   "id": 3498583,
   "plan_id": "oem_plan",
   "trial": false
-}
-```
-
-#### Server error: 500
-```json
-{
-  "message":"Server error",
-  "id": "32y2298sjbjdwejweg"
 }
 ```
 
@@ -145,7 +133,7 @@ Returns details of the given OEM customer account. Requires 'oem_vendor' privile
 | `404` | Not found |
 | `500` | Server error |
 
-### Sample response
+#### Sample response
 
 ```json
 {
@@ -180,7 +168,7 @@ Returns a list of connections in OEM customer's account. Requires 'oem_vendor' p
 | `404` | Not found |
 | `500` | Server error |
 
-### Sample response
+#### Sample response
 
 ```json
 {
@@ -228,7 +216,7 @@ Deletes a member from given user's team. Requires 'oem_vendor' privilege.
 | `404` | Not found |
 | `500` | Server error |
 
-### Sample response
+#### Sample response
 
 ```json
 {
@@ -257,7 +245,7 @@ Upgrades the customer account from trial OR free to the plan specified in the OE
 | `404` | Not found |
 | `500` | Server error |
 
-### Sample response
+#### Sample response
 
 ```json
 {
@@ -287,7 +275,7 @@ Downgrades the customer account to free plan.
 | `404` | Not found |
 | `500` | Server error |
 
-### Sample response
+#### Sample response
 
 ```json
 {
