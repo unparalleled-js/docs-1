@@ -79,7 +79,7 @@ GET /api/managed_users/:id
 
 | Name | Type | Description |
 | --- | --- | --- |
-| id | **string**<br>_required_ | OEM customer Account ID/External ID. External id should be prefixed with a E(eg: EA2300) and the resulting id should be URL encoded. |
+| id | **string**<br>_required_ | OEM customer Account ID/External ID. <br>External id should be prefixed with a E(eg: EA2300) and the resulting id should be URL encoded. |
 
 ### Response
 
@@ -108,7 +108,7 @@ PUT /api/managed_users/:id/upgrade
 
 | Name | Type | Description |
 | --- | --- | --- |
-| id | **string**<br>_required_ | OEM customer Account ID/External ID. External id should be prefixed with a E(eg: EA2300) and the resulting id should be URL encoded. |
+| id | **string**<br>_required_ | OEM customer Account ID/External ID. <br>External id should be prefixed with a E(eg: EA2300) and the resulting id should be URL encoded. |
 
 ### Request body
 
@@ -137,7 +137,7 @@ PUT /api/managed_users/:id/downgrade
 ### Parameters
 | Name | Type | Description |
 | --- | --- | --- |
-| id | **integer**<br>_required_ | OEM customer ID.<br/>**Example:** */api/managed_users/3485434779/downgrade* |
+| id | **string**<br>_required_ | OEM customer Account ID/External ID. <br>External id should be prefixed with a E(eg: EA2300) and the resulting id should be URL encoded. |
 
 ### Response
 
@@ -161,7 +161,7 @@ POST /api/managed_users/:id/member
 
 | Name | Type | Description |
 | --- | --- | --- |
-| id | **string**<br>_required_ | OEM customer Account ID/External ID. External id should be prefixed with a E(eg: EA2300) and the resulting id should be URL encoded. |
+| id | **string**<br>_required_ | OEM customer Account ID/External ID. <br>External id should be prefixed with a E(eg: EA2300) and the resulting id should be URL encoded. |
 
 ### Request body
 
@@ -205,7 +205,7 @@ DELETE /api/managed_users/:id/member
 
 | Name | Type | Description |
 | --- | --- | --- |
-| id | **string**<br>_required_ | OEM customer Account ID/External ID. External id should be prefixed with a E(eg: EA2300) and the resulting id should be URL encoded. |
+| id | **string**<br>_required_ | OEM customer Account ID/External ID. <br>External id should be prefixed with a E(eg: EA2300) and the resulting id should be URL encoded. |
 
 ### Response
 
@@ -227,7 +227,7 @@ GET /api/managed_users/:id/connections
 
 | Name | Type | Description |
 | --- | --- | --- |
-| id | **string**<br>_required_ | OEM customer Account ID/External ID. External id should be prefixed with a E(eg: EA2300) and the resulting id should be URL encoded. |
+| id | **string**<br>_required_ | OEM customer Account ID/External ID. <br>External id should be prefixed with a E(eg: EA2300) and the resulting id should be URL encoded. |
 
 ### Response
 
