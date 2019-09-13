@@ -20,15 +20,6 @@ All API endpoints listed here requires `oem_vendor` privilege. Talk to your Work
 |DELETE | [/api/managed_users/:id/member](#remove-member-from-an-organization-account) |  Remove member from customer account. |
 |GET | [/api/managed_users/:id/connections](#query-oem-customer-connections)| List customer connections. |
 
-### HTTP response codes
-
-| Code | Description |
-| --- | --- |
-| `200` | Success |
-| `400` | Bad request
-| `401` | Unauthorized |
-| `404` | Not found |
-| `500` | Server error |
 
 ## Create customer account
 
