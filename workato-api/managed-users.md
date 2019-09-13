@@ -11,7 +11,7 @@ All API endpoints listed here requires `oem_vendor` privilege. Talk to your Work
 ### Quick reference
 
 | Type | Resource | Description |
-|----------------|-------------|
+|------|---------|-------------|
 |POST | [/api/managed_users](#create-new-oem-customer) | Create a new OEM customer. |
 |POST | [/api/managed_users/:id/member](#add-member-to-oem-customer-account) | Add member to the OEM customer account. |
 |GET | [/api/managed_users/:id](#query-oem-customer-account) | Returns details of the given OEM customer account. |
@@ -39,7 +39,7 @@ POST /api/managed_users
 ```
 
 
-### Parameters
+### Request body
 
 | Name | Type | Description |
 | --- | --- | --- |
@@ -82,7 +82,7 @@ POST /api/managed_users/:id/member
 | --- | --- | --- |
 | id | **string**<br>_required_ | OEM customer Account ID/External ID. External id should be prefixed with a E(eg: EA2300) and the resulting id should be URL encoded. |
 
-### Request parameters
+### Request body
 
 | Name | Type | Description |
 | --- | --- | --- |
@@ -214,13 +214,13 @@ PUT /api/managed_users/:id/upgrade
 ```
 
 
-### URL Parameters
+### URL parameters
 
 | Name | Type | Description |
 | --- | --- | --- |
 | id | **string**<br>_required_ | OEM customer Account ID/External ID. External id should be prefixed with a E(eg: EA2300) and the resulting id should be URL encoded. |
 
-### Parameters
+### Request body
 
 | Name | Type | Description |
 | --- | --- | --- |
