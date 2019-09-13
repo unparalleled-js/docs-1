@@ -18,7 +18,7 @@ All API endpoints listed here requires `oem_vendor` privilege. Talk to your Work
 |PUT | [/api/managed_users/:id/downgrade](#downgrading-a-customer-account) | Downgrade customer account. |
 |POST | [/api/managed_users/:id/member](#add-member-to-oem-customer-account) | Add member to customer account. |
 |DELETE | [/api/managed_users/:id/member](#remove-member-from-an-organization-account) |  Remove member from customer account. |
-|GET | [/api/managed_users/:id/connections](#query-oem-customer-connections)| List OEM customer connections. |
+|GET | [/api/managed_users/:id/connections](#query-oem-customer-connections)| List customer connections. |
 
 ### HTTP response codes
 
@@ -215,7 +215,7 @@ DELETE /api/managed_users/:id/member
 }
 ```
 
-## List OEM customer connections
+## List customer connections
 
 Get the list of connections in OEM customer's account.
 
