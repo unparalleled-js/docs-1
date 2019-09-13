@@ -544,6 +544,8 @@
     * [Get report](connectors/workday/get_report.md)
     * [Scheduled report](connectors/workday/scheduled_report.md)
     * [Call operation](connectors/workday/call_operation.md)
+    * [Get custom object](connectors/workday/get-custom-objects.md)
+    * [Create/update custom object](connectors/workday/update-custom-objects.md)
     * [Report-as-a-Service](connectors/workday/workday_raas.md)
   * [Workday REST](connectors/workday-rest.md)
     * [New worker](connectors/workday-rest/new-worker-trigger.md)

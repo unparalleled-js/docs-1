@@ -6,32 +6,53 @@ date: 2017-11-05 09:00:00 Z
 # Get report
 
 ## How to use
-Workday Report-as-a-Service is exposed as an action in Workato. This action will execute a run of the report, retrieve all data from that report and return them as an array. This data can be used in a recipe like any other actions. Learn how to setup a custom report [here](/connectors/workday/workday_raas.md).
+Workday Report-as-a-Service is exposed as an action in Workato. This action will execute a run of the report, retrieve all data from that report and return them as an array. This data can be used in a recipe like any other actions. Learn how to set up a custom report [here](/connectors/workday/workday_raas.md).
 
 ### Inputs
-The only input required is the RaaS JSON URL. Find out how to get this URL in the [Custom Reports](/connectors/workday/workday_raas.md) section of this documentation. When this URL is provided, the Workday action will generate the appropriate output fields.
+Provide the report URL to run and retrieve a report from Workday.
 
-![Run report input](/assets/images/workday/raas_input.png)
+![Run report input](/assets/images/connectors/workday/raas_input.png)
 *Run report input*
+
+| Input field | Description |
+| ----------- | ----------- |
+| Report URL  | Find out how to get this URL in the [Custom Reports](/connectors/workday/workday_raas.md) section of this documentation. When this URL is provided, the Workday action will generate the appropriate output fields. |
+| Detect report schema automatically | If this report has custom request parameters and/or outputs, select `No`. Then, proceed to configure your [custom report inputs](#custom-report-inputs).<br>Default is `Yes`. |
+| Remove empty fields | If `Yes`, Workato will remove all `Null values` and leave the field empty.<br> Default is `Yes`. |
+
+#### Custom report inputs
+Workday allows you to configure additional [request parameters](/connectors/workday/workday_raas.md#filter-parameters) for custom reports. You can also add columns (e.g. custom objects) for each row in your custom report.
+
+If you are running such a report, you might need additional configuration for the **Get Report** action. Select `No` for **Detect report schema automatically** to get started.
+
+![Custom report schema input](/assets/images/connectors/workday/custom-report-schema-input.png)
+*Input fields for custom report schema*
+
+| Custom input fields | Description |
+| ------------------- | ---------- |
+| Report Parameters   | The filter parameters for your custom report. Input the **parameter alias** and the **value** according to how your custom report is configured. |
+| Report columns      | The output of your report. List the columns of your workday custom report. This schema will be converted into usable datapills for subsequently recipe actions on Workato.  
 
 ### Outputs
 The output of this action is presented as an array. Each element in this array corresponds to a row in the report. Similarly, each column in your report will be rendered as a field in the report output array.
 
-![Run report output](/assets/images/workday/raas_output.png)
-*Run report output*
+If you configured a custom schema in **Report column**, the custom report columns will be reflected as datapills.
+
+![Outputs from Get report action](/assets/images/connectors/workday/raas_output.png)
+*Outputs from Get report action*
 
 ### Use cases
 
 #### Generate a custom CSV file
-A very simple use case for running and retrieving custom report data from Workday is to create a CSV file from the report. This can be done using the `Compose CSV` action under the `Utilities` application.
+A very simple use case for running and retrieving custom report data from Workday is to create a CSV file from the report. This can be done using the **CSV by Workato**.
 
-![Create CSV file](/assets/images/workday/compose_csv.png)
+![Create CSV file](/assets/images/connectors/workday/compose-csv.png)
 *Create CSV file from Workday custom report data*
 
 #### Filter rows using custom logic
 Workday provides a comprehensive feature to add filters and validation logic to report results. However, it is limited to data available in Workday. Workato allows you to extract report data out of Workday, and execute validation logic against data from multiple sources.
 
-![Custom filter logic](/assets/images/workday/multi_app_filter.png)
+![Custom filter logic](/assets/images/connectors/workday/multi_app_filter.png)
 *Custom filter logic using data from external applications*
 
-This example shows how to filter out rows in a report against data from Salesforce but checking for presence of a corresponding Salesforce User account. The resulting report will contain only employees from Workday that are active Salesforce Users.
+This example shows how to filter out rows in a report against data from Salesforce but checking for the presence of a corresponding Salesforce User account. The resulting report will contain only employees from Workday that are active Salesforce Users.
