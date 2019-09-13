@@ -11,14 +11,14 @@ All API endpoints listed here requires `oem_vendor` privilege. Talk to your Work
 ### Quick reference
 
 | Type | Resource | Description |
-|------|---------|-------------|
-|POST | [/api/managed_users](#create-new-oem-customer) | Create a new OEM customer. |
-|POST | [/api/managed_users/:id/member](#add-member-to-oem-customer-account) | Add member to the OEM customer account. |
-|GET | [/api/managed_users/:id](#query-oem-customer-account) | Returns details of the given OEM customer account. |
-|GET | [/api/managed_users/:id/connections](#query-oem-customer-connections)| Returns a list of connections in OEM customer's account. |
-|DELETE | [/api/managed_users/:id/member](#remove-member-from-an-organization-account) | Deletes a member from given user's team. |
-|PUT | [/api/managed_users/:id/upgrade](#upgrading-a-customer-account) | Upgrades the customer account from trial OR free to the given plan. |
-|PUT | [/api/managed_users/:id/downgrade](#downgrading-a-customer-account) | Downgrades the customer account to free plan. |
+|------|----------|-------------|
+|POST | [/api/managed_users](#create-new-oem-customer) | Create customer account. |
+|GET | [/api/managed_users/:id](#query-oem-customer-account) | Get customer account. |
+|PUT | [/api/managed_users/:id/upgrade](#upgrading-a-customer-account) | Upgrade customer account. |
+|PUT | [/api/managed_users/:id/downgrade](#downgrading-a-customer-account) | Downgrade customer account. |
+|POST | [/api/managed_users/:id/member](#add-member-to-oem-customer-account) | Add member to customer account. |
+|DELETE | [/api/managed_users/:id/member](#remove-member-from-an-organization-account) |  Remove member from customer account. |
+|GET | [/api/managed_users/:id/connections](#query-oem-customer-connections)| List OEM customer connections. |
 
 ### HTTP response codes
 
@@ -32,12 +32,11 @@ All API endpoints listed here requires `oem_vendor` privilege. Talk to your Work
 
 ## Create customer account
 
-Creates a new OEM customer account.
+Create a new OEM customer account.
 
 ```
 POST /api/managed_users
 ```
-
 
 ### Request body
 
@@ -68,53 +67,9 @@ POST /api/managed_users
 }
 ```
 
-## Add member to customer account
-
-Adds a member to the OEM customer account.
-
-```
-POST /api/managed_users/:id/member
-```
-
-### URL Parameters
-
-| Name | Type | Description |
-| --- | --- | --- |
-| id | **string**<br>_required_ | OEM customer Account ID/External ID. External id should be prefixed with a E(eg: EA2300) and the resulting id should be URL encoded. |
-
-### Request body
-
-| Name | Type | Description |
-| --- | --- | --- |
-| name | **string**<br>_required_ | Full name of the user. |
-| oauth_id | **string**<br>_required_ | Identifier used for oauth. |
-| role_name | **string**<br>_optional_  | Membership role name. |
-| external_id | **string**<br>_optional_ | External identifier for the member. |
-
-#### Sample request
-
-```json
-{
-  "name": "Jack Smith",
-  "oauth_id": "AAA0932808240:UU0239093499",
-  "role_name": "Admin",
-  "external_id": "UU0239093499"
-}
-```
-
-### Response
-
-```json
-{
-  "id": 3498583,
-  "plan_id": "oem_plan",
-  "trial": false
-}
-```
-
 ## Get customer account
 
-Get details of a OEM customer account.
+Get OEM customer account details.
 
 ```
 GET /api/managed_users/:id
@@ -138,6 +93,125 @@ GET /api/managed_users/:id
     "in_trial": false,
     "created_at": "2019-07-11T10:08:41.693-07:00",
     "updated_at": "2019-07-11T10:22:35.132-07:00"
+}
+```
+
+## Upgrade customer account
+
+Upgrade OEM customer account from trial OR free plan.
+
+```
+PUT /api/managed_users/:id/upgrade
+```
+
+### URL parameters
+
+| Name | Type | Description |
+| --- | --- | --- |
+| id | **string**<br>_required_ | OEM customer Account ID/External ID. External id should be prefixed with a E(eg: EA2300) and the resulting id should be URL encoded. |
+
+### Request body
+
+| Name | Type | Description |
+| --- | --- | --- |
+| plan_id | **string**<br>_optional_ | Plan id. Default plan id is used when not provided. |
+
+### Response
+
+```json
+{
+  "id": 3498583,
+  "plan_id": "oem_enterprise",
+  "trial": false
+}
+```
+
+## Downgrade customer account
+
+Downgrade OEM customer account to free plan.
+
+```
+PUT /api/managed_users/:id/downgrade
+```
+
+### Parameters
+| Name | Type | Description |
+| --- | --- | --- |
+| id | **integer**<br>_required_ | OEM customer ID.<br/>**Example:** */api/managed_users/3485434779/downgrade* |
+
+### Response
+
+```json
+{
+  "id": 3498583,
+  "plan_id": "free",
+  "trial": false
+}
+```
+
+## Add member to customer account
+
+Add a member to the OEM customer account.
+
+```
+POST /api/managed_users/:id/member
+```
+
+### URL Parameters
+
+| Name | Type | Description |
+| --- | --- | --- |
+| id | **string**<br>_required_ | OEM customer Account ID/External ID. External id should be prefixed with a E(eg: EA2300) and the resulting id should be URL encoded. |
+
+### Request body
+
+| Name | Type | Description |
+| --- | --- | --- |
+| name | **string**<br>_required_ | Full name of the user. |
+| oauth_id | **string**<br>_required_ | Identifier used for oauth. |
+| role_name | **string**<br>_optional_  | Role name. |
+| external_id | **string**<br>_optional_ | External identifier for the member. |
+
+#### Sample request
+
+```json
+{
+  "name": "Jack Smith",
+  "oauth_id": "AAA0932808240:UU0239093499",
+  "role_name": "Admin",
+  "external_id": "UU0239093499"
+}
+```
+
+### Response
+
+```json
+{
+  "id": 3498583,
+  "plan_id": "oem_plan",
+  "trial": false
+}
+```
+
+## Remove member from customer account
+
+Remove a member from the OEM customer's account.
+
+```
+DELETE /api/managed_users/:id/member
+```
+
+### URL Parameters
+
+| Name | Type | Description |
+| --- | --- | --- |
+| id | **string**<br>_required_ | OEM customer Account ID/External ID. External id should be prefixed with a E(eg: EA2300) and the resulting id should be URL encoded. |
+
+### Response
+
+```json
+{
+  "id": 3485434779
 }
 ```
 
@@ -179,83 +253,5 @@ GET /api/managed_users/:id/connections
       "updated_at": "2019-09-10T18:19:43.021-07:00"
     }
   ]
-}
-```
-
-## Remove member from customer account
-
-Remove member from OEM customer's account.
-
-```
-DELETE /api/managed_users/:id/member
-```
-
-
-### URL Parameters
-
-| Name | Type | Description |
-| --- | --- | --- |
-| id | **string**<br>_required_ | OEM customer Account ID/External ID. External id should be prefixed with a E(eg: EA2300) and the resulting id should be URL encoded. |
-
-### Response
-
-```json
-{
-  "id": 3485434779
-}
-```
-
-## Upgrading OEM customer account
-
-Upgrade OEM customer account from trial OR free plan.
-
-```
-PUT /api/managed_users/:id/upgrade
-```
-
-
-### URL parameters
-
-| Name | Type | Description |
-| --- | --- | --- |
-| id | **string**<br>_required_ | OEM customer Account ID/External ID. External id should be prefixed with a E(eg: EA2300) and the resulting id should be URL encoded. |
-
-### Request body
-
-| Name | Type | Description |
-| --- | --- | --- |
-| plan_id | **string**<br>_optional_ | Plan id. Default plan id is used when not provided. |
-
-### Response
-
-```json
-{
-  "id": 3498583,
-  "plan_id": "oem_enterprise",
-  "trial": false
-}
-```
-
-## Downgrading a customer account
-
-Downgrades OEM customer account to free plan.
-
-```
-PUT /api/managed_users/:id/downgrade
-```
-
-### Parameters
-| Name | Type | Description |
-| --- | --- | --- |
-| id | **integer**<br>_required_ | OEM customer ID.<br/>**Example:** */api/managed_users/3485434779/downgrade* |
-
-
-### Response
-
-```json
-{
-  "id": 3498583,
-  "plan_id": "free",
-  "trial": false
 }
 ```
