@@ -22,7 +22,7 @@ Otherwise, if this worker already has a **drugTested** object (e.g. `True`/`Fals
 
 | Input field          | Description |
 | -------------------- | ----------- |
-| Parent object name   | The name of the parent object. See here. |
+| Parent object name   | The name of the parent object. |
 | Custom object fields | Define the fields in this custom object. If left blank, it will retrieve all fields with their default names.   |
 | Custom object        | Select the custom object that you want to retrieve. This is the Web service alias of the custom object. |
 | Parent object ID     | The Workday ID of the parent object that you are selecting. |
