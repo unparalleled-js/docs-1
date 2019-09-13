@@ -38,6 +38,12 @@ body {
   overflow: visible;
 }
 
+/* In page TOC */
+.intopic-toc h3 {
+  color: #333;
+  font-size: 1.1em;
+}
+
 /* Sections */
 .markdown-section h1 {
   border-bottom: 1px solid #d8d8d8;
