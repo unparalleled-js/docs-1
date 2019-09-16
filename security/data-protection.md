@@ -3,7 +3,7 @@ title: Data protection
 date: 2019-09-13 19:45:00 Z
 ---
 
-# Data Protection
+# Data protection
 
 Security and data protection is the backbone of any integration platform's security standards. Following standardized security practices to protect customer data becomes important given sensitivity towards data security and with regulations such as GDPR (General Data Protection Regulation).
 
