@@ -1,19 +1,18 @@
 ---
 title: Data Retention
 date: 2019-09-13 19:45:00 Z
-date: 2019-09-13 12:45:00 PST
 ---
 
 # Data retention
 
-Enterprises want to be empowered to control the destiny of their data. The data retention setting supporting as low as one hour does just that. You have more control over your data making it easy to have robust data protection operations. With data protection standards, such as GDPR, and the sheer mass of data that companies collect and accumulate, the protection and control of information has become increasingly important.
+Enterprises want to be empowered to control the destiny of their data. The data retention setting supporting as low as one hour does just that. You have more control over your data making it easy to have robust data protection operations. With data protection standards, such as GDPR, and the sheer mass of data that companies collect and accumulate, the protection and control of information have become increasingly important.
 
 ## Overview
 * Customers can customize their data retention period to fit their compliance policies
 * Data retention periods can be set in hours or days
 * The retention periods will vary by plan
 
-Data retention differs by Workato plans. Check the [Pricing and Plans page](https://www.workato.com/pricing?audience=general) or reach out to Workato sales representatives at +1 (844) 469-6752 to find out more.
+Data retention policy differs depending on the Workato plan you're on. Check the [Pricing and Plans page](https://www.workato.com/pricing?audience=general) or reach out to Workato sales representatives at +1 (844) 469-6752 to find out more.
 
 ## Settings
 Customer administrator or account owner can navigate to `Account Settings` > `Data retention` to configure data retention.
