@@ -5,7 +5,7 @@ date: 2019-09-16 19:00:00 Z
 
 # Activity audit log
 
-Integration projects, big or small, need administration, management and lifecycle capabilities from the integration platform. Your team is likely to have multiple team members collaborating on the integration project. Your team may also include employees, short-term contractors and consultants. This necessitates providing access to the Workato account to build, change and operate the recipes.
+Integration projects, big or small, need administration, management and lifecycle capabilities from the integration platform. Your [team](/user-accounts-and-teams/team-collaboration.md) is likely to have multiple team members collaborating on the integration project. Your team may also include employees, short-term contractors and consultants. This necessitates providing access to the Workato account to build, change and operate the recipes.
 
 As team size and complexity grows around the project, it becomes increasingly important to have control and visibility on the activities within your Workato workspace.
 
@@ -15,6 +15,8 @@ Activity audit provides a simple and powerful interface for Workato administrato
 * Comprehensive log of changes made to account, connection, folder, recipe and package
 * Track nature of change (for example, recipe stopped), author, and timeline
 * Quickly navigate to specific change activity using filters
+
+Activity audit is available with Enterprise plan. It will be visible to users with `Admin` role and the owner of the account. Check the [Pricing and Plans page](https://www.workato.com/pricing?audience=general) or reach out to Workato sales representatives at +1 (844) 469-6752 to find out more.
 
 ## Viewing activity audit
 
