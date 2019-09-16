@@ -30,7 +30,7 @@ By default, Workato encrypts all data that must be stored. Key rotation automati
 * `Key2` is used to encrypt data beginning `10:00 AM` for `Job3` and `Job4`
 * `Key1` becomes inactive and is used only for decrypting data
 * Similarly, `Key2` becomes inactive at `11:00 AM` and is used only for decrypting data
-* When [data retention period](/data-retention.md#data-retention-policy "data retention period") ends, the encryption key and the encrypted data is destroyed
+* When [data retention period](/security/data-protection/hour-data-retention.md) ends, the encryption key and the encrypted data is destroyed
 * Above process repeats every hour
 
 ***Does customer need to do anything to get key rotation?***
