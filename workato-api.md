@@ -5,15 +5,17 @@ isTocVisible: true
 ---
 
 # Workato API 1.0
-Workato's REST API provides you with access to Workato resources. With this, you can manage recipes, connections and jobs programmatically to expand the functionality of your Workato account. This API also allows you to auther new recipes and modify existing ones.
+
+Workato's REST API provides you with access to Workato resources. With this, you can manage recipes, connections and jobs programmatically to expand the functionality of your Workato account. This API also allows you to author new recipes and modify existing ones.
 
 ## Authentication
-All API requests must contain:
 
-- `X-USER-TOKEN` and `X-USER-EMAIL` in the request headers OR
+All API requests must contain:
+- `X-USER-TOKEN` and `X-USER-EMAIL` in the request headers
+OR
 - `user_token` & `user_email` in the query parameters
 
-The `user_token`/`X-USER-TOKEN` can be found in your [settings page](https://www.workato.com/users/current/edit#api_key). Alternatively, navigate to your account settings by clicking on `Account Settings` in the dropdown of the top right of your homepage in Workato. Your API key can be found in the left navigation panel in the subsequent page.
+The `user_token`/`X-USER-TOKEN` can be found in your [settings page](https://www.workato.com/users/current/edit#api_key). Alternatively, navigate to your account settings by clicking on **Account Settings** in the dropdown of the top right of your homepage in Workato. Your API key can be found in the left navigation panel in the subsequent page.
 
 ## HTTP response codes
 
@@ -26,6 +28,7 @@ The `user_token`/`X-USER-TOKEN` can be found in your [settings page](https://www
 | `500` | Server error |
 
 ## Workato API Resource Overview
+
 Workato's API has various endpoints that allows access functionality to different aspects of Workato. Here is a general overview of the endpoints available.
 
 ### Connectors
@@ -38,25 +41,25 @@ Workato's API has various endpoints that allows access functionality to differen
 
 | Resource | Description |
 |----------------|-------------|
-|[GET /api/connections](/workato-api/connections.md) | List connections belonging to user |
+|[GET /api/connections](/workato-api/connections.md#list-connections) | List connections belonging to user |
 
 ### Jobs
 
 | Resource | Description |
 |----------------|-------------|
-|[GET /api/recipes/:recipe_id/jobs](/workato-api/jobs.md#list-jobs-belonging-to-a-recipe) | List jobs belonging to recipe |
+|[GET /api/recipes/:recipe_id/jobs](/workato-api/jobs.md#list-jobs-from-a-recipe) | List jobs belonging to recipe |
 
 ### Managed Users
 
 | Resource | Description |
 |----------------|-------------|
-|[POST /api/managed_users](/workato-api/managed-users.md#create-new-oem-users) | Create a new OEM user.
-|[POST /api/managed_users/:id/member](/workato-api/managed-users.md#add-member-to-oem-account) | Add member to the OEM account.
-|[GET /api/managed_users/:id](/workato-api/managed-users.md#query-oem-member-account) | Returns details of the given OEM user account.
-|[GET /api/managed_users/:id/connections](/workato-api/managed-users.md#query-oem-member-connections)| Returns a list of connections in OEM user's account.
-|[DELETE /api/managed_users/:id/member](/workato-api/managed-users.md#remove-member-from-an-organization-account) | Deletes a member from given user's team.
-|[PUT /api/managed_users/:id/upgrade](/workato-api/managed-users.md#upgrading-a-customer-account) | Upgrades the customer account from trial OR free to the plan specified in the OEM configuration.
-|[PUT /api/managed_users/:id/downgrade](/workato-api/managed-users.md#downgrading-a-customer-account) | Downgrades the customer account to free plan. |
+| [POST /api/managed_users](/workato-api/managed-users.md#create-customer-account) | Create a new OEM user. |
+| [GET /api/managed_users/:id](#get-customer-account) | Get customer account details. |
+| [PUT /api/managed_users/:id/upgrade](/workato-api/managed-users.md#upgrade-customer-account) | Upgrades the customer account from trial OR free to the plan specified in the OEM configuration.
+| [PUT /api/managed_users/:id/downgrade](/workato-api/managed-users.md#downgrade-customer-account) | Downgrades the customer account to free plan. |
+|[POST /api/managed_users/:id/member](/workato-api/managed-users.md#add-member-to-customer-account) | Add member to the OEM account. |
+| [DELETE /api/managed_users/:id/member](/workato-api/managed-users.md#remove-member-customer-account) | Deletes a member from given user's team.
+| [GET /api/managed_users/:id/connections](/workato-api/managed-users.md#list-customer-connections)| Returns a list of connections in OEM user's account.
 
 ### Recipes
 
@@ -73,7 +76,7 @@ Workato's API has various endpoints that allows access functionality to differen
 
 ### User
 
- |Resource|Description|
+|Resource|Description|
 |--- |--- |
 |[GET /api/users/me](/workato-api/users.md#get-user-details)|Get details of authenticated user|
 

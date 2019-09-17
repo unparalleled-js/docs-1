@@ -12,13 +12,13 @@ All API endpoints listed here requires `oem_vendor` privilege. Talk to your Work
 
 | Type | Resource | Description |
 |------|----------|-------------|
-|POST | [/api/managed_users](#create-new-oem-customer) | Create customer account. |
-|GET | [/api/managed_users/:id](#query-oem-customer-account) | Get customer account. |
-|PUT | [/api/managed_users/:id/upgrade](#upgrading-a-customer-account) | Upgrade customer account. |
-|PUT | [/api/managed_users/:id/downgrade](#downgrading-a-customer-account) | Downgrade customer account. |
-|POST | [/api/managed_users/:id/member](#add-member-to-oem-customer-account) | Add member to customer account. |
-|DELETE | [/api/managed_users/:id/member](#remove-member-from-an-organization-account) |  Remove member from customer account. |
-|GET | [/api/managed_users/:id/connections](#query-oem-customer-connections)| List customer connections. |
+| POST | [/api/managed_users](#create-customer-account) | Create customer account. |
+| GET  | [/api/managed_users/:id](#get-customer-account) | Get customer account details. |
+| PUT  | [/api/managed_users/:id/upgrade](#upgrade-customer-account) | Upgrade customer account. |
+| PUT  | [/api/managed_users/:id/downgrade](#downgrade-customer-account) | Downgrade customer account. |
+| POST | [/api/managed_users/:id/member](#add-member-to-customer-account) | Add member to customer account. |
+| DELETE | [/api/managed_users/:id/member](#remove-member-from-customer-account) |  Remove member from customer account. |
+| GET  | [/api/managed_users/:id/connections](#list-customer-connections)| List customer connections. |
 
 
 ## Create customer account
@@ -125,7 +125,7 @@ Downgrade OEM customer account to free plan.
 PUT /api/managed_users/:id/downgrade
 ```
 
-### Parameters
+### URL parameters
 | Name | Type | Description |
 | --- | --- | --- |
 | id | **string**<br>_required_ | OEM customer Account ID/External ID. <br>External id should be prefixed with a E(eg: EA2300) and the resulting id should be URL encoded. |

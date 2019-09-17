@@ -1,34 +1,26 @@
 ---
 title: Workato API - Users
 date: 2019-03-21 12:20:00 Z
+isTocVisible: true
 ---
 
 # Users
-Use the following endpoints to work with Users in Workato.
 
 ### Supported Formats
+
 * JSON
 
 ## Get user details
 
-> GET /api/users/me
+Get details of authenticated user.
 
-### Description
-Get details of authenticated user
-
-### Responses
-| Code | Description |
-| --- | --- |
-| `200` | Success |
-| `401` | Unauthorized |
-| `500` | Server error |
-
-### Examples
-
-#### Success: 200
-```json
+```
 GET /api/users/me
-200
+```
+
+### Response
+
+```json
 {
   "id": 18289,
   "name": "Dave ACME",
