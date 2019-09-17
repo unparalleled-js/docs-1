@@ -16,11 +16,13 @@ Activity audit provides a simple and powerful interface for Workato administrato
 * Track nature of change (for example, recipe stopped), author, and timeline
 * Quickly navigate to specific change activity using filters
 
-Activity audit is available with Enterprise plan. It will be visible to users with `Admin` role and the owner of the account. Check the [Pricing and Plans page](https://www.workato.com/pricing?audience=general) or reach out to Workato sales representatives at +1 (844) 469-6752 to find out more.
+Activity audit is available with an Enterprise plan. Check the [Pricing and Plans page](https://www.workato.com/pricing?audience=general) or reach out to Workato sales representatives at +1 (844) 469-6752 to find out more.
 
 ## Viewing activity audit
 
 The activity audit log is available in the Dashboard > Audit tab. With the activity audit log, you will be able to find out which user in the team stopped a business-critical recipe or disconnected a connection. You'll also be able to find out when the recipe was stopped or connection was disconnected.
+
+It is visible to owner of the account and the users with `Admin` role.
 
 ## Types of activity audit
 
@@ -54,12 +56,54 @@ The activity audit log is available in the Dashboard > Audit tab. With the activ
 | | Exported | User Gabriel Sim exported package ai-document-understanding.zip. |
 | | Imported | User Bryan Yap imported package listevents.zip. |
 
-## Using filters
+## Activity audit logs in more detail
 
-Find information quickly and efficiently using time-based, user-based and Workato asset based filters. In this example, simply select the user to find all the activities by that user in the Workato workspace.
+Imagine an unplanned stoppage of a business critical recipe syncing product SKU data between your ERP like NetSuite or SAP and e-commerce app; or an update to Salesforce connection settings rendering it inactive; or someone inadvertently deleting a employee onboarding recipe connecting to Workday, a connection, or a folder. As an administrator, would you like to know if user login has failed? And how many times? Below are some examples where you will find the audit of activities that provide just the answers to the scenarios outlined above.
 
-![User filter](/assets/images/activity-audit/user-filter.png "User filter")
+#### Recipe stopped by user
+
+![Recipe stopped](/assets/images/activity-audit/recipe-stopped-user.png "Recipe stopped by user")
+
+#### Connection disconnected by user
+
+![Connection disconnected](/assets/images/activity-audit/connection-disconnected-user.png "Connected disconnected by user")
+
+#### Folder created
+
+![Folder created](/assets/images/activity-audit/folder-created.png "Folder created")
+
+#### Folder deleted
+
+![Folder deleted](/assets/images/activity-audit/folder-deleted.png "Folder deleted")
+
+#### User login
+
+![User login](/assets/images/activity-audit/user-login.png "User login")
+
+#### User login failed
+
+![User login failed](/assets/images/activity-audit/user-login-failed.png "User login failed")
+
+#### Invite team member
+
+![Invite team member](/assets/images/activity-audit/team-invited-user.png "Invite team member")
+
+#### Team member joined
+
+![Team member joined](/assets/images/activity-audit/team-joined-user.png "Team member joined")
+
+#### Using filters
+
+Find information quickly and efficiently using time-based, user-based and Workato asset based filters. 
+
+Filtering by time lets you see the activity audit for certain time period like last 7 days or 30 days and more.
+
+![Time filter](/assets/images/activity-audit/filter-time.png "Filter by time period")
+
+In this example, simply select the user to find all the activities by that user in the Workato workspace.
+
+![User filter](/assets/images/activity-audit/filter-user.png "User filter")
 
 Similarly, find all the activities by any user on all recipes in the workspace using the asset filter.
 
-![Asset filter](/assets/images/activity-audit/recipe-filter.png "Filter by asset type")
+![Asset filter](/assets/images/activity-audit/filter-asset.png "Filter by asset type")
