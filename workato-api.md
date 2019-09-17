@@ -27,6 +27,16 @@ The `user_token`/`X-USER-TOKEN` can be found in your [settings page](https://www
 | `404` | Not found |
 | `500` | Server error |
 
+## HTTP response codes
+
+| Code | Description |
+| --- | --- |
+| `200` | Success |
+| `400` | Bad request
+| `401` | Unauthorized |
+| `404` | Not found |
+| `500` | Server error |
+
 ## Workato API Resource Overview
 
 Workato's API has various endpoints that allows access functionality to different aspects of Workato. Here is a general overview of the endpoints available.
@@ -59,7 +69,7 @@ Workato's API has various endpoints that allows access functionality to differen
 | [PUT /api/managed_users/:id/downgrade](/workato-api/managed-users.md#downgrade-customer-account) | Downgrades the customer account to free plan. |
 |[POST /api/managed_users/:id/member](/workato-api/managed-users.md#add-member-to-customer-account) | Add member to the OEM account. |
 | [DELETE /api/managed_users/:id/member](/workato-api/managed-users.md#remove-member-customer-account) | Deletes a member from given user's team.
-| [GET /api/managed_users/:id/connections](/workato-api/managed-users.md#list-customer-connections)| Returns a list of connections in OEM user's account.
+| [GET /api/managed_users/:id/connections](/workato-api/managed-users.md#list-customer-connections)| Returns a list of connections in OEM user's account.|
 
 ### Recipes
 

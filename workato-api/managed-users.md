@@ -20,7 +20,6 @@ All API endpoints listed here requires `oem_vendor` privilege. Talk to your Work
 | DELETE | [/api/managed_users/:id/member](#remove-member-from-customer-account) |  Remove member from customer account. |
 | GET  | [/api/managed_users/:id/connections](#list-customer-connections)| List customer connections. |
 
-
 ## Create customer account
 
 Create a new OEM customer account.
@@ -126,6 +125,7 @@ PUT /api/managed_users/:id/downgrade
 ```
 
 ### URL parameters
+
 | Name | Type | Description |
 | --- | --- | --- |
 | id | **string**<br>_required_ | OEM customer Account ID/External ID. <br>External id should be prefixed with a E(eg: EA2300) and the resulting id should be URL encoded. |
