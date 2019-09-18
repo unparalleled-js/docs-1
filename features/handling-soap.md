@@ -3,7 +3,7 @@ title: Handling SOAP
 date: 2019-07-23 16:00:00 Z
 ---
 
-# Handling SOAP 
+# Handling SOAP
 Simple Object Access Protocol (SOAP) is a messaging protocol for communication over the internet. SOAP messages follow a standardized protocol on how it structures the body message. This allows SOAP to develop security, authorization, and error-handling standards that work across web systems.
 
 SOAP acts as a specification on how XML messages are structured and is therefore encoded in XML. Similar to [handling raw XML content](/features/handling-xml.md), convert SOAP content into usable datapills with the built-in parser.
@@ -21,7 +21,7 @@ Select **App** > **SOAP tools by Workato** to get started.
 | Sample document | A sample SOAP/XML that has the same format as the SOAP document to be parsed. |
 | Document        | The input SOAP content to be parsed. |
 
-Datapills are generated according to the **sample document** provided. It includes all SOAP tags and all attributes associated with each tag.
+Datapills are generated according to the **sample document** provided in the input. It includes all SOAP tags and all attributes associated with each tag.
 
 ![Datatree output for parse SOAP message](/assets/images/features/handling-soap/parse-soap-message-datatree.png)
 *Datatree output for parse SOAP message*
@@ -47,5 +47,5 @@ To effectively draft a SOAP/XML message, you first have to setup the SOAP/XML sc
 
 Setup a message template for your use case. Define the schema of the output SOAP document and use `{tags}` to indicate where datapills are being used.
 
-![SOAP message template for employee list](/assets/images/features/handling-soap/SOAP-message-template.png)
+![SOAP message template for employee list](/assets/images/features/handling-soap/soap-message-template.png)
 *SOAP message template for employee list*
