@@ -54,17 +54,17 @@ In cases where the file source app provides only a public URL to the file, but t
 Let's take the scenario where new files created in a shared Box folder needs to be uploaded and associated with a Salesforce account. This is how the recipe looks.
 
 ![Example recipe - using utilities to download file](/assets/images/features/files-and-attachments/utilities-download-file.png)
-*Recipe that uses Utilities to download file content. [Example recipe](https://www.workato.com/recipes/485775).*
+*Recipe that uses Utilities to download file content. [Example recipe](https://www.workato.com/recipes/1006009-new-file-in-box-will-download-file-from-url#recipe).*
 
 The recipe uses the public URL to the Box file to download the file content. This file content is then uploaded into Salesforce as a new attachment, associated to a certain Salesforce account (the account ID is hardcoded in this instance).
 
 ![Upload file to Salesforce](/assets/images/features/files-and-attachments/upload-file-to-salesforce.gif)
-*Download file using Box URL, then upload file content to Salesforce. [Example recipe](https://www.workato.com/recipes/485775).*
+*Download file using Box URL, then upload file content to Salesforce. [Example recipe](https://www.workato.com/recipes/1006009-new-file-in-box-will-download-file-from-url#recipe).*
 
 ## Base64 encoding
 Base64 encoding is a way of converting binary content into a set of standard characters for sending over networks. Certain apps require base64-encoded file content to be uploaded, and usually these same apps will produce base64-encoded file content when their files are downloaded.
 
-Workato supports the ability to encode or decode base64 content via formulas.
+Workato supports the ability to encode or decode base64 content via [Formulas](/formulas/formula-mode.md).
 
 To base64 encode binary content and upload it into such apps:
 
