@@ -429,7 +429,7 @@
     * [Recipe configuration](workflow.md#people-task-example-scenario)
     * [Task approvals](workflow.md#using-people-task-as-an-approver)
   * [PlanGrid](connectors/plangrid.md)
-    * [Connection setup](connectors/plangrid.md#how-to-connect-to-postgresql-on-workato)
+    * [Connection setup](connectors/plangrid.md#how-to-connect-to-plangrid-on-workato)
     * [Objects supported on PlanGrid](connectors/plangrid/object.md)
     * [Objects actions on PlanGrid](connectors/plangrid/object-action.md)
     * [Objects triggers on PlanGrid](connectors/plangrid/object-trigger.md)
