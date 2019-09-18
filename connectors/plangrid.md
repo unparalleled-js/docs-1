@@ -23,16 +23,6 @@ The PlanGrid connector uses OAuth 2.0 authentication to authenticate with PlanGr
 
   Give the PlanGrid connection a unique name that identifies which PlanGrid instance it is connected to.
 
-* **Client ID**
-
-  Create a client ID by registering an application [here](https://enterprise.plangrid.com). Navigate to your organisation and the OAuth section before creating a new OAuth App in the top right corner.
-
-* **Client secret**
-
-  When registering a new OAuth app, you should receive both a client ID and client secret for a single application.
-
-Click on Connect and a PlanGrid dialog box will pop-up, requesting PlanGrid account email and password, granting access to Workato.
-
 ![PlanGrid connection page on Workato](/assets/images/plangrid/popup-dialog-page.png)
 
 * **Email**
