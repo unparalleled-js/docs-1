@@ -5,7 +5,7 @@ date: 2019-09-16 19:00:00 Z
 
 # Activity audit log
 
-Integration projects, big or small, need administration, management and lifecycle capabilities from the integration platform. Your [team](/user-accounts-and-teams/team-collaboration.md) is likely to have multiple team members collaborating on the integration project. Your team may also include employees, short-term contractors and consultants. This necessitates providing access to the Workato account to build, change and operate the recipes.
+Integration projects, big or small, need administration, management and lifecycle capabilities from the integration platform. Your [team](/user-accounts-and-teams/team-collaboration.md) is likely to have multiple team members collaborating on the integration project. Your team may also include employees, short-term contractors and consultants. This makes it necessary for you to provide access to the Workato account to build, change and operate the recipes.
 
 As team size and complexity grows around the project, it becomes increasingly important to have control and visibility on the activities within your Workato workspace.
 
@@ -16,13 +16,13 @@ Activity audit provides a simple and powerful interface for Workato administrato
 * Track nature of change (for example, recipe stopped), author, and timeline
 * Quickly navigate to specific change activity using filters
 
-Activity audit is available with an Enterprise plan. Check the [Pricing and Plans page](https://www.workato.com/pricing?audience=general) or reach out to Workato sales representatives at +1 (844) 469-6752 to find out more.
+Activity audit is available with select plans. Check the [Pricing and Plans page](https://www.workato.com/pricing?audience=general) or reach out to Workato sales representatives at +1 (844) 469-6752 to find out more.
 
 ## Viewing activity audit
 
-The activity audit log is available in the Dashboard > Audit tab. With the activity audit log, you will be able to find out which user in the team stopped a business-critical recipe or disconnected a connection. You'll also be able to find out when the recipe was stopped or connection was disconnected.
+The activity audit log is available in the `Dashboard` > `Audit` tab. With the activity audit log, you will be able to find out which user in the team stopped a business-critical recipe or disconnected a connection. You'll also be able to find out when the recipe was stopped or connection was disconnected.
 
-It is visible to owner of the account and the users with `Admin` role.
+Activity audit log is visible to owner of the account and the users with `Admin` role.
 
 ## Types of activity audit
 
@@ -94,7 +94,7 @@ Imagine an unplanned stoppage of a business critical recipe syncing product SKU 
 
 #### Using filters
 
-Find information quickly and efficiently using time-based, user-based and Workato asset based filters. 
+Find information quickly and efficiently using time-based, user-based and Workato asset-based filters.
 
 Filtering by time lets you see the activity audit for certain time period like last 7 days or 30 days and more.
 
