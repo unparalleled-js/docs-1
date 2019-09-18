@@ -8,8 +8,6 @@ YAML is a data serialization format that is written in a human-readable language
 
 We will go through an example of sieving through a YAML file and retrieving the relevant data. We will be using a sample YAML file of Employee information.
 
-<details><summary><i>Sample YAML file: Employee Information</i></summary>
-
 ```yaml
   - employee_1:
     Name: Martin Simon
@@ -35,46 +33,7 @@ We will go through an example of sieving through a YAML file and retrieving the 
           School : MIT
           Degree : PhD in CS
           GPA : 4.2
-
-  - employee_2:
-    Name: Tabita Flower
-    Age: 32
-    Title: Sales engineering
-    Employed: True
-    Introduction_string:
-        Come and say hi
-    Responsibilities_list:
-        - female empowerment
-        - Bake off day
-    Languages_NestedList:
-        - [lisp, normal]
-        - [fortran, normal]
-    Education_dictionary:
-        Bachelors:
-          School : UCLA
-          Degree : BA in Communications
-          GPA : 3.9
-
-  - employee_3:
-    Name: Mohan Raguh
-    Age: 28
-    Title: Systems engineer
-    Employed: True
-    Introduction_string:
-        I like chicken
-    Responsibilities_list:
-        - Hackathon
-        - Company sports day
-    Languages_NestedList:
-        - [Python, Excellent]
-        - [CSS, Good]
-    Education_dictionary:
-        Bachelors:
-          School : UCLA
-          Degree : BA in Systems engineering
-          GPA : 3.9
 ```
-</details>
 
 ## YAML parser by Workato
 Convert YAML content into useable datapills with the built-in YAML parser. **YAML parser by Workato** is a native application that does not require any connection setup.
