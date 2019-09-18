@@ -6,9 +6,11 @@ isTocVisible: true
 
 # Managed Users
 
-All API endpoints listed here requires `oem_vendor` privilege. Talk to your Workato representative to enable this privilege in your account.
+All API endpoints listed here require `oem_vendor` privilege. Talk to your Workato representative to enable this privilege in your account.
 
 ### Quick reference
+
+<div class='api_quick_reference'> </div>
 
 | Type | Resource | Description |
 |------|----------|-------------|
@@ -21,6 +23,7 @@ All API endpoints listed here requires `oem_vendor` privilege. Talk to your Work
 |GET | [/api/managed_users/:id/connections](#query-oem-customer-connections)| List customer connections. |
 
 
+
 ## Create customer account
 
 Create a new OEM customer account.
@@ -30,6 +33,8 @@ POST /api/managed_users
 ```
 
 ### Request body
+
+<div class='api_input'> </div>
 
 | Name | Type | Description |
 | --- | --- | --- |
@@ -66,11 +71,14 @@ Get OEM customer account details.
 GET /api/managed_users/:id
 ```
 
-### URL Parameters
+### URL parameters
+
+<div class='api_input'> </div>
 
 | Name | Type | Description |
 | --- | --- | --- |
 | id | **string**<br>_required_ | OEM customer Account ID/External ID. <br>External id should be prefixed with a E(eg: EA2300) and the resulting id should be URL encoded. |
+
 
 ### Response
 
@@ -97,15 +105,22 @@ PUT /api/managed_users/:id/upgrade
 
 ### URL parameters
 
+
+<div class='api_input'> </div>
+
 | Name | Type | Description |
 | --- | --- | --- |
 | id | **string**<br>_required_ | OEM customer Account ID/External ID. <br>External id should be prefixed with a E(eg: EA2300) and the resulting id should be URL encoded. |
 
+
 ### Request body
+
+<div class='api_input'> </div>
 
 | Name | Type | Description |
 | --- | --- | --- |
 | plan_id | **string**<br>_optional_ | Plan id. Default plan id is used when not provided. |
+
 
 ### Response
 
@@ -125,7 +140,11 @@ Downgrade OEM customer account to free plan.
 PUT /api/managed_users/:id/downgrade
 ```
 
-### Parameters
+### URL parameters
+
+<div class='api_input'> </div>
+
+
 | Name | Type | Description |
 | --- | --- | --- |
 | id | **string**<br>_required_ | OEM customer Account ID/External ID. <br>External id should be prefixed with a E(eg: EA2300) and the resulting id should be URL encoded. |
@@ -148,13 +167,20 @@ Add a member to the OEM customer account.
 POST /api/managed_users/:id/member
 ```
 
-### URL Parameters
+### URL parameters
+
+
+<div class='api_input'> </div>
 
 | Name | Type | Description |
 | --- | --- | --- |
 | id | **string**<br>_required_ | OEM customer Account ID/External ID. <br>External id should be prefixed with a E(eg: EA2300) and the resulting id should be URL encoded. |
 
+
 ### Request body
+
+
+<div class='api_input'> </div>
 
 | Name | Type | Description |
 | --- | --- | --- |
@@ -162,6 +188,7 @@ POST /api/managed_users/:id/member
 | oauth_id | **string**<br>_required_ | Identifier used for oauth. |
 | role_name | **string**<br>_optional_  | Role name. |
 | external_id | **string**<br>_optional_ | External identifier for the member. |
+
 
 #### Sample request
 
@@ -192,11 +219,25 @@ Remove a member from the OEM customer's account.
 DELETE /api/managed_users/:id/member
 ```
 
-### URL Parameters
+### URL parameters
+
+
+<div class='api_input'> </div>
 
 | Name | Type | Description |
 | --- | --- | --- |
 | id | **string**<br>_required_ | OEM customer Account ID/External ID. <br>External id should be prefixed with a E(eg: EA2300) and the resulting id should be URL encoded. |
+
+
+### Request body
+
+
+<div class='api_input'> </div>
+
+| Name | Type | Description |
+| --- | --- | --- |
+| member_id | **string**<br>_required_ | Member id |
+
 
 ### Response
 
@@ -214,11 +255,15 @@ Get the list of connections in OEM customer's account.
 GET /api/managed_users/:id/connections
 ```
 
-### URL Parameters
+### URL parameters
+
+
+<div class='api_input'> </div>
 
 | Name | Type | Description |
 | --- | --- | --- |
 | id | **string**<br>_required_ | OEM customer Account ID/External ID. <br>External id should be prefixed with a E(eg: EA2300) and the resulting id should be URL encoded. |
+
 
 ### Response
 
