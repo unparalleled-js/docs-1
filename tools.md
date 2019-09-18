@@ -49,7 +49,7 @@ The following are classified under this category:
     <tr>
       <td> <a href = "features/message-template.md"> Message templates</a></td>
       <td>
-        Create static message templates on HTML/text/Json/XML that can be used in multiple recipes. <a href = "features/message-template.md">Learn more</a>
+        Create static message templates on HTML/text/JSON/XML that can be used in multiple recipes. <a href = "features/message-template.md">Learn more</a>
       </td>
     </tr>
     <tr>

@@ -3,11 +3,29 @@ title: Recipe development lifecycle
 date: 2017-05-31 15:00:00 Z
 ---
 
-# Import
+# Importing: Deployment
 
 To import recipes and dependencies into a Workato instance, you will need a package containing [exported](/recipe-development-lifecycle/export.md) assets. Importing a package is the final step in the recipe development lifecycle where finished recipes are deployed in a Workato instance.
 
+There are multiple ways to deploy a tested package to a new environment.
+- Package Import UI
+  A package zip file can be deployed manually using package import UI.
+- Deployment APIs
+ A package zip file can be deployed using Workato [platform APIs](/workato-api/recipe-lifecycle-management.md).
+ E.g: You can initiate the deployment from your CI/CD server using a cURL request.
+
+## Contents
+
+This section covers how Workato recipes and dependencies are deployed (imported). If you have already imported a package, you may move on to the last section on working with external source control systems:
+
+- [Planning for lifecycle management](/recipe-development-lifecycle/export.md)
+- [Exporting: Packaging recipes and dependencies](/recipe-development-lifecycle/export.md)
+- **Importing: Deployment** _(current)_
+- [Working with external source control systems](/recipe-development-lifecycle/rdlc-guide-source-control.md)
+
 ## Import process
+
+When importing, you are able to choose the folder into which you want to import, which must already exist. It will be helpful if it is clear from the naming scheme which folder should be used for import.
 
 Navigate to the main recipe development lifecycle page.
 
@@ -15,23 +33,21 @@ Navigate to the main recipe development lifecycle page.
 
 From the recipe development lifecycle page, click on the ‘Import’ tab to begin.
 
-> :loudspeaker: If you had import logs before the UX update on {date}, all imports that were done will be logged in auto-created import target folders depending on the target folder.
-
 Start the import process by selecting an import target folder. If the folder is not shown in the list of import target folders, click on ‘Import package to new folder’.
 
 Select the .zip file to import from the computer as well as the target folder. The wizard will begin reading the package and loading its contents. It will also compare the corresponding recipes and dependencies in the account and look for changes.
 
 ## Import status tags
 
-On the import preview screen, each item is assigned a tag that will inform the user of its import status. 
+On the import preview screen, each item is assigned a tag that will inform the user of its import status.
 
-### Recipes:
+### Recipes
 ![RLM in tools gif](/assets/images/features/packages/recipe-tags.png)
 *All possible status tags for recipes*
 
-- Recipes that do not exist are added to the folder will be tagged "Creates a new recipe". 
+- Recipes that do not exist are added to the folder will be tagged "Creates a new recipe".
 - Recipes that exist and were not changed will be tagged with "No change".
-- Recipes that already exist that have been edited will be tagged with "Overwrites recipe". 
+- Recipes that already exist that have been edited will be tagged with "Overwrites recipe".
 - If a running recipe needs to be updated it will be tagged with "Overwrites running recipe". The recipes will be stopped, updated and then automatically restarted.
 
 #### Updating a running recipe
@@ -47,10 +63,15 @@ The list of stopped recipes are temporarily stored and will be automatically res
 
 If errors occur with starting a recipe after the import process, you should click on the link to the recipe, resolve any errors and restart the recipe manually.
 
-### Connections:
-A placeholder connection may be created. This placeholder contains only the application and name of the connection. Authentication to this placeholder is required after import.
+### Connections
 
-### Lookup tables:
+One of the main advantages of separate accounts for the different lifecycle phases is that each can have its own set of connections, and these can be different: for example, a development account can use an application sandbox account for its recipes, while a production account uses the production application account with live data.
+
+For security reasons, exporting a package does not export any credentials, keys or other private data needed to make a connection to applications. Those are kept private. Only the connection name, application type and other non-sensitive information will be exported. Here, a placeholder connection is created. This placeholder contains only the application and name of the connection. **Authentication to this placeholder is required after import**.
+
+When importing a package, Workato will attempt to automatically fill in connection details with existing connections in the importing account. Workato checks that this **connection type exists** and that that there are **no multiple connections** of that type (for example, multiple Gmail accounts). If these conditions are met, the connections required in the imported recipes will be configured automatically. If this is not possible, then you may need to manually re-establish connections needed by the recipes after import.
+
+### Lookup tables
 Lookup tables in the zip file will always contain schema data (name and column names) but may or may not contain data. During import, users can specify if the table data should be or overwritten or ignored.
 
 If the lookup table contains no data, it will be created/updated with only column names. If the lookup table contains data, use the radio buttons to select if the data should be overwritten or ignored.
@@ -59,6 +80,8 @@ If the lookup table contains no data, it will be created/updated with only colum
 *'Import data' or 'Ignore data' on individual lookup tables to be imported*
 
 ‘Overwrite’ will cause all table data to be overwritten and all data in the table to be replaced permanently. ‘Ignore’ will disregard all table data even though the table was exported with data.
+
+Workato recommends you establish rules and procedures for the use of these options. The simplest approach is to use the defaults: “include data” on export and “overwrite data” on import. This assumes, however, that the lookup table in the importing account can be safely overwritten, without affecting recipes that are not part of the package being imported.
 
 ### Other dependencies
 Other recipe dependencies will have the following tags according to their statuses.

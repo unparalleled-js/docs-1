@@ -7,7 +7,15 @@ date: 2019-04-25 12:20:00 Z
 Use the following endpoints to automate the import and export of packages.
 
 ### Supported Formats
-* Json
+* JSON
+
+### Contents
+|Resource|Description|
+|--- |--- |
+|[POST /api/packages/export/:manifest_id](#export-package-based-on-a-manifest)|Export package based on a manifest|
+|[POST /api/packages/import/:folder_id](#import-package-into-a-folder)|Import package into a folder|
+|[GET /api/packages/:id](#get-package-by-id)|Get package by ID|
+|[GET /api/packages/:id/download](#download-package)|Download package|
 
 ## Export package based on a manifest
 
@@ -16,64 +24,24 @@ Use the following endpoints to automate the import and export of packages.
 ### Description
 Export package based on a manifest. Manifest ID is required. This is an asynchronous request. Please use the [GET package by ID](workato-api/recipe-lifecycle-management.md#get-package-by-id) endpoint to get details of the exported package after this endpoint is used.
 
+### Parameters
+| Name | Type | Description |
+| --- | --- | --- |
+| manifest_id | **string**<br>_required_ | Export manifest ID. |
 
-<details> <summary> <b>Details</b></summary>
+### Responses
+| Code | Description |
+| --- | --- |
+| `200` | Success |
+| `400` | Bad request
+| `401` | Unauthorized |
+| `500` | Server error |
 
-<h3> Responses </h3>
-<table class="unchanged rich-diff-level-one" text-align ="center">
-  <thead>
-    <tr>
-        <th width='20%'>Code</th>
-        <th width='80%'>Description</th>
-    </tr>
-  </thead>
-  <tbody>
-  <tr>
-    <td width =200 > <kbd>200</kbd> </td>
-    <td> Success </td>
-  </tr>
-  <tr>
-    <td width =200 > <kbd>400</kbd> </td>
-    <td> Bad request </td>
-  </tr>
-  <tr>
-    <td width =200 > <kbd>401</kbd> </td>
-    <td> Unauthorized </td>
-  </tr>
-  <tr>
-    <td width =200 > <kbd>500</kbd> </td>
-    <td> Server error </td>
-  </tr>
-  </tbody>
-</table>
+### Examples
 
-<h3> Parameters</h3>
-<table class="unchanged rich-diff-level-one" text-align ="center">
-  <thead>
-    <tr>
-        <th width='20%'>Parameter name</th>
-        <th width='80%'>Description</th>
-    </tr>
-  </thead>
-  <tbody>
-  <tr>
-    <td width =200 > <b>manifest_id</b> <br>required</td>
-    <td>
-    Export manifest ID
-    <br>
-    <b>Validations:</b> <br>
-    <ul>
-    <li>Must be string</li>
-    </ul>
-    </td>
-  </tr>
-  </tbody>
-</table>
-
-<h3> Examples</h3>
-
-<h4>Success: 200</h4>
-<pre><code style="display: block; white-space: pre-wrap;">GET /api/packages/242
+#### Success: 200
+```json
+GET /api/packages/242
 200
 {  
    "id":242,
@@ -82,8 +50,7 @@ Export package based on a manifest. Manifest ID is required. This is an asynchro
    "export_manifest_id":3,
    "download_url":"https://workato-staging-assets,com/packages/zip_files/000/000/242/original/exportdemo.zip"
 }
-</code></pre>
-</details>
+```
 
 ## Import package into a folder
 
@@ -94,75 +61,25 @@ Import a package (zip file) into the folder. The input is a “application/octet
 
 This is an asynchronous request. Please use the [GET package by ID](workato-api/recipe-lifecycle-management.md#get-package-by-id) endpoint to get details of the imported package after this endpoint is used.
 
-<details> <summary> <b>Details</b></summary>
+### Parameters
+| Name | Type | Description |
+| --- | --- | --- |
+| folder_id | **string**<br>_required_ | Folder ID. |
+| restart_recipes | **boolean**<br>_optional_ | If `True`, it will allow the restarting of running recipes. |
 
-<h3> Responses </h3>
-<table class="unchanged rich-diff-level-one" text-align ="center">
-  <thead>
-    <tr>
-        <th width='20%'>Code</th>
-        <th width='80%'>Description</th>
-    </tr>
-  </thead>
-  <tbody>
-  <tr>
-    <td width =200 > <kbd>200</kbd> </td>
-    <td> Success </td>
-  </tr>
-  <tr>
-    <td width =200 > <kbd>400</kbd> </td>
-    <td> Bad request </td>
-  </tr>
-  <tr>
-    <td width =200 > <kbd>401</kbd> </td>
-    <td> Unauthorized </td>
-  </tr>
-  <tr>
-    <td width =200 > <kbd>500</kbd> </td>
-    <td> Server error </td>
-  </tr>
+### Responses
+| Code | Description |
+| --- | --- |
+| `200` | Success |
+| `400` | Bad request
+| `401` | Unauthorized |
+| `500` | Server error |
 
-  </tbody>
-</table>
+### Examples
 
-<h3> Parameters</h3>
-<table class="unchanged rich-diff-level-one" text-align ="center">
-  <thead>
-    <tr>
-        <th width='20%'>Parameter name</th>
-        <th width='80%'>Description</th>
-    </tr>
-  </thead>
-  <tbody>
-  <tr>
-    <td width =200 > <b>folder_id</b> <br>required</td>
-    <td>
-    Folder ID
-    <br>
-    <b>Validations:</b> <br>
-    <ul>
-    <li>Must be string</li>
-    </ul>
-    </td>
-  </tr>
-  <tr>
-    <td width =200 > <b>restart_recipes</b> <br>optional</td>
-    <td>
-    Set to 'true' to allow the restarting of running recipes
-    <br>
-    <b>Validations:</b> <br>
-    <ul>
-    <li>Must be string</li>
-    </ul>
-    </td>
-  </tr>
-  </tbody>
-</table>
-
-<h3> Examples</h3>
-
-<h4>Success: 200</h4>
-<pre><code style="display: block; white-space: pre-wrap;">POST /api/packages/import/2617
+#### Success: 200
+```json
+POST /api/packages/import/2617
 200
 {  
    "id":251,
@@ -170,8 +87,7 @@ This is an asynchronous request. Please use the [GET package by ID](workato-api/
    "status":"completed",
    "download_url":"https://workato-staging-assets,com/packages/zip_files/000/000/242/original/exportdemo.zip"
 }
-</code></pre>
-</details>
+```
 
 ## Get package by ID
 
@@ -180,40 +96,19 @@ This is an asynchronous request. Please use the [GET package by ID](workato-api/
 ### Description
 Get details of an imported or exported package.
 
-<details> <summary> <b>Details</b></summary>
+### Responses
+| Code | Description |
+| --- | --- |
+| `200` | Success |
+| `400` | Bad request
+| `401` | Unauthorized |
+| `500` | Server error |
 
-<h3> Responses </h3>
-<table class="unchanged rich-diff-level-one" text-align ="center">
-  <thead>
-    <tr>
-        <th width='20%'>Code</th>
-        <th width='80%'>Description</th>
-    </tr>
-  </thead>
-  <tbody>
-  <tr>
-    <td width =200 > <kbd>200</kbd> </td>
-    <td> Success </td>
-  </tr>
-  <tr>
-    <td width =200 > <kbd>400</kbd> </td>
-    <td> Bad request </td>
-  </tr>
-  <tr>
-    <td width =200 > <kbd>401</kbd> </td>
-    <td> Unauthorized </td>
-  </tr>
-  <tr>
-    <td width =200 > <kbd>500</kbd> </td>
-    <td> Server error </td>
-  </tr>
-  </tbody>
-</table>
+### Example
 
-<h3> Examples</h3>
-
-<h4>Success: 200</h4>
-<pre><code style="display: block; white-space: pre-wrap;">GET /api/packages/242
+#### Success: 200
+```json
+GET /api/packages/242
 200
 {  
    "id":242,
@@ -222,9 +117,10 @@ Get details of an imported or exported package.
    "export_manifest_id":3,
    "download_url":"https://workato-staging-assets,com/packages/zip_files/000/000/242/original/exportdemo.zip"
 }
-</code></pre>
+```
 
-<pre><code style="display: block; white-space: pre-wrap;">GET /api/packages/245
+```json
+GET /api/packages/245
 200
 {  
    "id":242,
@@ -234,9 +130,7 @@ Get details of an imported or exported package.
    "export_manifest_id":4,
    "download_url":"null"
 }
-</code></pre>
-
-</details>
+```
 
 ## Download package
 
@@ -245,56 +139,16 @@ Get details of an imported or exported package.
 ### Description
 If successful, redirects to package content. Returns `404` if package not found or doesn't have content.
 
-<details> <summary> <b>Details</b></summary>
+### Parameters
+| Name | Type | Description |
+| --- | --- | --- |
+| id | **string**<br>_required_ | Package ID. |
 
-<h3> Responses </h3>
-<table class="unchanged rich-diff-level-one" text-align ="center">
-  <thead>
-    <tr>
-        <th width='20%'>Code</th>
-        <th width='80%'>Description</th>
-    </tr>
-  </thead>
-  <tbody>
-  <tr>
-    <td width =200 > <kbd>200</kbd> </td>
-    <td> Success </td>
-  </tr>
-  <tr>
-    <td width =200 > <kbd>400</kbd> </td>
-    <td> Bad request </td>
-  </tr>
-  <tr>
-    <td width =200 > <kbd>401</kbd> </td>
-    <td> Unauthorized </td>
-  </tr>
-  <tr>
-    <td width =200 > <kbd>500</kbd> </td>
-    <td> Server error </td>
-  </tr>
-
-  </tbody>
-</table>
-
-<h3> Parameters</h3>
-<table class="unchanged rich-diff-level-one" text-align ="center">
-  <thead>
-    <tr>
-        <th width='20%'>Parameter name</th>
-        <th width='80%'>Description</th>
-    </tr>
-  </thead>
-  <tbody>
-  <tr>
-    <td width =200 > <b>id</b> <br>required</td>
-    <td>
-    Package ID
-    <br>
-    <b>Validations:</b> <br>
-    <ul>
-    <li>Must be string</li>
-    </ul>
-    </td>
-  </tr>
-  </tbody>
-</table>
+### Responses
+| Code | Description |
+| --- | --- |
+| `200` | Success |
+| `400` | Bad request
+| `401` | Unauthorized |
+| `404` | Not found |
+| `500` | Server error |

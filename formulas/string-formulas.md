@@ -299,6 +299,41 @@ This function returns a partial segment of a string. Pass in 2 parameters - the 
 
 ---
 
+## scan
+
+Scan the string for the pattern to retrieve and return an array
+
+### Example
+
+| Example                    | Result  |
+| -------------------------- | ------- |
+| `"Thu, 01/23/2014".scan(/\d+/).join("-")`  | "01-23-2014"   |
+
+---
+
+## encode
+
+Changes a string to a certain encoding type
+
+### Example
+
+| Example                   |
+| ------------------------- |
+| "Jean Marie".encode("Windows-1252")|
+
+---
+
+## transliterate
+
+Replaces non-ASCII characters with an ASCII approximation, or if none exists, a replacement character which defaults to '?'.
+
+### Example
+
+| Example                   | Result  |
+| ------------------------- | ------- |
+| "Chloé".transliterate     | Chloe   |
+
+---
 # Text case manipulation
 
 This section covers formulas which allow you to change the case of certain parts of a word.
@@ -551,3 +586,27 @@ Converts string or number to a formatted phone number (user-defined).
 | 1235551234.to_phone(area_code: true, extension: 555) | (123) 555-1234 x 555 |
 | 1235551234.to_phone(country_code: 1)     | +1-123-555-1234      |
 | "123a456".to_phone                       | 123a456              |
+
+---
+
+## to_state_code
+
+Convert state name to code.
+
+###Example
+
+| Example                                  | Result               |
+| ---------------------------------------- | -------------------- |
+| "California".to_state_code              | CA                   |
+
+---
+
+## to_state_name
+
+Convert state code to name.
+
+###Example
+
+| Example                                  | Result               |
+| ---------------------------------------- | -------------------- |
+| "CA".to_state_name                       | CALIFORNIA           |

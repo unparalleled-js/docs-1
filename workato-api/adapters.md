@@ -7,68 +7,32 @@ date: 2019-03-21 11:20:00 Z
 Use the following endpoints to retrieve the metadata of connectors in Workato.
 
 ### Supported Formats
-* Json
+* JSON
 
 ## List Connector Metadata
 
 > GET /api/integrations
 
 ### Description
-Returns a list of connectors and associated metadata specified in the query parameters or in the request headers of the API request. 
+Returns a list of connectors and associated metadata specified in the query parameters or in the request headers of the API request. Requires 'oem_vendor' privilege.
 
-<details> <summary> <b>Details</b></summary>
+### Parameters
+| Name | Type | Description |
+| --- | --- | --- |
+| applications | **string**<br>_required_ | Comma separated connector identifiers (e.g: salesforce,service_now). |
 
-<h3>Parameters</h3>
-<table class="unchanged rich-diff-level-one" text-align ="center">
-  <thead>
-    <tr>
-        <th width='20%'>Parameter name</th>
-        <th width='80%'>Description</th>
-    </tr>
-  </thead>
-  <tbody>
-  <tr>
-    <td width =200 > <b> applications</b> <br> optional </td>
-    <td>
-    Comma separated connector identifiers (e.g: salesforce,service_now)
-    <br>
-    <b>Validations:</b> <br>
-    <ul>
-    <li>Must be string</li>
-    </ul>
-    </td>
-  </tr>
-  </tbody>
-</table>
+### Responses
+| Code | Description |
+| --- | --- |
+| `200` | Success |
+| `401` | Unauthorized |
+| `500` | Server error |
 
-<h3> Responses</h3>
-<table class="unchanged rich-diff-level-one" text-align ="center">
-  <thead>
-    <tr>
-        <th width='20%'>Code</th>
-        <th width='80%'>Description</th>
-    </tr>
-  </thead>
-  <tbody>
-  <tr>
-    <td width =200 > <kbd>200</kbd> </td>
-    <td> Success </td>
-  </tr>
-  <tr>
-    <td width =200 > <kbd>401</kbd> </td>
-    <td> Unauthorized </td>
-  </tr>
-  <tr>
-    <td width =200 > <kbd>500</kbd> </td>
-    <td> Server error </td>
-  </tr>
-  </tbody>
-</table>
+### Examples
 
-<h3> Examples</h3>
+#### Success: 200
 
-<h4> Success: 200 </h4>
-<pre><code style="display: block; white-space: pre-wrap;">
+```JSON
 GET /api/adapters
 200
 [
@@ -89,7 +53,4 @@ GET /api/adapters
     "mobile_search": true
   }
 ]
-</code></pre>
-
-
-</details>
+```

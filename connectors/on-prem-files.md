@@ -4,7 +4,7 @@ date: 2018-12-04 06:00:00 Z
 ---
 
 # On-prem Files
-This connector lets you integrate with files within a secure network. These files typically are behind a corporate firewall and cannot be accssed directly. To create a connection to on-prem files, you **must** use an [On-prem agent](/on-prem.md).
+This connector lets you integrate with files within a secure network. These files typically are behind a corporate firewall and cannot be accessed directly. To create a connection to on-prem files, you **must** use an [On-prem agent](/on-prem.md).
 
 Workato's `On-prem files` connector allows you to securely connect to those on-premises files and build automation around them.
 
