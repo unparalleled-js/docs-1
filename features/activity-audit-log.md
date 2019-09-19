@@ -41,7 +41,7 @@ Activity audit log is visible to owner of the account and the users with `Admin`
 | | Member updated | User Deven Maru updated role to Analyst for Zack Chew in team. |
 | **Recipe** | | |
 | | Started | Recipe Offboarding for employees set for termination in Workday was started. |
-| | Stopped | Recipe HTTP | Response From Hire Right -> Update SNOW was stopped. |
+| | Stopped | Response From Hire Right -> Update SNOW was stopped. |
 | | Created | Recipe Employee Day 1 on boarding was created. |
 | | Deleted | Recipe New/updated record will log message to output was deleted. |
 | **Connection** | | |
