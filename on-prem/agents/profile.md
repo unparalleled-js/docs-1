@@ -45,10 +45,10 @@ ldap:
     ...
 ```
 
-**Do not use spaces or special characters in connection profile names.**
+> Do not use spaces or special characters in connection profile names.
 
 ## Running your agent
-After configuring your connection profiles, you will need to run your on-prem agent on your machine. [Check out how to do so on your operating system.](/on-prem/agents/run.md)
+After configuring your connection profiles, you will need to [run your on-prem agent](/on-prem/agents/run.md) on your machine.
 
 ## Applying a new configuration
 A running on-prem agent automatically applies any changes made to the configuration file. Changes to proxy server settings require you to restart the agent.

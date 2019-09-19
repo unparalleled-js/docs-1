@@ -9,7 +9,7 @@ The Workato on-prem agent provides a secure way for Workato to selectively acces
 
 Users can communicate securely with Workato by installing the agent within the protected server.
 
-The on-prem agent is used to create connections that are used by recipes to perform requests. These on-prem connections can be connected to one or more agents in an [on-prem group](/on-prem/agents/groups.md).
+The on-prem agent is used to create connections that are used by recipes to perform requests. These on-prem connections can be connected to one or more agents in an [on-prem group](/on-prem/groups.md).
 
 > **Adding multiple on-prem agents to an on-prem group allows you to achieve high availability with fault tolerance and load balancing capabilities.**
 
@@ -35,9 +35,7 @@ Since the on-prem agent is within the same network as systems behind the firewal
 The on-prem agent runs on the following systems:
 
 - Linux (64-bit)
-
 - Windows 7, 10 (64-bit)
-
 - Mac OS X
 
 Minimum hardware requirements for the system running the on-prem agent are:
