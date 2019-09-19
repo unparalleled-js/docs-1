@@ -8,4 +8,5 @@ Workato is committed to providing a highly secure and reliable integration servi
 
 Find out more about how Workato ensures security:
 - [IP Whitelists](/security/ip-whitelists.md)
-- [Two-factor authentication](/security//two-factor-authentication.md)
+- [Two-factor authentication](/security/two-factor-authentication.md)
+- [Data protection](security/data-protection.md)

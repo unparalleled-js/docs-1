@@ -7,7 +7,7 @@ date: 2019-03-21 12:20:00 Z
 Use the following endpoints to work with Users in Workato.
 
 ### Supported Formats
-* Json
+* JSON
 
 ## Get user details
 
@@ -16,36 +16,18 @@ Use the following endpoints to work with Users in Workato.
 ### Description
 Get details of authenticated user
 
-<details> <summary> <b>Details</b></summary>
+### Responses
+| Code | Description |
+| --- | --- |
+| `200` | Success |
+| `401` | Unauthorized |
+| `500` | Server error |
 
-<h3> Responses </h3>
-<table class="unchanged rich-diff-level-one" text-align ="center">
-  <thead>
-    <tr>
-        <th width='20%'>Code</th>
-        <th width='80%'>Description</th>
-    </tr>
-  </thead>
-  <tbody>
-  <tr>
-    <td width =200 > <kbd>200</kbd> </td>
-    <td> Success </td>
-  </tr>
-  <tr>
-    <td width =200 > <kbd>401</kbd> </td>
-    <td> Unauthorized </td>
-  </tr>
-  <tr>
-    <td width =200 > <kbd>500</kbd> </td>
-    <td> Server error </td>
-  </tr>
-  </tbody>
-</table>
+### Examples
 
-<h3> Examples</h3>
-
-<h4>Success: 200</h4>
-<pre><code style="display: block; white-space: pre-wrap;">GET /api/users/me
+#### Success: 200
+```json
+GET /api/users/me
 200
 {
   "id": 18289,
@@ -69,5 +51,4 @@ Get details of authenticated user
   "phone": null,
   "active_recipes_count": 1
 }
-</code></pre>
-</details>
+```

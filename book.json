@@ -7,6 +7,7 @@
     "-fontsettings",
     "favicon",
     "toggle-chapters",
+    "intopic-toc",
     "ga"
   ],
   "pluginsConfig": {
@@ -17,6 +18,10 @@
     },
     "ga": {
       "token": "UA-104783574-1"
+    },
+    "intopic-toc": {
+      "label": "Contents",
+      "visible": false
     },
     "favicon": {
       "shortcut": "/assets/images/favicon/favicon.ico",
