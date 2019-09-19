@@ -1,6 +1,7 @@
 ---
 title: On-prem Agent - Setting up On-prem Agent
 date: 2018-05-09 12:00:00 Z
+isTocVisible: true
 ---
 
 # Setting up On-prem Agent
