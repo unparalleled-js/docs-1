@@ -8,14 +8,14 @@ isTocVisible: true
 A single Workato on-prem agent can be used to connect with multiple on-prem applications. A **connection profile** uniquely identifies each one and contains configuration information required to connect to that application.
 
  Profiles are configured in the `<INSTALL_HOME>/conf/config.yml`. A config file can contain profiles to a few types of systems:
- - [Databases](#database-connection-profile)
- - [On-prem file systems](#on-prem-files-connection-profile)
- - [SAP](#sap-connection-profile)
- - [Java messaging service](#jms-connection-profile)
- - [Apache Kafka](#apache-kafka-connection-profile)
- - [Active Directory](#active-directory-connection-profile)
- - [HTTP resource](#http-resources)
- - [NTLM](#ntlm-connection-profile)
+ - [Databases](#database-profile)
+ - [On-prem file systems](#on-prem-files-profile)
+ - [SAP](#sap-profile)
+ - [Java messaging service](#jms-profile)
+ - [Apache Kafka](#apache-kafka-profile)
+ - [Active Directory](#active-directory-profile)
+ - [HTTP profile](#http-profile)
+ - [NTLM](#ntlm-profile)
  - [Command-line scripts](#command-line-scripts-profile)
  - [Extensions](#extensions-profile)
 
@@ -45,15 +45,15 @@ ldap:
     ...
 ```
 
-**Do not use spaces or special characters in connection profile names.**
+> Do not use spaces or special characters in connection profile names.
 
 ## Running your agent
-After configuring your connection profiles, you will need to run your on-prem agent on your machine. [Check out how to do so on your operating system.](/on-prem/agents/run.md)
+After configuring your connection profiles, you will need to [run your on-prem agent](/on-prem/agents/run.md) on your machine.
 
 ## Applying a new configuration
 A running on-prem agent automatically applies any changes made to the configuration file. Changes to proxy server settings require you to restart the agent.
 
-## Database connection profile
+## Database profile
 Database connection profiles are located in the `database` section of `<INSTALL_HOME>/conf/config.yml`.
 
 A database type is specified either by using the `adapter` property or a complete JDBC URL provided in the `url` property. Using the following `adapter` values for the respective database you are connecting to. The following databases are supported by the on-prem agent - use them as `adapter` values for the respective databases you connect to.
@@ -150,7 +150,7 @@ database:
     password: xxx
 ```
 
-### JDBC connection profile
+### JDBC profile
 When creating connection profile to other JDBC-compatible databases, the configuration is special. These profiles require `url` and `driverClass` properties, where `url` is a valid JDBC URL and `driverClass`  provides fully-qualified name of JDBC driver class for the given database. The driver class must be available on the agent's classpath;
 note that your agent's classpath can be extended in the `server` section of the configuration file:
 ```YAML
@@ -166,7 +166,7 @@ server:
   classpath: /opt/workato-agent/jdbc
 ```
 
-## On-prem files connection profile
+## On-prem files profile
 Working with on-prem files requires you to define a file system profile in the `files` section.
 You need to specify the base folder for file access as it will be used for resolving relative paths. A folder named `HR` in the `C:/Documents/` directory will be configured like this:
 
@@ -184,7 +184,7 @@ files:
     base: "/Users/me/Desktop/employees"
 ```
 
-## SAP connection profile
+## SAP profile
 SAP connection profile must be defined in the `server` and `sap` section. The `server` section looks like this:
 
 ```YAML
@@ -372,7 +372,7 @@ The below property is required to get IDoc dropdown list populated in the Workat
 
 - **OUT_RCVPRN**: Receiver Partner profile type defined for the SAP. Can be the same as **RCVPRN** above for ease of use.
 
-## JMS connection profile
+## JMS profile
 JMS connection profiles must be defined in the `jms` section. A JMS provider is specified by `provider` property of a connection profile. The following JMS providers are supported by the on-prem agent:
 
 <table class="unchanged rich-diff-level-one">
@@ -418,7 +418,7 @@ jms:
 
 ActiveMQ broker cannot be embedded into the agent. Using any `vm://` broker connections is not supported.
 
-## Apache Kafka connection profile
+## Apache Kafka profile
 Kafka connection profiles must be defined in the `kafka` section. You need the following configuration properties when connecting to Kafka:
 ```YAML
 kafka:
@@ -464,7 +464,7 @@ kafka:
 
 Note that password-protected private keys cannot be inlined.
 
-## Active Directory connection profile
+## Active Directory profile
 Active Directory connection profiles must be defined in the `ldap` section.  Example profile:
 ```YAML
 ldap:
@@ -552,7 +552,7 @@ ldap:
   </tbody>
 </table>
 
-## HTTP resources
+## HTTP profile
 
 The `http` configuration section allows configuring agent access to internal HTTPS resources:
 ```YAML
@@ -565,7 +565,7 @@ The agent may be configured to allow accessing internal HTTPS resources which us
 
 Normally a server certificate's Common Name (or Subject Alternate Name) field should match the target hostname. If you want the agent to accept server certificates with non-matching hostname, disable hostname verification by setting `verifyHost` property to `false` (defaults to `true`).
 
-## NTLM connection profile
+## NTLM profile
 Certain HTTP resources require NTLM authentication. This can be done using a NTLM connection profile. Here are some example NTLM profiles:
 ```YAML
 ntlm:

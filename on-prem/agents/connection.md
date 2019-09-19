@@ -46,7 +46,7 @@ When configuring an on-prem files connection to this profile, we will need to pr
 *On-prem file connection using on-prem agent*
 
 ## Next Steps
-1) [Upgrade your on-prem agent](/on-prem/agents/upgrade.md)
-2) [Avoid exposure of any sensitive data by using the encryptor tool provided](/on-prem/agents/password-encryption.md)
-3) [Run your on-prem agent in environments with limited internet connectivity](/on-prem/agents/proxy.md)
-4) [Connect to legacy applications using Java](/on-prem/agents/extension.md)
+* [Upgrade your on-prem agent](/on-prem/agents/upgrade.md)
+* [Avoid exposure of any sensitive data by using the encryptor tool provided](/on-prem/agents/password-encryption.md)
+* [Run your on-prem agent in environments with limited internet connectivity](/on-prem/agents/proxy.md)
+* [Connect to legacy applications using Java](/on-prem/agents/extension.md)
