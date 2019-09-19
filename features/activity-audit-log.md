@@ -56,6 +56,11 @@ Activity audit log is visible to owner of the account and the users with `Admin`
 | | Exported | User Gabriel Sim exported package ai-document-understanding.zip. |
 | | Imported | User Bryan Yap imported package listevents.zip. |
 
+## Activity audit data retention
+The activity audit log data will be retained for one year from when it is generated. To get longer data retention period, you may reach out to Workato sales representative at +1 (844) 469-6752 to find out more.
+
+Alternatively, you can use the activity log streaming to stream the data to your choice of data storage like `Amazon S3` or data storage providers like `sumologic` using the standard REST API interface. You can find more information about audit log streaming [here](/job-history-replication.md).
+
 ## Activity audit logs in more detail
 
 Imagine an unplanned stoppage of a business critical recipe syncing product SKU data between your ERP like NetSuite or SAP and e-commerce app; or an update to Salesforce connection settings rendering it inactive; or someone inadvertently deleting a employee onboarding recipe connecting to Workday, a connection, or a folder. As an administrator, would you like to know if user login has failed? And how many times? Below are some examples where you will find the audit of activities that provide just the answers to the scenarios outlined above.
