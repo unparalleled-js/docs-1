@@ -17,8 +17,8 @@ The following is a conceptual model of Workato's on-prem agent and how it intera
 
 On-prem agents can also be installed into logical groups, called [On-prem groups](/on-prem/groups.md), to achieve **High Availability** and **Load Balancing** capabilities.
 
-<!-- ![On-prem group model](/assets/images/on-prem/on_prem_conceptual_model.png)
-*Conceptual model for on-prem agents in a group* -->
+![On-prem group model](/assets/images/on-prem/on_prem_group_conceptual_model.png)
+*Conceptual model for on-prem agents in a group*
 
 ## How it works
 Workato on-prem connectivity has 2 core components:
