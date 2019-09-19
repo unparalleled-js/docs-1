@@ -86,4 +86,5 @@ Supported blocks are displayed in the table below.
 </table>
 
 # Limitations
-You can include up to 50 blocks in each message.
+- Include up to 50 blocks in each message.
+- File blocks are not supported at this point of time.
