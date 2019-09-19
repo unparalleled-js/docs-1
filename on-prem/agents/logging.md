@@ -1,6 +1,7 @@
 ---
 title: On-prem Agent - Logging
 date: 2019-08-09 00:00:00 Z
+isTocVisible: true
 ---
 
 # On-prem Agent logs

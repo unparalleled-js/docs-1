@@ -1,6 +1,7 @@
 ---
 title: On-prem Agent - Connection Profiles
 date: 2017-02-22 12:00:00 Z
+isTocVisible: true
 ---
 
 # Connection Profiles

@@ -1,6 +1,7 @@
 ---
 title: On-prem Agent - Extensions
 date: 2018-11-29 12:00:00 Z
+isTocVisible: true
 ---
 
 # Extensions
