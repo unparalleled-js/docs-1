@@ -158,6 +158,7 @@
     * [Extensions](on-prem/agents/extension.md)
 * [Key features](features.md)
   * [Workato Dashboard](features/admin-dashboard.md)
+  * [Activity audit log](/features/activity-audit-log.md)
   * [Scheduler](features/scheduler.md)
   * [Secondary connectors](features/secondary-connectors.md)
   * [Lookup tables](features/lookup-tables.md)
