@@ -16,36 +16,6 @@ The on-prem agent is used to create connections that are used by recipes to perf
 ![On-prem menu option](/assets/images/on-prem/navigate-to-opa.gif)
 *On-prem menu option*
 
-## Overview
-The following is a conceptual model of Workato's on-prem agent and how it interacts with databases and applications behind the firewall.
-
-![On-prem model](/assets/images/on-prem/on_prem_conceptual_model.png)
-*Conceptual model for on-prem agent and connector*
-
-Workato on-prem connectivity has 2 core components:
-
-- Tunneling
-- Database, file system, and application access.
-
-The on-prem agent runs within the user's server, typically behind a firewall, and establishes a TLS websocket tunnel to connect out to Workato.
-
-Since the on-prem agent is within the same network as systems behind the firewall, it can safely access them and act as the agent to communicate securely out to Workato.
-
-## Supported operating systems
-The on-prem agent runs on the following systems:
-
-- Linux (64-bit)
-- Windows 7, 10 (64-bit)
-- Mac OS X
-
-Minimum hardware requirements for the system running the on-prem agent are:
-
-- 8GB of RAM
-- 250 MB of disk space
-- 800 Mhz 64-bit CPU (Intel/AMD).
-
-[Detailed instructions on how to set up for each operating system](https://docs.workato.com/on-prem/agents/setup.html).
-
 ## Common errors when using the on-prem agent
 If connecting to on-prem applications fail, check that:
 - The selected agent is active
@@ -56,3 +26,14 @@ If connecting to on-prem databases fail, check that:
 - Selected agent is active
 - Credentials provided in the connection profile are correct
 - Database name and type provided in the connection profile is correct
+
+## In this section
+* [Setup agent](/on-prem/agents/setup.md)
+* [Run agent](/on-prem/agents/run.md)
+* [Profiles](/on-prem/agents/profile.md)
+* [Upgrade agent](/on-prem/agents/upgrade.md)
+* [On-prem connections](/on-prem/agents/connection.md)
+* [Password encryption](/on-prem/agents/password-encryption.md)
+* [Proxy server](/on-prem/agents/proxy.md)
+* [Logging](/on-prem/agents/logging.md)
+* [Extensions](/on-prem/agents/extension.md)

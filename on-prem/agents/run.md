@@ -53,5 +53,5 @@ To finish re-establishing the connection, go to the On-prem group dashboard and 
 
 | Step       | Description |
 | ---------- | :---------- |
-| 1. Toggle **Enable agent** | From the Workato On-prem group dashboard, select **Enable agent**.<br>![Enable on-prem agent](/assets/images/on-prem/toggle-opa-on.png) |
-| 2. Connection established | Workato will send a request to your on-prem agent to establish a connection. If sucecessful, the status will return to **Active**.<br>![Enable on-prem agent](/assets/images/on-prem/opa-connected.png) |
+| Enable agent | From the Workato On-prem group dashboard, select **Enable agent**.<br>![Enable on-prem agent](/assets/images/on-prem/toggle-opa-on.png) |
+| Connection established | Workato will send a request to your on-prem agent to establish a connection. If sucecessful, the status will return to **Active**.<br>![Enable on-prem agent](/assets/images/on-prem/opa-connected.png) |
