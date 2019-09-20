@@ -203,6 +203,7 @@
   * [Slack vs Workbot](workbot/workbot.md#slack-connector-vs-workbot-for-slack-connector)
   * [Workbot for Slack setup](workbot/workbot-for-slack-setup.md)
   * [Using Workbot for Slack](workbot/using-workbot-for-slack.md)
+  * [Block kit](workbot/block-kit.md)
   * [Workbot triggers](workbot/workbot-triggers.md)
     * [New message action](workbot/workbot-message-action.md)
     * [New command](/workbot/workbot-triggers.md#new-command-trigger-building-custom-commands)
