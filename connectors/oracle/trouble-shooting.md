@@ -24,7 +24,7 @@ Workao employs [timeouts on jobs and actions](/recipes/recipe-job-errors.md#time
 ### Unable to connect to existing database
 When your database connection returns an error when you try to connect, here are some possible reasons:
 
-* On-premises agent is inactive (when using an on-premises agent) and needs to be [restarted](/on-prem/run.md).
+* On-premises agent is inactive (when using an on-premises agent) and needs to be [restarted](/on-prem/agents/run.md).
 * Credentials to your database have changed. Contact your database administrator for help.
 * Your database server does not accept network requests from Workato or the server that has our OPA installed. Configure your network access control to allow access to Workato or our OPAs.
 

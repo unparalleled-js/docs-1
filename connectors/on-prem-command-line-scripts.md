@@ -16,7 +16,7 @@ Workato's `On-prem command-line scripts` connector allows you to run whitelisted
 
 2.  Next, find the agent's `config.yml` file and [setup a connection profile](https://docs.workato.com/on-prem/profile.html#command-line-scripts-profile) for `On-prem command-line scripts`. Following the example provided in the documentation provided, we have created a profile called `workday_reports`.
 
-3) [Run the on-prem agent](https://docs.workato.com/on-prem/run.html). Then check your [on-prem agent management page](https://www.workato.com/secure_agents) and make sure your agent is `Active`.
+3) [Run the on-prem agent](https://docs.workato.com/on-prem/run.html). Then check your [on-prem agent management page](https://www.workato.com/on_prem_groups) and make sure your agent is `Active`.
 
 ![On-prem agent management page](/assets/images/connectors/on-prem-command-line-scripts/on-prem-scripts-activeprofile.png)
 

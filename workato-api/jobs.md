@@ -7,138 +7,39 @@ date: 2019-03-21 11:20:00 Z
 Use the following endpoints to retrieve recipe job data in Workato.
 
 ## Supported Formats
-* Json
+* JSON
 
-## List Jobs belonging to a Recipe
+## List Jobs from a Recipe
 
 > GET /api/recipes/:recipe_id/jobs  
 
 ### Description
 Returns aggregated job information as well as detailed job information for a specified recipe in Workato.
 
-<details> <summary> <b>Details</b></summary>
+### Parameters
+| Name | Type | Description |
+| --- | --- | --- |
+| recipe_id | **integer**<br>_required_ | Recipe id. |
+| offset_run_id | **integer**<br>_(deprecated)_ | Offset run id. |
+| offset_job_id | **integer**<br>_optional_ | Offset job id. Jobs occuring after the offset job will be returned. |
+| prev | **boolean**<br>_optional_ | Previous jobs if 'true', next otherwise. |
+| failed | **boolean**<br>_(deprecated)_ | If `True`, returns failed jobs only. |
+| status | **string**<br>_optional_ | Filter by status - succeeded, failed, pending. |
+| rerun_jobs | **boolean**<br>_optional_ | If `True`, returns rerun jobs only. |
 
-<h3> Parameters</h3>
-<table class="unchanged rich-diff-level-one" text-align ="center">
-  <thead>
-    <tr>
-        <th width='20%'>Parameter name</th>
-        <th width='80%'>Description</th>
-    </tr>
-  </thead>
-  <tbody>
-  <tr>
-    <td width =200 > <b>recipe_id</b> <br> required </td>
-    <td>
-    Recipe ID
-    <br>
-    <b>Validations:</b> <br>
-    <ul>
-    <li>Must be number</li>
-    </ul>
-    </td>
-  </tr>
-  <tr>
-    <td width =200 > <b>offset_run_id</b> <br>optional</td>
-    <td>
-    offset_run_id (deprecated)
-    <br>
-    <b>Validations:</b> <br>
-    <ul>
-    <li>Must be number</li>
-    </ul>
-    </td>
-  </tr>
-  <tr>
-    <td width =200 > <b>offset_job_id </b> <br>optional</td>
-    <td>
-    offset_job_id
-    <br>
-    <b>Validations:</b> <br>
-    <ul>
-    <li>Must be number</li>
-    </ul>
-    </td>
-  </tr>
-  <tr>
-    <td width =200 > <b>prev</b> <br>optional</td>
-    <td>
-    Previous jobs if 'true', next otherwise
-    <br>
-    <b>Validations:</b> <br>
-    <ul>
-    <li>Must be string</li>
-    </ul>
-    </td>
-  </tr>
-  <tr>
-    <td width =200 > <b>failed</b> <br>optional</td>
-    <td>
-    Return failed jobs only if 'true' (deprecated)
-    <br>
-    <b>Validations:</b> <br>
-    <ul>
-    <li>Must be string</li>
-    </ul>
-    </td>
-  </tr>
-  <tr>
-    <td width =200 > <b>status</b> <br>optional</td>
-    <td>
-    Filter by status - succeeded, failed, pending
-    <br>
-    <b>Validations:</b> <br>
-    <ul>
-    <li>Must be string</li>
-    </ul>
-    </td>
-  </tr>
-  <tr>
-    <td width =200 > <b>rerun_only</b> <br>optional</td>
-    <td>
-    Return rerun jobs only if 'true'
-    <br>
-    <b>Validations:</b> <br>
-    <ul>
-    <li>Must be string</li>
-    </ul>
-    </td>
-  </tr>
-  </tbody>
-</table>
+### Responses
+| Code | Description |
+| --- | --- |
+| `200` | Success |
+| `401` | Unauthorized |
+| `404` | Not found |
+| `500` | Server error |
 
-<h3> Responses</h3>
-<table class="unchanged rich-diff-level-one" text-align ="center">
-  <thead>
-    <tr>
-        <th width='20%'>Code</th>
-        <th width='80%'>Description</th>
-    </tr>
-  </thead>
-  <tbody>
-  <tr>
-    <td width =200 > <kbd>200</kbd> </td>
-    <td> Success </td>
-  </tr>
-  <tr>
-    <td width =200 > <kbd>401</kbd> </td>
-    <td> Unauthorized </td>
-  </tr>
-  <tr>
-    <td width =200 > <kbd>404</kbd> </td>
-    <td> Not found </td>
-  </tr>
-  <tr>
-    <td width =200 > <kbd>500</kbd> </td>
-    <td> Server error </td>
-  </tr>
-  </tbody>
-</table>
+### Examples
 
-<h3> Examples</h3>
-
-<h4> Success: 200</h4>
-<pre><code style="display: block; white-space: pre-wrap;">GET /api/recipes/137/jobs?offset_run_id=1&offset_job_id=2&prev=true
+#### Success: 200
+```json
+GET /api/recipes/137/jobs?offset_run_id=1&offset_job_id=2&prev=true
 200
 {
   "job_succeeded_count": 5,
@@ -204,9 +105,10 @@ Returns aggregated job information as well as detailed job information for a spe
     }
   ]
 }
-</code></pre>
+```
 
-<pre><code style="display: block; white-space: pre-wrap;">GET /api/recipes/138/jobs?offset_run_id=1&offset_job_id=2&failed=true
+```json
+GET /api/recipes/138/jobs?offset_run_id=1&offset_job_id=2&failed=true
 200
 {
   "job_succeeded_count": 5,
@@ -261,14 +163,4 @@ Returns aggregated job information as well as detailed job information for a spe
     }
   ]
 }
-</code></pre>
-
-<h4> Recipe not found : 404 </h4>
-<pre><code style="display: block; white-space: pre-wrap;">GET /api/recipes/140/jobs
-404
-{
-  "message": "Not found"
-}
-</code></pre>
-
-</details>
+```

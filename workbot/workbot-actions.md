@@ -6,13 +6,18 @@ date: 2017-03-30 05:00:00 Z
 # Workato actions for Slack
 Workbot actions allow Workbot to post notifications into a specified channel when there are events to take note of, or respond to a command.
 
-Workbot supports 5 actions:
+Workbot supports 6 actions:
 * [Post command reply](#post-command-reply)
 * [Post notifications](#post-notifications)
 * [Post message](#post-message)
 * [Download attachment](#download-attachment)
 * [Return menu options](#return-menu-options)
 * [Upload file](#upload-file)
+
+## Block kit compatibility
+Blocks can be used together with existing message attachments present in the [Post command reply](#post-command-reply) and [Post message](#post-message).
+
+For more information, see [Block kit](/workbot/block-kit.md).
 
 ## Post command reply
 Post command reply allows you to customize how Workbot replies when an event is completed. This reply can be a simple message about the task completion, or a prompt for the user to take a subsequent action once the first has been done, e.g. after retrieving data for a custom account in Salesforce, ask if the user wishes to copy that information across to another application.

@@ -178,7 +178,7 @@ Up until now, our sample code snippets have largely only included the basic para
             <td>An optional key. This must be accompanied with `render_output`. Since our payloads are normally JSON objects, they are normally represented as strings. This field helps to convert them to other data types such like integers.
             <ul>
               <li><code>"integer_conversion"</code> - converts output into data type integer/number</li>
-              <li><code>"date_time_conversion"</code> - converts input into a format that matches Javascript's Date objects <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date/toJSON">toJson</a> method</li>
+              <li><code>"date_time_conversion"</code> - converts input into a format that matches Javascript's Date objects <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date/toJSON">toJSON</a> method</li>
               <li><code>"boolean_conversion"</code> - converts input into data type boolean</li>
             <ul>
             </td>
