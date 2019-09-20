@@ -46,7 +46,7 @@ API tokens are the primary method to authenticate with Jira. For on-premise Jira
 
 
 - **Is this app in a private network?**
-  To connect to on-premise Jira instances, set up the [on-premise agent](https://www.workato.com/secure_agents). Ability to use the on-premise access functionality depends on the Workato plan subscribed to.
+  To connect to on-premise Jira instances, set up the [on-premise agent](https://www.workato.com/on_prem_groups). Ability to use the on-premise access functionality depends on the Workato plan subscribed to.
 
 ### Basic authentication with password
 Basic authentication with password can be used to authenticate with Jira.
@@ -70,7 +70,7 @@ Basic authentication with password can be used to authenticate with Jira.
   Password to connect to Jira.
 
 - **Is this app in a private network?**
-  To connect to on-premise Jira instances, set up the [on-premise agent](https://www.workato.com/secure_agents). Ability to use the on-premise access functionality depends on the Workato plan subscribed to.
+  To connect to on-premise Jira instances, set up the [on-premise agent](https://www.workato.com/on_prem_groups). Ability to use the on-premise access functionality depends on the Workato plan subscribed to.
 
 ## Roles and permissions required to connect
 Jira users who have login access to their Jira instance can connect to Workato using their credentials. However, we recommend that a separate user (with Jira Administrator global permissions) be created for integration purposes.

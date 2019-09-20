@@ -7,7 +7,20 @@ date: 2019-03-21 11:20:00 Z
 Use the following endpoints to work with recipes in Workato.
 
 ### Supported Formats
-* Json
+* JSON
+
+### Contents
+
+| Resource | Description |
+|----------------|-------------|
+|[GET /api/recipes/:id](#get-recipe-details) | Get recipe details|
+|[POST /api/recipes](#create-a-recipe) | Create recipe |
+|[PUT /api/recipes/:id](#update-a-recipe) | Update recipe |
+|[GET /api/recipes](#list-recipes-belonging-to-user)| List recipes belonging to user |
+|[GET /api/recipes/search](#search-for-public-recipes) | Search for public recipes. Requires 'oem_vendor' privilege. |
+| [PUT /api/recipes/:id/start](#start-recipe) | Start recipe |
+| [PUT /api/recipes/:id/stop](#stop-recipe) | Stop recipe |
+| [DELETE /api/recipes/:id](#delete-recipe) | Delete recipe |
 
 ## Get recipe details
 
@@ -16,63 +29,24 @@ Use the following endpoints to work with recipes in Workato.
 ### Description
 Returns a recipe object.
 
-<details> <summary> <b>Details</b></summary>
+### Parameters
+| Name | Type | Description |
+| --- | --- | --- |
+| id | **integer**<br>_required_ | Recipe ID. |
 
-<h3> Parameters</h3>
-<table class="unchanged rich-diff-level-one" text-align ="center">
-  <thead>
-    <tr>
-        <th width='20%'>Parameter name</th>
-        <th width='80%'>Description</th>
-    </tr>
-  </thead>
-  <tbody>
-  <tr>
-    <td width =200 > <b>id</b> <br>required</td>
-    <td>
-    Recipe ID
-    <br>
-    <b>Validations:</b> <br>
-    <ul>
-    <li>Must be number</li>
-    </ul>
-    </td>
-  </tr>
-  </tbody>
-</table>
+### Responses
+| Code | Description |
+| --- | --- |
+| `200` | Success |
+| `400` | Bad request |
+| `404` | Not found |
+| `500` | Server error |
 
-<h3> Responses</h3>
-<table class="unchanged rich-diff-level-one" text-align ="center">
-  <thead>
-    <tr>
-        <th width='20%'>Code</th>
-        <th width='80%'>Description</th>
-    </tr>
-  </thead>
-  <tbody>
-  <tr>
-    <td width =200 > <kbd>200</kbd> </td>
-    <td> Success </td>
-  </tr>
-  <tr>
-    <td width =200 > <kbd>401</kbd> </td>
-    <td> Unauthorized </td>
-  </tr>
-  <tr>
-    <td width =200 > <kbd>404</kbd> </td>
-    <td> Not found </td>
-  </tr>
-  <tr>
-    <td width =200 > <kbd>500</kbd> </td>
-    <td> Server error </td>
-  </tr>
-  </tbody>
-</table>
+### Examples
 
-<h3> Examples </h3>
-
-<h4> Success: 200</h4>
-<pre><code style="display: block; white-space: pre-wrap;">GET /api/recipes/48
+#### Success: 200
+```json
+GET /api/recipes/48
 200
 {
   "id": 48,
@@ -112,17 +86,16 @@ Returns a recipe object.
   ],
   "author_name": "Test User36"
 }
-</code></pre>
+```
 
-<h4> Not found: 404</h4>
-<pre><code style="display: block; white-space: pre-wrap;">GET /api/recipes/100500
+#### Not found: 404
+```json
+GET /api/recipes/100500
 404
 {
   "message": "Not found"
 }
-</code></pre>
-
-</details>
+```
 
 ## Create a recipe
 
@@ -131,103 +104,38 @@ Returns a recipe object.
 ### Description
 Creates a recipe in Workato based on parameters in request.
 
-<details> <summary><b>Details</b></summary>
+### Parameters
+| Name | Type | Description |
+| --- | --- | --- |
+| recipe | **hash**<br>_optional_ | The hash of the recipe. |
+| recipe[name] | **string**<br>_optional_ | Name of the recipe. |
+| recipe[code] | **string**<br>_optional_ | JSON string representing the recipe lines.
+| recipe[config] | **string**<br>_optional_ | JSON string representing the connection lines. |
 
-<h3> Parameters</h3>
-<table class="unchanged rich-diff-level-one" text-align ="center">
-  <thead>
-    <tr>
-        <th width='20%'>Parameter name</th>
-        <th width='80%'>Description</th>
-    </tr>
-  </thead>
-  <tbody>
-  <tr>
-    <td width =200 > <b>recipe</b> <br>optional</td>
-    <td>
-    <b>Validations:</b> <br>
-    <ul>
-    <li>Must be a hash</li>
-    </ul>
-    </td>
-  </tr>
-  <tr>
-    <td width =200 > <b>recipe[name]</b> <br>optional</td>
-    <td>
-    Name of the recipe
-    <br>
-    <b>Validations:</b> <br>
-    <ul>
-    <li>Must be a string</li>
-    </ul>
-    </td>
-  </tr>
-  <tr>
-    <td width =200 > <b>recipe[code]</b> <br>optional</td>
-    <td>
-    JSON string representing the recipe lines
-    <br>
-    <b>Validations:</b> <br>
-    <ul>
-    <li>Must be a string</li>
-    </ul>
-    </td>
-  </tr>
-  <tr>
-    <td width =200 > <b>recipe[config]</b> <br>optional</td>
-    <td>
-    JSON string representing the connection lines
-    <br>
-    <b>Validations:</b> <br>
-    <ul>
-    <li>Must be a string</li>
-    </ul>
-    </td>
-  </tr>
-  </tbody>
-</table>
+### Responses
+| Code | Description |
+| --- | --- |
+| `200` | Success |
+| `401` | Unauthorized |
+| `500` | Server error |
 
-<h3> Responses</h3>
-<table class="unchanged rich-diff-level-one" text-align ="center">
-  <thead>
-    <tr>
-        <th width='20%'>Code</th>
-        <th width='80%'>Description</th>
-    </tr>
-  </thead>
-  <tbody>
-  <tr>
-    <td width =200 > <kbd>200</kbd> </td>
-    <td> Success </td>
-  </tr>
-  <tr>
-    <td width =200 > <kbd>401</kbd> </td>
-    <td> Unauthorized </td>
-  </tr>
-  <tr>
-    <td width =200 > <kbd>500</kbd> </td>
-    <td> Server error </td>
-  </tr>
-  </tbody>
-</table>
+### Examples
 
-<h3> Examples</h3>
-
-<h4> Success: 200</h4>
-<pre><code style="display: block; white-space: pre-wrap;">POST /api/recipes
+#### Success: 200
+```json
+POST /api/recipes
 {
   "name": "Send mail",
   "code": "{\"number\":0,\"provider\":\"clock\",\"name\":\"timer\",\"as\":\"timer\",\"keyword\":\"trigger\",\"dynamicPickListSelection\":{},\"toggleCfg\":{},\"input\":{\"interval\":\"5\",\"start_at\":\"\"},\"block\":[{\"number\":1,\"provider\":\"email\",\"name\":\"send_mail\",\"as\":\"send_mail\",\"keyword\":\"action\",\"dynamicPickListSelection\":{},\"toggleCfg\":{},\"input\":{},\"uuid\":\"cd865246-ece7-4188-845e-33d021664be3\"}],\"uuid\":\"c4b0778d-5a23-4c52-a5bb-4a99ae5d25ae\"}",
   "config": "[{\"keyword\":\"application\",\"name\":\"clock\",\"provider\":\"clock\"},{\"keyword\":\"application\",\"name\":\"email\",\"provider\":\"email\"}]"
 }
+
 200
 {
   "success": true,
   "id": 116
 }
-</code></pre>
-
-</details>
+```
 
 ## Update a recipe
 
@@ -236,105 +144,28 @@ Creates a recipe in Workato based on parameters in request.
 ### Description
 Updates a recipe in Workato based on specified recipe ID.
 
-<details> <summary><b>Details</b></summary>
+### Parameters
+| Name | Type | Description |
+| --- | --- | --- |
+| id | **integer**<br>_required_ | Recipe ID. |
+| recipe | **hash**<br>_optional_ | The hash of the recipe. |
+| recipe[name] | **string**<br>_optional_ | Name of the recipe. |
+| recipe[code] | **string**<br>_optional_ | JSON string representing the recipe lines.
+| recipe[config] | **string**<br>_optional_ | JSON string representing the connection lines. |
 
-<h3> Parameters</h3>
-<table class="unchanged rich-diff-level-one" text-align ="center">
-  <thead>
-    <tr>
-        <th width='20%'>Parameter name</th>
-        <th width='80%'>Description</th>
-    </tr>
-  </thead>
-  <tbody>
-  <tr>
-    <td width =200 > <b>id</b> <br>required</td>
-    <td>
-    Recipe ID
-    <br>
-    <b>Validations:</b> <br>
-    <ul>
-    <li>Must be a number</li>
-    </ul>
-    </td>
-  </tr>
-  <tr>
-    <td width =200 > <b>recipe</b> <br>optional</td>
-    <td>
-    <b>Validations:</b> <br>
-    <ul>
-    <li>Must be a Hash</li>
-    </ul>
-    </td>
-  </tr>
-    <tr>
-    <td width =200 > <b>recipe[name]</b> <br>optional</td>
-    <td>
-    Name of the recipe
-    <br>
-    <b>Validations:</b> <br>
-    <ul>
-    <li>Must be a string</li>
-    </ul>
-    </td>
-  </tr>
-  <tr>
-    <td width =200 > <b>recipe[code]</b> <br>optional</td>
-    <td>
-    JSON string representing the recipe lines
-    <br>
-    <b>Validations:</b> <br>
-    <ul>
-    <li>Must be a string</li>
-    </ul>
-    </td>
-  </tr>
-  <tr>
-    <td width =200 > <b>recipe[config]</b> <br>optional</td>
-    <td>
-    JSON string representing the connection lines
-    <br>
-    <b>Validations:</b> <br>
-    <ul>
-    <li>Must be a string</li>
-    </ul>
-    </td>
-  </tr>
-  </tbody>
-</table>
+### Responses
+| Code | Description |
+| --- | --- |
+| `200` | Success |
+| `401` | Unauthorized |
+| `404` | Not found |
+| `500` | Server error |
 
-<h3>Responses</h3>
-<table class="unchanged rich-diff-level-one" text-align ="center">
-  <thead>
-    <tr>
-        <th width='20%'>Code</th>
-        <th width='80%'>Description</th>
-    </tr>
-  </thead>
-  <tbody>
-  <tr>
-    <td width =200 > <kbd>200</kbd> </td>
-    <td> Success </td>
-  </tr>
-  <tr>
-    <td width =200 > <kbd>401</kbd> </td>
-    <td> Unauthorized </td>
-  </tr>
-  <tr>
-    <td width =200 > <kbd>404</kbd> </td>
-    <td> Not found </td>
-  </tr>
-  <tr>
-    <td width =200 > <kbd>500</kbd> </td>
-    <td> Server error </td>
-  </tr>
-  </tbody>
-</table>
+### Examples
 
-<h3> Examples</h3>
-
-<h4> Success: 200</h4>
-<pre><code style="display: block; white-space: pre-wrap;">PUT /api/recipes/1
+#### Success: 200
+```json
+PUT /api/recipes/1
 {
   "name": "Send mail",
   "code": "{\"number\":0,\"provider\":\"clock\",\"name\":\"timer\",\"as\":\"timer\",\"keyword\":\"trigger\",\"dynamicPickListSelection\":{},\"toggleCfg\":{},\"input\":{\"interval\":\"5\",\"start_at\":\"\"},\"block\":[{\"number\":1,\"provider\":\"email\",\"name\":\"send_mail\",\"as\":\"send_mail\",\"keyword\":\"action\",\"dynamicPickListSelection\":{},\"toggleCfg\":{},\"input\":{},\"uuid\":\"cd865246-ece7-4188-845e-33d021664be3\"}],\"uuid\":\"c4b0778d-5a23-4c52-a5bb-4a99ae5d25ae\"}",
@@ -344,10 +175,10 @@ Updates a recipe in Workato based on specified recipe ID.
 {
   "success": true
 }
-</code></pre>
+```
 
-<pre><code style="display: block; white-space: pre-wrap;">PUT /api/recipes/2
-
+```json
+PUT /api/recipes/2
 200
 {
   "success": false,
@@ -357,9 +188,7 @@ Updates a recipe in Workato based on specified recipe ID.
     ]
   }
 }
-</code></pre>
-
-</details>
+```
 
 ## List recipes belonging to user
 
@@ -368,102 +197,26 @@ Updates a recipe in Workato based on specified recipe ID.
 ### Description
 Returns a list of recipes belonging to the authenticated user with respect to different filters. Recipes are returned in descending ID order.
 
-<details> <summary><b>Details</b></summary>
+| Name | Type | Description |
+| --- | --- | --- |
+| adapter_names_any | **string**<br>_optional_ | List of adapters names. Resulting recipes should use at least one of given adapters. |
+| adapter_names_all | **string**<br>_optional_ | List of adapters names. Resulting recipes should use all of given adapters. |
+| active | **string**<br>_optional_ | If `True`, returns running recipes. |
+| since_id | **integer**<br>_optional_ | Find recipes with ID less than the given ID. |
+| order | **string**<br>_optional_ |   Set ordering method or default if blank. Possible options: activity. |
 
-<h3> Parameters</h3>
-<table class="unchanged rich-diff-level-one" text-align ="center">
-  <thead>
-    <tr>
-        <th width='20%'>Parameter name</th>
-        <th width='80%'>Description</th>
-    </tr>
-  </thead>
-  <tbody>
-  <tr>
-    <td width =200 > <b>adapter_names_any</b> <br>optional</td>
-    <td>
-    List of adapters names. Resulting recipes should use at least one of given adapters
-    <b>Validations:</b> <br>
-    <ul>
-    <li>Must be a string</li>
-    </ul>
-    </td>
-  </tr>
-  <tr>
-    <td width =200 > <b>adapter_names_all</b> <br>optional</td>
-    <td>
-    List of adapters names. Resulting recipes should use all of given adapters
-    <br>
-    <b>Validations:</b> <br>
-    <ul>
-    <li>Must be a String</li>
-    </ul>
-    </td>
-  </tr>
-    <tr>
-    <td width =200 > <b>active</b> <br>optional</td>
-    <td>
-    Is flow runnig. 'true' - running, 'false' - stopped, all recipes otherwise
-    <br>
-    <b>Validations:</b> <br>
-    <ul>
-    <li>Must be a string</li>
-    </ul>
-    </td>
-  </tr>
-  <tr>
-    <td width =200 > <b>since_id</b> <br>optional</td>
-    <td>
-    Find recipes with ID less than given
-    <br>
-    <b>Validations:</b> <br>
-    <ul>
-    <li>Must be a number</li>
-    </ul>
-    </td>
-  </tr>
-  <tr>
-    <td width =200 > <b>order</b> <br>optional</td>
-    <td>
-    Set ordering method or default if blank. Possible options: activity
-    <br>
-    <b>Validations:</b> <br>
-    <ul>
-    <li>Must be a string</li>
-    </ul>
-    </td>
-  </tr>
-  </tbody>
-</table>
+### Responses
+| Code | Description |
+| --- | --- |
+| `200` | Success |
+| `401` | Unauthorized |
+| `500` | Server error |
 
-<h3> Responses</h3>
-<table class="unchanged rich-diff-level-one" text-align ="center">
-  <thead>
-    <tr>
-        <th width='20%'>Code</th>
-        <th width='80%'>Description</th>
-    </tr>
-  </thead>
-  <tbody>
-  <tr>
-    <td width =200 > <kbd>200</kbd> </td>
-    <td> Success </td>
-  </tr>
-  <tr>
-    <td width =200 > <kbd>401</kbd> </td>
-    <td> Unauthorized </td>
-  </tr>
-  <tr>
-    <td width =200 > <kbd>500</kbd> </td>
-    <td> Server error </td>
-  </tr>
-  </tbody>
-</table>
+### Examples
 
-<h3> Examples</h3>
-
-<h4> Success: 200</h4>
-<pre><code style="display: block; white-space: pre-wrap;">GET /api/recipes?active=false
+#### Success: 200
+```json
+GET /api/recipes?active=false
 200
 {
   "items": [
@@ -509,9 +262,10 @@ Returns a list of recipes belonging to the authenticated user with respect to di
     }
   ]
 }
-</code></pre>
+```
 
-<pre><code style="display: block; white-space: pre-wrap;">GET /api/recipes?per_page=2
+```json
+GET /api/recipes?per_page=2
 200
 {
   "items": [
@@ -559,9 +313,10 @@ Returns a list of recipes belonging to the authenticated user with respect to di
     }
   ]
 }
-</code></pre>
+```
 
-<pre><code style="display: block; white-space: pre-wrap;">GET /api/recipes?adapter_names_any=custom_adapter
+```json
+GET /api/recipes?adapter_names_any=custom_adapter
 200
 {
   "items": [
@@ -613,9 +368,10 @@ Returns a list of recipes belonging to the authenticated user with respect to di
     }
   ]
 }
-</code></pre>
+```
 
-<pre><code style="display: block; white-space: pre-wrap;">GET /api/recipes?per_page=2&since_id=22
+```json
+GET /api/recipes?per_page=2&since_id=22
 200
 {
   "items": [
@@ -667,9 +423,10 @@ Returns a list of recipes belonging to the authenticated user with respect to di
     }
   ]
 }
-</code></pre>
+```
 
-<pre><code style="display: block; white-space: pre-wrap;">GET /api/recipes
+```json
+GET /api/recipes
 200
 {
   "items": [
@@ -739,9 +496,10 @@ Returns a list of recipes belonging to the authenticated user with respect to di
     }
   ]
 }
-</code></pre>
+```
 
-<pre><code style="display: block; white-space: pre-wrap;">GET /api/recipes?adapter_names_all=custom_adapter%2Ccustom_adapter1
+```json
+GET /api/recipes?adapter_names_all=custom_adapter%2Ccustom_adapter1
 200
 {
   "items": [
@@ -771,9 +529,10 @@ Returns a list of recipes belonging to the authenticated user with respect to di
     }
   ]
 }
-</code></pre>
+```
 
-<pre><code style="display: block; white-space: pre-wrap;">GET /api/recipes?active=true
+```json
+GET /api/recipes?active=true
 200
 {
   "items": [
@@ -803,9 +562,10 @@ Returns a list of recipes belonging to the authenticated user with respect to di
     }
   ]
 }
-</code></pre>
+```
 
-<pre><code style="display: block; white-space: pre-wrap;">GET /api/recipes?page=2&per_page=2
+```json
+GET /api/recipes?page=2&per_page=2
 200
 {
   "items": [
@@ -833,9 +593,10 @@ Returns a list of recipes belonging to the authenticated user with respect to di
     }
   ]
 }
-</code></pre>
+```
 
-<pre><code style="display: block; white-space: pre-wrap;">GET /api/recipes?order=activity
+```json
+GET /api/recipes?order=activity
 200
 {
   "items": [
@@ -905,9 +666,7 @@ Returns a list of recipes belonging to the authenticated user with respect to di
     }
   ]
 }
-</code></pre>
-
-</details>
+```
 
 ## Search for public recipes
 
@@ -916,104 +675,27 @@ Returns a list of recipes belonging to the authenticated user with respect to di
 ### Description
 Searches for public recipes and returns a list. Requires 'oem_vendor' privilege. Returns an empty list when no matching connectors are found.
 
+### Parameters
+| Name | Type | Description |
+| --- | --- | --- |
+| applications | **string**<br>_optional_ | Comma separated connector identifiers (e.g: salesforce,service_now). Resulting recipes should use at least one of given connectors. |
+| term | **string**<br>_optional_ | Search term. |
+| boost_owned | **boolean**<br>_optional_ | If `True`, returned results will give priority to recipes in your account. Defaults to `False`. |
+| page | **integer**<br>_optional_ | Page number. Defaults to 0. |
+| per_page | **integer**<br>_optional_ | Page size. Defaults to 20, max 20. |
 
-<details> <summary><b>Details</b></summary>
+### Responses
+| Code | Description |
+| --- | --- |
+| `200` | Success |
+| `401` | Unauthorized |
+| `500` | Server error |
 
-<h3> Parameters</h3>
-<table class="unchanged rich-diff-level-one" text-align ="center">
-  <thead>
-    <tr>
-        <th width='20%'>Parameter name</th>
-        <th width='80%'>Description</th>
-    </tr>
-  </thead>
-  <tbody>
-  <tr>
-    <td width =200 > <b>applications</b> <br>optional</td>
-    <td>
-    Comma separated connector identifiers (e.g: salesforce,service_now). Resulting recipes should use at least one of given connectors
-    <br>
-    <b>Validations:</b> <br>
-    <ul>
-    <li>Must be a string</li>
-    </ul>
-    </td>
-  </tr>
-  <tr>
-    <td width =200 > <b>term</b> <br>optional</td>
-    <td>
-    Search term
-    <br>
-    <b>Validations:</b> <br>
-    <ul>
-    <li>Must be a String</li>
-    </ul>
-    </td>
-  </tr>
-    <tr>
-    <td width =200 > <b>boost_owned</b> <br>optional</td>
-    <td>
-    Give higher priority to recipes in your account. Defaults to 'false'
-    <br>
-    <b>Validations:</b> <br>
-    <ul>
-    <li>Must be a string</li>
-    </ul>
-    </td>
-  </tr>
-  <tr>
-    <td width =200 > <b>page</b> <br>optional</td>
-    <td>
-    Page number. Defaults to 0
-    <br>
-    <b>Validations:</b> <br>
-    <ul>
-    <li>Must be a number</li>
-    </ul>
-    </td>
-  </tr>
-  <tr>
-    <td width =200 > <b>per_page</b> <br>optional</td>
-    <td>
-    Page size. Defaults to 20, max 20
-    <br>
-    <b>Validations:</b> <br>
-    <ul>
-    <li>Must be a number</li>
-    </ul>
-    </td>
-  </tr>
-  </tbody>
-</table>
+### Examples
 
-<h3> Responses</h3>
-<table class="unchanged rich-diff-level-one" text-align ="center">
-  <thead>
-    <tr>
-        <th width='20%'>Code</th>
-        <th width='80%'>Description</th>
-    </tr>
-  </thead>
-  <tbody>
-  <tr>
-    <td width =200 > <kbd>200</kbd> </td>
-    <td> Success </td>
-  </tr>
-  <tr>
-    <td width =200 > <kbd>401</kbd> </td>
-    <td> Unauthorized </td>
-  </tr>
-  <tr>
-    <td width =200 > <kbd>500</kbd> </td>
-    <td> Server error </td>
-  </tr>
-  </tbody>
-</table>
-
-<h3> Examples</h3>
-
-<h4> Success: 200</h4>
-<pre><code style="display: block; white-space: pre-wrap;">GET /api/recipes/search?page=2&per_page=3
+#### Success: 200
+```json
+GET /api/recipes/search?page=2&per_page=3
 200
 {
   "items": [
@@ -1036,9 +718,10 @@ Searches for public recipes and returns a list. Requires 'oem_vendor' privilege.
     }
   ]
 }
-</code></pre>
+```
 
-<pre><code style="display: block; white-space: pre-wrap;">GET /api/recipes/search?per_page=2&since_id=66
+```json
+GET /api/recipes/search?per_page=2&since_id=66
 200
 {
   "items": [
@@ -1080,9 +763,10 @@ Searches for public recipes and returns a list. Requires 'oem_vendor' privilege.
     }
   ]
 }
-</code></pre>
+```
 
-<pre><code style="display: block; white-space: pre-wrap;">GET /api/recipes/search?adapter_names_any=custom_adapter%2Ccustom_adapter1
+```json
+GET /api/recipes/search?adapter_names_any=custom_adapter%2custom_adapter1
 200
 {
   "items": [
@@ -1143,9 +827,10 @@ Searches for public recipes and returns a list. Requires 'oem_vendor' privilege.
     }
   ]
 }
-</code></pre>
+```
 
-<pre><code style="display: block; white-space: pre-wrap;">GET /api/recipes/search?user_id=60
+```json
+GET /api/recipes/search?user_id=60
 200
 {
   "items": [
@@ -1164,9 +849,10 @@ Searches for public recipes and returns a list. Requires 'oem_vendor' privilege.
     }
   ]
 }
-</code></pre>
+```
 
-<pre><code style="display: block; white-space: pre-wrap;">GET /api/recipes/search
+```json
+GET /api/recipes/search
 200
 {
   "items": [
@@ -1240,9 +926,10 @@ Searches for public recipes and returns a list. Requires 'oem_vendor' privilege.
     }
   ]
 }
-</code></pre>
+```
 
-<pre><code style="display: block; white-space: pre-wrap;">GET /api/recipes/search?adapter_names_all=custom_adapter%2Ccustom_adapter1
+```json
+GET /api/recipes/search?adapter_names_all=custom_adapter%2custom_adapter1
 200
 {
   "items": [
@@ -1286,9 +973,10 @@ Searches for public recipes and returns a list. Requires 'oem_vendor' privilege.
     }
   ]
 }
-</code></pre>
+```
 
-<pre><code style="display: block; white-space: pre-wrap;">GET /api/recipes/search?per_page=2
+```json
+GET /api/recipes/search?per_page=2
 200
 {
   "items": [
@@ -1326,9 +1014,10 @@ Searches for public recipes and returns a list. Requires 'oem_vendor' privilege.
     }
   ]
 }
-</code></pre>
+```
 
-<pre><code style="display: block; white-space: pre-wrap;">GET /api/recipes/search?cloned_recipe_id=true
+```json
+GET /api/recipes/search?cloned_recipe_id=true
 200
 {
   "items": [
@@ -1406,9 +1095,10 @@ Searches for public recipes and returns a list. Requires 'oem_vendor' privilege.
     }
   ]
 }
-</code></pre>
+```
 
-<pre><code style="display: block; white-space: pre-wrap;">GET /api/recipes/search?adapter_names_any=custom_adapter%2Ccustom_adapter1&curated=true
+```json
+GET /api/recipes/search?adapter_names_any=custom_adapter%2custom_adapter1&curated=true
 200
 {
   "items": [
@@ -1433,9 +1123,7 @@ Searches for public recipes and returns a list. Requires 'oem_vendor' privilege.
     }
   ]
 }
-</code></pre>
-
-</details>
+```
 
 ## Start recipe
 
@@ -1444,70 +1132,32 @@ Searches for public recipes and returns a list. Requires 'oem_vendor' privilege.
 ### Description
 Starts a recipe specified by recipe ID.
 
-<details> <summary><b>Details</b></summary>
+### Parameters
+| Name | Type | Description |
+| --- | --- | --- |
+| id | **interger**<br>_optional_ | Recipe ID. |
 
-<h3> Parameters</h3>
-<table class="unchanged rich-diff-level-one" text-align ="center">
-  <thead>
-    <tr>
-        <th width='20%'>Parameter name</th>
-        <th width='80%'>Description</th>
-    </tr>
-  </thead>
-  <tbody>
-  <tr>
-    <td width =200 > <b>id</b> <br>required</td>
-    <td>
-    Recipe ID
-    <br>
-    <b>Validations:</b> <br>
-    <ul>
-    <li>Must be a number</li>
-    </ul>
-    </td>
-  </tr>
-  </tbody>
-</table>
+### Responses
+| Code | Description |
+| --- | --- |
+| `200` | Success |
+| `401` | Unauthorized |
+| `404` | Not found |
+| `500` | Server error |
 
-<h3> Responses</h3>
-<table class="unchanged rich-diff-level-one" text-align ="center">
-  <thead>
-    <tr>
-        <th width='20%'>Code</th>
-        <th width='80%'>Description</th>
-    </tr>
-  </thead>
-  <tbody>
-  <tr>
-    <td width =200 > <kbd>200</kbd> </td>
-    <td> Success </td>
-  </tr>
-  <tr>
-    <td width =200 > <kbd>401</kbd> </td>
-    <td> Unauthorized </td>
-  </tr>
-  <tr>
-    <td width =200 > <kbd>404</kbd> </td>
-    <td> Not found </td>
-  </tr>
-  <tr>
-    <td width =200 > <kbd>500</kbd> </td>
-    <td> Server error </td>
-  </tr>
-  </tbody>
-</table>
+### Examples
 
-<h3> Examples</h3>
-
-<h4> Success: 200</h4>
-<pre><code style="display: block; white-space: pre-wrap;">PUT /api/recipes/109/start
+#### Success: 200
+```json
+PUT /api/recipes/109/start
 200
 {
   "success": true
 }
-</code></pre>
+```
 
-<pre><code style="display: block; white-space: pre-wrap;">PUT /api/recipes/111/start
+```json
+PUT /api/recipes/111/start
 200
 {
   "success": false,
@@ -1525,23 +1175,24 @@ Starts a recipe specified by recipe ID.
   ],
   "config_errors": []
 }
-</code></pre>
+```
 
-<pre><code style="display: block; white-space: pre-wrap;">PUT /api/recipes/112/start
+```json
+PUT /api/recipes/112/start
 200
 {
   "success": true
 }
-</code></pre>
+```
 
-<pre><code style="display: block; white-space: pre-wrap;">PUT /api/recipes/114/start
+#### Not found: 404
+```json
+PUT /api/recipes/114/start
 404
 {
   "message": "Not found"
 }
-</code></pre>
-
-</details>
+```
 
 ## Stop recipe
 
@@ -1550,77 +1201,37 @@ Starts a recipe specified by recipe ID.
 ### Description
 Stops a recipe specified by recipe ID.
 
-<details> <summary><b>Details</b></summary>
+### Parameters
+| Name | Type | Description |
+| --- | --- | --- |
+| id | **interger**<br>_optional_ | Recipe ID. |
 
-<h3> Parameters</h3>
-<table class="unchanged rich-diff-level-one" text-align ="center">
-  <thead>
-    <tr>
-        <th width='20%'>Parameter name</th>
-        <th width='80%'>Description</th>
-    </tr>
-  </thead>
-  <tbody>
-  <tr>
-    <td width =200 > <b>id</b> <br>required</td>
-    <td>
-    Recipe ID
-    <br>
-    <b>Validations:</b> <br>
-    <ul>
-    <li>Must be a number</li>
-    </ul>
-    </td>
-  </tr>
-  </tbody>
-</table>
+### Responses
+| Code | Description |
+| --- | --- |
+| `200` | Success |
+| `401` | Unauthorized |
+| `404` | Not found |
+| `500` | Server error |
 
-<h3> Responses</h3>
-<table class="unchanged rich-diff-level-one" text-align ="center">
-  <thead>
-    <tr>
-        <th width='20%'>Code</th>
-        <th width='80%'>Description</th>
-    </tr>
-  </thead>
-  <tbody>
-  <tr>
-    <td width =200 > <kbd>200</kbd> </td>
-    <td> Success </td>
-  </tr>
-  <tr>
-    <td width =200 > <kbd>401</kbd> </td>
-    <td> Unauthorized </td>
-  </tr>
-  <tr>
-    <td width =200 > <kbd>404</kbd> </td>
-    <td> Not found </td>
-  </tr>
-  <tr>
-    <td width =200 > <kbd>500</kbd> </td>
-    <td> Server error </td>
-  </tr>
-  </tbody>
-</table>
-
-<h3> Examples</h3>
-
-<h4> Success: 200</h4>
-<pre><code style="display: block; white-space: pre-wrap;">PUT /api/recipes/57/stop
+### Examples
+#### Success: 200
+```json
+PUT /api/recipes/57/stop
 200
 {
   "success": true
 }
-</code></pre>
+```
 
-<pre><code style="display: block; white-space: pre-wrap;">PUT /api/recipes/58/stop
+#### Not found: 404
+```json
+PUT /api/recipes/58/stop
 404
 {
   "message": "Not found"
 }
-</code></pre>
-
-</details>
+```
 
 ## Delete recipe
 
@@ -1629,73 +1240,35 @@ Stops a recipe specified by recipe ID.
 ### Description
 Deletes a the recipe specified by id
 
-<details> <summary><b>Details</b></summary>
+### Parameters
+| Name | Type | Description |
+| --- | --- | --- |
+| id | **interger**<br>_optional_ | Recipe ID. |
 
-<h3> Parameters </h3>
-<table class="unchanged rich-diff-level-one" text-align ="center">
-  <thead>
-    <tr>
-        <th width='20%'>Parameter name</th>
-        <th width='80%'>Description</th>
-    </tr>
-  </thead>
-  <tbody>
-  <tr>
-    <td width =200 > <b>id</b> <br>required</td>
-    <td>
-    Recipe ID
-    <br>
-    <b>Validations:</b> <br>
-    <ul>
-    <li>Must be a number</li>
-    </ul>
-    </td>
-  </tr>
-  </tbody>
-</table>
+### Responses
+| Code | Description |
+| --- | --- |
+| `200` | Success |
+| `401` | Unauthorized |
+| `404` | Not found |
+| `500` | Server error |
 
-<h3> Responses</h3>
-<table class="unchanged rich-diff-level-one" text-align ="center">
-  <thead>
-    <tr>
-        <th width='20%'>Code</th>
-        <th width='80%'>Description</th>
-    </tr>
-  </thead>
-  <tbody>
-  <tr>
-    <td width =200 > <kbd>200</kbd> </td>
-    <td> Success </td>
-  </tr>
-  <tr>
-    <td width =200 > <kbd>401</kbd> </td>
-    <td> Unauthorized </td>
-  </tr>
-  <tr>
-    <td width =200 > <kbd>404</kbd> </td>
-    <td> Not found </td>
-  </tr>
-  <tr>
-    <td width =200 > <kbd>500</kbd> </td>
-    <td> Server error </td>
-  </tr>
-  </tbody>
-</table>
+### Examples
 
-<h3> Examples</h3>
-
-<h4> Success: 200</h4>
-<pre><code style="display: block; white-space: pre-wrap;">DELETE /api/recipes/1
+#### Success: 200
+```json
+DELETE /api/recipes/1
 200
 {
   "success": true
 }
-</code></pre>
+```
 
-<pre><code style="display: block; white-space: pre-wrap;">DELETE /api/recipes/3
+#### Not found: 404
+```json
+DELETE /api/recipes/3
 404
 {
   "message": "Not found"
 }
-</code></pre>
-</details>
+```

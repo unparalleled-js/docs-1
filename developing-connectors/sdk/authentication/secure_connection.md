@@ -57,7 +57,7 @@ With this property added, an input field will be visible when setting up a conne
 ![Connection with option to use OPA](/assets/images/sdk/connection_with_secure_tunnel_option.png)
 *Connection with option to use OPA*
 
-Learn how to setup an on-prem agent [here](/on-prem/setup.md).
+Learn how to setup an on-prem agent [here](/on-prem/agents/setup.md).
 
 ### Other authentication methods
 Check out the other authentication methods we support as well as how to set up a custom connector that works for on-premise connections. [Go back to our list of authentication methods](/developing-connectors/sdk/authentication.md) or check our our [best practices](/developing-connectors/sdk/best-practices.md) for some tips.
