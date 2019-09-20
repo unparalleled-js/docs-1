@@ -1,6 +1,7 @@
 ---
 title: Workato connectors - PlanGrid - object actions
 date: 2019-09-09 12:00:00 Z
+isTocVisible: true
 ---
 
 # PlanGrid object actions
@@ -34,317 +35,930 @@ Each object action executes an action on a single object in PlanGrid. This actio
 * [Create, Get User](#user)
 * [Get Role](#role)
 
-
-### Project
+## Project
 In Workato, the PlanGrid connector can be used to create, get details or update a project. When selecting the object type `project`, fields will be generated dynamically based on the action type you have chosen. These range from a list of input fields to describe a project for create or update actions to a single input field for the project ID for get details actions.
 
 Below, we describe the object representation of a project in Workato.
 
-#### Representation of a Project
-| Field name | Description |
-|----------------------------|--------------------------|
-| Project ID | ID of the project. |
-| Project Name | Name of the project in PlanGrid |
-| Project Code | Custom code assigned to the project in PlanGrid (if any). |
-| Organization ID | The ID of the organization to which the project belongs in PlanGrid (if any). |
-| Project Type | Project type with possible values of: general, manufacturing, power, water-sewer-waste, industrial-petroleum, transportation, hazardous-waste, telecom, education-k-12, education-higher, gov-federal, gov-state-local, or other. |
-| Project Status | The current status of the project as set in PlanGrid. |
-| Project Owner | The owner of the project as specified in PlanGrid. |
-| Project Start Date | Project start date as set in PlanGrid. |
-| Project End Date | Project end date as set in PlanGrid. |
-| Street line 1 | Address information as set in PlanGrid. |
-| Street line 2 | Address information as set in PlanGrid. |
-| Town or city | Address information as set in PlanGrid. |
-| State, province, or region | Address information as set in PlanGrid. |
-| Zip or postal code | Address information as set in PlanGrid. |
-| Country | Address information as set in PlanGrid. |
-| Latitude | Address information as set in PlanGrid. |
-| Longitude | Address information as set in PlanGrid. |
-| Updated at | Timestamp of when the project was last updated in PlanGrid. |
+### Representation of a Project
+<table>
+  <tr>
+    <th>Field name</th>
+    <th>Description</th>
+  </tr>
+  <tr>
+    <td>Project ID</td>
+    <td>ID of the project.</td>
+  </tr>
+  <tr>
+    <td>Project Name</td>
+    <td>Name of the project in PlanGrid</td>
+  </tr>
+  <tr>
+    <td>Project Code</td>
+    <td>Custom code assigned to the project in PlanGrid (if any).</td>
+  </tr>
+  <tr>
+    <td>Organization ID</td>
+    <td>The ID of the organization to which the project belongs in PlanGrid (if any).</td>
+  </tr>
+  <tr>
+    <td>Project Type</td>
+    <td>Project type with possible values of: general, manufacturing, power, water-sewer-waste, industrial-petroleum, transportation, hazardous-waste, telecom, education-k-12, education-higher, gov-federal, gov-state-local, or other.</td>
+  </tr>
+  <tr>
+    <td>Project Status</td>
+    <td>The current status of the project as set in PlanGrid.</td>
+  </tr>
+  <tr>
+    <td>Project Owner</td>
+    <td>The owner of the project as specified in PlanGrid.</td>
+  </tr>
+  <tr>
+    <td>Project Start Date</td>
+    <td>Project start date as set in PlanGrid.</td>
+  </tr>
+  <tr>
+    <td>Project End Date</td>
+    <td>Project end date as set in PlanGrid.</td>
+  </tr>
+  <tr>
+    <td>Street line 1</td>
+    <td>Address information as set in PlanGrid.</td>
+  </tr>
+  <tr>
+    <td>Street line 2</td>
+    <td>Address information as set in PlanGrid.</td>
+  </tr>
+  <tr>
+    <td>Town or city</td>
+    <td>Address information as set in PlanGrid.</td>
+  </tr>
+  <tr>
+    <td>State, province, or region</td>
+    <td>Address information as set in PlanGrid.</td>
+  </tr>
+  <tr>
+    <td>Zip or postal code</td>
+    <td>Address information as set in PlanGrid.</td>
+  </tr>
+  <tr>
+    <td>Country</td>
+    <td>Address information as set in PlanGrid.</td>
+  </tr>
+  <tr>
+    <td>Latitude</td>
+    <td>Address information as set in PlanGrid.</td>
+  </tr>
+  <tr>
+    <td>Longitude</td>
+    <td>Address information as set in PlanGrid.</td>
+  </tr>
+  <tr>
+    <td>Updated at</td>
+    <td>Timestamp of when the project was last updated in PlanGrid.</td>
+  </tr>
+</table>
 
-### Document
+## Document
 In Workato, the PlanGrid connector can be used to get details or upload a document. When selecting the object type `document`, fields will be generated dynamically based on the action type you have chosen. These range from a list of input fields to describe a document for upload actions to a single input field for the document ID for get details actions.
 
 Below, we describe the object representation of a document in Workato.
 
-#### Representation of a document
+### Representation of a document
 
-| Field name    | Description                                                             |
-|---------------|-------------------------------------------------------------------------|
-| Document ID   | ID of the document.                                                     |
-| Project ID    | ID of the project.                                                      |
-| Document Name | Name of the document in PlanGrid.                                       |
-| Folder        | The folder path within PlanGrid documents where the file was contained. |
-| URL           | URL to download the file.                                               |
-| Created at    | Timestamp of when the file was created in PlanGrid.                     |
-| Created by    | Reference to  the user that created the file.                           |
-| - UID         | ID of the user that created the file.                                   |
-| - URL         | URL to the user’s profile in PlanGrid                                   |
-| - Email       | Email address of the user that created the file.                        |
-| Deleted       | Indicates whether the file has been deleted.                            |
-| Updated at    | Timestamp of when the file was last updated in PlanGrid.                |
+<table>
+  <tr>
+    <th colspan="2">Field name</th>
+    <th>Description</th>
+  </tr>
+  <tr>
+    <td colspan="2">Document ID</td>
+    <td>ID of the document.</td>
+  </tr>
+  <tr>
+    <td colspan="2">Project ID</td>
+    <td>ID of the project.</td>
+  </tr>
+  <tr>
+    <td colspan="2">Document Name</td>
+    <td>Name of the document in PlanGrid.</td>
+  </tr>
+  <tr>
+    <td colspan="2">Folder</td>
+    <td>The folder path within PlanGrid documents where the file was contained.</td>
+  </tr>
+  <tr>
+    <td colspan="2">URL</td>
+    <td>URL to download the file.</td>
+  </tr>
+  <tr>
+    <td colspan="2">Created at</td>
+    <td>Timestamp of when the file was created in PlanGrid.</td>
+  </tr>
+  <tr>
+    <td rowspan="3">Created by</td>
+    <td>UID</td>
+    <td>ID of the user that created the file.</td>
+  </tr>
+  <tr>
+    <td>URL</td>
+    <td>URL to the user’s profile in PlanGrid</td>
+  </tr>
+  <tr>
+    <td>Email</td>
+    <td>Email address of the user that created the file.</td>
+  </tr>
+  <tr>
+    <td colspan="2">Deleted</td>
+    <td>Indicates whether the file has been deleted.</td>
+  </tr>
+  <tr>
+    <td colspan="2">Updated at</td>
+    <td>Timestamp of when the file was last updated in PlanGrid.</td>
+  </tr>
+</table>
 
-### Field report
+## Field report
 In Workato, the PlanGrid connector can be used to get details on a field report. When selecting the object type `field report`, fields will be generated dynamically based on the action type you have chosen. For our get field report action, the only input would be a single input field for the field report ID.
 
 Below, we describe the object representation of a field report in Workato.
 
-#### Representation of a field report
+### Representation of a field report
 
-| Field name | Description |
-|---------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Field Report ID | ID of the field report. |
-| Project ID | ID of the project. |
-| Title | Title of the field report in PlanGrid. |
-| Description | Description of the field report in PlanGrid. |
-| URL | The URL to access the field report in PlanGrid. |
-| Report Date | Timestamp of when the report was created in PlanGrid. |
-| Status | Status of the field report, and the values can be: draft, submitted, archived, or deleted. |
-| Field report type | Reference to the field report template. |
-| - Name | Name of the field report template. |
-| - Status | Status of the field report template, can be active or archived. |
-| - UID | ID of the field report template. |
-| PDF URL | The URL to access the PDF version of the field report (exists only if the report was originally a PDF in PlanGrid; not available for the native daily report). |
-| PDF Form Values: | List containing the values from the form fields of a custom PDF field report (available if the report template is using a custom PDF). |
-| - Name | Name of the PDF form field. |
-| - Value | Value corresponding to the form field name. |
-| - List size | The number of form field values available from the field report. |
-| Daily Report Values | List of values from the native daily report (only available if the report was completed using the PlanGrid native daily report module). |
-| - Work log entries: | List of values from the Work Log section of the native daily report. |
-|   - Trade | The trade that performed the work. |
-|   - Timespan | The total number of works for the work log entry in milliseconds. |
-|   - Headcount | The number of workers for the work log entry. |
-|   - Description | A description of the work performed. |
-|   - Deleted | Whether the work log entry has been deleted or not. |
-|   - List size | The number of entries in the “Work log entries” list. |
-| - Material entries: | List of values from the Material Log section of the native daily report. |
-|   - Unit | The unit of measure for the quantity specified. |
-|   - Quantity | The quantity of material that was used. |
-|   - Item | A specific description of the material item used. |
-|   - Description | A description of the material used (may be blank if “item” above contains all details). |
-|   - Deleted | Whether the material entry has been deleted or not. |
-|   - List size | The number of entries in the “Material entries” list. |
-| - Equipment entries: | List of values from the “equipment” section of the native daily report. |
-|   - Timespan | The total time all equipment was used for in milliseconds. |
-|   - Quantity | The number of pieces of the equipment that was used. |
-|   - Item | A specific description of the equipment item used. |
-|   - Description | A description of the equipment utilized (may be blank if “item” above contains all details). |
-|   - Deleted | Whether the equipment entry has been deleted or not. |
-|   - List size | The number of entries in the “Equipment entries” list. |
-| - List size | The number of entries in the “Daily Report Values” list. |
-| Documents | Reference to  the documents associated with the field report. |
-| - Total count | The total number of documents associated with the field report. |
-| - URL | The URL to access the documents associated with the field report in PlanGrid. |
-| Photos | Reference to  the photos associated with the field report. |
-| - Total count | The total number of photos associated with the field report. |
-|-  URL | The URL to access the photos associated with the field report in PlanGrid. |
-| Snapshots | Reference to  the snapshots associated with the field report. |
-| - Total count | The total number of snapshots associated with the field report. |
-| - URL | The URL to access the snapshots associated with the field report in PlanGrid. |
-| Created by | Reference to  the user that created the field report  in PlanGrid. |
-| - UID | ID of the user. |
-| - URL | URL to access the user’s profile in PlanGrid. |
-| - Email | Email of the user in PlanGrid. |
-| Updated at | Timestamp of when the report was last updated in PlanGrid. |
-| Weather | Weather information based on the report date and the address of the PlanGrid project. |
-| - Humidity | A percentage value indicating the humidity over the course of the day. |
-| - Precipitation accumulation | The amount of precipitation accumulated throughout the day. Unit specified in “precipitation_accumulation_unit”. |
-| - Precipitation accumulation unit | The unit of the precipitation accumulated. |
-| - Speed unit | The unit of the wind speed measurement. |
-| - Summary key | A description of the weather (i.e. Partly Cloudy). |
-| - Temperature max | The maximum temperature during the day. |
-| - Temperature min | The minimum temperature during the day. |
-| - Temperature unit | The unit of the temperature measurements. |
-| - Wind bearing | The direction of the wind. |
-| - Wind gust | The maximum wind speed observed throughout the day. |
-| - Wind speed | The average wind speed observed throughout the day. |
+<table>
+  <tr>
+    <th colspan="3">Field name</th>
+    <th>Description</th>
+  </tr>
+  <tr>
+    <td colspan="3">Field Report ID</td>
+    <td>ID of the field report.</td>
+  </tr>
+  <tr>
+    <td colspan="3">Project ID</td>
+    <td>ID of the project.</td>
+  </tr>
+  <tr>
+    <td colspan="3">Title</td>
+    <td>Title of the field report in PlanGrid.</td>
+  </tr>
+  <tr>
+    <td colspan="3">Description</td>
+    <td>Description of the field report in PlanGrid.</td>
+  </tr>
+  <tr>
+    <td colspan="3">URL</td>
+    <td>The URL to access the field report in PlanGrid.</td>
+  </tr>
+  <tr>
+    <td colspan="3">Report Date</td>
+    <td>Timestamp of when the report was created in PlanGrid.</td>
+  </tr>
+  <tr>
+    <td colspan="3">Status</td>
+    <td>Status of the field report, and the values can be: draft, submitted, archived, or deleted.</td>
+  </tr>
+  <tr>
+    <td rowspan="3">Field report type</td>
+    <td colspan="2">Name</td>
+    <td>Name of the field report template.</td>
+  </tr>
+  <tr>
+    <td colspan="2">Status</td>
+    <td>Status of the field report template, can be active or archived.</td>
+  </tr>
+  <tr>
+    <td colspan="2">UID</td>
+    <td>ID of the field report template.</td>
+  </tr>
+  <tr>
+    <td colspan="3">PDF URL</td>
+    <td>The URL to access the PDF version of the field report (exists only if the report was originally a PDF in PlanGrid; not available for the native daily report).</td>
+  </tr>
+  <tr>
+    <td rowspan="3">PDF Form Values:</td>
+    <td colspan="2">Name</td>
+    <td>Name of the PDF form field.</td>
+  </tr>
+  <tr>
+    <td colspan="2">Value</td>
+    <td>Value corresponding to the form field name.</td>
+  </tr>
+  <tr>
+    <td colspan="2">List size</td>
+    <td>The number of form field values available from the field report.</td>
+  </tr>
+  <tr>
+    <td rowspan="19">Daily Report values</td>
+    <td rowspan="6">Work log entries:</td>
+    <td>Trade</td>
+    <td>The trade that performed the work.</td>
+  </tr>
+  <tr>
+    <td>Timespan</td>
+    <td>The total number of works for the work log entry in milliseconds.</td>
+  </tr>
+  <tr>
+    <td>Headcount</td>
+    <td>The number of workers for the work log entry.</td>
+  </tr>
+  <tr>
+    <td>Description</td>
+    <td>A description of the work performed.</td>
+  </tr>
+  <tr>
+    <td>Deleted</td>
+    <td>Whether the work log entry has been deleted or not.</td>
+  </tr>
+  <tr>
+    <td>List size</td>
+    <td>The number of entries in the “Work log entries” list.</td>
+  </tr>
+  <tr>
+    <td rowspan="6">Material entries</td>
+    <td>Unit</td>
+    <td>The unit of measure for the quantity specified.</td>
+  </tr>
+  <tr>
+    <td>Quantity</td>
+    <td>The quantity of material that was used.</td>
+  </tr>
+  <tr>
+    <td>Item</td>
+    <td>A specific description of the material item used.</td>
+  </tr>
+  <tr>
+    <td>Description</td>
+    <td>A description of the material used (may be blank if “item” above contains all details).</td>
+  </tr>
+  <tr>
+    <td>Deleted</td>
+    <td>Whether the material entry has been deleted or not.</td>
+  </tr>
+  <tr>
+    <td>List size</td>
+    <td>The number of entries in the “Material entries” list.</td>
+  </tr>
+  <tr>
+    <td rowspan="6">Equipment entries:</td>
+    <td>Timespan</td>
+    <td>The total time all equipment was used for in milliseconds.</td>
+  </tr>
+  <tr>
+    <td>Quantity</td>
+    <td>The number of pieces of the equipment that was used.</td>
+  </tr>
+  <tr>
+    <td>Item</td>
+    <td>A specific description of the equipment item used.</td>
+  </tr>
+  <tr>
+    <td>Description</td>
+    <td>A description of the equipment utilized (may be blank if “item” above contains all details).</td>
+  </tr>
+  <tr>
+    <td>Deleted</td>
+    <td>Whether the equipment entry has been deleted or not.</td>
+  </tr>
+  <tr>
+    <td>List size</td>
+    <td>The number of entries in the “Equipment entries” list.</td>
+  </tr>
+  <tr>
+    <td colspan="2">List size</td>
+    <td>The number of entries in the “Daily Report Values” list.</td>
+  </tr>
+  <tr>
+    <td rowspan="2">Documents</td>
+    <td colspan="2">Total count</td>
+    <td>The total number of documents associated with the field report.</td>
+  </tr>
+  <tr>
+    <td colspan="2">URL</td>
+    <td>The URL to access the documents associated with the field report in PlanGrid.</td>
+  </tr>
+  <tr>
+    <td rowspan="2">Photos</td>
+    <td colspan="2">Total count</td>
+    <td>The total number of photos associated with the field report.</td>
+  </tr>
+  <tr>
+    <td colspan="2">URL</td>
+    <td>The URL to access the photos associated with the field report in PlanGrid.</td>
+  </tr>
+  <tr>
+    <td rowspan="2">Snapshots</td>
+    <td colspan="2">Total count</td>
+    <td>The total number of snapshots associated with the field report.</td>
+  </tr>
+  <tr>
+    <td colspan="2">URL</td>
+    <td>The URL to access the snapshots associated with the field report in PlanGrid.</td>
+  </tr>
+  <tr>
+    <td rowspan="3">Created by</td>
+    <td colspan="2">UID</td>
+    <td>ID of the user.</td>
+  </tr>
+  <tr>
+    <td colspan="2">URL</td>
+    <td>URL to access the user’s profile in PlanGrid.</td>
+  </tr>
+  <tr>
+    <td colspan="2">Email</td>
+    <td>Email of the user in PlanGrid.</td>
+  </tr>
+  <tr>
+    <td colspan="3">Updated at</td>
+    <td>Timestamp of when the report was last updated in PlanGrid.</td>
+  </tr>
+  <tr>
+    <td rowspan="11">Weather</td>
+    <td colspan="2">Humidity</td>
+    <td>A percentage value indicating the humidity over the course of the day.</td>
+  </tr>
+  <tr>
+    <td colspan="2">Precipitation accumulation</td>
+    <td>The amount of precipitation accumulated throughout the day. Unit specified in “precipitation_accumulation_unit”.</td>
+  </tr>
+  <tr>
+    <td colspan="2">Precipitation accumulation unit</td>
+    <td>The unit of the precipitation accumulated.</td>
+  </tr>
+  <tr>
+    <td colspan="2">Speed unit</td>
+    <td>The unit of the wind speed measurement.</td>
+  </tr>
+  <tr>
+    <td colspan="2">Summary key</td>
+    <td>A description of the weather (i.e. Partly Cloudy).</td>
+  </tr>
+  <tr>
+    <td colspan="2">Temperature max</td>
+    <td>The maximum temperature during the day.</td>
+  </tr>
+  <tr>
+    <td colspan="2">Temperature min</td>
+    <td>The minimum temperature during the day.</td>
+  </tr>
+  <tr>
+    <td colspan="2">Temperature unit</td>
+    <td>The unit of the temperature measurements.</td>
+  </tr>
+  <tr>
+    <td colspan="2">Wind bearing</td>
+    <td>The direction of the wind.</td>
+  </tr>
+  <tr>
+    <td colspan="2">Wind gust</td>
+    <td>The maximum wind speed observed throughout the day.</td>
+  </tr>
+  <tr>
+    <td colspan="2">Wind speed</td>
+    <td>The average wind speed observed throughout the day.</td>
+  </tr>
+</table>
 
-### Photo
+## Photo
 In Workato, the PlanGrid connector can be used to get details, update or upload a photo. When selecting the object type `photo`, fields will be generated dynamically based on the action type you have chosen. These range from a list of input fields to describe a photo for upload and update actions to a single input field for the photo ID for get details actions.
 
 Below, we describe the object representation of a photo in Workato.
 
-#### Representation of a photo
+### Representation of a photo
 
-| Field name | Description                                           |
-|------------|-------------------------------------------------------|
-| Photo ID   | ID of the photo.                                      |
-| Project ID | ID of the project.                                    |
-| Title      | Title of the photo in PlanGrid.                       |
-| URL        | URL to download the photo from PlanGrid.              |
-| Created at | Timestamp of when the file was created in PlanGrid.   |
-| Created by | Reference to  the user that created the photo.        |
-| - UID      | ID of the user that created the file.                 |
-| - URL      | URL to the user’s profile in PlanGrid                 |
-| - Email    | Email address of the user that created the file.      |
-| Deleted    | Indicates whether the file has been deleted.          |
+<table>
+  <tr>
+    <th colspan="2">Field name</th>
+    <th>Description</th>
+  </tr>
+  <tr>
+    <td colspan="2">Photo ID</td>
+    <td>ID of the photo.</td>
+  </tr>
+  <tr>
+    <td colspan="2">Project ID</td>
+    <td>ID of the project.</td>
+  </tr>
+  <tr>
+    <td colspan="2">Title</td>
+    <td>Title of the photo in PlanGrid.</td>
+  </tr>
+  <tr>
+    <td colspan="2">URL</td>
+    <td>URL to download the photo from PlanGrid.</td>
+  </tr>
+  <tr>
+    <td colspan="2">Created at</td>
+    <td>Timestamp of when the file was created in PlanGrid.</td>
+  </tr>
+  <tr>
+    <td rowspan="3">Created by</td>
+    <td>UID</td>
+    <td>ID of the user that created the file.</td>
+  </tr>
+  <tr>
+    <td>URL</td>
+    <td>URL to the user’s profile in PlanGrid</td>
+  </tr>
+  <tr>
+    <td>Email</td>
+    <td>Email address of the user that created the file.</td>
+  </tr>
+  <tr>
+    <td colspan="2">Deleted</td>
+    <td>Indicates whether the file has been deleted.</td>
+  </tr>
+</table>
 
-### RFI
+## RFI
 In Workato, the PlanGrid connector can be used to create, get details or update a RFI. In addition to this, you'll also be able to get the status of an RFI as well. When selecting the object type `RFI` or `RFI status`, fields will be generated dynamically based on the action type you have chosen. These range from a list of input fields to describe a RFI for create and update actions to a single input field for the RFI ID for get details actions.
 
 Below, we describe the object representation of a RFI in Workato.
 
-#### Representation of a RFI
+### Representation of a RFI
 
-| Field name  | Description                                                                            |
-|-------------|----------------------------------------------------------------------------------------|
-| RFI ID      | ID of the RFI.                                                                         |
-| Project     | ID of the project.                                                                     |
-| RFI Number  | Number of the RFI within the project.                                                  |
-| Status      | An object containing information on the current status of the RFI.                     |
-| - UID         | ID of the current status of the RFI.                                                   |
-| - Label       | Label of the current status of the RFI (i.e. draft, answered, etc.)                    |
-| - Color       | Color code of the RFI in PlanGrid.                                                     |
-| Locked      | Indicates whether the RFI is locked or still editable.                                 |
-| Title       | The title of the RFI in PlanGrid.                                                      |
-| Question    | The question asked in the RFI in PlanGrid.                                             |
-| Answer      | The answer given for the RFI in PlanGrid.                                              |
-| Sent at     | Timestamp of when the RFI was sent to the Reviewer in PlanGrid.                        |
-| Due at      | Timestamp of when the RFI is due in PlanGrid.                                          |
-| Assigned to | A list of objects containing information about the users the RFI has been assigned to. |
-| - UID         | ID of the user.                                                                        |
-| - URL         | URL to access the user’s profile in PlanGrid.                                          |
-| - Email       | Email of the user in PlanGrid.                                                         |
-| - List size   | The number of users in this list that this RFI is assigned to.                         |
-| Updated at  | Timestamp of when the RFI was last updated in PlanGrid.                                |
-| Updated by  | Reference to  the user that last updated the RFI.                                      |
-| - UID         | ID of the user.                                                                        |
-| - URL         | URL to access the user’s profile in PlanGrid.                                          |
-| - Email       | Email of the user in PlanGrid.                                                         |
-| Created at  | Timestamp of when the RFI was created in PlanGrid.                                     |
-| Created by  | Reference to  the user that created the RFI in PlanGrid.                               |
-| - UID         | ID of the user.                                                                        |
-| - URL         | URL to access the user’s profile in PlanGrid.                                          |
-| - Email       | Email of the user in PlanGrid.                                                         |
-| Photos      | Reference to  the photos associated with the RFI.                                      |
-| - Total count | The total number of photos associated with the RFI.                                    |
-| - URL         | The URL to access the photos associated with the RFI in PlanGrid.                      |
-| Attachments | Reference to  the attachments associated with the RFI.                                 |
-| - Total count | The total number of attachments associated with the RFI.                               |
-| - URL         | The URL to access the attachments associated with the RFI in PlanGrid.                 |
-| Snapshots   | Reference to  the snapshots associated with the RFI.                                   |
-| - Total count | The total number of snapshots associated with the RFI.                                 |
-| - URL         | The URL to access the snapshots associated with the RFI in PlanGrid.                   |
-| Comments    | Reference to  the comments associated with the RFI.                                    |
-| - Total count | The total number of comments associated with the RFI.                                  |
-| - URL         | The URL to access the comments associated with the RFI in PlanGrid.                    |
+<table>
+  <tr>
+    <th colspan="2">Field name</th>
+    <th>Description</th>
+  </tr>
+  <tr>
+    <td colspan="2">RFI ID</td>
+    <td>ID of the RFI.</td>
+  </tr>
+  <tr>
+    <td colspan="2">Project</td>
+    <td>ID of the project.</td>
+  </tr>
+  <tr>
+    <td colspan="2">RFI Number</td>
+    <td>Number of the RFI within the project.</td>
+  </tr>
+  <tr>
+    <td rowspan="3">Status</td>
+    <td>UID</td>
+    <td>ID of the current status of the RFI.</td>
+  </tr>
+  <tr>
+    <td>Label</td>
+    <td>Label of the current status of the RFI (i.e. draft, answered, etc.)</td>
+  </tr>
+  <tr>
+    <td>Color</td>
+    <td>Color code of the RFI in PlanGrid.</td>
+  </tr>
+  <tr>
+    <td colspan="2">Locked</td>
+    <td>Indicates whether the RFI is locked or still editable.</td>
+  </tr>
+  <tr>
+    <td colspan="2">Title</td>
+    <td>The title of the RFI in PlanGrid.</td>
+  </tr>
+  <tr>
+    <td colspan="2">Question</td>
+    <td>The question asked in the RFI in PlanGrid.</td>
+  </tr>
+  <tr>
+    <td colspan="2">Answer</td>
+    <td>The answer given for the RFI in PlanGrid.</td>
+  </tr>
+  <tr>
+    <td colspan="2">Sent at</td>
+    <td>Timestamp of when the RFI was sent to the Reviewer in PlanGrid.</td>
+  </tr>
+  <tr>
+    <td colspan="2">Due at</td>
+    <td>Timestamp of when the RFI is due in PlanGrid.</td>
+  </tr>
+  <tr>
+    <td rowspan="4">Assigned to</td>
+    <td>UID</td>
+    <td>ID of the user.</td>
+  </tr>
+  <tr>
+    <td>URL</td>
+    <td>URL to access the user’s profile in PlanGrid.</td>
+  </tr>
+  <tr>
+    <td>Email</td>
+    <td>Email of the user in PlanGrid.</td>
+  </tr>
+  <tr>
+    <td>List size</td>
+    <td>The number of users in this list that this RFI is assigned to.</td>
+  </tr>
+  <tr>
+    <td colspan="2">Updated at</td>
+    <td>Timestamp of when the RFI was last updated in PlanGrid.</td>
+  </tr>
+  <tr>
+    <td rowspan="3">Updated by</td>
+    <td>UID</td>
+    <td>ID of the user.</td>
+  </tr>
+  <tr>
+    <td>URL</td>
+    <td>URL to access the user’s profile in PlanGrid.</td>
+  </tr>
+  <tr>
+    <td>Email</td>
+    <td>Email of the user in PlanGrid.</td>
+  </tr>
+  <tr>
+    <td colspan="2">Created at</td>
+    <td>Timestamp of when the RFI was created in PlanGrid.</td>
+  </tr>
+  <tr>
+    <td rowspan="3">Created by</td>
+    <td>UID</td>
+    <td>ID of the user.</td>
+  </tr>
+  <tr>
+    <td>URL</td>
+    <td>URL to access the user’s profile in PlanGrid.</td>
+  </tr>
+  <tr>
+    <td>Email</td>
+    <td>Email of the user in PlanGrid.</td>
+  </tr>
+  <tr>
+    <td rowspan="2">Photos</td>
+    <td>Total count</td>
+    <td>The total number of photos associated with the RFI.</td>
+  </tr>
+  <tr>
+    <td>URL</td>
+    <td>The URL to access the photos associated with the RFI in PlanGrid.</td>
+  </tr>
+  <tr>
+    <td rowspan="2">Attachments</td>
+    <td>Total count</td>
+    <td>The total number of attachments associated with the RFI.</td>
+  </tr>
+  <tr>
+    <td>URL</td>
+    <td>The URL to access the attachments associated with the RFI in PlanGrid.</td>
+  </tr>
+  <tr>
+    <td rowspan="2">Snapshots</td>
+    <td>Total count</td>
+    <td>The total number of snapshots associated with the RFI.</td>
+  </tr>
+  <tr>
+    <td>URL</td>
+    <td>The URL to access the snapshots associated with the RFI in PlanGrid.</td>
+  </tr>
+  <tr>
+    <td rowspan="2">Comments</td>
+    <td>Total count</td>
+    <td>The total number of comments associated with the RFI.</td>
+  </tr>
+  <tr>
+    <td>URL</td>
+    <td>The URL to access the comments associated with the RFI in PlanGrid.</td>
+  </tr>
+</table>
 
-### Sheet
+## Sheet
 In Workato, the PlanGrid connector can be used to get details of a Sheet. In addition to this, you'll also be able to create sheet packets and sheet versions, get details on entire sheet packets or upload new sheet versions. When selecting the object type `Sheet`, `Sheet packet`, `Sheet version`, fields will be generated dynamically based on the action type you have chosen.
 
 Below, we describe the object representation of a Sheet in Workato.
 
-#### Representation of a Sheet
+### Representation of a Sheet
 
-| Field name         | Description                                                         |
-|--------------------|---------------------------------------------------------------------|
-| Sheet ID           | Unique identifier (UID) of the sheet, never blank.                  |
-| Project ID         | ID of the project containing the sheet.                             |
-| Name               | Name of the sheet in PlanGrid.                                      |
-| Version Name       | Name of the version set to which the sheet belongs in PlanGrid.     |
-| Description        | Description of the sheet.                                           |
-| Tags               | A list of any tags associated with the sheet in PlanGrid.           |
-| Published by       | Reference to  the user that published the sheet in PlanGrid.        |
-| - UID                | ID of the user.                                                     |
-| - URL                | URL to access the user’s profile in PlanGrid.                       |
-| - Email              | Email of the user in PlanGrid.                                      |
-| Published at       | Timestamp of when the sheet was published in PlanGrid.              |
-| Deleted            | Indicates whether this sheet has been deleted in PlanGrid.          |
-| Uploaded file name | Name of the uploaded file this sheet was contained in. Never blank. |
+<table>
+  <tr>
+    <th colspan="2">Field name</th>
+    <th>Description</th>
+  </tr>
+  <tr>
+    <td colspan="2">Sheet ID</td>
+    <td>Unique identifier (UID) of the sheet, never blank.</td>
+  </tr>
+  <tr>
+    <td colspan="2">Project ID</td>
+    <td>ID of the project containing the sheet.</td>
+  </tr>
+  <tr>
+    <td colspan="2">Name</td>
+    <td>Name of the sheet in PlanGrid.</td>
+  </tr>
+  <tr>
+    <td colspan="2">Version Name</td>
+    <td>Name of the version set to which the sheet belongs in PlanGrid.</td>
+  </tr>
+  <tr>
+    <td colspan="2">Description</td>
+    <td>Description of the sheet.</td>
+  </tr>
+  <tr>
+    <td colspan="2">Tags</td>
+    <td>A list of any tags associated with the sheet in PlanGrid.</td>
+  </tr>
+  <tr>
+    <td rowspan="3">Published by</td>
+    <td>UID</td>
+    <td>ID of the user.</td>
+  </tr>
+  <tr>
+    <td>URL</td>
+    <td>URL to access the user’s profile in PlanGrid.</td>
+  </tr>
+  <tr>
+    <td>Email</td>
+    <td>Email of the user in PlanGrid.</td>
+  </tr>
+  <tr>
+    <td colspan="2">Published at</td>
+    <td>Timestamp of when the sheet was published in PlanGrid.</td>
+  </tr>
+  <tr>
+    <td colspan="2">Deleted</td>
+    <td>Indicates whether this sheet has been deleted in PlanGrid.</td>
+  </tr>
+  <tr>
+    <td colspan="2">Uploaded file name</td>
+    <td>Name of the uploaded file this sheet was contained in. Never blank.</td>
+  </tr>
+</table>
 
-### Snapshot
+## Snapshot
 In Workato, the PlanGrid connector can be used to get details on a snapshot. When selecting the object type `snapshot`, fields will be generated dynamically based on the action type you have chosen. For our get snapshot action, the only input would be a single input field for the snapshot ID.
 
 Below, we describe the object representation of a snapshot in Workato.
 
-#### Representation of a snapshot
+### Representation of a snapshot
 
-| Field name  | Description                                                                       |
-|-------------|-----------------------------------------------------------------------------------|
-| Snapshot ID | Unique identifier (UID) of the file, never blank.                                 |
-| Project ID  | ID of the project containing the file.                                            |
-| Title       | The name of the snapshot in PlanGrid.                                             |
-| URL         | The URL to access the snapshot in PlanGrid.                                       |
-| Created at  | Timestamp of when the snapshot was created in PlanGrid.                           |
-| Created by  | Reference to  the user that created the snapshot in PlanGrid.                     |
-| UID         | ID of the user.                                                                   |
-| URL         | URL to access the user’s profile in PlanGrid.                                     |
-| Email       | Email of the user in PlanGrid.                                                    |
-| Sheet       | Object containing information about the sheet from which this snapshot was taken. |
-| UID         | ID of the sheet.                                                                  |
-| URL         | URL to access the sheet in PlanGrid.                                              |
-| Deleted     | Indicates whether this snapshot has been deleted in PlanGrid.                     |
+<table>
+  <tr>
+    <th>Field name</th>
+    <th>Description</th>
+  </tr>
+  <tr>
+    <td>Snapshot ID</td>
+    <td>Unique identifier (UID) of the file, never blank.</td>
+  </tr>
+  <tr>
+    <td>Project ID</td>
+    <td>ID of the project containing the file.</td>
+  </tr>
+  <tr>
+    <td>Title</td>
+    <td>The name of the snapshot in PlanGrid.</td>
+  </tr>
+  <tr>
+    <td>URL</td>
+    <td>The URL to access the snapshot in PlanGrid.</td>
+  </tr>
+  <tr>
+    <td>Created at</td>
+    <td>Timestamp of when the snapshot was created in PlanGrid.</td>
+  </tr>
+  <tr>
+    <td>Created by</td>
+    <td>Reference to the user that created the snapshot in PlanGrid.</td>
+  </tr>
+  <tr>
+    <td>UID</td>
+    <td>ID of the user.</td>
+  </tr>
+  <tr>
+    <td>URL</td>
+    <td>URL to access the user’s profile in PlanGrid.</td>
+  </tr>
+  <tr>
+    <td>Email</td>
+    <td>Email of the user in PlanGrid.</td>
+  </tr>
+  <tr>
+    <td>Sheet</td>
+    <td>Object containing information about the sheet from which this snapshot was taken.</td>
+  </tr>
+  <tr>
+    <td>UID</td>
+    <td>ID of the sheet.</td>
+  </tr>
+  <tr>
+    <td>URL</td>
+    <td>URL to access the sheet in PlanGrid.</td>
+  </tr>
+  <tr>
+    <td>Deleted</td>
+    <td>Indicates whether this snapshot has been deleted in PlanGrid.</td>
+  </tr>
+</table>
 
-### Task
+## Task
 In Workato, the PlanGrid connector can be used to create, update or get details of a task in PlanGrid. In addition to this, you'll also be able to create, update or get details of entire task lists in PlanGrid. When selecting the object type `Task`, or `Task list`, fields will be generated dynamically based on the action type you have chosen.
 
 Below, we describe the object representation of a task in Workato.
 
-#### Representation of a task
+### Representation of a task
 
-| ﻿Field name | Description |
-|---------------------|--------------------|
-| Task ID | Unique identifier (UID) of the task, never blank. |
-| Project ID | ID of the project containing the task. |
-| Number | The task number (specific to this project) as specific in PlanGrid. |
-| Title | The title of the task. |
-| Status | Current status of task. Possible values are "open", "in_review", "pending", "closed". |
-| Type | Indicates the type of task. Possible values are: issue, planned_work, other. |
-| Assignees | A list of objects containing information about the users that this task has been assigned to. |
-| UID | ID of the user. |
-| Type | URL to access the user’s profile in PlanGrid. |
-| List size | Email of the user in PlanGrid. |
-| Watchers | A list of objects containing information about the users that responsibility of watching this task has been assigned to. |
-| UID | ID of the user. |
-| Type | URL to access the user’s profile in PlanGrid. |
-| List size | Email of the user in PlanGrid. |
-| Location | Location of the task as specific in PlanGrid. |
-| Start date | Timestamp of when the task is set to start in PlanGrid. |
-| Due at | Timestamp of when the task is due in PlanGrid. |
-| Closed at | Timestamp of when the task was closed in PlanGrid. Available only once the task has been closed. |
-| Stamp | The task stamp selected in PlanGrid. |
-| Task List | The task list to which this task belongs in PlanGrid (if any). |
-| Task list ID | ID of the task list. |
-| URL | URL to access the task list in PlanGrid. |
-| Description | Description of the task. |
-| Cost impact | Number indicating the cost impact to the project as a result of this task. |
-| Has cost impact | Indicates whether the task has a cost impact. |
-| Currency code | Currency of the cost impact. |
-| Schedule impact | Time in seconds by which this task is impacting the project schedule. |
-| Has schedule impact | Indicates whether the task has a schedule impact. |
-| Current annotation | Object containing information about the current annotation to which this task is attached in PlanGrid (if any). |
-| UID | ID of the annotation in PlanGrid |
-| Color | The color assigned to the annotation in PlanGrid. |
-| Stamp | The stamp assigned to the annotation in PlanGrid (if any). |
-| Visibility | The visibility level of the annotation. Can be either “user” or “master”. User indicates a team member (or former team member) has not published the annotation to the project. Never blank. |
-| Deleted | Indicates whether the annotation has been deleted in PlanGrid. |
-| Sheet | Object containing information about the sheet to which this task belongs. |
-| UID | ID of the sheet. |
-| URL | URL to access the sheet in PlanGrid. |
-| Comments | Object containing information about the comments on the task in PlanGrid. |
-| Total Count | Total number of comments on the task. |
-| URL | URL to access the comments on the task in PlanGrid. |
-| Photos | Object containing information about the photos associated with the task in PlanGrid. |
-| Total count | Total number of photos associated with the task. |
-| URL | URL to access the photos on the task in PlanGrid. |
-| Deleted | Indicates whether this task has been deleted in PlanGrid. |
-| Created at | Timestamp of when the task was created PlanGrid. |
-| Created by | Reference to  the user that created the task in PlanGrid. |
-| UID | ID of the user. |
-| URL | URL to access the user’s profile in PlanGrid. |
-| Email | Email of the user in PlanGrid. |
-| Updated at | Timestamp of when the task was last updated in PlanGrid. |
-| Updated by | Reference to  the user that last updated the task in PlanGrid. |
-| UID | ID of the user. |
-| URL | URL to access the user’s profile in PlanGrid. |
-| Email | Email of the user in PlanGrid. |
+<table>
+  <tr>
+    <th colspan="3">Field name</th>
+    <th>Description</th>
+  </tr>
+  <tr>
+    <td colspan="3">Task ID</td>
+    <td>Unique identifier (UID) of the task, never blank.</td>
+  </tr>
+  <tr>
+    <td colspan="3">Project ID</td>
+    <td>ID of the project containing the task.</td>
+  </tr>
+  <tr>
+    <td colspan="3">Number</td>
+    <td>The task number (specific to this project) as specific in PlanGrid.</td>
+  </tr>
+  <tr>
+    <td colspan="3">Title</td>
+    <td>The title of the task.</td>
+  </tr>
+  <tr>
+    <td colspan="3">Status</td>
+    <td>Current status of task. Possible values are "open", "in_review", "pending", "closed".</td>
+  </tr>
+  <tr>
+    <td colspan="3">Type</td>
+    <td>Indicates the type of task. Possible values are: issue, planned_work, other.</td>
+  </tr>
+  <tr>
+    <td rowspan="3">Assignees</td>
+    <td colspan="2">UID</td>
+    <td>ID of the user.</td>
+  </tr>
+  <tr>
+    <td colspan="2">Type</td>
+    <td>Type of user assigned</td>
+  </tr>
+  <tr>
+    <td colspan="2">List size</td>
+    <td>Number of users assigned</td>
+  </tr>
+  <tr>
+    <td rowspan="3">Watchers</td>
+    <td colspan="2">UID</td>
+    <td>ID of the user.</td>
+  </tr>
+  <tr>
+    <td colspan="2">Type</td>
+    <td>Type of user assigned</td>
+  </tr>
+  <tr>
+    <td colspan="2">List size</td>
+    <td>Number of users assigned</td>
+  </tr>
+  <tr>
+    <td colspan="3">Location</td>
+    <td>Location of the task as specific in PlanGrid.</td>
+  </tr>
+  <tr>
+    <td colspan="3">Start date</td>
+    <td>Timestamp of when the task is set to start in PlanGrid.</td>
+  </tr>
+  <tr>
+    <td colspan="3">Due at</td>
+    <td>Timestamp of when the task is due in PlanGrid.</td>
+  </tr>
+  <tr>
+    <td colspan="3">Closed at</td>
+    <td>Timestamp of when the task was closed in PlanGrid. Available only once the task has been closed.</td>
+  </tr>
+  <tr>
+    <td colspan="3">Stamp</td>
+    <td>The task stamp selected in PlanGrid.</td>
+  </tr>
+  <tr>
+    <td rowspan="2">Task List</td>
+    <td colspan="2">Task list ID</td>
+    <td>ID of the task list.</td>
+  </tr>
+  <tr>
+    <td colspan="2">URL</td>
+    <td>URL to access the task list in PlanGrid.</td>
+  </tr>
+  <tr>
+    <td colspan="3">Description</td>
+    <td>Description of the task.</td>
+  </tr>
+  <tr>
+    <td colspan="3">Cost impact</td>
+    <td>Number indicating the cost impact to the project as a result of this task.</td>
+  </tr>
+  <tr>
+    <td colspan="3">Has cost impact</td>
+    <td>Indicates whether the task has a cost impact.</td>
+  </tr>
+  <tr>
+    <td colspan="3">Currency code</td>
+    <td>Currency of the cost impact.</td>
+  </tr>
+  <tr>
+    <td colspan="3">Schedule impact</td>
+    <td>Time in seconds by which this task is impacting the project schedule.</td>
+  </tr>
+  <tr>
+    <td colspan="3">Has schedule impact</td>
+    <td>Indicates whether the task has a schedule impact.</td>
+  </tr>
+  <tr>
+    <td rowspan="7">Current annotation</td>
+    <td colspan="2">UID</td>
+    <td>ID of the annotation in PlanGrid</td>
+  </tr>
+  <tr>
+    <td colspan="2">Color</td>
+    <td>The color assigned to the annotation in PlanGrid.</td>
+  </tr>
+  <tr>
+    <td colspan="2">Stamp</td>
+    <td>The stamp assigned to the annotation in PlanGrid (if any)</td>
+  </tr>
+  <tr>
+    <td colspan="2">Visibility</td>
+    <td>The visibility level of the annotation. Can be either “user” or “master”. User indicates a team member (or former team member) has not published the annotation to the project. Never blank</td>
+  </tr>
+  <tr>
+    <td colspan="2">Deleted</td>
+    <td>Indicates whether the annotation has been deleted in PlanGrid.</td>
+  </tr>
+  <tr>
+    <td rowspan="2">Sheet</td>
+    <td>UID</td>
+    <td>ID of the sheet.</td>
+  </tr>
+  <tr>
+    <td>URL</td>
+    <td>URL to access the sheet in PlanGrid.</td>
+  </tr>
+  <tr>
+    <td rowspan="2">Comments</td>
+    <td colspan="2">Total count</td>
+    <td>Total number of comments on the task.</td>
+  </tr>
+  <tr>
+    <td colspan="2">URL</td>
+    <td>URL to access the comments on the task in PlanGrid.</td>
+  </tr>
+  <tr>
+    <td rowspan="2">Photos</td>
+    <td colspan="2">Total count</td>
+    <td>Total number of photos associated with the task.</td>
+  </tr>
+  <tr>
+    <td colspan="2">URL</td>
+    <td>URL to access the photos on the task in PlanGrid.</td>
+  </tr>
+  <tr>
+    <td colspan="3">Deleted</td>
+    <td>Indicates whether this task has been deleted in PlanGrid.</td>
+  </tr>
+  <tr>
+    <td colspan="3">Created at</td>
+    <td>Timestamp of when the task was created PlanGrid.</td>
+  </tr>
+  <tr>
+    <td rowspan="3">Created by</td>
+    <td colspan="2">UID</td>
+    <td>ID of the user.</td>
+  </tr>
+  <tr>
+    <td colspan="2">URL</td>
+    <td>URL to access the user’s profile in PlanGrid.</td>
+  </tr>
+  <tr>
+    <td colspan="2">Email</td>
+    <td>Email of the user in PlanGrid.</td>
+  </tr>
+  <tr>
+    <td colspan="3">Updated at</td>
+    <td>Timestamp of when the task was last updated in PlanGrid.</td>
+  </tr>
+  <tr>
+    <td rowspan="3">Updated by</td>
+    <td colspan="2">UID</td>
+    <td>ID of the user.</td>
+  </tr>
+  <tr>
+    <td colspan="2">URL</td>
+    <td>URL to access the user’s profile in PlanGrid.</td>
+  </tr>
+  <tr>
+    <td colspan="2">Email</td>
+    <td>Email of the user in PlanGrid.</td>
+  </tr>
+</table>
 
-### User
+## User
 In Workato, the PlanGrid connector can be used to create or get details of a user in PlanGrid. When selecting the object type `user`, fields will be generated dynamically based on the action type you have chosen.
 
 Below, we describe the object representation of a user in Workato.
 
-#### Representation of a user
+### Representation of a user
 
 | ﻿Field name | Description |
 |---------------------|--------------------|
@@ -355,12 +969,12 @@ Below, we describe the object representation of a user in Workato.
 | Last name | Last name of user |
 | Language | Native language of user |
 
-### Role
+## Role
 In Workato, the PlanGrid connector can be used to get details of a role in PlanGrid. When selecting the object type `role`, fields will be generated dynamically based on the action type you have chosen.
 
 Below, we describe the object representation of a role in Workato.
 
-#### Representation of a role
+### Representation of a role
 
 | ﻿Field name | Description |
 |---------------------|--------------------|

@@ -16,7 +16,6 @@ The following actions are supported:
 * Update object
 * Upload object
 
-
 ## Objects
 | Object name                   | Available actions types                     | Triggers              |
 | ------------------------------|---------------------------------------------|-----------------------|
