@@ -1,6 +1,7 @@
 ---
 title: Developer program
 date: 2019-05-08 17:00:00 Z
+isTocVisible: true
 ---
 # Using the Workato SDK Platform
 Workato's SDK platform has numerous features that enable you to build, test, develop and share your custom connector. In this article, we will be going through the basic functionalities of the platform and how you can leverage different functionalities to make your connector development process smoother.  

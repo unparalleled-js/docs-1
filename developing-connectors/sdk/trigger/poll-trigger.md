@@ -1,3 +1,9 @@
+---
+title: SDK - Poll Trigger
+date: 2018-05-24 14:00:00 Z
+isTocVisible: true
+---
+
 # Poll Trigger
 Records (tickets, leads, items etc.) are called events in a poll. A poll trigger constantly executes a poll block for new events at fixed time intervals. This time interval depends on a user's subscription (5 or 10 minutes). At the same time, it is also able to support pagination. This is useful to prevent request timeouts when making requests with large response results. A trigger can execute immediate consecutive polls to retrieve events from successive pages.
 

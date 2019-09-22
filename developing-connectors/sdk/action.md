@@ -1,3 +1,9 @@
+---
+title: SDK - Actions
+date: 2018-05-24 14:00:00 Z
+isTocVisible: true
+---
+
 # Action
 This section will now dive deeper into the details of how to create actions. This assumes that you have already learn't how to create a successful connection using one of the available authentication methods our SDK supports. Actions receive data from earlier steps in a recipe, transform it and send this data to your target API through HTTP requests.
 

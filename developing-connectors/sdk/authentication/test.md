@@ -1,3 +1,8 @@
+---
+title: SDK - Testing your connection
+date: 2018-05-24 14:00:00 Z
+---
+
 # Testing your connection
 Workato requires you to define a simple test to ensure that connection is successful. Typically, this should be a request that will always be accessible to any user.
 

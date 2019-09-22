@@ -1,3 +1,9 @@
+---
+title: SDK - Walkthrough
+date: 2018-05-24 14:00:00 Z
+isTocVisible: true
+---
+
 # Connector Walkthrough
 In this chapter, our aim is to get our feet wet by building a simple connector to something that most people can identify with - **Star Wars!** The API we will be using is free to use and allows us to access information about Star Wars characters, planets, vehicles and much more. For simplicity, we will refer to this API as SWAPI. **[Check out SWAPI over here.](https://swapi.co/)**
 

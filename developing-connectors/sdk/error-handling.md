@@ -1,6 +1,7 @@
 ---
 title: SDK - Error Handling
 date: 2018-05-01 06:00:00 Z
+isTocVisible: true
 ---
 
 # Error Handling

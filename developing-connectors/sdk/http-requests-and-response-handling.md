@@ -1,3 +1,9 @@
+---
+title: SDK - HTTP Requests
+date: 2018-05-24 14:00:00 Z
+isTocVisible: true
+---
+
 # HTTP Requests and post-response processing
 In this section we cover the various HTTP methods that Workato supports. You should already be familiar with most of them. We also cover how you can do post-response processing of your HTTP calls to manipulate data into formats that are easier to use later on in your connector code.
 

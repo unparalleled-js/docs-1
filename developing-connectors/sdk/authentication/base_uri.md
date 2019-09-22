@@ -1,3 +1,8 @@
+---
+title: SDK - Defining a Base URI
+date: 2018-05-24 14:00:00 Z
+---
+
 # Base URI
 In some cases, defining a base URI can reduce the amount of redundancy in your code.
 
