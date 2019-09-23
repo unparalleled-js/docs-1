@@ -1,3 +1,9 @@
+---
+title: SDK - Toggle Fields
+date: 2018-05-24 14:00:00 Z
+isTocVisible: true
+---
+
 # Toggle Fields
 Toggle fields are a special type of input fields that allow 2 input types. They are a great way you can introduce greater flexibility and increase usability in your input fields. When used, toggle fields allow users to switch between two control types.
 

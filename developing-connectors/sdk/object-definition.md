@@ -1,3 +1,9 @@
+---
+title: SDK - Object Definitions
+date: 2018-05-24 14:00:00 Z
+isTocVisible: true
+---
+
 # Object Definitions and structuring input and output fields
 Object Definitions are an important component of the SDK. It allows you to define your schema for objects to be used in the actions and triggers. While we have gone through examples on how to do this directly from inside your `input_fields:` and `output_fields:` blocks, object_definitions allow you to declare it once and reuse it multiple times in various areas of your connector code.
 

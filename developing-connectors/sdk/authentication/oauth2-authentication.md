@@ -1,3 +1,9 @@
+---
+title: SDK - OAuth 2.0
+date: 2018-05-24 14:00:00 Z
+isTocVisible: true
+---
+
 # OAuth 2.0
 For a more secure method of authentication, we recommend using [OAuth 2.0](https://tools.ietf.org/html/rfc6749). It is an open standard and a more secure way for users to log into third party websites without exposing their credentials.
 

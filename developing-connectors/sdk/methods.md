@@ -1,3 +1,9 @@
+---
+title: SDK - Methods
+date: 2018-05-24 14:00:00 Z
+isTocVisible: true
+---
+
 # Methods
 Not all ruby public instance methods are available when building connectors on Workato's SDK framework. Below we go through a list of whitelisted ruby methods that you can use in any block when building your connector.
 

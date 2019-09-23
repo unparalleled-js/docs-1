@@ -1,3 +1,8 @@
+---
+title: SDK - Header Authentication
+date: 2018-05-24 14:00:00 Z
+---
+
 # Header Authentication
 For APIs requiring header authentication, this can be easily accomplished if the token is supplied by the user directly through user input fields.
 

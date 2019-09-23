@@ -1,3 +1,9 @@
+---
+title: SDK - Best Practices
+date: 2018-05-24 14:00:00 Z
+isTocVisible: true
+---
+
 # Best Practices
 Below, we have compiled a list of best practices which makes development of your custom connector easier to build, test and maintain. We have organised this best practices in the following way:
 1. [General best practices](#general-best-practices)
