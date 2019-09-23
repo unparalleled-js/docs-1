@@ -130,6 +130,11 @@ When attempting to test an action or trigger, you'll need to define the input pa
 
 Besides the input and outputs of the action or trigger, you'll also be able to see the network activity triggered such as any API requests sent. The console tab shows the result of any `puts` ruby methods that were executed during the test. This is especially useful for debugging and shows even if the test was unsuccessful due to a logic error in the action or trigger.
 
+![Console tab with error](/assets/images/sdk/debugger-error-loc.png)
+*Error messages also provide a basic stack trace that allows you to find out the line of codes involved*
+
+In the event of unsuccessful tests, the debugger console would feature red accents and also feature an additional tab called `error`. In this tab, you would be able to see the error message raised due to the logic error as well as the exact line of code that cause our framework to raise this error. In the event that the line of code was raised in a block other than the `execute:` block, we also provide a trace of the lines of code called that lead up to the final error. 
+
 ## Sharing your connector
 After you've built and released a version of your connector, you'll be able to share it with other Workato users using your share link located in the "Settings" tab. When a user clicks on your share link, they'll be brought to an install page where they can view information about the latest released version of your connector including descriptions, source code and the actions and triggers present.
 
