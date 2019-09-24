@@ -1,37 +1,35 @@
 ---
 title: Workato API - Connections
 date: 2019-03-21 11:20:00 Z
+isTocVisible: true
 ---
 
 # Connections
-Use the following endpoints to retrieve the connections that belong to a user.
 
-## Supported Formats
-* JSON
+Use the following endpoints to retrieve the connections that belong to a user.
 
 ## List Connections
 
-> GET /api/connections  
+Returns all connections and associated data for the authenticated Workato user.
 
-### Description
-Returns all connections and associated data for the Workato user specified in the query parameters or in the request headers of the API request.
-
-### Responses
-| Code | Description |
-| --- | --- |
-| `200` | Success |
-| `401` | Unauthorized |
-| `500` | Server error |
-
-### Examples
-
-#### Success: 200
-```JSON
+```
 GET /api/connections
-200
+```
+
+#### Sample request
+
+```shell
+curl  -X GET http://workato.com/api/connections \
+      -H 'x-user-email: <email>' \
+      -H 'x-user-token: <token>'
+```
+
+### Response
+
+```json
 [
   {
-    "application": "Salesforce",
+    "application": "salesforce",
     "id": 36,
     "name": "ACME Production Salesforce connection",
     "description": null,
@@ -40,6 +38,17 @@ GET /api/connections
     "authorization_error": null,
     "created_at": "2015-05-26T22:53:52.532Z",
     "updated_at": "2015-05-26T22:53:52.532Z"
+  },
+  {
+      "application": "google_sheets",
+      "id": 37,
+      "name": "ACME google sheet account",
+      "description": null,
+      "authorized_at": "2015-05-26T22:53:52.528Z",
+      "authorization_status": "success",
+      "authorization_error": null,
+      "created_at": "2015-05-26T22:53:52.532Z",
+      "updated_at": "2015-05-26T22:53:52.532Z"
   }
 ]
 ```

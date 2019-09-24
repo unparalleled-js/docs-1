@@ -1,48 +1,51 @@
 ---
 title: Workato API - Recipe lifecycle management
 date: 2019-04-25 12:20:00 Z
+isTocVisible: true
 ---
 
 # Recipe lifecycle management
-Use the following endpoints to automate the import and export of packages.
 
-### Supported Formats
-* JSON
+### Quick reference
 
-### Contents
-|Resource|Description|
-|--- |--- |
-|[POST /api/packages/export/:manifest_id](#export-package-based-on-a-manifest)|Export package based on a manifest|
-|[POST /api/packages/import/:folder_id](#import-package-into-a-folder)|Import package into a folder|
-|[GET /api/packages/:id](#get-package-by-id)|Get package by ID|
-|[GET /api/packages/:id/download](#download-package)|Download package|
+<div class='api_quick_reference'></div>
+
+| Type | Resource | Description |
+|------|----------|-------------|
+| POST | [/api/packages/export/:manifest_id](#export-package-based-on-a-manifest)| Export package based on a manifest. |
+| POST | [/api/packages/import/:folder_id](#import-package-into-a-folder) | Import package into a folder. |
+| GET  | [/api/packages/:id](#get-package-by-id) | Get package by ID. |
+| GET  | [/api/packages/:id/download](#download-package) | Download a package. |
 
 ## Export package based on a manifest
 
-> POST /api/packages/export/:manifest_id
+Export package based on a manifest.
 
-### Description
-Export package based on a manifest. Manifest ID is required. This is an asynchronous request. Please use the [GET package by ID](workato-api/recipe-lifecycle-management.md#get-package-by-id) endpoint to get details of the exported package after this endpoint is used.
+```
+POST /api/packages/export/:id
+```
 
-### Parameters
+This is an asynchronous request. Use [GET package by ID](#get-package-by-id) endpoint to get details of the exported package.
+
+### URL parameters
+
+<div class='api_input'></div>
+
 | Name | Type | Description |
-| --- | --- | --- |
-| manifest_id | **string**<br>_required_ | Export manifest ID. |
+|------|------|-------------|
+| id   | **string**<br>_required_ | Export manifest ID. |
 
-### Responses
-| Code | Description |
-| --- | --- |
-| `200` | Success |
-| `400` | Bad request
-| `401` | Unauthorized |
-| `500` | Server error |
+#### Sample request
 
-### Examples
+```shell
+curl  -X POST https://workato.com/api/packages/export/<manifest_id> \
+      -H 'x-user-email: <email>' \
+      -H 'x-user-token: <token>'
+```
 
-#### Success: 200
+### Response
+
 ```json
-GET /api/packages/242
-200
 {  
    "id":242,
    "operation_type":"export",
@@ -54,33 +57,38 @@ GET /api/packages/242
 
 ## Import package into a folder
 
-> POST /api/packages/import/:folder_id
+Import a package (zip file) into a folder.
 
-### Description
-Import a package (zip file) into the folder. The input is a “application/octet-stream” payload containing package content. `restart_recipes` should be “true” if running recipes need to be restarted upon import.
+```
+POST /api/packages/import/:id
+```
 
-This is an asynchronous request. Please use the [GET package by ID](workato-api/recipe-lifecycle-management.md#get-package-by-id) endpoint to get details of the imported package after this endpoint is used.
+This is an asynchronous request. Use [GET package by ID](#get-package-by-id) endpoint to get details of the imported the package.
 
-### Parameters
+The input (zip file) is a “application/octet-stream” payload containing package content. URL parameter **restart_recipes** should be `true` if the running recipes need to be restarted upon import.
+
+### URL parameters
+
+<div class='api_input'></div>
+
 | Name | Type | Description |
-| --- | --- | --- |
-| folder_id | **string**<br>_required_ | Folder ID. |
-| restart_recipes | **boolean**<br>_optional_ | If `True`, it will allow the restarting of running recipes. |
+|------|------|-------------|
+| id   | **string**<br>_required_ | Folder ID. |
+| restart_recipes | **boolean**<br>_optional_ | If `true`, it will allow the restarting of running recipes. |
 
-### Responses
-| Code | Description |
-| --- | --- |
-| `200` | Success |
-| `400` | Bad request
-| `401` | Unauthorized |
-| `500` | Server error |
+#### Sample request
 
-### Examples
+```shell
+curl  -X POST https://workato.com/api/packages/import/<folder_id>?restart_recipes=true \
+      -H 'x-user-email: <email>' \
+      -H 'x-user-token: <token>' \
+      -H 'Content-Type: application/octet-steam' \
+      -F 'path/to/local/file.zip'
+```
 
-#### Success: 200
+### Response
+
 ```json
-POST /api/packages/import/2617
-200
 {  
    "id":251,
    "operation_type":"import",
@@ -91,25 +99,33 @@ POST /api/packages/import/2617
 
 ## Get package by ID
 
-> GET /api/packages/:id
-
-### Description
 Get details of an imported or exported package.
 
-### Responses
-| Code | Description |
-| --- | --- |
-| `200` | Success |
-| `400` | Bad request
-| `401` | Unauthorized |
-| `500` | Server error |
+```
+GET /api/packages/:id
+```
 
-### Example
+### URL paramters
 
-#### Success: 200
+<div class='api_input'></div>
+
+| Name | Type | Description |
+|------|------|-------------|
+| id   | **string**<br>_required_ | Package ID. |
+
+#### Sample request
+
+```shell
+curl  -X GET https://workato.com/api/packages/<package_id> \
+      -H 'x-user-email: <email>' \
+      -H 'x-user-token: <token>'
+```
+
+### Response
+
+* This shows a successful export.
+
 ```json
-GET /api/packages/242
-200
 {  
    "id":242,
    "operation_type":"export",
@@ -119,9 +135,9 @@ GET /api/packages/242
 }
 ```
 
+* This shows a packages that failed to export properly.
+
 ```json
-GET /api/packages/245
-200
 {  
    "id":242,
    "operation_type":"export",
@@ -134,21 +150,28 @@ GET /api/packages/245
 
 ## Download package
 
-> GET /api/packages/:id/download
+Downloads a package.
 
-### Description
-If successful, redirects to package content. Returns `404` if package not found or doesn't have content.
+```
+GET /api/packages/:id/download
+```
 
-### Parameters
+### URL parameters
+
+<div class='api_input'></div>
+
 | Name | Type | Description |
-| --- | --- | --- |
-| id | **string**<br>_required_ | Package ID. |
+|------|------|-------------|
+| id   | **string**<br>_required_ | Package ID. |
 
-### Responses
-| Code | Description |
-| --- | --- |
-| `200` | Success |
-| `400` | Bad request
-| `401` | Unauthorized |
-| `404` | Not found |
-| `500` | Server error |
+#### Sample request
+
+```shell
+curl  -X GET https://workato.com/api/packages/<package_id>/download \
+      -H 'x-user-email: <email>' \
+      -H 'x-user-token: <token>'
+```
+
+### Response
+
+If successful, you will be redirected to the package content. Returns `404` if package not found or doesn't have content.

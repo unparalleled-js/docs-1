@@ -1,40 +1,44 @@
 ---
 title: Workato API - Adapters
 date: 2019-03-21 11:20:00 Z
+isTocVisible: true
 ---
 
-# Adapters
-Use the following endpoints to retrieve the metadata of connectors in Workato.
+# Connectors
 
-### Supported Formats
-* JSON
+All API endpoints listed here requires `oem_vendor` privilege. Talk to your Workato representative to enable this privilege in your account.
 
 ## List Connector Metadata
 
-> GET /api/integrations
+Returns a list of connectors and associated metadata specified in the API request.
 
-### Description
-Returns a list of connectors and associated metadata specified in the query parameters or in the request headers of the API request. Requires 'oem_vendor' privilege.
+```
+GET /api/integrations
+```
 
-### Parameters
+### Request body
+
+<div class='api_input'></div>
+
 | Name | Type | Description |
-| --- | --- | --- |
-| applications | **string**<br>_required_ | Comma separated connector identifiers (e.g: salesforce,service_now). |
+|------|------|-------------|
+| applications | **string**<br>_required_ | Comma separated connector identifiers. |
 
-### Responses
-| Code | Description |
-| --- | --- |
-| `200` | Success |
-| `401` | Unauthorized |
-| `500` | Server error |
+#### Sample request
 
-### Examples
+```shell
+curl  -X GET http://workato.com/api/integrations \
+      -H 'x-user-email: <email>' \
+      -H 'x-user-token: <token>' \
+      -H 'Content-Type: application/json' \
+      -d '{
+            "applications": "salesforce,service_now"
+          }'
+```
 
-#### Success: 200
+### Response
 
-```JSON
-GET /api/adapters
-200
+```json
 [
   {
     "name": "salesforce",
