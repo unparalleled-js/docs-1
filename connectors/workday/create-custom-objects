@@ -1,6 +1,0 @@
----
-title: Workato connectors - Workday create/update custom objects
-date: 2017-06-06 06:38:00 Z
----
-
-Start creating your custom object by selecting the Workday business object that the custom object extends.  Also define a Custom Object Name, which will be used to group custom fields throughout the application.

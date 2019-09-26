@@ -1,17 +1,20 @@
 ---
-title: Workato connectors - Workday Connection
+title: Workato connectors - Workday integration connection
 date: 2017-11-17 09:00:00 Z
 ---
 
 # Workday Connection
 
+To set up your Workday integration, first, connect your Workday instance to Workato.
+
 ## How to connect to Workday on Workato
 The Workday connector uses the [Workday Web Services](https://community.workday.com/sites/default/files/file-hosting/productionapi/index.html), [RaaS](/connectors/workday/workday_raas.md) and [REST API](https://doc.workday.com/reader/wsiU0cnNjCc_k7shLNxLEA/HvgwLwxCHVdBlZUTNd9s7A). Workday recommends using an [Integration System User (ISU)](#register-integration-system-user) for integration using third party services like Workato.
 
-Both the Workday Web Services and RaaS requires basic authentication. REST API is used to work with custom objects. This requires a separate [OAuth client setup](#register-api-client).
+Both the Workday Web Services and RaaS requires basic authentication. REST API requires an additional OAuth client setup.
+
+Workday REST API is used to work with custom objects in your Workday instance. If this is required by your use case, indicate that you are **using custom objects**. See instruction on how to register a Workday API client [here](#register-api-client).
 
 ### Connect to Workday on Workato
-Workday asks for the following information to connect.
 
 ![Information to connect to Workday](/assets/images/connectors/workday/workday-connection-1.png)
 *Workday connection fields*
@@ -38,7 +41,7 @@ Furthermore, if this worker security profile changes, or if the worker is termin
 
 The recommended approach to access web services is through an Integration System User (ISU) account. For security reasons, each ISU should be restricted to a single integration system (like Workato).
 
-The ISU should have all permissions needed to perform the required actions for your integration scenario. When building recipes, you may encounter a `403` error, it means that the ISU does not have sufficient permission for the action.
+The ISU should have all the permissions needed to perform the required actions for your integration scenario. When building recipes, you may encounter a `403` error, it means that the ISU does not have sufficient permission for the action.
 
 ![403 error](/assets/images/connectors/workday/permission-error.png)
 *Error message when ISU does not have enough permission*
@@ -160,4 +163,4 @@ Navigate to "Register API Client" in your Workday instance.
 ![API Client credentials](/assets/images/connectors/workday/api-client-2.png)
 *API client details*
 
-Remember to save the **Client ID**, **Client Secret**, **Authorization Endpoint** and **Token Endpoint**. This will be required for connecting to Workday via Workato.
+Remember to save the **Client ID**, **Client Secret**, **Authorization Endpoint** and **Token Endpoint**. They will be required for the Workday integration connector [setup](#connect-to-workday-on-workato).
