@@ -57,7 +57,7 @@ In the fields, you should provide data pills or static data that you wish to use
 
 ### Escaping parameter values
 
-To escape parameter values, use an escape character when defining a profile in the on-prem agent's `config.yml` file. The escape_char property value is set to '\' on Unix and '""' on Windows.
+To escape parameter values, use an escape character when defining a profile in the on-prem agent's `config.yml` file. The escape_char property value is set to `\` on Unix and `""` on Windows.
 
 ![Parameters specified in yml](/assets/images/connectors/on-prem-command-line-scripts/input-parameters-yml.png)
 *Using an escape character*
