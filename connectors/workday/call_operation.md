@@ -1,6 +1,7 @@
 ---
 title: Workato connectors - Workday Call operation
 date: 2017-11-05 09:00:00 Z
+isTocVisible: true
 ---
 
 # Call operation
@@ -9,9 +10,11 @@ This action makes use of the Workday Web Services (WWS) to execute SOAP-based op
 The full set of operations available can be found on [Workday Web Services Directory](https://community.workday.com/sites/default/files/file-hosting/productionapi/versions/v29.0/index.html).
 
 ## Version
-The Workday connector works with **v29.0** of WWS.
+The Workday connector works with **v29.0** and **v32.2** of WWS.
 
 ## Input
+First, define the operation that you want to execute in your Workday instance, next supply the data to the sent with the operation. This set of input fields depends on the type of operation that was selected.
+
 <table class="unchanged rich-diff-level-one">
   <thead>
     <tr>
@@ -24,12 +27,6 @@ The Workday connector works with **v29.0** of WWS.
       <td><a href='#operation'>Operation</a></td>
       <td>
         Name of the Workday Web Services operation to execute. This must be selected before the rest of the input fields can be determined.
-      </td>
-    </tr>
-    <tr>
-      <td>Data</td>
-      <td>
-        Data to be sent with the operation. This set of input fields depends on the selected operation.
       </td>
     </tr>
     <tr>
@@ -50,15 +47,15 @@ The Workday connector works with **v29.0** of WWS.
 </table>
 
 ### Operation
-![Select Maintain Contact Information](/assets/images/workday/select_operation.png)
+![Select Maintain Contact Information](/assets/images/connectors/workday/select_operation.png)
 *Select Maintain Contact Information*
 
-This is a full list of all operations in Workday Web Services. To find the operation that you want, simply type key words to filter and narrow down the list of possible matches.
+This is a full list of all operations in Workday Web Services. To find the operation that you want, simply use keywords to filter and narrow down the list of possible matches.
 
-In this example, we are looking for the [Maintain Contact Information](https://community.workday.com/sites/default/files/file-hosting/productionapi/Human_Resources/v29.0/Maintain_Contact_Information.html) operation.
+In this example, we are looking for the [Maintain Contact Information](https://community.workday.com/sites/default/files/file-hosting/productionapi/Human_Resources/v29.0/Maintain_Contact_Information.html) operation. Here, we are creating a recipe to update the email address of a Workday record when the employee's email changes.
 
 ### Fields with attributes
-![Selecting Email Address Data to include attribute values](/assets/images/workday/select_fields_with_attributes.png)
+![Selecting Email Address Data to include attribute values](/assets/images/connectors/workday/select_fields_with_attributes.png)
 *Selecting Email Address Data to include attribute values*
 
 Suppose we want to add new email addresses to a particular contact without replacing any existing email addresses. This can be done by setting the **Do_Not_Replace_All** attribute of the **Email address data** field to `false`.
@@ -66,7 +63,7 @@ Suppose we want to add new email addresses to a particular contact without repla
 Simply select `Maintain Contact Information Data/Worker.../Email Address Data`. This will generate all possible attributes for the **Email address data** field, including **Do_Not_Replace_All**.
 
 ### Fields with multiple values
-![Selecting Email Address Data field to be repeated](/assets/images/workday/select_fields_with_multiple_values.png)
+![Selecting Email Address Data field to be repeated](/assets/images/connectors/workday/select_fields_with_multiple_values.png)
 *Selecting Email Address Data field to be repeated*
 
 Suppose that our use case may involve more than one email address. To support this, we will have to send multiple email addresses in a single operation.
@@ -74,4 +71,4 @@ Suppose that our use case may involve more than one email address. To support th
 Simply select `Maintain Contact Information Data/Worker.../Email Address Data`. This will change the **Email address data** into a list type input field. With that, you can map one or more email addresses using a list.
 
 ## Output
-Output fields will depend on the selected operation.
+The complete set of fields and attributes for the selected operation will be available in the output datatree.
