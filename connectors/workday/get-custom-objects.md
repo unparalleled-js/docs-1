@@ -1,10 +1,11 @@
 ---
 title: Workato connectors - Workday get custom objects
 date: 2017-06-06 06:38:00 Z
+isTocVisible: true
 ---
 
-# Workday - Get custom objects
-You can extend Workday business objects by configuring custom objects. These custom objects are based on default Workday and can store additional custom fields. Custom objects enable you to record additional data which is not captured by the default Workday objects.
+# Get custom objects
+You can extend Workday business objects by configuring custom objects. These custom objects are based standard Workday business objects and can be used to store additional information. This allows you to capture data unique to your organization in Workday. 
 
 ## Get custom objects actions
 This action allows you to retrieve a custom object value of a specific Workday object.
@@ -25,9 +26,9 @@ We can use this action to retrieve the status of a worker, to see if he/she has 
 | Custom object fields | Define the fields in this custom object. If left blank, it will retrieve all fields with their default names. |
 
 #### Example
-To retrieve the drug test status of Worker `13265`, we will use the **Get custom object** action and define it like so:
+To retrieve the drug test status of Worker `1da8b422311b4929bfa4520f7f0b4e83`, we will use the **Get custom object** action and define it like so:
 - Alias: `drugTested`
-- Parent object ID: `13265763d7d3015f14cf7455b318a809`
+- Parent object ID: `1da8b422311b4929bfa4520f7f0b4e83`
 
 ### Outputs
 
@@ -43,4 +44,4 @@ The outputs of this action are:
 
 Each field is retrieved and converted into a datapill. These can be used in subsequent recipe actions.
 
-> If the parent object does not contain the custom object, this action will return `Error 404: Not found`.
+> **If the parent object does not contain the custom object, this action will return `Error 404: Not found`.**

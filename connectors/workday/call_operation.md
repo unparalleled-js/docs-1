@@ -1,6 +1,7 @@
 ---
 title: Workato connectors - Workday Call operation
 date: 2017-11-05 09:00:00 Z
+isTocVisible: true
 ---
 
 # Call operation
@@ -9,7 +10,7 @@ This action makes use of the Workday Web Services (WWS) to execute SOAP-based op
 The full set of operations available can be found on [Workday Web Services Directory](https://community.workday.com/sites/default/files/file-hosting/productionapi/versions/v29.0/index.html).
 
 ## Version
-The Workday connector works with **v29.0** of WWS.
+The Workday connector works with **v29.0** and **v32.2** of WWS.
 
 ## Input
 First, define the operation that you want to execute in your Workday instance, next supply the data to the sent with the operation. This set of input fields depends on the type of operation that was selected.
@@ -51,7 +52,7 @@ First, define the operation that you want to execute in your Workday instance, n
 
 This is a full list of all operations in Workday Web Services. To find the operation that you want, simply use keywords to filter and narrow down the list of possible matches.
 
-In this example, we are looking for the [Maintain Contact Information](https://community.workday.com/sites/default/files/file-hosting/productionapi/Human_Resources/v29.0/Maintain_Contact_Information.html) operation.
+In this example, we are looking for the [Maintain Contact Information](https://community.workday.com/sites/default/files/file-hosting/productionapi/Human_Resources/v29.0/Maintain_Contact_Information.html) operation. Here, we are creating a recipe to update the email address of a Workday record when the employee's email changes.
 
 ### Fields with attributes
 ![Selecting Email Address Data to include attribute values](/assets/images/connectors/workday/select_fields_with_attributes.png)
@@ -70,4 +71,4 @@ Suppose that our use case may involve more than one email address. To support th
 Simply select `Maintain Contact Information Data/Worker.../Email Address Data`. This will change the **Email address data** into a list type input field. With that, you can map one or more email addresses using a list.
 
 ## Output
-Output fields will depend on the selected operation.
+The complete set of fields and attributes for the selected operation will be available in the output datatree.

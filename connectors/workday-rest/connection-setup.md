@@ -1,6 +1,7 @@
 ---
 title: Workato connectors - Workday REST approve/reject inbox task action
 date: 2019-08-01 00:00:00 Z
+isTocVisible: true
 ---
 
 # Workday REST Connection

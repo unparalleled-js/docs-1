@@ -1,6 +1,7 @@
 ---
 title: Workato connectors - Workday RaaS
 date: 2017-06-06 06:38:00 Z
+isTocVisible: true
 ---
 
 # Workday RaaS
@@ -9,7 +10,7 @@ Workday Report-as-a-Service (RaaS) is a feature that exposes reports as web serv
 ## Custom Reports Setup
 Custom Reports (advanced type) can be exposed as a Web Service to be used programmatically. Workato uses this web service to automate report run and to integrate report data from Workday to other applications.
 
-### How to find JSON endpoint
+### How to find report URL
 Find URL in Actions > Web Service > View URLs
 
 ![View RaaS URL](/assets/images/connectors/workday/view_raas_url.png)

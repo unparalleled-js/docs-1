@@ -8,7 +8,7 @@ date: 2019-08-01 00:00:00 Z
 
 Use the Workday REST integration connector to sync data between your Workday REST instance and other cloud applications.
 
-The Workday REST connector works best when you are executing small transactions (e.g. approve inbox task). If your use case requires you to work with larger datasets (e.g. full reports from Workday) or with custom reports/objects, use the [Workday integration connector](/connectors/workday.md) instead.
+The Workday REST connector works best when you are executing workflow-centric actions (e.g. approve inbox task). If your use case requires you to work with larger datasets (e.g. full reports from Workday) or with custom reports/objects, use the [Workday integration connector](/connectors/workday.md) instead.
 
 The Workday REST connector documentation contains the following chapters:
 - [Connection setup](workday-rest/connection-setup.md)

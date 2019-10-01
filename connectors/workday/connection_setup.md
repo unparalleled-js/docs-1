@@ -1,6 +1,7 @@
 ---
 title: Workato connectors - Workday integration connection
 date: 2017-11-17 09:00:00 Z
+isTocVisible: true
 ---
 
 # Workday Connection

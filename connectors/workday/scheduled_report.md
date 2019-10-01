@@ -1,6 +1,7 @@
 ---
 title: Workato connectors - Workday scheduled report trigger
 date: 2017-11-05 09:00:00 Z
+isTocVisible: true
 ---
 
 # Workday scheduled report trigger
@@ -11,9 +12,14 @@ This trigger is a combination of a Scheduler (advanced) and Workday RaaS action.
 ### Inputs
 The required inputs are naturally a combination of both the Scheduler trigger and Workday RaaS actions.
 
-First, configure your RaaS report URL. You only have to provide a valid RaaS JSON URL. Refer to documentation about configuring Workday reports [here](/connectors/workday/workday_raas.md).
+First, configure the Workday report to retrieve.
 
-Next, configure the scheduler. Refer to documentation about configuring the advanced scheduler trigger [here](/features/scheduler.md).
+- Provide the RaaS report URL of the Workday report. Click [here](/connectors/workday/workday_raas.md) to learn how to retrieve the RaaS URL.
+- If the report requires inputs (e.g. filter parameters), additional input fields will be generated. Find out more about input configuration [here](/connectors/workday/get_report.md#custom-report-inputs).
+
+Second, configure the scheduler.
+
+- Refer to documentation about configuring the advanced scheduler trigger [here](/features/scheduler.md).
 
 ![Scheduled report input](/assets/images/connectors/workday/scheduled-report-input.png)
 *Scheduled report configuration*
