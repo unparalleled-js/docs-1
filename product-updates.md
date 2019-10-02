@@ -8,6 +8,29 @@ date: 2018-06-05 21:45:00 Z
 
 Our engineers are hard at work daily to make Workato better! View the latest updates to our platform below.
 
+## New connectors
+###### Sept 2019
+
+### Plangrid
+[PlanGrid](https://www.plangrid.com/) is construction productivity software. The platform provides builders real-time access to blueprints, punch lists, daily reports, submittals and more. Refer to our documentation on support for objects and actions with the Plangrid connector.
+
+**Links:**
+- [Connection setup](/connectors/plangrid.md)
+- [Supported objects](/connectors/plangrid/object.md)
+- [Actions](/connectors/plangrid/object-action.md)
+- [Triggers](/connectors/plangrid/object-trigger.md)
+
+### Percolate
+[Percolate](https://percolate.com/) is a content marketing platform offering solutions to introduce visibility into the marketing process. The connector will allow users to manage standard & custom objects and schemas on their Percolate instance. 
+
+**Links:**
+- [Triggers & actions](https://www.workato.com/integrations/percolate)
+
+### Workfront
+Workfront is a software company that develops web-based work management and project management software that features enterprise work management, issue tracking, document management time tracking and portfolio management. Create and update objects on Workfront and build custom actions to manage all other use cases.
+
+**Links:**
+- [Triggers & actions](https://www.workato.com/integrations/workfront)
 
 ## Slack Block kit on Workato
 ###### Sept 25, 2019
