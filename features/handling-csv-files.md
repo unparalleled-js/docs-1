@@ -19,17 +19,15 @@ Sierra Gardening, MS-323, Gardening supplies, Cedar wood potting bench, MS-323, 
 ## CSV by Workato
 Most web applications return CSV files without additional processing. You can use **CSV by Workato** to read the text content of the CSV file. This will allow you to move individual rows and transform the data as required by your use-case.
 
-This parser requires you to download the CSV file onto Workato beforehand. You can do so with a connector's built-in download action or with [File by Workato](/handling-files-and-attachments.md).
+In this example, a new CSV file is picked up in Dropbox. Run the **Parse CSV** action to obtain a list of lines/rows.
 
-In this example, a new CSV file is picked up in Dropbox. However, the file content is not yet accessible. Download the CSV file and run the **Parse CSV** action to obtain a list of lines/rows.
-
-![Download file and parse CSV](/assets/images/features/handling-csv-files/download-file-and-parse-csv.png)
-*Download file and parse CSV. See the sample recipe [here](https://www.workato.com/recipes/492685).*
+![Parse CSV](/assets/images/features/handling-csv-files/download-file-and-parse-csv.png)
+*Parse CSV. See the sample recipe [here](https://www.workato.com/recipes/492685).*
 
 ### Input field
 | Input fields     | Description                                                  |
 | ---------------- | ------------------------------------------------------------ |
-| CSV contents     | Select the CSV file as input.                                |
+| CSV contents     | Select a CSV `file content` datapill. You can also directly paste CSV lines. |
 | Column separator | Select the character that separates columns in the CSV file. |
 | CSV contents contain header line | Indicate if there is a header line.          |
 | Header line      | Specify the header line of your CSV file.                    |

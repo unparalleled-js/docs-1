@@ -1,5 +1,5 @@
 ---
-title: Handing binary files
+title: Handling binary files
 date: 2019-07-16 18:00:00 Z
 ---
 
