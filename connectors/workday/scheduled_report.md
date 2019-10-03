@@ -9,7 +9,7 @@ isTocVisible: true
 ## How to use
 This trigger is a combination of a Scheduler (advanced) and Workday RaaS action. When configured, it will run a report in Workday at pre-defined times and return results of the report in [batches](/features/batch-processing.md). The batch size limit is `200`.
 
-### Inputs
+## Inputs
 The required inputs are naturally a combination of both the Scheduler trigger and Workday RaaS actions.
 
 First, configure the Workday report to retrieve.
@@ -24,7 +24,7 @@ Second, configure the scheduler.
 ![Scheduled report input](/assets/images/connectors/workday/scheduled-report-input.png)
 *Scheduled report configuration*
 
-### Outputs
+## Outputs
 This trigger returns a number of fields:
 
 | Field                   | Description |

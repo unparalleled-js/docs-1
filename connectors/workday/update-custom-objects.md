@@ -17,7 +17,7 @@ We can use this action to assign a status to a worker. If a worker does not prev
 
 Otherwise, if this worker already has a **drugTested** object (e.g. `True`/`False`), this action will update the custom object with a new value.
 
-### Inputs
+## Inputs
 ![Create custom object action](/assets/images/connectors/workday/create-custom-object-action.png)
 *Create/update custom object action*
 
@@ -35,7 +35,7 @@ For example, for worker `6b36787a2e6301e185df0a95ff272a04` who has passed his dr
 - Custom object field (Drug tested): `True`
 - Parent object ID: `6b36787a2e6301e185df0a95ff272a04`
 
-### Outputs
+## Outputs
 There are no output for this action.
 
 You can check the custom object status of your worker with a [Get custom object action](/connectors/workday/get-custom-objects.md).

@@ -5,7 +5,7 @@ isTocVisible: true
 ---
 
 # Get custom objects
-You can extend Workday business objects by configuring custom objects. These custom objects are based standard Workday business objects and can be used to store additional information. This allows you to capture data unique to your organization in Workday. 
+You can extend Workday business objects by configuring custom objects. These custom objects are based standard Workday business objects and can be used to store additional information. This allows you to capture data unique to your organization in Workday.
 
 ## Get custom objects actions
 This action allows you to retrieve a custom object value of a specific Workday object.
@@ -15,7 +15,7 @@ For example, we are setting a new onboarding process for our employee. Every emp
 
 We can use this action to retrieve the status of a worker, to see if he/she has undergone the drug test.
 
-### Inputs
+## Inputs
 ![screen](/assets/images/connectors/workday/get-custom-object.png)
 *Inputs for get custom object action*
 
@@ -30,7 +30,7 @@ To retrieve the drug test status of Worker `1da8b422311b4929bfa4520f7f0b4e83`, w
 - Alias: `drugTested`
 - Parent object ID: `1da8b422311b4929bfa4520f7f0b4e83`
 
-### Outputs
+## Outputs
 
 ![Custom object output](/assets/images/connectors/workday/get-custom-object-output.png)
 *Custom object output*
