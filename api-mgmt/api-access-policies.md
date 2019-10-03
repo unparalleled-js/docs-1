@@ -16,7 +16,7 @@ This screen allows setting two different types of policies. Both are required.
 
 | Policy type | Description |
 | --- | --- |
-| Rate limit policy |Restricts the number of API calls that can be made within a specified short time period, such as a minute.|
-| Request limit policy | restricts the number of API calls that can be made within a specified short time period, such as a minute. |
+| Rate limit policy | Restricts the number of API calls that can be made within a specified short time period, such as a minute.|
+| Request limit policy | Restricts the number of API calls that can be made within a longer time period, such as 30 days. |
 
 These limits can help prevent overuse of an API by a single client, which could result in degraded performance for the community of API users.

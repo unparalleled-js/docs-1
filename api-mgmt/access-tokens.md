@@ -4,7 +4,7 @@ date: 2018-04-08 12:26:00 Z
 ---
 # Access Tokens
 
-Access tokens are string fields that identify the client of a Callable Recipe. The token value is a secret that is shared between a client and the Workato server. A token is passed to the API in an authorization header. The header must have a valid value in order for the call to succeed.
+Access tokens are string fields that identify the client of a Callable Recipe. The token value is a secret that is shared between a client and the Workato server. A token is passed to the API in an authorization header. The header must have a valid value for the call to succeed.
 
 Workato supports two token formats: [Auth Token](#auth-tokens) and [JSON Web Token (JWT)](#jwt-tokens).
 
@@ -19,11 +19,11 @@ The **Refresh** button will generate a new Auth Token value and invalidates any 
 ![Auth Token for an Access profile](/assets/images/api-mgmt/auth-token.png)
 *Auth Token for an Access profile*
 
-When calling an endpoint, the Auth Token value is passed as the value of the `API-Key` header.
+When calling an endpoint, the Auth Token value is passed as the value of the `API-Token` header.
 
 ## JWT Tokens
 
-For additional security, clients can now make use of JSON Web Tokens (JWT). These is a standard [RFC 7159](https://tools.ietf.org/html/rfc7519) method for web authentication. JWT tokens are signed using a secret or key selected by the client.
+For additional security, clients can now make use of JSON Web Tokens (JWT). This is a standard [RFC 7159](https://tools.ietf.org/html/rfc7519) method for web authentication. JWT tokens are signed using a secret or key selected by the client.
 
 When JWT is selected in the Access Profile screen, there are two additional field values to select. One is the signing method and the other is a secret or key field.
 
@@ -67,7 +67,7 @@ A JWT token can encapsulate several pieces of information that the client commun
 }
 ```
 
-Here `sub` is the Auth Key that is obtainable from the Access Profile screen in Workato, and `name` is the name of the client.
+Here `sub` is the Auth token that is obtainable from the Access Profile screen in Workato, and `name` is the name of the client.
 
 The JWT token is a signed representation of the JSON structure. You can generate a JWT token using the tools at [JWT.IO](https://jwt.io/).
 

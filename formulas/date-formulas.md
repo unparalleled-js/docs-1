@@ -112,21 +112,63 @@ We can make use of certain keywords such as **days**, **months**, **years**, **m
 | `'2015/04/20'.to_date + 2.years`  | Thu, 20 Apr 2017 |
 | `'2015/04/20'.to_date - 2.years`  | Sat, 20 Apr 2013 |
 
+---
 
+# Getting first/last timestamp of the current/next periods
+Using a combination of date formulas, and date arithmetics, we can easily obtain the first and last days of a current or subsequent time period using some helper functions. Not all time periods are supported just yet.
+
+## beginning_of_hour
+Firstly, turn on formula mode and we have access to the `.beginning_of_hour` function. It returns timestamp for top-of-the-hour for given timestamp.
+
+### Example
+| Example                 | Result |
+| -------------           | ------ |
+| `"2017-06-01T16:56:00.000000-07:00".to_time.beginning_of_hour`  | `"2017-06-01T16:00:00.000000-07:00"`   |
+| `"2017-06-01T12:15:00.000000-00:00".to_time.beginning_of_hour`  | `"2017-06-01T12:00:00.000000-00:00"`   |
+---
+
+## beginning_of_day
+Firstly, turn on formula mode and we have access to the `.beginning_of_day` function. It returns timestamp for midnight on date of given date/timestamp.
+
+### Example
+| Example                 | Result |
+| -------------           | ------ |
+| `"2017-06-08T22:30:10.000000-07:00".to_time.beginning_of_day`  | `"2017-06-08T00:00:00.000000-07:00"`   |
+| `"2017-01-10T01:30:45.000000-00:00".to_time.beginning_of_day`  | `"2017-01-10T00:00:00.000000-00:00"`   |
 
 ---
 
-# Getting first/last days of the current and next month
-Using a combination of date formulas, and date arithmetics, we can easily obtain the first and last days of the current and next months.
+## beginning_of_week
+Firstly, turn on formula mode and we have access to the `.beginning_of_week` function. It returns the date for start of week (Mon) for a given date/timestamp.
 
-## Beginning of current month
-Firstly, turn on formula mode and we have access to the .beginning_of_month function. It returns the date for the start of the month for the given date/timestamp.
+### Example
+| Example                 | Result |
+| -------------           | ------ |
+| `"2017-08-18T00:00:00.000000-07:00".to_time.beginning_of_week`  | `"2017-08-14T00:00:00.000000-07:00"`   |
+| `"2017-08-20T00:00:00.000000-00:00".to_time.beginning_of_week`  | `"2017-08-14T00:00:00.000000-00:00"`   |
+
+---
+
+## beginning_of_month
+Firstly, turn on formula mode and we have access to the `.beginning_of_month` function. It returns the date for the start of the month for the given date/timestamp.
 
 ![beginning of current month](/assets/images/formula-docs/beginning_of_current_month.png)
 
 ---
 
-## Beginning of Next Month
+
+## beginning_of_year
+Firstly, turn on formula mode and we have access to the `.beginning_of_year` function. It returns the date for the start of the year for the given date/timestamp.
+
+### Example
+| Example                 | Result |
+| -------------           | ------ |
+| `"2017-01-25T00:00:00.000000-07:00".to_time.beginning_of_year`  | `"2017-01-01T00:00:00.000000-07:00"`   |
+| `"2015-12-25T22:30:00.000000-00:00".to_time.beginning_of_year`  | `"2015-01-01T00:00:00.000000-00:00"`   |
+
+---
+
+## Beginning of next month
 To retrieve a date for the beginning of the next month, we simply need to add a month to the input date, and use the previously mentioned function get the beginning of the month.
 
 ![beginning of next month](/assets/images/formula-docs/beginning_of_next_month.png)
@@ -134,17 +176,12 @@ To retrieve a date for the beginning of the next month, we simply need to add a 
 ---
 
 ## End of current or next month
-While the beginning_of_month function will always give you the first day of the month, retrieving the end of the month is a little trickier because some months have 31 days while others have less.
+To retrieve a date for the end of the current month, use the `.end_of_month` method. It returns the date for the start of the month for the given date/timestamp.
 
-Instead, we can apply some simple arithmetic to obtain the last date of the month.
-
-To retrieve the last date of the current month:
-
-![last date of current month](/assets/images/formula-docs/last_date_current_month.png)
-
-To retrieve the last date of the next month:
-
-![last date of next month](/assets/images/formula-docs/last_date_next_month.png)
+```ruby
+"2017-08-18T00:00:00".to_time.end_of_month # => 2017-08-31 23:59:59 +0000
+"2017-08-18T00:00:00".to_date.end_of_month # => Thu, 31 Aug 2017
+```
 
 # Display conversion
 
@@ -192,6 +229,17 @@ Converts a time value to a different time zone. This function uses the list of t
 |----------------------------------------------|--------------------------------------|
 | `"2017-05-31T12:30:45.303136-07:00".in_time_zone("America/New_York")` | "2017-05-31T15:30:45.303136-04:00"   |
 | `"2017-01-30".in_time_zone("America/New_York")`<br>Note: dates with no timezones take the timezone defined in your Workato account settings | "2017-01-30T00:00:00.000000-05:00"   |
+
+## dst?
+Returns true if the time is within Daylight Savings Time for the specified time zone.
+
+### Example
+
+| Example                                      | Result                               |
+|----------------------------------------------|--------------------------------------|
+| `"2017-09-06T18:30:15.671720-05:00".".to_time.in_time_zone("America/Los_Angeles").dst?` | #true   |
+| `"2017-05-31T12:30:45.303136-07:00".".to_time.in_time_zone("Kolkata").dst?` | #true   |
+
 
 ### Regions reference
 Refer to the following table for the timezone name to use in the formula.

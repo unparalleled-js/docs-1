@@ -206,6 +206,17 @@ This function removes the white space at the beginning and the end of the input 
 
 ------
 
+## strip_tags
+
+This function removes html tags embedded in a string.
+
+### Example
+| Example                      | Result         |
+| ---------------------------- | -------------- |
+| `"<p>Jean Marie</p>".strip_tags` | "Jean Marie" |
+
+------
+
 ## ljust
 
 Aligns the string to the left. You will need to specify the length of the string as this will add spaces/a pattern at the start of it.
@@ -288,6 +299,41 @@ This function returns a partial segment of a string. Pass in 2 parameters - the 
 
 ---
 
+## scan
+
+Scan the string for the pattern to retrieve and return an array
+
+### Example
+
+| Example                    | Result  |
+| -------------------------- | ------- |
+| `"Thu, 01/23/2014".scan(/\d+/).join("-")`  | "01-23-2014"   |
+
+---
+
+## encode
+
+Changes a string to a certain encoding type
+
+### Example
+
+| Example                   |
+| ------------------------- |
+| "Jean Marie".encode("Windows-1252")|
+
+---
+
+## transliterate
+
+Replaces non-ASCII characters with an ASCII approximation, or if none exists, a replacement character which defaults to '?'.
+
+### Example
+
+| Example                   | Result  |
+| ------------------------- | ------- |
+| "Chloé".transliterate     | Chloe   |
+
+---
 # Text case manipulation
 
 This section covers formulas which allow you to change the case of certain parts of a word.
@@ -461,15 +507,28 @@ Convert alpha-2/3 country code or country name to ISO3166 country name.
 
 ## to_currency
 
-Formats integers/numbers to a currency-style. You may add the precision as well. (Defaults to 2 decimal points)
+Formats integers/numbers to a currency-style.
 
 ### Example
 
-| Example                               | Result     |
-| ------------------------------------- | ---------- |
-| "12345.60".to_currency                | "$12345.60"  |
-| "12345.678".to_currency               | "$12345.68"  |
-| "12345.678".to_currency(precision: 3) | "$12345.678" |
+| Example    |  Description  |  Result  |
+| ------------------| ------------- | -------- |
+| "345.60".to_currency                | Adds default currency symbol "$" | "$345.60"  |
+| "345.60".to_currency(unit: "€") | Changes the default currency unit | "€345.60" |
+| "345.60".to_currency(format: "%n %u") | Changes the position of the number relative to the unit (where the number is represented by `%n` and the currency unit is represented by `%u`). Accepts 0 or 1 spaces in between. Defaults to `"%u%n"`. | "345.60 $" |
+| "-345.60".to_currency(negative_format: "(%u%n)") | Specifies the format when the number is negative (where the number is represented by `%n` and the currency unit is represented by `%u`). | "($345.60)" |
+| "345.678".to_currency               | Precision defaults to 2 decimal places | "$345.68"  |
+| "345.678".to_currency(precision: 3) | Change the precision by specifying the number of decimal places | "$345.678" |
+| "345.678".to_currency(separator: ",") | Specify the **decimal separator** as ".", "," or " ". Defaults to ".". |  "$345,68" |  
+| "12345.678".to_currency(delimiter: ".") | Specify the **thousands separator** as ",", "." or " ". Defaults to ",".| ""$12.345.68"|
+
+A comma-separated combination of these may be used to achieve the desired currency format. For example:
+
+```ruby
+"12345.678".to_currency(delimiter: ".", format: "%n %u", precision: 2, separator: ",", unit: "€")
+```
+
+will yield: `"12.345,68 €"`.
 
 ---
 
@@ -527,3 +586,27 @@ Converts string or number to a formatted phone number (user-defined).
 | 1235551234.to_phone(area_code: true, extension: 555) | (123) 555-1234 x 555 |
 | 1235551234.to_phone(country_code: 1)     | +1-123-555-1234      |
 | "123a456".to_phone                       | 123a456              |
+
+---
+
+## to_state_code
+
+Convert state name to code.
+
+###Example
+
+| Example                                  | Result               |
+| ---------------------------------------- | -------------------- |
+| "California".to_state_code              | CA                   |
+
+---
+
+## to_state_name
+
+Convert state code to name.
+
+###Example
+
+| Example                                  | Result               |
+| ---------------------------------------- | -------------------- |
+| "CA".to_state_name                       | CALIFORNIA           |

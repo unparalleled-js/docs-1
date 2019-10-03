@@ -1,7 +1,12 @@
+---
+title: SDK - Configuration Fields
+date: 2018-05-24 14:00:00 Z
+---
+
 # Configuration Fields
+Occasionally, input/output fields depend on user input. For example, when input fields for an action depend on a user's input in the same action. Here, we introduce `config_fields`. It is an optional key available in both actions and triggers. It is a special type of input field that can be used to generate other dependent input/output fields. We see this in the merge_document action in Webmerge.
 
-Occassionally, input/output fields depend on user input. For example, the fields for an object depends on the chosen object. Here, we introduce `config_fields`. It is an optional key available in both actions and triggers. It is a special type of input field that can be used to generate other dependent input/output fields. We see this in the merge_document action in Webmerge.
-
+## Sample code snippet
 ```ruby
 action: {
   merge_document: {

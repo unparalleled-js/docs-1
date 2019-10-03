@@ -11,7 +11,7 @@ Here are some recommendations for maintaining security when using APIs:
 
 1) **Treat API tokens like a password**. They are confidential information that can grant access to your API to anyone who possesses them. As a best practice, don't distribute them to clients through insecure channels such as email. Use a secure messaging system or a document system such as Dropbox to which both the API owner and the intended client have access.
 
-2) **Don't distribute the same API token to multiple people**. An API token identifies a client and enables monitoring requests in the API dashboard on a per-client basis. If multiple people have the same API key, there is no ready way to determine who is making calls to your API.
+2) **Don't distribute the same API token to multiple people**. An API token identifies a client and enables monitoring requests in the API dashboard on a per-client basis. If multiple people have the same API token, there is no ready way to determine who is making calls to your API.
 
 3) **Consider having a policy to periodically refresh API tokens**. This is similar to expiring a password and ensures that any compromise of an API token does not provide very long-term access to systems. Alternatively, distribute a JWT token with an expiration time set ("exp" claim). This will give the token a limited lifetime.
 

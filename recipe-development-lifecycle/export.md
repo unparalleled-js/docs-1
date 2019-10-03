@@ -3,20 +3,34 @@ title: Recipe lifecycle management export
 date: 2019-04-18 15:00:00 Z
 ---
 
-# Export
+# Export: Packaging recipes and dependencies
 
-The export process in recipe lifecycle management typically happens after development of a set of recipes and their related assets is complete or when a new change in your business process requires the recipes to be edited. In Workato, recipes and assets are exported as packages in the form of zip files. The files contain json file representations of each one of the exported assets.
+Exporting packages allows users to create a distributable file that contains related recipes and their dependencies.
+
+The export process in recipe lifecycle management typically happens after the development of a set of recipes and their related assets are completed or when a new change in your business process requires the recipes to be edited. In Workato, recipes and assets are exported as packages in the form of a zip file. The file contains json file representations of every one of the exported assets.
+
+Packages are used to:
+
+- Move recipes across environments (development -> test -> production)
+- Store recipes in a traditional version control system such as git.
 
 After the export process is complete, you can [import](/recipe-development-lifecycle/import.md) the package in another Workato instance to apply the changes made.
+
+## Contents
+
+This section covers how Workato recipes and dependencies can be converted to shareable assets known as packages. If you have already exported a package, you may move on to our other sections:
+
+- [Planning for lifecycle management](/recipe-development-lifecycle/rdlc-guide-planning.md)
+- **Exporting: Packaging recipes and dependencies** _(current)_
+- [Importing: Deployment](/recipe-development-lifecycle/import.md)
+- [Working with external source control systems](/recipe-development-lifecycle/rdlc-guide-source-control.md)
 
 ## Export manifests
 To begin exporting a package, start by defining an export manifest. A manifest is a record of all the selected recipes and dependencies that users can use for export and re-export. The manifest can also be edited after the creation and first export.
 
 Reuse a defined manifest if the recipes have been iterated on and the same set of objects have to be exported.
 
-Edit the manifest if new assets have been added to the folder that are needed for export or remove those that are no longer relevant. You can also edit the manifest if some recipes in the folder were not edited and need to be excluded from an export.
-
-> :loudspeaker: If you had export logs before the UX update on 25th April 2019, all exports that were done will be logged in auto-created manifests depending on the **export folder**
+Edit the manifest if there are changes to the folder marked for export - the addition of new assets or the removal of redundant assets. You can also edit the manifest if you want to exclude some recipes from an export.
 
 ## Create a manifest
 Example of the manifest to be created:
@@ -47,7 +61,7 @@ As dependencies related to the asset are deselected, a similar orange warning wi
 ![Connection in diff folder](/assets/images/features/packages/deselect-object.gif)
 *As objects are deselected, warnings appear*
 
-If connections are shared across accounts, we recommend that the connections are placed in the 'Home' folder so they can be exported irregardless of the selected folder.
+If connections are shared across accounts, we recommend that the connections are placed in the 'Home' folder so they can be exported regardless of the selected folder.
 
 Choose to export the data in lookup tables by individual lookup tables. On the right of the lookup tables, select "Include data" or "Ignore data". This option default to "Ignore data", which exports the table with the headers only. Choose Include data" to export the data in each row in the package.
 
@@ -82,7 +96,7 @@ After the continued development of recipes in the same folder, users may want to
 ### Deleted, moved, renamed assets
 To maintain cross-compatibility and synchronization across Workato instances, a series of automatic checks will take place before a manifest can be exported. If assets were deleted, moved or renamed, the manifest structure will have changed from its previous configuration and will thus be highlighted to the user.
 
-In order to continue with the export process, the user must review the manifest and **remove deleted files** or accept changes.
+To continue with the export process, the user must review the manifest and **remove deleted files** or accept changes.
 
 ![Connection in diff folder](/assets/images/features/packages/missing-connection.png)
 *As objects are deselected, warnings appear*

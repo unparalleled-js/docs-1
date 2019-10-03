@@ -1,76 +1,44 @@
 ---
 title: Workato API - Adapters
 date: 2019-03-21 11:20:00 Z
+isTocVisible: true
 ---
 
-# Adapters
-Use the following endpoints to retrieve the metadata of connectors in Workato.
+# Connectors
 
-### Supported Formats
-* Json
+All API endpoints listed here requires `oem_vendor` privilege. Talk to your Workato representative to enable this privilege in your account.
 
 ## List Connector Metadata
 
-> GET /api/integrations
+Returns a list of connectors and associated metadata specified in the API request.
 
-### Description
-Returns a list of connectors and associated metadata specified in the query parameters or in the request headers of the API request. 
+```
+GET /api/integrations
+```
 
-<details> <summary> <b>Details</b></summary>
+### Request body
 
-<h3>Parameters</h3>
-<table class="unchanged rich-diff-level-one" text-align ="center">
-  <thead>
-    <tr>
-        <th width='20%'>Parameter name</th>
-        <th width='80%'>Description</th>
-    </tr>
-  </thead>
-  <tbody>
-  <tr>
-    <td width =200 > <b> applications</b> <br> optional </td>
-    <td>
-    Comma separated connector identifiers (e.g: salesforce,service_now)
-    <br>
-    <b>Validations:</b> <br>
-    <ul>
-    <li>Must be string</li>
-    </ul>
-    </td>
-  </tr>
-  </tbody>
-</table>
+<div class='api_input'></div>
 
-<h3> Responses</h3>
-<table class="unchanged rich-diff-level-one" text-align ="center">
-  <thead>
-    <tr>
-        <th width='20%'>Code</th>
-        <th width='80%'>Description</th>
-    </tr>
-  </thead>
-  <tbody>
-  <tr>
-    <td width =200 > <kbd>200</kbd> </td>
-    <td> Success </td>
-  </tr>
-  <tr>
-    <td width =200 > <kbd>401</kbd> </td>
-    <td> Unauthorized </td>
-  </tr>
-  <tr>
-    <td width =200 > <kbd>500</kbd> </td>
-    <td> Server error </td>
-  </tr>
-  </tbody>
-</table>
+| Name | Type | Description |
+|------|------|-------------|
+| applications | **string**<br>_required_ | Comma separated connector identifiers. |
 
-<h3> Examples</h3>
+#### Sample request
 
-<h4> Success: 200 </h4>
-<pre><code style="display: block; white-space: pre-wrap;">
-GET /api/adapters
-200
+```shell
+curl  -X GET http://workato.com/api/integrations \
+      -H 'x-user-email: <email>' \
+      -H 'x-user-token: <token>' \
+      -H 'Content-Type: application/json' \
+      -d '{
+            "applications": "salesforce,service_now"
+          }'
+```
+
+### Response
+
+```json
 [
   {
     "name": "salesforce",
@@ -89,7 +57,4 @@ GET /api/adapters
     "mobile_search": true
   }
 ]
-</code></pre>
-
-
-</details>
+```

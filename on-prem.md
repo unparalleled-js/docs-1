@@ -1,66 +1,62 @@
 ---
-title: On-premises Agent
-date: 2017-02-22 12:00:00 Z
+title: On-prem Connectivity
+date: 2017-02-22 12:00:00
+isTocVisible: true
 ---
 
-# On-premises Agent
-Enterprises have on-premises applications and databases that are deployed within their corporate datacenter. These apps are protected via firewalls, and therefore are typically not easily accessible to cloud services like Workato.
+# On-prem Connectivity
+Enterprises have on-prem applications and databases that are deployed within their corporate data centers. These apps are protected via firewalls, and therefore are typically not easily accessible to cloud services like Workato.
 
-The Workato on-premises agent provides a secure way for Workato to selectively access customer-authorized on-premises apps, databases and folders without having to open **ports** in the corporate firewall.
-
-On-premises access is enabled only for certain plans. Check the [Pricing and Plans page](https://www.workato.com/pricing?audience=general) or reach out to Workato sales representatives at **+1 (844) 469-6752** to find out more.
-
-For Workato accounts with on-premises access, users are able to view the on-premises option in the Tools menu.
-
-![On-premises option](assets/images/on-prem/navigate-to-opa.gif)
-*On premise menu option*
+> On-prem access is enabled only for certain plans. Check the [Pricing and Plans page](https://www.workato.com/pricing?audience=general) or reach out to Workato sales representatives at **+1 (844) 469-6752** to find out more.
 
 ## Overview
-The following is a conceptual model of Workato's on-premises agent and how it interacts with databases and applications behind the firewall.
+The following is a conceptual model of Workato's on-prem agent and how it interacts with databases and applications behind the firewall.
 
 ![On-prem model](/assets/images/on-prem/on_prem_conceptual_model.png)
-*Conceptual model for on-premises agent and connector*
+*Conceptual model for on-prem agent and connector*
 
-Workato on-premises connectivity has 2 core components:
+On-prem agents can also be installed into logical groups, called [On-prem groups](/on-prem/groups.md), to achieve **High Availability** and **Load Balancing** capabilities.
 
+![On-prem group model](/assets/images/on-prem/on_prem_group_conceptual_model.png)
+*Conceptual model for on-prem agents in a group*
+
+## How it works
+Workato on-prem connectivity has 2 core components:
 - Tunneling
-- Database and filesystem access.
+- Database, file system, and application access.
 
-The on-premises agent runs within the customer’s data center, behind the firewall, and establishes a TLS websocket tunnel to connect out to Workato.
+The on-prem agent runs within the user's server, typically behind a firewall, and establishes a TLS websocket tunnel to connect out to Workato.
 
-The on-premises agent can be configured to access the selected databases and filesystems behind the firewall. Since 2.2.x it also supports connections to [JMS-compliant systems](/connectors/jms.md).
+Since the on-prem agent is within the same network as systems behind the firewall, it can safely access them and act as the agent to communicate securely out to Workato.
 
 ## Supported operating systems
-The on-premises agent runs on the following systems:
+The on-prem agent runs on the following systems:
 
 - Linux (64-bit)
-
 - Windows 7, 10 (64-bit)
-
 - Mac OS X
 
-Minimum hardware requirements for the system running the on-premises agent are:
+Minimum hardware requirements are:
 
 - 8GB of RAM
 - 250 MB of disk space
 - 800 Mhz 64-bit CPU (Intel/AMD).
 
-Learn how to [set up for your machine here](https://docs.workato.com/on-prem/setup.html)
+Learn how to setup for each OS [here](/on-prem/agents/setup.html).
 
-## Common errors when using the on-premises agent
-If connecting to on-premises applications fail, check that:
-- Selected agent is active
-- Credentials provided in the app connection are correct
-- Credentials of user provided in the app connection has correct role and permission to connect
-
-If connecting to on-premises databases fail, check that:
-- Selected agent is active
-- Credentials provided in the connection profile are correct
-- Database name and type provided in the connection profile is correct
-
-## Example recipes
-
-### Example on-premises database recipes
-- [Salesforce case sync with on-premises SQL Server](https://www.workato.com/recipes/280605)
-<!-- [Quickbase data sync with SQL Server](https://www.workato.com/recipes/280610-demo-qb-data-sync-with-sql-server#recipe)
-[On-prem Postgres sync with Postgres](https://www.workato.com/recipes/268936)-->
+## In this section
+* [On-prem group](/on-prem/groups.md)
+  * [Create a group](/on-prem/groups/create-group.md)
+  * [Add agent to a group](/on-prem/groups/add-agent.md)
+  * [Status of a group](/on-prem/groups/group-status.md)
+  * [Common configuration](/on-prem/groups/common-config.md)
+* [On-prem agent](/on-prem/agents.md)
+  * [Setup agent](/on-prem/agents/setup.md)
+  * [Run agent](/on-prem/agents/run.md)
+  * [Upgrade agent](/on-prem/agents/upgrade.md)
+  * [Profiles](/on-prem/agents/profile.md)
+  * [On-prem connections](/on-prem/agents/connection.md)
+  * [Password encryption](/on-prem/agents/password-encryption.md)
+  * [Proxy server](/on-prem/agents/proxy.md)
+  * [Logging](/on-prem/agents/logging.md)
+  * [Extensions](/on-prem/agents/extension.md)

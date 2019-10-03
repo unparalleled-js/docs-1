@@ -6,11 +6,18 @@ date: 2017-03-30 05:00:00 Z
 # Workato actions for Slack
 Workbot actions allow Workbot to post notifications into a specified channel when there are events to take note of, or respond to a command.
 
-Workbot supports 3 actions:
+Workbot supports 6 actions:
 * [Post command reply](#post-command-reply)
 * [Post notifications](#post-notifications)
-* [Post messages](#post-messages)
+* [Post message](#post-message)
 * [Download attachment](#download-attachment)
+* [Return menu options](#return-menu-options)
+* [Upload file](#upload-file)
+
+## Block kit compatibility
+Blocks can be used together with existing message attachments present in the [Post command reply](#post-command-reply) and [Post message](#post-message).
+
+For more information, see [Block kit](/workbot/block-kit.md).
 
 ## Post command reply
 Post command reply allows you to customize how Workbot replies when an event is completed. This reply can be a simple message about the task completion, or a prompt for the user to take a subsequent action once the first has been done, e.g. after retrieving data for a custom account in Salesforce, ask if the user wishes to copy that information across to another application.
@@ -190,3 +197,110 @@ The fields available are simillar to that of the **Post command reply** action, 
 
 ## Download attachment
 This action allows you to download attachments from Slack, received as input to [**New command** trigger](workbot-triggers.md#new-commands-building-custom-commands). Make sure command parameter for uploaded content has type *file*, e.g. `attachment type:file`. Pass file URL from **New command** output into the **URL** field to get attachment content. Then you may further pass this file content to Dropbox, Box or other connectors to upload them as files.
+
+## Return menu options
+This action allows you to dynamically generate menu options, then return them to a dynamic menu in a Slack dialog.
+
+For Workbot command recipes that invoke dialogs, a `select` field can be defined with dynamic menu options.
+
+![Dynamic menu](/assets/images/workbot/workbot-trigger/dynamic-menu.png/)
+*A Workbot command recipe with dynamic menu options*
+
+After retrieving a list of records from another app (e.g. Salesforce), you can return them back to the dynamic menu by using the **Return menu options** action.
+
+![Return menu options recipe](/assets/images/workbot/workbot-actions/return-menu-options-recipe.png)
+*Retrieving Salesforce opportunities before returning them as menu options back to the Slack dialog with the dynamic menu*
+
+Hence, this action should always be paired with a [New dynamic menu event](/workbot/workbot-triggers.md#new-dynamic-menu-event/) trigger.
+
+### Input
+By default, you can specify a static list of menu options by adding menu options 1-by-1.
+
+![Add static menu option](/assets/images/workbot/workbot-actions/add-static-menu-option.gif)
+*Adding static menu options 1-by-1*
+
+However, you can create a dynamic list by changing the input mode to dynamic. Simply pass a list datapill from the ouput of a previous action step.
+
+![Static to dynamic menu options](/assets/images/workbot/workbot-actions/switching-from-static-to-dynamic.gif)
+*Configuring dynamic menu options*
+
+Returned menu options are in an ungrouped list by default.
+
+![Ungrouped options in the recipe](/assets/images/workbot/workbot-actions/ungrouped-options-recipe.png)
+*Ungrouped options in recipe*
+
+![Ungrouped options](/assets/images/workbot/workbot-actions/ungrouped-options-slack.png)
+*Ungrouped options in Slack*
+
+When returning menu options, you can group menu options together by setting **Group menu options?** to **Yes**. This will require you to specify **Title of group** for each group you add.
+
+![Grouped options in the recipe](/assets/images/workbot/workbot-actions/grouped-options-recipe.png)
+*Groups options look in recipe*
+
+![Grouped options](/assets/images/workbot/workbot-actions/grouped-options.png)
+*Grouped options in Slack*
+
+## Upload file
+This action will upload a file to the specified channel, DM or thread. You can also include a simple message together with the file.
+
+![Upload file with simple message](/assets/images/workbot/workbot-actions/upload-file-with-message.png)
+*A short message before the Chat history.json file*
+
+The following table lists the fields available in an **Upload file** action.
+
+<table class="unchanged rich-diff-level-one">
+    <thead>
+        <tr>
+            <th>Field</th>
+            <th>Explanation</th>
+            <th>What goes in here</th>
+        </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td>Channel name/DM</td>
+      <td>
+        Upload a file to a specified Slack channel or direct message (DM).
+        </td>
+      <td>
+        Use the <kbd>Channel/DM</kbd> datapill from a Post command trigger, or key in the channel name e.g. <b>#general</b> or username e.g. <b>@johndonahue</b>.<img src="/assets/images/workbot/workbot-actions/channel-dm.png"></img>
+      </td>
+    </tr>
+    <tr>
+      <td>Initial comment</td>
+      <td>
+        Simple message to post together with the uploaded file.</td>
+        <td>Include a simple message to give more context to your file.<br><img src="/assets/images/workbot/workbot-actions/upload-file-with-message.png"></img>
+      </td>
+    </tr>
+    <tr>
+      <td>File name</td>
+      <td>Name of your file.</td>
+      <td>Provide a name for your file, e.g. <b>chat_history.json</b>. This will be the name of the file when any user downloads it from Slack.</td>.
+    </tr>
+    <tr>
+      <td>File type</td>
+      <td>Type of file</td>
+      <td>Provide the file type of your file. For the full list of file types which Slack supports, see <a href='https://api.slack.com/types/file#file_types'>here.</td>
+    </tr>
+    <tr>
+      <td>File content</td>
+      <td>Contents of the file</td>
+      <td>
+        Use a <kbd>Content</kbd> datapill from the output of preceding action or trigger, e.g. a File contents datapills from a Google Drive Download attachment action.<br><br><img src="/assets/images/workbot/workbot-actions/file-content-pill-example.png"></img>
+      </td>
+    </tr>
+    <tr>
+      <td>Title</td>
+      <td>Display title of the file</td>
+      <td>Displays the title of the file. If left blank, the <b>File name</b> will be displayed instead.</td>
+    </tr>
+    <tr>
+      <td>Thread ID</td>
+      <td>Uploads the file within an existing thread</td>
+      <td>
+        Use the <kbd>Thread ID</kbd> datapill from the output datatree of a <b>Post message</b> or <b>Post command reply</b> to upload the file to an existing thread. <br><img src="/assets/images/workbot/workbot-actions/thread-id-example.png"></img><br>If no thread exists yet, use the <kbd>Message ID</kbd> datapill instead. This will create a new thread for the uploaded file.
+      </td>
+    </tr>
+    </tbody>
+</table>

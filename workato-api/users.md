@@ -1,52 +1,30 @@
 ---
 title: Workato API - Users
 date: 2019-03-21 12:20:00 Z
+isTocVisible: true
 ---
 
 # Users
-Use the following endpoints to work with Users in Workato.
-
-### Supported Formats
-* Json
 
 ## Get user details
 
-> GET /api/users/me
+Get details of the authenticated user.
 
-### Description
-Get details of authenticated user
+```json
+GET /api/users/me
+```
 
-<details> <summary> <b>Details</b></summary>
+#### Sample request
 
-<h3> Responses </h3>
-<table class="unchanged rich-diff-level-one" text-align ="center">
-  <thead>
-    <tr>
-        <th width='20%'>Code</th>
-        <th width='80%'>Description</th>
-    </tr>
-  </thead>
-  <tbody>
-  <tr>
-    <td width =200 > <kbd>200</kbd> </td>
-    <td> Success </td>
-  </tr>
-  <tr>
-    <td width =200 > <kbd>401</kbd> </td>
-    <td> Unauthorized </td>
-  </tr>
-  <tr>
-    <td width =200 > <kbd>500</kbd> </td>
-    <td> Server error </td>
-  </tr>
-  </tbody>
-</table>
+```shell
+curl  -X GET https://workato.com/api/users/me \
+      -H 'x-user-email: <email>' \
+      -H 'x-user-token: <token>'
+```
 
-<h3> Examples</h3>
+### Response
 
-<h4>Success: 200</h4>
-<pre><code style="display: block; white-space: pre-wrap;">GET /api/users/me
-200
+```json
 {
   "id": 18289,
   "name": "Dave ACME",
@@ -69,5 +47,4 @@ Get details of authenticated user
   "phone": null,
   "active_recipes_count": 1
 }
-</code></pre>
-</details>
+```
