@@ -9,7 +9,7 @@ isTocVisible: true
 ## How to use
 Workday Report-as-a-Service is exposed as an action in Workato. This action will execute a run of the report, retrieve all data from that report and return them as an array. This data can be used in a recipe like any other actions. Learn how to set up a custom report [here](/connectors/workday/workday_raas.md).
 
-### Inputs
+## Inputs
 Provide the report URL to run and retrieve a report from Workday.
 
 ![Run report input](/assets/images/connectors/workday/raas_input.png)
@@ -22,7 +22,7 @@ Provide the report URL to run and retrieve a report from Workday.
 | Remove empty fields | If `Yes`, Workato will remove all `Null values` and leave the field empty.<br> Default is `Yes`. |
 | Additional fields | If some report fields (e.g. nested fields) do not appear in the action output, use this input field to define them. |
 
-### Configure report parameters and columns
+## Configure report parameters and columns
 
 ![Configure report parameters and columns manually](/assets/images/connectors/workday/custom-report-schema-input.png)
 *Configure report parameters and columns manually*
@@ -40,7 +40,7 @@ When you do that, additional input fields will appear for you to manually define
 | Report Parameters   | The filter parameters for your custom report. Input the **parameter alias** and the **value** according to how your custom report is configured. |
 | Report columns      | The output of your report. List the columns of your workday custom report. This schema will be converted into usable datapills for subsequently recipe actions on Workato. |
 
-### Outputs
+## Outputs
 The output of this action is presented as an array. Each element in this array corresponds to a row in the report. Similarly, each column in your report will be rendered as a field in the report output array.
 
 If you configured a custom schema in **Report column**, the custom report columns will be reflected as datapills.
@@ -48,7 +48,7 @@ If you configured a custom schema in **Report column**, the custom report column
 ![Outputs from Get report action](/assets/images/connectors/workday/raas_output.png)
 *Outputs from Get report action*
 
-### Use cases
+## Use cases
 
 #### Generate a custom CSV file
 A very simple use case for running and retrieving custom report data from Workday is to create a CSV file from the report. This can be done using the **CSV by Workato**.

@@ -33,7 +33,7 @@ Workday REST API is used to work with custom objects in your Workday instance. I
 | Authorization endpoint | Authorization endpoint of the API Client you created to connect to Workato.<br>Only required if using custom objects. |
 | Token endpoint      | Token endpoint of the API Client you created to connect to Workato.<br>Only required if using custom objects. |
 
-### Register Integration System User
+## Register Integration System User
 We do not recommend using a user account of a worker to run integrations. There are a few reasons for this.
 
 Firstly, all operations performed by the integration will be logged under this worker instead of one dedicated for integration and workflow processes.
@@ -47,7 +47,7 @@ The ISU should have all the permissions needed to perform the required actions f
 ![403 error](/assets/images/connectors/workday/permission-error.png)
 *Error message when ISU does not have enough permission*
 
-### Create an ISU
+## Create an ISU
 
 <table class="unchanged rich-diff-level-one">
   <thead>
@@ -149,7 +149,7 @@ The ISU should have all the permissions needed to perform the required actions f
 
 Find out more about setting up an ISU [here](https://doc.workday.com/reader/Z9lz_01hqDMDg6NSf7wCBQ/esBDCh5D66sgBhIxmQ5U5g).
 
-### Register API Client
+## Register API Client
 This step is required only if you wish to work with custom objects in Workday. The Workday connector uses the Workday REST API, which uses an OAuth 2.0 for authentication. You need to register an API Client to allow connection to the REST API.
 
 ![Register API Client](/assets/images/connectors/workday/api-client-1.png)
