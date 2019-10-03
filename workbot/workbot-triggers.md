@@ -8,23 +8,13 @@ Workbot for Slack allows you to send commands to Workbot on Slack. Workbot will 
 
 Each Workbot command is processed using a Workato recipe. The recipe trigger picks up the Workbot command as a trigger event, and the recipe determines the actions to carry out. With Workbot, you can create custom workflows that execute via your Slack commands, and optionally retrieve relevant data for you back to Slack.
 
-The Workbot for Slack connector has 3 triggers:
-
-- [New message action trigger](/workbot/workbot-triggers.md#new-command-trigger-building-custom-commands)
-
-This trigger allows you to perform message actions onto existing Slack messages in your Slack team.
-
-![Message action gif](/assets/images/workbot/workbot-message-actions/message-actions-example.gif)
-
-When triggered, message actions launch a dialog to collect command input fields from the user. The original contents of the message (along with input obtained from the dialog) can be used to create tasks, tickets, and more. To start using message actions, check out our [message actions documentation](/workbot/workbot-message-action.md).
+The Workbot for Slack connector has 5 triggers:
 
 - [New command](/workbot/workbot-triggers.md#new-command-trigger-building-custom-commands)
-
-This trigger allows you to build a custom command for Workbot in a Workato recipe. When you call this custom command in Slack to Workbot, the recipe will trigger and execute the actions you have defined. To find out how to create a simple command, check out [this guide](/workbot/workbot-commands.md).
-
+- [New event (real-time)](/workbot/workbot-triggers.md#new-trigger)
+- [New message action trigger](/workbot/workbot-triggers.md#new-command-trigger-building-custom-commands)
 - [New URL mention](/workbot/workbot-triggers.md#new-url-mention)
-
-This trigger monitors certain types of URLs in Slack, and pulls pre-defined, formatted data into the channel when such an URL is mentioned. Currently, Salesforce and Github URLs are supported.
+- [New dynamic menu event](/workbot/workbot-triggers.md#new-dynamic-menu-event)
 
 ## New command trigger (building custom commands)
 This trigger requires you to configure a custom Workbot command. When this recipe is started, Workbot will monitor for that command. Whenever the command is called, Workbot proceeds to carry out the recipe actions.
@@ -295,7 +285,27 @@ When the user has finished providing all the required input, the recipe actions 
 ![Salesforce show account command results](/assets/images/workbot/workbot-trigger/salesforce-show-account-results.png)
 *Salesforce show account command results*
 
+## New event trigger
+This trigger executes when a bot event, workspace event, block action event, or modal submission event is received from Slack.
+
+This trigger is best used with custom bots as it allows you to specify which bot or workspace events your bot subscribes. See the a list of events [here](https://api.slack.com/events). This trigger also picks up **Block actions** events and modal-related events (e.g. `view_submission`).
+
+If the event you are looking for is not in the default list, toggle to **Enter custom value** to configure the event manually.
+
+Key in a name for this event, and specify the payload correspondingly. You can also generate the entire payload all at once by supplying a sample JSON of the event payload.
+
+## New message action trigger
+This trigger allows you to perform message actions onto existing Slack messages in your Slack team.
+
+![Message action gif](/assets/images/workbot/workbot-message-actions/message-actions-example.gif)
+
+When triggered, message actions launch a dialog to collect command input fields from the user. The original contents of the message (along with input obtained from the dialog) can be used to create tasks, tickets, and more. To start using message actions, check out our [message actions documentation](/workbot/workbot-message-action.md).
+
+This trigger allows you to build a custom command for Workbot in a Workato recipe. When you call this custom command in Slack to Workbot, the recipe will trigger and execute the actions you have defined. To find out how to create a simple command, check out [this guide](/workbot/workbot-commands.md).
+
 ## New URL mention
+This trigger monitors certain types of URLs in Slack, and pulls pre-defined, formatted data into the channel when such an URL is mentioned. Currently, Salesforce and Github URLs are supported.
+
 When you send a URL in Slack, you can have Workbot provide certain information into the channel for everyone to see. For example, you can send a Salesforce lead URL into your sales channel and workbot will automatically send a message showing more information about that particular lead.
 
 ![workbot triggers](/assets/images/workbot/workbot-trigger/workbot-url.gif)
