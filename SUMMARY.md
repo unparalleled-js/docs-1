@@ -64,6 +64,7 @@
     * [Start recipe action](recipe-ops.md#start-recipe-action)
     * [Stop recipe action](recipe-ops.md#stop-recipe-action)
 * [Troubleshooting](troubleshooting.md)
+  * [Job debug tracing](recipes/job-debug-tracing.md)
   * [Error notification emails](recipes/error-notifications.md)
   * [Recipe design errors](recipes/recipe-design-time-errors.md)
     * [Missing required fields](recipes/recipe-design-time-errors.md#missing-required-input-fields-at-design-time)
