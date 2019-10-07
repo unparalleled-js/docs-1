@@ -12,7 +12,7 @@ Workbot supports 6 actions:
 * [Post message](#post-message)
 * [Download attachment](#download-attachment)
 * [Return menu options](#return-menu-options)
-* [Upload file](#upload-file)
+* [Post attachment](#upload-file)
 
 ## Block kit compatibility
 Blocks can be used together with existing message attachments present in the [Post command reply](#post-command-reply) and [Post message](#post-message).
@@ -240,13 +240,13 @@ When returning menu options, you can group menu options together by setting **Gr
 ![Grouped options](/assets/images/workbot/workbot-actions/grouped-options.png)
 *Grouped options in Slack*
 
-## Upload file
-This action will upload a file to the specified channel, DM or thread. You can also include a simple message together with the file.
+## Post attachment
+This action will post a file attachment to the specified channel, DM or thread. You can also include a simple message together with the file.
 
 ![Upload file with simple message](/assets/images/workbot/workbot-actions/upload-file-with-message.png)
-*A short message before the Chat history.json file*
+*A short message is included before the Chat history.json file*
 
-The following table lists the fields available in an **Upload file** action.
+The following table lists the fields available in a **Post attachment** action.
 
 <table class="unchanged rich-diff-level-one">
     <thead>
