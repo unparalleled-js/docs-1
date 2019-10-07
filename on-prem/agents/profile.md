@@ -236,6 +236,7 @@ sap:
       RCVPRT: LS
       RCVPRN: T90CLNT090
     # Property to get IDoc list configured on RCVPRN profile
+    # Should be equal to Partner Profile No. specified in SAP transaction WE20
       OUT_RCVPRN: WORKATO
 ```
 
