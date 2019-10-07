@@ -1,3 +1,9 @@
+---
+title: SDK - Dynamic Webhook Trigger
+date: 2018-05-24 14:00:00 Z
+isTocVisible: true
+---
+
 # Dynamic Webhook Trigger
 A dynamic webhook trigger is one that can programmatically be set up and torn down. This is something should be explicitly stated in the API of application that you are building a connector to. In the example below, you can define the process of setting up and tearing down webhooks in various blocks in the trigger object.
 

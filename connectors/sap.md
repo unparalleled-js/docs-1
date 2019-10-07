@@ -13,7 +13,7 @@ Workato SAP On-premise connector allows you to connect with SAP system on-premis
 ## Supported SAP versions
 Workato's On-premise SAP connector supports SAP ERP ECC 6.0 and later, SAP CRM, SAP SRM, SAP SCM, and any other modules compatible with the NetWeaver platform.
 
-It requires the SAP Java Connector (JCo) to work. Please refer to [SAP Note 107727 - SAP JCo 3.0 release and support strategy](https://launchpad.support.sap.com/#/notes/1077727) for details on JCo versions.
+It requires the SAP Java Connector (JCo) to work. Please refer to [SAP Note 1077727 - SAP JCo 3.0 release and support strategy](https://launchpad.support.sap.com/#/notes/1077727) for details on JCo versions.
 
 ## Supported communication method
 The connector supports the following communication methods with SAP:

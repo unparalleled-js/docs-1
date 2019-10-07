@@ -1,9 +1,15 @@
+---
+title: SDK - Basic Authentication
+date: 2018-05-24 14:00:00 Z
+isTocVisible: true
+---
+
 # Basic Authentication
 Typically, a basic authentication requires a username and password combination when making requests. Make sure to include those two fields in the connection fields definition.
 
 In the `connection:` block, you'll be able to define the input fields in the `fields:` block in an array of hashes. Each hash in the array represents a single input field. Inside, you'll be able to declare the name of the input field, hints that are displayed to the end user amongst other parameters. Below, we have a sample custom connector skeleton with a `connection:` block filled in. This `connection:` block is configured for basic authentication.
 
-## Sample code snippet
+## Simple Basic Auth
 ```ruby
 {
   title: 'My cisco connector',
@@ -59,14 +65,14 @@ To set up a basic authentication, simply define `type:` as `basic_auth` and incl
 
 This means that in the snippet above, every HTTP request made in the connector would have the `user` and `password` attached in the header to help authenticate that specific request.
 
-# Variations of basic authentication
+## Variations of basic authentication
 Some APIs expect different conventions from a standard basic authentication. In the example below, Close.io API expects an API key generated in the individual User’s account. It should be used as a username with a blank password in the standard basic authentication format.
 
 So, to adjust the connections portion of the code to suit this behaviour, simply request for an API instead of username + password.
 
 In the `apply` section, pass the api_key into `user()` and an empty string ("") to `password()`
 
-## Sample code snippet
+### Sample code snippet
 ```ruby
 {
   title: 'My Close.io connector',

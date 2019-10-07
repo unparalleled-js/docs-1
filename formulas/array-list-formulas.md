@@ -306,6 +306,19 @@ These rows will be expressed as a list of hashes:
 ]
 ```
 
+#### Using datapills in pattern matching
+
+You may use data pills within a regex pattern to dynamically change the string that you are matching. However, using variables in a regex pattern requires escaping within the regex expression.
+
+For example: ```contacts.where(state: /#{datapill}/)```
+
+The image below shows the method used to obtain all the 'Emails' in lookup table where the value in the 'State' column contains the string in the datapill from Salesforce, `State | Step 2`.
+
+![Datapill in regex expression](/assets/images/formula-docs/regex-datapill.png)
+*Using datapills in regex expressions*
+
+**Note:** All regex metacharacters will need to be escaped if they should not be interpreted as metacharacters.
+
 ### Example of complex reduction
 If a series of WHERE conditions are chained, the formula evaluates each where condition in series.
 
@@ -600,6 +613,8 @@ Generates CSV line from an array. This handles escaping. Nil values and empty st
 | `["John Smith", "No-Email", " ", nil, "555-1212"].to_csv` | "John Smith,No-Email, ,,555-1212 " |
 | `["John Smith", "No-Email", " ", nil, 1212].to_csv` | "John Smith,No-Email, ,,1212"      |
 
+---
+
 ## to_json
 
 Converts hash or array to JSON string
@@ -608,6 +623,29 @@ Converts hash or array to JSON string
 | ---------------------------------------- | ---------------------------- |
 | Hash: `{"pet" => "cat", "color" => "gray"}.to_json` | {"pet":"cat","color":"gray"} |
 | Array: `["1","2","3"].to_json`           | ["1", "2", "3"]              |
+
+---
+
+## to_xml
+
+Converts hash or array into XML string
+
+| Example                                  | Result                     |
+| ---------------------------------------- | -------------------------- |
+| `{"name" => "Ken"}.to_xml(root: "user")` | <user><name>Ken</name></user> |
+| `[{"name" => "Ken"}].to_xml(root: "users")`| <users><user><name>Ken</name></user></users>|
+
+---
+
+## encode_www_form
+
+Join hash into url-encoded string of parameters
+
+### Example
+
+| Example                    | Result          |
+| -------------------------- | --------------- |
+| `{"apple" => "red green", "2" => "3"}.encode_www_form` | "apple=red+green&2=3" |
 
 ---
 

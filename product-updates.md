@@ -8,6 +8,112 @@ date: 2018-06-05 21:45:00 Z
 
 Our engineers are hard at work daily to make Workato better! View the latest updates to our platform below.
 
+## New connectors
+###### Sept 2019
+
+### Plangrid
+[PlanGrid](https://www.plangrid.com/) is construction productivity software. The platform provides builders real-time access to blueprints, punch lists, daily reports, submittals and more. Refer to our documentation on support for objects and actions with the Plangrid connector.
+
+**Links:**
+- [Connection setup](/connectors/plangrid.md)
+- [Supported objects](/connectors/plangrid/object.md)
+- [Actions](/connectors/plangrid/object-action.md)
+- [Triggers](/connectors/plangrid/object-trigger.md)
+
+### Percolate
+[Percolate](https://percolate.com/) is a content marketing platform offering solutions to introduce visibility into the marketing process. The connector will allow users to manage standard & custom objects and schemas on their Percolate instance. 
+
+**Links:**
+- [Triggers & actions](https://www.workato.com/integrations/percolate)
+
+### Workfront
+Workfront is a software company that develops web-based work management and project management software that features enterprise work management, issue tracking, document management time tracking and portfolio management. Create and update objects on Workfront and build custom actions to manage all other use cases.
+
+**Links:**
+- [Triggers & actions](https://www.workato.com/integrations/workfront)
+
+## Slack Block kit on Workato
+###### Sept 25, 2019
+
+### What is Block kit on Workbot
+- Leverages [Slack Block Kit](https://api.slack.com/block-kit), Slack’s UI framework
+- Allows more control and flexibility over the message layout and interactive elements
+- Stack and re-order blocks
+
+### What does this mean?
+- Richer messages in post message / post command reply actions
+- New date picker block
+- New overflow menu block
+- New divider block
+- Ease of use - easier to add blocks, re-arrange by dragging & dropping
+- Prototyping  - preview message from recipe in Slack’s block kit builder
+
+Check out the new Block kit functionalities here:
+- [Video](https://www.youtube.com/watch?v=mJSpPaT4opg&feature=youtu.be)
+- [Documentation](/workbot/block-kit.md)
+
+## On-prem groups
+###### Sept 16, 2019
+
+### Key Value Propositions:
+- High Availability (HA) and Load Balancing
+- Customer Experience
+- Prevent Data and Revenue Loss
+
+[On-prem groups](/on-prem/groups.md) help achieve zero downtime for recipes that involves on-prem connections and prevent data and revenue loss through missing SLAs. All critical workflows running on on-prem connections are kept running 100% of the time because recipe can process jobs successfully even when one of the user’s on-prem servers goes down.
+
+### How it works:
+- Users can add multiple agents to each group
+- A connection uses an on-prem group to interact with on-prem apps instead of through a single agent
+- Connection is live and recipe can process jobs successfully even when one of the user’s on-prem server goes down
+
+## Robust data protection and compliance with flexible data retention
+###### Sept 01, 2019
+
+Securing customer data is a core value of our platform. With data protection standards, such as GDPR, and the sheer mass of data that companies collect and accumulate, the protection and control of information has become increasingly important.
+
+### What is flexible data retention?
+- Customers can customize their data retention period to fit their compliance policies
+- Data retention periods can be set in hours or days
+- The retention periods will vary by plan
+
+### Why is this important?
+Due to highly publicized instances of data breach, most enterprise customers are sensitive and insistent on protecting their data. With the flexible and lower data retention period support, data breach exposure is limited since Workato will destroy the data when data retention period ends.
+
+### How do I change the data retention period?
+Customer administrator or account owner of Business and above plans can navigate to `Account Settings` > `Data retention` to configure data retention. Specify number of hours or days and the data retention period unit.
+
+## Recipe collections
+###### Aug 16, 2019
+
+Recipe Collections are a group of curated recipes that work together to solve a specific use case. Recipe Collections expect to bring customer centric view of the automations instead of a recipe centric view. We hope to improve discoverability of automation possibilities and better communicate the problems solved and value of recipes.
+
+View the first release of recipe collections at: https://www.workato.com/recipes/browse.
+
+## Connector SDK version control and release management
+###### Aug 10, 2019
+
+The latest updates to the [connector SDK](/developing-connectors/sdk/quick-Start.md) enable customers to manage versions of the connector, rollback or roll forward to a specific version, control which version of the connector is used in recipes, and sharing custom connectors across workspaces.
+
+### Auto-versioning
+Similar to recipe versioning, connector SDKs are automatically versioned when changes are made.
+
+### Version rollback and roll forward
+It is easy to view the history of changes made to the connector by browsing the versions. Users can deploy a specific version by simply choosing to revert to that version of the connector.
+
+### Releasing a version
+Users can now control which version of their custom connector is used in recipes by choosing to release a stable version of it. They can then continue building their custom connector without it affecting any active running recipes.
+
+### Sharing a custom connector
+Users can share a custom connector across workspaces using share links or our recipe lifecycle management feature. When new versions of a custom connector are released, cloned connectors get a notification to upgrade to the latest released version.
+
+### Key benefits:
+- Active safeguards against the unwanted syntax errors spoiling recipes. 
+- Ability to release stable versions and continue development without implicating live recipes.
+- Ability to roll back unwanted changes
+- Greater control over custom connector management
+- Enhanced developer experience 
+
 
 ## Connector update: Hubspot
 ###### Jul 20, 2019
@@ -27,7 +133,7 @@ Support has been added for the Company object in Hubspot with the following trig
 - Get company details by ID
 - Search companies by domain name
 
-#### HubSpot Additional OAuth Scopes 
+#### HubSpot Additional OAuth Scopes
 Support has been added for users to select multiple OAuth scopes when establishing a connection with our HubSpot connector. This will allow you to build custom actions for HubSpot APIs beyond the scope of Contacts, Deals, Engagements and Companies.
 
 

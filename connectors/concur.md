@@ -34,35 +34,35 @@ The SAP Concur connector authenticates with OAuth2 protocol. It uses the authori
       <td>Username</td>
       <td>
         Username or user ID to authenticate the password grant.<br>
-        Only required if using connecting to an implementation instance.
+        Only required if connecting to an implementation instance.
       </td>
     </tr>
     <tr>
       <td>Password</td>
       <td>
         Password to authenticate the password grant.<br>
-        Only required if using connecting to an implementation instance.
+        Only required if connecting to an implementation instance.
       </td>
     </tr>
     <tr>
       <td>Location</td>
       <td>
         Select the location of your Concur implementation server.<br>
-        Only required if using connecting to an implementation instance.
+        Only required if connecting to an implementation instance.
       </td>
     </tr>
     <tr>
       <td>Client ID</td>
       <td>
         Client ID of your implementation application.<br>
-        Only required if using connecting to an implementation instance.
+        Only required if connecting to an implementation instance.
       </td>
     </tr>
     <tr>
       <td>Client secret</td>
       <td>
         Client secret of your implementation application.<br>
-        Only required if using connecting to an implementation instance.
+        Only required if connecting to an implementation instance.
       </td>
     </tr>
   </tbody>

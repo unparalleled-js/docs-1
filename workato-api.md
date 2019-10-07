@@ -1,173 +1,106 @@
 ---
 title: Workato API - Introduction
 date: 2019-03-20 14:20:00 Z
+isTocVisible: true
 ---
 
 # Workato API 1.0
-Workato's REST API provides you with access to Workato resources. With this, you can manage recipes, connections and jobs programmatically to expand the functionality of your Workato account. This API also allows you to auther new recipes and modify existing ones.
+Workato's REST API provides you with access to Workato resources. With this, you can manage recipes, connections and jobs programmatically to expand the functionality of your Workato account. This API also allows you to author new recipes and modify existing ones.
 
 ## Authentication
 All API requests must contain:
 
-- `X-USER-TOKEN` and `X-USER-EMAIL` in the request headers OR
+- `X-USER-TOKEN` and `X-USER-EMAIL` in the request headers
+OR
 - `user_token` & `user_email` in the query parameters
 
 The `user_token`/`X-USER-TOKEN` can be found in your [settings page](https://www.workato.com/users/current/edit#api_key). Alternatively, navigate to your account settings by clicking on `Account Settings` in the dropdown of the top right of your homepage in Workato. Your API key can be found in the left navigation panel in the subsequent page.
 
-## Workato API Resource Overview
-Workato's API has various endpoints that allows access functionality to different aspects of Workato. Here is a general overview of the endpoints available.
+### Supported Formats
+Workato API supports sending request body with the `application/json` content-type. All replies are also encoded in `application/json; charset=utf-8`.
 
-### [Adapters](/workato-api/adapters.md)
-<table class="unchanged rich-diff-level-one">
-  <thead>
-    <tr>
-        <th width='40%'>Resource</th>
-        <th width='60%'>Description</th>
-    </tr>
-  </thead>
-  <tbody>
-  <tr>
-    <td width =400> <a href="/workato-api/adapters.md#list-connector-metadata">GET /api/integrations</a> </td>
-    <td> Query connector metadata. Requires 'oem_vendor' privilege.</td>
-  </tr>
-  </tbody>
-</table>
+## HTTP response codes
 
-### [Connections](/workato-api/connections.md)
-<table class="unchanged rich-diff-level-one">
-  <thead>
-    <tr>
-        <th width='40%'>Resource</th>
-        <th width='60%'>Description</th>
-    </tr>
-  </thead>
-  <tbody>
-  <tr>
-    <td width =400> <a href="/workato-api/connections.md#list-connections">GET /api/connections</a> </td>
-    <td> List connections belonging to user</td>
-  </tr>
-  </tbody>
-</table>
+<div class='api_input'></div>
 
-### [Jobs](/workato-api/jobs.md)
-<table class="unchanged rich-diff-level-one">
-  <thead>
-    <tr>
-        <th width='40%'>Resource</th>
-        <th width='60%'>Description</th>
-    </tr>
-  </thead>
-  <tbody>
-  <tr>
-    <td width =400> <a href="/workato-api/jobs.md#list-jobs-belonging-to-a-recipe">GET /api/recipes/:recipe_id/jobs</a> </td>
-    <td> List jobs belonging to recipe</td>
-  </tr>
-  </tbody>
-</table>
+| Name  | Description  | Sample reply                  |
+|-------|--------------|-------------------------------|
+| `200` | Success      | `{"Success": true}`           |
+| `400` | Bad request  | `{"message": "Bad request"}`  |
+| `401` | Unauthorized | `{"message": "Unauthorized"}` |
+| `404` | Not found    | `{"message": "Not found"}`    |
+| `500` | Server error | `{"message":"Server error","id":"3188c2d0-29a4-4080-908e-582e7ed82580"}` |
 
+## Connectors
 
-### [Managed Users](/workato-api/managed-users.md)
-<table class="unchanged rich-diff-level-one">
-  <thead>
-    <tr>
-        <th width='40%'>Resource</th>
-        <th width='60%'>Description</th>
-    </tr>
-  </thead>
-  <tbody>
-  <tr>
-    <td width =400> <a href="/workato-api/managed-users.md#create-new-oem-users">POST /api/managed_users</a> </td>
-    <td>Create a new OEM user. Requires 'oem_vendor' privilege.</td>
-  </tr>
-   <tr>
-    <td width =400> <a href="/workato-api/managed-users.md#add-member-to-oem-account">POST /api/managed_users/:id/member</a> </td>
-    <td>Add member to the OEM account. Requires 'oem_vendor' privilege.</td>
-  </tr>
-  </tbody>
-</table>
+<div class='api_quick_reference'> </div>
 
-### [Recipes](/workato-api/recipes.md)
-<table class="unchanged rich-diff-level-one">
-  <thead>
-    <tr>
-        <th width='40%'>Resource</th>
-        <th width='60%'>Description</th>
-    </tr>
-  </thead>
-  <tbody>
-  <tr>
-    <td width =400> <a href="/workato-api/recipes.md#get-recipe-details">GET /api/recipes/:id</a> </td>
-    <td>Get recipe details</td>
-  </tr>
-  <tr>
-    <td width =400> <a href="/workato-api/recipes.md#create-a-recipe">POST /api/recipes</a> </td>
-    <td>Create recipe</td>
-  </tr>
-  <tr>
-    <td width =400> <a href="/workato-api/recipes.md#update-a-recipe">PUT /api/recipes/:id</a> </td>
-    <td>Update recipe</td>
-  </tr>
-  <tr>
-    <td width =400> <a href="/workato-api/recipes.md#list-recipes-belonging-to-user">GET /api/recipes</a> </td>
-    <td>List recipes belonging to user</td>
-  </tr>
-  <tr>
-    <td width =400> <a href="/workato-api/recipes.md#search-for-public-recipes">GET /api/recipes/search</a> </td>
-    <td>Search for public recipes. Requires 'oem_vendor' privilege.</td>
-  </tr>
-  <tr>
-    <td width =400> <a href="/workato-api/recipes.md#start-recipe">PUT /api/recipes/:id/start</a> </td>
-    <td>Start recipe</td>
-  </tr>
-  <tr>
-    <td width =400> <a href="/workato-api/recipes.md#stop-recipe">PUT /api/recipes/:id/stop</a> </td>
-    <td>Stop recipe</td>
-  </tr>
-  <tr>
-    <td width =400> <a href="/workato-api/recipes.md#delete-recipe">DELETE /api/recipes/:id</a> </td>
-    <td>Delete recipe</td>
-  </tr>
-  </tbody>
- </table>
+| Type |Resource | Description |
+|------|---------|-------------|
+| GET | [/api/integrations](/workato-api/adapters.md#list-connector-metadata) | Query connector metadata.|
 
- ### [Users](/workato-api/users.md)
-<table class="unchanged rich-diff-level-one">
-  <thead>
-    <tr>
-        <th width='40%'>Resource</th>
-        <th width='60%'>Description</th>
-    </tr>
-  </thead>
-  <tbody>
-  <tr>
-    <td width =400> <a href="/workato-api/users.md#get-user-details">GET /api/users/me</a> </td>
-    <td>Get details of authenticated user</td>
-  </tr>
-  </tbody>
-</table>
+## Connections
 
-### [Recipe lifecycle management](/workato-api/recipe-lifecycle-management.md)
-<table class="unchanged rich-diff-level-one">
-  <thead>
-    <tr>
-        <th width='40%'>Resource</th>
-        <th width='60%'>Description</th>
-    </tr>
-  </thead>
-  <tbody>
-  <tr>
-    <td width =400> <a href="/workato-api/recipe-lifecycle-management.md#export-package-based-on-a-manifest">POST /api/packages/export/:manifest_id </a> </td>
-    <td>Export package based on a manifest</td>
-  </tr>
-  <tr>
-    <td width =400> <a href="/workato-api/recipe-lifecycle-management.md#import-package-into-a-folder">POST /api/packages/import/:folder_id </a> </td>
-    <td>Import package into a folder </td>
-  </tr>
-  <tr>
-    <td width =400> <a href="/workato-api/recipe-lifecycle-management.md#get-package-by-id">GET /api/packages/:id</a> </td>
-    <td>Get package by ID</td>
-  </tr>
-  <tr>
-    <td width =400> <a href="/workato-api/recipe-lifecycle-management.md#download-package">GET /api/packages/:id/download </a> </td>
-    <td>Download package</td>
-  </tr>
+<div class='api_quick_reference'> </div>
+
+| Type |Resource | Description |
+|------|---------|-------------|
+| GET | [/api/connections](/workato-api/connections.md) | List connections belonging to user. |
+
+## Jobs
+
+<div class='api_quick_reference'> </div>
+
+| Type |Resource | Description |
+|------|---------|-------------|
+| GET | [/api/recipes/:recipe_id/jobs](/workato-api/jobs.md#list-jobs-belonging-to-a-recipe) | List jobs belonging to recipe. |
+
+## Managed Users
+
+<div class='api_quick_reference'> </div>
+
+<div class='api_quick_reference'> </div>
+
+| Type | Resource | Description |
+|------|----------|-------------|
+| POST | [/api/managed_users](#create-customer-account) | Create customer account. |
+| GET  | [/api/managed_users/:id](#get-customer-account) | Get customer account. |
+| PUT  | [/api/managed_users/:id/upgrade](#upgrade-customer-account) | Upgrade customer account. |
+| PUT  | [/api/managed_users/:id/downgrade](#downgrade-customer-account) | Downgrade customer account. |
+| POST | [/api/managed_users/:id/member](#add-member-to-customer-account) | Add member to customer account. |
+| DELETE | [/api/managed_users/:id/member](#remove-member-from-customer-account) |  Remove member from customer account. |
+| GET  | [/api/managed_users/:id/connections](#list-customer-connections)| List customer connections. |
+
+## Recipes
+
+<div class='api_quick_reference'> </div>
+
+| Type | Resource | Description |
+|------|----------|-------------|
+| GET  | [api/recipes/:id](/workato-api/recipes.md#get-recipe-details) | Get recipe details. |
+| POST | [api/recipes](/workato-api/recipes.md#create-a-recipe) | Create recipe. |
+| PUT  | [api/recipes/:id](/workato-api/recipes.md#update-a-recipe) | Update recipe. |
+| GET  | [api/recipes](/workato-api/recipes.md#list-recipes-belonging-to-user)| List recipes belonging to user. |
+| GET  | [api/recipes/search](/workato-api/recipes.md#search-for-public-recipes) | Search for public recipes. |
+| PUT  | [api/recipes/:id/start](/workato-api/recipes.md#start-recipe) | Start recipe. |
+| PUT  | [api/recipes/:id/stop](/workato-api/recipes.md#stop-recipe) | Stop recipe. |
+| DELETE | [api/recipes/:id](/workato-api/recipes.md#delete-recipe) | Delete recipe. |
+
+## User
+
+<div class='api_quick_reference'> </div>
+
+| Type | Resource | Description |
+|------|----------|-------------|
+| GET  | [api/users/me](/workato-api/users.md#get-user-details) | Get details of authenticated user. |
+
+## Recipe lifecycle management
+
+<div class='api_quick_reference'> </div>
+
+| Type | Resource | Description |
+|------|----------|-------------|
+| POST | [api/packages/export/:manifest_id](/workato-api/recipe-lifecycle-management.md#export-package-based-on-a-manifest) | Export package based on a manifest. |
+| POST | [api/packages/import/:folder_id](/workato-api/recipe-lifecycle-management.md#import-package-into-a-folder) | Import package into a folder. |
+| GET  | [api/packages/:id](/workato-api/recipe-lifecycle-management.md#get-package-by-id) | Get package by ID. |
+| GET  | [api/packages/:id/download](/workato-api/recipe-lifecycle-management.md#download-package) | Download package. |

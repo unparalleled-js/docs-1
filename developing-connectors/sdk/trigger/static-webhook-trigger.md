@@ -1,3 +1,9 @@
+---
+title: SDK - Static Webhook Trigger
+date: 2018-05-24 14:00:00 Z
+isTocVisible: true
+---
+
 # Static Webhook Trigger
 A static webhook trigger is one that requires manual registration. This usually involves a user creating a webhook in the application user interface with a pre-defined webhook URL. It defers from a dynamic webhook because it requires a fixed webhook URL for use in the manual registration process, instead of having it be done in the background (programmatic subscription through the API when a user starts a recipe).
 

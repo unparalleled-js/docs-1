@@ -1,4 +1,10 @@
-#Pick lists and toggle fields
+---
+title: SDK - Pick Lists
+date: 2018-05-24 14:00:00 Z
+isTocVisible: true
+---
+
+# Pick lists and toggle fields
 A pick list is list of choices predefined for a user to select instead of having to input the actual values. It is useful when there is a list of accepted values for a field or when the field requires a value that is not visible.
 
 You'll be able to define both static pick lists which are hardcoded, dynamic pick lists that are generated through a HTTP call or dependent pick lists that work off input earlier in the action.

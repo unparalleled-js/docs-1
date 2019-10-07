@@ -1,80 +1,51 @@
 ---
 title: Workato API - Recipe lifecycle management
 date: 2019-04-25 12:20:00 Z
+isTocVisible: true
 ---
 
 # Recipe lifecycle management
-Use the following endpoints to automate the import and export of packages.
 
-### Supported Formats
-* Json
+### Quick reference
+
+<div class='api_quick_reference'></div>
+
+| Type | Resource | Description |
+|------|----------|-------------|
+| POST | [/api/packages/export/:manifest_id](#export-package-based-on-a-manifest)| Export package based on a manifest. |
+| POST | [/api/packages/import/:folder_id](#import-package-into-a-folder) | Import package into a folder. |
+| GET  | [/api/packages/:id](#get-package-by-id) | Get package by ID. |
+| GET  | [/api/packages/:id/download](#download-package) | Download a package. |
 
 ## Export package based on a manifest
 
-> POST /api/packages/export/:manifest_id
+Export package based on a manifest.
 
-### Description
-Export package based on a manifest. Manifest ID is required. This is an asynchronous request. Please use the [GET package by ID](workato-api/recipe-lifecycle-management.md#get-package-by-id) endpoint to get details of the exported package after this endpoint is used.
+```
+POST /api/packages/export/:id
+```
 
+This is an asynchronous request. Use [GET package by ID](#get-package-by-id) endpoint to get details of the exported package.
 
-<details> <summary> <b>Details</b></summary>
+### URL parameters
 
-<h3> Responses </h3>
-<table class="unchanged rich-diff-level-one" text-align ="center">
-  <thead>
-    <tr>
-        <th width='20%'>Code</th>
-        <th width='80%'>Description</th>
-    </tr>
-  </thead>
-  <tbody>
-  <tr>
-    <td width =200 > <kbd>200</kbd> </td>
-    <td> Success </td>
-  </tr>
-  <tr>
-    <td width =200 > <kbd>400</kbd> </td>
-    <td> Bad request </td>
-  </tr>
-  <tr>
-    <td width =200 > <kbd>401</kbd> </td>
-    <td> Unauthorized </td>
-  </tr>
-  <tr>
-    <td width =200 > <kbd>500</kbd> </td>
-    <td> Server error </td>
-  </tr>
-  </tbody>
-</table>
+<div class='api_input'></div>
 
-<h3> Parameters</h3>
-<table class="unchanged rich-diff-level-one" text-align ="center">
-  <thead>
-    <tr>
-        <th width='20%'>Parameter name</th>
-        <th width='80%'>Description</th>
-    </tr>
-  </thead>
-  <tbody>
-  <tr>
-    <td width =200 > <b>manifest_id</b> <br>required</td>
-    <td>
-    Export manifest ID
-    <br>
-    <b>Validations:</b> <br>
-    <ul>
-    <li>Must be string</li>
-    </ul>
-    </td>
-  </tr>
-  </tbody>
-</table>
+| Name | Type | Description |
+|------|------|-------------|
+| id   | **string**<br>_required_ | Export manifest ID. |
 
-<h3> Examples</h3>
+#### Sample request
 
-<h4>Success: 200</h4>
-<pre><code style="display: block; white-space: pre-wrap;">GET /api/packages/242
-200
+```shell
+curl  -X POST https://workato.com/api/packages/export/<manifest_id> \
+      -H 'x-user-email: <email>' \
+      -H 'x-user-token: <token>'
+```
+
+### Response
+
+```json
 {  
    "id":242,
    "operation_type":"export",
@@ -82,139 +53,79 @@ Export package based on a manifest. Manifest ID is required. This is an asynchro
    "export_manifest_id":3,
    "download_url":"https://workato-staging-assets,com/packages/zip_files/000/000/242/original/exportdemo.zip"
 }
-</code></pre>
-</details>
+```
 
 ## Import package into a folder
 
-> POST /api/packages/import/:folder_id
+Import a package (zip file) into a folder.
 
-### Description
-Import a package (zip file) into the folder. The input is a “application/octet-stream” payload containing package content. `restart_recipes` should be “true” if running recipes need to be restarted upon import.
+```
+POST /api/packages/import/:id
+```
 
-This is an asynchronous request. Please use the [GET package by ID](workato-api/recipe-lifecycle-management.md#get-package-by-id) endpoint to get details of the imported package after this endpoint is used.
+This is an asynchronous request. Use [GET package by ID](#get-package-by-id) endpoint to get details of the imported the package.
 
-<details> <summary> <b>Details</b></summary>
+The input (zip file) is a “application/octet-stream” payload containing package content. URL parameter **restart_recipes** should be `true` if the running recipes need to be restarted upon import.
 
-<h3> Responses </h3>
-<table class="unchanged rich-diff-level-one" text-align ="center">
-  <thead>
-    <tr>
-        <th width='20%'>Code</th>
-        <th width='80%'>Description</th>
-    </tr>
-  </thead>
-  <tbody>
-  <tr>
-    <td width =200 > <kbd>200</kbd> </td>
-    <td> Success </td>
-  </tr>
-  <tr>
-    <td width =200 > <kbd>400</kbd> </td>
-    <td> Bad request </td>
-  </tr>
-  <tr>
-    <td width =200 > <kbd>401</kbd> </td>
-    <td> Unauthorized </td>
-  </tr>
-  <tr>
-    <td width =200 > <kbd>500</kbd> </td>
-    <td> Server error </td>
-  </tr>
+### URL parameters
 
-  </tbody>
-</table>
+<div class='api_input'></div>
 
-<h3> Parameters</h3>
-<table class="unchanged rich-diff-level-one" text-align ="center">
-  <thead>
-    <tr>
-        <th width='20%'>Parameter name</th>
-        <th width='80%'>Description</th>
-    </tr>
-  </thead>
-  <tbody>
-  <tr>
-    <td width =200 > <b>folder_id</b> <br>required</td>
-    <td>
-    Folder ID
-    <br>
-    <b>Validations:</b> <br>
-    <ul>
-    <li>Must be string</li>
-    </ul>
-    </td>
-  </tr>
-  <tr>
-    <td width =200 > <b>restart_recipes</b> <br>optional</td>
-    <td>
-    Set to 'true' to allow the restarting of running recipes
-    <br>
-    <b>Validations:</b> <br>
-    <ul>
-    <li>Must be string</li>
-    </ul>
-    </td>
-  </tr>
-  </tbody>
-</table>
+| Name | Type | Description |
+|------|------|-------------|
+| id   | **string**<br>_required_ | Folder ID. |
+| restart_recipes | **boolean**<br>_optional_ | If `true`, it will allow the restarting of running recipes. |
 
-<h3> Examples</h3>
+#### Sample request
 
-<h4>Success: 200</h4>
-<pre><code style="display: block; white-space: pre-wrap;">POST /api/packages/import/2617
-200
+```shell
+curl  -X POST https://workato.com/api/packages/import/<folder_id>?restart_recipes=true \
+      -H 'x-user-email: <email>' \
+      -H 'x-user-token: <token>' \
+      -H 'Content-Type: application/octet-steam' \
+      -F 'path/to/local/file.zip'
+```
+
+### Response
+
+```json
 {  
    "id":251,
    "operation_type":"import",
    "status":"completed",
    "download_url":"https://workato-staging-assets,com/packages/zip_files/000/000/242/original/exportdemo.zip"
 }
-</code></pre>
-</details>
+```
 
 ## Get package by ID
 
-> GET /api/packages/:id
-
-### Description
 Get details of an imported or exported package.
 
-<details> <summary> <b>Details</b></summary>
+```
+GET /api/packages/:id
+```
 
-<h3> Responses </h3>
-<table class="unchanged rich-diff-level-one" text-align ="center">
-  <thead>
-    <tr>
-        <th width='20%'>Code</th>
-        <th width='80%'>Description</th>
-    </tr>
-  </thead>
-  <tbody>
-  <tr>
-    <td width =200 > <kbd>200</kbd> </td>
-    <td> Success </td>
-  </tr>
-  <tr>
-    <td width =200 > <kbd>400</kbd> </td>
-    <td> Bad request </td>
-  </tr>
-  <tr>
-    <td width =200 > <kbd>401</kbd> </td>
-    <td> Unauthorized </td>
-  </tr>
-  <tr>
-    <td width =200 > <kbd>500</kbd> </td>
-    <td> Server error </td>
-  </tr>
-  </tbody>
-</table>
+### URL paramters
 
-<h3> Examples</h3>
+<div class='api_input'></div>
 
-<h4>Success: 200</h4>
-<pre><code style="display: block; white-space: pre-wrap;">GET /api/packages/242
-200
+| Name | Type | Description |
+|------|------|-------------|
+| id   | **string**<br>_required_ | Package ID. |
+
+#### Sample request
+
+```shell
+curl  -X GET https://workato.com/api/packages/<package_id> \
+      -H 'x-user-email: <email>' \
+      -H 'x-user-token: <token>'
+```
+
+### Response
+
+* This shows a successful export.
+
+```json
 {  
    "id":242,
    "operation_type":"export",
@@ -222,10 +133,11 @@ Get details of an imported or exported package.
    "export_manifest_id":3,
    "download_url":"https://workato-staging-assets,com/packages/zip_files/000/000/242/original/exportdemo.zip"
 }
-</code></pre>
+```
 
-<pre><code style="display: block; white-space: pre-wrap;">GET /api/packages/245
-200
+* This shows a packages that failed to export properly.
+
+```json
 {  
    "id":242,
    "operation_type":"export",
@@ -234,67 +146,32 @@ Get details of an imported or exported package.
    "export_manifest_id":4,
    "download_url":"null"
 }
-</code></pre>
-
-</details>
+```
 
 ## Download package
 
-> GET /api/packages/:id/download
+Downloads a package.
 
-### Description
-If successful, redirects to package content. Returns `404` if package not found or doesn't have content.
+```
+GET /api/packages/:id/download
+```
 
-<details> <summary> <b>Details</b></summary>
+### URL parameters
 
-<h3> Responses </h3>
-<table class="unchanged rich-diff-level-one" text-align ="center">
-  <thead>
-    <tr>
-        <th width='20%'>Code</th>
-        <th width='80%'>Description</th>
-    </tr>
-  </thead>
-  <tbody>
-  <tr>
-    <td width =200 > <kbd>200</kbd> </td>
-    <td> Success </td>
-  </tr>
-  <tr>
-    <td width =200 > <kbd>400</kbd> </td>
-    <td> Bad request </td>
-  </tr>
-  <tr>
-    <td width =200 > <kbd>401</kbd> </td>
-    <td> Unauthorized </td>
-  </tr>
-  <tr>
-    <td width =200 > <kbd>500</kbd> </td>
-    <td> Server error </td>
-  </tr>
+<div class='api_input'></div>
 
-  </tbody>
-</table>
+| Name | Type | Description |
+|------|------|-------------|
+| id   | **string**<br>_required_ | Package ID. |
 
-<h3> Parameters</h3>
-<table class="unchanged rich-diff-level-one" text-align ="center">
-  <thead>
-    <tr>
-        <th width='20%'>Parameter name</th>
-        <th width='80%'>Description</th>
-    </tr>
-  </thead>
-  <tbody>
-  <tr>
-    <td width =200 > <b>id</b> <br>required</td>
-    <td>
-    Package ID
-    <br>
-    <b>Validations:</b> <br>
-    <ul>
-    <li>Must be string</li>
-    </ul>
-    </td>
-  </tr>
-  </tbody>
-</table>
+#### Sample request
+
+```shell
+curl  -X GET https://workato.com/api/packages/<package_id>/download \
+      -H 'x-user-email: <email>' \
+      -H 'x-user-token: <token>'
+```
+
+### Response
+
+If successful, you will be redirected to the package content. Returns `404` if package not found or doesn't have content.

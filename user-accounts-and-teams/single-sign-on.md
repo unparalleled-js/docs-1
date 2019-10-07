@@ -14,88 +14,167 @@ SSO also enables [just in time provisioning](/user-accounts-and-teams/just-in-ti
 These are the steps to enable SSO for [Okta](#okta-single-sign-on) and [OneLogin](#onelogin-single-sign-on).
 
 ### Okta Single sign on
-1. Create a new SAML application in Okta admin interface.
-
-![Add application on Okta](/assets/images/user-accounts-and-teams/single-sign-on/add-application.png/)
-*Add application on Okta. Refer to the [Okta documentation](http://developer.okta.com/standards/SAML/setting_up_a_saml_application_in_okta) for more details.*
-
-2. Create a New Application integration.
-
-![Create a new application on Okta](/assets/images/user-accounts-and-teams/single-sign-on/create-application.png/)
-*Create a new application on Okta*
-
-3. Fill in the General settings for this new SAML Application.
-
-![Configure general settings](/assets/images/user-accounts-and-teams/single-sign-on/configure-general-settings.png/)
-*Configure general settings*
-
-4. Configure SAML settings.
-
-![Okta Config Wizard](/assets/images/user-accounts-and-teams/team-collaboration/okta-settings-config-mode.png)
-*Okta Workato Service Provider settings in Wizard mode*
-
-Fill the settings form as follows:
-
-| Field                 | Value                                         |
-| --------------------- | --------------------------------------------- |
-| Single Sign On URL    | `https://www.workato.com/saml/init`           |
-| Use this for Recipient URL and Destination URL | Enable checkmark     |
-| Allow this app to request other SSO URLs  | Enable checkmark          |
-| Requestable SSO URLs  | `https://www.workato.com/saml/consume`        |
-| Audience URI (SP Entity ID) | `https://www.workato.com/saml/metadata` |
-
-5. Save and create this SAML application. The final Okta settings screen should look like this:
-
-![Okta Config View](/assets/images/user-accounts-and-teams/team-collaboration/okta-settings-view-mode.png)
-*Workato Service Provider completed settings on Okta*
-
-6. Obtain Okta metadata URL.
-
-- Locate the newly created Application's page
-- Locate the  **Sign On tab**
-- Right-click on **Identity Provider metadata** and **Copy link address**
-
-![Okta IdP URL](/assets/images/user-accounts-and-teams/single-sign-on/okta-metadata-link.gif)
-*Okta metadata URL*
+<table>
+  <thead>
+    <tr>
+      <th width=20%>Steps</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>1. Create new application</td>
+      <td>
+        Locate <b>Applications</b> > <b>Add application</b>.<br>
+        <img src="/assets/images/user-accounts-and-teams/single-sign-on/add-application.png" alt="Add application on Okta"></img><br>
+        <i>Add application on Okta. Refer to the <a href="http://developer.okta.com/standards/SAML/setting_up_a_saml_application_in_okta">Okta documentation</a> for more details</i>
+      </td>
+    </tr>
+    <tr>
+      <td>2. Select <b>SAML 2.0</b></td>
+      <td>
+        <img src="/assets/images/user-accounts-and-teams/single-sign-on/create-application.png" alt="Create a new application on Okta"></img><br>
+        <i>Create a new application on Okta</i>
+      </td>
+    </tr>
+    <tr>
+      <td>3. Skip to <b>SAML settings</b></td>
+      <td>
+        <img src="/assets/images/user-accounts-and-teams/team-collaboration/okta-settings-config-mode.png" alt="Okta Config Wizard"></img><br>
+        <i>Workato Service Provider settings for Okta</i><br><br>
+        Fill in the settings form as follows:<br>
+        <table>
+          <thead>
+            <th>Field</th>
+            <th>Value</th>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Single Sign On URL</td>
+              <td><code>https://www.workato.com/saml/init</code></td>
+            </tr>
+            <tr>
+              <td>Use this for Recipient URL and Destination URL</td>
+              <td>Enable checkmark</td>
+            </tr>
+            <tr>
+              <td>Allow this app to request other SSO URLs</td>
+              <td>Enable checkmark</td>
+            </tr>
+            <tr>
+              <td>Requestable SSO URLs</td>
+              <td><code>https://www.workato.com/saml/consume</code></td>
+            </tr>
+            <tr>
+              <td>Audience URI (SP Entity ID)</td>
+              <td><code>https://www.workato.com/saml/metadata</code></td>
+            <tr>
+          </tbody>
+        </table>
+      </td>
+    </tr>
+    <tr>
+      <td>4. Select <b>Save</b> and <b>Create</b></td>
+      <td>
+        The final Okta settings screen should look like this:<br>
+        <img src="/assets/images/user-accounts-and-teams/team-collaboration/okta-settings-view-mode.png" alt="Okta Config View"></img><br>
+        <i>Workato Service Provider completed settings on Okta</i>
+      </td>
+    </tr>
+    <tr>
+      <td>5. Obtain Okta <b>Metadata URL</b></td>
+      <td>
+        Follow these steps to obtain the Okta Metadata URL:<br>
+        <ul>
+          <li>Locate the newly created Application's page</li>
+          <li>Locate the <b>Sign On tab</b></li>
+          <li>Right-click on <b>Identity Provider metadata</b> and <b>Copy link address</b></li>
+        </ul>
+        <img src="/assets/images/user-accounts-and-teams/single-sign-on/okta-metadata-link.gif" alt="Okta IdP URL"></img><br>
+        <i>Okta metadata URL</i>
+      </td>
+    </tr>
+  </tbody>
+</table>
 
 ### OneLogin Single Sign-On
-1. Create a new SAML application in OneLogin admin interface. Find **Apps** > **Add App** > **SAML Test Connector**.
 
-![Add application on OneLogin](/assets/images/user-accounts-and-teams/single-sign-on/onelogin-add-application.png/)
-*Add application on OneLogin. Refer to the [OneLogin documentation](https://support.onelogin.com/hc/en-us/articles/202673944-How-to-Use-the-OneLogin-SAML-Test-Connector) for more details.*
-
-2. Fill in the basic configuration for this new application.
-
-![Configure basic settings](/assets/images/user-accounts-and-teams/single-sign-on/onelogin-basic-configuration.png/)
-*Configure basic settings*
-
-3. Configure the SAML settings.
-
-![Workato Service Provider settings for OneLogin](/assets/images/user-accounts-and-teams/team-collaboration/onelogin-settings.png)
-*Workato Service Provider settings for OneLogin*
-
-Fill the settings form as follows:
-
-| Field              | Value                                           |
-| ------------------ | ----------------------------------------------- |
-| Audience           | `https://www.workato.com/saml/metadata`         |
-| Recipient          | `https://www.workato.com/saml/init`             |
-| ACS (Consumer) URL Validator | `^https:\/\/www.workato.com\/saml\/*$`|
-| ACS (Consumer) URL | `https://www.workato.com/saml/consume`          |
-
-4. Obtain OneLogin metadata URL.
-
-- **Save** the OneLogin new application setup.
-- Select **More actions**
-- Right-click on **SAML metadata** and **Copy link address**
-
-![OneLogin IdP URL](/assets/images/user-accounts-and-teams/single-sign-on/onelogin-metadata-link.gif)
-*OneLogin metadata URL*
+<table>
+  <thead>
+    <tr>
+      <th width=20%>Steps</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>1. Add application on OneLogin</td>
+      <td>
+        Locate <b>Appplications</b> > <b>Add App</b>.<br>
+        <img src="/assets/images/user-accounts-and-teams/single-sign-on/onelogin-add-application.png" alt="Add application on OneLogin"></img><br>
+        <i>Add application on OneLogin. Refer to the <a href="https://support.onelogin.com/hc/en-us/articles/202673944-How-to-Use-the-OneLogin-SAML-Test-Connector">OneLogin documentation</a> for more details</i>
+      </td>
+    </tr>
+    <tr>
+      <td>2. Create a new SAML application</td>
+      <td>
+        Locate <b>Apps</b> > <b>Add app</b> > <b>SAML Test Connector</b>.<br>
+        <img src="/assets/images/user-accounts-and-teams/single-sign-on/onelogin-saml-test-connector.png" alt="SAML test connector"></img><br>
+        <i>SAML test connector</i>
+      </td>
+    </tr>
+    <tr>
+      <td>3. Skip to <b>Configuration settings</b></td>
+      <td>
+        <img src="/assets/images/user-accounts-and-teams/single-sign-on/onelogin-settings.png" alt="OneLogin Config Wizard"></img><br>
+        <i>Workato Service Provider settings for OneLogin</i><br><br>
+        Fill in the settings form as follows:<br>
+        <table>
+          <thead>
+            <th>Field</th>
+            <th>Value</th>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Audience</td>
+              <td><code>https://www.workato.com/saml/metadata</code></td>
+            </tr>
+            <tr>
+              <td>Recipient</td>
+              <td><code>https://www.workato.com/saml/init</code></td>
+            </tr>
+            <tr>
+              <td>ACS (Consumer) URL Validator</td>
+              <td><code>^https:\/\/www.workato.com\/saml\/*$</code></td>
+            </tr>
+            <tr>
+              <td>ACS (Consumer) URL</td>
+              <td><code>https://www.workato.com/saml/consume</code></td>
+            <tr>
+          </tbody>
+        </table>
+      </td>
+    </tr>
+    <tr>
+      <td>4. Obtain OneLogin <b>Metadata URL</b></td>
+      <td>
+        Follow these steps to obtain the OneLogin Metadata URL:<br>
+        <ul>
+          <li><b>Save</b> the OneLogin new application setup</li>
+          <li>Select <b>More Actions</b></li>
+          <li>Right-click on <b>SAML metadata</b> and <b>Copy link address</b></li>
+        </ul>
+        <img src="/assets/images/user-accounts-and-teams/single-sign-on/onelogin-metadata-link.gif" alt="OneLogin IdP URL"></img><br>
+        <i>OneLogin metadata URL</i>
+      </td>
+    </tr>
+  </tbody>
+</table>
 
 ## Workato Single Sign-on setup
-After creating a new application on your SAML provider. Finish the SSO setup on Workato's Team [setting page](https://www.workato.com/members#settings).
+After creating a new application on your SAML provider, finish the SSO setup on the Workato Team [setting page](https://www.workato.com/members#settings).
 
-Once you have filled in the required fields, select **Validate Settings**. After validation has succeeded, select **Save**.
+Fill in the required fields and select **Validate Settings**. After validation has succeeded, select **Save**.
 
 ![Workato SAML config](/assets/images/user-accounts-and-teams/single-sign-on/workato-okta-settings.png)
 *Workato SAML Okta Configuration example*
@@ -135,7 +214,7 @@ Assign team members from the list provided.
 ## Logging into SAML-enabled Team
 Once SAML is enabled, access to Team is controlled by SAML Identity Provider (Okta, OneLogin, etc). Your team members can now access their Workato accounts from the SAML provider.
 
-- Clicking on the Workato application on Okta will lead users to the Workato platform.
+- From Okta, clicking on the Workato application will lead users to the Workato platform.
 
 ![Workato app on Okta](/assets/images/user-accounts-and-teams/single-sign-on/employee-workato-app.png)
 *Workato app on Okta*

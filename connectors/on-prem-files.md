@@ -4,12 +4,12 @@ date: 2018-12-04 06:00:00 Z
 ---
 
 # On-prem Files
-This connector lets you integrate with files within a secure network. These files typically are behind a corporate firewall and cannot be accssed directly. To create a connection to on-prem files, you **must** use an [On-prem agent](/on-prem.md).
+This connector lets you integrate with files within a secure network. These files typically are behind a corporate firewall and cannot be accessed directly. To create a connection to on-prem files, you **must** use an [On-prem agent](/on-prem.md).
 
 Workato's `On-prem files` connector allows you to securely connect to those on-premises files and build automation around them.
 
 ## How to connect to on-prem files on Workato
-Before creating a connection for this connector, make sure you go through an [on-prem agent setup](/on-prem/setup.md) and create a profile for [on-prem files](/on-prem/profile.md#on-premises-files-connection-profile).
+Before creating a connection for this connector, make sure you go through an [on-prem agent setup](/on-prem/agents/setup.md) and create a profile for [on-prem files](/on-prem/agents/profile.md#on-premises-files-connection-profile).
 
 ![On-prem files connection](/assets/images/connectors/on-prem-files/connection.png)
 *On-prem files connection using on-prem agent*
@@ -42,7 +42,7 @@ Before creating a connection for this connector, make sure you go through an [on
 ### Relative path
 Relative path is a way to specify the location of a file or folder based on the location of another folder. This is different from absolute path where you specify the full location of a file.
 
-File or folder path in the on-prem files connector are all relative paths. It is relative to the base path you define in the connection [profile](/on-prem/profile.md#on-premises-files-connection-profile) of your `config.yml` file. Let's take a look at an example.
+File or folder path in the on-prem files connector are all relative paths. It is relative to the base path you define in the connection [profile](/on-prem/agents/profile.md#on-premises-files-connection-profile) of your `config.yml` file. Let's take a look at an example.
 
 Here, we have a profile with the base path defined as the `/Users/admin/projects` folder using the `base` property.
 ```yml
