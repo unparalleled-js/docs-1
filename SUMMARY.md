@@ -331,6 +331,8 @@
     * [Connection setup](connectors/google-vision.md#how-to-connect-to-google-vision-on-workato)
     * [Read text from image](connectors/google-vision/action-read-text.md)
   * [HTTP](connectors/http.md)
+  * [Intacct](connectors/intacct.md)
+    * [Connection setup](connectors/intacct.md#connection-setup)
   * [JDBC](connectors/jdbc.md)
     * [Connection setup](connectors/jdbc.md#how-to-connect-to-jdbc-on-workato)
     * [Select actions](connectors/jdbc/select.md)
