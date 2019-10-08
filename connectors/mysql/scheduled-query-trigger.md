@@ -5,11 +5,11 @@ date: 2018-05-08 06:00:00 Z
 
 # MySQL - Scheduled query trigger
 
-## New/updated batch of rows via scheduled custom SQL
+## Run a query at defined intervals and return the result in batches
 This trigger picks up rows that are returned from a user defined query which is run at an interval which is user defined. It is a batch action trigger and handles these returned rows in batches.
 
-![New/updated row trigger](/assets/images/mysql/scheduled-query-trigger.png)
-*New/updated row trigger*
+![Scheduled query trigger](/assets/images/mysql/scheduled-query-trigger.png)
+*Scheduled query trigger*
 
 <table class="unchanged rich-diff-level-one">
   <thead>
@@ -56,16 +56,22 @@ This trigger picks up rows that are returned from a user defined query which is 
         Configure the batch size to process in each individual job for this recipe. This defaults to 100.
       </td>
     </tr>
+    <tr>
+      <td><a href="#output-fields">Output fields</a></td>
+      <td>
+        Manually define the columns in the result set of the query. Workato tries to retrieve the expected columns automatically but this is subjected to timeouts. In cases of timeouts, use this to manually define your output columns. Read more on how to use this input below.
+      </td>
+    </tr>
   </tbody>
 </table>
 
 ## Input field details
 
 ### SQL
-Provide the SQL to be executed to select rows. The SQL here will be used to generate the output datatree. To do this, the SQL will be executed once when you provide it. You can map datapills here to execute dynamically changing SQL statements. Remember to wrap datapills in quotes (`''`). Be sure to include some `WHERE` clauses which can help prevent retrieving rows you have already processed in an earlier job run if that is your intention. This can be done by qualifying rows based on their `updated_at` or `created_at` timestamp columns in your table. 
+Provide the SQL to be executed to select rows. The SQL here will be used to generate the output datatree. To do this, the SQL will be executed once when you provide it. You can map datapills here to execute dynamically changing SQL statements. Remember to wrap datapills in quotes (`''`). Be sure to include some `WHERE` clauses which can help prevent retrieving rows you have already processed in an earlier job run if that is your intention. This can be done by qualifying rows based on their `updated_at` or `created_at` timestamp columns in your table.
 
 ```sql
-select * 
+select *
 from contacts
 where contacts.created_at between now() and now() + INTERVAL 1 DAY;
 ```
@@ -99,3 +105,20 @@ Choose the days of the week you wish to execute the scheduled SQL query. This is
 Batch size of rows to return in each job. This can be any number between **1** and the maximum batch size. Maximum batch size is **100** and default is **100**.
 
 In any given poll, if there are less rows than the configured batch size, this trigger will deliver all rows as a smaller batch.
+
+### Output fields
+When you write a query, Workato immediately runs that query in the backend to inspect what columns to expect. These columns are then generated in the output of this step for you to map datapills later on in your recipe. As a safeguard against complex queries, we have an inbuilt timeout that occurs after 25 seconds. In cases like these, you may use this input field to manually define your output columns. The actual scheduled query trigger has a much higher timeout of 5 minutes.
+
+When using this input field, we suggest naming all columns in your query as such:
+```sql
+select
+name as 'Name',
+phoneNumber as 'phoneNumber'
+from contacts
+where contacts.created_at between now() and now() + INTERVAL 1 DAY;
+```
+This allows your result set to be safely matched to the output fields defined below:
+![Output Fields](/assets/images/mysql/output-fields.png)
+*Names of output fields should match the named columns exactly*
+
+If these names are not defined strictly in your query, names may sometimes be malformed when being retrieved, resulting in your trigger not mapping the results to the datapills properly. Remember to name your columns without spaces or special characters as output fields do not accept spaces or special characters.
