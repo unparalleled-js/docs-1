@@ -236,6 +236,7 @@ sap:
       RCVPRT: LS
       RCVPRN: T90CLNT090
     # Property to get IDoc list configured on RCVPRN profile
+    # Should be equal to Partner Profile No. specified in SAP transaction WE20
       OUT_RCVPRN: WORKATO
 ```
 
@@ -370,7 +371,7 @@ These are required for SAP IDoc Connection properties (defined to send IDocs to 
 
 The below property is required to get IDoc dropdown list populated in the Workato Recipe creation UI configured on Receiver partner profile:
 
-- **OUT_RCVPRN**: Receiver Partner profile type defined for the SAP. Can be the same as **RCVPRN** above for ease of use.
+- **OUT_RCVPRN**: Receiver Partner profile No. defined for the SAP. Can be the same as **RCVPRN** above for ease of use.
 
 ## JMS profile
 JMS connection profiles must be defined in the `jms` section. A JMS provider is specified by `provider` property of a connection profile. The following JMS providers are supported by the on-prem agent:
