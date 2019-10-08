@@ -12,7 +12,7 @@ When Workbot is connected with Dialogflow, all commands sent to Workbot will be 
 The Dialogflow connector uses [Dialogflow API v2](https://cloud.google.com/dialogflow/docs/reference/rest/v2-overview).
 
 ## Workbot support for Dialogflow
-Currently, Workbot for Teams supports the use of Dialogflow on Workato.
+Currently, Workbot for Slack supports the use of Dialogflow on Workato.
 
 ## How to connect Dialogflow on Workato
 The Dialogflow connector makes use of the **Client access token**, obtained from the `client email` and `private_key` of the [Google Cloud Platform Service Account](https://cloud.google.com/iam/docs/understanding-service-accounts) that your Dialogflow agent is associated with.
@@ -60,29 +60,29 @@ This will take you to the Google Cloud Platform Service Accounts page.
 
   Once done, click on **Continue**.
 
-8. Create a key for this service account by clicking on the **Create key** button.
+6. Create a key for this service account by clicking on the **Create key** button.
 ![Create service account 1](/assets/images/connectors/dialogflow/create-key-1.png)
 *Begin creating a key*
 
-9. Choose **JSON** as the **Key** type, then click the **Create** button.
+7. Choose **JSON** as the **Key** type, then click the **Create** button.
 ![Create service account 2](/assets/images/connectors/dialogflow/create-key-2.png)
 *Choose JSON key type*
 
-10. When the key is created, a download of the JSON file will start. Choose a location (remember the path to this location, you'll need it later!) to save it and confirm.
+8. When the key is created, a download of the JSON file will start. Choose a location (remember the path to this location, you'll need it later!) to save it and confirm.
 > **Caution: You can only download this JSON file once, so make sure to save the file and keep it somewhere safe. If you lose this key or it becomes compromised, you can use the same process to create another.**
 
-11. Once complete, you'll see a pop up with a confirmation message. Click **Close**.
+9. Once complete, you'll see a pop up with a confirmation message. Click **Close**.
 ![Create service account 3](/assets/images/connectors/dialogflow/create-key-3.png)
 
-12. Set up the Google Cloud SDK on your machine if you don't have it already. Follow the steps described here: https://cloud.google.com/sdk/docs/ (don't worry, it's quick and easy)
+10. Set up the Google Cloud SDK on your machine if you don't have it already. Follow the steps described here: https://cloud.google.com/sdk/docs/ (don't worry, it's quick and easy)
 
-13. After the Google Cloud SDK is up and running, execute the following command in terminal (replacing `<service-account-key-file.json>` with the path to the JSOn file you downloaded in step 10):
+11. After the Google Cloud SDK is up and running, execute the following command in terminal (replacing `<service-account-key-file.json>` with the path to the JSON file you downloaded in step 8):
 ```
 gcloud auth activate-service-account --key-file=<service-account-key-file.json>
 ```
-15. Next, obtain the Client Access Token by executing the following command in terminal:
+12. Next, obtain the Client Access Token by executing the following command in terminal:
 ```
 gcloud auth print-access-token
 ```
-16. Use the the Client Access token in your Dialogflow connection in Workato.
+13. Use the Client Access token in your Dialogflow connection in Workato.
 ![Dialogflow connector](/assets/images/connectors/dialogflow/dialogflow-connector.png)
