@@ -644,6 +644,14 @@ a         #=> ["a"]</code></pre>
       </td>
     </tr>
     <tr>
+      <td>SHA1</td>
+      <td>
+        Encrypts a given string using the SHA1 encryption algorithm.<br>
+        <pre><code style="display: block; white-space: pre-wrap;">"abcdef".sha1.encode_base64 # "H4rBDyPFtbwRZ72oS4M+XAV6d9I="</code></pre>
+        <a href="https://ruby-doc.org/stdlib-2.4.0/libdoc/digest/rdoc/Digest/SHA1.html">More details here.</a>
+      </td>
+    </tr>
+    <tr>
       <td>slice</td>
       <td>
         Returns a substring of a given string, as defined by start indexes and length<br>

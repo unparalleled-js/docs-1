@@ -191,6 +191,19 @@ Converts binary string to its hex representation
 ---
 
 
+## SHA1
+
+Encrypts a given string using the SHA1 encryption algorithm. [Details here](https://ruby-doc.org/stdlib-2.4.0/libdoc/digest/rdoc/Digest/SHA1.html)
+
+### Example
+
+| Example                       | Result                         |
+| ----------------------------- | ------------------------------ |
+| `"abcdef".sha1.encode_base64` | "H4rBDyPFtbwRZ72oS4M+XAV6d9I=" |
+
+---
+
+
 ## HMAC formulae
 
 Creates a HMAC signatures with a variety of signing algorithms
