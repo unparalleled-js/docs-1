@@ -209,6 +209,7 @@
   * [Workbot triggers](workbot/workbot-triggers.md)
     * [New message action](workbot/workbot-message-action.md)
     * [New command](/workbot/workbot-triggers.md#new-command-trigger-building-custom-commands)
+    * [New event](/workbot/workbot-triggers.md#new-event-trigger)
     * [New URL mention](/workbot/workbot-triggers.md#new-url-mention)
     * [New dynamic menu event](/workbot/workbot-triggers.md#new-dynamic-menu-event)
   * [Workbot actions](/workbot/workbot-actions.md)
