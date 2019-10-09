@@ -31,7 +31,7 @@ This trigger returns a number of fields:
 | Field                   | Description |
 | ----------------------- | ----------- |
 | Scheduled time          | The time that the report was ran. |
-| Total number of records | The total number of rows generated in the scheduled run of the report. If this report has more than 200 rows, they will be split into batches of 200 rows per batch. Each batch will then be processed as individual jobs, in the same sequence as returned by the Workday RaaS endpoint. |
+| Total number of records | The total number of rows generated in the scheduled run of the report. If this report has more rows than the specified batch size, they will be split into multiple batches with the specified number of rows in each. Each batch will then be processed as individual jobs, in the same sequence as returned by the Workday RaaS endpoint. |
 | Starting offset         | The offset number for the first row of this batch. For example, if there are `1000` rows in the report and the trigger uses a batch size of `200`. Given that, if the current job is showing the 2nd batch (rows `201` to `400`), the starting offset will be `200`. |
 | Ending offset           | The offset number for the last row of this batch. For example, if there are `1000` rows in the report and the trigger uses a batch size of `200`. Given that, if the current job is showing the 2nd batch (rows `201` to `400`), the ending offset will be `400`. |
 | First batch             | A boolean value indicating if this is the first batch. |
