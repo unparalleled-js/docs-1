@@ -639,6 +639,14 @@ a         #=> ["a"]</code></pre>
     <tr>
       <td>select</td>
       <td>
+        Encrypts a given string using the SHA1 encryption algorithm.<br>
+        <pre><code style="display: block; white-space: pre-wrap;">"abcdef".sha1.encode_base64 # "H4rBDyPFtbwRZ72oS4M+XAV6d9I="</code></pre>
+        <a href="https://ruby-doc.org/stdlib-2.4.0/libdoc/digest/rdoc/Digest/SHA1.html">More details here.</a>
+      </td>
+    </tr>
+    <tr>
+      <td>SHA1</td>
+      <td>
         Selectively returns elements for which the block returns true.<br>
         <a href="http://apidock.com/ruby/v1_9_3_392/Array/select">More details here.</a>
       </td>
