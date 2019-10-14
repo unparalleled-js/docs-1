@@ -21,6 +21,10 @@ The difference between bulk load via CSV file actions and non-CSV file bulk acti
 
 Workato also supports [batch operations](/connectors/salesforce/batch-operations.md) to create and update objects in batches (max size of 2000 per batch).
 
+## Permissions required
+
+The `Manage Data Integrations` and `API Enabled` permissions are required on the connected Salesforce User's account to allow all bulk operations to work correctly. Please note that you need to be the system administrator in order to enable these permissions. View this [document](https://help.salesforce.com/articleView?id=monitoring_async_api_jobs_overview.htm&type=5) for more information.
+
 ## Create/update/upsert objects in bulk via CSV file
 There are 4 main sections/components in these bulk actions.
 
