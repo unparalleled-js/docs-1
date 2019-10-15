@@ -91,7 +91,7 @@ A database type is specified either by using the `adapter` property or a complet
 
 `port` numbers can be omitted when matching defaults for a given database type.
 
-Here's a sample SQL server configuration for connecting to a specific instance:
+Here's a sample Microsoft SQL Server configuration for connecting to a specific instance:
 
 ```YAML
 database:
@@ -102,6 +102,7 @@ database:
     database: sales
     username: me
     password: foobar
+    encrypt: false
 ```
 
 Here's a sample PostgreSQL database using `url` property in the configuration:
