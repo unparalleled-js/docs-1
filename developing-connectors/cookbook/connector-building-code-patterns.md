@@ -274,4 +274,4 @@ i.e. Use `format_paylod` and `format_response` in the execute block before using
 ### Usability rules
 Great connectors not only have great architecture but look and feel great to use. Read on to find out more about how you can make your connector easy to use.
 
-[Usability](developing-connectors/cookbook/connector-building-usability-rules.md)
+[Usability](connector-building-usability-rules.md)

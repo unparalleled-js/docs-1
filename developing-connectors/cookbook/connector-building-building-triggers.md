@@ -255,4 +255,4 @@ The output of this block is then passed to the output fields block and rendered 
 ### Common code patterns & limitations
 Now that you've seen some examples of how to build object-based actions and triggers, we now go through some code patterns which can be reused in your connector.
 
-[Common code patterns](developing-connectors/cookbook/connector-building-code-patterns.md)
+[Common code patterns](connector-building-code-patterns.md)

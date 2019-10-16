@@ -25,4 +25,4 @@ When building connectors in Workato, we've found that object-based connectors ca
 
 In the next chapter, we will go through thought exercises that can better help you plan out your connectors.
 
-[Planning your connector](developing-connectors/cookbook/connector-planning.md)
+[Planning your connector](connector-planning.md)
