@@ -269,4 +269,9 @@ Here are a few of the main concepts we covered:
 2. Use object_definitions to pull the proper input and output field schema based on the object selected
 3. When defining actions or triggers, make sure to declare all blocks especially `description` blocks. This will vastly increase usability for your users.
 4. Contain any general processing inside execute blocks but leverage on dedicated object execute methods (i.e. `create_invoice_execute`)for anything specific.
-i.e. Use `format_paylod` and `format_response` in the execute block before using the `create_#{object}_execute` method. 
+i.e. Use `format_paylod` and `format_response` in the execute block before using the `create_#{object}_execute` method.
+
+### Usability rules
+Great connectors not only have great architecture but look and feel great to use. Read on to find out more about how you can make your connector easy to use.
+
+[Usability](developing-connectors/cookbook/connector-building - usability rules.md)

@@ -24,3 +24,5 @@ On the other hand, applications also provide a whole host of other services beyo
 When building connectors in Workato, we've found that object-based connectors can encompass **both** but often, we see that working with resources are often the foundation of a connector before moving on to specific processes.
 
 In the next chapter, we will go through thought exercises that can better help you plan out your connectors.
+
+[Planning your connector](developing-connectors/cookbook/connector-planning.md)

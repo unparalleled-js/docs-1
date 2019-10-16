@@ -249,4 +249,4 @@ By the end of this exercise, you should have a list of actions and triggers that
 ### Connector building time
 Now that you've sussed out what your connector generally looks like, its time to get building! The next chapter will go through how to organise and build your connector.
 
-[Object-based connector architecture]()
+[Object-based connector architecture](developing-connectors/cookbook/connector-building - defining schema.md)

@@ -482,4 +482,4 @@ Another thing to note would be the introduction of picklists and toggle fields f
 ### Building actions
 Now that you've learn't how to build schema for the base objects you've chosen, its time to start building your first actions using these methods you've just defined.
 
-[Object-based connector architecture]()
+[Object-based actions](developing-connectors/cookbook/connector-building - building actions.md)
