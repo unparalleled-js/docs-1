@@ -261,3 +261,12 @@ Which can be easily transformed back into an array through a map function.
 ```ruby
 array_of_object_strings = input[‘array_of_object_strings’]&.map { |item| item[‘value’] } || []
 ```
+
+## Summary
+Object based actions and triggers in Connectors are something we highly recommend. Not only do they improve user experience for your users but they also make it so much easier to extend your connector when done properly.
+Here are a few of the main concepts we covered:
+1. Defining the base schema of each object in a service method. Don’t forget to include an input argument that allows you to adjust the schema based on the action type.
+2. Use object_definitions to pull the proper input and output field schema based on the object selected
+3. When defining actions or triggers, make sure to declare all blocks especially `description` blocks. This will vastly increase usability for your users.
+4. Contain any general processing inside execute blocks but leverage on dedicated object execute methods (i.e. `create_invoice_execute`)for anything specific.
+i.e. Use `format_paylod` and `format_response` in the execute block before using the `create_#{object}_execute` method. 
