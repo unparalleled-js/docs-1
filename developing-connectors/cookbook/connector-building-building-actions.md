@@ -281,4 +281,4 @@ Take note that methods `format_payload` and `format_response` in the execute blo
 ### Building triggers
 Lets move on to building object based triggers
 
-[Object based triggers](developing-connectors/cookbook/connector-building - building triggers.md)
+[Object based triggers](developing-connectors/cookbook/connector-building-building-triggers.md)
