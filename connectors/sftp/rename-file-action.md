@@ -17,7 +17,7 @@ This action modifies an existing file on your SFTP server. If the file path prov
 | Input field       | Description |
 | ----------------- | ----------- |
 | Existing filename | Provide the file path to your existing file, including the file name and file type. |
-| New file name     | Provide the new file path. Ensure that the file paths are valid, otherwise, it will result in an error. |
+| New filename      | Provide the new file path. Ensure that the file paths are valid, otherwise, it will result in an error. |
 
 ## Output
 

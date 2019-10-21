@@ -7,7 +7,7 @@ date: 2019-19-05 18:00:00 Z
 
 SSH File Transfer Protocol (SFTP) is a file transfer protocol that encodes and transmits data through a secure channel. It establishes security by encrypting both authentication credentials and data files being transferred.
 
-Use this connector to setup your SFTP integrations. The SFTP connector enables a two-way integration workflow, where you can transmit files to and retrieve file from your SFTP server.
+Use this connector for bi-directional SFTP integrations. This connector allows you to read, write and manage files in your SFTP server.
 
 With the SFTP connector, you use the triggers to monitor your SFTP server for events (e.g. [New/updated CSV file in directory](/connectors/sftp/updated-csv-trigger.md)). You can also integrate recipe actions like [Upload file](/conectors/sftp/upload-file-action.md), [Rename file](/connector/sftp/rename-file-action.md), and [Download file](/connectors/sftp/download-file-action.md).
 
@@ -31,7 +31,7 @@ Because SFTP is built on top of the Secure Shell Protocol (SSH), you can include
 | Port            | The default port for SFTP is `22`. |
 | Host key fingerprint | A hash of the SSH public key. |
 | Transfer buffer size | The size of the buffer used to transfer files. |
-| Force close     | Shuts down the SSH connection at the end of each transaction. Toggle this if your SFTP server connection attempts hang. Otherwise, leave it blank. |
+| Force close     | Shuts down the SSH connection at the end of each transaction. Toggle this if your SFTP server connection attempts get stuck. Otherwise, leave it blank. |
 
 ## Other related chapters:
 
