@@ -17,7 +17,7 @@ Workato Teams is built with a vision of facilitating agile and iterative develop
 
 - **Audit Trail:** When collaborating, multiple users can work on the same recipe. Hence, it is important to keep an audit trail of the changes. [Auto-versioning](#tracking-changes-made-by-collaborators) provides the ability to roll back or roll-forward changes without losing any work.
 
-- **Recipe Ownership:** Recipes created by users as part of a team are owned by the team. When a consultant leaves or an employee changes group/jobs, their contribution to the team doesn't go away with them. 
+- **Recipe Ownership:** Recipes created by users as part of a team are owned by the team. When a consultant leaves or an employee changes group/jobs, their contribution to the team doesn't go away with them.
 
 The Teams feature is enabled only for certain plans. Check the [Pricing and Plans page](https://www.workato.com/pricing?audience=general) or reach out to Workato sales representatives at +1 (844) 469-6752 to find out more.
 
@@ -88,6 +88,181 @@ You can also define the folders, and correspondingly the recipes and connections
 ![Additional role access to features](/assets/images/user-accounts-and-teams/team-collaboration/folder-permissions.gif)
 *Define folder permissions for the new role*
 
+### Details of the privilege table
+
+The following table provides a breakdown of each privilege you can confer a custom role.
+
+<table>
+  <tr>
+   <td><strong>Recipes</strong>
+   </td>
+   <td><strong>Description</strong>
+   </td>
+  </tr>
+  <tr>
+   <td>Recipes
+   </td>
+   <td>Give your team members specific access to read, create, update, delete, run recipes and access the job history
+   </td>
+  </tr>
+  <tr>
+   <td>Connections
+   </td>
+   <td>Give your team members access to edit, create or delete connections in the app connections page
+   </td>
+  </tr>
+  <tr>
+   <td>Folders
+   </td>
+   <td>Give your team members access to edit, create or delete folders. Team members will have access to the ‘all’ folder if this field is checked. Please define specific access to folders in the fields below.
+   </td>
+  </tr>
+  <tr>
+   <td>Project folder
+   </td>
+   <td>Give your team members access to all folders.
+   </td>
+  </tr>
+  </tr>
+  <tr>
+   <td colspan="2" >
+   </td>
+  </tr>
+  <tr>
+   <td><strong>Tools/Connectors</strong>
+   </td>
+   <td>
+   </td>
+  </tr>
+  <tr>
+   <td>Message templates
+   </td>
+   <td>Give your team members access to create or edit message templates  
+   </td>
+  </tr>
+  <tr>
+   <td>Workbot<a href="https://www.workato.com/workbots#active"> </a>
+   </td>
+   <td>Give your team members access to create or edit installed and custom Workbots  
+   </td>
+  </tr>
+  <tr>
+   <td>Pub/Sub
+   </td>
+   <td>Give your team members access to create or edit PubSub topics
+   </td>
+  </tr>
+  <tr>
+   <td>Schema reuse
+   </td>
+   <td>Give your team members access to create or edit reusable schema
+   </td>
+  </tr>
+  <tr>
+   <td>Custom OAuth profiles
+   </td>
+   <td>Give your team members access to create or edit custom OAuth profiles
+   </td>
+  </tr>
+  <tr>
+   <td>Lookup Tables
+   </td>
+   <td>Give your team members access to create or edit all lookup tables
+   </td>
+  </tr>
+  <tr>
+   <td>People task
+   </td>
+   <td>Give your team members access to create or edit human approval workflows
+   </td>
+  </tr>
+  <tr>
+   <td>Account properties
+   </td>
+   <td>Give your team members access to create or edit account properties
+   </td>
+  </tr>
+  <tr>
+   <td>Connector SDK
+   </td>
+   <td>Give your team members access to create and edit custom SDK connectors
+   </td>
+  </tr>
+  <tr>
+   <td>API key
+   </td>
+   <td>Give your team members access to view all API keys in recipes
+   </td>
+  </tr>
+  <tr>
+   <td>API management
+   </td>
+   <td>Give your team members access to manage API tokens and REST endpoints
+   </td>
+  </tr>
+  <tr>
+   <td>Recipe lifecycle management
+   </td>
+   <td>Give your team members access to import/export recipe packages with recipe lifecycle management
+   </td>
+  </tr>
+  <tr>
+   <td>Teams
+   </td>
+   <td>Give your team members access to manage and edit your team members
+   </td>
+  </tr>
+  <tr>
+   <td>Custom team roles
+   </td>
+   <td>Give your team members access to manage custom team roles
+   </td>
+  </tr>
+  <tr>
+   <td>SAML SSO
+   </td>
+   <td>Give your team members access to sign in with SAML SSO. Team access will be authenticated via your identity provider.
+   </td>
+  </tr>
+  <tr>
+   <td>Base plan connectors
+   </td>
+   <td>Give your team members access to all <a href="https://www.workato.com/pricing/apps-by-plans?source=pricing">base plan connectors</a>.
+   </td>
+  </tr>
+  <tr>
+   <td>Pro plan connectors
+   </td>
+   <td>Give your team members access to all <a href="https://www.workato.com/pricing/apps-by-plans?source=pricing">professional plan connectors</a>.
+   </td>
+  </tr>
+  <tr>
+   <td>Biz plan connectors
+   </td>
+   <td>Give your team members access to all <a href="https://www.workato.com/pricing/apps-by-plans?source=pricing">business plan connectors</a>.
+   </td>
+  </tr>
+  <tr>
+   <td>Biz plus plan connectors
+   </td>
+   <td>Give your team members access to all <a href="https://www.workato.com/pricing/apps-by-plans?source=pricing">business plus plan connectors</a>.
+   </td>
+  </tr>
+  <tr>
+   <td>Enterprise connectors
+   </td>
+   <td>Give your team members access to all <a href="https://www.workato.com/pricing/apps-by-plans?source=pricing">enterprise plan connectors</a>.
+   </td>
+  </tr>
+</table>
+
+<table>
+<tr>
+ <td>Folders access
+ </td>
+ <td>Specify access to individual recipe folders. If ‘Project folder' is checked, folders specified in this field will be overridden.
+ </td>
+
 ## Invite collaborators
 To invite collaborators, provide the full name of the collaborator and their email.
 
@@ -118,5 +293,3 @@ Exports and imports to and from your team account during [recipe lifecycle manag
 
 ![Recipe export history](/assets/images/user-accounts-and-teams/team-collaboration/recipe-export-history.png)
 *Recipe export history*
-
-##
