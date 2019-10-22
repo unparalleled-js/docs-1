@@ -756,3 +756,4 @@
       * [Key rotation](security/data-protection/encryption-key-management/key-rotation.md)
 * [Product Updates](product-updates.md)
 * [Contact us](contact-us.md)
+* [Embedding Connections](oem/embedding-connections.md) 
