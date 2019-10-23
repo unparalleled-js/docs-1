@@ -8,12 +8,17 @@ isTocVisible: true
 There are some known limitations to Workato's platform that have fixes in the works. In the meantime, here are some ways that you can easily solve for any limitations that you might find when building a custom connector.
 
 ## Handling special characters
-One known limitation of relates closely to datapills in Workato. When JSON objects have keys that contain the following fields “-”,”<”,”>”,”!”, “@”, “#”,”$”, “%”, “^”, “&”, “\*”, “(“, “)”, “=”, “+”, “{“, “}”, “|”, “;”, “ ‘ “, “ \` “, “~”, “ , “, “ . “, “?”. When input or output fields are defined with names that have these special characters, input fields don’t show up and output datapills render incorrectly.
+One known limitation of relates closely to datapills in Workato. When input or output fields are defined with names that have these special characters, input fields don’t show up and output datapills render incorrectly.
+```
+-<>!@#$%^&*()=+{}|;‘`~?
+```
 
 For example, schema defined where
+```ruby
 {
 	name: “due-date”
 }
+```
 Would not show up as a string input field and datapills would turn render as long strings instead of datapills.
 
 ![Broken datapill](/assets/images/sdk/broken-datapill.png)
@@ -274,4 +279,8 @@ i.e. Use `format_paylod` and `format_response` in the execute block before using
 ### Usability rules
 Great connectors not only have great architecture but look and feel great to use. Read on to find out more about how you can make your connector easy to use.
 
-[Usability](connector-building-usability-rules.md)
+#### Next Chapter
+##### [Usability](connector-building-usability-rules.md)
+
+#### Previous Chapter
+##### [Object based triggers](connector-building-building-triggers.md)

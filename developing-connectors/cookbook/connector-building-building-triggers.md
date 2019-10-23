@@ -42,16 +42,16 @@ triggers: {
 
 		subtitle: "Triggers when an object is created or updated",
 
-		description: lambda do |object_label, object_value|
+		description: lambda do |input, picklist_label|
 			"New/updated <span class='provider'>" \
-			"#{object_value['object'] || 'object'}</span> in " \
+			"#{picklist_label['object'] || 'object'}</span> in " \
 			"<span class='provider'>XYZ Accounting</span>"
 		end,
 
-    help: lambda do |object_value, object_label|
+    help: lambda do |input, picklist_label|
       {
         body:
-          "Triggers when an #{object_label['object'] || 'object'} is created " \
+          "Triggers when an #{picklist_label['object'] || 'object'} is created " \
           ' or updated in XYZ.'   
       }
     end,
@@ -106,7 +106,7 @@ For polling triggers, the poll block is where the code for each poll is executed
 > Endpoints that work best for building polling triggers are endpoints that retrieve a list of records. For example, an endpoint that allows you to get a list of invoices. These endpoints should also have query parameters to filter for only records after a certain timestamp. Greenhouse's API provides a great example over [here](https://developers.greenhouse.io/harvest.html#get-list-candidates)
 
 ### Expected JSON response from XYZ accounting
-```json
+```js
 {
 	"results": [
 		{
@@ -255,4 +255,8 @@ The output of this block is then passed to the output fields block and rendered 
 ### Common code patterns & limitations
 Now that you've seen some examples of how to build object-based actions and triggers, we now go through some code patterns which can be reused in your connector.
 
-[Common code patterns](connector-building-code-patterns.md)
+#### Next Chapter
+##### [Common code patterns](connector-building-code-patterns.md)
+
+#### Previous Chapter
+##### [Object based triggers](connector-building-building-triggers.md)

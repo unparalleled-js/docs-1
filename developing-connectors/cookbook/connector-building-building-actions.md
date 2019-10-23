@@ -8,7 +8,7 @@ isTocVisible: true
 Now that we’ve defined objects schema in methods, we can now start building out our CRUDS actions which will reference the schema methods we have just defined.
 
 ## Defining config fields
-When dealing with object-based actions, we first need to define something called a configuration fields. [Configuration fields](https://docs.workato.com/developing-connectors/sdk/config-fields.html) are special input fields that you can define whose answers can dynamically generate other input fields.
+When dealing with object-based actions, we first need to define something called configuration fields. [Configuration fields](https://docs.workato.com/developing-connectors/sdk/config-fields.html) are special input fields that you can define whose answers can dynamically generate other input fields.
 
 ```ruby
   config_fields: [
@@ -40,20 +40,17 @@ actions: {
 
     subtitle: 'Supports the creation of invoices, payments and customers',
 
-    description: lambda do |object_value, object_label|
+    description: lambda do |input, picklist_label|
       "Create a <span class='provider'>" \
-      "#{object_label['object'] || 'object'}</span> in " \
+      "#{picklist_label['object'] || 'object'}</span> in " \
       "<span class='provider'>XYZ Accounting</span>"
     end,
 
-    help: lambda do |object_value, object_label|
-      {
-        body:
-          "Creates an #{object_label['object'] || 'object'} in XYZ. First, select from a list of " \
-          'objects that we currently support. After selecting your object,' \
-          ' dynamic input fields specific to the object selected ' \
-          'will be populated.'   
-      }
+    help: lambda do |input, picklist_label|
+      "Creates an #{picklist_label['object'] || 'object'} in XYZ. First, select from a list of " \
+      'objects that we currently support. After selecting your object,' \
+      ' dynamic input fields specific to the object selected ' \
+      'will be populated.'   
     end,
 
     config_fields: [
@@ -206,16 +203,16 @@ actions: {
 
     subtitle: 'Updates an object in XYZ accounting.',
 
-    description: lambda do |object_value, object_label|
+    description: lambda do |input, picklist_label|
       "Update a <span class='provider'>" \
-      "#{object_label['object'] || 'object'}</span> in " \
+      "#{picklist_label['object'] || 'object'}</span> in " \
       "<span class='provider'>XYZ Accounting</span>"
     end,
 
-    help: lambda do |object_value, object_label|
+    help: lambda do |input, picklist_label|
       {
         body:
-          "Updates an #{object_label['object'] || 'object'} in XYZ. First, select from a list of " \
+          "Updates an #{picklist_label['object'] || 'object'} in XYZ. First, select from a list of " \
           'objects that we currently support. After selecting your object,' \
           ' dynamic input fields specific to the object selected ' \
           'will be populated.'   
@@ -281,4 +278,8 @@ Take note that methods `format_payload` and `format_response` in the execute blo
 ### Building triggers
 Lets move on to building object based triggers
 
-[Object based triggers](connector-building-building-triggers.md)
+#### Next Chapter
+##### [Object based triggers](connector-building-building-triggers.md)
+
+#### Previous Chapter
+##### [Object-based actions](connector-building-building-actions.md)

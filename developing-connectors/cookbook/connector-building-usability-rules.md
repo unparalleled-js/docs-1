@@ -5,13 +5,13 @@ isTocVisible: true
 ---
 
 # Connector building - Usability rules
-Now that you’ve learnt some of the concepts behind creating object-based actions and triggers, you should now begin testing it not only in the debugger console but when used as a recipe. When you reach this stage, you may also start to take note of certain aspects of your connector which are not as usable as you would hope. Good connectors are not only well organised in terms of code but place user experience front and center in the entire recipe building experience. Here are some rules that distinguish good connectors from bad ones
+Now that you’ve learned some of the concepts behind creating object-based actions and triggers, you should now begin testing it not only in the debugger console but when used as a recipe. When you reach this stage, you may also start to take note of certain aspects of your connector which are not as usable as you would hope. Good connectors are not only well organized in terms of code but place user experience front and center in the entire recipe building experience. Here are some rules that distinguish good connectors from bad ones
 1. Descriptive help texts
 2. User friendly input fields
 3. Descriptive error messages
 
 ## Descriptive help texts
-Help text in actions are critical in helping your users plug any knowledge gaps they may have about the actions you've built. Here are some important details that you should include in the help texts of your actions:
+Help texts in actions are critical in helping your users plug any knowledge gaps they may have about the actions you've built. Here are some important details that you should include in the help texts of your actions:
 
 1. API versions supported
 
@@ -22,8 +22,8 @@ API versions of the application you are connecting to help manage expectations f
 Different objects may require different action level help hints. Help texts can be easily changed based on the object users select.
 
 ```ruby
-help: lambda do |object_value, object_label|
-  if object_value['object'] == 'invoice'
+help: lambda do |input, picklist_label|
+  if input['object'] == 'invoice'
     {
       body: "Creates an invoice in XYZ. Invoices in XYZ accounting are essential " \
         "components of the platform. This action supports the creation of invoices " \
@@ -96,7 +96,7 @@ While the `name` of the field may be `id`, changing the label to `Invoice ID` ma
 
 7. Is this dropdown a config field? If yes, ensure that the secondary toggle field has `control_type` set to `plain-text` to prevent datapills from being mapped. Config fields should never accept datapills as other input fields in the action rely on the information.
 
-8. Are all required fields in the action or trigger labelled as required? Users should be able to quickly understand which fields they need to fill in for this action to be valid.
+8. Are all required fields in the action or trigger labeled as required? Users should be able to quickly understand which fields they need to fill in for this action to be valid.
 
 9. Are there any optional fields that will be commonly used? Making these fields sticky can bring end-users attention to their input fields instead of having them search for them.
 
@@ -112,4 +112,8 @@ Here are some general rules to include proper error handling in your connector.
 
 2. Does your connector have certain fields that are required together, such as a start date and end date? Whilst these fields may not be required all the time, some fields are often required together. In cases like these, validations may help surface these errors better and also reduce the number of API calls made unnecessarily. [Example here](https://docs.workato.com/developing-connectors/sdk/error-handling.html#input-validation)
 
-3. Does the API you are connecting to respond with appropriate HTTP status codes? In certain cases, APIs may send back responses that should actually be errors but have their HTTP status as `200`. In cases like these, using a ` after_error_response` function can help highlight issues to your users instead. [Example here](https://docs.workato.com/developing-connectors/sdk/error-handling.html#response-validation)
+3. Does the API you are connecting to respond with appropriate HTTP status codes? In certain cases, APIs may send back responses that should actually be errors but have their HTTP status as `200`. In cases like these, using an ` after_error_response` function can help highlight issues to your users instead. [Example here](https://docs.workato.com/developing-connectors/sdk/error-handling.html#response-validation)
+
+
+#### Previous Chapter
+##### [Common code patterns](connector-building-code-patterns.md)

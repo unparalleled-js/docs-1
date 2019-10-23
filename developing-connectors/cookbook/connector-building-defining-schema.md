@@ -5,19 +5,19 @@ isTocVisible: true
 ---
 
 # Connector building - Defining schema for your objects
-In this next section, we go through our current thoughts on how to organise your connector. With this methodology and proper planning, you’ll find it easy to add support for new objects in your connector whilst keeping your code DRY through the use of our object definitions and methods fields. These are all guidelines from learnings that integration developers at Workato have learnt over time and may alter slightly based on the application and API that we connect to.
+In this next section, we go through our current thoughts on how to organize your connector. With this methodology and proper planning, you’ll find it easy to add support for new objects in your connector whilst keeping your code DRY through the use of our object definitions and methods fields. These are all guidelines from learnings that integration developers at Workato have learned over time and may alter slightly based on the application and API that we connect to.
 
-This assumes you have already read all previous documentation about the functionality of the Workato SDK including advanced topics and have already defined and established a connection to the target application. In case you haven’t done so, we highly recommend you do so to recognise the concepts touched on here.
+This assumes you have already read all previous documentation about the functionality of the Workato SDK including advanced topics and have already defined and established a connection to the target application. In case you haven’t done so, we highly recommend you do so to recognize the concepts touched on here.
 
-> In the examples that follow, we will be assuming that we are connecting to an API that accepts JSON but this can be applied to APIs that accept other data types.
+> **In the examples that follow, we will be assuming that we are connecting to an API that accepts JSON but this can be applied to APIs that accept other data types.**
 
-Before going into specifics, here is a high-level overview of connector code could be organised.
+Before going into specifics, here is a high-level overview of connector code could be organized.
 
 ![Mindmap of connector code](/assets/images/sdk/structure.png)
 
-For each action or trigger, both input and output field blocks would reference an object definition tied to that specific verb (i.e.  create object action would have an object definition dedicated solely for it). In the object definition block, the schema would be built based on what object was selected by referencing a method which stores the base schema of the object selected. This method would be a resource for all actions related to this action. In the example diagram above, this means invoice schema for all CRUDS actions would reference the same `invoice_schema` method.
+For each action or trigger, both input and output field blocks would reference an object definition tied to that specific verb (i.e. create object action would have an object definition dedicated solely for it). In the object definition block, the schema would be built based on what object was selected by referencing a method that stores the base schema of the object selected. This method would be a resource for all actions related to this action. In the example diagram above, this means invoice schema for all CRUDS actions would reference the same `invoice_schema` method.
 
-For the execute block, we advise using a single method dedicated for each verb-object pair. This helps to ensure that any pre processing of input data and post processing of response data specific to that verb-object action can have a dedicated section in your code. Any general data formatting such as `after_error_response` or `after_response` methods can be contained directly in the execute block.
+For the execute block, we advise using a single method dedicated for each verb-object pair. This helps to ensure that any pre-processing of input data and post-processing of response data specific to that verb-object action can have a dedicated section in your code. Any general data formatting such as `after_error_response` or `after_response` methods can be contained directly in the execute block.
 
 Ultimately, this helps to separate the responsibilities of each verb action and the objects it can support, allowing you to add support for new objects quickly or verb actions for existing objects.
 
@@ -28,80 +28,90 @@ This creates great synergy for code reuse as the same schema definition could po
 
 The schema for input and output fields can be determined both dynamically and statically in Workato. Find out more about basic schema definitions in our [object definitions.](developing-connectors/sdk/object-definition.md) This largely depends on whether the API you are building a connector to has metadata endpoints available. Below, we first go through examples of how to define schema manually through examples before showing you an example of a dynamically defined input schema.
 
-> Schema definitions in Workato are basically ways for you to tell us the nature of the different properties of an object. When used in `input_fields:`, we render them as input fields. When used in `output_fields:`, these render as output data-pills in follow-up actions.
+> **In simple terms, a Schema definition in Workato is a way for you to tell us the nature of the different properties of an object. When used in `input_fields:`, we render them as input fields. When used in `output_fields:`, these render as output data-pills in follow-up actions.**
+
+Consider using a collapsible section for these code blocks. The sheer length makes it difficult to navigate the document.
 
 ### Example 1: Statically defined schema
 As a developer building the connector to XYZ labs, the representation of an “Invoice” object in our application might look something like this:
+
+<details>
+  <summary><b>Expand to view the full Invoice object JSON</b></summary>
+
 ```json
-{
-    "TxnDate": "2019-09-19",
-    "ID": "1",
-    "TotalAmt": 362.07,
-    "Line": [
-      {
-        "Description": "Rock Fountain",
-        "SalesItemLineDetail": {
-          "Qty": 1,
-          "UnitPrice": 275,
-        },
-        "Line-Num": 1,
-        "Amount": 275.0,
-        "Id": "1"
+ {
+  "TxnDate": "2019-09-19",
+  "ID": "1",
+  "TotalAmt": 362.07,
+  "Line": [
+    {
+      "Description": "Rock Fountain",
+      "SalesItemLineDetail": {
+        "Qty": 1,
+        "UnitPrice": 275
       },
-      {
-        "Description": "Fountain Pump",
-        "SalesItemLineDetail": {
-          "Qty": 1,
-          "UnitPrice": 12.75,
-        },
-        "LineNum": 2,
-        "Amount": 12.75,
-        "Id": "2"
-      }
-    ],
-    "DueDate": "2019-10-19",
-    "DocNumber": "1037",
-    "Deposit": 0,
-    "Balance": 362.07,
-    "CustomerRef": {
-      "name": "Sonnenschein Family Store",
-      "value": "24"
+      "Line-Num": 1,
+      "Amount": 275.0,
+      "Id": "1"
     },
-    "BillEmail": {
-      "Address": "Familiystore@intuit.com"
-    },
-    "BillAddr": {
-      "Line1": "Russ Sonnenschein",
-      "Long": "-122.1141681",
-      "Lat": "37.4238562",
-      "Id": "95"
-    },
-    "MetaData": {
-      "CreateTime": "2014-09-19T13:16:17-07:00",
-      "LastUpdatedTime": "2014-09-19T13:16:17-07:00"
+    {
+      "Description": "Fountain Pump",
+      "SalesItemLineDetail": {
+        "Qty": 1,
+        "UnitPrice": 12.75
+      },
+      "LineNum": 2,
+      "Amount": 12.75,
+      "Id": "2"
     }
+  ],
+  "DueDate": "2019-10-19",
+  "DocNumber": "1037",
+  "Deposit": 0,
+  "Balance": 362.07,
+  "CustomerRef": {
+    "name": "Sonnenschein Family Store",
+    "value": "24"
+  },
+  "BillEmail": {
+    "Address": "Familiystore@intuit.com"
+  },
+  "BillAddr": {
+    "Line1": "Russ Sonnenschein",
+    "Long": "-122.1141681",
+    "Lat": "37.4238562",
+    "Id": "95"
+  },
+  "MetaData": {
+    "CreateTime": "2014-09-19T13:16:17-07:00",
+    "LastUpdatedTime": "2014-09-19T13:16:17-07:00"
+  }
 }
 ```
+</details>
+
+<br>
+
 While a create “Invoice” action may require a POST request similar to this:
+
+<details>
+  <summary><b>Expand to view the create POST request</b></summary>
 
 ```curl
 POST /invoice/create
-
 Content type:application/json
-```
-Body:
-```json
+
 {
   "Line": [
     {
-        "Description": "Fountain straws",
-        "SalesItemLineDetail": {
-          "Qty": 100,
-          "UnitPrice": 0.075,
-        },
-        "Line-Num": 1,
-        "Amount": 7.50,
-        "Id": "192 "
+      "Description": "Fountain straws",
+      "SalesItemLineDetail": {
+        "Qty": 100,
+        "UnitPrice": 0.075,
+      },
+      "Line-Num": 1,
+      "Amount": 7.50,
+      "Id": "192 "
     },
   ],
   "CustomerRef": {
@@ -109,16 +119,19 @@ Body:
   }
 }
 ```
+</details>
+
+<br>
 
 and an update “Invoice” action may require a POST similar to this:
 
+<details>
+  <summary><b>Expand to view the update POST request</b></summary>
+
 ```curl
 POST /invoice/update
-
 Content type:application/json
-```
-Body
-```json
+
 {
   "ID": "1",
   "Line": [
@@ -138,207 +151,85 @@ Body
   }
 }
 ```
+</details>
+<br>
 
 As a general rule of thumb, when defining schema of an object in Workato, we want to be able to reuse as much of it as possible across different actions (such as create invoice and update invoice actions). As such, the schema we define should be a superset of all the possible parameters for this “Invoice” object. We should arrive at something like the following:
+<br>
+<details>
+  <summary><b>Expand to view the full method</b></summary>
 
 ```ruby
 methods: {
-	invoice_schema: lambda do |action_type|
-		[
-			if action_type != 'create'
-				{
-					control_type: "text",
-					label: "ID",
-					type: "string",
-					name: "Id"
-				}
-			else
-				nil # .compact at the end of array removes this field
-			end,
-			{
-				control_type: "text",
-				label: "Txn date",
-				type: "string",
-				name: "TxnDate"
-			},
-			{
-				control_type: "number",
-				label: "Total amt",
-				parse_output: "float_conversion",
-				type: "number",
-				name: "TotalAmt"
-			},
-			{
-				name: "Line",
-				type: "array",
-				of: "object",
-				label: "Line",
-				properties: [
-					{
-						control_type: "text",
-						label: "Description",
-						type: "string",
-						name: "Description"
-					},
-					{
-						label: "Sales item line detail",
-						type: "object",
-						name: "SalesItemLineDetail",
-						properties: [
-							{
-								control_type: "number",
-								label: "Qty",
-								parse_output: "float_conversion",
-								type: "number",
-								name: "Qty"
-							},
-							{
-								control_type: "number",
-								label: "Unit price",
-								parse_output: "float_conversion",
-								type: "number",
-								name: "UnitPrice"
-							}
-						]
-					},
-					{
-						control_type: "number",
-						label: "Line num",
-						parse_output: "float_conversion",
-						type: "number",
-						name: "Line-Num"
-					},
-					{
-						control_type: "number",
-						label: "Amount",
-						parse_output: "float_conversion",
-						type: "number",
-						name: "Amount"
-					},
-					{
-						control_type: "text",
-						label: "ID",
-						type: "string",
-						name: "Id"
-					}
-				]
-			},
-			{
-				control_type: "text",
-				label: "Due-date",
-				type: "string",
-				name: "Due-Date"
-			},
-			{
-				control_type: "text",
-				label: "Docnumber",
-				type: "string",
-				name: "Doc<Number"
-			},
-			{
-				control_type: "number",
-				label: "Deposit",
-				parse_output: "float_conversion",
-				type: "number",
-				name: "De>posit"
-			},
-			{
-				control_type: "number",
-				label: "Balance",
-				parse_output: "float_conversion",
-				type: "number",
-				name: "Balance"
-			},
-			{
-				label: "Customer ref",
-				type: "object",
-				name: "CustomerRef",
-				properties: [
-					{
-						control_type: "text",
-						label: "name",
-						type: "string",
-						name: "name"
-					},
-					{
-						control_type: "text",
-						label: "Value",
-						type: "string",
-						name: "value"
-					}
-				]
-			},
-			{
-				label: "Bill email",
-				type: "object",
-				name: "BillEmail",
-				properties: [
-					{
-						control_type: "text",
-						label: "Address",
-						type: "string",
-						name: "Address"
-					}
-				]
-			},
-			{
-				label: "Bill addr",
-				type: "object",
-				name: "BillAddr",
-				properties: [
-					{
-						control_type: "text",
-						label: "Line 1",
-						type: "string",
-						name: "Line1"
-					},
-					{
-						control_type: "text",
-						label: "Long",
-						type: "string",
-						name: "Long"
-					},
-					{
-						control_type: "text",
-						label: "Lat",
-						type: "string",
-						name: "Lat"
-					},
-					{
-						control_type: "text",
-						label: "ID",
-						type: "string",
-						name: "Id"
-					}
-				]
-			},
-			{
-				label: "Meta data",
-				type: "object",
-				name: "MetaData",
-				properties: [
-					{
-						control_type: "text",
-						label: "Create time",
-						render_input: "date_time_conversion",
-						parse_output: "date_time_conversion",
-						type: "date_time",
-						name: "CreateTime"
-					},
-					{
-						control_type: "text",
-						label: "Last updated time",
-						render_input: "date_time_conversion",
-						parse_output: "date_time_conversion",
-						type: "date_time",
-						name: "LastUpdatedTime"
-					}
-				]
-			}
-		].compact
-	end
+  invoice_schema: lambda do |action_type|
+    [
+      { name: "Id" } if action_type != 'create',
+      { name: "TxnDate" },
+      { name: "TotalAmt", type: "number" },
+      {
+        name: "Line",
+        type: "array",
+        of: "object",
+        properties: [
+          { name: "Description" },
+          {
+            name: "SalesItemLineDetail",
+            type: "object",
+            properties: [
+              { name: "Qty", type: "number" },
+              { name: "UnitPrice", type: "number" }
+            ]
+          },
+          { name: "Line-Num", type: "number" },
+          { name: "Amount", type: "number" },
+          { name: "Id" }
+        ]
+      },
+      { name: "Due-Date" },
+      { name: "Doc Number" },
+      { name: "Deposit", type: "number" },
+      { name: "Balance", type: "number" },
+      {
+        name: "CustomerRef",
+        type: "object",
+        properties: [
+          { name: "name" ,
+          { name: "value" }
+        ]
+      },
+      {
+        name: "BillEmail",
+        type: "object",
+        properties: [
+          { name: "Address" }
+        ]
+      },
+      {
+        name: "BillAddr",
+        type: "object",
+        properties: [
+          { name: "Line1" },
+          { name: "Lon" },
+          { name: "Lat" },
+          { name: "Id" }
+        ]
+      },
+      {
+        name: "MetaData",
+        type: "object",
+        properties: [
+          { name: "CreateTime", type: "date_time" },
+          { name: "LastUpdatedTime", type: "date_time" }
+        ]
+      }
+    ].compact
+  end
 }
 ```
+</details>
+
+<br>
+
 This schema is contained inside a method block called `invoice_schema`. Take note that we also provide an additional argument for this method called `action_type` which allows us to conditionally add input or output fields in the schema based on the type of action calling this method.
 
 For example, since creating an invoice shouldn't allow users to define the ID in cases where invoice IDs are auto-generated by XYZ accounting, this can be easily stripped from the input schema based on the `action_type`.
@@ -352,7 +243,7 @@ In most cases, we highly recommend using metadata endpoints whenever available t
 
 In cases like these, we want to make a request to this endpoint and use the response to build the input and output schema in a format Workato understands. Below we have a sample response from HubSpot’s metadata endpoint which gives us an array of JSON objects, each representing a “Contact” property.
 
-```json
+```js
 [
   {
     "name": "example_property_name",
@@ -362,7 +253,7 @@ In cases like these, we want to make a request to this endpoint and use the resp
     "type": "string",
     "fieldType": "text",
     "options": [
-      # if property is a dropdown, all options are detailed here
+      // if property is a dropdown, all options are detailed here
     ],
     "deleted": false,
     "displayOrder": -1,
@@ -377,109 +268,108 @@ In cases like these, we want to make a request to this endpoint and use the resp
     "displayMode": "current_value",
     "formField": true
   },
-  # More properties below
+  // More properties below
 ]
 ```
 
 Using this, we can define a method called `contact_schema` which takes in the same `action_type` argument as our earlier example on static definitions.
+<br>
+<details>
+  <summary><b>Expand to view the full method</b></summary>
 
 ```ruby
 methods: {
-	contact_schema: lambda do |action_type|
-		get('/properties/v1/contacts/properties').map { |property|
-			field = {
-				name: property['name'],
-				label: property['label'],
-				hint: property['description'],
-				type: call('type_mapping', property['type']),
-				control_type: call('control_type_mapping', property['fieldType'])
-			}
+  contact_schema: lambda do |action_type|
+    get('/properties/v1/contacts/properties').map do |property|
+      field = {
+        name: property['name'],
+        label: property['label'],
+        hint: property['description'],
+        type: call('type_mapping', property['type']),
+        control_type: call('control_type_mapping', property['fieldType'])
+      }
 
-			if %w[select multiselect].include?(field[:control_type])
-				picklist = {
-					pick_list: property['options'].
-					map { |option| [option['label'],option['value']]  }
-				}
-				field = field.merge(picklist)
-			end
+      if %w[select multiselect].include?(field[:control_type])
+        picklist = {
+          pick_list: property['options'].
+          map { |option| [option['label'], option['value']]  }
+        }
+        field = field.merge(picklist)
+      end
 
-			if %w[boolean select multiselect].include?(field[:control_type])
-				togglefield = {
-					toggle_hint: 'Select manually',
-					toggle_field: {
-						name: property['name'],
-						label: property['label'],
-						type: 'string',
-						control_type: 'text',
-						toggle_hint: 'Map datapill',
-						hint: "Enter in a valid option"
-					}
-				}
-				field = field.merge(togglefield)
-			end
+      if %w[boolean select multiselect].include?(field[:control_type])
+        togglefield = {
+          toggle_hint: 'Select manually',
+          toggle_field: {
+            name: property['name'],
+            label: property['label'],
+            type: 'string',
+            control_type: 'text',
+            toggle_hint: 'Map datapill',
+            hint: "Enter in a valid option"
+          }
+        }
+        field = field.merge(togglefield)
+      end
 
-			field
-		}
-	end,
+      field
+    end
+  end,
 
-	type_mapping: lambda do |input|
-		case input
-		when 'string'
-			'string'
-		when 'datetime'
-			'date_time'
-		when 'number'
-			'integer'
-		when 'booleancheckbox'
-			'boolean'
-		when 'date'
-			'date'
-		when 'bool'
-			'boolean'
-		when 'enumeration'
-			'string'
-		else
-			'string'
-		end
-	end,
+  type_mapping: lambda do |input|
+    case input
+    when 'datetime'
+      'date_time'
+    when 'number'
+      'integer'
+    when 'booleancheckbox'
+      'boolean'
+    when 'bool'
+      'boolean'
+    when 'enumeration'
+      'string'
+    else
+      input
+    end
+  end,
 
-	control_type_mapping: lambda do |input|
-		case input
-		when 'text'
-			'text'
-		when 'textarea'
-			'text-area'
-		when 'datetime'
-			'date_time'
-		when 'number'
-			'number'
-		when 'booleancheckbox'
-			'checkbox'
-		when 'date'
-			'date'
-		when 'bool'
-			'checkbox'
-		when 'enumeration'
-			'select'
-		when 'radio'
-			'select'
-		when 'checkbox'
-			'multiselect'
-		else
-			'string'
-		end
-	end
-
+  control_type_mapping: lambda do |input|
+    case input
+    when 'textarea'
+      'text-area'
+    when 'datetime'
+      'date_time'
+    when 'booleancheckbox'
+      'checkbox'
+    when 'bool'
+      'checkbox'
+    when 'enumeration'
+      'select'
+    when 'radio'
+      'select'
+    when 'checkbox'
+      'multiselect'
+    else
+      input
+    end
+  end
 }
 ```
+</details>
+
+<br>
 
 In this method, we take the response from HubSpot and for each property, we map its values to a defined parameter in Workato’s schema. We also created 2 service methods called `type_mapping` and `control_type_mapping` that are responsible for defining the mappings of HubSpot data types (defined as `type` and `fieldType` in HubSpot) to those in `type` and `control_type` in Workato respectively.
 
-Another thing to note would be the introduction of picklists and toggle fields for `control_types` that support them. In general, we will highly recommend using picklists alongside with string toggle fields as this gives your end users the ability to statically pick a value or map a datapill instead. More details on increasing usability can be found later on.
+Another thing to note would be the introduction of picklists and toggle fields for `control_types` that support them. In general, we will highly recommend using picklists alongside with string toggle fields as this gives your end-users the ability to statically pick a value or map a datapill instead. More details on increasing usability can be found later on.
 
 > If you or your team is building a connector to your own API on Workato, we strongly recommend considering metadata endpoints. This is especially important for applications with custom fields as metadata endpoints allow us to generate input fields for fields that are specific to a user’s instance.
 
 ### Building actions
-Now that you've learn't how to build schema for the base objects you've chosen, its time to start building your first actions using these methods you've just defined.
+Now that you've learned how to build schema for the base objects you've chosen, its time to start building your first actions using these methods you've just defined.
 
-[Object-based actions](connector-building-building-actions.md)
+#### Next Chapter
+##### [Object-based actions](connector-building-building-actions.md)
+
+#### Previous Chapter
+##### [Object-based connector architecture](connector-building-defining-schema.md)
