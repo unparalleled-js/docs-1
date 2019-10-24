@@ -39,54 +39,54 @@ As a developer building the connector to XYZ labs, the representation of an “I
   <summary><b>Expand to view the full Invoice object JSON</b></summary>
 
 ```json
-{
-  "TxnDate": "2019-09-19",
-  "ID": "1",
-  "TotalAmt": 362.07,
-  "Line": [
-    {
-      "Description": "Rock Fountain",
-      "SalesItemLineDetail": {
-        "Qty": 1,
-        "UnitPrice": 275
+  {
+    "TxnDate": "2019-09-19",
+    "ID": "1",
+    "TotalAmt": 362.07,
+    "Line": [
+      {
+        "Description": "Rock Fountain",
+        "SalesItemLineDetail": {
+          "Qty": 1,
+          "UnitPrice": 275
+        },
+        "Line-Num": 1,
+        "Amount": 275.0,
+        "Id": "1"
       },
-      "Line-Num": 1,
-      "Amount": 275.0,
-      "Id": "1"
+      {
+        "Description": "Fountain Pump",
+        "SalesItemLineDetail": {
+          "Qty": 1,
+          "UnitPrice": 12.75
+        },
+        "LineNum": 2,
+        "Amount": 12.75,
+        "Id": "2"
+      }
+    ],
+    "DueDate": "2019-10-19",
+    "DocNumber": "1037",
+    "Deposit": 0,
+    "Balance": 362.07,
+    "CustomerRef": {
+      "name": "Sonnenschein Family Store",
+      "value": "24"
     },
-    {
-      "Description": "Fountain Pump",
-      "SalesItemLineDetail": {
-        "Qty": 1,
-        "UnitPrice": 12.75
-      },
-      "LineNum": 2,
-      "Amount": 12.75,
-      "Id": "2"
+    "BillEmail": {
+      "Address": "Familiystore@intuit.com"
+    },
+    "BillAddr": {
+      "Line1": "Russ Sonnenschein",
+      "Long": "-122.1141681",
+      "Lat": "37.4238562",
+      "Id": "95"
+    },
+    "MetaData": {
+      "CreateTime": "2014-09-19T13:16:17-07:00",
+      "LastUpdatedTime": "2014-09-19T13:16:17-07:00"
     }
-  ],
-  "DueDate": "2019-10-19",
-  "DocNumber": "1037",
-  "Deposit": 0,
-  "Balance": 362.07,
-  "CustomerRef": {
-    "name": "Sonnenschein Family Store",
-    "value": "24"
-  },
-  "BillEmail": {
-    "Address": "Familiystore@intuit.com"
-  },
-  "BillAddr": {
-    "Line1": "Russ Sonnenschein",
-    "Long": "-122.1141681",
-    "Lat": "37.4238562",
-    "Id": "95"
-  },
-  "MetaData": {
-    "CreateTime": "2014-09-19T13:16:17-07:00",
-    "LastUpdatedTime": "2014-09-19T13:16:17-07:00"
   }
-}
 ```
 </details>
 
@@ -98,26 +98,26 @@ While a create “Invoice” action may require a POST request similar to this:
   <summary><b>Expand to view the create POST request</b></summary>
 
 ```curl
-POST /invoice/create
-Content type:application/json
+  POST /invoice/create
+  Content type:application/json
 
-{
-  "Line": [
-    {
-      "Description": "Fountain straws",
-      "SalesItemLineDetail": {
-        "Qty": 100,
-        "UnitPrice": 0.075,
+  {
+    "Line": [
+      {
+        "Description": "Fountain straws",
+        "SalesItemLineDetail": {
+          "Qty": 100,
+          "UnitPrice": 0.075,
+        },
+        "Line-Num": 1,
+        "Amount": 7.50,
+        "Id": "192 "
       },
-      "Line-Num": 1,
-      "Amount": 7.50,
-      "Id": "192 "
-    },
-  ],
-  "CustomerRef": {
-    "value": "1"
+    ],
+    "CustomerRef": {
+      "value": "1"
+    }
   }
-}
 ```
 </details>
 
@@ -129,27 +129,27 @@ and an update “Invoice” action may require a POST similar to this:
   <summary><b>Expand to view the update POST request</b></summary>
 
 ```curl
-POST /invoice/update
-Content type:application/json
+  POST /invoice/update
+  Content type:application/json
 
-{
-  "ID": "1",
-  "Line": [
-    {
-      "Description": "Fountain straws",
-      "SalesItemLineDetail": {
-        "Qty": 100,
-        "UnitPrice": 0.075,
+  {
+    "ID": "1",
+    "Line": [
+      {
+        "Description": "Fountain straws",
+        "SalesItemLineDetail": {
+          "Qty": 100,
+          "UnitPrice": 0.075,
+        },
+        "Line-Num": 1,
+        "Amount": 7.50,
+        "Id": "192 "
       },
-      "Line-Num": 1,
-      "Amount": 7.50,
-      "Id": "192 "
-    },
-  ],
-  "CustomerRef": {
-    "value": "1"
+    ],
+    "CustomerRef": {
+      "value": "1"
+    }
   }
-}
 ```
 </details>
 <br>
@@ -160,71 +160,71 @@ As a general rule of thumb, when defining schema of an object in Workato, we wan
   <summary><b>Expand to view the full method</b></summary>
 
 ```ruby
-methods: {
-  invoice_schema: lambda do |action_type|
-    [
-      { name: "Id" } if action_type != 'create',
-      { name: "TxnDate" },
-      { name: "TotalAmt", type: "number" },
-      {
-        name: "Line",
-        type: "array",
-        of: "object",
-        properties: [
-          { name: "Description" },
-          {
-            name: "SalesItemLineDetail",
-            type: "object",
-            properties: [
-              { name: "Qty", type: "number" },
-              { name: "UnitPrice", type: "number" }
-            ]
-          },
-          { name: "Line-Num", type: "number" },
-          { name: "Amount", type: "number" },
-          { name: "Id" }
-        ]
-      },
-      { name: "Due-Date" },
-      { name: "Doc Number" },
-      { name: "Deposit", type: "number" },
-      { name: "Balance", type: "number" },
-      {
-        name: "CustomerRef",
-        type: "object",
-        properties: [
-          { name: "name" }
-          { name: "value" }
-        ]
-      },
-      {
-        name: "BillEmail",
-        type: "object",
-        properties: [
-          { name: "Address" }
-        ]
-      },
-      {
-        name: "BillAddr",
-        type: "object",
-        properties: [
-          { name: "Line1" },
-          { name: "Lon" },
-          { name: "Lat" },
-          { name: "Id" }
-        ]
-      },
-      {
-        name: "MetaData",
-        type: "object",
-        properties: [
-          { name: "CreateTime", type: "date_time" },
-          { name: "LastUpdatedTime", type: "date_time" }
-        ]
-      }
-    ].compact
-  end
-}
+  methods: {
+    invoice_schema: lambda do |action_type|
+      [
+        { name: "Id" } if action_type != 'create',
+        { name: "TxnDate" },
+        { name: "TotalAmt", type: "number" },
+        {
+          name: "Line",
+          type: "array",
+          of: "object",
+          properties: [
+            { name: "Description" },
+            {
+              name: "SalesItemLineDetail",
+              type: "object",
+              properties: [
+                { name: "Qty", type: "number" },
+                { name: "UnitPrice", type: "number" }
+              ]
+            },
+            { name: "Line-Num", type: "number" },
+            { name: "Amount", type: "number" },
+            { name: "Id" }
+          ]
+        },
+        { name: "Due-Date" },
+        { name: "Doc Number" },
+        { name: "Deposit", type: "number" },
+        { name: "Balance", type: "number" },
+        {
+          name: "CustomerRef",
+          type: "object",
+          properties: [
+            { name: "name" }
+            { name: "value" }
+          ]
+        },
+        {
+          name: "BillEmail",
+          type: "object",
+          properties: [
+            { name: "Address" }
+          ]
+        },
+        {
+          name: "BillAddr",
+          type: "object",
+          properties: [
+            { name: "Line1" },
+            { name: "Lon" },
+            { name: "Lat" },
+            { name: "Id" }
+          ]
+        },
+        {
+          name: "MetaData",
+          type: "object",
+          properties: [
+            { name: "CreateTime", type: "date_time" },
+            { name: "LastUpdatedTime", type: "date_time" }
+          ]
+        }
+      ].compact
+    end
+  }
 ```
 </details>
 
@@ -278,82 +278,82 @@ Using this, we can define a method called `contact_schema` which takes in the sa
   <summary><b>Expand to view the full method</b></summary>
 
 ```ruby
-methods: {
-  contact_schema: lambda do |action_type|
-    get('/properties/v1/contacts/properties').map do |property|
-      field = {
-        name: property['name'],
-        label: property['label'],
-        hint: property['description'],
-        type: call('type_mapping', property['type']),
-        control_type: call('control_type_mapping', property['fieldType'])
-      }
-
-      if %w[select multiselect].include?(field[:control_type])
-        picklist = {
-          pick_list: property['options'].
-          map { |option| [option['label'], option['value']]  }
+  methods: {
+    contact_schema: lambda do |action_type|
+      get('/properties/v1/contacts/properties').map do |property|
+        field = {
+          name: property['name'],
+          label: property['label'],
+          hint: property['description'],
+          type: call('type_mapping', property['type']),
+          control_type: call('control_type_mapping', property['fieldType'])
         }
-        field = field.merge(picklist)
-      end
 
-      if %w[boolean select multiselect].include?(field[:control_type])
-        togglefield = {
-          toggle_hint: 'Select manually',
-          toggle_field: {
-            name: property['name'],
-            label: property['label'],
-            type: 'string',
-            control_type: 'text',
-            toggle_hint: 'Map datapill',
-            hint: "Enter in a valid option"
+        if %w[select multiselect].include?(field[:control_type])
+          picklist = {
+            pick_list: property['options'].
+            map { |option| [option['label'], option['value']]  }
           }
-        }
-        field = field.merge(togglefield)
+          field = field.merge(picklist)
+        end
+
+        if %w[boolean select multiselect].include?(field[:control_type])
+          togglefield = {
+            toggle_hint: 'Select manually',
+            toggle_field: {
+              name: property['name'],
+              label: property['label'],
+              type: 'string',
+              control_type: 'text',
+              toggle_hint: 'Map datapill',
+              hint: "Enter in a valid option"
+            }
+          }
+          field = field.merge(togglefield)
+        end
+
+        field
       end
+    end,
 
-      field
-    end
-  end,
+    type_mapping: lambda do |input|
+      case input
+      when 'datetime'
+        'date_time'
+      when 'number'
+        'integer'
+      when 'booleancheckbox'
+        'boolean'
+      when 'bool'
+        'boolean'
+      when 'enumeration'
+        'string'
+      else
+        input
+      end
+    end,
 
-  type_mapping: lambda do |input|
-    case input
-    when 'datetime'
-      'date_time'
-    when 'number'
-      'integer'
-    when 'booleancheckbox'
-      'boolean'
-    when 'bool'
-      'boolean'
-    when 'enumeration'
-      'string'
-    else
-      input
+    control_type_mapping: lambda do |input|
+      case input
+      when 'textarea'
+        'text-area'
+      when 'datetime'
+        'date_time'
+      when 'booleancheckbox'
+        'checkbox'
+      when 'bool'
+        'checkbox'
+      when 'enumeration'
+        'select'
+      when 'radio'
+        'select'
+      when 'checkbox'
+        'multiselect'
+      else
+        input
+      end
     end
-  end,
-
-  control_type_mapping: lambda do |input|
-    case input
-    when 'textarea'
-      'text-area'
-    when 'datetime'
-      'date_time'
-    when 'booleancheckbox'
-      'checkbox'
-    when 'bool'
-      'checkbox'
-    when 'enumeration'
-      'select'
-    when 'radio'
-      'select'
-    when 'checkbox'
-      'multiselect'
-    else
-      input
-    end
-  end
-}
+  }
 ```
 </details>
 
