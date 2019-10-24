@@ -92,169 +92,33 @@ You can also define the folders, and correspondingly the recipes and connections
 
 The following table provides a breakdown of each privilege you can confer a custom role.
 
-<table>
-  <tr>
-   <td><strong>Recipes</strong>
-   </td>
-   <td><strong>Description</strong>
-   </td>
-  </tr>
-  <tr>
-   <td>Recipes
-   </td>
-   <td>Give your team members specific access to read, create, update, delete, run recipes and access the job history
-   </td>
-  </tr>
-  <tr>
-   <td>Connections
-   </td>
-   <td>Give your team members access to edit, create or delete connections in the app connections page
-   </td>
-  </tr>
-  <tr>
-   <td>Folders
-   </td>
-   <td>Give your team members access to edit, create or delete folders. Team members will have access to the ‘all’ folder if this field is checked. Please define specific access to folders in the fields below.
-   </td>
-  </tr>
-  <tr>
-   <td>Project folder
-   </td>
-   <td>Give your team members access to all folders.
-   </td>
-  </tr>
-  </tr>
-  <tr>
-   <td colspan="2" >
-   </td>
-  </tr>
-  <tr>
-   <td><strong>Tools/Connectors</strong>
-   </td>
-   <td>
-   </td>
-  </tr>
-  <tr>
-   <td>Message templates
-   </td>
-   <td>Give your team members access to create or edit message templates  
-   </td>
-  </tr>
-  <tr>
-   <td>Workbot<a href="https://www.workato.com/workbots#active"> </a>
-   </td>
-   <td>Give your team members access to create or edit installed and custom Workbots  
-   </td>
-  </tr>
-  <tr>
-   <td>Pub/Sub
-   </td>
-   <td>Give your team members access to create or edit PubSub topics
-   </td>
-  </tr>
-  <tr>
-   <td>Schema reuse
-   </td>
-   <td>Give your team members access to create or edit reusable schema
-   </td>
-  </tr>
-  <tr>
-   <td>Custom OAuth profiles
-   </td>
-   <td>Give your team members access to create or edit custom OAuth profiles
-   </td>
-  </tr>
-  <tr>
-   <td>Lookup Tables
-   </td>
-   <td>Give your team members access to create or edit all lookup tables
-   </td>
-  </tr>
-  <tr>
-   <td>People task
-   </td>
-   <td>Give your team members access to create or edit human approval workflows
-   </td>
-  </tr>
-  <tr>
-   <td>Account properties
-   </td>
-   <td>Give your team members access to create or edit account properties
-   </td>
-  </tr>
-  <tr>
-   <td>Connector SDK
-   </td>
-   <td>Give your team members access to create and edit custom SDK connectors
-   </td>
-  </tr>
-  <tr>
-   <td>API key
-   </td>
-   <td>Give your team members access to view all API keys in recipes
-   </td>
-  </tr>
-  <tr>
-   <td>API management
-   </td>
-   <td>Give your team members access to manage API tokens and REST endpoints
-   </td>
-  </tr>
-  <tr>
-   <td>Recipe lifecycle management
-   </td>
-   <td>Give your team members access to import/export recipe packages with recipe lifecycle management
-   </td>
-  </tr>
-  <tr>
-   <td>Teams
-   </td>
-   <td>Give your team members access to manage and edit your team members
-   </td>
-  </tr>
-  <tr>
-   <td>Custom team roles
-   </td>
-   <td>Give your team members access to manage custom team roles
-   </td>
-  </tr>
-  <tr>
-   <td>SAML SSO
-   </td>
-   <td>Give your team members access to sign in with SAML SSO. Team access will be authenticated via your identity provider.
-   </td>
-  </tr>
-  <tr>
-   <td>Base plan connectors
-   </td>
-   <td>Give your team members access to all <a href="https://www.workato.com/pricing/apps-by-plans?source=pricing">base plan connectors</a>.
-   </td>
-  </tr>
-  <tr>
-   <td>Pro plan connectors
-   </td>
-   <td>Give your team members access to all <a href="https://www.workato.com/pricing/apps-by-plans?source=pricing">professional plan connectors</a>.
-   </td>
-  </tr>
-  <tr>
-   <td>Biz plan connectors
-   </td>
-   <td>Give your team members access to all <a href="https://www.workato.com/pricing/apps-by-plans?source=pricing">business plan connectors</a>.
-   </td>
-  </tr>
-  <tr>
-   <td>Biz plus plan connectors
-   </td>
-   <td>Give your team members access to all <a href="https://www.workato.com/pricing/apps-by-plans?source=pricing">business plus plan connectors</a>.
-   </td>
-  </tr>
-  <tr>
-   <td>Enterprise connectors
-   </td>
-   <td>Give your team members access to all <a href="https://www.workato.com/pricing/apps-by-plans?source=pricing">enterprise plan connectors</a>.
-   </td>
-  </tr>
-</table>
+|**Recipes**|**Description**|
+|--- |--- |
+|Recipes|Give your team members specific access to read, create, update, delete, run recipes and access the job history|
+|Connections|Give your team members access to edit, create or delete connections in the app connections page|
+|Folders|Give your team members access to edit, create or delete folders. Team members will have access to the ‘all’ folder if this field is checked. Please define specific access to folders in the fields below.|
+|Project folder|Give your team members access to all folders.|
+|**Tools/Connectors**||
+|Message templates|Give your team members access to create or edit message templates|
+|Workbot|Give your team members access to create or edit installed and custom Workbots|
+|Pub/Sub|Give your team members access to create or edit PubSub topics|
+|Schema reuse|Give your team members access to create or edit reusable schema|
+|Custom OAuth profiles|Give your team members access to create or edit custom OAuth profiles|
+|Lookup Tables|Give your team members access to create or edit all lookup tables|
+|People task|Give your team members access to create or edit human approval workflows|
+|Account properties|Give your team members access to create or edit account properties|
+|Connector SDK|Give your team members access to create and edit custom SDK connectors|
+|API key|Give your team members access to view all API keys in recipes|
+|API management|Give your team members access to manage API tokens and REST endpoints|
+|Recipe lifecycle management|Give your team members access to import/export recipe packages with recipe lifecycle management|
+|Teams|Give your team members access to manage and edit your team members|
+|Custom team roles|Give your team members access to manage custom team roles|
+|SAML SSO|Give your team members access to sign in with SAML SSO. Team access will be authenticated via your identity provider.|
+|Base plan connectors|Give your team members access to all base plan connectors.|
+|Pro plan connectors|Give your team members access to all professional plan connectors.|
+|Biz plan connectors|Give your team members access to all business plan connectors.|
+|Biz plus plan connectors|Give your team members access to all business plus plan connectors.|
+|Enterprise connectors|Give your team members access to all enterprise plan connectors.|
 
 <table>
 <tr>
@@ -262,6 +126,7 @@ The following table provides a breakdown of each privilege you can confer a cust
  </td>
  <td>Specify access to individual recipe folders. If ‘Project folder' is checked, folders specified in this field will be overridden.
  </td>
+</table>
 
 ## Invite collaborators
 To invite collaborators, provide the full name of the collaborator and their email.
