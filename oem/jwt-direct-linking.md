@@ -24,12 +24,6 @@ Typically the account structure for OEM partners and their customers will be as 
 | Customer user ID | No | This is the Workato user ID for a user within the customer team. Usually, this account belongs to: <ul><li> An individual within the customer organization **OR** </li><li> The representative assigned by the partner to manage the customer account.</li></ul>  If created using managed_users API, it is returned as the output. </br></br> If using UI to create the account, <ul><li> The ID of the customer is in the URL when you click on it **OR** </li><li> Can be obtained when in the customer account in the data tree in any recipe (User ID) |
 | Paths to Workato assets | Yes | The paths to Workato pages the partner wishes to link to. </br> E.g. If trying to link to community recipes, the Workato URL is: https://www.workato.com/recipes/browse. </br> Paths include all the parameters and fragments that append https://www.workato.com/. |
 
-| Type  | Payload | Description |
-| ------------- | ------------- | -------- |
-| `heightChange`  | `{ height: number }`  | Content height was changed
-| `connectionStatusChange`  | `{ id: number, provider: string, connected?: boolean, error?: string }`  | Connection status was changed
-| `error` | `{ message: string }` | Unexpected error
-
 ## OEM partner implementation
 
 A direct link URL generation micro service should be added to the vendor's server (https://www.vendor.com/integrate_direct_link)
