@@ -108,13 +108,11 @@ For each input field, we suggest running through this series of questions quickl
 Descriptive error messages are a crucial part of the recipe building experience for end-users. Without the proper error messages, users have a tough time figuring out why their recipes are failing. If you haven’t checked out the possible ways to surface errors on Workato, do check out our [error handling docs.](https://docs.workato.com/developing-connectors/sdk/error-handling.html)
 
 Here are some general rules to include proper error handling in your connector.
-1. Does your `apply` block have generic error handling
+1. Does your connector use picklists or dynamic schema of any sort? Chaining an `after_error_response` function allows your users to receive exact information of what may have gone wrong. [Example here.](https://docs.workato.com/developing-connectors/sdk/error-handling.html#object-definition-error-handling)
 
-2. Does your connector use picklists or dynamic schema of any sort? Chaining an `after_error_response` function allows your users to receive exact information of what may have gone wrong. [Example here.](https://docs.workato.com/developing-connectors/sdk/error-handling.html#object-definition-error-handling)
+2. Does your connector have certain fields that are required together, such as a start date and end date? Whilst these fields may not be required all the time, some fields are often required together. In cases like these, validations may help surface these errors better and also reduce the number of API calls made unnecessarily. [Example here.](https://docs.workato.com/developing-connectors/sdk/error-handling.html#input-validation)
 
-3. Does your connector have certain fields that are required together, such as a start date and end date? Whilst these fields may not be required all the time, some fields are often required together. In cases like these, validations may help surface these errors better and also reduce the number of API calls made unnecessarily. [Example here.](https://docs.workato.com/developing-connectors/sdk/error-handling.html#input-validation)
-
-4. Does the API you are connecting to respond with appropriate HTTP status codes? In certain cases, APIs may send back responses that should actually be errors but have their HTTP status as `200`. In cases like these, using an ` after_error_response` function can help highlight issues to your users instead. [Example here.](https://docs.workato.com/developing-connectors/sdk/error-handling.html#response-validation)
+3. Does the API you are connecting to respond with appropriate HTTP status codes? In certain cases, APIs may send back responses that should actually be errors but have their HTTP status as `200`. In cases like these, using an ` after_error_response` function can help highlight issues to your users instead. [Example here.](https://docs.workato.com/developing-connectors/sdk/error-handling.html#response-validation)
 
 #### Previous Chapter
 ##### [Common code patterns](connector-building-code-patterns.md)
