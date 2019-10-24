@@ -39,7 +39,7 @@ As a developer building the connector to XYZ labs, the representation of an “I
   <summary><b>Expand to view the full Invoice object JSON</b></summary>
 
 ```json
- {
+{
   "TxnDate": "2019-09-19",
   "ID": "1",
   "TotalAmt": 362.07,
@@ -136,14 +136,14 @@ Content type:application/json
   "ID": "1",
   "Line": [
     {
-        "Description": "Fountain straws",
-        "SalesItemLineDetail": {
-          "Qty": 100,
-          "UnitPrice": 0.075,
-        },
-        "Line-Num": 1,
-        "Amount": 7.50,
-        "Id": "192 "
+      "Description": "Fountain straws",
+      "SalesItemLineDetail": {
+        "Qty": 100,
+        "UnitPrice": 0.075,
+      },
+      "Line-Num": 1,
+      "Amount": 7.50,
+      "Id": "192 "
     },
   ],
   "CustomerRef": {
@@ -193,7 +193,7 @@ methods: {
         name: "CustomerRef",
         type: "object",
         properties: [
-          { name: "name" ,
+          { name: "name" }
           { name: "value" }
         ]
       },

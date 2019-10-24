@@ -11,16 +11,16 @@ Now that we’ve defined objects schema in methods, we can now start building ou
 When dealing with object-based actions, we first need to define something called configuration fields. [Configuration fields](https://docs.workato.com/developing-connectors/sdk/config-fields.html) are special input fields that you can define whose answers can dynamically generate other input fields.
 
 ```ruby
-  config_fields: [
-			{
-				name: 'object',
-				optional: false,
-				label: 'Object type',
-				control_type: 'select',
-				pick_list: 'object_list_create',
-				hint: 'Select the object type from picklist.'
-			}
-		],
+config_fields: [
+  {
+    name: 'object',
+    optional: false,
+    label: 'Object type',
+    control_type: 'select',
+    pick_list: 'object_list_create',
+    hint: 'Select the object type from picklist.'
+  }
+],
 ```
 
 ![Config fields](/assets/images/sdk/config_fields.gif)
@@ -54,15 +54,15 @@ actions: {
     end,
 
     config_fields: [
-        {
-          name: 'object',
-          optional: false,
-          label: 'Object type',
-          control_type: 'select',
-          pick_list: 'object_list_create',
-          hint: 'Select the object type from picklist.'
-        }
-      ],
+      {
+        name: 'object',
+        optional: false,
+        label: 'Object type',
+        control_type: 'select',
+        pick_list: 'object_list_create',
+        hint: 'Select the object type from picklist.'
+      }
+    ],
     # More code truncated here
   }
 }
@@ -112,9 +112,9 @@ execute: lambda do |connection,input|
   object_name = input.delete('object')
   payload = call('format_payload',input)
   response = call('create_#{object_name}_execute', payload).
-    after_error_response(/.*/) do |_code, body, _header, message|
-      error("#{message}: #{body}")
-    end
+  after_error_response(/.*/) do |_code, body, _header, message|
+    error("#{message}: #{body}")
+  end
   formatted_response = call('format_response', response.presence)
   formatted_response
 end,
@@ -184,16 +184,16 @@ methods: {
 object_definitions: {
 
   update_object_input: {
-		fields: lambda do |connection, config_fields|
-			call("#{config_fields['object']}_schema", "update")
-		end
-	},
+    fields: lambda do |connection, config_fields|
+      call("#{config_fields['object']}_schema", "update")
+    end
+  },
 
-	update_object_output: {
-		fields: lambda do |connection, config_fields|
-			call("#{config_fields['object']}_schema", "output")
-		end
-	},
+  update_object_output: {
+    fields: lambda do |connection, config_fields|
+      call("#{config_fields['object']}_schema", "output")
+    end
+  },
 
 },
 actions: {
@@ -212,10 +212,10 @@ actions: {
     help: lambda do |input, picklist_label|
       {
         body:
-          "Updates an #{picklist_label['object'] || 'object'} in XYZ. First, select from a list of " \
-          'objects that we currently support. After selecting your object,' \
-          ' dynamic input fields specific to the object selected ' \
-          'will be populated.'   
+        "Updates an #{picklist_label['object'] || 'object'} in XYZ. First, select from a list of " \
+        'objects that we currently support. After selecting your object,' \
+        ' dynamic input fields specific to the object selected ' \
+        'will be populated.'   
       }
     end,
 

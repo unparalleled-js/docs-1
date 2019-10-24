@@ -35,32 +35,32 @@ Fortunately, there is a workaround which we highly recommend you build into your
 Sample code snippet:
 ```ruby
 format_schema: lambda do |schema|
-  if schema.is_a?(Array)
-    schema.map do |array_value|
-      call('format_schema', array_value)
-    end
-  elsif schema.is_a?(Hash)
-    schema.map do |key,value|
-      if %w[name].include?(key.to_s)
-        value = call('replace_special_characters',value.to_s)
-      elsif %w[properties toggle_field].include?(key.to_s)
-        value = call('format_schema', value)
-      end
-      { key => value }
-    end.inject(:merge)
-  end
+	if schema.is_a?(Array)
+		schema.map do |array_value|
+			call('format_schema', array_value)
+		end
+	elsif schema.is_a?(Hash)
+		schema.map do |key,value|
+			if %w[name].include?(key.to_s)
+				value = call('replace_special_characters',value.to_s)
+			elsif %w[properties toggle_field].include?(key.to_s)
+				value = call('format_schema', value)
+			end
+			{ key => value }
+		end.inject(:merge)
+	end
 end,
 ```
 Since fields where names contain keys cause errors, we need a service method that can take invalid schema and convert any names into formats we can handle. The method above recursively searches through a given schema and replaces any special characters with a valid string. For example,
 
 ```ruby
 [
-  {
-    control_type: "text",
-    label: "Txn date",
-    type: "string",
-    name: "Txn-Date"
-  }
+	{
+		control_type: "text",
+		label: "Txn date",
+		type: "string",
+		name: "Txn-Date"
+	}
 ]
 ```
 
@@ -68,12 +68,12 @@ Would be converted to
 
 ```ruby
 [
-  {
-    control_type: "text",
-    label: "Txn date",
-    type: "string",
-    name: "Txn__hyp__Date"
-  }
+	{
+		control_type: "text",
+		label: "Txn date",
+		type: "string",
+		name: "Txn__hyp__Date"
+	}
 ]
 ```
 
@@ -83,19 +83,19 @@ This allows the field to be displayed in Workato with no observable difference t
 Sample code snippet:
 ```ruby
 format_payload: lambda do |payload|
-  if payload.is_a?(Array)
-    payload.map do |array_value|
-      call('format_payload', array_value)
-    end
-  elsif payload.is_a?(Hash)
-    payload.map do |key, value|
-      key = call('inject_special_characters',key)
-      if value.is_a?(Array) || value.is_a?(Hash)
-        value = call('format_payload', value)
-      end
-      { key => value }
-    end.inject(:merge)
-  end
+	if payload.is_a?(Array)
+		payload.map do |array_value|
+			call('format_payload', array_value)
+		end
+	elsif payload.is_a?(Hash)
+		payload.map do |key, value|
+			key = call('inject_special_characters',key)
+			if value.is_a?(Array) || value.is_a?(Hash)
+				value = call('format_payload', value)
+			end
+			{ key => value }
+		end.inject(:merge)
+	end
 end,
 ```
 
@@ -105,19 +105,19 @@ This method should be called when input from the job is passed through the `exec
 Sample code snippet:
 ```ruby
 format_response: lambda do |payload|
-  if payload.is_a?(Array)
-    payload.map do |array_value|
-      call('format_response', array_value)
-    end
-  elsif payload.is_a?(Hash)
-    payload.map do |key, value|
-      key = call('replace_special_characters',key)
-      if value.is_a?(Array) || value.is_a?(Hash)
-        value = call('format_response',value)
-      end
-      { key => value }
-    end.inject(:merge)
-  end
+	if payload.is_a?(Array)
+		payload.map do |array_value|
+			call('format_response', array_value)
+		end
+	elsif payload.is_a?(Hash)
+		payload.map do |key, value|
+			key = call('replace_special_characters',key)
+			if value.is_a?(Array) || value.is_a?(Hash)
+				value = call('format_response',value)
+			end
+			{ key => value }
+		end.inject(:merge)
+	end
 end,
 ```
 
@@ -127,67 +127,67 @@ When working with responses, we still need to match them back to the Workato val
 Samples code snippet:
 ```ruby
 replace_special_characters: lambda do |input|
-  input.gsub(/[-<>!@#$%^&*()+={}:;'"`~,.?|]/,
-    '-' => '__hyp__',
-    '<' => '__lt__',
-    '>' => '__gt__',
-    '!' => '__excl__',
-    '@' => '__at__',
-    '#' => '__hashtag__',
-    '$' => '__dollar__',
-    '%' => '__percent__',
-    '^' => '__pwr__',
-    '&' => '__amper__',
-    '*' => '__star__',
-    '(' => '__lbracket__',
-    ')' => '__rbracket__',
-    '+' => '__plus__',
-    '=' => '__eq__',
-    '{' => '__rcrbrack__',
-    '}' => '__lcrbrack__',
-    ';' => '__semicol__',
-    '\'' => '__apost__',
-    '`' => '__bckquot__',
-    '~' => '__tilde__',
-    ',' => '__comma__',
-    '.' => '__period__',
-    '?' => '__qmark__',
-    '|' => '__pipe__',
-    ':' => '__colon__',
-    '\"' => '__quote__'
-    )
+	input.gsub(/[-<>!@#$%^&*()+={}:;'"`~,.?|]/,
+	'-' => '__hyp__',
+	'<' => '__lt__',
+	'>' => '__gt__',
+	'!' => '__excl__',
+	'@' => '__at__',
+	'#' => '__hashtag__',
+	'$' => '__dollar__',
+	'%' => '__percent__',
+	'^' => '__pwr__',
+	'&' => '__amper__',
+	'*' => '__star__',
+	'(' => '__lbracket__',
+	')' => '__rbracket__',
+	'+' => '__plus__',
+	'=' => '__eq__',
+	'{' => '__rcrbrack__',
+	'}' => '__lcrbrack__',
+	';' => '__semicol__',
+	'\'' => '__apost__',
+	'`' => '__bckquot__',
+	'~' => '__tilde__',
+	',' => '__comma__',
+	'.' => '__period__',
+	'?' => '__qmark__',
+	'|' => '__pipe__',
+	':' => '__colon__',
+	'\"' => '__quote__'
+)
 end,
 
 inject_special_characters: lambda do |input|
-  input.gsub(/(__hyp__|__lt__|__gt__|__excl__|__at__|__hashtag__|__dollar__|\__percent__|__pwr__|__amper__|__star__|__lbracket__|__rbracket__|__plus__|__eq__|__rcrbrack__|__lcrbrack__|__semicol__|__apost__|__bckquot__|__tilde__|__comma__|__period__|__qmark__|__pipe__|__colon__|__quote__|__slash__|__bslash__)/,
-    '__hyp__' => '-',
-    '__lt__' => '<',
-    '__gt__' => '>',
-    '__excl__' => '!',
-    '__at__' => '@',
-    '__hashtag__' => '#',
-    '__dollar__' => '$',
-    '__percent__' => '%',
-    '__pwr__' => '^',
-    '__amper__' => '&',
-    '__star__' => '*',
-    '__lbracket__' => '(',
-    '__rbracket__' => ')',
-    '__plus__' => '+',
-    '__eq__' => '=',
-    '__rcrbrack__' => '{',
-    '__lcrbrack__' => '}',
-    '__semicol__' => ';',
-    '__apost__' => '\'',
-    '__bckquot__' => '`',
-    '__tilde__' => '~',
-    '__comma__' => ',',
-    '__period__' => '.',
-    '__qmark__' => '?',
-    '__pipe__' => '|',
-    '__colon__' => ':',
-    '__quote__' => '"'
-    )
+	input.gsub(/(__hyp__|__lt__|__gt__|__excl__|__at__|__hashtag__|__dollar__|\__percent__|__pwr__|__amper__|__star__|__lbracket__|__rbracket__|__plus__|__eq__|__rcrbrack__|__lcrbrack__|__semicol__|__apost__|__bckquot__|__tilde__|__comma__|__period__|__qmark__|__pipe__|__colon__|__quote__|__slash__|__bslash__)/,
+	'__hyp__' => '-',
+	'__lt__' => '<',
+	'__gt__' => '>',
+	'__excl__' => '!',
+	'__at__' => '@',
+	'__hashtag__' => '#',
+	'__dollar__' => '$',
+	'__percent__' => '%',
+	'__pwr__' => '^',
+	'__amper__' => '&',
+	'__star__' => '*',
+	'__lbracket__' => '(',
+	'__rbracket__' => ')',
+	'__plus__' => '+',
+	'__eq__' => '=',
+	'__rcrbrack__' => '{',
+	'__lcrbrack__' => '}',
+	'__semicol__' => ';',
+	'__apost__' => '\'',
+	'__bckquot__' => '`',
+	'__tilde__' => '~',
+	'__comma__' => ',',
+	'__period__' => '.',
+	'__qmark__' => '?',
+	'__pipe__' => '|',
+	'__colon__' => ':',
+	'__quote__' => '"'
+)
 end
 ```
 
@@ -197,14 +197,14 @@ When defining arrays of primitive data types like integers and strings, Workato 
 ### Sample input schema
 ```ruby
 object_schema: lambda do
-        [
- 	          {
-            		name: 'array_of_string',
-            		type: :array,
-            		of: :string
-            }
-        ]
-      end,
+	[
+		{
+			name: 'array_of_string',
+			type: :array,
+			of: :string
+		}
+	]
+end,
 ```
 
 Which is then rendered as
@@ -218,28 +218,28 @@ As such, we recommend a simple workaround when looking to render these fields as
 
 ### Suggested input schema
 ```ruby
-  object_schema: lambda do |action_type|
-          [
-   	         if action_type == ‘create’ || action_type == ‘update’
-               {
-              		name: array_of_object_string,
-              		type: ‘array’,
-              		of: ‘object’,
-  		              properties: [
-  			                     {
-  				                     name: ‘value’
-  			                     }
-  		              ]
-                }
-  	        else
-                {
-              		name: 'array_of_string',
-              		type: ‘array’,
-              		of: ‘string’
-               }
-  	       end
-         ]
-  end,
+object_schema: lambda do |action_type|
+	[
+		if action_type == ‘create’ || action_type == ‘update’
+			{
+				name: array_of_object_string,
+				type: ‘array’,
+				of: ‘object’,
+				properties: [
+					{
+						name: ‘value’
+					}
+				]
+			}
+		else
+			{
+				name: 'array_of_string',
+				type: ‘array’,
+				of: ‘string’
+			}
+		end
+	]
+end,
 ```
 Which is then rendered as
 
@@ -250,14 +250,14 @@ Which is then rendered as
 Since the input schema defined is not exactly an array of string, the input from this field would look something like this:
 ```json
 {
-  "array_of_object_string": [
-  	{
-    	"value": "abc"
-  	},
-  	{
-    	"value": "def"
-  	}
-  ]
+	"array_of_object_string": [
+		{
+			"value": "abc"
+		},
+		{
+			"value": "def"
+		}
+	]
 }
 ```
 

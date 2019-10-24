@@ -71,40 +71,13 @@ A great exercise would be to envision building recipes around the integration us
 ### Example 5:
 As the developer at XYZ labs building the XYZ connector on Workato, another important integration use case for our customers was the ability to use XYZ’s integrated bank transfer functionality from a workplace messaging app like Slack. When drawing out the skeleton of the integration, we arrived at these steps:
 
-<table class="unchanged rich-diff-level-one">
-    <thead>
-        <tr>
-            <th>Recipe: New command on Slackbot executes bank transfer on XYZ accounting</th>
-            <th>Action supported?</th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr>
-            <td>Trigger: New “Post bank transfer” command on Slack
-            </td>
-            <td> Yes
-            </td>
-        </tr>
-        <tr>
-            <td>1. Search for a supplier on XYZ accounting
-            </td>
-            <td> Yes
-            </td>
-        </tr>
-        <tr>
-            <td>2. Execute bank transfer on XYZ accounting using supplier ID
-            </td>
-            <td> No
-            </td>
-        </tr>
-        <tr>
-            <td>3. Post reply on Slack to notify user
-            </td>
-            <td> Yes
-            </td>
-        </tr>
-    </tbody>
-</table>
+| Recipe: New command on Slackbot executes bank transfer on XYZ accounting   | Action supported? |
+|----------------------------------------------------------------------------|-----------|
+| Trigger: New “Post bank transfer” command on Slack|  Yes|
+| 1\. Search for a supplier on XYZ accounting|  Yes|
+| 2\. Execute bank transfer on XYZ accounting using supplier ID |  No|
+| 3\. Post reply on Slack to notify user|  Yes|
+
 
 Using this skeleton, it’s easy to see that we’ve missed out on an “Execute bank transfer” action which would be critical in this use case.
 
@@ -113,138 +86,15 @@ Using this skeleton, it’s easy to see that we’ve missed out on an “Execute
 ## Taking stock of your connector
 By the end of this exercise, you should have a list of actions and triggers that you plan to build. When placed into a table format, it should look something similar to this:
 
-<table class="unchanged rich-diff-level-one">
-    <thead>
-        <tr>
-          <th>
-          </th>
-          <th>New/updated trigger
-          </th>
-          <th>Create action
-          </th>
-          <th>Retrieve action
-          </th>
-          <th>Update action
-          </th>
-          <th>Delete action
-          </th>
-          <th>Search action
-          </th>
-          <th>Execute action
-          </th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr>
-          <th>Invoices
-          </th>
-          <th>Yes
-          </th>
-          <th>Yes
-          </th>
-          <th>Yes
-          </th>
-          <th>Yes
-          </th>
-          <th>Yes
-          </th>
-          <th>Yes
-          </th>
-          <th>
-          </th>
-        </tr>
-        <tr>
-          <th>Products
-          </th>
-          <th>Yes
-          </th>
-          <th>Yes
-          </th>
-          <th>Yes
-          </th>
-          <th>Yes
-          </th>
-          <th>Yes
-          </th>
-          <th>Yes
-          </th>
-          <th>
-          </th>
-        </tr>
-        <tr>
-          <th>Payments
-          </th>
-          <th>Yes
-          </th>
-          <th>Yes
-          </th>
-          <th>Yes
-          </th>
-          <th>Yes
-          </th>
-          <th>Yes
-          </th>
-          <th>Yes
-          </th>
-          <th>
-          </th>
-        </tr>
-        <tr>
-          <th>Vendors
-          </th>
-          <th>Yes
-          </th>
-          <th>Yes
-          </th>
-          <th>Yes
-          </th>
-          <th>Yes
-          </th>
-          <th>Yes
-          </th>
-          <th>Yes
-          </th>
-          <th>
-          </th>
-        </tr>
-        <tr>
-          <th>Expense reports
-          </th>
-          <th>Yes
-          </th>
-          <th>Yes
-          </th>
-          <th>Yes
-          </th>
-          <th>Yes
-          </th>
-          <th>Yes
-          </th>
-          <th>Yes
-          </th>
-          <th>
-          </th>
-        </tr>
-        <tr>
-          <th>Bank Transfer
-          </th>
-          <th>Yes
-          </th>
-          <th>
-          </th>
-          <th>Yes
-          </th>
-          <th>
-          </th>
-          <th>
-          </th>
-          <th>Yes
-          </th>
-          <th>Yes
-          </th>
-        </tr>
-    </tbody>
-</table>
+| | New/updated trigger| Create action| Retrieve action| Update action| Delete action| Search action| Execute action|
+|---------|-----|-----|-----|-----|-----|-----|-----|
+| Invoices| Yes | Yes | Yes | Yes | Yes | Yes |     |
+| Products| Yes | Yes | Yes | Yes | Yes | Yes |     |
+| Payments| Yes | Yes | Yes | Yes | Yes | Yes |     |
+| Vendors | Yes | Yes | Yes | Yes | Yes | Yes |     |
+| Expense reports| Yes  | Yes  | Yes  | Yes  | Yes  | Yes  |      |
+| Bank Transfer  | Yes  |      | Yes  |      |      | Yes  | Yes  |
+
 
 ### Connector building time
 Now that you've sussed out what your connector generally looks like, its time to get building! The next chapter will go through how to organize and build your connector.

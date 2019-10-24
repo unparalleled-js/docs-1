@@ -5,7 +5,7 @@ isTocVisible: true
 ---
 
 # Connector building - Usability rules
-Now that you’ve learned some of the concepts behind creating object-based actions and triggers, you should now begin testing it not only in the debugger console but when used as a recipe. When you reach this stage, you may also start to take note of certain aspects of your connector which are not as usable as you would hope. Good connectors are not only well organized in terms of code but place user experience front and center in the entire recipe building experience. Here are some rules that distinguish good connectors from bad ones
+Now that you’ve learned some of the concepts behind creating object-based actions and triggers, you should now begin testing it not only in the debugger console but when used as a recipe. When you reach this stage, you may also start to take note of certain aspects of your connector which are not as usable as you would hope. Good connectors are not only well organized in terms of code but place user experience front and center in the entire recipe building experience. Here are some rules that distinguish good connectors from bad ones.
 1. Descriptive help texts
 2. User friendly input fields
 3. Descriptive error messages
@@ -26,17 +26,17 @@ help: lambda do |input, picklist_label|
   if input['object'] == 'invoice'
     {
       body: "Creates an invoice in XYZ. Invoices in XYZ accounting are essential " \
-        "components of the platform. This action supports the creation of invoices " \
-        "including custom fields",
+      "components of the platform. This action supports the creation of invoices " \
+      "including custom fields",
       learn_more_url: "docs.xyz.com",
       learn_more_text: "Learn to setup this action"
     }
   else
     {
       body: "Creates an object in XYZ. First, select from a list of " \
-        'objects that we currently support. After selecting your object,' \
-        ' dynamic input fields specific to the object selected ' \
-        'will be populated.'
+      'objects that we currently support. After selecting your object,' \
+      ' dynamic input fields specific to the object selected ' \
+      'will be populated.'
     }
   end
 end,
@@ -113,7 +113,6 @@ Here are some general rules to include proper error handling in your connector.
 2. Does your connector have certain fields that are required together, such as a start date and end date? Whilst these fields may not be required all the time, some fields are often required together. In cases like these, validations may help surface these errors better and also reduce the number of API calls made unnecessarily. [Example here](https://docs.workato.com/developing-connectors/sdk/error-handling.html#input-validation)
 
 3. Does the API you are connecting to respond with appropriate HTTP status codes? In certain cases, APIs may send back responses that should actually be errors but have their HTTP status as `200`. In cases like these, using an ` after_error_response` function can help highlight issues to your users instead. [Example here](https://docs.workato.com/developing-connectors/sdk/error-handling.html#response-validation)
-
 
 #### Previous Chapter
 ##### [Common code patterns](connector-building-code-patterns.md)

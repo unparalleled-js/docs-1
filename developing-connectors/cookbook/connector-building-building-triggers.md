@@ -11,16 +11,16 @@ Building triggers follow almost the same format as actions. To make them object 
 When dealing with object-based triggers, we first need to define something called a configuration fields. [Configuration fields](https://docs.workato.com/developing-connectors/sdk/config-fields.html) are special input fields that you can define whose answers can dynamically generate other input fields. Since triggers don't often need any additional input fields, this configuration field is used to dynamically generate the expected output of this trigger.
 
 ```ruby
-    config_fields: [
-      {
-        name: 'object',
-        optional: false,
-        label: 'Object type',
-        control_type: 'select',
-        pick_list: 'object_list_new_updated_trigger',
-        hint: 'Select the object type from picklist.'
-      }
-    ],
+config_fields: [
+  {
+    name: 'object',
+    optional: false,
+    label: 'Object type',
+    control_type: 'select',
+    pick_list: 'object_list_new_updated_trigger',
+    hint: 'Select the object type from picklist.'
+  }
+],
 ```
 
 ![Config fields](/assets/images/sdk/config_fields-trigger.gif)
@@ -36,36 +36,37 @@ It is also highly recommended and really important to define helpful titles and 
 ```ruby
 triggers: {
 
-	new_updated_object: {
+  new_updated_object: {
 
-		title: "New/updated object",
+    title: "New/updated object",
 
-		subtitle: "Triggers when an object is created or updated",
+    subtitle: "Triggers when an object is created or updated",
 
-		description: lambda do |input, picklist_label|
-			"New/updated <span class='provider'>" \
-			"#{picklist_label['object'] || 'object'}</span> in " \
-			"<span class='provider'>XYZ Accounting</span>"
-		end,
+    description: lambda do |input, picklist_label|
+      "New/updated <span class='provider'>" \
+      "#{picklist_label['object'] || 'object'}</span> in " \
+      "<span class='provider'>XYZ Accounting</span>"
+    end,
 
     help: lambda do |input, picklist_label|
       {
         body:
-          "Triggers when an #{picklist_label['object'] || 'object'} is created " \
-          ' or updated in XYZ.'   
+        "Triggers when an #{picklist_label['object'] || 'object'} is created " \
+        ' or updated in XYZ.'   
       }
     end,
 
-		config_fields: [
-			{
-				name: 'object',
-				optional: false,
-				label: 'Object type',
-				control_type: 'select',
-				pick_list: 'object_list_new_updated_trigger',
-				hint: 'Select the object type from picklist.'
-			}
-		],
+    config_fields: [
+      {
+        name: 'object',
+        optional: false,
+        label: 'Object type',
+        control_type: 'select',
+        pick_list: 'object_list_new_updated_trigger',
+        hint: 'Select the object type from picklist.'
+      }
+    ],
+  }
 }
 ```
 
@@ -108,58 +109,58 @@ For polling triggers, the poll block is where the code for each poll is executed
 ### Expected JSON response from XYZ accounting
 ```js
 {
-	"results": [
-		{
-			"TxnDate": "2019-09-19",
-			"ID": "1",
-			"TotalAmt": 362.07,
-			"Line": [
-				{
-					"Description": "Rock Fountain",
-					"SalesItemLineDetail": {
-						"Qty": 1,
-						"UnitPrice": 275,
-					},
-					"Line-Num": 1,
-					"Amount": 275.0,
-					"Id": "1"
-				},
-				{
-					"Description": "Fountain Pump",
-					"SalesItemLineDetail": {
-						"Qty": 1,
-						"UnitPrice": 12.75,
-					},
-					"LineNum": 2,
-					"Amount": 12.75,
-					"Id": "2"
-				}
-			],
-			"DueDate": "2019-10-19",
-			"DocNumber": "1037",
-			"Deposit": 0,
-			"Balance": 362.07,
-			"CustomerRef": {
-				"name": "Sonnenschein Family Store",
-				"value": "24"
-			},
-			"BillEmail": {
-				"Address": "Familiystore@intuit.com"
-			},
-			"BillAddr": {
-				"Line1": "Russ Sonnenschein",
-				"Long": "-122.1141681",
-				"Lat": "37.4238562",
-				"Id": "95"
-			},
-			"MetaData": {
-				"CreateTime": "2014-09-19T13:16:17-07:00",
-				"LastUpdatedTime": "2014-09-19T13:16:17-07:00"
-			}
-		},
-		// more results
-	],
-	"more_results": true
+  "results": [
+    {
+      "TxnDate": "2019-09-19",
+      "ID": "1",
+      "TotalAmt": 362.07,
+      "Line": [
+        {
+          "Description": "Rock Fountain",
+          "SalesItemLineDetail": {
+            "Qty": 1,
+            "UnitPrice": 275,
+          },
+          "Line-Num": 1,
+          "Amount": 275.0,
+          "Id": "1"
+        },
+        {
+          "Description": "Fountain Pump",
+          "SalesItemLineDetail": {
+            "Qty": 1,
+            "UnitPrice": 12.75,
+          },
+          "LineNum": 2,
+          "Amount": 12.75,
+          "Id": "2"
+        }
+      ],
+      "DueDate": "2019-10-19",
+      "DocNumber": "1037",
+      "Deposit": 0,
+      "Balance": 362.07,
+      "CustomerRef": {
+        "name": "Sonnenschein Family Store",
+        "value": "24"
+      },
+      "BillEmail": {
+        "Address": "Familiystore@intuit.com"
+      },
+      "BillAddr": {
+        "Line1": "Russ Sonnenschein",
+        "Long": "-122.1141681",
+        "Lat": "37.4238562",
+        "Id": "95"
+      },
+      "MetaData": {
+        "CreateTime": "2014-09-19T13:16:17-07:00",
+        "LastUpdatedTime": "2014-09-19T13:16:17-07:00"
+      }
+    },
+    // more results
+  ],
+  "more_results": true
 }
 ```
 
@@ -185,18 +186,18 @@ poll: lambda do |connection, input, closure|
 
   poll_again = response['more_results']
 
-if poll_again # If we can poll for more, update offset
-  closure['offset'] =  closure['offset'] + limit
-else # If not, reset offset and last_updated_since
-  closure['offset'] = 0
-  closure['last_updated_since'] = records.last['MetaData']['LastUpdatedTime']
-end
+  if poll_again # If we can poll for more, update offset
+    closure['offset'] =  closure['offset'] + limit
+  else # If not, reset offset and last_updated_since
+    closure['offset'] = 0
+    closure['last_updated_since'] = records.last['MetaData']['LastUpdatedTime']
+  end
 
-{
-  events: records,
-  next_poll: closure,
-  can_poll_more: poll_again
-}
+  {
+    events: records,
+    next_poll: closure,
+    can_poll_more: poll_again
+  }
 end,
 ```
 
