@@ -8,7 +8,7 @@ date: 2019-10-21 11:00:00 Z
 To use Connections widget you can add: 
 
 ```html
-<iframe src="https://workato.com/direct_link/embedded/connection/<connection_id>>?workato_dl_token=<jwt_token>"></iframe>
+<iframe src="https://workato.com/direct_link/embedded/connections/<connection_id>>?workato_dl_token=<jwt_token>"></iframe>
 ``` 
 
 Widget API works on postMessage. 
@@ -51,7 +51,7 @@ Is supported next types:
   </head>
   <body>
     <h4>Status: <span id="statusId"></span></h4>
-    <iframe id="workatoId" src="https://workato.com/direct_link/embedded/connection/<connection_id>>?workato_dl_token=<token>" style="width: 500px; height: 150px; border: 0"></iframe>
+    <iframe id="workatoId" src="https://workato.com/direct_link/embedded/connections/<connection_id>>?workato_dl_token=<token>" style="width: 500px; height: 150px; border: 0"></iframe>
   </body>
 </html>
 ```
