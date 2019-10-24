@@ -12,7 +12,7 @@
   ],
   "variables": {
     "shareablePages": [
-      "oem/embedding-connections.md"
+      "oem/embedded-connections.md"
     ]
   },
   "pluginsConfig": {
