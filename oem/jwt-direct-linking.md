@@ -32,7 +32,7 @@ A direct link URL generation micro service should be added to the vendor's serve
 - This service should accept the path to the workato asset
 - The service should generate a url as follows:
    ```
-   'https://www.workato.com/direct_link/'  + path + '?' + query params + '#' + fragment
+   'https://www.workato.com/direct_link/' + path + '?' + query_params + '#' + fragment
    ```
 - The service should generate the JWT token as follows:
   - **Header section**
@@ -57,8 +57,8 @@ Use the direct link url to refer to any Workato asset in the vendor HTML page. V
 <body>
   <p>
     <a href='https://www.vendor.com/integrate_direct_link/recipes/1' target=_blank>
-  Salesforce to Vendor lead sync
-</a>
+      Salesforce to Vendor lead sync
+    </a>
   </p>
 </body>
 </html>
