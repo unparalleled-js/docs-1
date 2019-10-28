@@ -38,6 +38,8 @@ Eg: 5234/jobs/234/20180521/000/000/000/000/000/000/100/5234-234-100-201805210000
 ## JSON file content - Job history sample data
 
 ## Job history - Success
+<details><summary><b>Sample JSON</b></summary>
+
 ```json
 {
   "id":994216821,
@@ -250,7 +252,10 @@ Eg: 5234/jobs/234/20180521/000/000/000/000/000/000/100/5234-234-100-201805210000
 }
 ```
 
+</details>
+
 ## Job history - Failure
+<details><summary><b>Sample JSON</b></summary>
 
 ```json
 {
@@ -293,9 +298,12 @@ Eg: 5234/jobs/234/20180521/000/000/000/000/000/000/100/5234-234-100-201805210000
 }
 ```
 
+</details>
+
 ## JSON file content - Recipe step details
 
 ## Recipe step details - Success
+<details><summary><b>Sample JSON</b></summary>
 
 ```json
 {
@@ -725,7 +733,10 @@ Eg: 5234/jobs/234/20180521/000/000/000/000/000/000/100/5234-234-100-201805210000
 }
 ```
 
+</details>
+
 ## Recipe step details - Failure
+<details><summary><b>Sample JSON</b></summary>
 
 ```json
 {
@@ -850,9 +861,12 @@ Eg: 5234/jobs/234/20180521/000/000/000/000/000/000/100/5234-234-100-201805210000
 }
 ```
 
+</details>
+
 # JSON file content - Login and user activity
 
 ## User login
+<details><summary><b>Sample JSON</b></summary>
 
 ```json
 {
@@ -887,7 +901,10 @@ Eg: 5234/jobs/234/20180521/000/000/000/000/000/000/100/5234-234-100-201805210000
 }
 ```
 
+</details>
+
 ## User logout
+<details><summary><b>Sample JSON</b></summary>
 
 ```json
 {
@@ -922,7 +939,10 @@ Eg: 5234/jobs/234/20180521/000/000/000/000/000/000/100/5234-234-100-201805210000
 }
 ```
 
+</details>
+
 ## Package exported
+<details><summary><b>Sample JSON</b></summary>
 
 ```json
 {
@@ -953,7 +973,10 @@ Eg: 5234/jobs/234/20180521/000/000/000/000/000/000/100/5234-234-100-201805210000
 }
 ```
 
+</details>
+
 ## Package imported
+<details><summary><b>Sample JSON</b></summary>
 
 ```json
 {
@@ -984,7 +1007,10 @@ Eg: 5234/jobs/234/20180521/000/000/000/000/000/000/100/5234-234-100-201805210000
 }
 ```
 
+</details>
+
 ## Recipe created
+<details><summary><b>Sample JSON</b></summary>
 
 ```json
 {
@@ -1017,7 +1043,10 @@ Eg: 5234/jobs/234/20180521/000/000/000/000/000/000/100/5234-234-100-201805210000
 }
 ```
 
+</details>
+
 ## Recipe deleted
+<details><summary><b>Sample JSON</b></summary>
 
 ```json
 {
@@ -1048,8 +1077,10 @@ Eg: 5234/jobs/234/20180521/000/000/000/000/000/000/100/5234-234-100-201805210000
   "timestamp":"2019-09-13 22:23:44 UTC"
 }
 ```
+</details>
 
 ## Recipe cloned
+<details><summary><b>Sample JSON</b></summary>
 
 ```json
 {
@@ -1082,7 +1113,10 @@ Eg: 5234/jobs/234/20180521/000/000/000/000/000/000/100/5234-234-100-201805210000
 }
 ```
 
+</details>
+
 ## Recipe started
+<details><summary><b>Sample JSON</b></summary>
 
 ```json
 {
@@ -1107,7 +1141,10 @@ Eg: 5234/jobs/234/20180521/000/000/000/000/000/000/100/5234-234-100-201805210000
 }
 ```
 
+</details>
+
 ## Recipe stopped
+<details><summary><b>Sample JSON</b></summary>
 
 ```json
 {
@@ -1140,7 +1177,10 @@ Eg: 5234/jobs/234/20180521/000/000/000/000/000/000/100/5234-234-100-201805210000
 }
 ```
 
+</details>
+
 ## Folders created
+<details><summary><b>Sample JSON</b></summary>
 
 ```json
 {
@@ -1173,7 +1213,10 @@ Eg: 5234/jobs/234/20180521/000/000/000/000/000/000/100/5234-234-100-201805210000
 }
 ```
 
+</details>
+
 ## Folders deleted
+<details><summary><b>Sample JSON</b></summary>
 
 ```json
 {
@@ -1206,7 +1249,10 @@ Eg: 5234/jobs/234/20180521/000/000/000/000/000/000/100/5234-234-100-201805210000
 }
 ```
 
+</details>
+
 ## Teams - Invited a team member
+<details><summary><b>Sample JSON</b></summary>
 
 ```json
 {
@@ -1240,7 +1286,10 @@ Eg: 5234/jobs/234/20180521/000/000/000/000/000/000/100/5234-234-100-201805210000
 }
 ```
 
+</details>
+
 ## Teams - Member accepted invite
+<details><summary><b>Sample JSON</b></summary>
 
 ```json
 {
@@ -1274,7 +1323,10 @@ Eg: 5234/jobs/234/20180521/000/000/000/000/000/000/100/5234-234-100-201805210000
 }
 ```
 
+</details>
+
 ## Teams - Switched into team
+<details><summary><b>Sample JSON</b></summary>
 
 ```json
 {
@@ -1309,7 +1361,10 @@ Eg: 5234/jobs/234/20180521/000/000/000/000/000/000/100/5234-234-100-201805210000
 }
 ```
 
+</details>
+
 ## Teams - Switched out of teams
+<details><summary><b>Sample JSON</b></summary>
 
 ```json
 {
@@ -1344,7 +1399,10 @@ Eg: 5234/jobs/234/20180521/000/000/000/000/000/000/100/5234-234-100-201805210000
 }
 ```
 
+</details>
+
 ## Connections - Connected
+<details><summary><b>Sample JSON</b></summary>
 
 ```json
 {
@@ -1378,7 +1436,10 @@ Eg: 5234/jobs/234/20180521/000/000/000/000/000/000/100/5234-234-100-201805210000
 }
 ```
 
+</details>
+
 ## Connections - Disconnected
+<details><summary><b>Sample JSON</b></summary>
 
 ```json
 {
@@ -1413,7 +1474,10 @@ Eg: 5234/jobs/234/20180521/000/000/000/000/000/000/100/5234-234-100-201805210000
 }
 ```
 
+</details>
+
 ### Connections - Created
+<details><summary><b>Sample JSON</b></summary>
 
 ```json
 {
@@ -1447,8 +1511,10 @@ Eg: 5234/jobs/234/20180521/000/000/000/000/000/000/100/5234-234-100-201805210000
 }
 ```
 
-## Connections - Deleted
+</details>
 
+## Connections - Deleted
+<details><summary><b>Sample JSON</b></summary>
 ```json
 {
   "event":"connection_deleted",
@@ -1480,3 +1546,5 @@ Eg: 5234/jobs/234/20180521/000/000/000/000/000/000/100/5234-234-100-201805210000
   "timestamp":"2019-09-13 22:24:55 UTC"
 }
 ```
+
+</details>
