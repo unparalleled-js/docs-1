@@ -74,7 +74,9 @@ Use post message if you:
 
 1. Are using Workbot to post event notifications from another application, e.g. New/updated incident in ServiceNow. Since the trigger event can come from another application, **Post message** should be used, so you can specify who to send the message to.
 
-2. Want control over where Workbot should post the message, instead of sending it where the Workbot command was invoked (which is what **Post reply** does automatically)### Send message to
+2. Want control over where Workbot should post the message, instead of sending it where the Workbot command was invoked (which is what **Post reply** does automatically)
+
+### Send message to
 **Send message to** allows you post a message to directly to a user or to a channel you specify. Use the <kbd>ID</kbd> datapill (under **Conversation**) from the output of a Workbot command. To pick a member or channel instead, toggle to "Select from list".
 
 ![Send message to](/assets/images/workbot-for-workplace/send-message-to.png)

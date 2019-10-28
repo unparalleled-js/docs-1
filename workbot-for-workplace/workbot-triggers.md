@@ -80,7 +80,7 @@ In this case, you can add 2 parameters; `title` & `description`. When the comman
 Users can also skip the prompts by supplying the parameters together with the command.
 
 ![Command with in-line parameters](/assets/images/workbot-for-workplace/workbot-command-example.png)
-*Sending a 'new_issue' command with additional parameters Urgency, Summary and Description*
+*Sending a 'new_issue' command with additional parameters Title and Description*
 
 ##### Defining parameters
 ![Adding parameters](/assets/images/workbot-for-workplace/adding-parameters.png)
@@ -137,7 +137,7 @@ The table below describes in further detail what each parameter configuration fi
         <tr>
             <td>Options</td>
             <td>
-              Comma-separated list of options, e.g. <b>APPROVED, REJECTED, EXPIRED</b>. If the display name and athe value are different, separate the two by a colon, e.g. <b>High:1,Medium:2,Low:3</b>.
+              If the display name and the value are different, separate the two by a colon, e.g. <b>High:1,Medium:2,Low:3</b>.
             </td>
         </tr>
     </tbody>

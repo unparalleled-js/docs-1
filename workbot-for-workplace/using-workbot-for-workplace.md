@@ -25,10 +25,10 @@ If you get stuck, you can always send the **help** command to Workbot. Workbot w
 
 ### Invoking Workbot commands in Workplace
 Workbot commands can be invoked in 2 distinct ways:
-1. Sending the command in a direct message to Workbot or in a channel (in a channel, this requires tagging Workbot i.e. **@workbot your_command**)<br>
+1. Sending the command in a direct message to Workbot or in a channel (in a channel, this requires tagging Workbot i.e. **@workbot your_command**)<br><br>
 ![Command recipes](/assets/images/workbot-for-workplace/bot-in-channel.png)<br>*Invoking a Workbot command in channel*
-<br>
-2. Sending the command when a button is clicked<br>
+<br><br>
+2. Sending the command when a button is clicked<br><br>
 ![Command recipes](/assets/images/workbot-for-workplace/button-click.png)<br>*Clicking a button to invoke a Workbot command*
 
 Commands can also prompt users for additional parameters. For example, to create a new Github ticket, the user should provide the title and description of the incident. In this case, you can add 2 parameters; `title` & `description`. When the command is invoked, Workbot will prompt the user for each parameter.
