@@ -347,55 +347,55 @@ Eg: 5234/jobs/234/20180521/000/000/000/000/000/000/100/5234-234-100-201805210000
         "lines":[
           {
             "column_0":"Sierra Gardening",
-            "column_1":" MS-321",
-            "column_2":" Gardening supplies",
-            "column_3":" Pine wood potting bench",
-            "column_4":" MS-321",
-            "column_5":" Oakwood potting bench",
-            "column_6":" 74.50",
-            "column_7":" 119.99",
-            "column_8":" Yes",
-            "column_9":" 0.0875",
-            "column_10":" Pine",
-            "column_11":" White",
-            "column_12":" 30 inches"
+            "column_1":"MS-321",
+            "column_2":"Gardening supplies",
+            "column_3":"Pine wood potting bench",
+            "column_4":"MS-321",
+            "column_5":"Oakwood potting bench",
+            "column_6":"74.50",
+            "column_7":"119.99",
+            "column_8":"Yes",
+            "column_9":"0.0875",
+            "column_10":"Pine",
+            "column_11":"White",
+            "column_12":"30 inches"
           },
           {
             "column_0":"Sierra Gardening",
-            "column_1":" MS-322",
-            "column_2":" Gardening supplies",
-            "column_3":" Cherry wood potting bench",
-            "column_4":" MS-322",
-            "column_5":" Oakwood potting bench",
-            "column_6":" 74.50",
-            "column_7":" 119.99",
-            "column_8":" Yes",
-            "column_9":" 0.0875",
-            "column_10":" Cherry",
-            "column_11":" Natural",
-            "column_12":" 30 inches"
+            "column_1":"MS-322",
+            "column_2":"Gardening supplies",
+            "column_3":"Cherry wood potting bench",
+            "column_4":"MS-322",
+            "column_5":"Oakwood potting bench",
+            "column_6":"74.50",
+            "column_7":"119.99",
+            "column_8":"Yes",
+            "column_9":"0.0875",
+            "column_10":"Cherry",
+            "column_11":"Natural",
+            "column_12":"30 inches"
           },
           {
             "column_0":"Sierra Gardening",
-            "column_1":" MS-323",
-            "column_2":" Gardening supplies",
-            "column_3":" Cedar wood potting bench",
-            "column_4":" MS-323",
-            "column_5":" Oakwood potting bench",
-            "column_6":" 74.50",
-            "column_7":" 119.99",
-            "column_8":" Yes",
-            "column_9":" 0.0875",
-            "column_10":" Cedar",
-            "column_11":" Black",
-            "column_12":" 30 inches"
+            "column_1":"MS-323",
+            "column_2":"Gardening supplies",
+            "column_3":"Cedar wood potting bench",
+            "column_4":"MS-323",
+            "column_5":"Oakwood potting bench",
+            "column_6":"74.50",
+            "column_7":"119.99",
+            "column_8":"Yes",
+            "column_9":"0.0875",
+            "column_10":"Cedar",
+            "column_11":"Black",
+            "column_12":"30 inches"
           }
         ]
       }
     },
     "logger":{
       "07a14ebf":{
-        "message":" Pine"
+        "message":"Pine"
       }
     }
   },
@@ -474,48 +474,48 @@ Eg: 5234/jobs/234/20180521/000/000/000/000/000/000/100/5234-234-100-201805210000
         "lines":[
           {
             "column_0":"Sierra Gardening",
-            "column_1":" MS-321",
-            "column_2":" Gardening supplies",
-            "column_3":" Pine wood potting bench",
-            "column_4":" MS-321",
-            "column_5":" Oakwood potting bench",
-            "column_6":" 74.50",
-            "column_7":" 119.99",
-            "column_8":" Yes",
-            "column_9":" 0.0875",
-            "column_10":" Pine",
-            "column_11":" White",
-            "column_12":" 30 inches"
+            "column_1":"MS-321",
+            "column_2":"Gardening supplies",
+            "column_3":"Pine wood potting bench",
+            "column_4":"MS-321",
+            "column_5":"Oakwood potting bench",
+            "column_6":"74.50",
+            "column_7":"119.99",
+            "column_8":"Yes",
+            "column_9":"0.0875",
+            "column_10":"Pine",
+            "column_11":"White",
+            "column_12":"30 inches"
           },
           {
             "column_0":"Sierra Gardening",
-            "column_1":" MS-322",
-            "column_2":" Gardening supplies",
-            "column_3":" Cherry wood potting bench",
-            "column_4":" MS-322",
-            "column_5":" Oakwood potting bench",
-            "column_6":" 74.50",
-            "column_7":" 119.99",
-            "column_8":" Yes",
-            "column_9":" 0.0875",
-            "column_10":" Cherry",
-            "column_11":" Natural",
-            "column_12":" 30 inches"
+            "column_1":"MS-322",
+            "column_2":"Gardening supplies",
+            "column_3":"Cherry wood potting bench",
+            "column_4":"MS-322",
+            "column_5":"Oakwood potting bench",
+            "column_6":"74.50",
+            "column_7":"119.99",
+            "column_8":"Yes",
+            "column_9":"0.0875",
+            "column_10":"Cherry",
+            "column_11":"Natural",
+            "column_12":"30 inches"
           },
           {
             "column_0":"Sierra Gardening",
-            "column_1":" MS-323",
-            "column_2":" Gardening supplies",
-            "column_3":" Cedar wood potting bench",
-            "column_4":" MS-323",
-            "column_5":" Oakwood potting bench",
-            "column_6":" 74.50",
-            "column_7":" 119.99",
-            "column_8":" Yes",
-            "column_9":" 0.0875",
-            "column_10":" Cedar",
-            "column_11":" Black",
-            "column_12":" 30 inches"
+            "column_1":"MS-323",
+            "column_2":"Gardening supplies",
+            "column_3":"Cedar wood potting bench",
+            "column_4":"MS-323",
+            "column_5":"Oakwood potting bench",
+            "column_6":"74.50",
+            "column_7":"119.99",
+            "column_8":"Yes",
+            "column_9":"0.0875",
+            "column_10":"Cedar",
+            "column_11":"Black",
+            "column_12":"30 inches"
           }
         ]
       },
@@ -628,10 +628,10 @@ Eg: 5234/jobs/234/20180521/000/000/000/000/000/000/100/5234-234-100-201805210000
       "adapter_name":"logger",
       "adapter_operation":"log_message",
       "input":{
-        "message":" Pine"
+        "message":"Pine"
       },
       "output":{
-        "message":" Pine"
+        "message":"Pine"
       },
       "error":null,
       "mask_data":false,
