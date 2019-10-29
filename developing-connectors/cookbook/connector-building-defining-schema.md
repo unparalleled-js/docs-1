@@ -35,9 +35,6 @@ Consider using a collapsible section for these code blocks. The sheer length mak
 ### Example 1: Statically defined schema
 As a developer building the connector to XYZ labs, the representation of an “Invoice” object in our application might look something like this:
 
-<details>
-  <summary><b>Expand to view the full Invoice object JSON</b></summary>
-
 ```json
   {
     "TxnDate": "2019-09-19",
@@ -88,14 +85,8 @@ As a developer building the connector to XYZ labs, the representation of an “I
     }
   }
 ```
-</details>
-
-<br>
 
 While a create “Invoice” action may require a POST request similar to this:
-
-<details>
-  <summary><b>Expand to view the create POST request</b></summary>
 
 ```curl
   POST /invoice/create
@@ -119,14 +110,8 @@ While a create “Invoice” action may require a POST request similar to this:
     }
   }
 ```
-</details>
-
-<br>
 
 and an update “Invoice” action may require a POST similar to this:
-
-<details>
-  <summary><b>Expand to view the update POST request</b></summary>
 
 ```curl
   POST /invoice/update
@@ -151,13 +136,8 @@ and an update “Invoice” action may require a POST similar to this:
     }
   }
 ```
-</details>
-<br>
 
 As a general rule of thumb, when defining schema of an object in Workato, we want to be able to reuse as much of it as possible across different actions (such as create invoice and update invoice actions). As such, the schema we define should be a superset of all the possible parameters for this “Invoice” object. We should arrive at something like the following:
-<br>
-<details>
-  <summary><b>Expand to view the full method</b></summary>
 
 ```ruby
   methods: {
@@ -226,9 +206,6 @@ As a general rule of thumb, when defining schema of an object in Workato, we wan
     end
   }
 ```
-</details>
-
-<br>
 
 This schema is contained inside a method block called `invoice_schema`. Take note that we also provide an additional argument for this method called `action_type` which allows us to conditionally add input or output fields in the schema based on the type of action calling this method.
 
@@ -273,9 +250,6 @@ In cases like these, we want to make a request to this endpoint and use the resp
 ```
 
 Using this, we can define a method called `contact_schema` which takes in the same `action_type` argument as our earlier example on static definitions.
-<br>
-<details>
-  <summary><b>Expand to view the full method</b></summary>
 
 ```ruby
   methods: {
@@ -355,9 +329,6 @@ Using this, we can define a method called `contact_schema` which takes in the sa
     end
   }
 ```
-</details>
-
-<br>
 
 In this method, we take the response from HubSpot and for each property, we map its values to a defined parameter in Workato’s schema. We also created 2 service methods called `type_mapping` and `control_type_mapping` that are responsible for defining the mappings of HubSpot data types (defined as `type` and `fieldType` in HubSpot) to those in `type` and `control_type` in Workato respectively.
 
