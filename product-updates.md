@@ -9,6 +9,61 @@ date: 2018-06-05 21:45:00 Z
 Our engineers are hard at work daily to make Workato better! View the latest updates to our platform below.
 
 ## New connectors
+###### Oct 2019
+
+### BIM 360 (Autodesk)
+BIM 360 is construction management software that connects project teams and data in real-time from design through construction. Workato's BIM 360 connector allows you to manage your projects, files, folders and drawings in BIM 360 and connect them to all our other applications.
+
+**Links:**
+- [Triggers & actions](https://www.workato.com/integrations/bim360)
+
+## Activity audit log
+###### Oct 10, 2019
+
+### Why this is important
+Business systems group in a lot of enterprises consists of big teams developing and managing automations. As team size grows, it becomes important to track and audit changes made by the team members so that disruptions to business are minimized by unintended changes.
+
+### What this means
+Activity audit log provides quick and easy access to events, operations and actions done by users of Workato workspace. It is a critical tool for administrators to monitor changes done to the integrations. Activity audit log is available in the Dashboard > Audit  tab.
+
+### Benefits
+- Critical investigation tool in case of unauthorized or unintended operations
+- Create activity audit document for compliance purposes
+- Visibility and monitoring in a collaborative team environment
+- Helps administrators answer questions such as -
+  - Which user stopped the recipe? When?
+  - When did user last login?
+  - What actions a user has taken in last 7 days?
+  - Who invited a collaborator?
+  - When was my connection modified? By Who?
+
+**Links:**
+- [Documentation](/features/activity-audit-log.md)
+
+## Job debug tracing
+###### Oct 25, 2019
+
+### Why this is important
+Many a times recipes and actions in the recipe may run into an error requiring debugging. For example, if a customer gets `404 Not Found` when updating incident in ServiceNow as part of incident management automation. As the size and complexity of the project grows, so does the time consumed in debugging errors. Whether Workato is used by developers, integration specialists or citizen developers, it is critically important to make it easy to find and debug errors so developers can spend more time building automations.
+
+### What we’ve done
+
+- Most connectors make HTTP requests as part of each action (for example, actions like  Update Record or Search Record by the Salesforce connector)
+- This feature traces HTTP request details for each action in the recipe
+- Shows HTTP URL, headers, request and response for each HTTP request
+- Available in the Debug tab of the action line when a job is rerun
+
+### Benefits
+
+- Increase developer velocity in building functional Workato recipes (because of faster identification, investigation, and resolution of issues)
+- Respond to and solve production issues faster
+- Shorten duration of  impact to user experience during production issues
+- Reduce time and cost in troubleshooting issues
+
+**Links:**
+- [Documentation](/recipes/job-debug-tracing.md)
+
+## New connectors
 ###### Sept 2019
 
 ### Plangrid
@@ -21,7 +76,7 @@ Our engineers are hard at work daily to make Workato better! View the latest upd
 - [Triggers](/connectors/plangrid/object-trigger.md)
 
 ### Percolate
-[Percolate](https://percolate.com/) is a content marketing platform offering solutions to introduce visibility into the marketing process. The connector will allow users to manage standard & custom objects and schemas on their Percolate instance. 
+[Percolate](https://percolate.com/) is a content marketing platform offering solutions to introduce visibility into the marketing process. The connector will allow users to manage standard & custom objects and schemas on their Percolate instance.
 
 **Links:**
 - [Triggers & actions](https://www.workato.com/integrations/percolate)
