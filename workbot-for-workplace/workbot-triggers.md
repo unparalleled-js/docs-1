@@ -3,7 +3,7 @@ title: Workbot for Workplace triggers
 date: 2019-10-25 00:00:00 Z
 ---
 
-# New command trigger
+# Workbot command trigger
 Workbot commands allow you to trigger recipes from Workplace. These recipes can then perform actions in your apps (e.g. creating new ServiceNow tickets, listing Salesforce opportunities).
 
 This means you can from perform actions in your apps from within Workplace!
