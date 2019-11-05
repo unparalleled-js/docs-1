@@ -18,10 +18,9 @@ If you're reading this guide to build a connector on Workato to your own web API
 If you're building this connector to be accessible by our active community of Workato chefs, head over to our [support site to submit a ticket](https://support.workato.com/support/tickets/new). We'll route you to the proper channels and also set up some time to review your connector.
 
 **Expect to see the following benefits:**
-1. Increased usage of your API for your customers as they integrate through Workato
-2. More leads for your services as integrators on Workato continue search for new business applications that make their lives easier
-3. Greater exposure of integration use cases in our fantastic community
-
+1. Increased usage of your API for your customers as they integrate with Workato
+2. More leads for your services as users on Workato are constantly searching for new business applications that make their lives easier
+3. Greater exposure to integration use cases from our fantastic community
 
 ## Object-based connectors
 You may find yourself wondering what object-based connectors are in the first place but before that we must first clarify what resources and procedures are in applications.
