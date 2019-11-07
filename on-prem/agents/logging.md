@@ -8,23 +8,24 @@ isTocVisible: true
 The on-prem agent (OPA) contains code to log various types of events. The log file will contain OPA activity, errors, warnings and traces. The log file is useful for many scenarios; it is most commonly used for troubleshooting.
 
 ## Logging schedule
-The OPA logger will create a new log file at the start of each day (according to the on-premise system time). It will also create a new log file once the file size exceeds 20MB.
+The OPA logger will create a new log file at the start of each day (according to the on-premise system time). It will also create a new log file once the file size exceeds 20MB. The multiple log files in a single day will be numbered in sequence to identify them.
 
 | Scenario 1 | Scenario 2 |
 | ---------- | ---------- |
 | 01-NOV-2019 | 02-NOV-2019 |
 | Total file size: 15MB | Total file size: 25MB |
-| `.../2019-11-01T00:00:01`<br>A log file is created at the start of the day. | `.../2019-11-02T00:00:01`<br>A log file is created at the start of the day. The first 20MB will be stored in this file.<br><br>`.../2019-11-02T22:22:22`Another log file will be created to store the remaining 5MB. |
+| `/agent-2019-11-01-1.0.log`<br>A log file is created at the start of the day. | `/agent-2019-11-02.0.log`<br>A log file is created at the start of the day. The first 20MB will be stored in this file.<br><br>`/agent-2019-11-02.1.log`<br>Another log file will be created and contains the remaining 5MB. |
 
-You can access the OPA log files in the agent folder. The OPA will only keep the up to the most recent 60 files, or at most 20GB of files. 
+You can access the OPA log files in the agent folder. The OPA will only retain the most recent 60 files, or at most 20GB of files. 
 
-### OPA log propeties
-OPA logs ontain the following properties:
+### OPA log properties
+OPA logs contain the following properties:
 
 | OPA log property | Description                                                                               |
 | ---------------- | ----------------------------------------------------------------------------------------- |
-| Timestamp        | Each log file is timestamped to improve the ease for checking and finding the right file. |
-| File size limit  | The logger enforces a 20MB size limit to make it easier to query logs.                    |
+| Date             | Each log file is dated to improve locating the right file.                                |
+| Numbered logs    | If there are multiple log files in a single day, they will be numbered in sequence.       |
+| File size limit  | The logger enforces a 20MB size limit to make it easier to query the file content.        |
 | Storage limit    | The folder limit reduces the storage load on the server.                                  |
 
 ## Logging OPA activity
