@@ -89,6 +89,22 @@ In situations where you want to revert to an older version of your custom connec
 
 When viewing a specific version, you are given the ability to restore your custom connector to this version by clicking "Restore this version" in the top right of the page. This restores the version by making a copy of that version's source code as a new latest version. You'll be able to begin editing from there or immediately release this version.
 
+## Annotating your versions
+As your connector grows in functionality (and versions), you'll be able to easily annotate different versions of your connector with notes. Use this to let you and your team know what changed in this version from the previous one such as the addition of a new action or the fixing of a bug. This allows other developers to immediately know what state the connector is in and what still needs to be done.
+
+![Version notes plain view](/assets/images/sdk/base-view-version-notes.png)
+*Annotating your versions with crucial information such as Milestones*
+
+You'll also be able to filter versions to only see those that have been released to your production recipes, if they contain version notes or both. This allows you to strip away the noise of smaller intermediary versions that might clutter your view. Being disciplined about annotating your versions after a round of enhancements makes it easier to collaborate with teammates to build robust and powerful connectors.
+
+![Version notes plain view](/assets/images/sdk/filtered-view-version-notes.png)
+*Version table when only those with version notes are chosen*
+
+Right before you release a specific version of a connector, you'll also be shown a popup to remind you to include any important notes before release. This provides a simple and quick reminder to include what you might have changed or added in this released version. This popup is optional and may be submitted without notes if you choose to do so.
+
+![Version notes plain view](/assets/images/sdk/modal-popup-version-notes.png)
+*When releasing versions, let people know what you're doing. Whether it's testing changes you made to the front end of your connector or introducing new functionality*
+
 ## Using the debugger console
 Below the code editor on the "Source code" tab, you'll see our debugger console which allows you to test various portions of your custom connector before releasing it. This debugger console allows you to run tests on the latest version of your custom connector code.
 
@@ -133,7 +149,7 @@ Besides the input and outputs of the action or trigger, you'll also be able to s
 ![Console tab with error](/assets/images/sdk/debugger-error-loc.png)
 *Error messages also provide a basic stack trace that allows you to find out the line of codes involved*
 
-In the event of unsuccessful tests, the debugger console would feature red accents and also feature an additional tab called `error`. In this tab, you would be able to see the error message raised due to the logic error as well as the exact line of code that cause our framework to raise this error. In the event that the line of code was raised in a block other than the `execute:` block, we also provide a trace of the lines of code called that lead up to the final error. 
+In the event of unsuccessful tests, the debugger console would feature red accents and also feature an additional tab called `error`. In this tab, you would be able to see the error message raised due to the logic error as well as the exact line of code that cause our framework to raise this error. In the event that the line of code was raised in a block other than the `execute:` block, we also provide a trace of the lines of code called that lead up to the final error.
 
 ## Sharing your connector
 After you've built and released a version of your connector, you'll be able to share it with other Workato users using your share link located in the "Settings" tab. When a user clicks on your share link, they'll be brought to an install page where they can view information about the latest released version of your connector including descriptions, source code and the actions and triggers present.
@@ -144,7 +160,10 @@ After you've built and released a version of your connector, you'll be able to s
 ![Install page](/assets/images/sdk/install-page.png)
 *Install page for custom connector*
 
-When users have reviewed your custom connector, they can choose to install it by clicking the "Install this connector" button in the top right corner. This will create an identical copy of this latest version in their own Workato account labeled as version 1.
+When users have reviewed your custom connector, they can choose to install it by clicking the "Install this connector" button in the top right corner. This will create an identical copy of this latest version in their own Workato account labeled as version 1. Users that install your connector will also have the notes attached to your latest version copied into their first version. Use version notes as a great way to let them know more about your connector.
+
+![First version of cloned connector with notes from parent](/assets/images/sdk/share-connector-new-version-notes.png)
+*Installed connector with latest version notes. Milestone note lets user know what to expect.*
 
 ### Sharing newly released versions with others who have previously cloned your connector
 The relationship between the original parent connector and its child cloned connector is still maintained. When a new version is released in the parent connector, each child connector receives a notification that an update is available.
@@ -154,11 +173,16 @@ The relationship between the original parent connector and its child cloned conn
 
 When a child custom connector is updated, a new latest version is created. This version is identical to the latest released version of the parent connector. At this stage, you'll be able to view the source code, the new actions or triggers and decide whether you'd like to release this new version to your recipes. In cases where you felt this update was unnecessary, you'd be able to revert to a previous version in the same way you would restore an old version.
 
+When users who cloned your connector update, they'll also receive any notes attached to the version you released. This presents a great way to pass important information about what has changed to help users decide whether they want to update.
+
+![Install page](/assets/images/sdk/share-connector-updated-version-notes.png)
+*Notification shows up when there is an update for your child connector*
+
 ## Exporting packages with custom connectors
 [Recipe lifecycle management](/recipe-development-lifecycle.md) is a tool used to export and import entire folders of recipes from a sandbox environment to a production environment in Workato. Often, recipes that you want to export from one account and import into another contain custom connectors that you have built or cloned. When exporting these recipes, Workato helps to export any custom connectors in the manifests as well.
 
 ### Exporting a manifest
-When exporting a manifest, the **latest released version** of your custom connector that is used in recipes is exported as well. [Find out more about exporting here](/recipe-development-lifecycle/export.md).
+When exporting a manifest, the **latest released version** and the attached version notes of your custom connector that is used in recipes is exported as well. [Find out more about exporting here](/recipe-development-lifecycle/export.md).
 
 ### Importing a manifest
 When importing a manifest, Workato first checks to see if you have an existing copy of the custom connector. If no existing copy is found, a new one is created with the latest released version as version 1. If an existing copy is found, a new latest version is created instead. In both cases, importing a manifest will immediately release the latest version of the custom connector for you since the recipes you are importing will be using that latest version. [Find out more about importing here](/recipe-development-lifecycle/import.md).
@@ -199,6 +223,9 @@ Our version history table gives you insight into the actions and triggers presen
 We are currently working on improving the coding experience further on the SDK platform to include the ability to run a variety of automated tests on different versions of your custom connector.
 
 In the meantime, a valid workaround would be to create a dummy custom connector that hosts the same code as the latest stable version. You may introduce improvements to this dummy custom connector and test it separately with dedicated recipes. We would suggest testing this new version on copies of both existing recipes that use the custom connector and new recipes to ensure there are no regressions.
+
+##### 8. Is there a set way that I should use version notes?
+Version notes are mean't to be simple and easy ways to communicate information to others in your Workspace as well as to those who you have shared your connector with. As such, we have made it free form enough that you may be able to use it as you see fit. Do think about what best practices work best for you! In the future we plan to introduce additional features that help you build a changelog around your connector. It is recommended that you also update the description of your connector each time you reach a new milestone such as new actions or triggers.
 
 ## Building your custom connector
 Now that you're familiar with the platform, its time for you to build your custom connector! Check out our articles on the SDK conceptual model to get you going. [Learn more](/developing-connectors/sdk/SDK-conceptual-model.md).
