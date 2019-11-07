@@ -5,7 +5,28 @@ isTocVisible: true
 ---
 
 # On-prem Agent logs
-The on-prem agent contains code to log various types of events. The log file will contain OPA activity, errors, warnings and traces. The log file is useful for many scenarios; The most common one is troubleshooting.
+The on-prem agent (OPA) contains code to log various types of events. The log file will contain OPA activity, errors, warnings and traces. The log file is useful for many scenarios; it is most commonly used for troubleshooting.
+
+## Logging schedule
+The OPA logger will create a new log file at the start of each day (according to the on-premise system time). It will also create a new log file once the file size exceeds 20MB. The multiple log files in a single day will be numbered in sequence to identify them.
+
+| Scenario 1 | Scenario 2 |
+| ---------- | ---------- |
+| 01-NOV-2019 | 02-NOV-2019 |
+| Total file size: 15MB | Total file size: 25MB |
+| `/agent-2019-11-01.0.log`<br>A log file is created at the start of the day. | `/agent-2019-11-02.0.log`<br>A log file is created at the start of the day. The first 20MB will be stored in this file.<br><br>`/agent-2019-11-02.1.log`<br>Another log file will be created and contains the remaining 5MB. |
+
+You can access the OPA log files in the agent folder. The OPA will only retain the most recent 60 files, or at most 20GB of files. 
+
+### OPA log properties
+OPA logs contain the following properties:
+
+| OPA log property | Description                                                                               |
+| ---------------- | ----------------------------------------------------------------------------------------- |
+| Date             | Each log file is dated to improve locating the right file.                                |
+| Numbered logs    | If there are multiple log files in a single day, they will be numbered in sequence.       |
+| File size limit  | The logger enforces a 20MB size limit to make it easier to query the file content.        |
+| Storage limit    | The folder limit reduces the storage load on the server.                                  |
 
 ## Logging OPA activity
 At the top level of your `config.yml` file, add the `logging` definition to record the various level of activity logs.
