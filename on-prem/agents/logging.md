@@ -14,7 +14,7 @@ The OPA logger will create a new log file at the start of each day (according to
 | ---------- | ---------- |
 | 01-NOV-2019 | 02-NOV-2019 |
 | Total file size: 15MB | Total file size: 25MB |
-| `/agent-2019-11-01-1.0.log`<br>A log file is created at the start of the day. | `/agent-2019-11-02.0.log`<br>A log file is created at the start of the day. The first 20MB will be stored in this file.<br><br>`/agent-2019-11-02.1.log`<br>Another log file will be created and contains the remaining 5MB. |
+| `/agent-2019-11-01.0.log`<br>A log file is created at the start of the day. | `/agent-2019-11-02.0.log`<br>A log file is created at the start of the day. The first 20MB will be stored in this file.<br><br>`/agent-2019-11-02.1.log`<br>Another log file will be created and contains the remaining 5MB. |
 
 You can access the OPA log files in the agent folder. The OPA will only retain the most recent 60 files, or at most 20GB of files. 
 
