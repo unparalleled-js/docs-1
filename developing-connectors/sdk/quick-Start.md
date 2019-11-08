@@ -171,9 +171,7 @@ The relationship between the original parent connector and its child cloned conn
 ![Install page](/assets/images/sdk/update-notification.png)
 *Notification shows up when there is an update for your child connector*
 
-When a child custom connector is updated, a new latest version is created. This version is identical to the latest released version of the parent connector. At this stage, you'll be able to view the source code, the new actions or triggers and decide whether you'd like to release this new version to your recipes. In cases where you felt this update was unnecessary, you'd be able to revert to a previous version in the same way you would restore an old version.
-
-When users who cloned your connector update, they'll also receive any notes attached to the version you released. This presents a great way to pass important information about what has changed to help users decide whether they want to update.
+When a child custom connector is updated, a new latest version is created. This version is identical to the latest released version of the parent connector. At this stage, you'll be able to view the source code, the new actions or triggers and decide whether you'd like to release this new version to your recipes. In cases where you felt this update was unnecessary, you'd be able to revert to a previous version in the same way you would restore an old version. These child custom connectors will also receive any notes attached to the version you released. This presents a great way to pass important information about what has changed to help users decide whether they want to update.
 
 ![Install page](/assets/images/sdk/share-connector-updated-version-notes.png)
 *Notification shows up when there is an update for your child connector*
@@ -225,7 +223,7 @@ We are currently working on improving the coding experience further on the SDK p
 In the meantime, a valid workaround would be to create a dummy custom connector that hosts the same code as the latest stable version. You may introduce improvements to this dummy custom connector and test it separately with dedicated recipes. We would suggest testing this new version on copies of both existing recipes that use the custom connector and new recipes to ensure there are no regressions.
 
 ##### 8. Is there a set way that I should use version notes?
-Version notes are meant to be simple and easy ways to communicate information to others in your Workspace as well as to those who you have shared your connector with. As such, we have made it free form enough that you may be able to use it as you see fit. Do think about what best practices work best for you! In the future, we plan to introduce additional features that help you build a changelog around your connector. It is recommended that you also update the description of your connector each time you reach a new milestone such as new actions or triggers.
+Version notes are meant to be simple ways to communicate information to others in your Workspace as well as to those whom you have shared your connector with. As such, we have made it free-form enough that you may be able to use it as you see fit. Do think about what best practices work best for you! In the future, we plan to introduce additional features that help you build a changelog around your connector. We recommended updating the description of your connector each time you reach a new milestone, such as new actions or triggers.
 
 ## Building your custom connector
 Now that you're familiar with the platform, its time for you to build your custom connector! Check out our articles on the SDK conceptual model to get you going. [Learn more](/developing-connectors/sdk/SDK-conceptual-model.md).
