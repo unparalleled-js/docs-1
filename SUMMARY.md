@@ -267,7 +267,7 @@
     * [New file trigger](connectors/s3/trigger-new-file.md)
     * [Upload file action](connectors/s3/action-upload-file.md)
     * [Download file action](connectors/s3/action-download-file.md)
-    * [List files action](connectors/s3/action-list-file.md)
+    * [List files action](connectors/s3/action-list-files.md)
     * [Rename file action](connectors/s3/action-rename-file.md)
     * [Move file action](connectors/s3/action-move-file.md)
     * [Delete file action](connectors/s3/action-delete-file.md)
