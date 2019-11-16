@@ -8,7 +8,7 @@ date: 2019-11-14 06:10:00 Z
 BigQuery is a great tool to power data analytics for teams. Workato can supplement these efforts by allowing teams to set up data pipelines into BigQuery. Below, we go through an example of how you can use BigQuery in Workato to power your lead scoring and attribution efforts.
 
 ## Use case: Lead scoring in BigQuery creates leads in Salesforce
-With various marketing channels available, marketing and sales teams need to ensure that their efforts are aligned by ensuring the most appropriate leads are surfaced to sales to drive conversion. 
+With various marketing channels available, marketing and sales teams need to ensure that their efforts are aligned by ensuring the most appropriate leads are surfaced to sales to drive conversion.
 
 ### Integration flow
 ![Lead scoring flow](/assets/images/bigquery/integration-use-case.png)
@@ -37,5 +37,15 @@ We always suggest writing this data into another table in BigQuery. This table w
 
 For example, lead data from Marketo can be joined with data from EventBrite to understand how many events this particular lead has attended. If a positive correlation can be made between conversion rates of leads from Marketo and the number of events they attended on EventBrite, this could be an important factor that influences contact scoring.
 
-### Step 4: Using the results of queries to empower sales teams
+![Query is run every interval](/assets/images/bigquery/recipe-3.png)
+
+In the recipe above, it has been set up to query data in existing tables in BigQuery every 30 minutes. This processed lead data would then be written into a new BigQuery table.
+
+### Step 4: Sending processed lead data into Salesforce
 After this data is written into a table in BigQuery, our `New Rows` batch trigger in Workato can pick these new records up and send them into a downstream CRM tool like Salesforce.
+
+> When setting up your table with processed leads, creating a composite key that is distinct in the table is required to make sure the `New Rows` batch trigger works properly. In the context of leads, a distinct composite key could be created from a lead's email as well as the latest updated_at timestamp.
+
+![New rows in BigQuery send leads in batches to Salesforce](/assets/images/bigquery/recipe-4.png)
+
+In the recipe above, new processed leads in BigQuery can be sent over to Salesforce in batches. The `New Rows` batch trigger in BigQuery polls for new rows every 5 minutes and ensures that a steady stream of leads is supplied to Salesforce.
