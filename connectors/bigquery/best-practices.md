@@ -15,7 +15,7 @@ With various marketing channels available, marketing and sales teams need to ens
 *Lead data from Marketing channels into databases and warehouses before entering CRM apps*
 
 ### Step 1: Extracting lead data from Marketing applications
-Workato makes it easy for marketers of any technical level to extract lead data and pump them directly into databases. This practice is great for backing up your marketing data in real time and also performing as potential data enrichment such as running your lead data through Clearbit.
+Workato makes it easy for marketers of any technical level to extract lead data and pump them directly into databases. This practice is great for backing up your marketing data in real time and also performing any potential data enrichment such as running your lead data through Clearbit.
 
 ![Back up data from EventBrite to SQL server](/assets/images/bigquery/recipe-1.png)
 
