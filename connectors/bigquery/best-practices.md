@@ -15,23 +15,23 @@ With various marketing channels available, marketing and sales teams need to ens
 *Lead data from Marketing channels into databases and warehouses before entering CRM apps*
 
 ### Step 1: Extracting lead data from Marketing applications
-Workato makes it easy for marketers of any technical level to extract lead data and pump them directly into databases. This practice is great for backing up your marketing data in real time and also performing any potential data enrichment such as running your lead data through Clearbit.
+Workato makes it easy for marketers of any technical level to extract lead data and pump them directly into databases. This practice is great for backing up your marketing data in real-time and also performing any potential data enrichment such as running your lead data through Clearbit.
 
 ![Back up data from EventBrite to SQL server](/assets/images/bigquery/recipe-1.png)
 
-In the recipe above, new event attendees in EventBrite are sent over to SQL server to be backed up. In cases where data is incomplete from EventBrite, contact data can be enriched by ClearBit before being sent over.
+In the recipe above, new event attendees in EventBrite are sent over to Microsoft SQL Server to be backed up. In cases where data is incomplete from EventBrite, contact data can be enriched by ClearBit before being sent over.
 
-### Step 2: Extracting data from database into BigQuery
-After backing up lead data in SQL server, this data can then be sent over to BigQuery.
+### Step 2: Extracting data from Microsoft SQL Server into BigQuery
+After backing up lead data in SQL Server, this data can then be sent over to BigQuery.
 
 > BigQuery currently has "write" limitations of 1000 operations per table per day. Inserting lead data individually is not advised as this cause rate limits to be exceeded.
 
 ![Back up data from EventBrite to SQL server](/assets/images/bigquery/recipe-2.png)
 
-New rows in the EventBrite table in SQL server can be sent in large batches over to Google BigQuery. In our case, we've created a BigQuery table specifically for EventBrite leads.
+New rows in the EventBrite table in SQL Server can be sent in large batches over to Google BigQuery. In our case, we've created a BigQuery table specifically for EventBrite leads.
 
 ### Step 3: Performing analytics on lead data
-As data from leads from various marketing channels into BigQuery, a recipe can be set up to perform periodic queries on this data. These queries can often be used to cross reference lead touchpoints across various platforms and channels. As data scientists find trends in correlation between conversion and touchpoints across various channels, this can be used to create queries that power your lead scoring capabilities directly in BigQuery.
+As data from leads from various marketing channels into BigQuery, a recipe can be set up to perform periodic queries on this data. These queries can often be used to cross-reference lead touchpoints across various platforms and channels. As data scientists find correlations between conversion and touchpoints across various channels, this can be used to create queries that power your lead scoring capabilities directly in BigQuery.
 
 We always suggest writing this data into another table in BigQuery. This table would have all the data needed for downstream CRM tools that can ingest this data.
 
