@@ -4,7 +4,7 @@ date: 2018-05-24 14:00:00 Z
 ---
 
 # Custom actions
-Want to build actions for a connector that Workato already supports? Custom actions enable you to use the existing connector framework to build new actions, instead of building something from scratch via the [HTTP universal connector](/developing-connectors/http.md) or the [SDK](/developing-connectors/sdk.md). Custom actions allow you to easily build your action by telling Workato what the action's request and response should look like. This can be obtained from the API documentation.
+Want to build actions for a connector that Workato already supports? Custom actions enable you to use the existing connector framework to build new actions, instead of building something from scratch via the [HTTP universal connector](/developing-connectors/http-v2.md) or the [SDK](/developing-connectors/sdk.md). Custom actions allow you to easily build your action by telling Workato what the action's request and response should look like. This can be obtained from the API documentation.
 
 Building a custom action is an accelerated way of building an action via the HTTP connector, as the custom action utilizes the connector's existing authorization framework and already understands the API for that app.
 
