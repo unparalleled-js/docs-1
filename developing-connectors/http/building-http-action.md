@@ -54,7 +54,7 @@ You can copy and paste sample request JSON from the API docs to create your samp
 
 To create a sample Eventbrite venue, we used the recommended JSON request body and added values for Madison Square Garden:
 
-```ruby
+```json
 {
   "venue": {
     "name": "Madison Square Garden",
@@ -96,7 +96,7 @@ We can choose to customize our request further by going back to Step 2 to config
 ## Final HTTP configuration
 We know that this configuration works - now it's time to replace the static values with datapills that hold dynamic values.
 
-In this example, we want each job to automatically create a new venue that had been created in Salesforce - not to create multiple instances of "Madison Square Garden"! .
+In this example, we want each job to automatically create a new venue that had been created in Salesforce - not to create multiple instances of "Madison Square Garden"!
 
 You should do the same for any values that should be dynamic instead of static.
 

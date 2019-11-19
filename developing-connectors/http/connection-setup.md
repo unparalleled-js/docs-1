@@ -120,11 +120,11 @@ From the documentation page, we can obtain 2 of the required fields for our conn
 But as Workato will handle the client key, the following is what's needed in the input field to connect.
 
 Eventbrite authorization URL:
-```ruby
+```
 https://www.eventbrite.com/oauth/authorize?response_type=code
 ```
 Eventbrite access token URL:
-```ruby
+```
 https://www.eventbrite.com/oauth/token
 ```
 
