@@ -14,7 +14,7 @@ This applies only to connectors that use OAuth2 authentication. These connectors
 
 #### Use custom clients with Workato's connected apps
 
-To use a custom client, you will need to create a custom connector. Use your custom client credentials with the [HTTP universal connector](/developing-connectors/http.md) or the [SDK](/developing-connectors/sdk.md). This way, you can make use of the additional scopes from your custom client together with all the other connectors on Workato's platform.
+To use a custom client, you will need to create a custom connector. Use your custom client credentials with the [HTTP universal connector](/developing-connectors/http-v2.md) or the [SDK](/developing-connectors/sdk.md). This way, you can make use of the additional scopes from your custom client together with all the other connectors on Workato's platform.
 
 ## Callback URL
 

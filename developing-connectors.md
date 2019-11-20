@@ -23,7 +23,7 @@ If you want to connect to a proprietary app developed in-house or a self-hosted 
 Documentation on the databases can be found under the [connectors section](/connectors.md).
 
 ## Workato connector extensions
-You can build your own triggers, actions and connectors on Workato via custom actions, the [HTTP universal connector](/developing-connectors/http.md) or the [SDK](/developing-connectors/sdk.md). Here's a flowchart to guide you on the best framework to use.
+You can build your own triggers, actions and connectors on Workato via custom actions, the [HTTP universal connector](/developing-connectors/http-v2.md) or the [SDK](/developing-connectors/sdk.md). Here's a flowchart to guide you on the best framework to use.
 
 ![Flowchart to decide what framework to use](/assets/images/developing-connectors/connector-dev-flowchart.png)
 *Flowchart to decide what framework to use*
@@ -32,7 +32,7 @@ You can build your own triggers, actions and connectors on Workato via custom ac
 [Custom actions](/developing-connectors/custom-actions.md) allow you to build an action on top of an existing Workato connector. This allows you to focus on the HTTP request and response, and the Workato connector handles the authorization flow.
 
 ### HTTP universal connector
-The [HTTP connector](/developing-connectors/http.md) allows you to work with any API that supports HTTP connectivity. The HTTP connector works with a variety of auth models, content types, and HTTP methods.
+The [HTTP connector](/developing-connectors/http-v2.md) allows you to work with any API that supports HTTP connectivity. The HTTP connector works with a variety of auth models, content types, and HTTP methods.
 
 ### Connector SDK
 The [connector SDK](/developing-connectors/sdk.md) is a developer framework for developing a connector. You can choose to share the connectors you build with other Workato users, or submit your code via the Developers Program to make your connector public to all Workato users.
