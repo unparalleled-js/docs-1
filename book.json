@@ -13,7 +13,8 @@
   "variables": {
     "shareablePages": [
       "oem/embedded-connections.md",
-      "oem/jwt-direct-linking.md"
+      "oem/jwt-direct-linking.md",
+      "oem/customer-managers.md"
     ]
   },
   "pluginsConfig": {
