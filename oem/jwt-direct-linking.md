@@ -13,7 +13,7 @@ A Workato session for the user is created before providing access to the secure 
 ## Account structure
 
 Typically the account structure for OEM partners and their customers will be as follows:
-![OEM team structure](/assets/images/connectors/oem/oem-account-heirarchy.png)
+![OEM team structure](/assets/images/oem/jwt-account-heirarchy.png)
 *OEM account hierarchy*
 
 ## Required information
