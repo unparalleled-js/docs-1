@@ -19,14 +19,14 @@ Customer managers should be trusted team members that have permissions to view d
 To add a customer manager, first consider the following:
 
 - Ensure this person is a collaborator in the OEM team. They can be invited in the [Teams page](https://www.workato.com/members).
-- Decide the [role](/user-accounts-and-teams/team-collaboration.md#team-roles) they should have within all customer teams. This defines their access to customer recipes, jobs and features
+- Decide the [role](/user-accounts-and-teams/team-collaboration.md#team-roles) they should have within all customer teams. This defines their access to customer recipes, jobs and features.
 
 In the 'Customer managers' tab on the OEM admin console, add a customer manager by clicking on the **+ Add customer manager** button on the top right of the table.
 
 ![Customer managers](/assets/images/oem/customer-manager.png)
 *Customer manager table*
 
-In the next dialog, add the collaborator you wish to make a customer manager and select the role from the current available list of system and [inheritable roles](/oem/inheritable-roles.md).
+In the next dialog, add the collaborator you wish to make a customer manager and select the role from the current available list of system and inheritable roles.
 
 ![Customer managers](/assets/images/oem/customer-manager-add.png)
 *Add a customer manager*
