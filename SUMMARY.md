@@ -763,3 +763,4 @@
 * [Contact us](contact-us.md)
 * [Embedded Connections](oem/embedded-connections.md)
 * [JWT Direct Linking](oem/jwt-direct-linking.md)
+* [Customer managers](oem/customer-managers.md)
