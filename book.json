@@ -34,6 +34,9 @@
       "shortcut": "/assets/images/favicon/favicon.ico",
       "bookmark": "/assets/images/favicon/favicon.ico",
       "appleTouch": "/assets/images/favicon/android-chrome-36x36.png"
+    },
+    "lunr": {
+      "maxIndexSize": 3000000
     }
   }
 }
