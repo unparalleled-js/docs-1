@@ -38,4 +38,4 @@ If your organization has strict outbound traffic rules, you should whitelist the
 - **52.206.58.244** (Deprecated on 28 March 2018)
 
 #### General (browsers, API endpoints)
-All other traffic to Workato may be served by a different set of IP addresses, distinct from IP addresses mentioned in the previous sections. This set may expand and contract based on overall platform utilization, so it is not completely static. It is recommended to contact Workato support if you have to whitelist the IP addresses of  servers that respond to browser based user interaction at workato.com or the API management platform at apim.workato.com.
+All other traffic to Workato may be served by a different set of IP addresses, distinct from IP addresses mentioned in the previous sections. This set may expand and contract based on overall platform utilization, so it is not completely static. It is recommended to contact Workato support if you have to whitelist the IP addresses of  servers that respond to browser based user interaction at `www.workato.com` or the API management platform at `apim.workato.com`.
