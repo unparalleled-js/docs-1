@@ -25,7 +25,9 @@ TO 'integrationuser'@'52.5.142.59',
 'integrationuser'@'52.54.43.157';
 ```
 
-### Traffic from on-premise agent
+### Traffic to Workato
+
+#### On-premise agent
 Workato's [on-premise agent](on-prem.md) provides a secure way for Workato to selectively access customer-authorized on-prem apps, databases and folders without having to open inbound ‘ports’ in the corporate firewall. The on-premise agent makes an outbound connection to Workato via an on-premise gateway.
 
 If your organization has strict outbound traffic rules, you should whitelist the on-premise gateway IP address:
@@ -34,3 +36,11 @@ If your organization has strict outbound traffic rules, you should whitelist the
 - **34.195.128.7**
 - **34.226.84.130**
 - **52.206.58.244** (Deprecated on 28 March 2018)
+
+#### General (browsers, webhooks, API endpoints)
+All other traffic to Workato:
+
+- Browser based user interaction and webhooks at `www.workato.com`
+- API endpoint requests at `apim.workato.com`
+
+may be served by a different set of IP addresses, distinct from IP addresses mentioned in the previous sections. This set may expand and contract based on overall platform utilization, so it is not completely static.
