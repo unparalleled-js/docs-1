@@ -40,7 +40,7 @@ If your organization has strict outbound traffic rules, you should whitelist the
 #### General (browsers, webhooks, API endpoints)
 All other traffic to Workato:
 
-- Browser based user interaction at `www.workato.com`
+- Browser based user interaction and webhooks at `www.workato.com`
 - API endpoint requests at `apim.workato.com`
 
 may be served by a different set of IP addresses, distinct from IP addresses mentioned in the previous sections. This set may expand and contract based on overall platform utilization, so it is not completely static.
