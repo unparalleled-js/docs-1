@@ -241,6 +241,7 @@
   * [Workbot actions](/workbot-for-teams/workbot-actions.md)
   * [Workbot buttons task modules & pick lists](/workbot-for-teams/buttons-choices-task-modules.md)
 * [Workbot for Workplace](/workbot-for-workplace/workbot.md)
+  * [Getting started](/workbot-for-workplace/getting-started.md)
   * [Using Workbot for Workplace](/workbot-for-workplace/using-workbot-for-workplace.md)
   * [Workbot triggers](/workbot-for-workplace/workbot-triggers.md)
   * [Workbot actions](/workbot-for-workplace/workbot-actions.md)
