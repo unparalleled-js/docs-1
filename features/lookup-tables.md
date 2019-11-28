@@ -29,6 +29,12 @@ There are three ways to upload data into your lookup tables:
 - [Add new entries manually](#adding-new-entries-manually)
 - [Add new entries via a recipe](#adding-new-entries-via-a-recipe)
 
+### Limits
+Each lookup table supports up to 10 columns of data and a maximum of 10,000 entries per lookup table.
+
+![Maximum of 10 data columns available](/assets/images/features/lookup-tables/lookup-tables-4.png)
+*Maximum of 10 data columns available*
+
 ### Importing an existing CSV file
 The GIF below walks you through the process of creating a lookup table and loading it with data imported from a CSV file.
 
@@ -131,9 +137,3 @@ lookup(Entries, "Salesforce account ID": datapill)["Intacct account ID"]
 *Lookup an in-memory table*
 
 Like the example before this, the formula will lookup the **Intacct account ID** of the first entry in the **Account IDs** table that matches any given **Salesforce account ID**. This time, however, it will lookup entries much quicker and only from the reduced list of entries from the initial search.
-
-## Limits
-Each lookup table supports up to 5 columns of data and a maximum of 10,000 entries per lookup table.
-
-![Maximum of 5 data columns available](/assets/images/features/lookup-tables/lookup-tables-4.png)
-*Maximum of 5 data columns available*

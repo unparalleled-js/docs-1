@@ -40,7 +40,7 @@ GET /api/recipes/:id
 #### Sample request
 
 ```shell
-curl  -X GET https://workato.com/api/recipes/<recipe_id> \
+curl  -X GET https://www.www.workato.com/api/recipes/<recipe_id> \
       -H 'x-user-email: <email>' \
       -H 'x-user-token: <token>'
 ```
@@ -110,7 +110,7 @@ POST /api/recipes
 #### Sample request
 
 ```shell
-curl  -X POST https://workato.com/api/recipes \
+curl  -X POST https://www.workato.com/api/recipes \
       -H 'x-user-email: <email>' \
       -H 'x-user-token: <token>' \
       -H 'Content-Type: application/json' \
@@ -160,7 +160,7 @@ PUT /api/recipes/:id
 #### Sample request
 
 ```shell
-curl  -X PUT https://workato.com/api/recipes/<recipe_id> \
+curl  -X PUT https://www.workato.com/api/recipes/<recipe_id> \
       -H 'x-user-email: <email>' \
       -H 'x-user-token: <token>' \
       -H 'Content-Type: application/json' \
@@ -216,7 +216,7 @@ GET /api/recipes
 #### Sample request
 
 ```shell
-curl  -X GET https://workato.com/api/recipes/?adapter_names_any=custom_adapter&custom_adapter1 \
+curl  -X GET https://www.workato.com/api/recipes/?adapter_names_any=custom_adapter&custom_adapter1 \
       -H 'x-user-email: <email>' \
       -H 'x-user-token: <token>'
 ```
@@ -286,7 +286,7 @@ GET /api/recipes/search
 #### Sample request
 
 ```shell
-curl  -X GET https://workato.com/api/recipes/search?per_page=1 \
+curl  -X GET https://www.workato.com/api/recipes/search?per_page=1 \
       -H 'x-user-email: <email>' \
       -H 'x-user-token: <token>' \
       -H 'Content-Type: application/json' \
@@ -340,7 +340,7 @@ PUT /api/recipes/:id/start
 #### Sample request
 
 ```shell
-curl  -X PUT https://workato.com/api/recipes/<recipe_id>/start \
+curl  -X PUT https://www.workato.com/api/recipes/<recipe_id>/start \
       -H 'x-user-email: <email>' \
       -H 'x-user-token: <token>'
 ```
@@ -372,7 +372,7 @@ PUT /api/recipes/:id/stop
 #### Sample request
 
 ```shell
-curl  -X PUT https://workato.com/api/recipes/<recipe_id>/stop \
+curl  -X PUT https://www.workato.com/api/recipes/<recipe_id>/stop \
       -H 'x-user-email: <email>' \
       -H 'x-user-token: <token>'
 ```
@@ -404,7 +404,7 @@ DELETE /api/recipes/:id
 #### Sample request
 
 ```shell
-curl  -X DELETE https://workato.com/api/recipes/<recipe_id> \
+curl  -X DELETE https://www.workato.com/api/recipes/<recipe_id> \
       -H 'x-user-email: <email>' \
       -H 'x-user-token: <token>'
 ```

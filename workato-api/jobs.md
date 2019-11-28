@@ -31,7 +31,7 @@ GET /api/recipes/:id/jobs
 #### Sample request
 
 ```shell
-curl  -X GET http://workato.com/api/recipes/<recipe_id>/jobs?status=failed \
+curl  -X GET http://www.workato.com/api/recipes/<recipe_id>/jobs?status=failed \
       -H 'x-user-email: <email>' \
       -H 'x-user-token: <token>'
 ```

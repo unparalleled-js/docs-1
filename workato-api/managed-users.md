@@ -44,7 +44,7 @@ POST /api/managed_users
 #### Sample request
 
 ```shell
-curl  -X POST http://workato.com/api/managed_users \
+curl  -X POST http://www.workato.com/api/managed_users \
       -H 'x-user-email: <email>' \
       -H 'x-user-token: <token>' \
       -H 'Content-Type: application/json' \
@@ -84,7 +84,7 @@ GET /api/managed_users/:id
 #### Sample request
 
 ```shell
-curl  -X GET http://workato.com/api/managed_users/<account_id> \
+curl  -X GET http://www.workato.com/api/managed_users/<account_id> \
       -H 'x-user-email: <email>' \
       -H 'x-user-token: <token>'
 ```
@@ -132,7 +132,7 @@ PUT /api/managed_users/:id/upgrade
 #### Sample request
 
 ```shell
-curl  -X PUT http://workato.com/api/managed_users/<account_id>/upgrade \
+curl  -X PUT http://www.workato.com/api/managed_users/<account_id>/upgrade \
       -H 'x-user-email: <email>' \
       -H 'x-user-token: <token>' \
       -H 'Content-Type: application/json' \
@@ -170,7 +170,7 @@ PUT /api/managed_users/:id/downgrade
 #### Sample request
 
 ```shell
-curl  -X PUT http://workato.com/api/managed_users/<account_id>/downgrade \
+curl  -X PUT http://www.workato.com/api/managed_users/<account_id>/downgrade \
       -H 'x-user-email: <email>' \
       -H 'x-user-token: <token>'
 ```
@@ -215,7 +215,7 @@ POST /api/managed_users/:id/member
 #### Sample request
 
 ```shell
-curl  -X POST http://workato.com/api/managed_users/<account_id>/member \
+curl  -X POST http://www.workato.com/api/managed_users/<account_id>/member \
       -H 'x-user-email: <email>' \
       -H 'x-user-token: <token>' \
       -H 'Content-Type: application/json' \
@@ -265,7 +265,7 @@ DELETE /api/managed_users/:id/member
 #### Sample request
 
 ```shell
-curl  -X DELETE http://workato.com/api/managed_users/<account_id>/member \
+curl  -X DELETE http://www.workato.com/api/managed_users/<account_id>/member \
       -H 'x-user-email: <email>' \
       -H 'x-user-token: <token>' \
       -H 'Content-Type: application/json' \
@@ -301,7 +301,7 @@ GET /api/managed_users/:id/connections
 #### Sample request
 
 ```shell
-curl  -X GET http://workato.com/api/managed_users/<account_id>/connections \
+curl  -X GET http://www.workato.com/api/managed_users/<account_id>/connections \
       -H 'x-user-email: <email>' \
       -H 'x-user-token: <token>'
 ```
