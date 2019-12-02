@@ -40,7 +40,7 @@ GET /api/recipes/:id
 #### Sample request
 
 ```shell
-curl  -X GET https://www.www.workato.com/api/recipes/<recipe_id> \
+curl  -X GET https://www.workato.com/api/recipes/<recipe_id> \
       -H 'x-user-email: <email>' \
       -H 'x-user-token: <token>'
 ```
