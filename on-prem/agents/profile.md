@@ -419,6 +419,26 @@ jms:
 
 ActiveMQ broker cannot be embedded into the agent. Using any `vm://` broker connections is not supported.
 
+### Azure Service Bus
+You will need the following configuration properties when connecting to Azure Service Bus:
+```YAML
+jms:
+  azureServiceBus:
+    provider: custom
+    class: org.apache.qpid.jms.JmsConnectionFactory
+    remoteURI: amqps://<host-name>.servicebus.windows.net
+    username: <policy-name>
+    password: "<primary-key>"
+```
+
+Download jar files from [here](https://jar-download.com/artifacts/org.apache.qpid/qpid-jms-client/0.29.0/source-code) and extract it inside *_lib_ext_* folder.
+
+Add the classpath inside the config.yml file. 
+```YAML
+server:
+ classpath: /<path-of-the-agent>/workato-agent/lib_ext
+```
+
 ## Apache Kafka profile
 Kafka connection profiles must be defined in the `kafka` section. You need the following configuration properties when connecting to Kafka:
 ```YAML
