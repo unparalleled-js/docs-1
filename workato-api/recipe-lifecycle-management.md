@@ -38,7 +38,7 @@ This is an asynchronous request. Use [GET package by ID](#get-package-by-id) end
 #### Sample request
 
 ```shell
-curl  -X POST https://workato.com/api/packages/export/<manifest_id> \
+curl  -X POST https://www.workato.com/api/packages/export/<manifest_id> \
       -H 'x-user-email: <email>' \
       -H 'x-user-token: <token>'
 ```
@@ -79,7 +79,7 @@ The input (zip file) is a “application/octet-stream” payload containing pack
 #### Sample request
 
 ```shell
-curl  -X POST https://workato.com/api/packages/import/<folder_id>?restart_recipes=true \
+curl  -X POST https://www.workato.com/api/packages/import/<folder_id>?restart_recipes=true \
       -H 'x-user-email: <email>' \
       -H 'x-user-token: <token>' \
       -H 'Content-Type: application/octet-steam' \
@@ -116,7 +116,7 @@ GET /api/packages/:id
 #### Sample request
 
 ```shell
-curl  -X GET https://workato.com/api/packages/<package_id> \
+curl  -X GET https://www.workato.com/api/packages/<package_id> \
       -H 'x-user-email: <email>' \
       -H 'x-user-token: <token>'
 ```
@@ -167,7 +167,7 @@ GET /api/packages/:id/download
 #### Sample request
 
 ```shell
-curl  -X GET https://workato.com/api/packages/<package_id>/download \
+curl  -X GET https://www.workato.com/api/packages/<package_id>/download \
       -H 'x-user-email: <email>' \
       -H 'x-user-token: <token>'
 ```

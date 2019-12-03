@@ -19,7 +19,7 @@ GET /api/connections
 #### Sample request
 
 ```shell
-curl  -X GET http://workato.com/api/connections \
+curl  -X GET http://www.workato.com/api/connections \
       -H 'x-user-email: <email>' \
       -H 'x-user-token: <token>'
 ```

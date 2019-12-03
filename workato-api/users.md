@@ -17,7 +17,7 @@ GET /api/users/me
 #### Sample request
 
 ```shell
-curl  -X GET https://workato.com/api/users/me \
+curl  -X GET https://www.workato.com/api/users/me \
       -H 'x-user-email: <email>' \
       -H 'x-user-token: <token>'
 ```
