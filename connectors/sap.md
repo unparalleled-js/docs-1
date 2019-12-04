@@ -47,31 +47,35 @@ If you encounter error at any step, please review the [Troubleshooting](#trouble
 
 ### Configure IDoc and RFC in SAP
 #### Step 1: Register a Program ID for Workato in SAPGUI
-In SAP, use Transaction SM59 to create RFC Destination of type TCP/IP (type T).
+In SAP, use Transaction SM59 to create a new RFC Destination of type TCP/IP (type T). Select the `TCP/IP Connection` folder and select the `create` button.
 
-![RFC connections](/assets/images/connectors/sap/rfc-connection.png)
+![Create RFC connection](/assets/images/connectors/sap/rfc-connection-create.png)
 
-In the Technical Settings tab, select the `Registered Server Program` option and provide the PROGRAM ID name which has been decided for Workato.
+In the Technical Settings tab, select the `Registered Server Program` option and provide the PROGRAM ID name which has been decided for Workato. This should be something unique to Workato.
 
 ![RFC destination](/assets/images/connectors/sap/rfc-destination.png)
 
-The RFC Connection can be tested once the Workato On-prem Agent (OPA) has been setup ([instructions below](#configure-workato-on-prem-agent-opa-on-sap-server)).
+Save and you should see your newly created RFC destination.
+
+![RFC connections](/assets/images/connectors/sap/rfc-connection.png)
 
 #### Step 2: Define a port for Workato
 Use the transaction WE21 to define a port for sending and receiving IDocs of type `Transactional RFC`.
 
 ![IDoc ports](/assets/images/connectors/sap/idoc-ports.png)
 
-Enter your `RFC Destination` created in the previous step.
+When prompted for your port, you may either create a new port or have one generated for you. Remember to save this port as you will need it later on. Enter your `RFC Destination` created in the previous step. In this example, since we named the `RFC Destination` to "WORKATOTST", we will need to define the same in the `RFC Destination` input here.
 
 ![IDoc port for Workato](/assets/images/connectors/sap/idoc-port-workato.png)
+
+> If you have no plans to use IDocs but only RFCs, you may skip along to step 6 where we show you how to configure Workato's OPA.
 
 #### Step 3: Create Logical System for Workato
 Use Transaction SALE and define Logical System
 
 ![Display IMG](/assets/images/connectors/sap/display-img.png)
 
-Create new Logical System to interface IDocs. The name selected for Logical System will be used for Partner Profile creation in the below steps.
+Create a new Logical System to interface IDocs. The name selected for Logical System will be used for Partner Profile creation in the below steps.
 
 ![Display IMG](/assets/images/connectors/sap/logical-system.png)
 
@@ -82,9 +86,17 @@ Use Transaction WE20 to define a partner profile to send and receive the IDocs
 
 Create a partner profile of type Logical System and provide the same name as the Logical System. In this configuration, you define the `Message types` that you want to be sent and received from Workato system.
 
-Important Note: Only the `Message types` configured here will be available to use in Workato recipe.
+Outbound parameters correspond to IDocs sent from SAP to Workato whereas Inbound parameters correspond to IDocs sent from Workato to SAP.
+
+Important Note: Only the `Message types` configured here will be available to use in Workato recipes.
 
 ![Message types](/assets/images/connectors/sap/message-types.png)
+
+When prompted for the "Basic Type" of the Idoc meesage type, be sure to register all Idocs you plan to use individually. i.e. if you plan to use both `CREMAS01` and `CREMAS02` in the SAP new Idoc trigger on Workato, you will need to register `CREMAS` twice in the outbound parameters. For Idocs with extensions, be sure to enter in the extension as well.
+
+![Outbound parameters](/assets/images/connectors/sap/outbound-parameter.png)
+
+When prompted for your receiver port, provide the same port that was defined earlier on in step 2 and remember to toggle `Output Mode` to "Pass IDoc immediately".
 
 #### Step 5: Create a distribution model for the partner and message type which will be interfaced with Workato
 Use Transaction BD64 to create a Distribution Model for the IDocs which need to be interfaced with Workato system. The direction of flow for the IDocs are configured in this transaction based on the attributes Sender, Receiver and Message type.
@@ -115,6 +127,12 @@ https://support.sap.com/en/product/connectors/jco.html
 
 Once the libraries are downloaded, place them in the `lib_ext/` directory of the OPA. If the `lib_ext` directory is not already created, please create it under the root directory of the OPA.
 
+##### Windows users:
+Move your OPA's `SAPConnector.jar` file in the `lib` folder to the `lib_ext` folder.
+
+##### Mac users:
+Ensure that you have imported all relevant files into the `lib_ext` folder except the `SAPConnector.jar` file. You should have imported a total of 3 files - `libsapjco3.jnilib`, `sapjco3.jar` and `sapidoc3.jar` into your `lib_ext` folder.
+
 #### Step 8: Create SAP profile in OPA
 Follow [these instructions](https://docs.workato.com/on-prem/profile.html#sap-connection-profile) to create a SAP profile in OPA.
 
@@ -134,6 +152,20 @@ There are 2 ways to create a connection in Workato. Click on `App Connections` o
 
 ### Troubleshooting
 The followings are issues you may encounter during your setup. This list is constantly being updated. If you don't find your issue listed here, please contact Workato Support.
+
+**After clicking `Link your account` in Workato, it fails to connect**
+
+My OPA raises an error when attempting to connect to SAP. Check the logs of your OPA to know more.
+
+> java.lang.UnsatisfiedLinkError: no sapjco3 in java.library.path
+
+You may have downloaded the Java Connector for the wrong operating system. Ensure that you have downloaded and imported the correct SDK.
+
+This error also shows on Mac OS systems if you have no imported the `libsapjco3.jnilib` into the `lib_ext` folder.
+
+> Classpath entry lib/SAPConnector.jar not found, skipped.
+
+For Mac users, there is no need to move the `SAPConnector.jar` to the `lib_ext` folder. Doing so will cause errors.
 
 **After clicking `Link your account` in Workato, it fails to connect**
   This is often due to incorrect OPA configuration. Please check the SAP profile in the OPA's `config.yml` file for these errors:
