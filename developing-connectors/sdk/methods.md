@@ -911,6 +911,11 @@ today + 2.days #2016-07-15</code></pre>
       </td>
     </tr>
     <tr>
+      <td>uuid</td>
+      <td>Creates a UUID. Useful when sending strings that are unique in a request.  
+      <pre><code style="display: block; white-space: pre-wrap;">workato.uuid #c52d735a-aee4-4d44-ba1e-bcfa3734f553 => "eyJhbGciO..."</code></pre>
+    </tr>
+    <tr>
       <td>where</td>
       <td>
         Filter array by given condition
