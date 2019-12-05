@@ -1,6 +1,7 @@
 ---
 title: Activity audit log
 date: 2019-09-16 19:00:00 Z
+isTocVisible: true
 ---
 
 # Activity audit log
@@ -16,17 +17,13 @@ Activity audit provides a simple and powerful interface for Workato administrato
 * Track nature of change (for example, recipe stopped), author, and timeline
 * Quickly navigate to specific change activity using filters
 
-Activity audit is available with select plans. Check the [Pricing and Plans page](https://www.workato.com/pricing?audience=general) or reach out to Workato sales representatives at +1 (844) 469-6752 to find out more.
-
-## Viewing activity audit
+Activity audit is available as part of an add-on. Reach out to Workato sales representatives at +1 (844) 469-6752 to find out more.
 
 The activity audit log is available in the `Dashboard` > `Audit` tab. With the activity audit log, you will be able to find out which user in the team stopped a business-critical recipe or disconnected a connection. You'll also be able to find out when the recipe was stopped or connection was disconnected.
 
-Activity audit log is visible to owner of the account and the users with `Admin` role.
+Activity audit log is visible to owner of the account and the users with `Admin` role. Following documentation describes the different types of activity audit that is logged and viewable by the user.
 
-## Types of activity audit
-
-### Account
+## Account
 
 | Activity | Description |
 | ----- | -------- | ------- |
@@ -51,7 +48,7 @@ Activity audit log is visible to owner of the account and the users with `Admin`
 | Audit log streaming data inclusion | User has updated what is included in the audit log streaming by selecting or unselecting one or more of the options under `Include in stream`. The options to include in the audit log streaming are `Job history`, `Recipe step details` and `Login & user activity`. These settings are available by going to `Account Settings` > `Audit log streaming` > `Include in stream` |
 | Audit log streaming destination updated | User has updated the destination where the audit log streaming is sent to. To update audit log streaming destination, go to `Account Settings` > `Audit log streaming` > `Audit stream destination` and pick the destination from drop down |
 
-### Team
+## Team
 | Activity | Description |
 | ----- | -------- | ------- |
 | Invite created | User invites a collaborator by going to `Tools` > `Teams` and clicking on `Invite collaborator` |
@@ -64,7 +61,7 @@ Activity audit log is visible to owner of the account and the users with `Admin`
 | Role updated | User updates a custom role by going to the `Roles` tab and clicking on the edit button of the custom role from the list of custom roles|
 | Role deleted | User deletes a custom role by going to the `Roles` tab and clicking on the delete button |
 
-### Recipe
+## Recipe
 | Activity | Description |
 | ----- | -------- | ------- |
 | Started | User started a recipe by clicking on `Start recipe` button from the recipe details page |
@@ -77,7 +74,7 @@ Activity audit log is visible to owner of the account and the users with `Admin`
 | Access scope updated   | User can make a recipe private or public by toggling the `Is this a public recipe` setting found in the recipe details page under the `Settings` tab |
 | Deleted | User deletes a recipe by clicking on the `...` in the `Recipes` page > clicking `Delete recipe` from the menu  or by clicking on the `Delete` button in the recipe details page  |
 
-### Connection
+## Connection
 | Activity | Description |
 | ----- | -------- | ------- |
 | Connection is connected | A connection is connected by the user by linking an account or providing credentials in the connection settings |
@@ -86,7 +83,7 @@ Activity audit log is visible to owner of the account and the users with `Admin`
 | Connection is updated | Existing connection is updated by the user by going to `App Connections` or the `Connections` tab in the recipe details page, disconnecting the connection and then modifying the connection settings |
 | Connection is deleted | Connection is deleted by the user by going to the `App Connections` > selecting a connection > clicking on `Delete connection` button |
 
-### Folder
+## Folder
 | Activity | Description |
 | ----- | -------- | ------- |
 | Folder created | User creates a new folder by clicking on the `+ Create new folder` in the `Recipes` page |
@@ -94,7 +91,7 @@ Activity audit log is visible to owner of the account and the users with `Admin`
 | Folder renamed | User renames a folder by clicking on the gear button on the folder and selecting `Rename` from the menu |
 | Folder moved | User moves a folder by dragging and dropping in to the new destination in the `Recipes` page|
 
-### Package
+## Package
 | Activity | Description |
 | ----- | -------- | ------- |
 | Manifest created | User creates a new manifest by going to `Tools` > `Recipe lifecycle management` and clicking on `Create new manifest` |
@@ -103,7 +100,7 @@ Activity audit log is visible to owner of the account and the users with `Admin`
 | Package exported | User exports a package by creating a manifest and then building and packaging the manifest in to .zip file by going to `Recipe lifecycle management` page |
 | Package imported | User imports a package by going to `Tools` >  `Recipe lifecycle management` > `Imports` tab > `Import package to a new folder` |
 
-### Connector SDK
+## Connector SDK
 | Activity | Description |
 | ----- | -------- | ------- |
 | Custom connector created | User creates a new connector by going to `Tools` > `Connector SDK` and clicking on `Create connector` |
@@ -111,48 +108,48 @@ Activity audit log is visible to owner of the account and the users with `Admin`
 | Custom connector released | User releases a new version of the latest connector changes by going to `Tools` > `Connector SDK` > selecting the connector and clicking on `Release latest version` |
 | Custom connector deleted | User deletes a connector by going to `Tools` > `Connector SDK` > selecting the connector and clicking on the delete button |
 
-### Common Data Model
+## Common Data Model
 | Activity | Description |
 | ----- | -------- | ------- |
 | Common data model created | User creates a new data model by going to `Tools` > `Common data models` and clicking on `Create a new data model` |
 | Common data model updated | User updates a data model by going to `Tools` > `Common data models` > selecting the data model and modifying it |
 | Common data model deleted | User deletes a data model by going to `Tools` > `Common data models` > selecting the data model and clicking on `Delete data model` |
 
-### Lookup Table
+## Lookup Table
 | Activity | Description |
 | ----- | -------- | ------- |
 | Lookup table created | User creates a new lookup table by going to `Tools` > `Lookup table` and clicking on `Create a new lookup table` |
 | Lookup table updated | User updates a lookup table by going to `Tools` > `Lookup table` > selecting the lookup table and modifying it |
 | Lookup table deleted | User deletes a lookup table by going to `Tools` > `Lookup table` > selecting the lookup table and clicking on `Delete table` |
 
-### Message Template
+## Message Template
 | Activity | Description |
 | ----- | -------- | ------- |
 | Message template created | User creates a new message template by going to `Tools` > `Message templates` and clicking on `Create a new template` |
 | Message template updated | User updates a message template by going to `Tools` > `Message templates` > selecting the message template and modifying it |
 | Message template deleted | User deletes a message template by going to `Tools` > `Message templates` > selecting the message template and clicking on `Delete template` |
 
-### Properties
+## Properties
 | Activity | Description |
 | ----- | -------- | ------- |
 | Property created | User creates a new property by going to `Tools` > `Properties` and clicking on `Add new property` |
 | Property updated | User updates a property by going to `Tools` > `Properties` > selecting the edit button for the property and modifying it |
 | Property deleted | User deletes a property by going to `Tools` > `Properties` > selecting the delete button for the property |
 
-### Pub/Sub Topic
+## Pub/Sub Topic
 | Activity | Description |
 | ----- | -------- | ------- |
 | Pub/Sub topic created | User creates a new pub/sub topic by going to `Tools` > `Pub/Sub topics` and clicking on `Create a new topic` |
 | Pub/Sub topic updated | User updates a pub/sub topic by going to `Tools` > `Pub/Sub topics` > selecting the topic and modifying it |
 
-### API Collection
+## API Collection
 | Activity | Description |
 | ----- | -------- | ------- |
 | API collection created | User creates a new API collection by going to `Tools` > `API platform` > clicking on `API Collections` tab and clicking on `Add a new API collection` |
 | API collection updated | User updates a API collection by going to `Tools` > `API platform` > clicking on `API Collections` tab > clicking `...` for the collection to be modified > selecting `Edit collection` from the menu and modifying it |
 | API collection deleted | User deletes a API collection by going to `Tools` > `API platform` > clicking on `API Collections` tab > clicking `...` for the collection to be deleted > selecting `Delete collection` from the menu |
 
-### API Endpoint
+## API Endpoint
 | Activity | Description |
 | ----- | -------- | ------- |
 | API endpoint created | User creates a new API endpoint by going to `Tools` > `API platform` > clicking on `API Collections` tab > select a API collection from the list > and clicking on `Create a new endpoint` |
@@ -161,14 +158,14 @@ Activity audit log is visible to owner of the account and the users with `Admin`
 | API endpoint activated | User activates a API endpoint by going to `Tools` > `API platform` > clicking on `API Collections` tab > select a API collection from the list > select a API endpoint from the list > click on the toggle to activate |
 | API endpoint deactivated | User deactivates a API endpoint by going to `Tools` > `API platform` > clicking on `API Collections` tab > select a API collection from the list > select a API endpoint from the list > click on the toggle to deactivate |
 
-### API Customer
+## API Customer
 | Activity | Description |
 | ----- | -------- | ------- |
 | API customer created | User creates a new API customer by going to `Tools` > `API platform` > clicking on `Clients` tab and clicking on `Add new client` |
 | API customer updated | User updates a API customer by going to `Tools` > `API platform` > clicking on `Clients` tab > clicking `...` for the customer to be modified > selecting `Edit client` from the menu and modifying it |
 | API customer deleted | User deletes a API customer by going to `Tools` > `API platform` > clicking on `Clients` tab > clicking `...` for the customer to be deleted > selecting `Delete endpoint` from the menu |
 
-### API Access Profile
+## API Access Profile
 | Activity | Description |
 | ----- | -------- | ------- |
 | API access profile created | User creates a new API access profile by going to `Tools` > `API platform` > clicking on `Clients` tab > selecting a client from the list and clicking on `Create access profile` |
@@ -176,7 +173,7 @@ Activity audit log is visible to owner of the account and the users with `Admin`
 | API access profile deleted | User deletes a API access profile by going to `Tools` > `API platform` > clicking on `Clients` tab > selecting a client from the list > clicking `...` for the access profile to be deleted > selecting `Delete access profile` from the menu |
 | API access profile token refreshed | User refreshes the API access profile API token by going to `Tools` > `API platform` > clicking on `Clients` tab > selecting a client from the list > clicking `Refresh` for the access profile whose API token needs to be refreshed |
 
-### API Policy
+## API Policy
 | Activity | Description |
 | ----- | -------- | ------- |
 | API policy created | User creates a new API policy by going to `Tools` > `API platform` > clicking on `Policies` tab and clicking on `Create new policy` |
