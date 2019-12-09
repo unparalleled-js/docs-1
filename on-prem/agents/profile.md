@@ -392,6 +392,10 @@ JMS connection profiles must be defined in the `jms` section. A JMS provider is 
       <td>Apache ActiveMQ</td>
       <td><code>activemq</code></td>
     </tr>
+    <tr>
+      <td>Azure Service Bus</td>
+      <td><code>custom</code></td>
+    </tr>
   </tbody>
 </table>
 
@@ -420,7 +424,7 @@ jms:
 ActiveMQ broker cannot be embedded into the agent. Using any `vm://` broker connections is not supported.
 
 ### Azure Service Bus
-You will need the following configuration properties when connecting to Azure Service Bus:
+Azure Service Bus uses custom JMS provider. You will need the following configuration properties when connecting to Azure Service Bus:
 ```YAML
 jms:
   azureServiceBus:
