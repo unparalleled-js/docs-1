@@ -30,19 +30,34 @@ The BigQuery connector uses OAuth2 to authenticate with BigQuery.
 We highly recommend using batch actions to insert multiple rows as a time. [BigQuery's rate limits](https://cloud.google.com/bigquery/quotas#standard_tables) on Standard tables indicates that operations on tables that append, overwrite or insert data in tables can only be performed 1000 times a day. This may be easily exceeded if rows are added one by one.
 
 ## Working with the BigQuery connector
-After establishing a connection with the BigQuery connector, each action will require additional input to define the parameters in which they connector should perform the action or trigger in.
+After establishing a connection with the BigQuery connector, most actions will require some additional parameter inputs.
 
-### Project
-The project available in the connection to be billed for the query.
-
-### Dataset
-The dataset which the action or trigger will pull the possible tables from.
-
-### Table
-The table inside the dataset.
-
-### Location
-The geographical location of where the job should be run.
+<table class="unchanged rich-diff-level-one">
+  <thead>
+    <tr>
+        <th width='25%'>Field</th>
+        <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Project</td>
+      <td>The project available in the connection to be billed for the query.</td>
+    </tr>
+    <tr>
+      <td>Dataset</td>
+      <td>The dataset which the action or trigger will pull the possible tables from.</td>
+    </tr>
+    <tr>
+      <td>Table</td>
+      <td>The table inside the dataset.</td>
+    </tr>
+    <tr>
+      <td>Location</td>
+      <td>The geographical location of where the job should be run.</td>
+    </tr>
+  </tbody>
+</table>
 
 ### Single row vs batch of rows
 The BigQuery connector can read or write to your database either as a single row or in batches. When using batch read actions/triggers, you have to provide the batch size you wish to work with. The batch size can be any number between 1 and 50000, with 50000 being the maximum batch size.
@@ -75,29 +90,18 @@ This clause will be used as a `WHERE` statement in each request. This should fol
 
 #### Simple statements
 
-String values must be enclosed in single quotes (`''`) and columns used must exist in the table.
+Knowing the data types of the column in BigQuery are important to build working queries. When comparing string values, values must be enclosed in single quotes (`''`) and columns used must exist in the table. When comparing integer values, the supplied value should not be enclosed in single quotes.
 
 A simple `WHERE` condition to filter rows based on values in a single column looks like this.
 
 ```sql
-currency = 'USD'
+string_column = 'USD' and integer_column = 1111
 ```
 
 If used in a **Select rows** action, this `WHERE` condition will return all rows that have the value 'USD' in the `currency` column. Just remember to wrap datapills with single quotes in your inputs.
 
 ![Using datapills in WHERE condition](/assets/images/bigquery/use_datapill_in_where.png)
 *Using datapills in `WHERE` condition*
-
-Column names with spaces must be enclosed in double quotes (`""`). For example, **currency code** must to enclosed in brackets to be used as an identifier. Note that all quoted identifiers are case-sensitive.
-
-```sql
-"currency code" = 'USD'
-```
-
-In a recipe, remember to use the appropriate quotes for each value/identifier.
-
-![WHERE condition with enclosed identifier](/assets/images/postgresql/where-condition-with-enclosed-identifier.png)
-*`WHERE` condition with enclosed identifier*
 
 #### Complex statements
 
@@ -111,13 +115,3 @@ When used in a **Delete rows** action, this will delete all rows in the `users` 
 
 ![Using datapills in WHERE condition with subquery](/assets/images/postgresql/use_datapill_in_where_complex.png)
 *Using datapills in `WHERE` condition with subquery*
-
-#### Unique key
-
-In all triggers, this is a required input. Values from this selected column are used to uniquely identify rows in the selected table.
-
-As such, the values in the selected column must be unique.
-
-When used in a trigger, this column must be incremental. This constraint is required because the trigger uses values from this column to look for new rows. In each poll, the trigger queries for rows with a unique key value greater than the previous greatest value.
-
-Let's use a simple example to illustrate this behavior. We have a **New row trigger** that processed rows from a table. The **unique key** configured for this trigger is `ID`. The last row processed has `100` as it's `ID` value. In the next poll, the trigger will use `ID >= 101` as the condition to look for new rows.
