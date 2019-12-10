@@ -8,18 +8,17 @@ const prettyBytes = require('pretty-bytes');
 const {gray, green} = require('chalk');
 const imagemin = require('imagemin');
 const imageminPlugins = [
-  require('imagemin-optipng'),
-  require('imagemin-gifsicle'),
-  require('imagemin-jpegtran'),
-  require('imagemin-svgo')
+  require('imagemin-optipng')(),
+  require('imagemin-gifsicle')(),
+  require('imagemin-jpegtran')(),
+  require('imagemin-svgo')()
 ];
-const imageExt = ['png', 'jpg', 'jpeg', 'svg'];
-const imageRegexp = new RegExp(`\\.(?:${imageExt.join('|')})$`, 'i');
 
+const IMAGE_EXT = ['png', 'jpg', 'jpeg', 'svg'];
+const IMAGE_REGEXP = new RegExp(`\\.(?:${IMAGE_EXT.join('|')})$`, 'i');
 const PROJECT_DIR = resolve(__dirname, '..');
 const git = require('simple-git/promise')(PROJECT_DIR);
-
-const onlyStaged = process.argv[process.argv.length - 1] === '--staged';
+const onlyStaged = (process.argv[process.argv.length - 1] === '--staged');
 
 async function main() {
   let imageFiles;
@@ -28,13 +27,12 @@ async function main() {
     const {created, staged} = await git.status();
     const stagedFiles = [...created, ...staged];
     imageFiles = stagedFiles
-      .filter(filename => imageRegexp.test(filename))
+      .filter(filename => IMAGE_REGEXP.test(filename))
       .map(filename => resolve(PROJECT_DIR, filename));
   } else {
-    imageFiles = glob.sync(`assets/**/*.{${imageExt.join(',')}}`, {
+    imageFiles = glob.sync(`assets/**/*.{${IMAGE_EXT.join(',')}}`, {
       cwd: PROJECT_DIR,
       absolute: true,
-      // nosort: true,
       nocase: true,
       nodir: true
     });
@@ -47,11 +45,10 @@ async function main() {
     return;
   }
 
-  const start = Date.now();
   const concurrency = require('os').cpus().length;
   await asyncPool(concurrency, imageFiles, optimizeImage);
   await git.add(imageFiles);
-  console.log(`Image optimization done in ${Date.now() - start}ms`);
+  console.log('Image optimization done');
 }
 
 async function optimizeImage(filePath) {
@@ -61,7 +58,7 @@ async function optimizeImage(filePath) {
   try {
     result = await imagemin([filePath], {
       destination: dirname(filePath),
-      plugins: imageminPlugins.map(plugin => plugin())
+      plugins: imageminPlugins
     });
   } catch (err) {
     console.error(`Error processing "${fileLabel}": ${err.message}`);
