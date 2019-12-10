@@ -1,6 +1,7 @@
 ---
 title: Workato connectors - BigQuery new row triggers
-date: 2018-03-23 06:00:00 Z
+date: 2019-12-10 06:00:00 Z
+isTocVisible: true
 ---
 
 # BigQuery - New row triggers

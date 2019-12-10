@@ -1,6 +1,7 @@
 ---
 title: Workato connectors - BigQuery Insert actions
-date: 2018-02-02 06:10:00 Z
+date: 2019-12-10 06:10:00 Z
+isTocVisible: true
 ---
 
 # BigQuery - Insert rows action
@@ -81,5 +82,5 @@ This action inserts a batch of rows into the selected table.
     </tr>
 </table>
 
-#### Rate limits on BigQuery
+## Rate limits on BigQuery
 We highly recommend using batch actions to insert multiple rows as a time. [BigQuery's rate limits](https://cloud.google.com/bigquery/quotas#standard_tables) on Standard tables indicates that operations on tables that append, overwrite or insert data in tables can only be performed 1000 times a day. This may be easily exceeded if rows are added one by one.

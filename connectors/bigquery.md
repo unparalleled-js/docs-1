@@ -1,6 +1,7 @@
 ---
 title: Workato connectors - BigQuery
-date: 2019-11-11 06:00:00 Z
+date: 2019-12-10 06:00:00 Z
+isTocVisible: true
 ---
 
 # Google BigQuery
@@ -27,7 +28,7 @@ The BigQuery connector uses OAuth2 to authenticate with BigQuery.
 </table>
 
 ## Rate limits on BigQuery
-We highly recommend using batch actions to insert multiple rows as a time. [BigQuery's rate limits](https://cloud.google.com/bigquery/quotas#standard_tables) on Standard tables indicates that operations on tables that append, overwrite or insert data in tables can only be performed 1000 times a day. This may be easily exceeded if rows are added one by one.
+We highly recommend using batch actions to insert multiple rows at a time. [BigQuery's rate limits](https://cloud.google.com/bigquery/quotas#standard_tables) on Standard tables indicates that operations on tables that append, overwrite or insert data in tables can only be performed 1000 times a day. This may be easily exceeded if rows are added one by one.
 
 ## Working with the BigQuery connector
 After establishing a connection with the BigQuery connector, most actions will require some additional parameter inputs.
@@ -108,7 +109,7 @@ If used in a **Select rows** action, this `WHERE` condition will return all rows
 Your `WHERE` condition can also contain subqueries. The following query can be used on the `users` table.
 
 ```sql
-id in (select user_id from tickets where priority = 2)
+id in (select distinct(user_id) from zendesk.tickets where priority = 2)
 ```
 
 When used in a **Delete rows** action, this will delete all rows in the `users` table where at least one associated row in the `tickets` table has a value of 2 in the `priority` column.
