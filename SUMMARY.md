@@ -516,6 +516,7 @@
       * [Get file information](connectors/sftp/get-file-information-action.md)
       * [Upload file](connectors/sftp/upload-file-action.md)
       * [Download file](connectors/sftp/download-file-action.md)
+      * [Download large file](connectors/sftp/download-large-file-action.md)
       * [Rename file](connectors/sftp/rename-file-action.md)
       * [Remove file](connectors/sftp/remove-file-action.md)
   * [SharePoint](connectors/sharepoint.md)
