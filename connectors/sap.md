@@ -121,7 +121,9 @@ Follow [these instructions](https://docs.workato.com/on-prem/setup.html) to down
 #### Step 7: Download the SAP JCO libraries
 If you do not already have a license to use SAP JCo libraries, please contact your SAP provider for license.
 
-From the link below, download 2 items: SAP JCO connector libraries (version 3.x or later) and SAP Java IDoc class library. Please ensure that the correct Operating system is selected.
+From the link below, download 2 items: SAP JCO connector libraries (**version 3.0.X only**) and SAP Java IDoc class library. Please ensure that the correct Operating system is selected.
+
+> Using SAP JCO connector libraries version 3.1 and later are incompatible at this time.
 
 https://support.sap.com/en/product/connectors/jco.html
 
