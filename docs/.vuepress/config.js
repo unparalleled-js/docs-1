@@ -6,6 +6,9 @@ module.exports = {
   dest: resolve(__dirname, '../../dist'),
   base: '/',
   plugins: [
+    ['check-md', {
+      exitLevel: 'none'
+    }],
     ['@vuepress/medium-zoom', {
       selector: '.theme-default-content :not(a) > img:not([data-no-zoom])'
     }],

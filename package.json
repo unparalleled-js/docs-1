@@ -5,6 +5,7 @@
   "scripts": {
     "start": "vuepress dev docs --open",
     "build": "vuepress build docs",
+    "check": "vuepress check-md docs 2>&1 | grep -v '@img' | grep -E '^  .+?:'",
     "deploy": "bin/deploy.sh"
   },
   "repository": "workato/docs",
@@ -23,6 +24,7 @@
     "pretty-bytes": "5.3.0",
     "simple-git": "1.128.0",
     "tiny-async-pool": "1.1.0",
-    "vuepress": "1.2.0"
+    "vuepress": "1.2.0",
+    "vuepress-plugin-check-md": "0.0.2"
   }
 }
