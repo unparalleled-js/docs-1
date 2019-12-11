@@ -4,7 +4,7 @@ date: 2017-02-16 22:15:00 Z
 ---
 
 # Contact us
-You can always contact us to file an enhancement request or a bug report. You can do so via the forums(https://support.workato.com/discussions) or by filing a ticket(https://support.workato.com/support/tickets/new).
+You can always contact us to file an enhancement request or a bug report. You can do so via the forums (https://support.workato.com/discussions) or by filing a ticket (https://support.workato.com/support/tickets/new).
 
 # Bug reports
 If you encounter bugs while building recipes, or if your triggers and actions are behaving unexpectedly, you can [submit a ticket](https://support.workato.com/support/tickets/new) and our team will look into it.

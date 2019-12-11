@@ -22,7 +22,7 @@ module.exports = {
   ],
   themeConfig: {
     sidebar: require('./sidebar'),
-    smoothScroll: true,
+    smoothScroll: false,
     searchPlaceholder: 'Type to search Workato docs',
     searchMaxSuggestions: 10,
     // Is used to generate URL for "Edit this page" link
@@ -32,6 +32,10 @@ module.exports = {
     ['link', {rel: 'shortcut icon', href: '/favicon.ico'}],
     ['link', {rel: 'stylesheet', href: '/css/vendor.css'}]
   ],
+  markdown: {
+    // Searches for URLs in plain text and converts them to links
+    linkify: true
+  },
   configureWebpack: {
     resolve: {
       alias: {
