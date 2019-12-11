@@ -13,7 +13,7 @@ Note that in Amazon S3, when a file is renamed, it is considered a new file. Whe
 ## Input fields
 | Field name | Description |
 |---|---|
-| When first started, this recipe should pick up events from | When recipe starts for the first time, it will pick up files created from this specified time. Once recipe has been run or tested, value cannot be changed. [Learn more about this field here](/recipes/triggers.md#sincefrom).  |
+| When first started, this recipe should pick up events from | When recipe starts for the first time, it will pick up files created from this specified time. Once recipe has been run or tested, value cannot be changed. [Learn more about this field here](/recipes/triggers.md#since-from).  |
 | Bucket region | The region of the bucket to monitor for new file, e.g. us-west-2. In Amazon S3, go to **Bucket > Properties > Static website hosting** to find your region in the Endpoint URL. |
 | Bucket | The bucket to monitor for new file. Select a bucket from the picklist or enter the bucket name directly. |
 | Folder | The folder to monitor for new file. Select a folder from the picklist or enter the folder path directly. |

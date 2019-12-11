@@ -12,7 +12,7 @@ Checks selected folder for new/updated CSV files every 5 minutes.
 
 | Field name | Description |
 |---|---|
-| When first started, this recipe should pick up events from | When you start recipe for the first time, it picks up CSV files modified from this specified date and time. Defaults to fetching CSV files created/updated an hour ago if left blank. Once recipe has been run or tested, value cannot be changed. [Learn more about this field here.](/recipes/triggers.md#sincefrom) |
+| When first started, this recipe should pick up events from | When you start recipe for the first time, it picks up CSV files modified from this specified date and time. Defaults to fetching CSV files created/updated an hour ago if left blank. Once recipe has been run or tested, value cannot be changed. [Learn more about this field here.](/recipes/triggers.md#since-from) |
 | Folder / Folder path | The folder to monitor for new/updated CSV files. Sub-folders will also be monitored. |
 | Column delimiter | The character used to separate column values in your CSV file. |
 | Batch size | Number of CSV rows to process per batch. Instead of reading rows one by one, Workato reads a batch of CSV rows at a time to increase throughput. [Learn more about batch processing](/features/batch-processing.md). |

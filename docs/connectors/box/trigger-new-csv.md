@@ -9,7 +9,7 @@ Triggers when a new CSV file is added to a specified folder and processes CSV li
 ## Input fields
 | Field name | Description |
 |---|---|
-| When first started, this recipe should pick up events from. | When you start recipe for the first time, it picks up files created from specified time. Defaults to fetching files created an hour ago if left blank. Once recipe has been run or tested, value cannot be changed. [Learn more](/recipes/triggers.md#sincefrom) |
+| When first started, this recipe should pick up events from. | When you start recipe for the first time, it picks up files created from specified time. Defaults to fetching files created an hour ago if left blank. Once recipe has been run or tested, value cannot be changed. [Learn more](/recipes/triggers.md#since-from) |
 | Folder | Monitor for new CSV files in this folder. Select from the pick list or enter folder ID. |
 | Include sub-folders? | If Yes, trigger will pick up new CSV files in sub-folders as well. |
 | Sample CSV file / Field names | Select a CSV file for Workato to understand the data columns in your files. Otherwise, toggle to provide column names manually. |

@@ -18,7 +18,7 @@ The test recipe button picks up a single trigger event and runs it through your 
 *Test button showing up on default for a recipe with no successful jobs*
 
 ## Test trigger events
-The trigger event picked up when you click on test depends on the [**Since/From** date](/recipes/triggers.md#sincefrom) selected. In the following example, clicking on test will have the recipe look for Salesforce accounts created or updated after 1 January 2017, midnight. If the recipe test mode finds Salesfoce accounts matching that criteria, it proceeds to processes the first trigger event in the queue. As trigger events are processed in chronological order, the account created or updated earliest (closest to 1 January 2017, midnight) will be processed.
+The trigger event picked up when you click on test depends on the [**Since/From** date](/recipes/triggers.md#since-from) selected. In the following example, clicking on test will have the recipe look for Salesforce accounts created or updated after 1 January 2017, midnight. If the recipe test mode finds Salesfoce accounts matching that criteria, it proceeds to processes the first trigger event in the queue. As trigger events are processed in chronological order, the account created or updated earliest (closest to 1 January 2017, midnight) will be processed.
 
 ![No jobs when testing](~@img/startstop/test-recipe-since-date.png)
 *Recipe test mode looks for Salesforce accounts created or updated after 1 January 2017, midnight, and processes the earliest trigger event in the list of accounts found matching this criteria*
@@ -70,7 +70,7 @@ To ensure data is being transformed (if applicable) and moved from one app to th
 Starting a recipe will cause it to pick up trigger events and process them through the recipe. When a recipe is started, it becomes **active**.
 
 ## Starting a recipe for the first time
-When a recipe is first started, it will fetch trigger events from the **Since/From** datetime defined. Subsequently, it will continuously process these events. If you had defined the **Since/From** date during testing previously, this date cannot be changed again for this recipe - you can find out more [here](triggers.md#sincefrom).
+When a recipe is first started, it will fetch trigger events from the **Since/From** datetime defined. Subsequently, it will continuously process these events. If you had defined the **Since/From** date during testing previously, this date cannot be changed again for this recipe - you can find out more [here](triggers.md#since-from).
 
 If you had tested your recipe in test mode before starting, the recipe will not reprocess any trigger events previously picked up during testing. This prevents duplication of data in your apps. You should only start your recipe when you've fully tested it - check out the section on [testing recipes](#test-mode) if not.
 
