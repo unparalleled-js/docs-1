@@ -20,7 +20,7 @@ Message menus can:
 
 2. Pass command input values to that recipe
 
-3. Invoke dialogs, as covered in the [Using dialogs with Workbot](https://docs.workato.com/workbot/using-dialogs-with-workbot.html) guide.
+3. Invoke dialogs, as covered in the [Using dialogs with Workbot](/workbot/using-dialogs-with-workbot.md) guide.
 
 4. Be posted as a set list, or a [dynamically generated one](#dynamic-list).
 
@@ -111,7 +111,7 @@ Notice that the command trigger:<br>```salesforce update account```<br>of the tr
 
 ## Message menus with a dynamic list of menu options
 
-The menu options of message menus can also be generated dynamically using a list datapill (for more information on lists, see the [list management guide](https://docs.workato.com/features/list-management.html)).
+The menu options of message menus can also be generated dynamically using a list datapill (for more information on lists, see the [list management guide](/features/list-management.md)).
 
 From **Message menu**, under **Menu options**, click on the horizontal ellipses on the top-right and choose 'Dynamic List'. This should bring up the dynamic menu options fields.
 

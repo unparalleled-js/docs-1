@@ -170,7 +170,7 @@ With these basics out of the way, we can now walk through an example adapter, an
 
 ## Connection fields
 
-The optional connection `fields` use the [schema](#schema---describing-inputoutput) notation to describe the connection configuration fields, if any are needed.  Using the example API above that requires an `api_token` URL parameter, this might be:
+The optional connection `fields` use the [schema](#schema-describing-input-output) notation to describe the connection configuration fields, if any are needed.  Using the example API above that requires an `api_token` URL parameter, this might be:
 
 ```ruby
         fields: [
@@ -183,7 +183,7 @@ The optional connection `fields` use the [schema](#schema---describing-inputoutp
         ],
 ```
 
-use the [schema](#schema---describing-inputoutput) notation to describe the connection's properties, shown wherever the connection configuration is displayed, for example in the recipe's connection tab:
+use the [schema](#schema-describing-input-output) notation to describe the connection's properties, shown wherever the connection configuration is displayed, for example in the recipe's connection tab:
 
 ![connection_settings.png](~@img/connection_settings.png)
 
@@ -231,7 +231,7 @@ As long as the lambda does not raise an exception, the connection is considered 
 ```
 ## Input form
 
-When one of the adapter's actions is used in a recipe, its input form is based on its `input_fields` lambda, which also uses the [schema](#schema---describing-inputoutput) notation.
+When one of the adapter's actions is used in a recipe, its input form is based on its `input_fields` lambda, which also uses the [schema](#schema-describing-input-output) notation.
 
 Continuing with our "get customer by ID" action example:
 
@@ -247,7 +247,7 @@ Continuing with our "get customer by ID" action example:
 
 ## Output tree
 
-Using the same [schema](#schema---describing-inputoutput) notation, `output_fields` describes the action's output that will appear downstream in the recipe job data:
+Using the same [schema](#schema-describing-input-output) notation, `output_fields` describes the action's output that will appear downstream in the recipe job data:
 
 ```ruby
         output_fields: lambda do
@@ -429,7 +429,7 @@ If present (not `nil`), this signals the runtime that there may be more, "earlie
 
 This value will be passed to the next `poll` as the third argument, named `last_created_before` in this example.
 
-In comparison with the ascending trigger variant, this value plays the roles of both the "cursor" ([`next_poll`](#next_poll)) and poll timing hint ([`can_poll_more`](#can_poll_more)).
+In comparison with the ascending trigger variant, this value plays the roles of both the "cursor" ([`next_poll`](#next-poll)) and poll timing hint ([`can_poll_more`](#can-poll-more)).
 
 The adapter doesn't need to keep track of how far we can go before we encounter already-seen events; the runtime handles that state, in combination with the rest of the descending trigger components:
 
@@ -441,7 +441,7 @@ The adapter doesn't need to keep track of how far we can go before we encounter 
 
 Extracts the unique ID of the underlying object.  This is optional, if absent then the default behavior is to use the field called `id` (case insensitive) in the object (the example above just illustrates the default).
 
-**Note**: This is not the same as [`dedup`](#dedup-1) below.
+**Note**: This is not the same as [`dedup`](#dedup-2) below.
 
 #### `sort_by`
 

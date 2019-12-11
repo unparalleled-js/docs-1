@@ -16,7 +16,7 @@ Tasks are counted as follows:
 |-------------|---------------|
 | [Trigger](/recipes/triggers.md) | Task is incremented by 1 |
 | [Trigger conditions](/recipes/triggers.md#trigger-conditions) | Will not be counted as a Task |
-| [Polling](/recipes/polling-intervals) | Will not be counted as a Task |
+| [Polling](/recipes/polling-intervals.md) | Will not be counted as a Task |
 | [Search/Create/Update/Get/Upsert/Lookup etc.](/recipes/actions.md)| Task is incremented by 1 for each of these Actions  |
 | [Actions in repeat (for each loop)](/features/list-management.md#using-datapills-in-an-action-with-a-repeat-step-action-does-not-handle-list-processing-list-processing-needs-to-be-done-explicitly-at-the-recipe-logic-level) | The Task is incremented by 1 for every action in the loop.  |
 | Control statement ([If](/features/if-conditions.md), [Error monitor](/recipes/best-practices-error-handling.md), stop) | Will not be counted as a Task |

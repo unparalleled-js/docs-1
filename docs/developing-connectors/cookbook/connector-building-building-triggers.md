@@ -7,7 +7,7 @@ date: 2019-10-15 17:00:00 Z
 Building triggers follow almost the same format as actions. To make them object based, we'll be making use of configuration fields as well as the schema methods we defined earlier. Below, we go through an example of a polling trigger. Do take note there are some differences in the blocks expected when creating a polling trigger, dynamic webhook trigger and a static webhook trigger.
 
 ## Defining config fields
-When dealing with object-based triggers, we first need to define something called a configuration fields. [Configuration fields](https://docs.workato.com/developing-connectors/sdk/config-fields.html) are special input fields that you can define whose answers can dynamically generate other input fields. Since triggers don't often need any additional input fields, this configuration field is used to dynamically generate the expected output of this trigger.
+When dealing with object-based triggers, we first need to define something called a configuration fields. [Configuration fields](/developing-connectors/sdk/config-fields.md) are special input fields that you can define whose answers can dynamically generate other input fields. Since triggers don't often need any additional input fields, this configuration field is used to dynamically generate the expected output of this trigger.
 
 ```ruby
 config_fields: [
@@ -25,7 +25,7 @@ config_fields: [
 ![Config fields](~@img/sdk/config_fields-trigger.gif)
 *Selecting invoice causes invoice related data-pills to appear*
 
-Here we also introduce a [picklist](https://docs.workato.com/developing-connectors/sdk/pick-list.html) which we can easily add additional objects as we introduce support for them.
+Here we also introduce a [picklist](/developing-connectors/sdk/pick-list.md) which we can easily add additional objects as we introduce support for them.
 
 > Configuration fields can also be used in various ways to dynamically generate input fields based on what the user has selected. In cases where an object selected still requires more information before input fields can be accurately shown to the user, we go through some patterns later in this guide that can do so.
 
@@ -204,7 +204,7 @@ In the poll block, we first prepare the payload with the appropriate parameters 
 
 The parameters are passed into an object-specific method to execute the poll and the response is expected to be the JSON response above. The closure values are reset based on response of the poll and the output of each poll block is a hash with 3 expected values - the records, the closure hash and "can_poll_more" - a boolean value which determines whether the trigger should poll again.
 
-[Read more about polling triggers here](https://docs.workato.com/developing-connectors/sdk/trigger/poll-trigger.html)
+[Read more about polling triggers here](/developing-connectors/sdk/trigger/poll-trigger.md)
 
 ## Defining the dedup block
 For each record in the array of records passed on from the poll block, Workato also checks to see if it has seen the record before. To do so, the dedup block should contain a string that combines various parts of a record to ensure that it is unique. In the example below, we've used the `invoice` id and `invoice` last updated timestamp to see if this updated record has been seen before.

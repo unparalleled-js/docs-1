@@ -222,7 +222,7 @@ The table below lists the input fields in the post reply action.
 &ast;Supports markdown
 
 ## Using dynamic lists in action fields
-Fact sets, pick lists and buttons can be generated dynamically using a list datapill (for more information on lists, see the [list management guide](https://docs.workato.com/features/list-management.html))
+Fact sets, pick lists and buttons can be generated dynamically using a list datapill (for more information on lists, see the [list management guide](/features/list-management.md))
 
 From the fields, click on the horizontal ellipses on the top-right and choose 'Dynamic list'. This should bring up the dynamic list option.
 

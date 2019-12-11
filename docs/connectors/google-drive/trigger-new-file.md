@@ -11,7 +11,7 @@ Triggers immediately in real-time when a new file or folder is created in a spec
 | Field name | Description |
 |---|---|
 | Folder | The folder to monitor for new files or folders. Sub-folders will not be monitored. Select a folder from the picklist or enter the folder ID directly. |
-| When first started, this recipe should pick up events from | When you start recipe for the first time, it picks up new files or folders created from this specified date and time. If left blank, recipe will pick up files or folders created an hour ago. Once recipe has been run or tested, value cannot be changed. Refer to [this doc for more information](https://docs.workato.com/recipes/triggers.html#sincefrom). |
+| When first started, this recipe should pick up events from | When you start recipe for the first time, it picks up new files or folders created from this specified date and time. If left blank, recipe will pick up files or folders created an hour ago. Once recipe has been run or tested, value cannot be changed. Refer to [this doc for more information](/recipes/triggers.md#sincefrom). |
 
 ## Output fields
 Note that in Google Drive API, the terms `folder` and `file` are used interchangeably. A `folder` is technically a special `file`. So whenever the field name or field description mentions `file`, it also applies to `folder`.

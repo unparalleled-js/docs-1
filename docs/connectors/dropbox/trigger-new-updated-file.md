@@ -23,7 +23,7 @@ Checks selected folder for new/updated files every 5 minutes. When recipe is fir
 | Bytes | File size in bytes. |
 | Size | File size in string format. |
 | Mime type | The Mime type of this file. |
-| URL | File's public URL. Can be used to download file using [Workato Utility connector](https://docs.workato.com/features/utilities.html#download-file-from-url). |
+| URL | File's public URL. Can be used to download file using [Workato Utility connector](/features/utilities.md#download-file-from-url). |
 | URL expires | Date/time the file's public URL will expire. |
 | Rev | A unique identifier for the current revision of the file. |
 | Modified | Date/time the file was last modified. |

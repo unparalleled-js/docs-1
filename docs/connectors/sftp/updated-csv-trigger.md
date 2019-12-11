@@ -34,6 +34,6 @@ The output of this action is a **list of records**, with each record containing 
 | File name     | The filename of the CSV.                     |
 | First batch   | Whether this is the first batch of CSV rows. |
 | Last batch    | Whether this is the last batch of CSV rows.  |
-| Lines         | This is a [List datapill](https://docs.workato.com/features/list-management.html), representing the list of records. |
+| Lines         | This is a [List datapill](/features/list-management.md), representing the list of records. |
 | _List schema_ | Datapills defined by your CSV column names.  |
 | List size     | Total number of rows.                        |

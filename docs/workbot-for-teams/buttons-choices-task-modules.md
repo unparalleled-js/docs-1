@@ -177,7 +177,7 @@ It's important to note that pick list display name and value cannot contain <cod
 *Options displayed in a picklist in task module*
 
 ## Dynamic buttons & fact sets
-Buttons and fact sets can also be generated dynamically using a list datapill (for more information on lists, see the [list management guide](https://docs.workato.com/features/list-management.html))
+Buttons and fact sets can also be generated dynamically using a list datapill (for more information on lists, see the [list management guide](/features/list-management.md))
 
 From the button (or fact set) fields, click on the horizontal ellipses on the top-right and choose 'Dynamic List'. This should bring up the dynamic list option.
 

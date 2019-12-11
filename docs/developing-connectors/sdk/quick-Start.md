@@ -129,7 +129,7 @@ When the connection you make is successful, the debugger will immediately displa
 
 Find out more about configuring a connection in our SDK and what connection types we support. [Learn more](/developing-connectors/sdk/authentication.md.
 
-### Testing actions and triggers
+.md### Testing actions and triggers
 After establishing a successful connection, you'll be able to test any actions and triggers you have defined using the debugger console.
 
 ![Testing actions or triggers](~@img/sdk/testing-actions-triggers.png)

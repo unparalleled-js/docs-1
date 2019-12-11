@@ -104,7 +104,7 @@ Based on the provided IDs from the CSV file, Quick Base will update the records.
 - If ID is empty, that CSV row will `fail`.
 
 ### Handling failed CSV rows
-This action uses [batch processing](https://docs.workato.com/features/batch-processing.html), so it will divide your CSV file into smaller chunks of rows (or batches) then submit to Quick Base. When 1 row in a chunk failed to be created/updated into Quick Base records, Quick Base will reject that whole chunk, but other chunks will not be affected.
+This action uses [batch processing](/features/batch-processing.md), so it will divide your CSV file into smaller chunks of rows (or batches) then submit to Quick Base. When 1 row in a chunk failed to be created/updated into Quick Base records, Quick Base will reject that whole chunk, but other chunks will not be affected.
 
 When some rows fail, however, the action may still be considered "complete". It is because Quick Base has successfully accepted the CSV file. Quick Base API will then send back a "success" response with list of successful and failed records.
 
@@ -140,7 +140,7 @@ By default, Quick Base uses a field named `Record ID`. But in some cases, you ma
 
 Provide the contents of your CSV file and describe the column structure.
 
-You can get `File contents` data pill from [other connectors' actions or triggers](https://docs.workato.com/features/handling-csv-files.html). Some examples include: `New CSV file in folder` trigger from file connectors (such as [Box](https://docs.workato.com/connectors/box.html), [Amazon S3](https://docs.workato.com/connectors/s3.html), [On-premises file](https://docs.workato.com/connectors/on-prem-files.html)); or Workato Utility's `Compose CSV` action.
+You can get `File contents` data pill from [other connectors' actions or triggers](/features/handling-csv-files.md). Some examples include: `New CSV file in folder` trigger from file connectors (such as [Box](/connectors/box.md), [Amazon S3](/connectors/s3.md), [On-premises file](/connectors/on-prem-files.md)); or Workato Utility's `Compose CSV` action.
 
 Note that the file contents must be **comma-separated and UTF-8 format**.
 
@@ -156,7 +156,7 @@ Pay attention to the first input field, `Record ID`. Make sure to map it with th
 ### Advanced settings
 ![Chunk size](~@img/connectors/quick-base/csv-advanced-settings.png)
 
-Since this action uses [batch processing](https://docs.workato.com/features/batch-processing.html), it divides your CSV file into smaller chunks of rows to submit to Quick Base. This allows you to submit a large CSV file without hitting Quick Base API limit.
+Since this action uses [batch processing](/features/batch-processing.md), it divides your CSV file into smaller chunks of rows to submit to Quick Base. This allows you to submit a large CSV file without hitting Quick Base API limit.
 
 Using this `Chunk size (KB)`, you can customise the chunk size (in kilobytes) to your need. In general, larger chunk size will shorten the time to transfer a large file.
 
@@ -170,9 +170,9 @@ Using this `Chunk size (KB)`, you can customise the chunk size (in kilobytes) to
 | Number of records updated | Number of records successfully updated in Quick Base. |
 | Number of records failed | Number of CSV rows failed to be created or updated into Quick Base records. |
 | Number of records unchanged | Number of records unchanged after this action. |
-| List of records created or updated | This is a [List pill](https://docs.workato.com/features/list-management.html). This list includes the Quick Base Record IDs of all successfully created/updated records. |
+| List of records created or updated | This is a [List pill](/features/list-management.md). This list includes the Quick Base Record IDs of all successfully created/updated records. |
 | CSV contents of failed records | This pill include the contents of all CSV rows that are failed to be created/updated into Quick Base. You can use this pill to create a CSV file containing all failed rows, for you to fix and re-submit later. |
-| List of chunks | This is a [List pill](https://docs.workato.com/features/list-management.html). Since the action divides your CSV into smaller chunks of rows, this list includes all of those chunks with their attributes below. |
+| List of chunks | This is a [List pill](/features/list-management.md). Since the action divides your CSV into smaller chunks of rows, this list includes all of those chunks with their attributes below. |
 | Chunk number | The ID of this chunk. |
 | Successful import to Quick Base? | True or False. |
 | Starting row | The first CSV row in this chunk |

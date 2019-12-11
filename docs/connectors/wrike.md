@@ -24,7 +24,7 @@ The Wrike connectors uses OAuth2 authentication. This allows you to:
 
 ### Scopes for Wrike connector
 
-Entailed in the permissions are scopes that define how the connectors is allowed to interact with Wrike data. For example, the [create task action](/connectors/wrike/create-task-action) requires the following scopes: *Default*, *wsReadWrite*.
+Entailed in the permissions are scopes that define how the connectors is allowed to interact with Wrike data. For example, the [create task action](/connectors/wrike/create-task-action.md) requires the following scopes: *Default*, *wsReadWrite*.
 
 You can edit the scope of the connectors by selecting **Advanced settings** > **Api scope**.
 

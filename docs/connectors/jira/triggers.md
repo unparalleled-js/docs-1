@@ -309,7 +309,7 @@ This trigger picks up comments as soon as they are created/updated. Only comment
 *New/updated comment (real-time) trigger*
 
 ### Requirements
-The linked Jira account must have Jira administrators global permissions to use this real-time trigger. Learn more in our [Jira real-time triggers documentation](https://docs.workato.com/connectors/jira.html#using-jira-real-time-triggers).
+The linked Jira account must have Jira administrators global permissions to use this real-time trigger. Learn more in our [Jira real-time triggers documentation](/connectors/jira.md#using-jira-real-time-triggers).
 
 ### Input fields
 No input fields are required.
@@ -426,7 +426,7 @@ This trigger picks up worklogs as soon as they are created/updated. Only worklog
 *New/updated worklog (real-time) trigger*
 
 ### Requirements
-The linked Jira account must have Jira administrators global permissions to use this real-time trigger. Learn more in our [Jira real-time triggers documentation](https://docs.workato.com/connectors/jira.html#using-jira-real-time-triggers).
+The linked Jira account must have Jira administrators global permissions to use this real-time trigger. Learn more in our [Jira real-time triggers documentation](/connectors/jira.md#using-jira-real-time-triggers).
 
 ### Input fields
 No input fields are required.

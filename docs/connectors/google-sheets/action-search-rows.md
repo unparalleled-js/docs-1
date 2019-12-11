@@ -4,11 +4,11 @@ date: 2017-6-12 23:00:00 Z
 ---
 
 # Google Sheets action - Search rows using query (old version)
-**Note**: This article is about action Search rows (old version), using Google Sheets API v3 which will be deprecated in the near term. We recommend using this [new action Search rows](https://docs.workato.com/connectors/google-sheets/action-search-rows-v4.html) instead.
+**Note**: This article is about action Search rows (old version), using Google Sheets API v3 which will be deprecated in the near term. We recommend using this [new action Search rows](/connectors/google-sheets/action-search-rows-v4.md) instead.
 
 The **Search rows** action allows you to get specific rows using a search query.
 
-It's often used together with an [Update row](https://docs.workato.com/connectors/google-sheets/action-update-row.html) action. So that you will first search for the rows you want to update, then update those rows.
+It's often used together with an [Update row](/connectors/google-sheets/action-update-row.md) action. So that you will first search for the rows you want to update, then update those rows.
 
 ## How to use this action
 ### Setting up the Google sheet

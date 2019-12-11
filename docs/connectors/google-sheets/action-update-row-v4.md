@@ -7,7 +7,7 @@ date: 2017-10-04 23:00:00 Z
 ![Action Update row](~@img/connectors/google-sheets/action-update-row.png)
 
 ## How it works
-This action allows you to update a row in a sheet. It is often used together with action [Search rows](https://docs.workato.com/connectors/google-sheets/action-search-rows-v4.html), so you will first search for the rows you want then update them.
+This action allows you to update a row in a sheet. It is often used together with action [Search rows](/connectors/google-sheets/action-search-rows-v4.md), so you will first search for the rows you want then update them.
 
 ## How to use it
 The following example will demonstrate how to use the `Update row` action in conjunction with `Search rows`.

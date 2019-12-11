@@ -20,7 +20,7 @@ Searches may not return newly created files or folders in Box due to time delay 
 ## Output fields
 | Field name | Description |
 |---|---|
-| Files | A [list data pill](https://docs.workato.com/features/list-management.html) representing the list of files/folders found from the search. You can loop through all files/folders in the list with a [Repeat step](https://docs.workato.com/recipes/steps.html#repeat-step). |
+| Files | A [list data pill](/features/list-management.md) representing the list of files/folders found from the search. You can loop through all files/folders in the list with a [Repeat step](/recipes/steps.md#repeat-step). |
 | ID | ID of the file. |
 | Name | File name. |
 | Type | Type of this object, which in this case is `file`. |

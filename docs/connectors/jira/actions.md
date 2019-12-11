@@ -7,7 +7,7 @@ date: 2018-07-18 06:15:00 Z
 The following Jira actions can be used to execute workflows in your recipes.
 
 ### Requirements
-The linked Jira account must have sufficient permissions to the respective resource in each action. Learn more with our [Jira project permissions documentation](https://docs.workato.com/connectors/jira.html#roles-and-permissions-required-to-connect).
+The linked Jira account must have sufficient permissions to the respective resource in each action. Learn more with our [Jira project permissions documentation](/connectors/jira.md#roles-and-permissions-required-to-connect).
 
 ## Create issue
 This action creates an issue in Jira based on the specified project, issue type, and field values.
@@ -140,11 +140,11 @@ If you don't see the project issue type(s) you're looking for, the linked Jira a
 
 If you are a Jira administrator of your Jira workspace, check the linked Jira account's permissions by using Jira's Permissions helper.
 
-See our [Jira permissions documentation](/connectors/jira.html#jira-permissions-helper) or check out [Jira's guide on Permissions helper](https://confluence.atlassian.com/adminjiracloud/using-the-permission-helper-868982879.html) for more details. Otherwise, check with your Jira administrator(s) for help.
+See our [Jira permissions documentation](/connectors/jira.md#jira-permissions-helper) or check out [Jira's guide on Permissions helper](https://confluence.atlassian.com/adminjiracloud/using-the-permission-helper-868982879) for more details. Otherwise, check with your Jira administrator(s) for help.
 
 ##### Unable to see field(s) / custom field(s)
 If you don't see the field(s) you're looking for,
-1. The linked Jira account may not have sufficient permissions to view the field(s). See our [Jira permissions documentation](/connectors/jira.html#jira-permissions-helper) or check out [Jira's guide on Permissions helper](https://confluence.atlassian.com/adminjiracloud/using-the-permission-helper-868982879.html) for more details. Otherwise, check with your Jira administrator(s) for help.<br><br>
+1. The linked Jira account may not have sufficient permissions to view the field(s). See our [Jira permissions documentation](/connectors/jira.md#jira-permissions-helper) or check out [Jira's guide on Permissions helper](https://confluence.atlassian.com/adminjiracloud/using-the-permission-helper-868982879) for more details. Otherwise, check with your Jira administrator(s) for help.<br><br>
 2. The field configuration of the custom field is not associated correctly with the issue type used in the project. If you're a Jira administrator, check your field's field configuration, that it's associated to the correct issue type, and that the issue type scheme is associated to the correct project. Otherwise, check with your Jira administrator(s) for help.
 
 ## Get issue
@@ -1364,7 +1364,7 @@ This action creates a user in your Jira instance.
 #### Unable to create user
 If a user is unable to be created, the linked Jira account may not have sufficient permissions to create users.
 
-See our [Jira permissions documentation](/connectors/jira.html#jira-permissions-helper) or check out [Jira's guide on Permissions helper](https://confluence.atlassian.com/adminjiracloud/using-the-permission-helper-868982879.html) for more details. Otherwise, check with your Jira administrator(s) for help.
+See our [Jira permissions documentation](/connectors/jira.md#jira-permissions-helper) or check out [Jira's guide on Permissions helper](https://confluence.atlassian.com/adminjiracloud/using-the-permission-helper-868982879) for more details. Otherwise, check with your Jira administrator(s) for help.
 
 ## Get user details
 This action retrieves the user record that matches the provided username. Action will fail if the user does not exist.

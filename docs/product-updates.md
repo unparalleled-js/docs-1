@@ -257,7 +257,7 @@ This eliminates the need to manually provision user accounts in advance. For exa
 - *Faster Onboarding & improved employee experience:* New hires have faster access to Workato accounts with the right access privileges.
 
 #### Resources
-- [Documentation](https://docs.workato.com/user-accounts-and-teams/team-collaboration.html#saml-just-in-time-provisioning)
+- [Documentation](/user-accounts-and-teams/team-collaboration.md#saml-just-in-time-provisioning)
 ___
 
 ## Platform security: Two-factor authentication
@@ -289,7 +289,7 @@ Workato's two-factor authentication uses a software generated time-based, one-ti
 - Eliminates the painful policy for periodic password reset
 
 #### Resources
-- [Documentation](https://docs.workato.com/security/2fa.html)
+- [Documentation](/security/2fa.md)
 - [Video demo](https://www.dropbox.com/s/7dyi467bsl3aw7v/2FA%20Tutorial%20-%20V02.mp4?dl=0-)
 
 ___
@@ -350,8 +350,8 @@ Lastly, it is difficult to verify that a webhook trigger is configured correctly
 2. Reduce skill barrier and human error - wizard detects key information  and uses it to configure the trigger automatically.
 
 #### Resources
-- [Documentation](https://docs.workato.com/connectors/workato-webhooks.html)
-- [Common errors and how to resolve them](https://docs.workato.com/connectors/workato-webhooks/common-errors.html)
+- [Documentation](/connectors/workato-webhooks.md)
+- [Common errors and how to resolve them](/connectors/workato-webhooks/common-errors.md)
 
 ___
 
@@ -452,7 +452,7 @@ API platform provides the following:
 #### Resources
 - [Product Hour](https://resources.workato.com/product-hour/api-management-with-workato-jan-17/)
 - [Product Blog post](https://product.workato.com/2019/02/08/feb-2019-product-release-api-platform-update/)
-- [Documentation](https://docs.workato.com/api-mgmt/access-tokens.html)
+- [Documentation](/api-mgmt/access-tokens.md)
 
 ___
 
@@ -521,5 +521,5 @@ Users can create manifests- a record of all assets (recipes & dependencies) that
 - Improved visibility and consistency across the development lifecycle
 
 #### Resources
-- [Docs](https://docs.workato.com/recipe-development-lifecycle.html)
-- [Best Practices](https://docs.workato.com/recipe-development-lifecycle.html)
+- [Docs](/recipe-development-lifecycle.md)
+- [Best Practices](/recipe-development-lifecycle.md)

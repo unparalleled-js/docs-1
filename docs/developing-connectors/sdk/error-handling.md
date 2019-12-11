@@ -32,7 +32,7 @@ By default, the SDK framework will only raise errors when the HTTP response code
 There are 2 ways you can catch these errors. The first method is to use [detect_on](/developing-connectors/sdk/authentication/custom-authentication.md#detect-on) in the `connection` definition. This is a connector-wide method to catch errors; It applies to all actions and triggers. Furthermore, this method will raise errors with a standard message format that cannot be customized.
 
 ### `after_response`
-The alternative is to handle these errors in the [after_response](/developing-connectors/sdk/request.md#after_response) method. This method can be used together with `error()` to validate the contents of a HTTP response and raise custom errors. This method applies to individual actions/triggers. Hence the condition(s) used to detect an error can be customized to each request. Additionally, the error message can be changed to suit each actions/triggers.
+The alternative is to handle these errors in the [after_response](/developing-connectors/sdk/request.md#after-response) method. This method can be used together with `error()` to validate the contents of a HTTP response and raise custom errors. This method applies to individual actions/triggers. Hence the condition(s) used to detect an error can be customized to each request. Additionally, the error message can be changed to suit each actions/triggers.
 
 For example, we can use the `after_response` method to check the contents of the response body before deciding to return the body as a successful request output or to raise an error with a custom message.
 

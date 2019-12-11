@@ -7,7 +7,7 @@ date: 2018-05-09 12:00:00 Z
 
 Before getting started on **on-prem agents**, you should have set up an **on-prem group**:
 1. [Create](/on-prem/groups/create-group.md) an on-prem group.
-2. [Add agent](/on-prem/groups/add-agent) to your on-prem group.
+2. [Add agent](/on-prem/groups/add-agent.md) to your on-prem group.
 
 After setting up the on-prem agent on your network and testing the connection, your on-prem agent has been successfully been set up.
 

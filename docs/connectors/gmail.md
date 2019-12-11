@@ -12,7 +12,7 @@ The Gmail connector enables you to build powerful automation around Gmail and co
 This connector uses Gmail [API v1](https://developers.google.com/gmail/api/v1/reference/).
 
 ## How to connect to Gmail on Workato
-The Gmail connector uses OAuth 2.0 for authentication. When prompted, follow the on-screen [connection instructions](https://docs.workato.com/connections.html) and login to your Google account to connect.
+The Gmail connector uses OAuth 2.0 for authentication. When prompted, follow the on-screen [connection instructions](/connections.md) and login to your Google account to connect.
 
 Based on Google's updated security policies, Gmail triggers or download attachment actions can only be used by paid G Suite accounts. Before you link your account, and if you intend to use the Gmail **New email trigger** or **Download attachment action**, you must whitelist Workato's Gmail connector app and grant it read permission. The following section will guide you through the required steps.
 

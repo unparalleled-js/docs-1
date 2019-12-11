@@ -11,7 +11,7 @@ This trigger allows you to listen to and receive IDocs from an on-premise SAP sy
 
 A few things to take note:
 
-- You must [configure IDocs in your SAP system](https://docs.workato.com/connectors/sap.html#configure-idoc-in-sap-to-work-with-workato) before using this trigger.
+- You must [configure IDocs in your SAP system](/connectors/sap.md#configure-idoc-in-sap-to-work-with-workato) before using this trigger.
 
 - Currently, 1 IDoc can only be listened by the trigger of 1 recipe. Using multiple recipes to listen to the same IDoc will result in some recipes missing the IDoc. Workato will make enhancement to improve this in the near future, but at present, a simple workaround is to use [Callable recipes](/features/callable-recipes.md). For details on how to do this, please see the [Troubleshooting section](#troubleshooting) at the end of this doc.
 
@@ -19,7 +19,7 @@ A few things to take note:
 ## Input fields
 | Field name | Description |
 |---|---|
-| IDoc name | The IDoc to listen to. You can select an IDoc name from the picklist or enter IDoc name directly. Note that the picklist only displays [IDocs that are configured in the partner profile in your SAP system](https://docs.workato.com/connectors/sap.html#create-partner-profile-for-workato). |
+| IDoc name | The IDoc to listen to. You can select an IDoc name from the picklist or enter IDoc name directly. Note that the picklist only displays [IDocs that are configured in the partner profile in your SAP system](/connectors/sap.md#create-partner-profile-for-workato). |
 | Release number | Check with your SAP admin what IDoc release should be used. By default, Workato uses the earliest release of the selected IDoc. |
 
 ## Output fields

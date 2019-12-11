@@ -15,7 +15,7 @@ Our engineers are hard at work daily to make Workato better! View the latest upd
 
 - **SAP On-premise connector:**
 
-  **What's new:** The new [SAP On-premise connector](https://docs.workato.com/connectors/sap.html) that can connect to almost any SAP system on-premise or on a firewall protected server (including AWS, IBM, etc.). The supported SAP versions include SAP ERP ECC 6.0 and later, SAP CRM, SAP SRM, SAP SCM, and any other modules compatible with the NetWeaver platform.
+  **What's new:** The new [SAP On-premise connector](/connectors/sap.md) that can connect to almost any SAP system on-premise or on a firewall protected server (including AWS, IBM, etc.). The supported SAP versions include SAP ERP ECC 6.0 and later, SAP CRM, SAP SRM, SAP SCM, and any other modules compatible with the NetWeaver platform.
 
   This first release supports asynchronous IDoc. Support for synchronous RFC will be coming soon.
 
@@ -25,7 +25,7 @@ Our engineers are hard at work daily to make Workato better! View the latest upd
 
 - **Salesforce: Batch operations**
 
-  Apart from support for Salesforce bulk operations, Workato has included support for [Salesforce batch operations](https://docs.workato.com/connectors/salesforce/batch-operations.html), which make use of Salesforce’s Collections API.
+  Apart from support for Salesforce bulk operations, Workato has included support for [Salesforce batch operations](/connectors/salesforce/batch-operations.md), which make use of Salesforce’s Collections API.
 
   These actions allow the creation and update of up to 2,000 records at a time. Users should make use of these operations when they are creating or updating small batches of Salesforce records, or if they wish to perform multiple operations without using Bulk API.
 
@@ -294,7 +294,7 @@ Note: We have upgraded our services to TLS 1.1 or higher as of August 21, 2018. 
 
 - **New connector: On-Prem Command-line Scripts**
 
-  **What's new:** Workato's `On-prem command-line scripts` connector allows you to run whitelisted command line scripts in your private network with an on-premises agent. Find out how to set a profile up on the [on-premises profile documentation](https://docs.workato.com/on-prem/profile.html#command-line-scripts-profile).
+  **What's new:** Workato's `On-prem command-line scripts` connector allows you to run whitelisted command line scripts in your private network with an on-premises agent. Find out how to set a profile up on the [on-premises profile documentation](/on-prem/profile.md#command-line-scripts-profile).
 
 - **HTTP & Custom HTTP connectors**
 
@@ -351,11 +351,11 @@ Note: We have upgraded our services to TLS 1.1 or higher as of August 21, 2018. 
 
 ### Connector enhancements
 - Shopify: Inventory API changes. **These changes will result in your recipes breaking if you are using Shopify connector actions**. Please view this [document](https://support.workato.com/support/solutions/articles/1000266904-shopify-connector-inventory-api-breaking-changes) for more information.  
-- New connector: [JDBC](https://docs.workato.com/connectors/jdbc.html) (in beta)
+- New connector: [JDBC](/connectors/jdbc.md) (in beta)
 - Workbot for Slack: Post Message & Post Command Reply actions — added support for multiple attachments.
 - Eventbrite: Now supports Eventbrite Music
 - Salesforce: New get document by ID action
-- Workday: Enhancements to fields with attributes and repeated fields. View this [documentation](https://docs.workato.com/connectors/workday/call_operation.html) to learn more.
+- Workday: Enhancements to fields with attributes and repeated fields. View this [documentation](/connectors/workday/call_operation.md) to learn more.
 
 ## July 06 - July 18 2018
 

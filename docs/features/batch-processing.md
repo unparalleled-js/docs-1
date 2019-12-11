@@ -5,19 +5,19 @@ date: 2017-03-06 15:30:00 Z
 
 # Batch processing
 
-Typically, 1 Workato [job](https://docs.workato.com/recipes/jobs.html) processes 1 row of data or 1 record. Batch processing simply means that 1 job processes multiple rows of data or multiple records. This will increase speed and data throughput when you move a large number of records from one app to another.
+Typically, 1 Workato [job](/recipes/jobs.md) processes 1 row of data or 1 record. Batch processing simply means that 1 job processes multiple rows of data or multiple records. This will increase speed and data throughput when you move a large number of records from one app to another.
 
 Let's look at the example below to understand the concept of batch processing (or Batching).
 
 ![Batching example](~@img/features/batch-processing/batching-example.png)
 *Simple example of Batching*
 
-Larger batch size means we need fewer jobs and fewer API calls to move the same amount of data. As a result, [recipe](https://docs.workato.com/workato-concepts.html#recipes) run time often decreases. The following chart shows how different batch sizes can reduce running time when Workato moves 100,000 rows of data.
+Larger batch size means we need fewer jobs and fewer API calls to move the same amount of data. As a result, [recipe](/workato-concepts.md#recipes) run time often decreases. The following chart shows how different batch sizes can reduce running time when Workato moves 100,000 rows of data.
 
 ![Batching example](~@img/features/batch-processing/batching-graph.png)
 *Time saving using Batching*
 
-You can find batching-supported [triggers](https://docs.workato.com/recipes/triggers.html) and [actions](https://docs.workato.com/recipes/actions.html) in certain connectors, such as database connectors (SQL Server, MySQL, etc.), cloud storage connectors that work with CSV files (e.g. Box, Amazon S3), Salesforce connector, etc. For best result, always match a batch trigger with batch actions.
+You can find batching-supported [triggers](/recipes/triggers.md) and [actions](/recipes/actions.md) in certain connectors, such as database connectors (SQL Server, MySQL, etc.), cloud storage connectors that work with CSV files (e.g. Box, Amazon S3), Salesforce connector, etc. For best result, always match a batch trigger with batch actions.
 
 ![Batch trigger example](~@img/features/batch-processing/batch-trigger.png)
 *Example of a Batch trigger*
@@ -27,7 +27,7 @@ You can find batching-supported [triggers](https://docs.workato.com/recipes/trig
 
 ## Batch triggers
 
-For normal triggers, 1 [trigger event](https://docs.workato.com/recipes/triggers.html) often contains 1 data record. For example, "a new account is created in Salesforce" is 1 trigger event. It will trigger a Workato [recipe](https://docs.workato.com/workato-concepts.html#recipes) to create a [job](https://docs.workato.com/recipes/jobs.html) and process 1 data record (i.e. that new account in Salesforce).
+For normal triggers, 1 [trigger event](/recipes/triggers.md) often contains 1 data record. For example, "a new account is created in Salesforce" is 1 trigger event. It will trigger a Workato [recipe](/workato-concepts.md#recipes) to create a [job](/recipes/jobs.md) and process 1 data record (i.e. that new account in Salesforce).
 
 For Batch triggers, 1 trigger event contains multiple records (e.g. 50 accounts in Salesforce). A job will thus process multiple records at once. The `Batch size` determines the maximum number of records in 1 trigger event.
 

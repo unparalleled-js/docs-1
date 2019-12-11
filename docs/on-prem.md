@@ -41,7 +41,7 @@ Minimum hardware requirements are:
 - 250 MB of disk space
 - 800 Mhz 64-bit CPU (Intel/AMD).
 
-Learn how to setup for each OS [here](/on-prem/agents/setup.html).
+Learn how to setup for each OS [here](/on-prem/agents/setup.md).
 
 ## In this section
 * [On-prem group](/on-prem/groups.md)

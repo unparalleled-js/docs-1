@@ -18,7 +18,7 @@ Buttons can:
 
 2. Pass command input values to that recipe
 
-3. Invoke dialogs, as covered in the ['Using dialogs with Workbot'](https://docs.workato.com/workbot/using-dialogs-with-workbot.html) guide.
+3. Invoke dialogs, as covered in the ['Using dialogs with Workbot'](/workbot/using-dialogs-with-workbot.md) guide.
 
 4. Be posted as a set list, or a [dynamically generated one](#dynamic-list).
 
@@ -26,7 +26,7 @@ To ensure a good conversational interface, keep the number of buttons less than 
 
 ## Anatomy of a button
 
-Buttons can be used in either a Workbot [post command reply](https://docs.workato.com/workbot/workbot-command-reply.html) or a [post message action](https://docs.workato.com/workbot/workbot-actions.html#post-messages).
+Buttons can be used in either a Workbot [post command reply](/workbot/workbot-command-reply.md) or a [post message action](/workbot/workbot-actions.md#post-messages).
 
 ![Button fields](~@img/workbot/workbot-buttons/buttons-fields.png)
 
@@ -95,7 +95,7 @@ Notice that the command trigger ``ui_feature highest priority`` of the triggered
 
 ## Dynamic list of Buttons
 
-Buttons can also be generated dynamically using a list datapill (for more information on lists, see the [list management guide](https://docs.workato.com/features/list-management.html))
+Buttons can also be generated dynamically using a list datapill (for more information on lists, see the [list management guide](/features/list-management.md))
 
 From the button fields, click on the horizontal ellipses on the top-right and choose 'Dynamic List'. This should bring up the dynamic buttons fields.
 

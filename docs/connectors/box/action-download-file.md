@@ -14,9 +14,9 @@ In the example below, we use `File contents` data pill from Box's Download file 
 | Field name | Description |
 |---|---|
 | File ID | ID of file to download. File ID can be found in the output of other Box triggers/actions or at the end of file URL in Box. |
-| Chunk size | File contents will be [streamed](https://docs.workato.com/features/file-streaming.html) in chunks of this size. Enter the size with the unit, Eg. 50KB. Valid units are 'B', 'KB', 'MB'. Default chunk size is 10MB. Minimum is 32KB and maximum is 10MB. Use this when you want to optimize throughput. Bigger chunk size will increase throughput, but may exceed API limit. |
+| Chunk size | File contents will be [streamed](/features/file-streaming.md) in chunks of this size. Enter the size with the unit, Eg. 50KB. Valid units are 'B', 'KB', 'MB'. Default chunk size is 10MB. Minimum is 32KB and maximum is 10MB. Use this when you want to optimize throughput. Bigger chunk size will increase throughput, but may exceed API limit. |
 
 ## Output fields
 | Field name | Description |
 |---|---|
-| File contents | Binary contents of the file. When you upload this file contents to other applications, [streaming](https://docs.workato.com/features/file-streaming.html) will be used. |
+| File contents | Binary contents of the file. When you upload this file contents to other applications, [streaming](/features/file-streaming.md) will be used. |

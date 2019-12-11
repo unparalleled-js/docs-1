@@ -7,7 +7,7 @@ date: 2019-10-15 17:00:00 Z
 Now that we’ve defined objects schema in methods, we can now start building out our CRUDS actions which will reference the schema methods we have just defined.
 
 ## Defining config fields
-When dealing with object-based actions, we first need to define something called configuration fields. [Configuration fields](https://docs.workato.com/developing-connectors/sdk/config-fields.html) are special input fields that you can define whose answers can dynamically generate other input fields.
+When dealing with object-based actions, we first need to define something called configuration fields. [Configuration fields](/developing-connectors/sdk/config-fields.md) are special input fields that you can define whose answers can dynamically generate other input fields.
 
 ```ruby
 config_fields: [
@@ -25,7 +25,7 @@ config_fields: [
 ![Config fields](~@img/sdk/config_fields.gif)
 *Selecting invoice causes invoice related input fields to appear*
 
-Here we also introduce a [picklist](https://docs.workato.com/developing-connectors/sdk/pick-list.html) which we can easily add additional objects as we introduce support for them.
+Here we also introduce a [picklist](/developing-connectors/sdk/pick-list.md) which we can easily add additional objects as we introduce support for them.
 
 > Configuration fields can also be used in various ways to dynamically generate input fields based on what the user has selected. In cases where an object selected still requires more information before input fields can be accurately shown to the user, we go through some patterns later in this guide that can do so.
 

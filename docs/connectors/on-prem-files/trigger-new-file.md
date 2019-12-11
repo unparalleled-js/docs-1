@@ -14,7 +14,7 @@ This trigger monitors an on-premises folder. Based on a schedule you define, thi
 Use this trigger when you have an on-premises folder to which you frequently add files. Examples of these files could be weekly sales reports, marketing videos, daily data dumps from other systems. Using this trigger, you can build a recipe to copy those files and transfer to other file storage systems (e.g. Amazon S3, SFTP).
 
 **Important Notes**:
-- This trigger supports [streaming](https://docs.workato.com/features/file-streaming.html), which allows you to transfer huge files from your on-premises system to other systems.
+- This trigger supports [streaming](/features/file-streaming.md), which allows you to transfer huge files from your on-premises system to other systems.
 
 - Every time this trigger processes a file, it will **rename the file** and append the text `processing` at the end of file name. This is to prevent the trigger from picking up the file again in the next run, and make sure it only pickup new file in folder.
 
@@ -47,7 +47,7 @@ Configure this to specify which on-premises folder the trigger should monitor fo
 
 ![Folder settings](~@img/connectors/on-prem-files/trigger-folder-settings.png)
 
-Optionally, you can define a [naming pattern](https://docs.workato.com/features/wildcard.html) so the trigger only pick up files with certain names. Enable this input field using `Add/remove optional fields` at the bottom of the form.
+Optionally, you can define a [naming pattern](/features/wildcard.md) so the trigger only pick up files with certain names. Enable this input field using `Add/remove optional fields` at the bottom of the form.
 
 ![Filename patterns](~@img/connectors/on-prem-files/filename-patterns.png)
 
@@ -55,7 +55,7 @@ Optionally, you can define a [naming pattern](https://docs.workato.com/features/
 #### Chunk size
 ![Chunk size](~@img/connectors/on-prem-files/chunk-size.png)
 
-When you transfer your on-premises files to other systems, the file contents will be [streamed](https://docs.workato.com/features/file-streaming.html) to the destination systems in small chunks. This allows transferring files of unlimited size.
+When you transfer your on-premises files to other systems, the file contents will be [streamed](/features/file-streaming.md) to the destination systems in small chunks. This allows transferring files of unlimited size.
 
 The optimal chunk size is automatically handled by Workato. However, if you need to optimize yourself, this `Chunk size` field allows you to specify the size of each chunk.
 

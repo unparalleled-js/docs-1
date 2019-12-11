@@ -13,7 +13,7 @@ Note that in Amazon S3, when a file is renamed, it is considered a new file. Whe
 ## Input fields
 | Field name | Description |
 |---|---|
-| When first started, this recipe should pick up events from | When recipe starts for the first time, it will pick up CSV files created or updated from this specified time. Once recipe has been run or tested, value cannot be changed. [Learn more about this field here](https://docs.workato.com/recipes/triggers.html#sincefrom).  |
+| When first started, this recipe should pick up events from | When recipe starts for the first time, it will pick up CSV files created or updated from this specified time. Once recipe has been run or tested, value cannot be changed. [Learn more about this field here](/recipes/triggers.md#sincefrom).  |
 | Bucket region | The region of the bucket to monitor for new/updated file, e.g. us-west-2. In Amazon S3, go to **Bucket > Properties > Static website hosting** to find your region in the Endpoint URL. |
 | Bucket | The bucket to monitor for new/updated CSV file. Select a bucket from the picklist or enter the bucket name directly. |
 | Folder | The folder to monitor for new/updat  ed CSV file. Select a folder from the picklist or enter the folder path directly. |
@@ -22,9 +22,9 @@ Note that in Amazon S3, when a file is renamed, it is considered a new file. Whe
 | Column names | The column names of the CSV file. Upload a sample CSV file to automatically generate column names, or add column names manually. |
 | Column delimiter | Delimiter separating the columns in the CSV file. |
 | Contains header row? | Select **Yes** if CSV file contains header row. Workato will not process that row as data.  |
-| Batch size | Workato divides the CSV file into smaller batches to process more efficiently. This field defines the number of CSV rows to process in each batch (Maximum of 1000 rows/batch). Use a larger batch size to increase data throughput. In some cases, Workato will automatically reduce batch size to avoid exceeding API limit. [Learn more about Batch Processing](https://docs.workato.com/features/batch-processing.html). |
+| Batch size | Workato divides the CSV file into smaller batches to process more efficiently. This field defines the number of CSV rows to process in each batch (Maximum of 1000 rows/batch). Use a larger batch size to increase data throughput. In some cases, Workato will automatically reduce batch size to avoid exceeding API limit. [Learn more about Batch Processing](/features/batch-processing.md). |
 
-This trigger supports [Trigger Condition](https://docs.workato.com/recipes/triggers.html#trigger-conditions), which allows you to filter trigger events.
+This trigger supports [Trigger Condition](/recipes/triggers.md#trigger-conditions), which allows you to filter trigger events.
 
 ## Output fields
 <table class="unchanged rich-diff-level-one">

@@ -135,6 +135,6 @@ Next, make sure that the recipe has been started. All good? Let's go!
 
 We've come to the end of this guide - you're awesome for making it this far.
 
-You can make your command reply more interactive by including [attachment fields fields](/connectors/slack.html#example-message-with-attachment), [images](/connectors/slack.html#example-message-with-attachment), [buttons](http://docs.workato.com/connectors/slack.html#using-slack-message-buttons), and even message menus. Buttons and menu options allow Workbot to pass commands back to a recipe to carry out its actions.
+You can make your command reply more interactive by including [attachment fields fields](/connectors/slack.md#example-message-with-attachment), [images](/connectors/slack.md#example-message-with-attachment), [buttons](/connectors/slack.md#using-slack-message-buttons), and even message menus. Buttons and menu options allow Workbot to pass commands back to a recipe to carry out its actions.
 
 Explore other ways Workbot has automated tasks for our community of users in [Community Recipes](https://www.workato.com/recipes/browse?q=workbot).

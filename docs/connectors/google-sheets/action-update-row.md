@@ -4,11 +4,11 @@ date: 2017-6-12 23:00:00 Z
 ---
 
 # Google Sheets action - Update row using row ID (old version)
-**Note**: This article is about action Update row (old version), using Google Sheets API v3 which will be deprecated in the near term. We recommend using this [new action Update row](https://docs.workato.com/connectors/google-sheets/action-update-row-v4.html) instead.
+**Note**: This article is about action Update row (old version), using Google Sheets API v3 which will be deprecated in the near term. We recommend using this [new action Update row](/connectors/google-sheets/action-update-row-v4.md) instead.
 
 The **Update row** action allows you to change the values of any existing row.
 
-It's often used together with a [Search rows](https://docs.workato.com/connectors/google-sheets/action-search-rows.html) action. So that you will first search for the rows you want to update, then update those rows.
+It's often used together with a [Search rows](/connectors/google-sheets/action-search-rows.md) action. So that you will first search for the rows you want to update, then update those rows.
 
 ## How to use this action
 ### Setting up the Google sheet

@@ -13,7 +13,7 @@ This trigger monitors an on-premises folder. Based on a schedule you define, thi
 Use this trigger when you have an on-premises folder to which you frequently add CSV files. Examples of these files could be weekly sales reports or daily data dumps from other systems. Using this trigger, you can build a recipe to read those files and import the records into other system (e.g. Salesforce, databases).
 
 **Important Notes**:
-- This trigger supports [batching](https://docs.workato.com/features/batch-processing.html), which allows you to process huge amount of data in shorter time.
+- This trigger supports [batching](/features/batch-processing.md), which allows you to process huge amount of data in shorter time.
 
 - Every time this trigger processes a file, it will **rename the file** and append the text `processing` at the end of file name. This is to prevent the trigger from picking up the file again in the next run, and make sure it only pickup new file in folder.
 
@@ -48,7 +48,7 @@ Configure this to specify which on-premises folder the trigger should monitor fo
 
 ![Folder settings](~@img/connectors/on-prem-files/trigger-folder-settings.png)
 
-Optionally, you can define a [naming pattern](https://docs.workato.com/features/wildcard.html) so the trigger only picks up files with certain names. Enable this input field using `Add/remove optional fields` at the bottom of the form.
+Optionally, you can define a [naming pattern](/features/wildcard.md) so the trigger only picks up files with certain names. Enable this input field using `Add/remove optional fields` at the bottom of the form.
 
 ![Filename patterns](~@img/connectors/on-prem-files/filename-patterns.png)
 
@@ -58,7 +58,7 @@ Configure this so the trigger will understand the structure of your CSV file. It
 ![CSV file settings](~@img/connectors/on-prem-files/trigger-csv-settings.png)
 
 ### 2.4 Batch size
-Lastly, set a batch size. Batch size determines how many CSV rows trigger will process at the same time. Learn more about [batching here](https://docs.workato.com/features/batch-processing.html).
+Lastly, set a batch size. Batch size determines how many CSV rows trigger will process at the same time. Learn more about [batching here](/features/batch-processing.md).
 
 ![Batch size](~@img/connectors/on-prem-files/batch-size.png)
 
@@ -73,14 +73,14 @@ The following is how this trigger's output looks like:
 
 | Output pill | Description |
 |---|---|
-| CSV Rows | This `CSV Rows` output pill represents the list of rows in the CSV file. You can use this pill with [repeat step](https://docs.workato.com/recipes/steps.html#repeat-step) to loop through all rows in the CSV file.<br><br> Expand the pill, you will see all columns in your CSV file, which can be used for mapping. <br>![CSV columns](~@img/connectors/on-prem-files/trigger-csv-output-rows.png)  |
+| CSV Rows | This `CSV Rows` output pill represents the list of rows in the CSV file. You can use this pill with [repeat step](/recipes/steps.md#repeat-step) to loop through all rows in the CSV file.<br><br> Expand the pill, you will see all columns in your CSV file, which can be used for mapping. <br>![CSV columns](~@img/connectors/on-prem-files/trigger-csv-output-rows.png)  |
 | File path (original) | File path **before** trigger processed this file. <br> e.g. C:/Program Files/sales_report.csv |
 | File path (processed) | When trigger processes a file, it will rename the file and mark as `processing`. This is the file path **after** trigger processed the file. <br> e.g. C:/Program Files/sales_report.csv.1526632883663.processing |
 | File name (processed) | When trigger processes a file, it will rename the file and mark as `processing`. This is the file name **after** trigger processed the file. <br> e.g. sales_report.csv.1526632883663.processing |
 | File size (bytes) | File size in bytes. |
 | Created time | The time the file was created. |
 | Last modified time | The time the file was last modified. |
-| Batch size | The [batch](https://docs.workato.com/features/batch-processing.html) size that you have set in the input. |
-| Batch number | Trigger divides the CSV rows into multiple batches, then assign each batch to a job for processing. `Batch number` shows ID of the batch that a job is processing. Useful when you need to debug in [job report](https://docs.workato.com/recipes/jobs.html#job-details).<br><br>Learn more about [batching here](https://docs.workato.com/features/batch-processing.html).|
-| First batch | `True` if this is the first batch. Otherwise `False`. Useful when you need to debug in [job report](https://docs.workato.com/recipes/jobs.html#job-details).|
-| Last batch | `True` if this is the last batch. Otherwise `False`. Useful when you need to debug in [job report](https://docs.workato.com/recipes/jobs.html#job-details).|
+| Batch size | The [batch](/features/batch-processing.md) size that you have set in the input. |
+| Batch number | Trigger divides the CSV rows into multiple batches, then assign each batch to a job for processing. `Batch number` shows ID of the batch that a job is processing. Useful when you need to debug in [job report](/recipes/jobs.md#job-details).<br><br>Learn more about [batching here](/features/batch-processing.md).|
+| First batch | `True` if this is the first batch. Otherwise `False`. Useful when you need to debug in [job report](/recipes/jobs.md#job-details).|
+| Last batch | `True` if this is the last batch. Otherwise `False`. Useful when you need to debug in [job report](/recipes/jobs.md#job-details).|
