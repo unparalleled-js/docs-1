@@ -66,7 +66,7 @@ This section will list everything you need to know about our SDK as well as prov
       * [Sample output block](/developing-connectors/sdk/best-practices.md#sample-output-block)
       * [Error handling](/developing-connectors/sdk/best-practices.md#error-handling)
   * [Usability and testing best practices](/developing-connectors/sdk/best-practices.md#usability-and-testing-best-practices)  
-* [Examples](developing-connectors/sdk/examples.md)
+* [Examples](/developing-connectors/sdk/examples.md)
 
 ## Coming soon
 * How-to guides
