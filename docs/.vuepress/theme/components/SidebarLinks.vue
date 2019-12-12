@@ -49,7 +49,10 @@
 
     watch: {
       '$route'() {
-        this.refreshIndex();
+        // Have to add timeout because `toggleGroup` event handler should be called first
+        setTimeout(() => {
+          this.refreshIndex();
+        });
       }
     },
 
