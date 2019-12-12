@@ -1,15 +1,16 @@
 <template>
-  <img :src="src" :alt="alt" :height="calculatedHeight" @load="handleImageLoad"/>
+  <img :src="src" :alt="alt" :style="forcedDimensions" @load="handleImageLoad"/>
 </template>
 
 <script>
   /**
    * This component is needed for accurate scrolling to page headers.
-   * Without it when when navigation happens from `/foo` to `/bar#anchor-in-the-middle-of-the-page` if this page
+   *
+   * Without it when navigation happens from e.g. `/foo` to `/bar#anchor-in-the-middle-of-the-page` if this page
    * contains images then scrolling to the anchor may be inaccurate because when "scroll-to" position is calculated
    * images may not be loaded yet and they have zero-height.
    *
-   * This component reserves vertical space for the currently loading image.
+   * This component reserves space for the currently loading image.
    */
   export default {
     name: 'DocImage',
@@ -18,19 +19,19 @@
     data: function () {
       return {
         imageLoaded: false,
-        currentWidth: null
+        parentWidth: null
       }
     },
 
     mounted() {
       if (this.hasDimensions) {
-        this.updateCurrentWidth();
-        window.addEventListener('resize', this.updateCurrentWidth);
+        this.determineParentWidth();
+        window.addEventListener('resize', this.determineParentWidth);
       }
     },
 
     destroyed() {
-      window.removeEventListener('resize', this.updateCurrentWidth);
+      window.removeEventListener('resize', this.determineParentWidth);
     },
 
     computed: {
@@ -38,23 +39,29 @@
         return Boolean(this.width && this.height);
       },
 
-      calculatedHeight() {
-        if (!this.hasDimensions || this.imageLoaded || !this.currentWidth) {
+      forcedDimensions() {
+        if (!this.hasDimensions || this.imageLoaded || !this.parentWidth) {
           return null;
         }
 
-        return Math.min(this.height, this.height * (this.currentWidth / this.width));
+        const width = Math.min(this.parentWidth, this.width);
+        const height = Math.min(this.height, this.height * (this.parentWidth / this.width));
+
+        return {
+          width: `${width.toFixed(2)}px`,
+          height: `${height.toFixed(2)}px`,
+        };
       }
     },
 
     methods: {
       handleImageLoad() {
         this.imageLoaded = true;
-        window.removeEventListener('resize', this.updateCurrentWidth);
+        window.removeEventListener('resize', this.determineParentWidth);
       },
 
-      updateCurrentWidth() {
-        this.currentWidth = this.$el.parentElement.getBoundingClientRect().width;
+      determineParentWidth() {
+        this.parentWidth = this.$el.parentElement.getBoundingClientRect().width;
       }
     }
   };
