@@ -65,10 +65,12 @@ This cURL command can be replicated in Workato:
 
       execute: lambda do |connection, input|
         post("https://forms.hubspot.com/uploads/form/v2/#{input['portal_id']}/#{input['form_guid']}").
-          request_format_www_form_urlencoded.
           request_body(
             input.reject { |k,v| k == 'portal_id' || k == 'form_guid' }
-          )
+          ).
+          request_format_www_form_urlencoded
+          
+        
       end
     },
 

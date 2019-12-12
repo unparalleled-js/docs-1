@@ -48,7 +48,7 @@ While the Workato supports most forms of authentication, SWAPI requires no form 
     ]
   },
 
-  test: lambda do
+  test: lambda do |connection|
     get("https://swapi.co/api/#{connection["object"]}")
   end,
 

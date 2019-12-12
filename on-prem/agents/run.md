@@ -44,9 +44,12 @@ Alternatively, you can use the `Run Agent (console)` shortcut to ensure the agen
 The installer automatically registers an agent (`WorkatoAgent`) as a Windows service . However, the agent does not start automatically. Navigate to the service configuration (**Control Panel → System and Security → Administrative Tools → Services → WorkatoAgent**) to configure service auto-start.
 
 ### Browsing log files
-When the on-prem agent is running as a Windows service, log files can be found at: `%SYSTEMROOT%\System32\LogFiles\Workato`. There's also a shortcut to the Workato log directory in the `Workato` group found in the Start Menu.
+When the on-prem agent is running as a Windows service, log files can be found at: `%SYSTEMROOT%\System32\LogFiles\Workato`. There's also a shortcut to the Workato log directory in the `Workato` group found in the Start Menu. 
 
 Level of details of the OPA logs depend on your configuration. [Learn more](/on-prem/agents/logging.md).
+
+### Changing save location for log files 
+To change the save location for log files, launch `Workato` &rarr; `Service Wrapper Configuration` in the Start Menu. Navigate to the `Logging` tab where you can modify `Log path`.  
 
 ## On-prem agent is reconnected
 To finish re-establishing the connection, go to the On-prem group dashboard and connect to your on-prem agent.

@@ -1,6 +1,7 @@
 {% macro articles(_articles) %}
   {% for article in _articles %}
-    <li class="chapter {% if article.path == file.path and not article.anchor %}active{% endif %}" data-level="{{ article.level }}" {% if article.path %}data-path="{{ article.path|resolveFile }}"{% endif %}>
+    {% if not article.path in book.shareablePages %}
+      <li class="chapter {% if article.path == file.path and not article.anchor %}active{% endif %}" data-level="{{ article.level }}" {% if article.path %}data-path="{{ article.path|resolveFile }}"{% endif %}>
       {% if article.articles.length %}
         <i class="fa fa-angle-right chapter__toggle"></i>
       {% endif %}
@@ -28,6 +29,7 @@
         </ul>
       {% endif %}
     </li>
+    {% endif %}
   {% endfor %}
 {% endmacro %}
 

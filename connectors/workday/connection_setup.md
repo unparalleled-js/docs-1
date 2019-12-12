@@ -1,114 +1,53 @@
 ---
-title: Workato connectors - Workday Connection
+title: Workato connectors - Workday integration connection
 date: 2017-11-17 09:00:00 Z
+isTocVisible: true
 ---
 
 # Workday Connection
 
+To set up your Workday integration, first, connect your Workday instance to Workato.
+
 ## How to connect to Workday on Workato
 The Workday connector uses the [Workday Web Services](https://community.workday.com/sites/default/files/file-hosting/productionapi/index.html), [RaaS](/connectors/workday/workday_raas.md) and [REST API](https://doc.workday.com/reader/wsiU0cnNjCc_k7shLNxLEA/HvgwLwxCHVdBlZUTNd9s7A). Workday recommends using an [Integration System User (ISU)](#register-integration-system-user) for integration using third party services like Workato.
 
-Both the Workday Web Services and RaaS requires basic authentication. REST API is used to work with custom objects. This requires a separate [OAuth client setup](#register-api-client).
+Both the Workday Web Services and RaaS requires basic authentication. REST API requires an additional OAuth client setup.
+
+Workday REST API is used to work with custom objects in your Workday instance. If this is required by your use case, indicate that you are **using custom objects**. See instruction on how to register a Workday API client [here](#register-api-client).
 
 ### Connect to Workday on Workato
-Workday asks for the following information to connect.
 
-![Information to connect to Workday](/assets/images/workday/workday-connection-1.png)
+![Information to connect to Workday](/assets/images/connectors/workday/workday-connection-1.png)
 *Workday connection fields*
 
-<table class="unchanged rich-diff-level-one">
-  <thead>
-    <tr>
-        <th width='25%'>Connection field</th>
-        <th>Description</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>Connection name</td>
-      <td>
-        Give this Workday connection a unique name that identifies which Workday tenant it is connected to.
-      </td>
-    </tr>
-    <tr>
-      <td>Login name</td>
-      <td>
-        This should be the login name for the <a href='#register-integration-system-user'>ISU</a>.
-      </td>
-    </tr>
-    <tr>
-      <td>Password</td>
-      <td>
-        This should be the login password for the <a href='#register-integration-system-user'>ISU</a>.
-      </td>
-    </tr>
-    <tr>
-      <td>Tenant ID</td>
-      <td>
-      Tenant ID can be found in the URL when you are logged into Workday.<br>
-  For example, if the URL of your Workday tenant is <b>https://impl.workday.com/sample_company/d/home.html</b>, tenant ID is <b>sample_company</b>
-      </td>
-    </tr>
-    <tr>
-      <td>WSDL URL</td>
-      <td>
-        This URL is used to generate schema and forms the base URI for every API requests. Find out how to obtain this URL from this <a href='https://community.workday.com/articles/6120#endpoint'>Workday article</a>.<br>
-        The default is <b>https://wd2-impl-services1.workday.com/ccx/service/</b>
-      </td>
-    </tr>
-    <tr>
-      <td>Use custom objects?</td>
-      <td>
-        Choose <b>No</b> if your use cases do not involve custom objects.<br>
-        Choose <b>Yes</b> if it does. Additional <a href='#register-api-client'>client information</a> will be required.
-      </td>
-    </tr>
-    <tr>
-      <td>Client ID</td>
-      <td>
-        Client ID of the API Client you created to connect to Workato. <br>
-        Only required if using custom objects.
-      </td>
-    </tr>
-    <tr>
-      <td>Client secret</td>
-      <td>
-        Client secret of the API Client you created to connect to Workato. <br>
-        Only required if using custom objects.
-      </td>
-    </tr>
-    <tr>
-      <td>Authorization endpoint</td>
-      <td>
-        Authorization endpoint of the API Client you created to connect to Workato. <br>
-        Only required if using custom objects.
-      </td>
-    </tr>
-    <tr>
-      <td>Token endpoint</td>
-      <td>
-        Token endpoint of the API Client you created to connect to Workato. <br>
-        Only required if using custom objects.
-      </td>
-    </tr>
-  </tbody>
-</table>
+| Connection field    | Description |
+| ------------------- | ----------- |
+| Connection name     | Give this Workday connection a unique name that identifies which Workday tenant it is connected to. |
+| Login name          | This should be the login name for the [ISU](#register-integration-system-user). |
+| Password            | This should be the login password for the [ISU](#register-integration-system-user). |
+| Tenant ID           | Tenant ID is found in the URL when you are logged into Workday. For example, if the URL of your Workday tenant is **https://impl.workday.com/sample\_company/d/home.html**, tenant ID is **sample\_company** |
+| WSDL URL            | This URL is used to generate schema and forms the base URI for every API requests. Find out how to obtain this URL from this [Workday article](https://community.workday.com/articles/6120#endpoint). The default is **https://wd2-impl-services1.workday.com/ccx/service/** |
+| Use custom objects? | Choose **No** if your use cases do not involve custom objects.<br>Choose **Yes** if it does. Additional [client information](#register-api-client) will be required. |
+| Client ID           | Client ID of the API Client you created to connect to Workato.<br>Only required if using custom objects. |
+| Client secret       | Client secret of the API Client you created to connect to Workato.<br>Only required if using custom objects. |
+| Authorization endpoint | Authorization endpoint of the API Client you created to connect to Workato.<br>Only required if using custom objects. |
+| Token endpoint      | Token endpoint of the API Client you created to connect to Workato.<br>Only required if using custom objects. |
 
-### Register Integration System User
+## Register Integration System User
 We do not recommend using a user account of a worker to run integrations. There are a few reasons for this.
 
 Firstly, all operations performed by the integration will be logged under this worker instead of one dedicated for integration and workflow processes.
 
 Furthermore, if this worker security profile changes, or if the worker is terminated, integrations that rely on this worker's user account will no longer work.
 
-The recommended approach to access web services is through an Integration System User (ISU) account. For security reasons, each ISU should restricted to a single integration system (like Workato).
+The recommended approach to access web services is through an Integration System User (ISU) account. For security reasons, each ISU should be restricted to a single integration system (like Workato).
 
-The ISU should have all permissions needed to perform the required actions for your integration scenario. When building recipes, you may encounter a `403` error, it means that the ISU does not have sufficient permission for the action.
+The ISU should have all the permissions needed to perform the required actions for your integration scenario. When building recipes, you may encounter a `403` error, it means that the ISU does not have sufficient permission for the action.
 
-![403 error](/assets/images/workday/permission-error.png)
+![403 error](/assets/images/connectors/workday/permission-error.png)
 *Error message when ISU does not have enough permission*
 
-### Create an ISU
+## Create an ISU
 
 <table class="unchanged rich-diff-level-one">
   <thead>
@@ -124,7 +63,7 @@ The ISU should have all permissions needed to perform the required actions for y
         <p>
           Access the <b>Create Security Group</b> task and create an Integration System Security Group.
         </p>
-        <img src="/assets/images/workday/add-security-group.png" alt="Add Security Group">
+        <img src="/assets/images/connectors/workday/add-security-group.png" alt="Add Security Group">
         <i>Add Security Group</i>
       </td>
     </tr>
@@ -153,7 +92,7 @@ The ISU should have all permissions needed to perform the required actions for y
         <p>
           Next, access the <b>Activate Pending Security Policy Changes</b> task and activate these changes.
         </p>
-        <img src="/assets/images/workday/edit-permission-security-policy.png" alt="Edit Permissions for Security Policy">
+        <img src="/assets/images/connectors/workday/edit-permission-security-policy.png" alt="Edit Permissions for Security Policy">
         <i>Edit Permissions for Security Policy</i>
       </td>
     </tr>
@@ -163,7 +102,7 @@ The ISU should have all permissions needed to perform the required actions for y
         <p>
           Access the <b>Create Integration System User</b> task and configure a Workday user account for the integration.
         </p>
-        <img src="/assets/images/workday/integration-system-user.png" alt="Create Integration System User">
+        <img src="/assets/images/connectors/workday/integration-system-user.png" alt="Create Integration System User">
         <i>Create Integration System User</i>
         <p>
           Keep the <b>Session Timeout Minutes</b> default value of 0 to prevent session expiration. An expired session can cause the integration to time out before it successfully completes.
@@ -210,10 +149,10 @@ The ISU should have all permissions needed to perform the required actions for y
 
 Find out more about setting up an ISU [here](https://doc.workday.com/reader/Z9lz_01hqDMDg6NSf7wCBQ/esBDCh5D66sgBhIxmQ5U5g).
 
-### Register API Client
+## Register API Client
 This step is required only if you wish to work with custom objects in Workday. The Workday connector uses the Workday REST API, which uses an OAuth 2.0 for authentication. You need to register an API Client to allow connection to the REST API.
 
-![Register API Client](/assets/images/workday/api-client-1.png)
+![Register API Client](/assets/images/connectors/workday/api-client-1.png)
 *Registering a new client*
 
 Navigate to "Register API Client" in your Workday instance.
@@ -222,7 +161,7 @@ Navigate to "Register API Client" in your Workday instance.
 - Use `https://www.workato.com/oauth/callback` as the Redirection URL
 - Add the necessary scope you wish to grant access for
 
-![API Client credentials](/assets/images/workday/api-client-2.png)
+![API Client credentials](/assets/images/connectors/workday/api-client-2.png)
 *API client details*
 
-Remember to save the **Client ID**, **Client Secret**, **Authorization Endpoint** and **Token Endpoint**. This will be required for connecting to Workday via Workato.
+Remember to save the **Client ID**, **Client Secret**, **Authorization Endpoint** and **Token Endpoint**. They will be required for the Workday integration connector [setup](#connect-to-workday-on-workato).

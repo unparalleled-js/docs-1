@@ -17,7 +17,7 @@ Workato Teams is built with a vision of facilitating agile and iterative develop
 
 - **Audit Trail:** When collaborating, multiple users can work on the same recipe. Hence, it is important to keep an audit trail of the changes. [Auto-versioning](#tracking-changes-made-by-collaborators) provides the ability to roll back or roll-forward changes without losing any work.
 
-- **Recipe Ownership:** Recipes created by users as part of a team are owned by the team. When a consultant leaves or an employee changes group/jobs, their contribution to the team doesn't go away with them. 
+- **Recipe Ownership:** Recipes created by users as part of a team are owned by the team. When a consultant leaves or an employee changes group/jobs, their contribution to the team doesn't go away with them.
 
 The Teams feature is enabled only for certain plans. Check the [Pricing and Plans page](https://www.workato.com/pricing?audience=general) or reach out to Workato sales representatives at +1 (844) 469-6752 to find out more.
 
@@ -88,6 +88,46 @@ You can also define the folders, and correspondingly the recipes and connections
 ![Additional role access to features](/assets/images/user-accounts-and-teams/team-collaboration/folder-permissions.gif)
 *Define folder permissions for the new role*
 
+### Details of the privilege table
+
+The following table provides a breakdown of each privilege you can confer a custom role.
+
+|**Recipes**|**Description**|
+|--- |--- |
+|Recipes|Give your team members specific access to read, create, update, delete, run recipes and access the job history|
+|Connections|Give your team members access to edit, create or delete connections in the app connections page|
+|Folders|Give your team members access to edit, create or delete folders. Team members will have access to the ‘all’ folder if this field is checked. Please define specific access to folders in the fields below.|
+|Project folder|Give your team members access to all folders.|
+|**Tools/Connectors**||
+|Message templates|Give your team members access to create or edit message templates|
+|Workbot|Give your team members access to create or edit installed and custom Workbots|
+|Pub/Sub|Give your team members access to create or edit PubSub topics|
+|Schema reuse|Give your team members access to create or edit reusable schema|
+|Custom OAuth profiles|Give your team members access to create or edit custom OAuth profiles|
+|Lookup Tables|Give your team members access to create or edit all lookup tables|
+|People task|Give your team members access to create or edit human approval workflows|
+|Account properties|Give your team members access to create or edit account properties|
+|Connector SDK|Give your team members access to create and edit custom SDK connectors|
+|API key|Give your team members access to view all API keys in recipes|
+|API management|Give your team members access to manage API tokens and REST endpoints|
+|Recipe lifecycle management|Give your team members access to import/export recipe packages with recipe lifecycle management|
+|Teams|Give your team members access to manage and edit your team members|
+|Custom team roles|Give your team members access to manage custom team roles|
+|SAML SSO|Give your team members access to sign in with SAML SSO. Team access will be authenticated via your identity provider.|
+|Base plan connectors|Give your team members access to all base plan connectors.|
+|Pro plan connectors|Give your team members access to all professional plan connectors.|
+|Biz plan connectors|Give your team members access to all business plan connectors.|
+|Biz plus plan connectors|Give your team members access to all business plus plan connectors.|
+|Enterprise connectors|Give your team members access to all enterprise plan connectors.|
+
+<table>
+<tr>
+ <td>Folders access
+ </td>
+ <td>Specify access to individual recipe folders. If ‘Project folder' is checked, folders specified in this field will be overridden.
+ </td>
+</table>
+
 ## Invite collaborators
 To invite collaborators, provide the full name of the collaborator and their email.
 
@@ -118,5 +158,3 @@ Exports and imports to and from your team account during [recipe lifecycle manag
 
 ![Recipe export history](/assets/images/user-accounts-and-teams/team-collaboration/recipe-export-history.png)
 *Recipe export history*
-
-##

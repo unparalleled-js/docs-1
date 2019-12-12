@@ -10,6 +10,13 @@
     "intopic-toc",
     "ga"
   ],
+  "variables": {
+    "shareablePages": [
+      "oem/embedded-connections.md",
+      "oem/jwt-direct-linking.md",
+      "oem/customer-managers.md"
+    ]
+  },
   "pluginsConfig": {
     "edit-link": {
       "base": "https://github.com/workato/docs/edit/master/",

@@ -644,6 +644,14 @@ a         #=> ["a"]</code></pre>
       </td>
     </tr>
     <tr>
+      <td>SHA1</td>
+      <td>
+        Encrypts a given string using the SHA1 encryption algorithm.<br>
+        <pre><code style="display: block; white-space: pre-wrap;">"abcdef".sha1.encode_base64 # "H4rBDyPFtbwRZ72oS4M+XAV6d9I="</code></pre>
+        <a href="https://ruby-doc.org/stdlib-2.4.0/libdoc/digest/rdoc/Digest/SHA1.html">More details here.</a>
+      </td>
+    </tr>
+    <tr>
       <td>slice</td>
       <td>
         Returns a substring of a given string, as defined by start indexes and length<br>
@@ -901,6 +909,11 @@ today + 2.days #2016-07-15</code></pre>
         Convert Time to UTC timezone.<br>
         <a href="http://ruby-doc.org/core-2.2.0/Time.html#method-c-utc">More details here.</a>
       </td>
+    </tr>
+    <tr>
+      <td>uuid</td>
+      <td>Creates a UUID. Useful when sending strings that are unique in a request.  
+      <pre><code style="display: block; white-space: pre-wrap;">workato.uuid #c52d735a-aee4-4d44-ba1e-bcfa3734f553 => "eyJhbGciO..."</code></pre>
     </tr>
     <tr>
       <td>where</td>
