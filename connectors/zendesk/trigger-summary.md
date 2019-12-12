@@ -13,3 +13,4 @@ This section contains documentation on the triggers supported on the Workato pla
 - [New/updated user trigger](/connectors/zendesk/updated-user-trigger.md)
 - [New organization trigger](/connectors/zendesk/new-organization-trigger.md)
 - [New/updated organization trigger](/connectors/zendesk/updated-organization-trigger.md)
+- [New/updated record trigger](/connectors/zendesk/updated-record-trigger.md)

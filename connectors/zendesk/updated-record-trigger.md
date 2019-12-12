@@ -5,9 +5,10 @@ isTocVisivle: true
 ---
 
 # Zendesk - New/updated record trigger
-This trigger monitors your Zendesk instance for new or updated records. Records are batched and processed at regular poll intervals.
 
-Use this trigger to pick up recent activity in your Zendesk [users](/connectors/zendesk/user-fields.md), [tickets](/connectors/zendesk/ticket-fields.md), and [organizations](/connectors/zendesk/organization-fields.md).
+Use this trigger to pick up recent activity in your Zendesk [users](/connectors/zendesk/user-fields.md), [tickets](/connectors/zendesk/ticket-fields.md), or [organizations](/connectors/zendesk/organization-fields.md).
+
+This trigger monitors and picks up new or updated records in your Zendesk instance. Records are batched and processed at regular poll intervals.
 
 ![New/updated record trigger](/assets/images/connectors/zendesk/updated-record-trigger.png)
 *New/updated record trigger*
@@ -22,10 +23,10 @@ Use this trigger to pick up recent activity in your Zendesk [users](/connectors/
 
 ### Output field
 
-| Output field | Description |
-| ------------ | ----------- |
+| Output field | Description                                |
+| ------------ | ------------------------------------------ |
 | First ID     | The unique Zendesk ID of the first record. |
-| Last ID      | The unique Zendesk ID of the last record. |
-| `Records`      | An array of records. The full list of **object attributes** will be returned for each record. |
+| Last ID      | The unique Zendesk ID of the last record.  |
+| `Records`    | An array of records. The full list of **object attributes** will be returned for each record. |
 
 Click here for a full list of [user outputs](/connectors/zendesk/user-fields.md#user-output-fields), [ticket outputs](/connectors/zendesk/ticket-fields.md#ticket-output-fields), or [organization outputs](/connectors/zendesk/organization-fields.md#organization-output-fields).
