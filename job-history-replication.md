@@ -37,10 +37,10 @@ Eg: 5234/jobs/234/20180521/000/000/000/000/000/000/100/5234-234-100-201805210000
 
 ## JSON file content - Job history sample data
 
-## Job history - Success
+### Job history - Success
 <details><summary><b>Sample JSON</b></summary>
 
-```json
+<pre><code style="display: block; white-space: pre-wrap;">
 {
   "id":994216821,
   "flow_id":1002398,
@@ -250,14 +250,14 @@ Eg: 5234/jobs/234/20180521/000/000/000/000/000/000/100/5234-234-100-201805210000
     }
   ]
 }
-```
+</code></pre>
 
 </details>
 
-## Job history - Failure
+### Job history - Failure
 <details><summary><b>Sample JSON</b></summary>
 
-```json
+<pre><code style="display: block; white-space: pre-wrap;">
 {
   "id":994697528,
   "flow_id":1004057,
@@ -296,16 +296,16 @@ Eg: 5234/jobs/234/20180521/000/000/000/000/000/000/100/5234-234-100-201805210000
     }
   }
 }
-```
+</code></pre>
 
 </details>
 
 ## JSON file content - Recipe step details
 
-## Recipe step details - Success
+### Recipe step details - Success
 <details><summary><b>Sample JSON</b></summary>
 
-```json
+<pre><code style="display: block; white-space: pre-wrap;">
 {
   "id":994209784,
   "flow_id":999392,
@@ -731,14 +731,14 @@ Eg: 5234/jobs/234/20180521/000/000/000/000/000/000/100/5234-234-100-201805210000
     }
   ]
 }
-```
+</code></pre>
 
 </details>
 
-## Recipe step details - Failure
+### Recipe step details - Failure
 <details><summary><b>Sample JSON</b></summary>
 
-```json
+<pre><code style="display: block; white-space: pre-wrap;">
 {
   "id":994699343,
   "flow_id":1004058,
@@ -859,16 +859,16 @@ Eg: 5234/jobs/234/20180521/000/000/000/000/000/000/100/5234-234-100-201805210000
     }
   ]
 }
-```
+</code></pre>
 
 </details>
 
-# JSON file content - Login and user activity
+## JSON file content - Login and user activity
 
-## User login
+### User login
 <details><summary><b>Sample JSON</b></summary>
 
-```json
+<pre><code style="display: block; white-space: pre-wrap;">
 {
   "event":"user_login",
   "details":{
@@ -899,14 +899,14 @@ Eg: 5234/jobs/234/20180521/000/000/000/000/000/000/100/5234-234-100-201805210000
   },
   "timestamp":"2019-09-13 17:24:16 UTC"
 }
-```
+</code></pre>
 
 </details>
 
-## User logout
+### User logout
 <details><summary><b>Sample JSON</b></summary>
 
-```json
+<pre><code style="display: block; white-space: pre-wrap;">
 {
   "event":"user_logout",
   "details":{
@@ -937,14 +937,14 @@ Eg: 5234/jobs/234/20180521/000/000/000/000/000/000/100/5234-234-100-201805210000
   },
   "timestamp":"2019-09-13 17:24:12 UTC"
 }
-```
+</code></pre>
 
 </details>
 
-## Package exported
+### Package exported
 <details><summary><b>Sample JSON</b></summary>
 
-```json
+<pre><code style="display: block; white-space: pre-wrap;">
 {
   "event":"package_exported",
   "details":{
@@ -971,14 +971,14 @@ Eg: 5234/jobs/234/20180521/000/000/000/000/000/000/100/5234-234-100-201805210000
   },
   "timestamp":"2019-09-13 19:56:23 UTC"
 }
-```
+</code></pre>
 
 </details>
 
-## Package imported
+### Package imported
 <details><summary><b>Sample JSON</b></summary>
 
-```json
+<pre><code style="display: block; white-space: pre-wrap;">
 {
   "event":"package_imported",
   "details":{
@@ -1005,14 +1005,14 @@ Eg: 5234/jobs/234/20180521/000/000/000/000/000/000/100/5234-234-100-201805210000
   },
   "timestamp":"2019-09-13 22:22:24 UTC"
 }
-```
+</code></pre>
 
 </details>
 
-## Recipe created
+### Recipe created
 <details><summary><b>Sample JSON</b></summary>
 
-```json
+<pre><code style="display: block; white-space: pre-wrap;">
 {
   "event":"recipe_created",
   "details":{
@@ -1041,14 +1041,14 @@ Eg: 5234/jobs/234/20180521/000/000/000/000/000/000/100/5234-234-100-201805210000
   },
   "timestamp":"2019-09-13 22:28:01 UTC"
 }
-```
+</code></pre>
 
 </details>
 
-## Recipe deleted
+### Recipe deleted
 <details><summary><b>Sample JSON</b></summary>
 
-```json
+<pre><code style="display: block; white-space: pre-wrap;">
 {
   "event":"recipe_deleted",
   "details":{
@@ -1076,13 +1076,14 @@ Eg: 5234/jobs/234/20180521/000/000/000/000/000/000/100/5234-234-100-201805210000
   },
   "timestamp":"2019-09-13 22:23:44 UTC"
 }
-```
+</code></pre>
+
 </details>
 
-## Recipe cloned
+### Recipe cloned
 <details><summary><b>Sample JSON</b></summary>
 
-```json
+<pre><code style="display: block; white-space: pre-wrap;">
 {
   "event":"recipe_created",
   "details":{
@@ -1111,14 +1112,14 @@ Eg: 5234/jobs/234/20180521/000/000/000/000/000/000/100/5234-234-100-201805210000
   },
   "timestamp":"2019-09-13 22:28:01 UTC"
 }
-```
+</code></pre>
 
 </details>
 
-## Recipe started
+### Recipe started
 <details><summary><b>Sample JSON</b></summary>
 
-```json
+<pre><code style="display: block; white-space: pre-wrap;">
 {
   "event":"recipe_stopped",
   "details":{
@@ -1139,14 +1140,14 @@ Eg: 5234/jobs/234/20180521/000/000/000/000/000/000/100/5234-234-100-201805210000
   },
   "timestamp":"2019-09-13 19:55:06 UTC"
 }
-```
+</code></pre>
 
 </details>
 
-## Recipe stopped
+### Recipe stopped
 <details><summary><b>Sample JSON</b></summary>
 
-```json
+<pre><code style="display: block; white-space: pre-wrap;">
 {
   "event":"recipe_started",
   "details":{
@@ -1175,14 +1176,14 @@ Eg: 5234/jobs/234/20180521/000/000/000/000/000/000/100/5234-234-100-201805210000
   },
   "timestamp":"2019-09-13 19:55:05 UTC"
 }
-```
+</code></pre>
 
 </details>
 
-## Folders created
+### Folders created
 <details><summary><b>Sample JSON</b></summary>
 
-```json
+<pre><code style="display: block; white-space: pre-wrap;">
 {
   "event":"folder_created",
   "details":{
@@ -1211,14 +1212,14 @@ Eg: 5234/jobs/234/20180521/000/000/000/000/000/000/100/5234-234-100-201805210000
   },
   "timestamp":"2019-09-13 22:24:25 UTC"
 }
-```
+</code></pre>
 
 </details>
 
-## Folders deleted
+### Folders deleted
 <details><summary><b>Sample JSON</b></summary>
 
-```json
+<pre><code style="display: block; white-space: pre-wrap;">
 {
   "event":"folder_deleted",
   "details":{
@@ -1247,14 +1248,14 @@ Eg: 5234/jobs/234/20180521/000/000/000/000/000/000/100/5234-234-100-201805210000
   },
   "timestamp":"2019-09-13 22:24:58 UTC"
 }
-```
+</code></pre>
 
 </details>
 
-## Teams - Invited a team member
+### Teams - Invited a team member
 <details><summary><b>Sample JSON</b></summary>
 
-```json
+<pre><code style="display: block; white-space: pre-wrap;">
 {
   "event":"team_invitation_created",
   "details":{
@@ -1284,14 +1285,14 @@ Eg: 5234/jobs/234/20180521/000/000/000/000/000/000/100/5234-234-100-201805210000
   },
   "timestamp":"2019-09-13 19:07:34 UTC"
 }
-```
+</code></pre>
 
 </details>
 
-## Teams - Member accepted invite
+### Teams - Member accepted invite
 <details><summary><b>Sample JSON</b></summary>
 
-```json
+<pre><code style="display: block; white-space: pre-wrap;">
 {
   "event":"team_invitation_accept",
   "details":{
@@ -1321,14 +1322,14 @@ Eg: 5234/jobs/234/20180521/000/000/000/000/000/000/100/5234-234-100-201805210000
   },
   "timestamp":"2019-09-13 19:07:57 UTC"
 }
-```
+</code></pre>
 
 </details>
 
-## Teams - Switched into team
+### Teams - Switched into team
 <details><summary><b>Sample JSON</b></summary>
 
-```json
+<pre><code style="display: block; white-space: pre-wrap;">
 {
   "event":"user_login",
   "details":{
@@ -1359,14 +1360,14 @@ Eg: 5234/jobs/234/20180521/000/000/000/000/000/000/100/5234-234-100-201805210000
   },
   "timestamp":"2019-09-13 19:21:50 UTC"
 }
-```
+</code></pre>
 
 </details>
 
-## Teams - Switched out of teams
+### Teams - Switched out of teams
 <details><summary><b>Sample JSON</b></summary>
 
-```json
+<pre><code style="display: block; white-space: pre-wrap;">
 {
   "event":"user_logout",
   "details":{
@@ -1397,14 +1398,14 @@ Eg: 5234/jobs/234/20180521/000/000/000/000/000/000/100/5234-234-100-201805210000
   },
   "timestamp":"2019-09-13 19:22:33 UTC"
 }
-```
+</code></pre>
 
 </details>
 
-## Connections - Connected
+### Connections - Connected
 <details><summary><b>Sample JSON</b></summary>
 
-```json
+<pre><code style="display: block; white-space: pre-wrap;">
 {
   "event":"connection_connected",
   "details":{
@@ -1434,14 +1435,14 @@ Eg: 5234/jobs/234/20180521/000/000/000/000/000/000/100/5234-234-100-201805210000
   },
   "timestamp":"2019-09-13 18:56:58 UTC"
 }
-```
+</code></pre>
 
 </details>
 
-## Connections - Disconnected
+### Connections - Disconnected
 <details><summary><b>Sample JSON</b></summary>
 
-```json
+<pre><code style="display: block; white-space: pre-wrap;">
 {
   "event":"connection_disconnected",
   "details":{
@@ -1472,14 +1473,14 @@ Eg: 5234/jobs/234/20180521/000/000/000/000/000/000/100/5234-234-100-201805210000
   },
   "timestamp":"2019-09-13 22:26:31 UTC"
 }
-```
+</code></pre>
 
 </details>
 
 ### Connections - Created
 <details><summary><b>Sample JSON</b></summary>
 
-```json
+<pre><code style="display: block; white-space: pre-wrap;">
 {
   "event":"connection_created",
   "details":{
@@ -1509,13 +1510,13 @@ Eg: 5234/jobs/234/20180521/000/000/000/000/000/000/100/5234-234-100-201805210000
   },
   "timestamp":"2019-09-13 18:56:10 UTC"
 }
-```
+</code></pre>
 
 </details>
 
-## Connections - Deleted
+### Connections - Deleted
 <details><summary><b>Sample JSON</b></summary>
-```json
+<pre><code style="display: block; white-space: pre-wrap;">
 {
   "event":"connection_deleted",
   "details":{
@@ -1545,6 +1546,6 @@ Eg: 5234/jobs/234/20180521/000/000/000/000/000/000/100/5234-234-100-201805210000
   },
   "timestamp":"2019-09-13 22:24:55 UTC"
 }
-```
+</code></pre>
 
 </details>
