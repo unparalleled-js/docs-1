@@ -31,22 +31,22 @@ In order to use the V2 API, you will first need to create a new Service Account 
 > **Caution: Your project will have an existing service account, but this should not be altered. For additional client and developer API access, you should create a new service account.**
 
 1. From your Dialogflow console, head to your agent's settings by clicking on the gear icon of your agent, to the right of the agent name.
-![Dialogflow agent settings](~@img/connectors/dialogflow/dialogflow-agent-settings.png)
-*Dialogflow agent settings*
+   ![Dialogflow agent settings](~@img/connectors/dialogflow/dialogflow-agent-settings.png)
+   *Dialogflow agent settings*
 
-If you wish to use another project, you’d need to create a new agent. You can easily do so from any existing project by going to the ‘Export and Import’ tab and clicking the ‘EXPORT AS ZIP’ button.
+   If you wish to use another project, you’d need to create a new agent. You can easily do so from any existing project by going to the ‘Export and Import’ tab and clicking the ‘EXPORT AS ZIP’ button.
 
 2. Under the **GOOGLE PROJECT** section, click on the name of the **Service Account**.
-![Google Service Account](~@img/connectors/dialogflow/google-service-account.png)
-*Getting to the Google Cloud Platform Service Accounts page*
-This will take you to the Google Cloud Platform Service Accounts page.
+   ![Google Service Account](~@img/connectors/dialogflow/google-service-account.png)
+   *Getting to the Google Cloud Platform Service Accounts page*
+   This will take you to the Google Cloud Platform Service Accounts page.
 
 3. Click on the **Create Service Account** button at the top of the page.
-![Create new service account](~@img/connectors/dialogflow/create-new-service-account.png)
+   ![Create new service account](~@img/connectors/dialogflow/create-new-service-account.png)
 
 4. In the pop up, enter your preferred details for this service account, then click **Create**.
-![Create new service account](~@img/connectors/dialogflow/service-account-details.png)
-*Creating a service account for your agent*
+   ![Create new service account](~@img/connectors/dialogflow/service-account-details.png)
+   *Creating a service account for your agent*
 
 5. Next, you'll need to grant this service account access to your agent so it has permissions to operate optimally. Under the Dialogflow category, filter by 'dialogflow' and select from any of the following roles.
 
@@ -61,28 +61,28 @@ This will take you to the Google Cloud Platform Service Accounts page.
   Once done, click on **Continue**.
 
 6. Create a key for this service account by clicking on the **Create key** button.
-![Create service account 1](~@img/connectors/dialogflow/create-key-1.png)
-*Begin creating a key*
+  ![Create service account 1](~@img/connectors/dialogflow/create-key-1.png)
+  *Begin creating a key*
 
 7. Choose **JSON** as the **Key** type, then click the **Create** button.
-![Create service account 2](~@img/connectors/dialogflow/create-key-2.png)
-*Choose JSON key type*
+  ![Create service account 2](~@img/connectors/dialogflow/create-key-2.png)
+  *Choose JSON key type*
 
 8. When the key is created, a download of the JSON file will start. Choose a location (remember the path to this location, you'll need it later!) to save it and confirm.
-> **Caution: You can only download this JSON file once, so make sure to save the file and keep it somewhere safe. If you lose this key or it becomes compromised, you can use the same process to create another.**
+  > **Caution: You can only download this JSON file once, so make sure to save the file and keep it somewhere safe. If you lose this key or it becomes compromised, you can use the same process to create another.**
 
 9. Once complete, you'll see a pop up with a confirmation message. Click **Close**.
-![Create service account 3](~@img/connectors/dialogflow/create-key-3.png)
+  ![Create service account 3](~@img/connectors/dialogflow/create-key-3.png)
 
 10. Set up the Google Cloud SDK on your machine if you don't have it already. Follow the steps described here: https://cloud.google.com/sdk/docs/ (don't worry, it's quick and easy)
 
 11. After the Google Cloud SDK is up and running, execute the following command in terminal (replacing `<service-account-key-file.json>` with the path to the JSON file you downloaded in step 8):
-```
-gcloud auth activate-service-account --key-file=<service-account-key-file.json>
-```
+   ```
+   gcloud auth activate-service-account --key-file=<service-account-key-file.json>
+   ```
 12. Next, obtain the Client Access Token by executing the following command in terminal:
-```
-gcloud auth print-access-token
-```
+   ```
+   gcloud auth print-access-token
+   ```
 13. Use the Client Access token in your Dialogflow connection in Workato.
-![Dialogflow connector](~@img/connectors/dialogflow/dialogflow-connector.png)
+   ![Dialogflow connector](~@img/connectors/dialogflow/dialogflow-connector.png)

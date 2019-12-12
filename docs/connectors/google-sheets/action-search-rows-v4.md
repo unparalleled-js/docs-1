@@ -21,6 +21,7 @@ We realise there is an error in rows 3 & 4: `Region` of "Australia" should be "A
 ![Sample recipe of Google Sheets Search & Update ](~@img/connectors/google-sheets/sample-search-update-recipe.png)
 
 This is how we setup the Search & Update actions:
+
 - **Step 1 - Search rows**: We set `Region` = "Asia" and `Country` = "Australia". The action will search for rows matching those conditions.
 
    ![Search rows](~@img/connectors/google-sheets/sample-search-rows.png)

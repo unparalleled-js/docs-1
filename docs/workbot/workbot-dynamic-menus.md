@@ -145,6 +145,7 @@ In your Slack app configuration page, go to:
 > **Features > Interactive Components > Message Menus**
 
 In the **Options Load URL**, key in a URL in this format:
+
 > https://www.workato.com/slack_webhooks/data_source?coak_id=1234
 
 where '1234' is your bot's custom OAuth ID. This ID can be found in the URL of your bot's custom OAuth profile.

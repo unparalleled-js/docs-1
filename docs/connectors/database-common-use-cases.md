@@ -18,8 +18,10 @@ Data coming into your database can be used in various ways. Often we need this d
 
 This recipe can be extended to easily to include more actions if your workflows becomes more complex. Remember to keep in mind the use of batch actions whenever possible to reduce the number of tasks each recipes uses! Benefits of using Workato include the ability for these workflows to be changed so easily! Changes from one email campaign software such as Mailchimp to Sendgrid are easily handled with minimal coding.
 
-<details><summary><b>SQL server to Salesforce and Mailchimp </b></summary>
-    <a href="https://www.workato.com/recipes/917205-data-export-sql-server-to-salesforce-and-mailchimp#recipe">Recipe link</a>
+<details>
+
+  <summary><b>SQL server to Salesforce and Mailchimp </b></summary>
+  <a href="https://www.workato.com/recipes/917205-data-export-sql-server-to-salesforce-and-mailchimp#recipe">Recipe link</a>
   <br>
   <br>
     Company ABC is fast growing software company that sells scheduling software for restaurants and other labour intensive companies. They currently use a mobile application as well as browser application as a platform to allow their clients to do scheduling. As they push out a new system that handles leave tracking and payroll, they want to upsell these features to existing customers who currently have a certain number of employees as well as any customers that grow above this size.

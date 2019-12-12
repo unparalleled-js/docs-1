@@ -104,12 +104,12 @@ After setting the token, choose on one of the endpoints and provide valid values
 The encoded and signed token is passed to the Workato API in the header (see [Calling APIs](/api-mgmt/calling-apis.md)). The access token is sent in the Authorization header with the Bearer authentication scheme.
 
 1. The example below shows how the token is used in Postman:
-![Postman test](~@img/api-mgmt/postman-eg.png)
-*Example of a JWT token used in Postman*
+   ![Postman test](~@img/api-mgmt/postman-eg.png)
+   *Example of a JWT token used in Postman*
 
 2. The example below shows how the token is used in a curl request:
-```bash
-curl -XGET \
--H 'Authorization: Bearer ayJhbGciOiJIUzI1NakIKjkJFVCJ9.eyJzdWIiOiI4OJSIFMLLdkZTY0ZWZkNDY1MTcyMjk2MDA2ZTlmNDEwNGEzOGJmMDAzZTk0YmYyYzRiMzhjYzg3ZDgwYjU0ODk1IiwibmFtZSI6os9fvaG4gRG9lIn0.D_ZHmYZkbRAFQeL' \
-'https://apim.workato.com/api-endpoints-v1/call?email=john-doe%40acme.com'
-```
+   ```bash
+   curl -XGET \
+   -H 'Authorization: Bearer ayJhbGciOiJIUzI1NakIKjkJFVCJ9.eyJzdWIiOiI4OJSIFMLLdkZTY0ZWZkNDY1MTcyMjk2MDA2ZTlmNDEwNGEzOGJmMDAzZTk0YmYyYzRiMzhjYzg3ZDgwYjU0ODk1IiwibmFtZSI6os9fvaG4gRG9lIn0.D_ZHmYZkbRAFQeL' \
+   'https://apim.workato.com/api-endpoints-v1/call?email=john-doe%40acme.com'
+   ```
