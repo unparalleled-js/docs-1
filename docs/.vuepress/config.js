@@ -1,6 +1,9 @@
 const {resolve} = require('path');
 const {repository} = require('../../package.json');
 
+const IMAGES_ALIAS = '@img';
+const IMAGES_DIR = resolve(__dirname, '../../assets/images');
+
 module.exports = {
   title: 'Workato Docs',
   dest: resolve(__dirname, '../../dist'),
@@ -25,7 +28,7 @@ module.exports = {
   ],
   themeConfig: {
     sidebar: require('./sidebar'),
-    smoothScroll: false,
+    smoothScroll: true,
     searchPlaceholder: 'Type to search Workato docs',
     searchMaxSuggestions: 10,
     // Is used to generate URL for "Edit this page" link
@@ -37,13 +40,39 @@ module.exports = {
   ],
   markdown: {
     // Searches for URLs in plain text and converts them to links
-    linkify: true
+    linkify: true,
+    extendMarkdown: md => {
+      md.use(require('./plugins/markdown-it-image-size'), {
+        imagesDir: IMAGES_DIR,
+        imagesAlias: IMAGES_ALIAS
+      })
+    }
   },
   configureWebpack: {
     resolve: {
       alias: {
-        '@img': resolve(__dirname, '../../assets/images')
+        [IMAGES_ALIAS]: IMAGES_DIR
       }
     }
+  },
+  chainWebpack: config => {
+    config.module
+      .rule('vue')
+      .use('vue-loader')
+      .tap(options => {
+        return {
+          ...options,
+          transformAssetUrls: {
+            // Processing `src` attribute of `DocImage` component through asset pipeline
+            DocImage: 'src',
+            // Default values: https://vue-loader.vuejs.org/options.html#transformasseturls
+            video: ['src', 'poster'],
+            source: 'src',
+            img: 'src',
+            image: ['xlink:href', 'href'],
+            use: ['xlink:href', 'href'],
+          }
+        };
+      });
   }
 };
