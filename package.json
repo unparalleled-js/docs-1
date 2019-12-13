@@ -5,8 +5,7 @@
   "scripts": {
     "start": "vuepress dev docs --open",
     "build": "vuepress build docs",
-    "check": "vuepress check-md docs 2>&1 | grep -v '@img' | grep -E '^  .+?:'",
-    "deploy": "bin/deploy.sh"
+    "check": "vuepress check-md docs 2>&1 | grep -v '@img' | grep -E '^  .+?:'"
   },
   "repository": "workato/docs",
   "homepage": "https://github.com/workato/docs#readme",
