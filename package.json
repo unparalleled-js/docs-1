@@ -2,11 +2,14 @@
   "name": "docs",
   "version": "1.0.0",
   "description": "Workato docs",
+  "engines": {
+    "node": ">=12"
+  },
   "scripts": {
     "start": "vuepress dev docs --open",
     "build": "vuepress build docs",
     "check": "vuepress check-md docs 2>&1 | grep -v '@img' | grep -E '^  .+?:'",
-    "deploy": "bin/deploy.sh"
+    "optimize-images": "./bin/optimize-images.js"
   },
   "repository": "workato/docs",
   "homepage": "https://github.com/workato/docs#readme",
