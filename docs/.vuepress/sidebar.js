@@ -474,6 +474,7 @@ module.exports = [
     children: [
       ['/features/admin-dashboard', 'Workato Dashboard'],
       ['/features/activity-audit-log', 'Activity audit log'],
+      ['/job-history-replication', 'Audit log streaming'],
       ['/features/scheduler', 'Scheduler'],
       ['/features/secondary-connectors', 'Secondary connectors'],
       {
@@ -582,7 +583,6 @@ module.exports = [
       },
       ['/features/collection', 'Collection by Workato'],
       ['/data-retention', 'Data retention'],
-      ['/job-history-replication', 'Job history replication'],
       ['/features/common-data-model', 'Common data model'],
       ['/api-management', 'API Platform']
     ]
@@ -941,6 +941,22 @@ module.exports = [
         ]
       },
       ['/connectors/gmail', 'Gmail'],
+      {
+        title: 'Google BigQuery',
+        path: '/connectors/bigquery',
+        children: [
+          [
+            '/connectors/bigquery#how-to-connect-to-bigquery-on-workato',
+            'Connection setup'
+          ],
+          [
+            '/connectors/bigquery/new-row-trigger',
+            'New rows trigger'
+          ],
+          ['/connectors/bigquery/insert', 'Insert rows action'],
+          ['/connectors/bigquery/select', 'Select rows action']
+        ]
+      },
       {
         title: 'Google Drive',
         path: '/connectors/google-drive',
@@ -1700,6 +1716,10 @@ module.exports = [
           ],
           ['/connectors/sftp/upload-file-action', 'Upload file'],
           ['/connectors/sftp/download-file-action', 'Download file'],
+          [
+            '/connectors/sftp/download-large-file-action',
+            'Download large file'
+          ],
           ['/connectors/sftp/rename-file-action', 'Rename file'],
           ['/connectors/sftp/remove-file-action', 'Remove file']
         ]

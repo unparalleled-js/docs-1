@@ -26,7 +26,7 @@ Data uploads must be accompanied by JSON Metadata definition and must be base64 
 ### Data Format
 The following is an example dataset in CSV format.
 
-```csv
+```
 Id,Email,Name
 123,john@doe.com,John Doe
 124,marry@poppins.com,Mary Poppins

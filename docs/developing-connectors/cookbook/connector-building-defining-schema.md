@@ -87,7 +87,7 @@ As a developer building the connector to XYZ labs, the representation of an “I
 
 While a create “Invoice” action may require a POST request similar to this:
 
-```curl
+```
   POST /invoice/create
   Content type:application/json
 
@@ -112,7 +112,7 @@ While a create “Invoice” action may require a POST request similar to this:
 
 and an update “Invoice” action may require a POST similar to this:
 
-```curl
+```
   POST /invoice/update
   Content type:application/json
 
