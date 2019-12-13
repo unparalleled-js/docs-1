@@ -2653,8 +2653,5 @@ module.exports = [
     ]
   },
   ['/product-updates', 'Product Updates'],
-  ['/contact-us', 'Contact us'],
-  ['/oem/embedded-connections', 'Embedded Connections'],
-  ['/oem/jwt-direct-linking', 'JWT Direct Linking'],
-  ['/oem/customer-managers', 'Customer managers']
+  ['/contact-us', 'Contact us']
 ];
