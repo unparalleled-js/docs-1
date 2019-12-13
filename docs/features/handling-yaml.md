@@ -42,7 +42,7 @@ Select **App** > **YAML parser by Workato** to get started.
 
 This parser requires you to download the YAML file on to Workato beforehand. You can do so with a connector's built-in download action (e.g. Dropbox) or with [File by Workato](/handling-files-and-attachments.md).
 
-![Parse YAML content](~@img/features/handling-yaml/yaml-parser-by-workato.png)
+![Parse YAML content](~@img/features/handling-yaml/YAML-parser-by-workato.png)
 *Parse YAML content. See the sample recipe [here](https://www.workato.com/recipes/969549).*
 
 ### Input fields

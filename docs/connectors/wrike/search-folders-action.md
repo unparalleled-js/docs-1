@@ -11,7 +11,7 @@ Folders are one of the main ways to organize and manage information on Wrike.
 
 This action retrieves a list of folders that matches your search criteria. Only records in your Wrike instance that match all the criteria will be returned. A maximum of 100 folders can be retrieved per job.
 
-![Search folder action](~@img/connectors/Wrike/search-folder-action.png)
+![Search folder action](~@img/connectors/wrike/search-folder-action.png)
 *Search folder action*
 
 ### Input fields

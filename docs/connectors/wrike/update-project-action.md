@@ -11,7 +11,7 @@ Projects are one of the main ways to organize, manage, and report on work within
 
 This action updates a specific project in Wrike. You can change the project name, add or modify the title and description, as well as modify sharing users.
 
-![Update project action](~@img/connectors/Wrike/update-project-action.png)
+![Update project action](~@img/connectors/wrike/update-project-action.png)
 *Update project action*
 
 ### Input fields

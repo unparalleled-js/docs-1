@@ -11,7 +11,7 @@ Projects are one of the main ways to organize, manage, and report on work within
 
 This action retrieves a list of projects that matches your search criteria. Only records in your Wrike instance that match all the criteria will be returned. A maximum of 100 projects can be retrieved per job.
 
-![Search projects action](~@img/connectors/Wrike/search-projects-action.png)
+![Search projects action](~@img/connectors/wrike/search-projects-action.png)
 *Search projects action*
 
 ### Input fields

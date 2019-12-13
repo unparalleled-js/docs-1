@@ -34,7 +34,7 @@ The easiest way to convert raw XML data into usable datapills is to parse it wit
 
 Select **App** > **XML parser by Workato** to get started.
 
-![XML parser by Workato input fields](~@img/features/handling-xml/xml-parser-by-workato.png)
+![XML parser by Workato input fields](~@img/features/handling-xml/XML-parser-by-workato.png)
 *XML parser by Workato input fields*
 
 | Input field     | Description                                                                                     |

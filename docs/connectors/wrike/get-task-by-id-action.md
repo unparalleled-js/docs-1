@@ -9,7 +9,7 @@ search:
 
 This action retrieves a single task that matches a search by task ID. Only results in your Wrike instance that match the criteria will be returned.
 
-![Get task by ID action](~@img/connectors/Wrike/get-task-by-id-action.png)
+![Get task by ID action](~@img/connectors/wrike/get-task-by-id-action.png)
 *Get task by ID action*
 
 ### Input fields

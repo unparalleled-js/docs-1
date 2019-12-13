@@ -53,7 +53,7 @@ To log in with your user credentials, click on **Link your account**.
 
 A popup will appear that requests for your Wrike login credentials. Input your **Username / Password** into the fields provided.
 
-![Username/password connection](~@img/connectors/Wrike/wrike-connector-login.png)
+![Username/password connection](~@img/connectors/wrike/wrike-connector-login.png)
 *Username/Password connection*
 
 <table class="unchanged rich-diff-level-one">

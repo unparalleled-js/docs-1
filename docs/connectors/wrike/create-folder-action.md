@@ -11,7 +11,7 @@ Folders are one of the main ways to organize and manage information on Wrike.
 
 This action creates a single folder in a specified location. To create a main folder, select **Root** as the parent folder.
 
-![Create folder action](~@img/connectors/Wrike/create-folder-action.png)
+![Create folder action](~@img/connectors/wrike/create-folder-action.png)
 *Create folder action*
 
 ### Input fields

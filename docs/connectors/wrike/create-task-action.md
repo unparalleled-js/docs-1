@@ -9,7 +9,7 @@ search:
 
 This action creates a single task in a specified Wrike folder/project. To create a main task, select **Root** as the parent folder.
 
-![Create task action](~@img/connectors/Wrike/create-task-action.png)
+![Create task action](~@img/connectors/wrike/create-task-action.png)
 *Create task action*
 
 ### Input fields

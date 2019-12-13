@@ -11,7 +11,7 @@ Folders are one of the main ways to organize and manage information on Wrike.
 
 This action updates a specific folder in Wrike. You can change the folder name, add or modify the title and description, as well as modify sharing users.
 
-![Update folder action](~@img/connectors/Wrike/update-folder-action.png)
+![Update folder action](~@img/connectors/wrike/update-folder-action.png)
 *Update folder action*
 
 ### Input fields

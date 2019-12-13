@@ -13,7 +13,7 @@ In Wrike, you can create comments in [folders](#create-comment-in-folder-action)
 
 This action creates a single comment in a specified Wrike folder.
 
-![Create comment in folder action](~@img/connectors/Wrike/create-comment-in-folder-action.png)
+![Create comment in folder action](~@img/connectors/wrike/create-comment-in-folder-action.png)
 *Create comment in folder action*
 
 ### Input fields
@@ -94,7 +94,7 @@ This action creates a single comment in a specified Wrike folder.
 
 This action creates a single comment in a specified Wrike task.
 
-![Create comment in task action](~@img/connectors/Wrike/create-comment-in-task-action.png)
+![Create comment in task action](~@img/connectors/wrike/create-comment-in-task-action.png)
 *Create comment in task action*
 
 ### Input fields

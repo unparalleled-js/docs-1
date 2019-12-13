@@ -9,7 +9,7 @@ search:
 
 This action creates a timelog record for a specified task in Wrike.
 
-![Create timelog action](~@img/connectors/Wrike/create-timelog-action.png)
+![Create timelog action](~@img/connectors/wrike/create-timelog-action.png)
 *Create timelog action*
 
 ### Input fields

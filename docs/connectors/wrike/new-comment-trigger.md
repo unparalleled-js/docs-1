@@ -13,7 +13,7 @@ Each comment is processed as a separate job. It checks for new jobs once every p
 
 If the last new comment event is older than 7 days, more than 1 poll will be required to retrieve new comments up to current date & time.
 
-![New comment trigger](~@img/connectors/Wrike/new-comment-trigger.png)
+![New comment trigger](~@img/connectors/wrike/new-comment-trigger.png)
 *New comment trigger*
 
 ### Input fields

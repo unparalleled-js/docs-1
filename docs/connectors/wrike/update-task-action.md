@@ -9,7 +9,7 @@ search:
 
 This action updates a specific task in Wrike. You can change the task name, status, as well as modify sharing users.
 
-![Update task action](~@img/connectors/Wrike/update-task-action.png)
+![Update task action](~@img/connectors/wrike/update-task-action.png)
 *Update task action*
 
 ### Input fields

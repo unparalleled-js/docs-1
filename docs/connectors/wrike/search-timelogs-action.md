@@ -9,7 +9,7 @@ search:
 
 This action retrieves a list of timelog records that matches your search criteria. Only records in your Wrike instance that match all the criteria will be returned.
 
-![Search timelogs action](~@img/connectors/Wrike/search-timelogs-action.png)
+![Search timelogs action](~@img/connectors/wrike/search-timelogs-action.png)
 *Search timelogs action*
 
 ### Input fields

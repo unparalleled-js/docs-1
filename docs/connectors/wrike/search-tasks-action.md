@@ -9,7 +9,7 @@ search:
 
 This action retrieves a list of tasks that matches your search criteria. Only records in your Wrike instance that match all the criteria will be returned. A maximum of 100 tasks can be retrieved per job.
 
-![Search tasks action](~@img/connectors/Wrike/search-tasks-action.png)
+![Search tasks action](~@img/connectors/wrike/search-tasks-action.png)
 *Search tasks action*
 
 ### Input fields

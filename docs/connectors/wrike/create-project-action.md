@@ -11,7 +11,7 @@ Projects are one of the main ways to organize, manage, and report on work within
 
 This action creates a single project in a specified location. To create a main project, select **Root** as the parent folder.
 
-![Create project action](~@img/connectors/Wrike/create-project-action.png)
+![Create project action](~@img/connectors/wrike/create-project-action.png)
 *Create project action*
 
 ### Input fields

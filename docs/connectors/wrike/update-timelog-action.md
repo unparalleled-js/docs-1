@@ -9,7 +9,7 @@ search:
 
 This action updates a specified timelog record.
 
-![Update timelog action](~@img/connectors/Wrike/update-timelog-action.png)
+![Update timelog action](~@img/connectors/wrike/update-timelog-action.png)
 *Update timelog action*
 
 ### Input fields

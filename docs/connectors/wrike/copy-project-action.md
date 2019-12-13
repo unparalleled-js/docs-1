@@ -11,7 +11,7 @@ Projects are one of the main ways to organize, manage, and report on work within
 
 This action selects a single project and copies it into a specified location. To copy the project as a main project, select **Root** as the parent project.
 
-![Copy project action](~@img/connectors/Wrike/copy-project-action.png)
+![Copy project action](~@img/connectors/wrike/copy-project-action.png)
 *Copy project action*
 
 ### Input fields
