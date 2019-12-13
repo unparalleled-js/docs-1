@@ -2,14 +2,11 @@
 
 This website is build using [VuePress](https://vuepress.vuejs.org/) and uses modified default theme.
 
-## Developer notes
-
+## Installation
 To develop documentation locally you'll need to install [Node.js](https://nodejs.org/en/) (at least v12).
+After that, clone repo and run `npm ci` to install dependences.
 
-### Installation
-Clone repo and run `npm ci` to install dependences.
-
-### Usage
+## Usage
 List of available commands:
 
 | Command | Description |
@@ -22,7 +19,7 @@ List of available commands:
 
 **Note:** in most cases `optimize-images` commands should not be used manually because this project injects Git precommit hook that optimizes images automatically.  
  
-### Project structure
+## Project structure
 | Directory | Description |
 |---------|-------------|
 | `/assets/images` | Contains all images used in docs |
@@ -32,7 +29,7 @@ List of available commands:
 | `/docs/.vuepress` | Contains all the VuePress configuration- and theme-related files. See [Configuration files](#configuration-files) section for more info. |
 | `/docs/.vuepress/public` | Contains static assets like favicon, fonts etc. |
 
-### Configuration files
+## Configuration files
 
 All the configuration files are located in `/docs/.vuepress` directory.
 
@@ -44,7 +41,7 @@ All the configuration files are located in `/docs/.vuepress` directory.
 | `theme/*` | Files related to overriding of the VuePress default theme. |
 | `plugins/*` | Custom VuePress and markdown-it plugins. |
 
-### Sidebar
+## Sidebar
 
 Navigation sidebar is generated using `/docs/.vuepress/sidebar.js` config file.
 It's a simple JS array each element of which can be one of:
@@ -80,3 +77,9 @@ It's a simple JS array each element of which can be one of:
     ]
   }
   ```
+  
+## Writing documentation
+  
+All documents must be a Markdown files (`*.md`) which will be processed with [markdown-it](https://github.com/markdown-it/markdown-it). List of available markdown extensions can be found in the [VuePress documentation](https://vuepress.vuejs.org/guide/markdown.html).
+
+URLs to images (located in `/assets/images` directory) must start with `~@img` prefix e.g. to insert an image located at `/assets/images/foo.png` you need to write `![Foo](~@img/foo.png)`.
