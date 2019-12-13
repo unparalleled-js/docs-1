@@ -2,6 +2,9 @@
   "name": "docs",
   "version": "1.0.0",
   "description": "Workato docs",
+  "engines": {
+    "node": ">=12"
+  },
   "scripts": {
     "start": "vuepress dev docs --open",
     "build": "vuepress build docs",
