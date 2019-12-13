@@ -11,7 +11,7 @@ Folders are one of the main ways to organize and manage information on Wrike.
 
 This action retrieves a single folder that matches a search by folder ID. Only results in your Wrike instance that match the criteria will be returned.
 
-![Get folder by ID action](~@img/connectors/wrike/get-folder-by-ID-action.png)
+![Get folder by ID action](~@img/connectors/wrike/get-folder-by-id-action.png)
 *Get folder by ID action*
 
 ### Input fields
