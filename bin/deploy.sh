@@ -4,6 +4,7 @@
 set -e
 
 REPO=$(node -pe 'require("./package.json").repository')
+DOMAIN=$(node -pe 'require("./package.json").domain')
 
 # build
 npm run build
@@ -12,7 +13,7 @@ npm run build
 cd dist
 
 # deploying to `docs.workato.com`
-echo 'docs.workato.com' > CNAME
+echo "$DOMAIN" > CNAME
 
 git init
 git add -A

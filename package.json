@@ -12,6 +12,7 @@
     "optimize-images": "./bin/optimize-images.js"
   },
   "repository": "workato/docs",
+  "domain": "docs.workato.com",
   "homepage": "https://github.com/workato/docs#readme",
   "devDependencies": {
     "@vuepress/plugin-medium-zoom": "1.2.0",
@@ -29,6 +30,7 @@
     "simple-git": "1.128.0",
     "tiny-async-pool": "1.1.0",
     "vuepress": "1.2.0",
-    "vuepress-plugin-check-md": "0.0.2"
+    "vuepress-plugin-check-md": "0.0.2",
+    "vuepress-plugin-sitemap": "2.3.1"
   }
 }
