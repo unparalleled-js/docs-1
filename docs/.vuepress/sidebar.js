@@ -2092,7 +2092,7 @@ module.exports = [
                 '/connectors/zendesk/create-organization-action',
                 'Create organization'
               ],
-
+              [
                 '/connectors/zendesk/update-record-action',
                 'Create/update record'
               ],
