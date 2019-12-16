@@ -2,6 +2,6 @@
 Fixes #12345
 
 ### PR submission checklist
-- [ ] Optimised every new image
 - [ ] Checked all content for grammatical errors (using Grammarly, for example)
-- [ ] Added new files to SUMMARY.md
+- [ ] Check for broken links `$npm run check`
+- [ ] Added new files to `docs//vuepress/sidebar.js`
