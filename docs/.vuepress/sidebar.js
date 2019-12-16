@@ -549,7 +549,7 @@ module.exports = [
       ['/features/utilities', 'Utility'],
       ['/features/variables', 'Variables'],
       ['/features/data-masking', 'Data masking'],
-      ['/signing-up/sso', 'Single Sign-On \\(SSO\\)'],
+      ['/signing-up/sso', 'Single Sign-On (SSO)'],
       {
         title: 'List management',
         path: '/features/list-management',
