@@ -2197,6 +2197,10 @@ module.exports = [
                 'Update organization'
               ],
               [
+                '/connectors/zendesk/updated-record-trigger',
+                'New/updated record trigger'
+              ],
+              [
                 '/connectors/zendesk/update-custom-object-record-action',
                 'Update custom object record'
               ]
