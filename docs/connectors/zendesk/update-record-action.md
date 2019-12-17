@@ -1,3 +1,4 @@
+
 ---
 title: Workato connectors - Zendesk create/update record action
 date: 2019-06-03 18:00:00 Z
@@ -6,9 +7,9 @@ isTocVisible: true
 
 # Zendesk - Create/update record action
 
-This action identifies specific records in your Zendesk instance and updates them. Each record is identified by its Zendesk ID.
+This action identifies specific records in your Zendesk instance and updates them. **Tickets** will be identified with their unique Zendesk ID. For **Organization** and **Users**, email and external ID can be used.
 
-For existing records identified by the Zendesk ID, this action will update the record with the data provided. If no records are found, it will create a new record.
+For existing records, this action will update the record with the data provided. If no records are found, it will create a new record.
 
 This action accepts a list of maximum of 100 records.
 
