@@ -4,7 +4,7 @@ date: 2019-12-16 18:00:00 Z
 ---
 
 # Zuora
-[Zuora](https://www.zuora.com/) is a cloud-based SaaS platform that specialises in handling the complexity of Order-to-Revenue processes for subscription based businesses. It has a suite of tools that handle billing and renewal cycles of customers and can also handle payment collection from customer.
+[Zuora](https://www.zuora.com/) is a cloud-based SaaS platform that specialises in handling the complexity of Order-to-Revenue processes for subscription based businesses. It has a suite of tools that handle billing and renewal cycles of customers and can also handle payment collection from customers.
 
 ## API version
 The Zuora connector uses [Zuora REST API](https://www.zuora.com/developer/api-reference/). Support for Zuora Collect APIs and RevPro APIs will be introduced in separate connectors.
