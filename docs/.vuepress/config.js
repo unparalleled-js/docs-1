@@ -1,5 +1,5 @@
 const {resolve} = require('path');
-const {repository} = require('../../package.json');
+const {repository, domain} = require('../../package.json');
 
 const IMAGES_ALIAS = '@img';
 const IMAGES_DIR = resolve(__dirname, '../../assets/images');
@@ -9,6 +9,9 @@ module.exports = {
   dest: resolve(__dirname, '../../dist'),
   base: '/',
   plugins: [
+    ['sitemap', {
+      hostname: `https://${domain}`
+    }],
     ['check-md', {
       exitLevel: 'none'
     }],

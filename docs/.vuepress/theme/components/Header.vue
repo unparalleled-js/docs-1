@@ -100,7 +100,7 @@
     }
 
     &__logo {
-      height: 30px;
+      display: block;
       width: 184px;
 
       @media (max-width: $MQMobile) {
