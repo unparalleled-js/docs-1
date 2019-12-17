@@ -6,7 +6,7 @@ date: 2019-12-16 06:10:00 Z
 # Zuora - Search record action
 
 ## Search record action
-This action search for records in Zuora. First, select the object type in Zuora after which Workato will generate the possible search parameters. Be sure to provide the latest WSDL SOAP API version. Earlier WSDL versions may not be compatible.
+This action searches for records in Zuora. First, select the object type in Zuora after which Workato will generate the possible search parameters. Ensure that the Zuora connector is configured to the latest WSDL SOAP API version. Earlier WSDL versions may not be compatible.
 
 ![Search record action](~@img/zuora/search_record_action.png)
 *Search parameters are dynamically generated based on the object selected.*

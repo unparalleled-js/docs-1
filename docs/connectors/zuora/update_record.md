@@ -6,9 +6,9 @@ date: 2019-12-16 06:10:00 Z
 # Zuora - Update record action
 
 ## Update record action
-This action search for records in Zuora. First, select the object type in Zuora after which Workato will dynamically generate input fields relevant to the object selected.
+This action selects a record and updates it with the data provided. The record is identified using the unique Zuora ID. First, select the object type in Zuora and specify the ID. Subsequently, Workato will dynamically generate input fields relevant to the object selected.
 
-![Search record action](~@img/zuora/update_record_action.png)
+![Update record action](~@img/zuora/update_record_action.png)
 *Update parameters are dynamically generated based on the object selected.*
 
 ### Input fields
@@ -61,4 +61,4 @@ This action search for records in Zuora. First, select the object type in Zuora 
 </table>
 
 ## Downstream actions
-When creating a record in Zuora, the attributes of this object are not returned immediately. To work with the attributes of this newly created record, use the "search records" action and search using the ID returned in this step.
+When updating a record in Zuora, the attributes of this object are not returned immediately. To work with the attributes of this newly updated record, use the "search records" action and search using the ID returned in this step.
