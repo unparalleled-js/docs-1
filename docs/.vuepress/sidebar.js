@@ -2223,6 +2223,32 @@ module.exports = [
             'Zendesk custom objects'
           ]
         ]
+      },
+      {
+        title: 'Zuora',
+        path: '/connectors/zuora',
+        children: [
+          [
+            '/connectors/zuora#how-to-connect-to-zuora-on-workato',
+            'Connection setup'
+          ],
+          [
+            '/connectors/zuora/create_record',
+            'Create record'
+          ],
+          [
+            '/connectors/zuora/update_record',
+            'Update record'
+          ],
+          [
+            '/connectors/zuora/search_record',
+            'Search record'
+          ],
+          [
+            '/connectors/zuora/query_record',
+            'Query record'
+          ]
+        ]
       }
     ]
   },
