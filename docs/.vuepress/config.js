@@ -46,6 +46,17 @@ module.exports = {
   markdown: {
     // Searches for URLs in plain text and converts them to links
     linkify: true,
+    chainMarkdown: config => {
+      // Disabling emoji shortcuts like :)
+      // Other emoji like :smile: will still work
+      // Fixes https://github.com/workato/docs/issues/986
+      config.plugin('emoji').tap(([options]) =>
+        [{
+          ...options,
+          shortcuts: {}
+        }]
+      )
+    },
     extendMarkdown: md => {
       md.use(require('./plugins/markdown-it-image-size'), {
         imagesDir: IMAGES_DIR,
