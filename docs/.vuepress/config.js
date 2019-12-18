@@ -31,7 +31,9 @@ module.exports = {
   ],
   themeConfig: {
     sidebar: require('./sidebar'),
-    smoothScroll: true,
+    // Too long delay before scrolling to top and slow scrolling on pages with a lot of content
+    // See issue https://github.com/workato/docs/issues/984
+    smoothScroll: false,
     searchPlaceholder: 'Type to search Workato docs',
     searchMaxSuggestions: 10,
     // Is used to generate URL for "Edit this page" link
