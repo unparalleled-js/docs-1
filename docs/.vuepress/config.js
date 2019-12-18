@@ -31,7 +31,7 @@ module.exports = {
   ],
   themeConfig: {
     sidebar: require('./sidebar'),
-    smoothScroll: true,
+    smoothScroll: false,
     searchPlaceholder: 'Type to search Workato docs',
     searchMaxSuggestions: 10,
     // Is used to generate URL for "Edit this page" link
