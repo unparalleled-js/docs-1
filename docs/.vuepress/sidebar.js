@@ -2069,6 +2069,10 @@ module.exports = [
               [
                 '/connectors/zendesk/updated-organization-trigger',
                 'New/updated organization trigger'
+              ],
+              [
+                '/connectors/zendesk/updated-record-trigger',
+                'New/updated record trigger'
               ]
             ]
           },
@@ -2087,6 +2091,10 @@ module.exports = [
               [
                 '/connectors/zendesk/create-organization-action',
                 'Create organization'
+              ],
+              [
+                '/connectors/zendesk/update-record-action',
+                'Create/update record'
               ],
               [
                 '/connectors/zendesk/create-organization-membership-action',
@@ -2187,6 +2195,10 @@ module.exports = [
               [
                 '/connectors/zendesk/update-organization-action',
                 'Update organization'
+              ],
+              [
+                '/connectors/zendesk/updated-record-trigger',
+                'New/updated record trigger'
               ],
               [
                 '/connectors/zendesk/update-custom-object-record-action',
