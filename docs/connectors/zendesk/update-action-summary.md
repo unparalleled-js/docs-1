@@ -12,4 +12,5 @@ This section contains documentation on the update actions supported on the Worka
 - [Solve ticket](/connectors/zendesk/solve-ticket-action.md)
 - [Update user](/connectors/zendesk/update-user-action.md)
 - [Update organization](/connectors/zendesk/update-organization-action.md)
+- [Create/update record](/connectors/zendesk/update-record-action.md)
 - [Update custom object record](/connectors/zendesk/update-custom-object-record-action.md)

@@ -1,8 +1,8 @@
 <template>
   <div class="Search">
-    <i class="fa fa-search" aria-hidden="true"></i>
+    <i class="fa fa-search" aria-hidden="true"/>
     <AlgoliaSearchBox v-if="algoliaSearchEnabled" :options="algoliaOptions"/>
-    <SearchBox/>
+    <SearchBox v-else/>
   </div>
 </template>
 

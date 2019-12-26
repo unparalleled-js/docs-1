@@ -64,12 +64,12 @@ import {sign} from 'jsonwebtoken';
 
 /**
 * @param apiKey A unique key associated with the vendor.
-* @param userId Id of the user's account
+* @param customerAccountId Id of the customer's account
 * @param privateKey Private key using RS256 algorithm (this should match the public key provided to Workato)
 */
-function getToken(apiKey, userId, privateKey) {
+function getToken(apiKey, customerAccountId, privateKey) {
   return sign({
-    sub: `${apiKey}:${userId}`,
+    sub: `${apiKey}:${customerAccountId}`,
     jti: nanoid()
   },
   privateKey,

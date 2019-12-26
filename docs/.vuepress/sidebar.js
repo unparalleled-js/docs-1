@@ -2069,6 +2069,10 @@ module.exports = [
               [
                 '/connectors/zendesk/updated-organization-trigger',
                 'New/updated organization trigger'
+              ],
+              [
+                '/connectors/zendesk/updated-record-trigger',
+                'New/updated record trigger'
               ]
             ]
           },
@@ -2087,6 +2091,10 @@ module.exports = [
               [
                 '/connectors/zendesk/create-organization-action',
                 'Create organization'
+              ],
+              [
+                '/connectors/zendesk/update-record-action',
+                'Create/update record'
               ],
               [
                 '/connectors/zendesk/create-organization-membership-action',
@@ -2189,6 +2197,10 @@ module.exports = [
                 'Update organization'
               ],
               [
+                '/connectors/zendesk/updated-record-trigger',
+                'New/updated record trigger'
+              ],
+              [
                 '/connectors/zendesk/update-custom-object-record-action',
                 'Update custom object record'
               ]
@@ -2221,6 +2233,32 @@ module.exports = [
           [
             '/connectors/zendesk/custom-objects',
             'Zendesk custom objects'
+          ]
+        ]
+      },
+      {
+        title: 'Zuora',
+        path: '/connectors/zuora',
+        children: [
+          [
+            '/connectors/zuora#how-to-connect-to-zuora-on-workato',
+            'Connection setup'
+          ],
+          [
+            '/connectors/zuora/create_record',
+            'Create record'
+          ],
+          [
+            '/connectors/zuora/update_record',
+            'Update record'
+          ],
+          [
+            '/connectors/zuora/search_record',
+            'Search record'
+          ],
+          [
+            '/connectors/zuora/query_record',
+            'Query record'
           ]
         ]
       }

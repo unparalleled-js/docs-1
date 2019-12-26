@@ -31,7 +31,9 @@ module.exports = {
   ],
   themeConfig: {
     sidebar: require('./sidebar'),
-    smoothScroll: true,
+    // Too long delay before scrolling to top and slow scrolling on pages with a lot of content
+    // See issue https://github.com/workato/docs/issues/984
+    smoothScroll: false,
     searchPlaceholder: 'Type to search Workato docs',
     searchMaxSuggestions: 10,
     // Is used to generate URL for "Edit this page" link
@@ -44,6 +46,17 @@ module.exports = {
   markdown: {
     // Searches for URLs in plain text and converts them to links
     linkify: true,
+    chainMarkdown: config => {
+      // Disabling emoji shortcuts like :)
+      // Other emoji like :smile: will still work
+      // Fixes https://github.com/workato/docs/issues/986
+      config.plugin('emoji').tap(([options]) =>
+        [{
+          ...options,
+          shortcuts: {}
+        }]
+      )
+    },
     extendMarkdown: md => {
       md.use(require('./plugins/markdown-it-image-size'), {
         imagesDir: IMAGES_DIR,
