@@ -441,7 +441,7 @@ The adapter doesn't need to keep track of how far we can go before we encounter 
 
 Extracts the unique ID of the underlying object.  This is optional, if absent then the default behavior is to use the field called `id` (case insensitive) in the object (the example above just illustrates the default).
 
-**Note**: This is not the same as [`dedup`](#dedup-2) below.
+**Note**: This is not the same as [`dedup`](#dedup) below.
 
 #### `sort_by`
 
@@ -458,7 +458,7 @@ Extracts a sorting/ranking value for the underlying object, so the runtime can d
           end
         }, # closing out the trigger
 
-Performs the same de-duplication logic as in [the case](#dedup) of ascending triggers.  However in the case of descending triggers it is optional; example above is the default, of combining the result of `document_id` and `sort_by`, separated by a `@` character.
+Performs the same de-duplication logic as in [the case](#dedup) of ascending triggers. However in the case of descending triggers it is optional; example above is the default, of combining the result of `document_id` and `sort_by`, separated by a `@` character.
 
 # Complete adapter
 

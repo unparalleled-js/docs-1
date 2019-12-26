@@ -278,7 +278,7 @@ The following are the additional input fields that the Slack action **Respond to
 </table>
 
 # Invite user to channel actions
-The **Invite user to channel** action invites a user to a public channel. To invite users to multiparty direct messages or private channels, use the [Invite user to group](#invite-user-to-group) action.
+The **Invite user to channel** action invites a user to a public channel. To invite users to multiparty direct messages or private channels, use the [Invite user to group](#invite-user-to-group-actions) action.
 
 ## Input fields
 ### User
@@ -294,7 +294,7 @@ To select available channels, switch to ‘Select channel’.
 ![select-channel](~@img/connectors/slack/select-channel-channel-invite.png)
 
 # Invite user to group actions
-The **Invite user to group** action invites a user to multiparty direct message group or private channels. To invite users to a public channel, use the [Invite user to channel](#invite-user-to-channel) action.
+The **Invite user to group** action invites a user to multiparty direct message group or private channels. To invite users to a public channel, use the [Invite user to channel](#invite-user-to-channel-actions) action.
 
 ## Input fields
 ### User

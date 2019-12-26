@@ -32,5 +32,5 @@ Workato provides you with an unique target URL to send webhooks to. Webhooks rec
 With the HTTP connector, it takes less than 20 minutes to build your own action on Workato. This documentation includes the following chapters:
 
 - [Setting up a connection to your app](/developing-connectors/http/connection-setup.md)
-- [Building a HTTP trigger](developing-connectors/http/building-http-trigger.md)
-- [Building an HTTP action](developing-connectors/http/building-http-action.md)
+- [Building a HTTP trigger](/developing-connectors/http/building-http-trigger.md)
+- [Building a HTTP action](/developing-connectors/http/building-http-action.md)

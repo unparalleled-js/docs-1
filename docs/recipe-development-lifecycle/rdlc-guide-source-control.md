@@ -17,7 +17,7 @@ However, it isn’t recommended that you make changes to the recipe files while 
 
 - [Planning for lifecycle management](/recipe-development-lifecycle/rdlc-guide-planning.md)
 - [Exporting: Packaging recipes and dependencies](/recipe-development-lifecycle/export.md)
-- [Importing: Deployment](/recipe-development-lifecycle/recipe-development-lifecycle/import.md)
+- [Importing: Deployment](/recipe-development-lifecycle/import.md)
 - **Working with external source control systems** _(current)_
 
 ## Workato project to GitHub repository mapping

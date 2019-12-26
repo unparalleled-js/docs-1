@@ -50,7 +50,7 @@ actions: {
       "Creates an #{picklist_label['object'] || 'object'} in XYZ. First, select from a list of " \
       'objects that we currently support. After selecting your object,' \
       ' dynamic input fields specific to the object selected ' \
-      'will be populated.'   
+      'will be populated.'
     end,
 
     config_fields: [
@@ -70,12 +70,12 @@ actions: {
 
 Over here we define title and subtitles to give users an idea of the action out of all the different actions in your connector. Remember to keep your title concise whilst using subtitles to provide abit more information.
 
-For descriptions, we allow you to use a lambda function (as shown in the example above) to dynamically change the description of the action when a user makes a selection in the config_field. The same can be done for help text as shown in the example above.
+For descriptions, we allow you to use a lambda function (as shown in the example above) to dynamically change the description of the action when a user makes a selection in the config_field. The same can be done for help text as shown in thecookbook example above.
 
-![Bad example of dynamic descriptions](/assets/images/sdk/dynamic-description-1.png)
+![Bad example of dynamic descriptions](~@img/sdk/dynamic-description-1.png)
 *Bad example with no dynamic description*
 
-![Good example of dynamic descriptions](/assets/images/sdk/dynamic-description-2.png)
+![Good example of dynamic descriptions](~@img/sdk/dynamic-description-2.png)
 *Good example with no dynamic description*
 
 
@@ -273,13 +273,13 @@ pick_lists: {
 
 The example below showcases all the different steps needed to create an update object action. Currently this code only shows support for a single object - `Invoices`. The structure for the update object action is largely identical to that of the create object action where configuration fields, titles, subtitles, descriptions, help text, input fields, output fields, execute and sample output blocks are defined generically. Most of the magic happens in object definitions and methods where object-specific code is introduced to retrieve specific schema and make HTTP calls to endpoints related to that object.
 
-Take note that methods `format_payload` and `format_response` in the execute block are not included in the sample code. To find out their definitions, head over [here]()
+Take note that methods `format_payload` and `format_response` in the execute block are not included in the sample code. To find out their definitions, head over [here](/developing-connectors/sdk/methods.md)
 
 ### Building triggers
 Lets move on to building object based triggers
 
 #### Next Chapter
-##### [Object based triggers](connector-building-building-triggers.md)
+##### [Object based triggers](/connector-building-building-triggers.md)
 
 #### Previous Chapter
-##### [Object-based actions](connector-building-building-actions.md)
+##### [Object-based actions](/connector-building-building-actions.md)

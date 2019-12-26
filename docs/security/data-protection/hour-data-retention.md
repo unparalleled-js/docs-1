@@ -34,4 +34,4 @@ Existing data retention setting does not change. Availability of data retention 
 
 **_Does the max data retention settings change?_**
 
-No, plan based max retention setting does not change. For example, if customer is on business plan then they will get max retention setting of 180 days. See [Data retention policy](/data-retention.md#data-retention-policy "Data retention policy") for more details.
+No, plan based max retention setting does not change. For example, if customer is on business plan then they will get max retention setting of 180 days. See [Data retention policy](/data-retention.md#data-retention-policy) for more details.

@@ -307,4 +307,4 @@ By adding a parameter with country_code: number, the formatted phone number will
 
 ## Converting other data types to numbers
 
-To convert a value of other data types, e.g. string, date, into an integer or a float, use the [to_i](#toi) and the [to_f](#tof) formulas respectively.
+To convert a value of other data types, e.g. string, date, into an integer or a float, use the [to_i](#to-i) and the [to_f](#to-f) formulas respectively.

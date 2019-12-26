@@ -100,5 +100,3 @@ Buttons can also open an external URL, by specifying their type as **Web URL**, 
 # Learn more
 - [Using Workbot for Workplace](/workbot-for-workplace/using-workbot-for-workplace.md)
 - [Workbot triggers](/workbot-for-workplace/workbot-triggers.md)
-
-[//]: # (The above links to passing-parameters.md are not live yet.)

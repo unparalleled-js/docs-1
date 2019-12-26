@@ -272,5 +272,3 @@ The following table shows what goes into the dynamic buttons fields:
 - [Using Workbot for MS Teams](/workbot-for-teams/using-workbot-for-teams.md)
 - [Workbot triggers](/workbot-for-teams/workbot-triggers.md)
 - [Passing parameters](/workbot-for-teams/passing-parameters.md)
-
-[//]: # (The above links to passing-parameters.md are not live yet.)

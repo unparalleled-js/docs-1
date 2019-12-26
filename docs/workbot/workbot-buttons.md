@@ -20,13 +20,13 @@ Buttons can:
 
 3. Invoke dialogs, as covered in the ['Using dialogs with Workbot'](/workbot/using-dialogs-with-workbot.md) guide.
 
-4. Be posted as a set list, or a [dynamically generated one](#dynamic-list).
+4. Be posted as a set list, or a [dynamically generated one](#dynamic-list-of-buttons).
 
 To ensure a good conversational interface, keep the number of buttons less than 5.
 
 ## Anatomy of a button
 
-Buttons can be used in either a Workbot [post command reply](/workbot/workbot-command-reply.md) or a [post message action](/workbot/workbot-actions.md#post-messages).
+Buttons can be used in either a Workbot [post command reply](/workbot/workbot-command-reply.md) or a [post message action](/workbot/workbot-actions.md#post-message).
 
 ![Button fields](~@img/workbot/workbot-buttons/buttons-fields.png)
 

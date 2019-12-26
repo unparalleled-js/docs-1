@@ -234,7 +234,7 @@ The new set of triggers and actions enables automation of marketing workflows fo
 
 #### What is Just-in-time provisioning
 Just-in-Time provisioning enables customers to use a SAML assertion to create users in downstream  apps e.g. Workato on-demand when users log into the app for the very first time.
-This eliminates the need to manually provision user accounts in advance. For example, instead of manually creating a Workato account for a new employee customers can use Just-in-Time provisioning to dynamically create the Workato account when the new employee initially logs in using Single Sign On (SSO).   
+This eliminates the need to manually provision user accounts in advance. For example, instead of manually creating a Workato account for a new employee customers can use Just-in-Time provisioning to dynamically create the Workato account when the new employee initially logs in using Single Sign On (SSO).
 
 #### For Whom
 - Available for all plans that include SSO & Teams
@@ -257,7 +257,7 @@ This eliminates the need to manually provision user accounts in advance. For exa
 - *Faster Onboarding & improved employee experience:* New hires have faster access to Workato accounts with the right access privileges.
 
 #### Resources
-- [Documentation](/user-accounts-and-teams/team-collaboration.md#saml-just-in-time-provisioning)
+- [Documentation](/user-accounts-and-teams/just-in-time-provisioning.md)
 ___
 
 ## Platform security: Two-factor authentication
@@ -289,7 +289,7 @@ Workato's two-factor authentication uses a software generated time-based, one-ti
 - Eliminates the painful policy for periodic password reset
 
 #### Resources
-- [Documentation](/security/2fa.md)
+- [Documentation](/security/two-factor-authentication.md)
 - [Video demo](https://www.dropbox.com/s/7dyi467bsl3aw7v/2FA%20Tutorial%20-%20V02.mp4?dl=0-)
 
 ___

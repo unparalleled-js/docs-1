@@ -4,7 +4,7 @@ date: 2018-02-02 06:10:00 Z
 ---
 
 # Oracle - Upsert actions
-Workato offers both batch and single upsert row actions. This allows you the flexibility to choose the action that you require for your recipe and to fulfill your business needs. Check out our [best practices on whether to use batch or single upsert actions](/connectors/oracle/best-practices.md#deciding-when-to-use-batch-of-rows-triggersactions-vs-single-row-triggersactions) and [when to use insert, update or update](/connectors/oracle/best-practices.md#when-to-use-update-insert-and-upsert-actions).
+Workato offers both batch and single upsert row actions. This allows you the flexibility to choose the action that you require for your recipe and to fulfill your business needs. Check out our [best practices on whether to use batch or single upsert actions](/connectors/oracle/best-practices.md#when-to-use-batch-of-rows-triggers-actions-vs-single-row-triggers-actions) and [when to use insert, update or update](/connectors/oracle/best-practices.md#when-to-use-update-insert-and-upsert-actions).
 
 ## Upsert row
 This action upserts a single row into the selected table.

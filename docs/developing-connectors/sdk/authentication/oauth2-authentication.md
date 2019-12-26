@@ -114,11 +114,11 @@ apply: lambda do |connection|
   # Adds in headers into every request passed as a hash.
   # The variable access_token can be retrieved from input prompts defined in the 'fields' schema earlier or a return from the acquire block
   # i.e. Authorization : Bearer [given access token]
-  headers("Authorization": "Bearer #{connection["access_token"]}")  
+  headers("Authorization": "Bearer #{connection["access_token"]}")
 
   # Used in conjunction with password function
   # i.e. sends the input as username and password in HTTP authentication
-  user(connection["username"])   
+  user(connection["username"])
   password(connection["username"])
 end
 ```
@@ -126,7 +126,7 @@ end
 > The `apply` block will not be applied to any requests made in `acquire`. So you will have to include the required credentials for a successful API request there.
 
 Note:
-- SDK makes a POST request to token endpoint. If a different type of request is expected, look at [Custom token authentication](#custom-token-authentication)
+- SDK makes a POST request to token endpoint. If a different type of request is expected, look at [Custom token authentication](/developing-connectors/sdk/authentication/custom-authentication.md)
 - The `token_url` is required if the `acquire` or `refresh` hooks are not present (see below).
 - Ensure that your implementation of OAuth 2.0 is compliant with the specifications stated in the [RFC document](https://tools.ietf.org/html/rfc6749). Else, your custom adapter might not start.
   - For example, related to [Issuing an Access Token - Successful Response](https://tools.ietf.org/html/rfc6749#section-5.1), Workato will be expecting a response with `access_token` in the response. Returning the access token under a key of `accessToken` in a JSON response will result in an unsuccessful Workato request to your `token_url`.
@@ -430,7 +430,7 @@ There are two ways to match:
 
 This list is optional. If not defined, pseudo successful response will be treated as a successful request instead of raising exceptions. Note: output values of trigger and action will be affected.
 
-The `refresh_on`, `refresh` and `detect_on` hooks are also used in [Custom Authentication](custom-authentication.md#refresh_on).
+The `refresh_on`, `refresh` and `detect_on` hooks are also used in [Custom Authentication](/developing-connectors/sdk/authentication/custom-authentication.md#using-the-refresh-on-block).
 
 ### Other authentication methods
 Check out the other authentication methods we support as well as how to set up a custom connector that works for on-premise connections. [Go back to our list of authentication methods](/developing-connectors/sdk/authentication.md) or check our our [best practices](/developing-connectors/sdk/best-practices.md) for some tips.

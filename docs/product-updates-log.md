@@ -294,7 +294,7 @@ Note: We have upgraded our services to TLS 1.1 or higher as of August 21, 2018. 
 
 - **New connector: On-Prem Command-line Scripts**
 
-  **What's new:** Workato's `On-prem command-line scripts` connector allows you to run whitelisted command line scripts in your private network with an on-premises agent. Find out how to set a profile up on the [on-premises profile documentation](/on-prem/profile.md#command-line-scripts-profile).
+  **What's new:** Workato's `On-prem command-line scripts` connector allows you to run whitelisted command line scripts in your private network with an on-premises agent. Find out how to set a profile up on the [on-premises profile documentation](/on-prem/agents/profile.md#command-line-scripts-profile).
 
 - **HTTP & Custom HTTP connectors**
 

@@ -8,12 +8,12 @@ Workato variable is a user-declared [datapill](/recipes/data-pills-and-mapping.m
 
 The lifetime of a variable is for the duration of a single job (job scope) - there is no persistence, and no mechanism can access this across different jobs.
 
-Workato variables are typed. In order to use variables, you will first have to declare it using the [create variable](#create-variable) action. To update the variable, use [update variable](#update-variable) action.
+Workato variables are typed. In order to use variables, you will first have to declare it using the [create variable](#create-variable-action) action. To update the variable, use [update variable](#update-variable) action.
 
 ### Examples
 If you want to find a particular entry within a report - the entry with the *largest ARR*.
 1. Create a variable called `ARR`.
-2. Run the [for each](recipes/steps.md#repeat-step) action, and update `ARR` whenever it finds a higher value.
+2. Run the [for each](/recipes/steps.md#repeat-step) action, and update `ARR` whenever it finds a higher value.
 3. Subsequently, use the `ARR` value to call up that specific entry.
 
 ![Iterate through the report for highest ARR](~@img/features/variables/run-through-list-for-highest-arr.png)

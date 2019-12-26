@@ -48,7 +48,7 @@ Configure this to specify which on-premises folder the trigger should monitor fo
 
 ![Folder settings](~@img/connectors/on-prem-files/trigger-folder-settings.png)
 
-Optionally, you can define a [naming pattern](/features/wildcard.md) so the trigger only picks up files with certain names. Enable this input field using `Add/remove optional fields` at the bottom of the form.
+Optionally, you can define a naming pattern so the trigger only picks up files with certain names. Enable this input field using `Add/remove optional fields` at the bottom of the form.
 
 ![Filename patterns](~@img/connectors/on-prem-files/filename-patterns.png)
 

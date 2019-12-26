@@ -14,7 +14,7 @@ The required inputs are naturally a combination of both the Scheduler trigger an
 First, configure the Workday report to retrieve.
 
 - Provide the RaaS report URL of the Workday report. Click [here](/connectors/workday/workday_raas.md) to learn how to retrieve the RaaS URL.
-- If the report requires inputs (e.g. filter parameters), additional input fields will be generated. Find out more about input configuration [here](/connectors/workday/get_report.md#custom-report-inputs).
+- If the report requires inputs (e.g. filter parameters), additional input fields will be generated. Find out more about input configuration [here](/connectors/workday/get_report.md#inputs).
 - Configure output batch size using the **Report batch size** input field. Use this to adjust the size of each batch of rows to match the size limit of other actions in the recipe. Batch size default to `200` and can be increased up to `10,000`.
 
 Second, configure the scheduler.

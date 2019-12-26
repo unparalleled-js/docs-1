@@ -401,7 +401,7 @@ Click the tabs below for more details into the functionality you can explore wit
 
 SQL Server connector has triggers for both new and updated rows. For the triggers to work, both **Unique keys** must be configured.**Sort columns** need to be configured for triggers that find recently updated rows.
 
-A table must satisfy some constraints to be used in a trigger. The following sections contain more information about specific constraints. [Read our best practices to find out how you can prepare your table for use with Workato](connectors/mssql/best-practices.md#designing-tables-for-use-in-Workato)
+A table must satisfy some constraints to be used in a trigger. The following sections contain more information about specific constraints. [Read our best practices to find out how you can prepare your table for use with Workato](/connectors/mssql/best-practices.md#designing-tables-for-use-in-workato).
 
 ### Unique keys
 In all triggers and some actions, this is a required input. Values from this selected column are used to uniquely identify rows in the selected table. As such, the values in the selected column must be unique. Typically, this column is the **primary key** of the table (e.g. `ID`).
@@ -449,7 +449,7 @@ As a result, the output of batch triggers/actions needs to be handled differentl
 
 Outputs from batch triggers/actions can also be used outside of actions that work specifically with lists. By using Workato's repeat step, you'll be able to control batch outputs and [use them with any action built for single rows.](/features/list-management.md#using-datapills-in-an-action-with-a-repeat-step-action-does-not-handle-list-processing-list-processing-needs-to-be-done-explicitly-at-the-recipe-logic-level).
 
-> Unsure when to use batch actions and single row actions? [Check out our best practices section for recipe design tips!](/connectors/mssql/best-practices.md#d#when-to-use-batch-of-rows-triggersactions-vs-single-row-triggersactions)
+> Unsure when to use batch actions and single row actions? [Check out our best practices section for recipe design tips!](/connectors/mssql/best-practices.md#when-to-use-batch-of-rows-triggers-actions-vs-single-row-triggers-actions)
 
 ## List of Workato triggers and actions
 Workato currently supports the following triggers and actions. Find out more details about each by clicking on the links below. You can also navigate to them through the side bar.

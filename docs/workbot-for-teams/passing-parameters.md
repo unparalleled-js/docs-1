@@ -138,7 +138,7 @@ The following table shows what goes into the pick list and choice fields:
 ![Choice param recipe](~@img/workbot-for-teams/choice-param-recipe.png)
 *The choice parameter will take its value from a choice (if it's chosen)*
 
-When the user chooses from the **Choices** available in the pick list, that value is attached to the **Choice parameter**, which can then be passed on to the next recipe. Therefore, while the **Choice parameter** is labelled as optional, it must be defined for the value chosen to have a parameter to attach to. Furthermore, that same parameter must be [defined](workbot-for-teams/workbot-triggers.md#defining-parameters) in the downstream recipe's trigger block for the **Choice parameter** to be passed successfully.
+When the user chooses from the **Choices** available in the pick list, that value is attached to the **Choice parameter**, which can then be passed on to the next recipe. Therefore, while the **Choice parameter** is labelled as optional, it must be defined for the value chosen to have a parameter to attach to. Furthermore, that same parameter must be [defined](/workbot-for-teams/workbot-triggers.md#defining-parameters) in the downstream recipe's trigger block for the **Choice parameter** to be passed successfully.
 
 The user can define only one pick list per **post reply** or **post message** action block, meaning that only one parameter can be passed to the downstream recipe using a pick list.
 

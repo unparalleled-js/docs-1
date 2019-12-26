@@ -4,7 +4,7 @@ date: 2018-04-9 10:23:00 Z
 ---
 
 # What are custom OAuth profiles?
-For your [Slack apps](workbot/workbot.md#slack-connector-vs-workbot-for-slack-connector) or [custom Workbot for Slack](workbot/workbot-custom-bots.md) to perform actions, they require certain permission scopes. At the minimum, Slack app triggers & actions require the following permission scopes:
+For your [Slack apps](/workbot/workbot.md#slack-connector-vs-workbot-for-slack-connector) or [custom Workbot for Slack](/workbot/workbot-custom-bots.md) to perform actions, they require certain permission scopes. At the minimum, Slack app triggers & actions require the following permission scopes:
 - channels:read
 - channels:write
 - chat:write:bot

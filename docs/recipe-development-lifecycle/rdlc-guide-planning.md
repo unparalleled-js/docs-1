@@ -9,7 +9,7 @@ Before starting to use lifecycle management in Workato, it is recommended that y
 
 - **Planning for lifecycle management** _(current)_
 - [Exporting: Packaging recipes and dependencies](/recipe-development-lifecycle/export.md)
-- [Importing: Deployment](/recipe-development-lifecycle/recipe-development-lifecycle/import.md)
+- [Importing: Deployment](/recipe-development-lifecycle/import.md)
 - [Working with external source control systems](/recipe-development-lifecycle/rdlc-guide-source-control.md)
 
 ## Defining environments, promotion criteria, and responsibilities
@@ -17,7 +17,7 @@ Before starting to use lifecycle management in Workato, it is recommended that y
 This planning process for lifecycle management is recommended to include:
 
 - Defining the software lifecycle stages
-- Identifying how many different teams you need to support  
+- Identifying how many different teams you need to support
 - Identifying individual roles/responsibilities (e.g. who manages a team, who develops, tests or deploys, and who should be responsible for moving assets between stages)
 
 You should document the criteria for moving recipes across stages: for example, what tests must be run before promotion. Your organization may already have standards in some of these areas, but these may have to be adapted to the terminology and features used in the Workato environment.

@@ -18,6 +18,6 @@ Here are some recommendations for maintaining security when using APIs:
 4) **Use IP whitelisting** (part of the [Access Profile](/api-mgmt/api-client-mgmt.md) for a client) to restrict the originating IPs that are allowed to have API access. A whitelist is a best practice from a security perspective. However, some clients may not have a fixed IP address (for example, clients connected from a home network may get varied IPs from their providers), or may connect from multiple IP addresses (for example, while traveling). In this case, it may not be readily possible
 to whitelist their IPs.
 
-5) Consider distributing a JWT token encapsulating the Auth Token secret instead of the secret itself. JWT tokens are signed, include the client identity and can have an expiration. Learn how to set up a [JWT token](api-mgmt/access-tokens.md#jwt-tokens).
+5) Consider distributing a JWT token encapsulating the Auth Token secret instead of the secret itself. JWT tokens are signed, include the client identity and can have an expiration. Learn how to set up a [JWT token](/api-mgmt/access-tokens.md#jwt-tokens).
 
 6) If a person should no longer have access to APIs (e.g. because they are leaving employment), ensure that a person's client profile is disabled or deleted in Workato.

@@ -116,7 +116,7 @@ For Workato to talk to SAP, you need to install a Workato On-prem Agent (OPA) on
 
 The Virtual Machine server and your SAP server need to be in the same domain, not outside of the firewall, and able to access each other (From each server, try to ping the other server to make sure they can reach each other).
 
-Follow [these instructions](/on-prem/setup.md) to download and setup Workato OPA.
+Follow [these instructions](/on-prem/agents/setup.md) to download and setup Workato OPA.
 
 #### Step 7: Download the SAP JCO libraries
 If you do not already have a license to use SAP JCo libraries, please contact your SAP provider for license.
@@ -136,10 +136,10 @@ Move your OPA's `SAPConnector.jar` file in the `lib` folder to the `lib_ext` fol
 Ensure that you have imported all relevant files into the `lib_ext` folder except the `SAPConnector.jar` file. You should have imported a total of 3 files - `libsapjco3.jnilib`, `sapjco3.jar` and `sapidoc3.jar` into your `lib_ext` folder.
 
 #### Step 8: Create SAP profile in OPA
-Follow [these instructions](/on-prem/profile.md#sap-connection-profile) to create a SAP profile in OPA.
+Follow [these instructions](/on-prem/agents/profile.md#sap-profile) to create a SAP profile in OPA.
 
 #### Step 9: Run OPA
-Follow [these instructions](/on-prem/run.md) to run the OPA. After it successfully runs, you can move on to set up the SAP connector in Workato.
+Follow [these instructions](/on-prem/agents/run.md) to run the OPA. After it successfully runs, you can move on to set up the SAP connector in Workato.
 
 ### Configure SAP connector in Workato UI
 #### Step 10: Connect to SAP from Workato

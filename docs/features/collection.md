@@ -30,7 +30,7 @@ No connection setup is required. Simply select **App** > **Collection by Workato
 *Collection by Workato*
 
 ## Actions
-Start working with lists with the [Create list in Collection](#create-list-in-collection) and [Create list in Collection from CSV file](#create-list-in-collection-from-csv) actions. Perform data transformations with flexible SQL queries using the [Query list in Collection](#query-list-in-collection) action.
+Start working with lists with the [Create list in Collection](#create-list-in-collection-action) and [Create list in Collection from CSV file](#create-list-in-collection-from-csv) actions. Perform data transformations with flexible SQL queries using the [Query list in Collection](#query-list-in-collection) action.
 
 ### Create list in collection action
 This action creates a Collection list in the recipe from a list input. The Collection list will contain the column headers according to the schema of the list. Collections support a maximum of 50,000 list entries.

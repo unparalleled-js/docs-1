@@ -17,16 +17,17 @@ The following actions are supported:
 * Upload object
 
 ## Objects
-| Object name                   | Available actions types                     | Triggers              |
-| ------------------------------|---------------------------------------------|-----------------------|
-| Document     | [Get, Update, Upload](/connectors/plangrid/object-action.md#document)    | [New](/connectors/plangrid/object-trigger.md#document)           |
-| Photo     | [Get, Update, Upload](/connectors/plangrid/object-action.md#photo)                        | [New](/connectors/plangrid/object-trigger.md#photo)           |
-| RFI         | [Create, Get, Get status, Update](/connectors/plangrid/object-action.md#rfi)                | [New/updated, New](/connectors/plangrid/object-trigger.md#rfi)           |
-| Annotation |                                             | [New](/connectors/plangrid/object-trigger.md#Annotation)           |
-| Field report | [Get](/connectors/plangrid/object-action.md#field-report)                                            | [New/updated, New](/connectors/plangrid/object-trigger.md#field-report)           |
-| Project                 | [Create, Get, Update](/connectors/plangrid/object-action.md#project)                            | [New/updated, New](/connectors/plangrid/object-trigger.md#project)           |
-| Sheet    | [Create version upload, Complete version upload, Create sheet packet, Get, Get sheet packet, Upload file to sheet version](/connectors/plangrid/object-action.md#sheet)   | [New](/connectors/plangrid/object-trigger.md#sheet) |
-| Snapshot   | [Get](/connectors/plangrid/object-action.md#snapshot)                                            | [New](/connectors/plangrid/object-trigger.md#snapshot)           |
-| Task        | [Create, Create task list, Get task, Get task list, Update task, Update task list](/connectors/plangrid/object-action.md#task)    | [New/updated, New](/connectors/plangrid/object-trigger.md#task) |
+
+| Object name  | Available triggers | Available actions |
+| ------------ | ------------------ | ----------------- |
+| Document     | [New](/connectors/plangrid/object-trigger.md#document) | [Get, Update, Upload](/connectors/plangrid/object-action.md#document) |
+| Photo        | [New](/connectors/plangrid/object-trigger.md#photo) | [Get, Update, Upload](/connectors/plangrid/object-action.md#photo) |
+| RFI          | [New, New/updated](/connectors/plangrid/object-trigger.md#rfi) | [Create, Get, Get status, Update](/connectors/plangrid/object-action.md#rfi) |
+| Annotation   | [New](/connectors/plangrid/object-trigger.md#annotation) | |
+| Field report | [New, New/updated](/connectors/plangrid/object-trigger.md#field-report) | [Get](/connectors/plangrid/object-action.md#field-report) |
+| Project      | [New, New/updated](/connectors/plangrid/object-trigger.md#project) | [Create, Get, Update](/connectors/plangrid/object-action.md#project) |
+| Sheet        | [New](/connectors/plangrid/object-trigger.md#sheet) | [Create version upload, Complete version upload, Create sheet packet, Get, Get sheet packet, Upload file to sheet version](/connectors/plangrid/object-action.md#sheet) |
+| Snapshot     | [New](/connectors/plangrid/object-trigger.md#snapshot) | [Get](/connectors/plangrid/object-action.md#snapshot) |
+| Task         | [New, New/updated](/connectors/plangrid/object-trigger.md#task) | [Create, Create task list, Get task, Get task list, Update task, Update task list](/connectors/plangrid/object-action.md#task) |
 
 This is a non-exhaustive list of objects and there are still more enhancements to come. If you see an object that we don't currently support, you can use custom actions that allow you to send custom HTTP requests.

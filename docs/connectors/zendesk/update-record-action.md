@@ -13,7 +13,7 @@ For existing records, this action will update the record with the data provided.
 
 This action accepts a list of maximum of 100 records.
 
-![Create/update record action](/assets/images/connectors/zendesk/upsert-record-action.png)
+![Create/update record action](~@img/connectors/zendesk/upsert-record-action.png)
 *Create/update record action*
 
 ## Input field

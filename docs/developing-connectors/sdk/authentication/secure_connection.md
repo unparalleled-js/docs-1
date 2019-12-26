@@ -4,7 +4,7 @@ date: 2018-10-10 00:00:00 Z
 ---
 
 # Secure Connection
-HTTP requests made in a custom adapter will be sent from Workato by default. This means that all traffic will come through our [IP addresses](/security.md#traffic-from-workato). However, you can also configure it to route all requests through an [on-prem agent](/on-prem.md).
+HTTP requests made in a custom adapter will be sent from Workato by default. This means that all traffic will come through our [IP addresses](/security/ip-whitelists.md#traffic-from-workato). However, you can also configure it to route all requests through an [on-prem agent](/on-prem.md).
 
 ## Enable connection through on-prem agent
 By default, a custom adapter does not provide an option to connect through an on-prem agent. As a result, when setting up a connection, there will not be a way to configure it.

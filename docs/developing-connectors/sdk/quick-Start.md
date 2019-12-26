@@ -127,7 +127,7 @@ When the connection you make is successful, the debugger will immediately displa
 
 >You can't test actions or triggers until a successful connection is made. Without a successful connection, HTTP requests sent during triggers and actions would not be able to actively authenticate itself with the API endpoint.
 
-Find out more about configuring a connection in our SDK and what connection types we support. [Learn more](/developing-connectors/sdk/authentication.md.
+Find out more about configuring a connection in our SDK and what connection types we support. [Learn more](/developing-connectors/sdk/authentication.md).
 
 .md### Testing actions and triggers
 After establishing a successful connection, you'll be able to test any actions and triggers you have defined using the debugger console.

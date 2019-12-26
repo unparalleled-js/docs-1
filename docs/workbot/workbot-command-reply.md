@@ -11,14 +11,13 @@ In practice, you should always pair a command with a command reply (in your reci
 
 If you're here after just [completing your first command](/workbot/workbot-commands.md), great job on getting this far! In this exercise, we'll be using the same recipe as before - [creating an issue in Github from Slack](https://www.workato.com/recipes/663926-create-an-issue-on-github-from-slack-using-workbot#recipe) using a Workbot command.
 
-
 ![Workbot Command trigger and the Command response diagram](~@img/workbot/workbot-actions/anatomy-of-a-command-reply-1.gif)
 *Anatomy of a Command reply*
 
 The [recipe](https://www.workato.com/recipes/663926-create-an-issue-on-github-from-slack-using-workbot#recipe) we're working with creates an issue in Github based on inputs provided to Workbot in the command. Here's how they're mapped:
 
 ![Creating an issue in Github](~@img/workbot/workbot-actions/create-issue-github-1.png)
-*We've used the user input datapills to form the Issue title, Body, and Assignee of the issue. More on this [here.](/workbot/workbot-commands.md#user-input-fields)*
+*We've used the user input datapills to form the Issue title, Body, and Assignee of the issue. More on this [here.](/workbot/workbot-commands.md#command-input-fields)*
 
 You can set the Organization and Repository of your choice - this is where Workbot will create new Github issues.
 
@@ -80,7 +79,7 @@ Here's what we want to fill up in these 4 fields:
           <td>Title</td>
           <td>Name of issue: <kbd>Title</kbd></td>
           <td>
-          Here we use the <kbd>Title</kbd> datapill from the Command trigger output (in step 2). Back in the ["Creating a command"](/workbot/workbot-commands.md#user-input-fields) guide, we defined **Issue** as a user input field that users can provide in Slack. Now that the issue has been created, <kbd>Title</kbd> can be used in subsequent action steps - this is how we're letting users populate Github issue fields from Slack!
+          Here we use the <kbd>Title</kbd> datapill from the Command trigger output (in step 2). Back in the ["Creating a command"](/workbot/workbot-commands.md#command-input-fields) guide, we defined **Issue** as a user input field that users can provide in Slack. Now that the issue has been created, <kbd>Title</kbd> can be used in subsequent action steps - this is how we're letting users populate Github issue fields from Slack!
           </td>
         </tr>
         <tr>

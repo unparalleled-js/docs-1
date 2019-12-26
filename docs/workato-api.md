@@ -52,7 +52,7 @@ Workato API supports sending request body with the `application/json` content-ty
 
 | Type |Resource | Description |
 |------|---------|-------------|
-| GET | [/api/recipes/:recipe_id/jobs](/workato-api/jobs.md#list-jobs-belonging-to-a-recipe) | List jobs belonging to recipe. |
+| GET | [/api/recipes/:recipe_id/jobs](/workato-api/jobs.md#list-jobs-from-a-recipe) | List jobs belonging to recipe. |
 
 ## Managed Users
 
@@ -62,13 +62,13 @@ Workato API supports sending request body with the `application/json` content-ty
 
 | Type | Resource | Description |
 |------|----------|-------------|
-| POST | [/api/managed_users](#create-customer-account) | Create customer account. |
-| GET  | [/api/managed_users/:id](#get-customer-account) | Get customer account. |
-| PUT  | [/api/managed_users/:id/upgrade](#upgrade-customer-account) | Upgrade customer account. |
-| PUT  | [/api/managed_users/:id/downgrade](#downgrade-customer-account) | Downgrade customer account. |
-| POST | [/api/managed_users/:id/member](#add-member-to-customer-account) | Add member to customer account. |
-| DELETE | [/api/managed_users/:id/member](#remove-member-from-customer-account) |  Remove member from customer account. |
-| GET  | [/api/managed_users/:id/connections](#list-customer-connections)| List customer connections. |
+| POST | [/api/managed_users](/workato-api/managed-users.md#create-customer-account) | Create customer account. |
+| GET  | [/api/managed_users/:id](/workato-api/managed-users.md#get-customer-account) | Get customer account. |
+| PUT  | [/api/managed_users/:id/upgrade](/workato-api/managed-users.md#upgrade-customer-account) | Upgrade customer account. |
+| PUT  | [/api/managed_users/:id/downgrade](/workato-api/managed-users.md#downgrade-customer-account) | Downgrade customer account. |
+| POST | [/api/managed_users/:id/member](/workato-api/managed-users.md#add-member-to-customer-account) | Add member to customer account. |
+| DELETE | [/api/managed_users/:id/member](/workato-api/managed-users.md#remove-member-from-customer-account) |  Remove member from customer account. |
+| GET  | [/api/managed_users/:id/connections](/workato-api/managed-users.md#list-customer-connections)| List customer connections. |
 
 ## Recipes
 
