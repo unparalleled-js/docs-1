@@ -9,7 +9,7 @@ Fixes #12345
 #### Small note on anchors
 Here are some common fixes for broken links.
 
-| Comment       | Written hash          | Actual chapter heading    |
-| Number        | (`#_1-title-name`)    | ## 1. Title Name          |
-| Underscore    | (`#to-date`)          | ## \`to_date\`            |
-| Slashes       | (`#either-or`)        | ## Either/Or              |
+| Comment       | Written hash      | Actual chapter heading    |
+| Number        | #_1-title-name    | ## 1. Title Name          |
+| Underscore    | #to-date          | ## \`to_date\`            |
+| Slashes       | #either-or        | ## Either/Or              |
