@@ -275,10 +275,10 @@ The example below showcases all the different steps needed to create an update o
 Take note that methods `format_payload` and `format_response` in the execute block are not included in the sample code. To find out their definitions, head over [here](/developing-connectors/sdk/methods.md)
 
 ### Building triggers
-Lets move on to building object based triggers
+Lets move on to building object based triggers.
 
 #### Next Chapter
-##### [Object based triggers](connector-building-building-triggers.md)
+##### [Object based triggers](/connector-building-building-triggers.md)
 
 #### Previous Chapter
-##### [Object-based actions](connector-building-building-actions.md)
+##### [Object-based actions](/connector-building-building-actions.md)

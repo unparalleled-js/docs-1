@@ -70,7 +70,7 @@ actions: {
 
 Over here we define title and subtitles to give users an idea of the action out of all the different actions in your connector. Remember to keep your title concise whilst using subtitles to provide abit more information.
 
-For descriptions, we allow you to use a lambda function (as shown in the example above) to dynamically change the description of the action when a user makes a selection in the config_field. The same can be done for help text as shown in thecookbook example above.
+For descriptions, we allow you to use a lambda function (as shown in the example above) to dynamically change the description of the action when a user makes a selection in the config_field. The same can be done for help text as shown in the cookbook example above.
 
 ![Bad example of dynamic descriptions](~@img/sdk/dynamic-description-1.png)
 *Bad example with no dynamic description*
