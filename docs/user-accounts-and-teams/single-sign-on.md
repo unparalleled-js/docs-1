@@ -3,17 +3,21 @@ title: Team - Single sign-on
 date: 2019-08-02 18:00:00 Z
 ---
 
-# Team collaboration - Single sign on
-You can connect SAML providers to Workato. This allows you to provide authentication and authorized access for multiple users across multiple web applications.
+# Team collaboration - Single sign-on
+You can connect SAML providers to Workato. This allows you to provide authentication and authorized access to Workato for multiple users.
 
-This means that your team members do not have to manually create accounts with Workato. Instead, they can authenticate themselves with Single Sign On (SSO).
+This means that your team members do not have to manually create accounts with Workato. Instead, they can authenticate themselves with Single Sign-On (SSO).
 
 SSO also enables [just in time provisioning](/user-accounts-and-teams/just-in-time-provisioning.md) to streamline your onboarding flow.
 
 ## Create Workato application on your SAML provider
-These are the steps to enable SSO for [Okta](#okta-single-sign-on) and [OneLogin](#onelogin-single-sign-on).
+These are the steps to enable SSO for 
+- [Okta](#okta-single-sign-on)
+- [OneLogin](#onelogin-single-sign-on)
+- [Azure AD](#azure-ad-single-sign-on)
+- [G Suite](#google-g-suite-single-sign-on)
 
-### Okta Single sign on
+### Okta Single sign-on
 <table>
   <thead>
     <tr>
@@ -50,7 +54,7 @@ These are the steps to enable SSO for [Okta](#okta-single-sign-on) and [OneLogin
           </thead>
           <tbody>
             <tr>
-              <td>Single Sign On URL</td>
+              <td>Single Sign-On URL</td>
               <td><code>https://www.workato.com/saml/init</code></td>
             </tr>
             <tr>
@@ -171,7 +175,27 @@ These are the steps to enable SSO for [Okta](#okta-single-sign-on) and [OneLogin
   </tbody>
 </table>
 
-## Workato Single Sign-on setup
+### Azure AD single sign-on
+Follow the Microsoft documentation for a complete step by step guide on how to [configure SAML-based single sign-on on Azure AD](https://docs.microsoft.com/en-us/azure/active-directory/manage-apps/configure-single-sign-on-non-gallery-applications).
+
+Azure AD SAML-based single sign-on configuration requires a unique application identifier called `Entity ID`. The value is provided by Workato in the `Tools` > `Team` > `Settings` tab.
+
+Select `Authentication method` as `SAML based SSO` and choose `Other SAML IdP` in the `SAML provider` drop-down, to see the **Service Provider** `Entity ID` URL. Copy the URL value and paste it in the `Identifier (Entity ID)` SAML configuration setting in Azure AD.
+
+![Azure AD SAML entity ID setting](~@img/user-accounts-and-teams/single-sign-on/azure-ad-saml-sso-entity-id-doc.png)
+
+![Azure AD SAML config documentation](~@img/user-accounts-and-teams/single-sign-on/azure-ad-saml-sso-entity-id-doc.png)
+
+### Google G Suite single sign-on
+Follow the G Suite documentation for a complete step by step guide on how to [configure SAML-based single sign-on on G Suite](https://support.google.com/a/answer/6087519?hl=en).
+
+G Suite SAML-based single sign-on configuration requires a unique application identifier called `Entity ID`. The value is provided by Workato in the `Tools` > `Team` > `Settings` tab.
+
+Select `Authentication method` as `SAML based SSO` and choose `Other SAML IdP` in the `SAML provider` drop-down, to see the **Service Provider** `Entity ID` URL. Copy the URL value and paste it in the `Entity ID` SAML configuration setting in the G Suite Service Provider Details step.
+
+![G Suite entity ID setting](~@img/user-accounts-and-teams/single-sign-on/gsuite-saml-sso-entity-id.png)
+
+## Workato single sign-on setup
 After creating a new application on your SAML provider, finish the SSO setup on the Workato Team [setting page](https://www.workato.com/members#settings).
 
 Fill in the required fields and select **Validate Settings**. After validation has succeeded, select **Save**.
@@ -190,7 +214,7 @@ Fill in the required fields and select **Validate Settings**. After validation h
 | Do you want to enable SAML JIT provision | See [here](/user-accounts-and-teams/just-in-time-provisioning.md) for more information. |
 
 ### SSO configuration with x.509 certificate
-You can also configure the SAML settings manually. In this case, you need to get from SAML Identity Provider next information:
+You can also configure the SAML settings manually. In this case, you need to get following information from your SAML Identity Provider:
 - Identity Provider Single Sign-On URL
 - Identity Provider Issuer
 - X.509 Certificate
@@ -198,7 +222,7 @@ You can also configure the SAML settings manually. In this case, you need to get
 ![Workato SAML manual config](~@img/user-accounts-and-teams/single-sign-on/workato-okta-settings-manual.png)
 *Workato SAML Okta Manual Configuration example*
 
-## Assign SAML to people
+## Assign SAML to users
 Once you have completed the SSO configuration, you can start assigning this SAML application to your team members.
 
 For example, we will use the Workato SAML application in Okta. Select **Assign** > **Assign to people**.
@@ -219,7 +243,7 @@ Once SAML is enabled, access to Team is controlled by SAML Identity Provider (Ok
 ![Workato app on Okta](~@img/user-accounts-and-teams/single-sign-on/employee-workato-app.png)
 *Workato app on Okta*
 
-- From the Workato platform, switching from a personal account to a (SAML-enabled) Team account will require authentication through the SAML provider.
+- From the Workato platform, switching from a individual account to a (SAML-enabled) Team account will require authentication through the SAML provider.
 
 ![Team Switch with Okta](~@img/user-accounts-and-teams/single-sign-on/okta-team-switch.gif)
 *Switch to Team account with Okta authorization*
