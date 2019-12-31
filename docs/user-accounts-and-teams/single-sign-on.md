@@ -182,7 +182,7 @@ Azure AD SAML-based single sign-on configuration requires a unique application i
 
 Select `Authentication method` as `SAML based SSO` and choose `Other SAML IdP` in the `SAML provider` drop-down, to see the **Service Provider** `Entity ID` URL. Copy the URL value and paste it in the `Identifier (Entity ID)` SAML configuration setting in Azure AD.
 
-![Azure AD SAML entity ID setting](~@img/user-accounts-and-teams/single-sign-on/azure-ad-saml-sso-entity-id-doc.png)
+![Azure AD SAML entity ID setting](~@img/user-accounts-and-teams/single-sign-on/azure-ad-saml-sso-entity-id.png)
 
 ![Azure AD SAML config documentation](~@img/user-accounts-and-teams/single-sign-on/azure-ad-saml-sso-entity-id-doc.png)
 
