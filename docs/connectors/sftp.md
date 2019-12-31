@@ -9,7 +9,7 @@ SSH File Transfer Protocol (SFTP) is a file transfer protocol that encodes and t
 
 Use this connector for bi-directional SFTP integrations. This connector allows you to read, write and manage files in your SFTP server.
 
-With the SFTP connector, you use the triggers to monitor your SFTP server for events (e.g. [New/updated CSV file in directory](/connectors/sftp/updated-csv-trigger.md)). You can also integrate recipe actions like [Upload file](/conectors/sftp/upload-file-action.md), [Rename file](/connector/sftp/rename-file-action.md), and [Download file](/connectors/sftp/download-file-action.md).
+With the SFTP connector, you use the triggers to monitor your SFTP server for events (e.g. [New/updated CSV file in directory](/connectors/sftp/updated-csv-trigger.md)). You can also integrate recipe actions like [Upload file](/connectors/sftp/upload-file-action.md), [Rename file](/connectors/sftp/rename-file-action.md), and [Download file](/connectors/sftp/download-file-action.md).
 
 ### How to authenticate with SFTP
 

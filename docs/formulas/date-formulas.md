@@ -398,7 +398,7 @@ Refer to the following table for the timezone name to use in the formula.
 | Samoa                        | Pacific/Apia                   |
 
 # Converting datetime to date
-To convert a date data type into a datetime data, or vice versa, use the [to_date](#todate) or [to_time](#totime) formulas.
+To convert a date data type into a datetime data, or vice versa, use the [to_date](#to-date) or [to_time](#to-time) formulas.
 
 ## to_date
 This function converts a value in another data type, e.g. time or string, into a date data type. By default, the format of the date returned will be YYYY-MM-DD.

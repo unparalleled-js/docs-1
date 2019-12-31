@@ -103,7 +103,7 @@ To complete your Intacct integration workflow, you have to connect Workato recip
 | Input Field | Description |
 | --- | --- |
 | Connection name   | Give this connection a unique name that identifies which Intacct WSU it is connected to. |
-| Login username | Provide the [User ID](#2-configure-web-services-user-information) of the WSU. |
+| Login username | Provide the [User ID](#_2-configure-web-services-user-information) of the WSU. |
 | Login password | The login secret for your Intacct instance. |
 | Company ID | The company ID for your Intacct instance. |
 | Location ID | Location ID for an entity. If left blank, Workato will retrieve all entities. |

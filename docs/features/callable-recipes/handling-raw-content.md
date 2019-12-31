@@ -29,7 +29,7 @@ There is no need to configure the input for this action.
 | Request Content type | The `Content-Type` header value from the incoming request. |
 | Request body (raw) | The full raw body content. |
 
-Subsequently, you can use Workato parsers for [XML](/features/handling-xml.md), [CSV](features/handling-csv-files.md), [YAML](/features/handling-yaml.md) to convert the raw content into usable datapills. We recommend you to use a [JSON request body](/features/callable-receipes/new-call-trigger.md) when handling JSON data.
+Subsequently, you can use Workato parsers for [XML](/features/handling-xml.md), [CSV](/features/handling-csv-files.md), [YAML](/features/handling-yaml.md) to convert the raw content into usable datapills. We recommend you to use a [JSON request body](/features/callable-recipes/new-call-trigger.md) when handling JSON data.
 
 In this example below, we are receiving XML content from the API call. We use the XML parser to convert the raw content into useable datapills.
 

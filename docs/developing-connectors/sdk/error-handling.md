@@ -29,10 +29,10 @@ Some APIs do not use response codes to indicate an error with a request. These A
 By default, the SDK framework will only raise errors when the HTTP response code indicates an error. Since Sage Intacct returns a response of 200 with the error nested inside its response message, it is important to validate all responses and raise an error if one is present in the response body.
 
 ### `detect_on`
-There are 2 ways you can catch these errors. The first method is to use [detect_on](/developing-connectors/sdk/authentication/custom-authentication.md#detect-on) in the `connection` definition. This is a connector-wide method to catch errors; It applies to all actions and triggers. Furthermore, this method will raise errors with a standard message format that cannot be customized.
+There are 2 ways you can catch these errors. The first method is to use [detect_on](/developing-connectors/sdk/authentication/custom-authentication.md#using-the-detect-on-block) in the `connection` definition. This is a connector-wide method to catch errors; It applies to all actions and triggers. Furthermore, this method will raise errors with a standard message format that cannot be customized.
 
 ### `after_response`
-The alternative is to handle these errors in the [after_response](/developing-connectors/sdk/request.md#after-response) method. This method can be used together with `error()` to validate the contents of a HTTP response and raise custom errors. This method applies to individual actions/triggers. Hence the condition(s) used to detect an error can be customized to each request. Additionally, the error message can be changed to suit each actions/triggers.
+The alternative is to handle these errors in the [after_response](/developing-connectors/sdk/http-requests-and-response-handling.md#response-handling) method. This method can be used together with `error()` to validate the contents of a HTTP response and raise custom errors. This method applies to individual actions/triggers. Hence the condition(s) used to detect an error can be customized to each request. Additionally, the error message can be changed to suit each actions/triggers.
 
 For example, we can use the `after_response` method to check the contents of the response body before deciding to return the body as a successful request output or to raise an error with a custom message.
 
@@ -96,7 +96,7 @@ HTTP error will be displayed in the recipe editor when the custom adapter tries 
 *HTTP request error message in recipe editor*
 
 ## Object definition error handling
-This can also be used in [dynamic fields](/developing-connectors/sdk/object-definition.md#dynamic-definition) code block in object_definitions.
+This can also be used in [dynamic fields](/developing-connectors/sdk/object-definition.md#dynamic-object-definitions) code block in object_definitions.
 
 #### Sample code snippet
 ```ruby

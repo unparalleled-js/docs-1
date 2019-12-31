@@ -39,13 +39,13 @@ priority asc, created_date desc
 ```
 
 ### Limit
-This input field determines the maximum number of rows to return. The default limit is 100 and capped at a maximum of 1000 rows for a single **Select rows** action. If you require to select more than 1000 rows and perform actions, this can be done in batches from Workato recipes directly. Find examples in our [use cases.](/connectors/database-common-use-cases.md#data-replication)
+This input field determines the maximum number of rows to return. The default limit is 100 and capped at a maximum of 1000 rows for a single **Select rows** action. If you require to select more than 1000 rows and perform actions, this can be done in batches from Workato recipes directly. Find examples in our [use cases.](/connectors/database-common-use-cases.md#data-replication-from-cloud-based-applications)
 
 ### Offset
 This input field gives you the option to fetch only a page of results from the entire results set. For example, to skip the first 100 rows of the selected results set, input `100` to this field. The default is `0`.
 
 ## Select rows using custom SQL
-This action lets you select rows based on a custom SQL query. Rows that are returned from the query will be returned as the output of this action. Check out some [best practices when using custom SQL actions](/connectors/mssql/best-practices.md#using-custom-sql-and-stored-procedures-in-workato-and-why-you-should-do-so)
+This action lets you select rows based on a custom SQL query. Rows that are returned from the query will be returned as the output of this action. Check out some [best practices when using custom SQL actions](/connectors/mssql/best-practices.md#when-to-use-custom-sql-and-stored-procedures-in-workato)
 
 ### Supported versions
 This action is only supported for SQL Server 2012 or newer. It uses a default stored procedure `sp_describe_first_result_set` that is only available from SQL Server 2012 onwards.

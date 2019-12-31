@@ -22,7 +22,7 @@ Message menus can:
 
 3. Invoke dialogs, as covered in the [Using dialogs with Workbot](/workbot/using-dialogs-with-workbot.md) guide.
 
-4. Be posted as a set list, or a [dynamically generated one](#dynamic-list).
+4. Be posted as a set list, or a [dynamically generated one](#message-menus-with-a-dynamic-list-of-menu-options).
 
 Message menus can be used in either a Workbot post command reply or a post message action.
 

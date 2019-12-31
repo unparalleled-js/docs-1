@@ -25,7 +25,7 @@ Before writing the code for any actions or triggers, a good practice is to explo
 
 This creates great synergy for code reuse as the same schema definition could potentially be used across various actions. For example, in the case of XYZ accounting, the same invoice schema definition could be used for “Create”, “Read”, “Update”, “Delete” and “Search” actions. Below, we will go through how various patterns in defining schema and where to place it in your connector code so that it can be easily referenced.
 
-The schema for input and output fields can be determined both dynamically and statically in Workato. Find out more about basic schema definitions in our [object definitions.](developing-connectors/sdk/object-definition.md) This largely depends on whether the API you are building a connector to has metadata endpoints available. Below, we first go through examples of how to define schema manually through examples before showing you an example of a dynamically defined input schema.
+The schema for input and output fields can be determined both dynamically and statically in Workato. Find out more about basic schema definitions in our [object definitions.](/developing-connectors/sdk/object-definition.md) This largely depends on whether the API you are building a connector to has metadata endpoints available. Below, we first go through examples of how to define schema manually through examples before showing you an example of a dynamically defined input schema.
 
 > **In simple terms, a Schema definition in Workato is a way for you to tell us the nature of the different properties of an object. When used in `input_fields:`, we render them as input fields. When used in `output_fields:`, these render as output data-pills in follow-up actions.**
 
@@ -339,7 +339,7 @@ Another thing to note would be the introduction of picklists and toggle fields f
 Now that you've learned how to build schema for the base objects you've chosen, its time to start building your first actions using these methods you've just defined.
 
 #### Next Chapter
-##### [Object-based actions](connector-building-building-actions.md)
+##### [Object-based actions](/developing-connectors/cookbook/connector-building-building-actions.md)
 
 #### Previous Chapter
-##### [Object-based connector architecture](connector-building-defining-schema.md)
+##### [Connector planning](/developing-connectors/cookbook/connector-planning.md)

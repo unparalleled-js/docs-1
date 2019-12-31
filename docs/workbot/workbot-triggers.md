@@ -10,11 +10,11 @@ Each Workbot command is processed using a Workato recipe. The recipe trigger pic
 
 The Workbot for Slack connector has 5 triggers:
 
-- [New command](/workbot/workbot-triggers.md#new-command-trigger-building-custom-commands)
-- [New event (real-time)](/workbot/workbot-triggers.md#new-event-trigger)
-- [New message action trigger](/workbot/workbot-triggers.md#new-command-trigger-building-custom-commands)
-- [New URL mention](/workbot/workbot-triggers.md#new-url-mention)
-- [New dynamic menu event](/workbot/workbot-triggers.md#new-dynamic-menu-event)
+- [New command](#new-command-trigger-building-custom-commands)
+- [New event (real-time)](#new-event-trigger)
+- [New message action trigger](#new-message-action-trigger)
+- [New URL mention](#new-url-mention)
+- [New dynamic menu event](#new-dynamic-menu-event)
 
 ## New command trigger (building custom commands)
 This trigger requires you to configure a custom Workbot command. When this recipe is started, Workbot will monitor for that command. Whenever the command is called, Workbot proceeds to carry out the recipe actions.
@@ -347,7 +347,7 @@ Use this `typeahead` value to retrieve a list of records (from another app, e.g.
 
 ![Typeahead example](~@img/workbot/workbot-trigger/typeahead-example.png)
 
-You can return the list of records to the dynamic menu by using the [Return menu options](/workbot/workbot-actions.md#return-menu-options/) action. Hence, this trigger should always be paired with a **Return menu options** action.
+You can return the list of records to the dynamic menu by using the [Return menu options](/workbot/workbot-actions.md#return-menu-options) action. Hence, this trigger should always be paired with a **Return menu options** action.
 
 ### Input
 

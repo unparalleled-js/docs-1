@@ -9,10 +9,10 @@ Below, we have compiled a list of best practices which makes development of your
 2. [Block specific best practices](#block-specific-best-practices)
     * [Connection block](#connection-block)
     * [Test block](#test-block)
-    * [Object definitions block](#object-defintions-block)
-    * [Actions block](#actions-block)
-    * [Triggers block](#triggers-block)
-    * [Sample output block](#sample-output-block)
+    * [Object definitions block](#object-definitions)
+    * [Actions block](#actions)
+    * [Triggers block](#triggers)
+    * [Sample output block](#sample-output)
     * [Error handling](#error-handling)
 3. [Usability and testing best practices](#usability-and-testing-best-practices)
 
@@ -20,7 +20,7 @@ Below, we have compiled a list of best practices which makes development of your
 These best practices relate directly to the development of a custom connector on Workato's SDK platform.
 
 * The connector should be named after the application. This makes it easier for you or collaborators in your workspace to search for your own custom connector
-  * If a standard/global connector already exists, the SDK should be named `<app name> (Custom)`, which indicates it’s custom SDK connector  
+  * If a standard/global connector already exists, the SDK should be named `<app name> (Custom)`, which indicates it’s custom SDK connector
 
 * Provide trigger and action level hints when building actions. This allows users who aren't familiar with your connector understand which action to choose
 

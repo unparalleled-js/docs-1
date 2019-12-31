@@ -259,4 +259,4 @@ Now that you've seen some examples of how to build object-based actions and trig
 ##### [Common code patterns](connector-building-code-patterns.md)
 
 #### Previous Chapter
-##### [Object based triggers](connector-building-building-triggers.md)
+##### [Object based actions](/developing-connectors/cookbook/connector-building-building-actions.md)

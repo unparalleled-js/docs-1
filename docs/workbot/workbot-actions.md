@@ -197,7 +197,7 @@ This action allows you to define which Slack channel to post customized notifica
 The fields available are simillar to that of the **Post command reply** action, with all the typical fields you see in a Slack message. However, there is the addition of the field **Notification filter**. This field allows you to set parameters for filters, which acts like a trigger filter for sending out notifications (i.e. the notification will only get sent when the set criteria is met).
 
 ## Download attachment
-This action allows you to download attachments from Slack, received as input to [**New command** trigger](workbot-triggers.md#new-commands-building-custom-commands). Make sure command parameter for uploaded content has type *file*, e.g. `attachment type:file`. Pass file URL from **New command** output into the **URL** field to get attachment content. Then you may further pass this file content to Dropbox, Box or other connectors to upload them as files.
+This action allows you to download attachments from Slack, received as input to [**New command** trigger](/workbot/workbot-triggers.md#new-command-trigger-building-custom-commands). Make sure command parameter for uploaded content has type *file*, e.g. `attachment type:file`. Pass file URL from **New command** output into the **URL** field to get attachment content. Then you may further pass this file content to Dropbox, Box or other connectors to upload them as files.
 
 ## Return menu options
 This action allows you to dynamically generate menu options, then return them to a dynamic menu in a Slack dialog.
@@ -212,7 +212,7 @@ After retrieving a list of records from another app (e.g. Salesforce), you can r
 ![Return menu options recipe](~@img/workbot/workbot-actions/return-menu-options-recipe.png)
 *Retrieving Salesforce opportunities before returning them as menu options back to the Slack dialog with the dynamic menu*
 
-Hence, this action should always be paired with a [New dynamic menu event](/workbot/workbot-triggers.md#new-dynamic-menu-event/) trigger.
+Hence, this action should always be paired with a [New dynamic menu event](/workbot/workbot-triggers.md#new-dynamic-menu-event) trigger.
 
 ### Input
 By default, you can specify a static list of menu options by adding menu options 1-by-1.

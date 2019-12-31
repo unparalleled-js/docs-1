@@ -89,7 +89,7 @@ end,
 | connection | `connection` object, frequently used to access domain or subdomain information from the user. |
 | input | `input` object: Data from trigger input fields. In this example, the input contains the Room ID to receive messages from. |
 
-Aside from the HTTP request, `execute` blocks can be used to do any pre-processing of input data and post-processing of responses. We have a set of Whitelisted ruby functions that you can use to do this. [Check them out here]()
+Aside from the HTTP request, `execute` blocks can be used to do any pre-processing of input data and post-processing of responses. We have a set of Whitelisted ruby functions that you can use to do this. [Check them out here](/developing-connectors/sdk/methods.md)
 
 ## `output_fields:`
 You can define output_fields in the same way you define input_fields. This time, however, we have used something called object_definitions to define the output schema, where we defined the schema for the `lead` objects once and can continue to reuse this same schema by referencing it in multiple areas in the custom connector code.

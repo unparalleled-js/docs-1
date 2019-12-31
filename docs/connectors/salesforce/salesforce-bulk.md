@@ -33,10 +33,10 @@ There are 4 main sections/components in these bulk actions.
 
 | Action section                            | Description                                                                                                                                   |
 |-------------------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------|
-| [CSV file input](/connectors/salesforce/salesforce-bulk.md#csv-file-input)                            | Define the schema of the CSV files containing Salesforce bulk load data.                                                                      |
-| [Salesforce object to create/update/upsert](/connectors/salesforce/salesforce-bulk.md#salesforce-object-to-createupdateupsert) | Define the Salesforce object to write to, as well as `External ID` for upsert operation. |
-| [CSV to Salesforce field mapping](/connectors/salesforce/salesforce-bulk.md#csv-to-salesforce-field-mapping)           | Describe how the CSV data columns should map into Salesforce object fields.                                                                   |
-| [Advanced configuration](/connectors/salesforce/salesforce-bulk.md#advanced-configuration)                    | Define the size per Salesforce bulk job. Define whether this action should be synchronous or asynchronous.                                    |
+| [CSV file input](#csv-file-input) | Define the schema of the CSV files containing Salesforce bulk load data.                                                                      |
+| [Salesforce object to create/update/upsert](#salesforce-object-to-create-update-upsert) | Define the Salesforce object to write to, as well as `External ID` for upsert operation. |
+| [CSV to Salesforce field mapping](#csv-to-salesforce-field-mapping) | Describe how the CSV data columns should map into Salesforce object fields. |
+| [Advanced configuration](#advanced-configuration) | Define the size per Salesforce bulk job. Define whether this action should be synchronous or asynchronous. |
 
 Let's go into each section in detail.
 

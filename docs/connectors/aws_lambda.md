@@ -9,7 +9,7 @@ date: 2017-06-09 04:45:00 Z
 ## Working with the AWS Lambda connector
 
 ## Output schema definition
-When working with Lambda functions as triggers or actions, you will need to define the output schema for the function being called, as each function's response is variable. This sample output schema will be used to build the [output datatree](/workato-concepts.md#data-tree-and-pills). This datatree allows you to use the data returned from the Lambda function in subsequent recipe actions.
+When working with Lambda functions as triggers or actions, you will need to define the output schema for the function being called, as each function's response is variable. This sample output schema will be used to build the [output datatree](/workato-concepts.md#datatree-and-datapills). This datatree allows you to use the data returned from the Lambda function in subsequent recipe actions.
 
 To define the output schema, provide a sample response to the `Response body` input field. This should describe the data structure and schema of the output. There are 2 ways to configure this input field:
 - Use a sample JSON

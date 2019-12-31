@@ -43,7 +43,7 @@ For example, we can create a SOAP/XML document that contains a list of employee 
 The output of this action is a file data object, encoded in SOAP/XML. You can upload this directly to your target web system.
 
 ### Setup message template
-To effectively draft a SOAP/XML message, you first have to setup the SOAP/XML schema in Message templates. You can find out more about Message templates [here](features/message-template.md).
+To effectively draft a SOAP/XML message, you first have to setup the SOAP/XML schema in Message templates. You can find out more about Message templates [here](/features/message-template.md).
 
 Setup a message template for your use case. Define the schema of the output SOAP document and use `{tags}` to indicate where datapills are being used.
 

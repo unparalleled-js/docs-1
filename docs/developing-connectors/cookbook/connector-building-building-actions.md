@@ -272,13 +272,13 @@ pick_lists: {
 
 The example below showcases all the different steps needed to create an update object action. Currently this code only shows support for a single object - `Invoices`. The structure for the update object action is largely identical to that of the create object action where configuration fields, titles, subtitles, descriptions, help text, input fields, output fields, execute and sample output blocks are defined generically. Most of the magic happens in object definitions and methods where object-specific code is introduced to retrieve specific schema and make HTTP calls to endpoints related to that object.
 
-Take note that methods `format_payload` and `format_response` in the execute block are not included in the sample code. To find out their definitions, head over [here]()
+Take note that methods `format_payload` and `format_response` in the execute block are not included in the sample code. To find out their definitions, head over [here](/developing-connectors/sdk/methods.md)
 
 ### Building triggers
-Lets move on to building object based triggers
+Lets move on to building object based triggers.
 
 #### Next Chapter
-##### [Object based triggers](connector-building-building-triggers.md)
+##### [Object based triggers](/developing-connectors/cookbook/connector-building-building-triggers.md)
 
 #### Previous Chapter
-##### [Object-based actions](connector-building-building-actions.md)
+##### [Object-based connector architecture](/developing-connectors/cookbook/connector-building-defining-schema.md)

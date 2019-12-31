@@ -10,7 +10,7 @@ Use this trigger to pick up recent activity in your Zendesk [users](/connectors/
 
 This trigger monitors and picks up new or updated records in your Zendesk instance. Records are batched and processed at regular poll intervals.
 
-![New/updated record trigger](/assets/images/connectors/zendesk/updated-record-trigger.png)
+![New/updated record trigger](~@img/connectors/zendesk/updated-record-trigger.png)
 *New/updated record trigger*
 
 ### Input field

@@ -6,7 +6,7 @@ date: 2018-05-09 12:00:00 Z
 # Run On-prem Agent
 An on-prem agent requires an active connection between the agent running within your network and Workato's [On-prem group dashboard](https://workato.com/on_prem_groups/).
 
-You may occasionally need to temporarily disable this connection. For example, restarting or [upgrading](/on-prem/agents/upgade.md) the on-prem agent.
+You may occasionally need to temporarily disable this connection. For example, restarting or [upgrading](/on-prem/agents/upgrade.md) the on-prem agent.
 
 ## Disable on-prem agent
 To do so, simply select **Disable agent**.

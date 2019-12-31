@@ -15,7 +15,7 @@ The Jira connector uses [Jira Cloud REST API V2](https://docs.atlassian.com/jira
 The Jira connector works with Jira cloud instances and Jira on-premise instances from 7.x onwards.
 
 ## How to connect to Jira on Workato
-There are 2 ways to connect to Jira — [API tokens](#api-tokens) and [basic authentication with password](#basic-authenticaiton-with-password).
+There are 2 ways to connect to Jira — [API tokens](#api-tokens) and [basic authentication with password](#basic-authentication-with-password).
 >**From 1 December 2018, Atlassian is deprecating basic authentication with password for Jira (cloud only) in favor of [API tokens](#api-tokens). On-premise Jira will not be affected. Read more about this in our [announcement](https://support.workato.com/support/solutions/articles/1000267662-jira-cloud-only-jira-service-desk-deprecation-of-basic-authentication-with-password).**
 
 We strongly recommend using API tokens to connect to Workato.

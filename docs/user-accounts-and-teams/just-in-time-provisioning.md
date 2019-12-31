@@ -45,7 +45,7 @@ Let's configure the SAML attributes for `workato_role` on Okta.
 | 1. Locate **Profile Editor**         | ![Profile editor](~@img/user-accounts-and-teams/jit-provisioning/okta-profile-editor.png) |
 | 2. Select Okta > **Profile**         | ![Okta profile](~@img/user-accounts-and-teams/jit-provisioning/okta-profile.png) |
 | 3. Select **Add attribute**          | ![Add attribute](~@img/user-accounts-and-teams/jit-provisioning/add-attribute.png) |
-| 4. Fill in the **attribute** details | For more information see [here](#setting-up-workatorole-attribute).<br>![Attribute fields](~@img/user-accounts-and-teams/jit-provisioning/attribute-fields.png) |
+| 4. Fill in the **attribute** details | For more information see [here](#setting-up-workato-role-attribute).<br>![Attribute fields](~@img/user-accounts-and-teams/jit-provisioning/attribute-fields.png) |
 | 5. Locate the Workato **SAML app**   | ![Workato SAML app](~@img/user-accounts-and-teams/jit-provisioning/workato-saml-app.png) |
 | 6. Select **SAML settings** > edit   | ![Add attribute](~@img/user-accounts-and-teams/jit-provisioning/saml-app-setting.png) |
 | 7. Skip to **Configure SAML**        | ![Configure SAML](~@img/user-accounts-and-teams/jit-provisioning/configure-saml.png) |

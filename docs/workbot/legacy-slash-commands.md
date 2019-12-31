@@ -63,7 +63,7 @@ After **Enable slash command** is set to **Yes**, and a valid **Command name** i
 ![Request URL](~@img/workbot/workbot-slash-commands/request-url.png)
 
 #### Dialog for missing command input fields
-Dialogs cannot be invoked using legacy slash commands. To prompt a dialog to collect missing command input fields, use a [custom Workbot slash command](#slash-command-using-custom-bots).
+Dialogs cannot be invoked using legacy slash commands. To prompt a dialog to collect missing command input fields, use a [custom Workbot slash command](/workbot/configuring-slash-commands.md#slash-command-using-custom-bots).
 
 ![Dialog for missing command input fields](~@img/workbot/workbot-slash-commands/dialog-for-missing-command-input-fields-1.png)
 

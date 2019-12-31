@@ -20,7 +20,7 @@ Furthermore, you'll be able to declare personal reusable methods to use in any b
      <tr>
        <td>at</td>
        <td>Creates a new time object with the given argument. <br>
-       <a href="https://apidock.com/ruby/Time/at/class">More details here.</a>      
+       <a href="https://apidock.com/ruby/Time/at/class">More details here.</a>
        </td>
      </tr>
      <tr>
@@ -34,7 +34,7 @@ Furthermore, you'll be able to declare personal reusable methods to use in any b
        <pre><code style="display: block; white-space: pre-wrap;">2.days.ago #2017-01-15T12:30:00.000000-07:00 if time now is 2017-01-17T12:30:00.000000-07:00
 30.minutes.ago #2017-01-15T12:30:00.000000-07:00 if time now is 2017-01-15T13:00:00.000000-07:00
 30.seconds.ago #2017-01-15T12:30:00.000000-07:00 if time now is 2017-01-15T12:30:30.000000-07:00</code></pre>
-       <a href="https://apidock.com/rails/ActiveSupport/Duration/ago">More details here.</a>      
+       <a href="https://apidock.com/rails/ActiveSupport/Duration/ago">More details here.</a>
        </td>
      </tr>
      <tr>
@@ -51,12 +51,12 @@ Furthermore, you'll be able to declare personal reusable methods to use in any b
      </tr>
      <tr>
        <td>blank?</td>
-       <td>Returns true if value is null or an empty string, otherwise false     
+       <td>Returns true if value is null or an empty string, otherwise false
        </td>
      </tr>
      <tr>
        <td>binary?</td>
-       <td>Returns true if value is a binary array     
+       <td>Returns true if value is a binary array
        </td>
      </tr>
      <tr>
@@ -97,7 +97,7 @@ Furthermore, you'll be able to declare personal reusable methods to use in any b
      <tr>
        <td>compact</td>
        <td>Returns a hash with non nil values. <br>
-       <a href="https://apidock.com/rails/Hash/compact">More details here.</a>      
+       <a href="https://apidock.com/rails/Hash/compact">More details here.</a>
        </td>
      </tr>
      <tr>
@@ -124,7 +124,7 @@ Furthermore, you'll be able to declare personal reusable methods to use in any b
        <td>dig</td>
        <td>Retrieves the value object corresponding to the index passed in <br>
        The dig method is often used to strip away layers in nested arrays/hashes. For example, we use the dig method often when dealing with XML data formats. <br>
-      <a href="https://docs.workato.com/developing-connectors/sdk/data-format/XML-format.html">More details here.</a></td>
+      <a href="/developing-connectors/sdk/data-format/xml-format.md">More details here.</a></td>
     </tr>
     <tr>
       <td>dst?</td>

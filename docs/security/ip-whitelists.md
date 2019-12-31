@@ -28,7 +28,7 @@ TO 'integrationuser'@'52.5.142.59',
 ### Traffic to Workato
 
 #### On-premise agent
-Workato's [on-premise agent](on-prem.md) provides a secure way for Workato to selectively access customer-authorized on-prem apps, databases and folders without having to open inbound ‘ports’ in the corporate firewall. The on-premise agent makes an outbound connection to Workato via an on-premise gateway.
+Workato's [on-premise agent](/on-prem.md) provides a secure way for Workato to selectively access customer-authorized on-prem apps, databases and folders without having to open inbound ‘ports’ in the corporate firewall. The on-premise agent makes an outbound connection to Workato via an on-premise gateway.
 
 If your organization has strict outbound traffic rules, you should whitelist the on-premise gateway IP address:
 

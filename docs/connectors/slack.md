@@ -333,7 +333,7 @@ The following are the new input fields that the Slack action **Respond to button
 You need to specify the message ID, parent message ID or thread ID in the **Thread ID** input field in order to start or continue a thread.
 
 #### Example recipe #1: recipe that replies to a message ID and starts a thread
-Let us relook at the [above example recipe](#example-recipe-2-recipe-with-a-new-button-action-trigger-with-logic-defining-the-actions-to-carry-out-upon-each-button-click) that responds to a button click.
+Let us relook at the [above example recipe](#example-recipe-1b-button-action-handler-recipe-recipe-with-a-new-button-action-trigger-with-if-conditional-logic-defining-the-actions-to-carry-out-upon-each-button-click) that responds to a button click.
 
 ![Button action example recipe](~@img/connectors/slack/button-action-example-recipe.png)
 *Button response [example recipe](https://www.workato.com/recipes/602058)*
@@ -359,7 +359,7 @@ The configuration in the recipe is as follows. We're passing the message ID of t
 *Action configuration for the Notify Sales action. Message ID is used in the **Thread ID** input field.*
 
 #### Example recipe #2: recipe that replies to a parent message ID and continues a thread
-Using the [same recipe](https://www.workato.com/recipes/602058) as [above](#example-recipe-1-recipe-that-replies-to-a-message-ID-and-starts-a-thread), we can see that putting the parent message ID also works to post to an existing thread.
+Using the [same recipe](https://www.workato.com/recipes/602058) as [above](#example-recipe-1a-recipe-with-a-post-message-action-with-buttons-configured), we can see that putting the parent message ID also works to post to an existing thread.
 
 ![Button action example recipe](~@img/connectors/slack/button-action-example-recipe.png)
 *Button response [example recipe](https://www.workato.com/recipes/602058)*

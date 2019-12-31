@@ -1,7 +1,7 @@
 # Multipart Form
-[Multipart form request](https://www.w3.org/TR/html401/interact/forms.html#h-17.13.4.2)  is typically used to send large files and data to a server.
+[Multipart form request](https://www.w3.org/TR/html401/interact/forms.html#h-17.13.4.2) is typically used to send large files and data to a server.
 
-This request format can be declared in any blocks (`execute`, `acquire`, `fields` etc.) in your custom adapter code. It should be chained to one of the [base request](../walk-through.md#base-request).
+This request format can be declared in any blocks (`execute`, `acquire`, `fields` etc.) in your custom adapter code. This is done by embedding the data format inside the `Content-Type` header.
 
 ## Sample code snippet
 Let's use the Convert document endpoint in [IBM Watson API](https://www.ibm.com/watson/developercloud/document-conversion/api/v1/#convert-document) as an example. This endpoint accepts a document in multipart/form-data format.

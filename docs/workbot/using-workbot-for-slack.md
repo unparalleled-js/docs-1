@@ -6,8 +6,8 @@ date: 2017-03-30 05:00:00 Z
 # Using Workbot for Slack
 In this article, we cover the two ways you can use Workbot in your Slack organization:
 
-1. [Carry out Workbot commands](/workbot/using-workbot-for-slack.md#1-carry-out-workbot-commands)
-2. [Setup smart notifications (optional)](/workbot/using-workbot-for-slack.md#2-set-up-smart-notifications)
+1. [Carry out Workbot commands](#_1-carry-out-workbot-commands)
+2. [Setup smart notifications (optional)](#_2-set-up-smart-notifications)
 
 ## 1. Carry out Workbot commands
 
@@ -34,7 +34,7 @@ If the account does not exist, Workbot will return with an error message.
 ## 2. Set up smart notifications
 After [setting up Workbot](/workbot/workbot-for-slack-setup.md) in your Slack organization, you can configure Workbot to monitor your apps for important events and notify your team about them. Workato recipes with the **Workbot for Slack** action **Post bot notification** will post messages in channels where:
 
-- [Workbot has been invited](/workbot/workbot-for-slack-setup.md#3-invite-workbot-to-channels), and
+- [Workbot has been invited](/workbot/workbot-for-slack-setup.md#_3-invite-workbot-to-channels), and
 - notifications for that recipe has been turned on
 
 ### Notification configuration example
@@ -53,7 +53,7 @@ We have configured the input fields for the **Post bot notification** action as 
 *Input fields configuration for post bot notification action*
 
 2. Check that Workbot is a member of the channel to post notifications to.
-If Workbot isn't a member, [invite it to the channel](/workbot/workbot-for-slack-setup.md#3-invite-workbot-to-channels).
+If Workbot isn't a member, [invite it to the channel](/workbot/workbot-for-slack-setup.md#_3-invite-workbot-to-channels).
 
 2. Turn on the notifications via Workbot command
 The command should follow this format:
@@ -69,7 +69,7 @@ In this case, the command will be:
 
 `@workbot salesforce start notifications name:account added`
 
-If you have not [toggled the app on and connected successfully](/workbot/workbot-for-slack-setup.md#2-connect-workbot-to-your-apps), you will not be able to start notifications. But if the app has been turned on earlier, Workbot will confirm that notifications is started.
+If you have not [toggled the app on and connected successfully](/workbot/workbot-for-slack-setup.md#_2-connect-workbot-to-your-apps), you will not be able to start notifications. But if the app has been turned on earlier, Workbot will confirm that notifications is started.
 
 ![Workbot notifications started](~@img/workbot/workbot/workbot-notifications-started.png)
 *Workbot command to start notifications*
