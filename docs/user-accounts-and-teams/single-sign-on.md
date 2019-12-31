@@ -176,22 +176,22 @@ These are the steps to enable SSO for
 </table>
 
 ### Azure AD single sign-on
-Follow the Microsoft documentation for comlete step by step details on how to [configure SAML-based single sign-on on Azure AD](https://docs.microsoft.com/en-us/azure/active-directory/manage-apps/configure-single-sign-on-non-gallery-applications).
+Follow the Microsoft documentation for a complete step by step guide on how to [configure SAML-based single sign-on on Azure AD](https://docs.microsoft.com/en-us/azure/active-directory/manage-apps/configure-single-sign-on-non-gallery-applications).
 
-Azure AD SAML-based single sign-on configuration requires unique application identifier called `Entity ID`. The value is provided by Workato in the `Tools` > `Team` > `Settings` tab.
+Azure AD SAML-based single sign-on configuration requires a unique application identifier called `Entity ID`. The value is provided by Workato in the `Tools` > `Team` > `Settings` tab.
 
-Select `Authentication method` as `SAML based SSO` and choose `Other SAML IdP` in the `SAML provider` drop down, to see the **Service Provider** `Entity ID` URL. Copy the URL value and paste it in the `Identifier (Entity ID)` SAML configuration setting in Azure AD.
+Select `Authentication method` as `SAML based SSO` and choose `Other SAML IdP` in the `SAML provider` drop-down, to see the **Service Provider** `Entity ID` URL. Copy the URL value and paste it in the `Identifier (Entity ID)` SAML configuration setting in Azure AD.
 
 ![Azure AD SAML entity ID setting](~@img/user-accounts-and-teams/single-sign-on/azure-ad-saml-sso-entity-id-doc.png)
 
 ![Azure AD SAML config documentation](~@img/user-accounts-and-teams/single-sign-on/azure-ad-saml-sso-entity-id-doc.png)
 
 ### Google G Suite single sign-on
-Follow the G Suite documentation for comlete step by step details on how to [configure SAML-based single sign-on on G Suite](https://support.google.com/a/answer/6087519?hl=en).
+Follow the G Suite documentation for a complete step by step guide on how to [configure SAML-based single sign-on on G Suite](https://support.google.com/a/answer/6087519?hl=en).
 
-G Suite SAML-based single sign-on configuration requires unique application identifier called `Entity ID`. The value is provided by Workato in the `Tools` > `Team` > `Settings` tab.
+G Suite SAML-based single sign-on configuration requires a unique application identifier called `Entity ID`. The value is provided by Workato in the `Tools` > `Team` > `Settings` tab.
 
-Select `Authentication method` as `SAML based SSO` and choose `Other SAML IdP` in the `SAML provider` drop down, to see the **Service Provider** `Entity ID` URL. Copy the URL value and paste it in the `Entity ID` SAML configuration setting in the G Suite Service Provider Details step.
+Select `Authentication method` as `SAML based SSO` and choose `Other SAML IdP` in the `SAML provider` drop-down, to see the **Service Provider** `Entity ID` URL. Copy the URL value and paste it in the `Entity ID` SAML configuration setting in the G Suite Service Provider Details step.
 
 ![G Suite entity ID setting](~@img/user-accounts-and-teams/single-sign-on/gsuite-saml-sso-entity-id.png)
 
