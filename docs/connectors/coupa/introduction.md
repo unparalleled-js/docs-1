@@ -185,7 +185,7 @@ For generic actions and triggers, you'll be able to select the object you want t
 The Coupa connector on Workato automatically pulls all custom fields whenever you request for an object. Search for custom fields you or your team have defined in the `Add/remove optional fields` drop down.
 
 ### Return types in Coupa
-Records in Coupa can be large due to its many attributes. In some cases, retrieving a batch of records may result in time outs or slow performance due to to this. Our Coupa connector allows you to control the amount of data retrieved per record to combat these cases. This can be done via the input field - `Return Type`. As the input field is toggled, the output datatree that describes the record changes as well. We provide 3 different options for return types in Coupa. 
+Records in Coupa can be large due to its many attributes. In some cases, retrieving a batch of records may result in time outs or slow performance due to to this. Our Coupa connector allows you to control the amount of data retrieved per record to combat these cases. This can be done via the input field - `Return Type`. As the input field is toggled, the output datatree that describes the record changes as well. We provide 3 different options for return types in Coupa.
 
 <table class="unchanged rich-diff-level-one">
   <thead>
@@ -210,7 +210,7 @@ Records in Coupa can be large due to its many attributes. In some cases, retriev
   </tbody>
 </table>
 
-![Configure Coupa connection view](~@img/coupa/return_type.gif)
+![Configure return type for coupa actions](~@img/coupa/return_type.gif)
 <center><i>Return types change the output datatree.</i></center>
 
 ## List of triggers and actions

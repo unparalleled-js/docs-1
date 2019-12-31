@@ -73,6 +73,9 @@ This action can return **multiple** object records. The Workato connector allows
   </tbody>
 </table>
 
+![Configure search type for search actions](~@img/coupa/search_input.gif)
+<center><i>Search by either standard fields or write your own Coupa Query</i></center>
+
 ### Get object by ID
 This action retrieves a specific object in Coupa. Define the type of object you are looking for and also the internal ID. The object returned would be similar to the `Search Object` action's results.
 
