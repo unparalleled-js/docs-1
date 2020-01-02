@@ -53,23 +53,27 @@ In Workato, we grouped Coupa data into objects in our actions and triggers. Obje
   <tbody>
     <tr>
       <td>Account</td>
-      <td>Query, create or update  accounts that match your financial structure. For example, give marketing, IT and sale their own accounts to manage their own budgets.</td>
+      <td>Trigger off, query, create or update  accounts that match your financial structure.</td>
     </tr>
     <tr>
       <td>Address</td>
-      <td>Query, create or update personal or supplier remit-to address information.</td>
+      <td>Trigger off, query, create or update personal or supplier remit-to address information.</td>
+    </tr>
+    <tr>
+      <td>Approvals</td>
+      <td>Trigger off or query approvals for requisitions or purchase orders</td>
     </tr>
     <tr>
       <td>Contract</td>
-      <td>Query, create or update a contract.</td>
+      <td>Trigger off, query, create or update a contract.</td>
     </tr>
     <tr>
       <td>Department</td>
-      <td>Query, create or update department information. Departments are used to mimic your company's operating structure and to organise groups and users accordingly.</td>
+      <td>Trigger off, query, create or update department information. Departments are used to mimic your company's operating structure and to organise groups and users accordingly.</td>
     </tr>
     <tr>
       <td>Exchange rate</td>
-      <td>Query, create or update exchange rates.</td>
+      <td>Trigger off, query, create or update exchange rates.</td>
     </tr>
     <tr>
       <td>Expense line</td>
@@ -77,7 +81,7 @@ In Workato, we grouped Coupa data into objects in our actions and triggers. Obje
     </tr>
     <tr>
       <td>Expense report</td>
-      <td>Query, create or update expense reports used for expense management.</td>
+      <td>Trigger off, query, create or update expense reports used for expense management.</td>
     </tr>
     <tr>
       <td>Integration</td>
@@ -97,51 +101,55 @@ In Workato, we grouped Coupa data into objects in our actions and triggers. Obje
     </tr>
     <tr>
       <td>Invoice</td>
-      <td>Query, create or update invoices in Coupa.</td>
+      <td>Trigger off, query, create or update invoices in Coupa.</td>
     </tr>
     <tr>
       <td>Inventory Transaction</td>
-      <td>Query or create inventory transactions. Receipts of goods are the same as inventory transactions in Coupa.</td>
+      <td>Trigger off, query or create inventory transactions. Receipts of goods are the same as inventory transactions in Coupa.</td>
     </tr>
     <tr>
       <td>Item</td>
-      <td>Query, create or update items not provided by suppliers. If you are looking to work with items provided by suppliers, use the supplier item object.</td>
+      <td>Trigger off, query, create or update items not provided by suppliers. If you are looking to work with items provided by suppliers, use the supplier item object.</td>
     </tr>
     <tr>
       <td>Lookup value</td>
-      <td>Query, create or update lookup values in Coupa.</td>
+      <td>Trigger off, query, create or update lookup values in Coupa.</td>
     </tr>
     <tr>
       <td>Purchase order</td>
-      <td>Query, create or update purchase order in Coupa.</td>
+      <td>Trigger off, query, create or update purchase order in Coupa.</td>
     </tr>
     <tr>
       <td>Purchase order line</td>
-      <td>Query or create purchase order lines in Coupa.</td>
+      <td>Trigger off, query or create purchase order lines in Coupa.</td>
     </tr>
     <tr>
       <td>Remit to address</td>
-      <td>Query, create or update supplier remit-to addresses. This address is used to send payment to suppliers.</td>
+      <td>Trigger off, query, create or update supplier remit-to addresses. This address is used to send payment to suppliers.</td>
+    </tr>
+    <tr>
+      <td>Requisition</td>
+      <td>Trigger off or query requisitions in Coupa.</td>
     </tr>
     <tr>
       <td>Supplier</td>
-      <td>Query, create or update suppliers.</td>
+      <td>Trigger off, query, create or update suppliers.</td>
     </tr>
     <tr>
       <td>Supplier information</td>
-      <td>Query, create or update supplier information.</td>
+      <td>Trigger off, query, create or update supplier information.</td>
     </tr>
     <tr>
       <td>Supplier item</td>
-      <td>Query, create or update items provided by suppliers that users can select when creating a requisition.</td>
+      <td>Trigger off, query, create or update items provided by suppliers that users can select when creating a requisition.</td>
     </tr>
     <tr>
       <td>Supplier site</td>
-      <td>Query, create or update supplier sites.</td>
+      <td>Trigger off, query, create or update supplier sites.</td>
     </tr>
     <tr>
       <td>User</td>
-      <td>Query, create or update a user.</td>
+      <td>Trigger off, query, create or update a user.</td>
     </tr>
   </tbody>
 </table>
@@ -176,6 +184,34 @@ For generic actions and triggers, you'll be able to select the object you want t
 ### Custom object fields in Coupa
 The Coupa connector on Workato automatically pulls all custom fields whenever you request for an object. Search for custom fields you or your team have defined in the `Add/remove optional fields` drop down.
 
+### Return types in Coupa
+Records in Coupa can be large due to its many attributes. In some cases, retrieving a batch of records may result in time outs or slow performance due to to this. Our Coupa connector allows you to control the amount of data retrieved per record to combat these cases. This can be done via the input field - `Return Type`. As the input field is toggled, the output datatree that describes the record changes as well. We provide 3 different options for return types in Coupa.
+
+<table class="unchanged rich-diff-level-one">
+  <thead>
+    <tr>
+        <th width='25%'>Option</th>
+        <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Default</td>
+      <td>This is the default option on the Coupa Connector. All fields and child attributes will be returned</td>
+    </tr>
+    <tr>
+      <td>Shallow</td>
+      <td>All attributes/fields of the object being called and only the IDs and natural keys of the one-deep associations.</td>
+    </tr>
+    <tr>
+      <td>Limited</td>
+      <td>Only ID's are returned. This is supported for all commands.</td>
+    </tr>
+  </tbody>
+</table>
+
+![Configure return type for coupa actions](~@img/coupa/return_type.gif)
+<center><i>Return types change the output datatree.</i></center>
 
 ## List of triggers and actions
 Workato currently supports the following Coupa triggers and actions. Find out more details about each by clicking on the links below. You can also navigate to them through the sidebar.

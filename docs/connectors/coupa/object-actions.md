@@ -52,7 +52,29 @@ After the object is selected, all relevant fields will be shown to you. Workato 
 ### Search Object
 This action searches for objects in Coupa based on certain fields which you determine. Common fields available include the Coupa internal ID as well as numbers/name associated with the Object. For example, you are able to search invoices based on invoice numbers or search suppliers based on supplier name. This is useful when you are looking to update these objects but don't have their Coupa internal ID on hand.
 
-This action can return **multiple** object records
+This action can return **multiple** object records. The Workato connector allows you to search in two ways.
+
+<table class="unchanged rich-diff-level-one">
+  <thead>
+    <tr>
+        <th width='25%'>Search type</th>
+        <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Fields</td>
+      <td>Search for records using a predefined set of filters. First, choose the object type and then the relevant fields will be shown to you.</td>
+    </tr>
+    <tr>
+      <td>Query</td>
+      <td>Search for records using a free-form query. Find out more details <a href='https://success.coupa.com/Integrate/Technical_Documentation/API/Get_Started/Querying_Options'>here</a></td>
+    </tr>
+  </tbody>
+</table>
+
+![Configure search type for search actions](~@img/coupa/search_input.gif)
+<center><i>Search by either standard fields or write your own Coupa Query</i></center>
 
 ### Get object by ID
 This action retrieves a specific object in Coupa. Define the type of object you are looking for and also the internal ID. The object returned would be similar to the `Search Object` action's results.
