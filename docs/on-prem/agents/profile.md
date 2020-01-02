@@ -167,12 +167,12 @@ server:
 
 ## On-prem files profile
 Working with on-prem files requires you to define a file system profile in the `files` section.
-You need to specify the base folder for file access as it will be used for resolving relative paths. A folder named `HR` in the `C:/Documents/` directory will be configured like this:
+You need to specify the base folder for file access as it will be used for resolving relative paths. A folder named `HR` in the `C:\Documents\` directory will be configured like this:
 
 ```YAML
 files:
   hrfiles:
-    base: "C:/Documents/HR"
+    base: "C:\\Documents\\HR"
 ```
 
 In another example, if you wish to provide access to the `employees` folder in the Desktop directory, the configuration will have a file path that looks something like this:
