@@ -3,8 +3,8 @@ title: Workato API - Introduction
 date: 2019-03-20 14:20:00 Z
 ---
 
-# Workato API 1.0
-Workato's REST API provides you with access to Workato resources. With this, you can manage recipes, connections and jobs programmatically to expand the functionality of your Workato account. This API also allows you to author new recipes and modify existing ones.
+# Workato API
+Workato's Platform API provides you with access to Workato resources. With this, you can manage recipes, connections and jobs programmatically to expand the functionality of your Workato account.
 
 ## Authentication
 All API requests must contain:
@@ -30,13 +30,6 @@ Workato API supports sending request body with the `application/json` content-ty
 | `404` | Not found    | `{"message": "Not found"}`    |
 | `500` | Server error | `{"message":"Server error","id":"3188c2d0-29a4-4080-908e-582e7ed82580"}` |
 
-## Connectors
-
-<div class='api_quick_reference'> </div>
-
-| Type |Resource | Description |
-|------|---------|-------------|
-| GET | [/api/integrations](/workato-api/adapters.md#list-connector-metadata) | Query connector metadata.|
 
 ## Connections
 
@@ -53,22 +46,6 @@ Workato API supports sending request body with the `application/json` content-ty
 | Type |Resource | Description |
 |------|---------|-------------|
 | GET | [/api/recipes/:recipe_id/jobs](/workato-api/jobs.md#list-jobs-from-a-recipe) | List jobs belonging to recipe. |
-
-## Managed Users
-
-<div class='api_quick_reference'> </div>
-
-<div class='api_quick_reference'> </div>
-
-| Type | Resource | Description |
-|------|----------|-------------|
-| POST | [/api/managed_users](/workato-api/managed-users.md#create-customer-account) | Create customer account. |
-| GET  | [/api/managed_users/:id](/workato-api/managed-users.md#get-customer-account) | Get customer account. |
-| PUT  | [/api/managed_users/:id/upgrade](/workato-api/managed-users.md#upgrade-customer-account) | Upgrade customer account. |
-| PUT  | [/api/managed_users/:id/downgrade](/workato-api/managed-users.md#downgrade-customer-account) | Downgrade customer account. |
-| POST | [/api/managed_users/:id/member](/workato-api/managed-users.md#add-member-to-customer-account) | Add member to customer account. |
-| DELETE | [/api/managed_users/:id/member](/workato-api/managed-users.md#remove-member-from-customer-account) |  Remove member from customer account. |
-| GET  | [/api/managed_users/:id/connections](/workato-api/managed-users.md#list-customer-connections)| List customer connections. |
 
 ## Recipes
 

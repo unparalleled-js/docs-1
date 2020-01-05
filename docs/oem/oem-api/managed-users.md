@@ -3,9 +3,9 @@ title: Workato API - Managed Users
 date: 2019-03-21 11:20:00 Z
 ---
 
-# Managed Users
+# Manage customer accounts
 
-All API endpoints listed here require `oem_vendor` privilege. Talk to your Workato representative to enable this privilege in your account.
+All API endpoints listed here are OEM Vendor APIs and require the `oem_vendor` privilege. Talk to your Workato representative to enable this privilege in your account.
 
 ### Quick reference
 
