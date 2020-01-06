@@ -64,7 +64,7 @@ POST /api/packages/import/:id
 
 This is an asynchronous request. Use [GET package by ID](#get-package-by-id) endpoint to get details of the imported the package.
 
-The input (zip file) is a “application/octet-stream” payload containing package content. URL parameter **restart_recipes** should be `true` if the running recipes need to be restarted upon import.
+The input (zip file) is a `application/octet-stream` payload containing package content. URL parameter **restart_recipes** should be `true` if the running recipes need to be restarted upon import.
 
 ### URL parameters
 
@@ -134,14 +134,14 @@ curl  -X GET https://www.workato.com/api/packages/<package_id> \
 }
 ```
 
-* This shows a packages that failed to export properly.
+* This shows a package that failed to export properly.
 
 ```json
 {  
    "id":242,
    "operation_type":"export",
    "status":"failed",
-   "error":"error_message"
+   "error":"error_message",
    "export_manifest_id":4,
    "download_url":"null"
 }

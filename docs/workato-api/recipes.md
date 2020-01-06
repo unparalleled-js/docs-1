@@ -15,7 +15,6 @@ date: 2019-03-21 11:20:00 Z
 | POST | [/api/recipes](#create-a-recipe) | Create a recipe. |
 | PUT  | [/api/recipes/:id](#update-a-recipe) | Update a recipe. |
 | GET  | [/api/recipes](#list-recipes-belonging-to-user)| List recipes belonging to user. |
-| GET  | [/api/recipes/search](#search-for-public-recipes) | Search for public recipes. Requires 'oem_vendor' privilege. |
 | PUT  | [/api/recipes/:id/start](#start-recipe) | Start recipe. |
 | PUT  | [/api/recipes/:id/stop](#stop-recipe) | Stop recipe. |
 | DELETE | [/api/recipes/:id](#delete-recipe) | Delete recipe. |
@@ -253,72 +252,6 @@ curl  -X GET https://www.workato.com/api/recipes/?adapter_names_any=custom_adapt
 }
 ```
 
-## Search for public recipes
-
-Searches for public recipes and returns a list. Returns an empty list when no matching connectors are found.
-
-This requires `oem_vendor` privilege.
-
-```
-GET /api/recipes/search
-```
-
-### URL parameters
-
-<div class='api_input'></div>
-
-| Name | Type | Description |
-|------|------|-------------|
-| term | **string**<br>_optional_ | Search term. |
-| boost_owned | **boolean**<br>_optional_ | If `true`, returned results will give priority to recipes in your account. Defaults to `false`. |
-| page | **integer**<br>_optional_ | Page number. Defaults to 0. |
-| per_page | **integer**<br>_optional_ | Page size. Defaults to 20, max 20. |
-
-### Request body
-
-<div class='api_input'></div>
-
-| Name | Type | Description |
-|------|------|-------------|
-| applications | **string**<br>_required_ | Comma separated connector identifiers (e.g: salesforce,service_now). |
-
-#### Sample request
-
-```shell
-curl  -X GET https://www.workato.com/api/recipes/search?per_page=1 \
-      -H 'x-user-email: <email>' \
-      -H 'x-user-token: <token>' \
-      -H 'Content-Type: application/json' \
-      -d '{
-            "applications": "salesforce,service_now"
-          }'
-```
-### Response
-
-```json
-{
-  "items": [
-    {
-      "id": 59,
-      "user_id": 50,
-      "name": "Recipe 58",
-      "created_at": "2015-05-26T22:53:39.032Z",
-      "updated_at": "2015-05-26T22:53:39.032Z",
-      "copy_count": 1,
-      "trigger_application": null,
-      "action_applications": [
-        "salesforce",
-        "service_now"
-      ],
-      "applications": [
-        "salesforce"
-      ],
-      "description": "Recipe description 58",
-      "parameters_schema": []
-    }
-  ]
-}
-```
 
 ## Start recipe
 

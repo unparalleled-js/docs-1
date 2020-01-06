@@ -1,6 +1,6 @@
 ---
-title: Customer managers
-date: 2019-10-24 11:00:00 Z
+title: OEM vendor APIs
+date: 2020-01-04 11:00:00 Z
 ---
 
 # OEM Vendor APIs
@@ -48,7 +48,7 @@ Workato API supports sending request body with the `application/json` content-ty
 
 | Type |Resource | Description |
 |------|---------|-------------|
-| GET  | [/api/managed_users/:managed_user_id/connections](/oem/oem-api/connections.md#list-connections) | Returns a list of connections in a customer account. |
+| GET  | [/api/managed_users/:managed_user_id/connections](/oem/oem-api/connections.md#list-connections) | Returns a list of connections in a customer account.|
 | POST | [/api/managed_users/:id/connections](/workato-api/connections.md) | Allows the OEM vendor to add a shell connection in a customer account. |
 
 ## Folders
@@ -80,23 +80,20 @@ Workato API supports sending request body with the `application/json` content-ty
 
 | Type | Resource | Description |
 |------|----------|-------------|
-| GET  | [api/managed_users/:id/recipes](/workato-api/recipes.md#get-recipe-details) | Get recipe details. |
-| POST | [api/recipes](/workato-api/recipes.md#create-a-recipe) | Create recipe. |
-| PUT  | [api/recipes/:id](/workato-api/recipes.md#update-a-recipe) | Update recipe. |
-| GET  | [api/recipes](/workato-api/recipes.md#list-recipes-belonging-to-user)| List recipes belonging to user. |
-| GET  | [api/recipes/search](/workato-api/recipes.md#search-for-public-recipes) | Search for public recipes. |
-| PUT  | [api/recipes/:id/start](/workato-api/recipes.md#start-recipe) | Start recipe. |
-| PUT  | [api/recipes/:id/stop](/workato-api/recipes.md#stop-recipe) | Stop recipe. |
-| DELETE | [api/recipes/:id](/workato-api/recipes.md#delete-recipe) | Delete recipe. |
+| GET  | [/api/managed_users/:id/recipes](/oem/oem-api/recipes.md#list-recipes-in-a-customer-account)| List recipes belonging to a customer account. |
+| GET  | [/api/recipes/search](/oem/oem-api/recipes.md#search-for-public-recipes) | Search for public recipes. |
+| PUT  | [/api/managed_users/:managed_user_id/recipes/:recipe_id/start](/oem/oem-api/recipes.md#start-recipe-in-a-customer-account) | Start a recipe in a customer account. |
+| PUT  | [/api/managed_users/:managed_user_id/recipes/:recipe_id/stop](/oem/oem-api/recipes.md#stop-recipe-in-a-customer-account) | Stop a recipe in a customer account. |
 
 
 ## Recipe lifecycle management
+The endpoints listed below are OEM vendor only endpoints for importing a package into a customer account.
+
+The APIs for exporting a package are available [here](/workato-api.md#recipe-lifecycle-management).
 
 <div class='api_quick_reference'> </div>
 
 | Type | Resource | Description |
 |------|----------|-------------|
-| POST | [api/packages/export/:manifest_id](/workato-api/recipe-lifecycle-management.md#export-package-based-on-a-manifest) | Export package based on a manifest. |
-| POST | [api/packages/import/:folder_id](/workato-api/recipe-lifecycle-management.md#import-package-into-a-folder) | Import package into a folder. |
-| GET  | [api/packages/:id](/workato-api/recipe-lifecycle-management.md#get-package-by-id) | Get package by ID. |
-| GET  | [api/packages/:id/download](/workato-api/recipe-lifecycle-management.md#download-package) | Download package. |
+| POST | [api/managed_users/:id/imports](/oem/oem-api/recipe-lifecycle-management.md#import-package-into-a-customer-account) | Import package into a folder in a customer account. |
+| GET  | [api/managed_users/:id/recipes](oem/oem-api/recipe-lifecycle-management.md#get-package-status) | Get status of an imported package. |

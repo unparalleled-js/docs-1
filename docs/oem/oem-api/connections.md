@@ -5,7 +5,7 @@ date: 2019-03-21 11:20:00 Z
 
 # Connections
 
-Use the following endpoints to retrieve and create the connections that belong to an OEM customer account.
+Use the following endpoints to retrieve and create the connections that belong to an OEM customer account. All API endpoints listed here requires `oem_vendor` privilege. Talk to your Workato representative to enable this privilege in your account.
 
 ### Quick reference
 
@@ -44,10 +44,9 @@ curl  -X GET https://www.workato.com/api/managed_users/98178/connections \
 ```json
 [
   {
-    "application": "salesforce",
     "id": 36,
     "name": "ACME Production Salesforce connection",
-    "description": null,
+    "provider": "salesforce",
     "authorized_at": "2015-05-26T22:53:52.528Z",
     "authorization_status": "success",
     "authorization_error": null,
@@ -55,10 +54,9 @@ curl  -X GET https://www.workato.com/api/managed_users/98178/connections \
     "updated_at": "2015-05-26T22:53:52.532Z"
   },
   {
-      "application": "google_sheets",
       "id": 37,
       "name": "ACME google sheet account",
-      "description": null,
+      "provider": "google_sheets",
       "authorized_at": "2015-05-26T22:53:52.528Z",
       "authorization_status": "success",
       "authorization_error": null,
@@ -82,3 +80,6 @@ POST /api/managed_users/:id/connections
 | Name | Type | Description |
 |------|------|-------------|
 | managed_user_id | **string**<br>_required_ | OEM customer Account ID/External ID. <br>External id should be prefixed with a E(eg: EA2300) and the resulting id should be URL encoded. |
+| name | **string**<br>_optional_ | Name of the connection. Eg: 'Prod Salesforce connection'
+| provider | **string**<br>_required_ | Connector identifier. Eg: 'Salesforce' |
+| external_id | **string**<br>_optional_ | Optional External ID for the connection. |
