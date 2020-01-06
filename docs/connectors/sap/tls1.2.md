@@ -128,7 +128,7 @@ At this point, you should be able to test your connection by clicking the `Conne
 ![404 not found error message](~@img/connectors/sap/404_message.png)
 
 ## 4. Create an APIM endpoint
-Head over to Workato's API platform under `Tools` and create a new API collection. API collections are collections of endpoints which correspond to a folder which contains callable recipes. With this, RFC's in SAP would be able to call and trigger recipes in Workato directly. Find out more about configuring [Workato's API platform here.](/docs/api-management.md)
+Head over to Workato's API platform under `Tools` and create a new API collection. API collections are collections of endpoints which correspond to a folder which contains callable recipes. With this, RFC's in SAP would be able to call and trigger recipes in Workato directly. Find out more about configuring [Workato's API platform here.](/api-management.md)
 
 ![API collection](~@img/connectors/sap/api_collection.png)
 
