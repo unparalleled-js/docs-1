@@ -32,7 +32,7 @@ IDoc is independent of the direction of data exchange, having both Outbound and 
 ### Introduction to RFC
 `RFC` is a SAP protocol that handles communications between SAP systems and third party applications. It is the process of calling a function module which is residing on a different machine from the caller program.
 
-Workato can call SAP RFCs in an SAP system to fetch the data returned or make synchronous updates to the SAP data.
+Workato can call SAP RFCs in an SAP system to fetch the data returned or make synchronous updates to the SAP data. RFCs can also be configured to leveraged to call Workato directly from your SAP instance. This will need additional configurations on your SAP system to enable TLS 1.2 if this hasn't been done already. Incoming web traffic to Workato is required TLS 1.2 encryption to better secure any information. [Find out how to enable TLS 1.2 and establish a connection to Workato here.](/connectors/sap/tls1.2.md)
 
 ## How to connect to SAP On-premise on Workato
 

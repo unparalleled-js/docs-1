@@ -1653,6 +1653,7 @@ module.exports = [
         path: '/connectors/sap',
         children: [
           ['/connectors/sap', 'Connection setup'],
+          ['/connectors/sap/tls1.2', 'TLS 1.2 set up'],
           ['/connectors/sap/trigger-new-idoc', 'New IDoc trigger'],
           ['/connectors/sap/action-send-idoc', 'Send IDoc action'],
           [
