@@ -4,7 +4,9 @@ date: 2020-01-06 06:00:00 Z
 isTocVisible: true
 ---
 
-# SAP Configuration - Enabling TLS 1.2 and making a call to Workato through an RFC.
+# SAP Configuration - How to call Workato's API platform from ABAP/4
+This article outlines the steps needed to enable TLS 1.2 for SAP instances such that RFCs may interact directly with Workato's API platform.
+
 ## What is TLS 1.2
 TLS 1.2 is currently the most widely used verion of TLS and has several improvements in security compared to TLS 1.1. The enhancements in encryption of TLS 1.2 allow it to use more secure hash algorithms such as SHA-256 as well as advanced cipher suites that support authenticated encryption for other data modes. Workato blocks all incoming web traffic that is not encrypted using TLS 1.2 in an effort to ensure your data is always kept secure.
 

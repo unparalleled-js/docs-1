@@ -584,7 +584,13 @@ module.exports = [
       ['/features/collection', 'Collection by Workato'],
       ['/data-retention', 'Data retention'],
       ['/features/common-data-model', 'Common data model'],
-      ['/api-management', 'API Platform']
+      {
+        title: 'API Platform',
+        path: '/api-management',
+        children: [
+          ['/connectors/sap/tls1.2', 'TLS 1.2 set up']
+        ]
+      }
     ]
   },
   {
@@ -1653,7 +1659,6 @@ module.exports = [
         path: '/connectors/sap',
         children: [
           ['/connectors/sap', 'Connection setup'],
-          ['/connectors/sap/tls1.2', 'TLS 1.2 set up'],
           ['/connectors/sap/trigger-new-idoc', 'New IDoc trigger'],
           ['/connectors/sap/action-send-idoc', 'Send IDoc action'],
           [
