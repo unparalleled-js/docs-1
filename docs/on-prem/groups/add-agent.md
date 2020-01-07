@@ -14,11 +14,11 @@ Clicking on **Add on-prem agent** will bring you through an agent creation wizar
 
 | Step       | Description |
 | ---------- | :---------- |
-| Choose OS  | Provide a meaningful agent name and select the OS in which the agent will be installed.<br>If you are using Linux OS, see the setup guide [here](add-agent-linux.ms)<br><br>![Choose OS](~@img/on-prem/choose-os.png) |
+| Choose OS  | Provide a meaningful agent name and select the OS in which the agent will be installed.<br>If you are using Linux OS, see the setup guide [here](add-agent-linux.md)<br><br>![Choose OS](~@img/on-prem/choose-os.png) |
 | Accept ToS | Read and accept the **End User License Agreement**.<br><br>![Accept ToS](~@img/on-prem/accept-tos.png) |
 | Install    | Download the installer file on the on-prem system. Instructions specific to your OS will be displayed.<br><br>![Install](~@img/on-prem/install.png) |
 | Add key    | Download agent key and move it into the appropriate folder in the agent directory according to the instructions provided.<br><br>![Add key](~@img/on-prem/add-key.png) |
-| Run agent  | Following the instructions to setup and run the agent.<br><br>![Run agent](~@img/on-prem/run-agent-wizard.png) |
+| Run agent  | Follow the instructions to setup and run the agent.<br><br>![Run agent](~@img/on-prem/run-agent-wizard.png) |
 | Test       | Once the agent is active, click **Test** to verify that the connection is successful.<br><br>![test](~@img/on-prem/test-agent-setup.png) |
 
 Learn more about how to setup an on-prem agent [here](/on-prem/agents/setup.md).
