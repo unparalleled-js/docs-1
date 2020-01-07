@@ -95,5 +95,5 @@ The APIs for exporting a package are available [here](/workato-api.md#recipe-lif
 
 | Type | Resource | Description |
 |------|----------|-------------|
-| POST | [api/managed_users/:id/imports](/oem/oem-api/recipe-lifecycle-management.md#import-package-into-a-customer-account) | Import package into a folder in a customer account. |
-| GET  | [api/managed_users/:id/recipes](oem/oem-api/recipe-lifecycle-management.md#get-package-status) | Get status of an imported package. |
+| POST | [/api/managed_users/:id/imports](/oem/oem-api/recipe-lifecycle-management.md#import-package-into-a-customer-account) | Import package into a folder in a customer account. |
+| GET  | [/api/managed_users/:id/recipes](oem/oem-api/recipe-lifecycle-management.md#get-package-status) | Get status of an imported package. |

@@ -26,7 +26,7 @@ Import a package into a specified folder in a customer account.
 POST /api/managed_users/:id/imports
 ```
 
-This is an asynchronous request. Use [GET package by ID](#get-package-by-id) endpoint to get details of the imported the package.
+This is an asynchronous request. Use the [Get package status](#get-package-status) endpoint to get details of the imported the package.
 
 The input (zip file) is a `application/octet-stream` payload containing package content. URL parameter **restart_recipes** should be set to `true` if the running recipes need to be restarted upon import.
 
