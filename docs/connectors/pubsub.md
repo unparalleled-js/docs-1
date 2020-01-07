@@ -16,7 +16,7 @@ In order to work with the PubSub connector, users require access to the PubSub t
 ## How to use PubSub topics
 You can go to the PubSub main page by clicking **Tools** > **Pub/Sub Topics**. Here, you can view all the topics that are active on your Workato account.
 
-![Manage topics in PubSub](~@img/connectors/pubsub/manage-topics-empty.png)
+![Manage topics in PubSub](~@img/connectors/pubsub/manage-topics.png)
 *Manage topics in PubSub*
 
 You can use the **search topics** function to quickly locate topics by keyword.
