@@ -14,7 +14,7 @@ Clicking on **Add on-prem agent** will bring you through an agent creation wizar
 
 | Step       | Description |
 | ---------- | :---------- |
-| Choose OS  | Provide a meaningful agent name and select the OS in which the agent will be installed.<br><br>![Choose OS](~@img/on-prem/choose-os.png) |
+| Choose OS  | Provide a meaningful agent name and select the OS in which the agent will be installed.<br>If you are using Linux OS, see the setup guide [here](add-agent-linux.ms)<br><br>![Choose OS](~@img/on-prem/choose-os.png) |
 | Accept ToS | Read and accept the **End User License Agreement**.<br><br>![Accept ToS](~@img/on-prem/accept-tos.png) |
 | Install    | Download the installer file on the on-prem system. Instructions specific to your OS will be displayed.<br><br>![Install](~@img/on-prem/install.png) |
 | Add key    | Download agent key and move it into the appropriate folder in the agent directory according to the instructions provided.<br><br>![Add key](~@img/on-prem/add-key.png) |

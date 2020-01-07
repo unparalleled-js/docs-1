@@ -441,6 +441,7 @@ module.exports = [
         children: [
           ['/on-prem/groups/create-group', 'Create a group'],
           ['/on-prem/groups/add-agent', 'Add agent to a group'],
+          ['/on-prem/groups/add-agent-linux', 'Add agent to a group on Linux'],
           ['/on-prem/groups/group-status', 'Status of a group'],
           [
             '/on-prem/groups/common-config',
