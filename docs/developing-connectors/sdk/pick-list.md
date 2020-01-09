@@ -201,6 +201,7 @@ input_fields: lambda do |_object_definitions|
     name: 'country',
     optional: false,
     change_on_blur: true,
+    extends_schema: true,
     hint: 'Use 3 letter combination country codes. e.g. USA'
   },
   {
@@ -213,7 +214,26 @@ input_fields: lambda do |_object_definitions|
 end
 ```
 
-####Sample code snippet - Dynamic example
+In cases like these, your `cities` pick_list should look like this instead. This results in non-valid `country` inputs causing the `city` input field to be greyed out.
+
+```ruby
+pick_lists: {
+  cities: lambda do |_connection, country:|
+    {
+      'USA' => [
+        ['New York City', 'NYC'],
+        ['San Fransisco', 'SF']
+      ],
+      'IND' => [
+        ['Bangalore', 'BNG'],
+        ['Delhi', 'DLH']
+      ]
+    }[country] || []
+  end
+}
+```
+
+#### Sample code snippet - Dynamic example
 
 ```ruby
 pick_lists: {
@@ -259,7 +279,8 @@ input_fields: lambda do |_object_definitions|
   {
     name: 'account_id',
     optional: false,
-    change_on_blur: true
+    change_on_blur: true,
+    extends_schema: true
   },
   {
     name: 'property',
