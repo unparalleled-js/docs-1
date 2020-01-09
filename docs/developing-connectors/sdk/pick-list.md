@@ -214,6 +214,25 @@ input_fields: lambda do |_object_definitions|
 end
 ```
 
+In cases like these, your `cities` pick_list should look like this instead. This results in non-valid `country` inputs causing the `city` input field to be greyed out.
+
+```ruby
+pick_lists: {
+  cities: lambda do |_connection, country:|
+    {
+      'USA' => [
+        ['New York City', 'NYC'],
+        ['San Fransisco', 'SF']
+      ],
+      'IND' => [
+        ['Bangalore', 'BNG'],
+        ['Delhi', 'DLH']
+      ]
+    }[country] || []
+  end
+}
+```
+
 #### Sample code snippet - Dynamic example
 
 ```ruby
