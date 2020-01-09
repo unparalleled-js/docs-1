@@ -201,6 +201,7 @@ input_fields: lambda do |_object_definitions|
     name: 'country',
     optional: false,
     change_on_blur: true,
+    extends_schema: true,
     hint: 'Use 3 letter combination country codes. e.g. USA'
   },
   {
@@ -213,7 +214,7 @@ input_fields: lambda do |_object_definitions|
 end
 ```
 
-####Sample code snippet - Dynamic example
+#### Sample code snippet - Dynamic example
 
 ```ruby
 pick_lists: {
@@ -259,7 +260,8 @@ input_fields: lambda do |_object_definitions|
   {
     name: 'account_id',
     optional: false,
-    change_on_blur: true
+    change_on_blur: true,
+    extends_schema: true
   },
   {
     name: 'property',
