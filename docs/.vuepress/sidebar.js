@@ -2548,16 +2548,6 @@ module.exports = [
     path: '/workato-api',
     children: [
       {
-        title: 'Connector API',
-        path: '/workato-api/adapters',
-        children: [
-          [
-            '/workato-api/adapters#list-connector-metadata',
-            'List Connector Metadata'
-          ]
-        ]
-      },
-      {
         title: 'Connections API',
         path: '/workato-api/connections',
         children: [
@@ -2578,40 +2568,6 @@ module.exports = [
         ]
       },
       {
-        title: 'Managed Users API',
-        path: '/workato-api/managed-users',
-        children: [
-          [
-            '/workato-api/managed-users#create-customer-account',
-            'Create new OEM customer'
-          ],
-          [
-            '/workato-api/managed-users#get-customer-account',
-            'Get customer account'
-          ],
-          [
-            '/workato-api/managed-users#upgrade-customer-account',
-            'Upgrading a customer account'
-          ],
-          [
-            '/workato-api/managed-users#downgrade-customer-account',
-            'Downgrading a customer account'
-          ],
-          [
-            '/workato-api/managed-users#add-member-to-customer-account',
-            'Add member to OEM customer account'
-          ],
-          [
-            '/workato-api/managed-users#remove-member-from-customer-account',
-            'Remove member from customer account'
-          ],
-          [
-            '/workato-api/managed-users#list-customer-connections',
-            'Get list of customer connections'
-          ]
-        ]
-      },
-      {
         title: 'Recipes API',
         path: '/workato-api/recipes',
         children: [
@@ -2624,10 +2580,6 @@ module.exports = [
           [
             '/workato-api/recipes#list-recipes-belonging-to-user',
             'List recipes'
-          ],
-          [
-            '/workato-api/recipes#search-for-public-recipes',
-            'Search public recipes'
           ],
           ['/workato-api/recipes#start-recipe', 'Start recipe'],
           ['/workato-api/recipes#stop-recipe', 'Stop recipe'],
