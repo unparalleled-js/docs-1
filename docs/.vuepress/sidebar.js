@@ -2614,6 +2614,40 @@ module.exports = [
             'Download package'
           ]
         ]
+      },
+      {
+        title: 'OEM Vendor APIs',
+        path: '/oem/oem-api/oem-vendor-apis',
+        children: [
+          [
+            '/oem/oem-api/adapters',
+            'Connectors'
+          ],
+          [
+            '/oem/oem-api/connections',
+            'Connections'
+          ],
+          [
+            '/oem/oem-api/picklists',
+            'Picklists'
+          ],
+          [
+            '/oem/oem-api/folders',
+            'Folders'
+          ],
+          [
+            '/oem/oem-api/managed-users',
+            'Manage customer accounts'
+          ],
+          [
+            '/oem/oem-api/recipes',
+            'Recipes'
+          ],
+          [
+            '/oem/oem-api/recipe-lifecycle-management',
+            'Recipe lifecycle management'
+          ]
+        ]
       }
     ]
   },

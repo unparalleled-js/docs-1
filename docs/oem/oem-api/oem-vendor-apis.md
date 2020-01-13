@@ -51,6 +51,14 @@ Workato API supports sending request body with the `application/json` content-ty
 | GET  | [/api/managed_users/:managed_user_id/connections](/oem/oem-api/connections.md#list-connections) | Returns a list of connections in a customer account.|
 | POST | [/api/managed_users/:id/connections](/workato-api/connections.md) | Allows the OEM vendor to add a shell connection in a customer account. |
 
+## Picklists
+
+<div class='api_quick_reference'> </div>
+
+| Type |Resource | Description |
+|------|---------|-------------|
+| GET | [/managed_users/:id/connections/:connection_id/pick_list](/oem/oem-api/picklists.md)) | Obtains a list of picklist values for a specified connection in an OEM customer account. |
+
 ## Folders
 
 <div class='api_quick_reference'> </div>
