@@ -2620,11 +2620,11 @@ module.exports = [
         path: '/oem/oem-api/oem-vendor-apis',
         children: [
           [
-            '/oem/oem-api/adapters#list-connector-metadata',
+            '/oem/oem-api/adapters',
             'Connectors'
           ],
           [
-            '/oem/oem-api/connections#list-connections',
+            '/oem/oem-api/connections',
             'Connections'
           ],
           [
