@@ -57,7 +57,7 @@ Workato API supports sending request body with the `application/json` content-ty
 
 | Type |Resource | Description |
 |------|---------|-------------|
-| GET | [/managed_users/:id/connections/:connection_id/pick_list](/oem/oem-api/picklists.md)) | Obtains a list of picklist values for a specified connection in an OEM customer account. |
+| POST | [/managed_users/:id/connections/:connection_id/pick_list](/oem/oem-api/picklists.md)) | Obtains a list of picklist values for a specified connection in an OEM customer account. |
 
 ## Folders
 
@@ -80,7 +80,6 @@ Workato API supports sending request body with the `application/json` content-ty
 | PUT  | [/api/managed_users/:id/downgrade](/oem/oem-api/managed-users.md#downgrade-customer-account) | Downgrade customer account. |
 | POST | [/api/managed_users/:id/member](/oem/oem-api/managed-users.md#add-member-to-customer-account) | Add member to customer account. |
 | DELETE | [/api/managed_users/:id/member](/oem/oem-api/managed-users.md#remove-member-from-customer-account) |  Remove member from customer account. |
-| GET  | [/api/managed_users/:id/connections](/oem/oem-api/managed-users.md#list-customer-connections)| List customer connections. |
 
 ## Recipes
 
@@ -104,4 +103,4 @@ The APIs for exporting a package are available [here](/workato-api.md#recipe-lif
 | Type | Resource | Description |
 |------|----------|-------------|
 | POST | [/api/managed_users/:id/imports](/oem/oem-api/recipe-lifecycle-management.md#import-package-into-a-customer-account) | Import package into a folder in a customer account. |
-| GET  | [/api/managed_users/:id/recipes](oem/oem-api/recipe-lifecycle-management.md#get-package-status) | Get status of an imported package. |
+| GET  | [/api/managed_users/:id/recipes](/oem/oem-api/recipe-lifecycle-management.md#get-package-status) | Get status of an imported package. |
