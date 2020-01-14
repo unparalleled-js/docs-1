@@ -23,7 +23,7 @@ POST /managed_users/:id/connections/:connection_id/pick_list
 | managed_user_id | **string**<br>_required_ | OEM customer Account ID/External ID. <br>External id should be prefixed with a E(eg: EA2300) and the resulting id should be URL encoded. |
 | connection_id | **string**<br>_required_ | ID of the connection. This can be found in the URL of the app connection or is the result of the [List connections](/oem/oem-api/connections.md#list-connections) endpoint.  |
 
-### Query Parameters
+### Body
 | Name | Type | Description |
 |------|------|-------------|
 | pick_list_name | **string**<br>_required_ | Name of the pick list. Obtain from this [document](https://docs.google.com/spreadsheets/d/1XnzSkUo72Bp6THWhFim0444FXNfziMJo7ouzP5eO9T0/edit?usp=sharing). |
@@ -31,83 +31,94 @@ POST /managed_users/:id/connections/:connection_id/pick_list
 
 #### Sample request
 
-This example request obtains a list of Gmail picklist values from the picklist `mailbox_labels`.
+This example curl request obtains a list of Salesforce picklist values from the picklist `sobject_fields` from the `Invoice__c` custom object in Salesforce.
 
 ```shell
-curl  -X POST https://www.workato.com/api/managed_users/92018/connections/4860/pick_lists?pick_list_name=mailbox_labels \
-      -H 'x-user-email: <email>' \
-      -H 'x-user-token: <token>'
+curl  -X POST https://www.workato.com/api/managed_users/135703/connections/318457/pick_list \
+      -H 'x-user-email: email@workato.com' \
+      -H 'x-user-token: 61j2ia9-ae0c-453f-9b5e-1hsj129304' \
+      -H 'Content-Type: application/json' \
+      -d '{ "pick_list_name": "sobject_fields", "pick_list_params": {"sobject_name": "Invoice__c"}}'
+
 ```
 
 ### Response
 
 ```json
 {
-   "reply": [
-       [
-           "CHAT",
-           "CHAT"
-       ],
-       [
-           "SENT",
-           "SENT"
-       ],
-       [
-           "INBOX",
-           "INBOX"
-       ],
-       [
-           "IMPORTANT",
-           "IMPORTANT"
-       ],
-       [
-           "TRASH",
-           "TRASH"
-       ],
-       [
-           "DRAFT",
-           "DRAFT"
-       ],
-       [
-           "SPAM",
-           "SPAM"
-       ],
-       [
-           "CATEGORY_FORUMS",
-           "CATEGORY_FORUMS"
-       ],
-       [
-           "CATEGORY_UPDATES",
-           "CATEGORY_UPDATES"
-       ],
-       [
-           "CATEGORY_PERSONAL",
-           "CATEGORY_PERSONAL"
-       ],
-       [
-           "CATEGORY_PROMOTIONS",
-           "CATEGORY_PROMOTIONS"
-       ],
-       [
-           "CATEGORY_SOCIAL",
-           "CATEGORY_SOCIAL"
-       ],
-       [
-           "STARRED",
-           "STARRED"
-       ],
-       [
-           "UNREAD",
-           "UNREAD"
-       ],
-       [
-           "Notes",
-           "Label_5"
-       ],
-       [
-           "[Imap]/Drafts",
-           "Label_6"
-       ]
-   ]
+    "result": [
+        [
+            "Record ID",
+            "Id"
+        ],
+        [
+            "Owner ID",
+            "OwnerId"
+        ],
+        [
+            "Deleted",
+            "IsDeleted"
+        ],
+        [
+            "Invoice Name",
+            "Name"
+        ],
+        [
+            "Created Date",
+            "CreatedDate"
+        ],
+        [
+            "Created By ID",
+            "CreatedById"
+        ],
+        [
+            "Last Modified Date",
+            "LastModifiedDate"
+        ],
+        [
+            "Last Modified By ID",
+            "LastModifiedById"
+        ],
+        [
+            "System Modstamp",
+            "SystemModstamp"
+        ],
+        [
+            "Last Viewed Date",
+            "LastViewedDate"
+        ],
+        [
+            "Last Referenced Date",
+            "LastReferencedDate"
+        ],
+        [
+            "External ID",
+            "External_ID__c"
+        ],
+        [
+            "Status",
+            "Status__c"
+        ],
+        [
+            "Contact",
+            "Contact__c"
+        ],
+        [
+            "Intacct Invoice ID",
+            "Intacct_Invoice_ID__c"
+        ],
+        [
+            "Multi-select",
+            "Multi_select__c"
+        ],
+        [
+            "Invoiced",
+            "Invoiced__c"
+        ],
+        [
+            "Number field",
+            "Number_field__c"
+        ]
+    ]
 }
 ```

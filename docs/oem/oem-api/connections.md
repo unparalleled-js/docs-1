@@ -67,7 +67,7 @@ curl  -X GET https://www.workato.com/api/managed_users/98178/connections \
 ```
 
 ## Create Connection
-Allows the OEM vendor to add a shell connection in a customer's account. The OEM vendor can supply a `name` (optional) and `external_id` (optional) during creation. The API doesn't allow user to provide actual credentials.
+Allows the OEM vendor to add a shell connection in a customer's account. Note that the API doesn't allow user to provide actual credentials.
 
 ```
 POST /api/managed_users/:id/connections
@@ -82,4 +82,3 @@ POST /api/managed_users/:id/connections
 | managed_user_id | **string**<br>_required_ | OEM customer Account ID/External ID. <br>External id should be prefixed with a E(eg: EA2300) and the resulting id should be URL encoded. |
 | name | **string**<br>_optional_ | Name of the connection. Eg: 'Prod Salesforce connection'
 | provider | **string**<br>_required_ | Connector identifier. Eg: 'Salesforce' |
-| external_id | **string**<br>_optional_ | Optional External ID for the connection. |
