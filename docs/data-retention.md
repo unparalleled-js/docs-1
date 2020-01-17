@@ -11,20 +11,6 @@ In certain cases, an account may have ability to customize the duration of data 
 # Data retention policy
 Data retention depends on the plan and add-ons you have selected. Check the [pricing page](https://www.workato.com/pricing) or reach out to Workato sales representatives at +1 (844) 469-6752 to find out more.
 
-<!-->
-| Plan             | Max. retention (days) | Configurable?   |
-|------------------|-----------------------|-----------------|
-| Trial accounts   | 30                    | No              |
-| Integration apps | 30                    | No              |
-| Workbot apps     | 30                    | No              |
-| Community        | 30                    | No              |
-| Base             | 30                    | No              |
-| Professional     | 90                    | No              |
-| Business         | 180                   | Yes, min 1 hour |
-| Business Plus    | 365                   | Yes, min 1 hour |
-| Enterprise       | 365                   | Yes, min 1 hour |
--->
-
 # Types of data subject to data retention policy
 The following details the data which are subject to the data retention policy and is erased after retention time period.
 
