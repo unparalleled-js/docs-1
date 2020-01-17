@@ -4,13 +4,14 @@ date: 2017-02-24 03:15:00 Z
 ---
 
 # Data retention
-Workato retains data on the Workato platform for variable periods of time, depending on your account plan.
+Workato retains data on the Workato platform for variable periods of time, depending on plan and add-ons you have selected.
 
-In certain cases, such as in cases of compliance, it might be necessary not to store data, or reduce the duration that data is stored. This time period is configurable for certain Workato plans. Shortening the retention time period is typically done for sensitive data, while lengthening the retention time period is typically done to maintain job logs for troubleshooting on Workato.
+In certain cases, an account may have ability to customize the duration of data retention period. Typically, customers reduce data retention period to comply with more stringent compliance and security policies of their organization. 
 
 # Data retention policy
-Data retention differs by Workato plans. Check the [Pricing and Plans page](https://www.workato.com/pricing?audience=general) or reach out to Workato sales representatives at +1 (844) 469-6752 to find out more.
+Data retention depends on the plan and add-ons you have selected. Check the [pricing page](https://www.workato.com/pricing) or reach out to Workato sales representatives at +1 (844) 469-6752 to find out more.
 
+<!-->
 | Plan             | Max. retention (days) | Configurable?   |
 |------------------|-----------------------|-----------------|
 | Trial accounts   | 30                    | No              |
@@ -22,6 +23,7 @@ Data retention differs by Workato plans. Check the [Pricing and Plans page](http
 | Business         | 180                   | Yes, min 1 hour |
 | Business Plus    | 365                   | Yes, min 1 hour |
 | Enterprise       | 365                   | Yes, min 1 hour |
+-->
 
 # Types of data subject to data retention policy
 The following details the data which are subject to the data retention policy and is erased after retention time period.
