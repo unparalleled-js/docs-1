@@ -50,7 +50,7 @@ To fulfill part 2 of the requirements, select the Mailing Address and Business P
 
 > This is an advanced feature that requires users to know the relationship names between their Salesforce objects
 
-![Granparent heirarchy](~@img/salesforce-docs/grandparent hierarchy.png)
+![Grandparent hierarchy](~@img/salesforce-docs/grandparent-hierarchy.png)
 *Relationship hierarchy*
 
 The image above shows a typical Grandparent - Parent - Child lookup object relationship. Contacts or Accounts usually have multiple Opportunities: A simple example would be multiple sales offers (Opportunities) made to the same company or person within a company (Accounts/Contacts). Accounts and Contacts belong to Users in Salesforce. This User could be an account executive within your sales organization.  
@@ -61,7 +61,13 @@ To access fields in a Grandparent Object, in this case, toggle the related objec
 Primary_Contact__r,Primary_Contact__r.User__r
 ```
 
-Note that each object has the suffix `__r`, which denotes the relationship. If using custom objects, which have the suffix `__c`, the `__c` suffix is replaced.
+Note that each object has the suffix `__r`, which denotes a relationship. If using custom objects, which have the suffix `__c`, the `__c` suffix is replaced with `__r`. For example, if the custom object 'Invoice__c' has a parent relationship to Opportunity, the field input will be:
+
+```
+Invoice__r
+```
+
+Also note that relationship names are case sensitive. Typing in `Primary_contact__r` instead of `Primary_Contact__r` will not yield any results in the 'Fields' field. Please ensure that object names and relationships are verified before using this field.
 
 Now, select the required fields in the 'Fields' field, as below:
 ![Fields field 2](~@img/salesforce-docs/grandparent-relationship-selected.png)
