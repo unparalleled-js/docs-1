@@ -176,10 +176,21 @@ Each action should have a `Test` button which would allow you to manually declar
 > Console logs come in useful with ruby <code>puts</code> functions. You can use this to debug your actions and triggers easily
 
 ## Variations
+### Adding parameters and payloads to requests
 Other endpoints require parameters to access certain details, instead of accessing a particular resource route.
 
-A GET request can have parameters added to the request like so:
+A GET request can have parameters added to the request. There are 2 ways you can do this.
 
+Add query parameters to the method.
+```ruby
+execute: lambda do |connection, input|
+  {
+    'companies': get("https://#{connection['deployment']}.api.accelo.com/api/v0/companies.json", input)["response"]
+  }
+end
+```
+
+Add query parameters using the `params` method.
 ```ruby
 execute: lambda do |connection, input|
   {
@@ -191,16 +202,16 @@ end
 
 A POST or PUT or PATCH request can have payloads attached as well. There are 2 ways you can do this.
 
-Add payloads to the method
+Add payloads to the method.
 ```ruby
 execute: lambda do |connection, input|
   {
-    "users": get("https://#{connection['helpdesk']}.freshdesk.com/api/users.json", input)["results"]
+    "users": post("https://#{connection['helpdesk']}.freshdesk.com/api/users.json", input)["results"]
   }
 end
 ```
 
-Add payloads using the payload method
+Add payloads using the `payload` method.
 ```ruby
 execute: lambda do |connection, input|
   post("https://api.pushbullet.com/v2/pushes").
@@ -211,8 +222,36 @@ execute: lambda do |connection, input|
     )
 end
 ```
-
 See [Methods](/developing-connectors/sdk/methods.md) section for list of methods available for use in your custom connector actions.
+
+### Configuring actions which download binary files
+As Workato expects data in JSON formats unless told otherwise, download actions which work with Binary files require you to tell Workato to expect the response in a raw format.
+
+Below we have an example from the Egnyte API, where we want to download files of any content-type.
+
+```ruby
+execute: lambda do |_connection, input|
+  file_path = input['file_path'].encode_url.gsub(/%2F/, '/')
+
+  get("/pubapi/v1/fs-content/#{file_path}")
+  .headers('Accept' => '*/*')
+  # provides proper error messaging
+  .after_error_response(/.*/) do |_code, body, _header, message|
+    error("#{message}: #{body}")
+  end
+  # Gives users more data about the file being downloaded
+  .after_response do |code, body, headers|  
+    {
+      fileName: headers["content_disposition"],
+      fileType: headers["content_type"],
+      fileSize: headers["content_length"].to_i,
+      dateRetrieved: headers["date"],
+      data: body
+    }   
+  end
+  .response_format_raw # essential to handle binary files
+end,
+```
 
 ## Next section
 Find out more about how to build triggers for your connector that can listen for events and trigger recipes based on that.
