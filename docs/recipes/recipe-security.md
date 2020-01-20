@@ -17,7 +17,9 @@ should be kept private to the recipe author.
 
 One reason to avoid this is that when a recipe is cloned, hard-coded
 data in the recipe steps is copied. Generally this should not be done
-for sensitive data.
+for sensitive data. Also, setting a recipe's visibility to Public (in
+the Recipe Settings page) could expose any sensitive data in the recipe
+steps.
 
 Another reason to avoid hard-coded sensitive data in recipe steps is
 that it is harder to control and manage such data if it is spread out
