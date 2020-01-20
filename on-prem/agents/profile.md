@@ -291,6 +291,20 @@ sap:
 
 The properties below are required if you are connecting directly to SAP Application Server. This will not allow Load Balancer on the SAP side to be enabled:
 
+- **trustAll**
+
+- **verifyHost**
+
+- **disableAuthCaching**
+
+- **connection_type** could be either `direct` (default) or  `messageserver` 
+
+- **cpic_trace**
+
+- **jco_trace**
+
+- **control_segment**
+
 - **ashost**: SAP host in the format of `xx.xx.xx.xx`. This is the IP Address of the SAP application server you are connecting directly. This can be seen on the SAP Logon Pad which is used to login to your on-premise SAP Application server.
 
     ![Host](/assets/images/connectors/sap/ashost.png)
