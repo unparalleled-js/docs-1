@@ -10,3 +10,9 @@ Find out more about how Workato ensures security:
 - [IP Whitelists](/security/ip-whitelists.md)
 - [Two-factor authentication](/security/two-factor-authentication.md)
 - [Data protection](security/data-protection.md)
+
+# Best practices
+
+We have documented some security best practices when using the Workato platform. See:
+- [Security Best Practices for Recipes](/recipes/recipe-security.html)
+- [Security Best Practices for APIs](/api-mgmt/api-security.md)

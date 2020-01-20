@@ -92,6 +92,10 @@ module.exports = [
         'Recipe building best practices'
       ],
       [
+        '/recipes/recipe-security',
+        'Security best practices for recipes'
+      ],
+      [
         '/recipes/best-practices-error-handling',
         'Error handling best practices'
       ],
