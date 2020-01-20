@@ -14,5 +14,5 @@ Find out more about how Workato ensures security:
 # Best practices
 
 We have documented some security best practices when using the Workato platform. See:
-- [Security Best Practices for Recipes](/recipes/recipe-security.html)
+- [Security Best Practices for Recipes](/recipes/recipe-security.md)
 - [Security Best Practices for APIs](/api-mgmt/api-security.md)

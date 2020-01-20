@@ -26,9 +26,9 @@ that it is maintained in one place.
 
 To avoid sensitive data in recipe steps:
 
-1. Do not place authentication information used for a Connector (the HTTP Connector for example) in the recipe, as a hard-code string. For example, don't specify a URL such as `https://www.myapp.com/services/api-method?token=3ababe3235Z2z` in the recipe. Our suggested approach is instead to store the authentication token in the properties for the Connection. See for example [setting up authentication with a query parameter](/developing-connectors/http/connection-setup.html#authentication-type-query-params).
+1. Do not place authentication information used for a Connector (the HTTP Connector for example) in the recipe, as a hard-code string. For example, don't specify a URL such as `https://www.myapp.com/services/api-method?token=3ababe3235Z2z` in the recipe. Our suggested approach is instead to store the authentication token in the properties for the Connection. See for example [setting up authentication with a query parameter](/developing-connectors/http/connection-setup.md#authentication-type-query-params).
 
-2. For other sensitive data, consider placing it in the [Account Properties](https://docs.workato.com/features/account-properties.html) and make reference to it as needed in recipes.
+2. For other sensitive data, consider placing it in the [Account Properties](https://docs.workato.com/features/account-properties.md) and make reference to it as needed in recipes.
 
 3. Another approach is to use a data pill to pass the sensitive data from a previous step to the current step. (This assumes that prior step has also not used hard-coded sensitive data).
 
