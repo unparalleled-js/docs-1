@@ -272,6 +272,18 @@ This function replaces all occurrence of the first input value, with the second 
 
 ---
 
+## sub
+
+Substitute the first occurrence of a pattern with value.
+
+### Example
+| Example                                      | Result       |
+| -------------------------------------------- | ------------ |
+| `"Mean Marie".sub(/M/, "J") `                | "Jean Marie" |
+| `"Hello".sub(/[aeiou]/, "*")`                | "H*llo"      |
+
+---
+
 ## length
 
 This function returns the number of characters within an input string, including the white-spaces.
@@ -394,7 +406,7 @@ This function converts all characters from the input string into lower-case.
 
 # Converting to arrays and back
 
-This section shows how you can manipulate strings into arrays in other to get certain desired elements of a string.
+This section shows how you can manipulate strings into arrays.
 
 ---
 
@@ -410,6 +422,17 @@ Splits up a string based on certain characters. Character is case sensitive. If 
 | `"Jean Marie".split("M")`  | ["Jean ", "arie"] |
 | `"Marie, Jean".split(",")` | ["Marie", "Jean"] |
 
+---
+
+## bytes
+
+Returns an array of bytes for a given string.
+
+### Example
+
+| Example                    | Result            |
+| -------------------------- | ----------------- |
+| `"Hello".bytes`       | ["72","101","108","108","111"] |
 ---
 
 # Conversion formulas
@@ -433,6 +456,22 @@ Converts a value of another data type into a string data type.
 
 ---
 
+## ordinalize
+
+Turns a number into an ordinal string used to denote the position in an ordered sequence such as 1st, 2nd, 3rd, 4th.
+
+###Example
+
+| Example                                  | Result               |
+| ---------------------------------------- | -------------------- |
+| `1.ordinalize`                           | "1st"                |
+| `2.ordinalize`                           | "2nd"                |
+| `3.ordinalize`                           | "3rd"                |
+| `1003.ordinalize`                        | "1003rd"             |
+| `-3.ordinalize`                          | "-3rd"               |
+
+---
+
 ## Conversion of strings to other data types
 
 ## to_f
@@ -443,10 +482,10 @@ Changes the type of a variable to a float
 
 | Example                   | Result    |
 | ------------------------- | --------- |
-| "Jean Marie".to_f         | "0"       |
-| "123".to_f                | "123.0"   |
-| "123 Jean Marie 321".to_f | "123.0"   |
-| "123.456".to_f            | "123.456" |
+| `"Jean Marie".to_f`         | "0"       |
+| `"123".to_f`                | "123.0"   |
+| `"123 Jean Marie 321".to_f` | "123.0"   |
+| `"123.456".to_f`            | "123.456" |
 
 ---
 
@@ -458,11 +497,11 @@ Changes the type of variable to an integer . Will always be rounded **down** to 
 
 | Example                   | Result |
 | ------------------------- | ------ |
-| "Jean Marie".to_i         | 0    |
-| "123".to_i                | 123  |
-| "123 Jean Marie 321".to_f | 123  |
-| "123.456".to_f            | 123  |
-| "123.9".to_f              | 123  |
+| `"Jean Marie".to_i`         | 0    |
+| `"123".to_i`                | 123  |
+| `"123 Jean Marie 321".to_f` | 123  |
+| `"123.456".to_f`            | 123  |
+| `"123.9".to_f`              | 123  |
 
 ---
 
@@ -474,8 +513,8 @@ Convert alpha-3 country code or country name to alpha2 country code (first 2 ini
 
 | Example                            | Result |
 | ---------------------------------- | ------ |
-| "GBR".to_country_alpha2            | "GB"     |
-| "United Kingdom".to_country_alpha2 | "GB"     |
+| `"GBR".to_country_alpha2`            | "GB"     |
+| `"United Kingdom".to_country_alpha2` | "GB"     |
 
 ---
 
@@ -487,8 +526,8 @@ Convert alpha-2 country code or country name to alpha3 country code (first 3 ini
 
 | Example                            | Result |
 | ---------------------------------- | ------ |
-| "GB".to_country_alpha2             | "GBR"    |
-| "United Kingdom".to_country_alpha2 | "GBR"    |
+| `"GB".to_country_alpha2`             | "GBR"    |
+| `"United Kingdom".to_country_alpha2` | "GBR"    |
 
 ---
 
@@ -500,8 +539,8 @@ Convert alpha-2/3 country code or country name to ISO3166 country name.
 
 | Example               | Result         |
 | --------------------- | -------------- |
-| "GBR".to_country_name | "United Kingdom" |
-| "GB".to_country_name  | "United Kingdom" |
+| `"GBR".to_country_name` | "United Kingdom" |
+| `"GB".to_country_name`  | "United Kingdom" |
 
 ---
 
@@ -513,14 +552,14 @@ Formats integers/numbers to a currency-style.
 
 | Example    |  Description  |  Result  |
 | ------------------| ------------- | -------- |
-| "345.60".to_currency                | Adds default currency symbol "$" | "$345.60"  |
-| "345.60".to_currency(unit: "€") | Changes the default currency unit | "€345.60" |
-| "345.60".to_currency(format: "%n %u") | Changes the position of the number relative to the unit (where the number is represented by `%n` and the currency unit is represented by `%u`). Accepts 0 or 1 spaces in between. Defaults to `"%u%n"`. | "345.60 $" |
-| "-345.60".to_currency(negative_format: "(%u%n)") | Specifies the format when the number is negative (where the number is represented by `%n` and the currency unit is represented by `%u`). | "($345.60)" |
-| "345.678".to_currency               | Precision defaults to 2 decimal places | "$345.68"  |
-| "345.678".to_currency(precision: 3) | Change the precision by specifying the number of decimal places | "$345.678" |
-| "345.678".to_currency(separator: ",") | Specify the **decimal separator** as ".", "," or " ". Defaults to ".". |  "$345,68" |  
-| "12345.678".to_currency(delimiter: ".") | Specify the **thousands separator** as ",", "." or " ". Defaults to ",".| ""$12.345.68"|
+| `"345.60".to_currency`                | Adds default currency symbol "$" | "$345.60"  |
+| `"345.60".to_currency(unit: "€")` | Changes the default currency unit | "€345.60" |
+| `"345.60".to_currency(format: "%n %u")` | Changes the position of the number relative to the unit (where the number is represented by `%n` and the currency unit is represented by `%u`). Accepts 0 or 1 spaces in between. Defaults to `"%u%n"`. | "345.60 $" |
+| `"-345.60".to_currency(negative_format: "(%u%n)")` | Specifies the format when the number is negative (where the number is represented by `%n` and the currency unit is represented by `%u`). | "($345.60)" |
+| `"345.678".to_currency`               | Precision defaults to 2 decimal places | "$345.68"  |
+| `"345.678".to_currency(precision: 3)` | Change the precision by specifying the number of decimal places | "$345.678" |
+| `"345.678".to_currency(separator: ",")` | Specify the **decimal separator** as ".", "," or " ". Defaults to ".". |  "$345,68" |  
+| `"12345.678".to_currency(delimiter: ".")` | Specify the **thousands separator** as ",", "." or " ". Defaults to ",".| ""$12.345.68"|
 
 A comma-separated combination of these may be used to achieve the desired currency format. For example:
 
@@ -540,8 +579,8 @@ Convert alpha-2/3 country code or country name to ISO4217 currency code
 
 | Example                | Result |
 | ---------------------- | ------ |
-| "GBR".to_currency_code | "GBP"    |
-| "US".to_currency_code  | "USD"    |
+| `"GBR".to_currency_code` | "GBP"    |
+| `"US".to_currency_code`  | "USD"    |
 
 ---
 
@@ -553,8 +592,8 @@ Convert alpha-3 currency code or alpha-2/3 country code or country name to ISO42
 
 | Example                | Result  |
 | ---------------------- | ------- |
-| "GBR".to_currency_code | "Pound"   |
-| "USD".to_currency_code | "Dollars" |
+| `"GBR".to_currency_code` | "Pound"   |
+| `"USD".to_currency_code` | "Dollars" |
 
 ---
 
@@ -566,8 +605,8 @@ Convert alpha-3 currency code or alpha-2/3 country code or country name to ISO42
 
 | Example                | Result |
 | ---------------------- | ------ |
-| "GBR".to_currency_code | "£"      |
-| "USD".to_currency_code | "$"      |
+| `"GBR".to_currency_code` | "£"      |
+| `"USD".to_currency_code` | "$"      |
 
 ---
 
@@ -579,13 +618,13 @@ Converts string or number to a formatted phone number (user-defined).
 
 | Example                                  | Result               |
 | ---------------------------------------- | -------------------- |
-| "5551234".to_phone                       | 555-1234             |
-| 1235551234.to_phone                      | 123-555-1234         |
-| 1235551234.to_phone(area_code: true)     | (123) 555-1234       |
-| 1235551234.to_phone(delimiter: " ")      | 123 555 1234         |
-| 1235551234.to_phone(area_code: true, extension: 555) | (123) 555-1234 x 555 |
-| 1235551234.to_phone(country_code: 1)     | +1-123-555-1234      |
-| "123a456".to_phone                       | 123a456              |
+| `"5551234".to_phone`                       | 555-1234             |
+| `1235551234.to_phone`                    | 123-555-1234         |
+| `1235551234.to_phone(area_code: true)`     | (123) 555-1234       |
+| `1235551234.to_phone(delimiter: " ")`      | 123 555 1234         |
+| `1235551234.to_phone(area_code: true, extension: 555)` | (123) 555-1234 x 555 |
+| `1235551234.to_phone(country_code: 1)`     | +1-123-555-1234      |
+| `"123a456".to_phone`                       | 123a456              |
 
 ---
 
@@ -597,7 +636,7 @@ Convert state name to code.
 
 | Example                                  | Result               |
 | ---------------------------------------- | -------------------- |
-| "California".to_state_code              | CA                   |
+| `"California".to_state_code`             | CA                   |
 
 ---
 
@@ -609,4 +648,16 @@ Convert state code to name.
 
 | Example                                  | Result               |
 | ---------------------------------------- | -------------------- |
-| "CA".to_state_name                       | CALIFORNIA           |
+| `"CA".to_state_name`                       | CALIFORNIA           |
+
+---
+
+## bytesize
+
+Returns the length of a given string in bytes.
+
+###Example
+
+| Example                                  | Result               |
+| ---------------------------------------- | -------------------- |
+| `"Hello".bytesize`                      | 5           |

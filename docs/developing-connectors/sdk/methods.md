@@ -90,6 +90,18 @@ Furthermore, you'll be able to declare personal reusable methods to use in any b
        </td>
      </tr>
      <tr>
+       <td>bytes</td>
+       <td>Returns an array of bytes for a given string.<br>
+       <pre><code style="display: block; white-space: pre-wrap;">"Hello".bytes # ["72","101","108","108","111"]</code></pre>
+       </td>
+     </tr>
+     <tr>
+       <td>bytesize</td>
+       <td>Returns the length of a given string in bytes.<br>
+       <pre><code style="display: block; white-space: pre-wrap;">"Hello".bytesize # 5</code></pre>
+       </td>
+     </tr>
+     <tr>
        <td>capitalize</td>
        <td>Capitalizes the first character of the string
        </td>
@@ -133,6 +145,14 @@ Furthermore, you'll be able to declare personal reusable methods to use in any b
     <tr>
       <td>each</td>
       <td>Basic iterator<br><code>[1, 2, 3].each { |i| puts i }</code></td>
+    </tr>
+    <tr>
+      <td>each_byte</td>
+      <td>Passes each byte in str to the given block, or returns an enumerator if no block is given. <a href="https://apidock.com/ruby/v2_5_5/String/each_byte">More details here.</a></td>
+    </tr>
+    <tr>
+      <td>each_char</td>
+      <td>Passes each character in str to the given block, or returns an enumerator if no block is given. <a href="https://apidock.com/ruby/String/each_char">More details here.</a></td>
     </tr>
     <tr>
       <td>each_with_index</td>
@@ -446,6 +466,12 @@ now + 2.days #2017-01-25T14:04:53.365908-08:00</code></pre>
       </td>
     </tr>
     <tr>
+      <td>ordinalize</td>
+      <td>Turns a number into an ordinal string used to denote the position in an ordered sequence such as 1st, 2nd, 3rd, 4th..
+      <pre><code style="display: block; white-space: pre-wrap;">"1".ordinalize # "1st"</code></pre>
+      </td>
+    </tr>
+    <tr>
       <td>parameterize</td>
       <td>Replaces special characters in a string
       <pre><code style="display: block; white-space: pre-wrap;">"öüâ".parameterize #"oua"</code></pre>
@@ -713,6 +739,14 @@ a         #=> ["a"]</code></pre>
       <td>strftime</td>
       <td>
         Format date or time using %-placeholders
+      </td>
+    </tr>
+    <tr>
+      <td>sub</td>
+      <td>
+        Substitute the first occurrence of a pattern with value.
+        <pre><code style="display: block; white-space: pre-wrap;">"Mean Marie".sub(/M/, "J") #"Jean Marie"
+"Hello".sub(/[aeiou]/, "\*") #"H*llo"</code></pre>
       </td>
     </tr>
     <tr>
