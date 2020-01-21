@@ -257,7 +257,7 @@ This function inverts a string, reordering the characters in a backward manner. 
 
 ## gsub
 
-This function replaces all occurrence of the first input value, with the second input value, within the string. This function is case-sensitive - make sure to downcase or upcase before comparison if you are not concerned about case sensitivity.
+This function replaces all occurrence of the first input value, with the second input value, within the string. This function is case-sensitive - make sure to type in uppercase or lowercase before comparison if you are concerned about case sensitivity.
 
 ### Example
 | Example                                      | Result       |
@@ -274,7 +274,7 @@ This function replaces all occurrence of the first input value, with the second 
 
 ## sub
 
-This function replaces the first occurrence of the first input value, with the second input value, within the string. This function is case-sensitive - make sure to downcase or upcase before comparison if you are not concerned about case sensitivity.
+This function replaces the first occurrence of the first input value, with the second input value, within the string. This function is case-sensitive - make sure to type in uppercase or lowercase before comparison if you are concerned about case sensitivity.
 
 ### Example
 | Example                                      | Result       |
