@@ -274,7 +274,7 @@ This function replaces all occurrence of the first input value, with the second 
 
 ## sub
 
-Substitute the first occurrence of a pattern with value.
+This function replaces the first occurrence of the first input value, with the second input value, within the string. This function is case-sensitive - make sure to downcase or upcase before comparison if you are not concerned about case sensitivity.
 
 ### Example
 | Example                                      | Result       |
@@ -460,7 +460,7 @@ Converts a value of another data type into a string data type.
 
 Turns a number into an ordinal string used to denote the position in an ordered sequence such as 1st, 2nd, 3rd, 4th.
 
-###Example
+### Example
 
 | Example                                  | Result               |
 | ---------------------------------------- | -------------------- |

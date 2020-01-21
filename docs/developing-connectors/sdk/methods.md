@@ -148,11 +148,11 @@ Furthermore, you'll be able to declare personal reusable methods to use in any b
     </tr>
     <tr>
       <td>each_byte</td>
-      <td>Passes each byte in str to the given block, or returns an enumerator if no block is given. <a href="https://apidock.com/ruby/v2_5_5/String/each_byte">More details here.</a></td>
+      <td>Passes each byte in a given string to the given block, or returns an enumerator if no block is given. <a href="https://apidock.com/ruby/v2_5_5/String/each_byte">More details here.</a></td>
     </tr>
     <tr>
       <td>each_char</td>
-      <td>Passes each character in str to the given block, or returns an enumerator if no block is given. <a href="https://apidock.com/ruby/String/each_char">More details here.</a></td>
+      <td>Passes each character in a given string to the given block, or returns an enumerator if no block is given. <a href="https://apidock.com/ruby/String/each_char">More details here.</a></td>
     </tr>
     <tr>
       <td>each_with_index</td>
