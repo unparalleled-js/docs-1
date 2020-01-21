@@ -233,23 +233,9 @@ Below we have an example from the Egnyte API, where we want to download files of
 execute: lambda do |_connection, input|
   file_path = input['file_path'].encode_url.gsub(/%2F/, '/')
 
-  get("/pubapi/v1/fs-content/#{file_path}")
-  .headers('Accept' => '*/*')
-  # provides proper error messaging
-  .after_error_response(/.*/) do |_code, body, _header, message|
-    error("#{message}: #{body}")
-  end
-  # Gives users more data about the file being downloaded
-  .after_response do |code, body, headers|  
-    {
-      fileName: headers["content_disposition"],
-      fileType: headers["content_type"],
-      fileSize: headers["content_length"].to_i,
-      dateRetrieved: headers["date"],
-      data: body
-    }   
-  end
-  .response_format_raw # essential to handle binary files
+  get("/pubapi/v1/fs-content/#{file_path}").
+    headers('Accept' => '*/*').
+    response_format_raw # essential to handle binary files
 end,
 ```
 
