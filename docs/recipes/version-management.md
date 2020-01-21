@@ -13,7 +13,7 @@ In the version history view, each version is attributed to the user who made the
 
 The are 2 types of changes:
 
-- Logic change
+- Recipe change
 
 These changes driven by user actively changing the recipe. e.g. adding or removing steps and changing field mappings, will create a new version of the recipe when the recipe is saved.
 

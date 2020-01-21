@@ -1640,6 +1640,10 @@ module.exports = [
             'Object triggers'
           ],
           [
+            '/connectors/salesforce/related-objects',
+            'Object relationships'
+          ],
+          [
             '/connectors/salesforce/salesforce-generic#attachments-in-salesforce',
             'Handling attachments'
           ],
