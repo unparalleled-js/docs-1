@@ -1,6 +1,6 @@
 ---
 title: Security
-date: 2017-12-12 18:00:00 Z
+date: 2020-01-20 12:05:00 Z
 ---
 
 # Security
@@ -10,3 +10,9 @@ Find out more about how Workato ensures security:
 - [IP Whitelists](/security/ip-whitelists.md)
 - [Two-factor authentication](/security/two-factor-authentication.md)
 - [Data protection](security/data-protection.md)
+
+# Best practices
+
+We have documented some security best practices when using the Workato platform. See:
+- [Security Best Practices for Recipes](/recipes/recipe-security.md)
+- [Security Best Practices for APIs](/api-mgmt/api-security.md)
