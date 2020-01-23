@@ -81,8 +81,8 @@ The input (zip file) is a `application/octet-stream` payload containing package 
 curl  -X POST https://www.workato.com/api/packages/import/<folder_id>?restart_recipes=true \
       -H 'x-user-email: <email>' \
       -H 'x-user-token: <token>' \
-      -H 'Content-Type: application/octet-steam' \
-      -F 'path/to/local/file.zip'
+      -H 'Content-Type: application/octet-stream' \
+      -data-binary @'path/to/local/file.zip'
 ```
 
 ### Response

@@ -222,7 +222,6 @@ execute: lambda do |connection, input|
     )
 end
 ```
-
 See [Methods](/developing-connectors/sdk/methods.md) section for list of methods available for use in your custom connector actions.
 
 ### Configuring actions which download binary files
