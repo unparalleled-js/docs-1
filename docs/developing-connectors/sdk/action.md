@@ -190,7 +190,7 @@ execute: lambda do |connection, input|
 end
 ```
 
-Add query parameters using the `params` method.
+Add query parameters using the `params` method. 
 ```ruby
 execute: lambda do |connection, input|
   {
