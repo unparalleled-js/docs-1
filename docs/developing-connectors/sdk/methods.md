@@ -562,7 +562,7 @@ a         #=> ["a"]</code></pre>
     <tr>
       <td>response_format_raw</td>
       <td>
-        Expect response in raw format
+        Expect response in raw format. This can be chained after HTTP actions that expect binary data (such as PDFs and images) as responses. <a href='/developing-connectors/sdk/action.html#configuring-actions-which-download-binary-files'>Example</a>
       </td>
     </tr>
     <tr>
