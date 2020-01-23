@@ -212,7 +212,7 @@ execute: lambda do |connection, input|
 end
 ```
 
-See [Methods](/developing-connectors/sdk/methods.md) section for list of methods available for use in your custom connector actions.
+See [Methods](/developing-connectors/sdk/methods.md) section for list of methods available for use in your custom connector actions. 
 
 ## Next section
 Find out more about how to build triggers for your connector that can listen for events and trigger recipes based on that.
