@@ -82,7 +82,7 @@ curl  -X POST https://www.workato.com/api/packages/import/<folder_id>?restart_re
       -H 'x-user-email: <email>' \
       -H 'x-user-token: <token>' \
       -H 'Content-Type: application/octet-stream' \
-      -data-binary @'path/to/local/file.zip'
+      --data-binary @'path/to/local/file.zip'
 ```
 
 ### Response
