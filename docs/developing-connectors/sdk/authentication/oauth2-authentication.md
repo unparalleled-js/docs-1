@@ -51,6 +51,17 @@ Here we have a example of an object with a connection block which has an OAuth 2
   title: 'My Podio connector',
 
   connection: {
+    fields: [
+      {
+        name: 'client_id',
+        optional: false
+      },
+      {
+        name: 'client_secret',
+        optional: false,
+        control_type: 'password'
+      }
+    ],
     authorization: {
       type: "oauth2",
 
@@ -62,9 +73,13 @@ Here we have a example of an object with a connection block which has an OAuth 2
         "https://podio.com/oauth/token"
       end,
 
-      client_id: "YOUR_PODIO_CLIENT_ID",
+       client_id: lambda do |connection|
+         connection['client_id']
+       end,
 
-      client_secret: "YOUR_PODIO_CLIENT_SECRET",
+       client_secret: lambda do |connection|
+         connection['client_secret']
+       end,
 
       apply: lambda do |connection, access_token|
         headers("Authorization": "OAuth2 #{access_token}")
@@ -126,7 +141,7 @@ end
 > The `apply` block will not be applied to any requests made in `acquire`. So you will have to include the required credentials for a successful API request there.
 
 Note:
-- SDK makes a POST request to token endpoint. If a different type of request is expected, look at [Custom token authentication](/developing-connectors/sdk/authentication/custom-authentication.md)
+- SDK makes a form url encoded POST request to the authorisation and token endpoint. If a different type of request is expected, look at [Custom token authentication](/developing-connectors/sdk/authentication/custom-authentication.md)
 - The `token_url` is required if the `acquire` or `refresh` hooks are not present (see below).
 - Ensure that your implementation of OAuth 2.0 is compliant with the specifications stated in the [RFC document](https://tools.ietf.org/html/rfc6749). Else, your custom adapter might not start.
   - For example, related to [Issuing an Access Token - Successful Response](https://tools.ietf.org/html/rfc6749#section-5.1), Workato will be expecting a response with `access_token` in the response. Returning the access token under a key of `accessToken` in a JSON response will result in an unsuccessful Workato request to your `token_url`.
