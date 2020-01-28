@@ -1,13 +1,13 @@
 ---
 title: Calling APIs
-date: 2018-04-08 13:25:00 Z
+date: 2020-01-28 03:00:00 Z
 ---
 
 # Calling APIs
 
 APIs that are exposed through the API Platform console can be called from recipes in accounts other than one owning the recipe, as well as from third-party tools, programs, and scripts. The API manager must provide the Auth Token or JWT token value to the client in order to call any endpoints in an API Collection.
 
-With raw content support, the API platform allow clients to send text based (e.g. XML/SOAP) request and receive custom responses from the callable recipes exposed as REST endpoints. This extends the security benefits of Workato's recipes to API calls from other systems. See more [here](/features/callable-recipes/handling-raw-content.md).
+With raw content support, the API platform allow clients to send text based (e.g. XML/SOAP) requests and receive custom responses from the callable recipes exposed as REST endpoints. This extends the security benefits of Workato's recipes to API calls from other systems. See more [here](/features/callable-recipes/handling-raw-content.md).
 
 # Authorization Headers
 
@@ -22,10 +22,10 @@ An API Endpoint that belongs to another user can be called from a recipe using t
 
 Make sure that the type of request (POST, PUT, GET) matches the API that you are calling. Any required fields need to be specified in the body (for POST and PUT) or as query parameters in the URL (for GET).
 
-Also, note that an `API-Token` request header has been added. Its value should be set to the token that the API owner has supplied to you. (This assumes the **Auth Token** method of authentication)
+Also, note that an `API-Token` request header has been added. Its value should be set to the token that the API owner has supplied to you. (This assumes the **Auth Token** method of authentication).
 
 > **Caution**
-> The API token should not be shared with other users. Therefore it is not recommended to make a recipe public that contains such a token.
+> Do not hard-code <b>API token</b> into input fields. Check out the recommended [security best practices](https://docs.workato.com/recipes/recipe-security.html) for your recipe.
 
 # Testing a Call to an API
 
