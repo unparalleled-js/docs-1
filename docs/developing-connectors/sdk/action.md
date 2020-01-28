@@ -160,7 +160,85 @@ end
       <td>This shows up as the help hint when users are configuring the action. Use this to detail any important information the user should have<br>
       <img src="~@img/sdk/help.png">
       </td>
-    </tr>  
+    </tr>
+    <tr>
+      <td><code>retry_on_response:</code></td>
+      <td>
+        <code>retry_on_response: [500]</code>
+        <br>
+        <code>retry_on_response: [500,400]</code>
+        <br>
+        <code>retry_on_response: [/error/]</code>
+        <br>
+        <code>retry_on_response: [500,/error/]</code>
+        <br>
+        <code>retry_on_response: [‘“error”’]</code>
+        <br>
+        <code>retry_on_response: [‘“error”’, 500]</code>
+      </td>
+      <td>
+        <b>Used in conjunction with
+        <code>retry_on_request:</code> and <code>max_retries:</code></b>
+        <br><br>
+        Use this declaration to implement a retry mechanism for certain HTTP methods and responses. This guards against APIs which may sometime return errors due to server failure such as <code>500 Internal Server Error</code> codes.
+        <br><br>
+        When supplying this array, we will accept what error codes to retry on as well as entire string or regex expressions.
+        <br>
+        In cases where no error code is defined, Workato will only search the message body for any given regex or plain string IF the error codes fall under a default list of codes: (429, 500, 502, 503, 504, 507).
+        <br>
+        When supplying an entire string, this will give only retry if the entire response matches exactly.
+        <br>
+        If entire strings or regex match and error codes are defined, both the error codes and strings must match for retries to be triggered
+        <br><br>
+        <a href= '#implementing-retry-mechanism'>More information here</a>
+      </td>
+    </tr>
+    <tr>
+      <td><code>retry_on_request:</code></td>
+      <td>
+        <code>retry_on_request: [“GET”]</code>
+        <br>
+        <code>retry_on_request: [“GET”, “HEAD”]</code>
+      </td>
+      <td>
+        <b>Used in conjunction with
+        <code>retry_on_response:</code> and <code>max_retries:</code></b>
+        <br><br>
+        Use this declaration to implement a retry mechanism for certain HTTP methods and responses. This guards against APIs which may sometime return errors due to server failure such as <code>500 Internal Server Error</code> codes.
+        <br><br>
+        Optional. When not defined, it defaults to only “GET” and “HEAD” HTTP requests
+        <br><br>
+        <a href= '#implementing-retry-mechanism'>More information here</a>
+      </td>
+    </tr>
+    <tr>
+      <td><code>max_retries:</code></td>
+      <td>
+        <code>max_retries: 1</code>
+        <br>
+        <code>max_retries: 2</code>
+      </td>
+      <td>
+        <b>Used in conjunction with
+        <code>retry_on_response:</code> and <code>retry_on_request:</code></b>
+        <br><br>
+        Use this declaration to implement a retry mechanism for certain HTTP methods and responses. This guards against APIs which may sometime return errors due to server failure such as <code>500 Internal Server Error</code> codes.
+        <br><br>
+        The number of retries. A maximum of 3 allowed. If more than 3, action retries 3 times.<br><br>
+        Intervals for retry.<br>
+        <ol>
+          <li>Failed action</li>
+          <li>Wait 5 seconds</li>
+          <li>Failed action (1st retry)</li>
+          <li>Wait 10 seconds</li>
+          <li>Failed action (2nd retry)</li>
+          <li>Wait 20 seconds</li>
+          <li>Action (3rd retry)</li>
+        </ol>  
+        <br>
+        <a href= '#implementing-retry-mechanism'>More information here</a>
+      </td>
+    </tr>    
   </tbody>
 </table>
 
@@ -238,6 +316,36 @@ execute: lambda do |_connection, input|
     response_format_raw # essential to handle binary files
 end,
 ```
+
+### Implementing retry mechanism
+To guard against APIs which may sometimes return unexpected errors due to any number of reasons, Workato allows you to define a retry mechanism on an action level to allow actions you define to retry up to 3 times.
+
+```ruby
+actions: {
+  custom_http: {
+    input_fields: -> () {
+      [{ name: 'url', optional: false }]
+    },
+    execute: ->(_connection, input) {
+      {
+        results: get(input['url'])
+      }
+    },
+    output_fields: -> () {
+      []
+    },
+    retry_on_response: [500, /error/] # contains error codes and error message match rules
+    retry_on_request: ["GET", "HEAD"],
+    max_retries: 3
+  }
+}
+```
+
+##### Recommended Usage
+- We recommend using only one HTTP method per action if possible
+- Multiple GET requests within a single action are also possible
+- Since we retry on an action level, actions should be defined to only at most only one `POST` request. This guards against cases where the first post request succeeds and the second post request fails.
+
 
 ## Next section
 Find out more about how to build triggers for your connector that can listen for events and trigger recipes based on that.
