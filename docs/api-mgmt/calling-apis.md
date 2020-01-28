@@ -25,7 +25,7 @@ Make sure that the type of request (POST, PUT, GET) matches the API that you are
 Also, note that an `API-Token` request header has been added. Its value should be set to the token that the API owner has supplied to you. (This assumes the **Auth Token** method of authentication).
 
 > **Caution**
-> Do not hard-code <b>API token</b> into input fields. Check out the recommended [security best practices](https://docs.workato.com/recipes/recipe-security.html) for your recipe.
+> Do not hard-code <b>API token</b> into input fields. Check out the recommended [security best practices](/recipes/recipe-security.md) for your recipe.
 
 # Testing a Call to an API
 
