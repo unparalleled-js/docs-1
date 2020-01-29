@@ -37,7 +37,7 @@ This is an asynchronous request. Use [GET package by ID](#get-package-by-id) end
 #### Sample request
 
 ```shell
-curl  -X POST https://workato.com/api/packages/export/<manifest_id> \
+curl  -X POST https://www.workato.com/api/packages/export/<manifest_id> \
       -H 'x-user-email: <email>' \
       -H 'x-user-token: <token>'
 ```
@@ -50,7 +50,7 @@ curl  -X POST https://workato.com/api/packages/export/<manifest_id> \
    "operation_type":"export",
    "status":"completed",
    "export_manifest_id":3,
-   "download_url":"https://workato-staging-assets,com/packages/zip_files/000/000/242/original/exportdemo.zip"
+   "download_url":"https://www.workato-staging-assets.com/packages/zip_files/000/000/242/original/exportdemo.zip"
 }
 ```
 
@@ -92,7 +92,7 @@ curl  -X POST https://www.workato.com/api/packages/import/<folder_id>?restart_re
    "id":251,
    "operation_type":"import",
    "status":"completed",
-   "download_url":"https://workato-staging-assets,com/packages/zip_files/000/000/242/original/exportdemo.zip"
+   "download_url":"https://www.workato-staging-assets,com/packages/zip_files/000/000/242/original/exportdemo.zip"
 }
 ```
 
@@ -130,7 +130,7 @@ curl  -X GET https://www.workato.com/api/packages/<package_id> \
    "operation_type":"export",
    "status":"completed",
    "export_manifest_id":3,
-   "download_url":"https://workato-staging-assets,com/packages/zip_files/000/000/242/original/exportdemo.zip"
+   "download_url":"https://www.workato-staging-assets,com/packages/zip_files/000/000/242/original/exportdemo.zip"
 }
 ```
 
