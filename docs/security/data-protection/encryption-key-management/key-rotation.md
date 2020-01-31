@@ -5,13 +5,13 @@ date: 2019-09-13 19:45:00 Z
 
 # Key rotation
 
-Due to several highly publicized instances of data breach, most enterprises are sensitive and insistent on protecting their data when using various cloud applications. Security comes in many forms, one of them is how the data is stored securely.
+Security comes in many forms, one of them is how the data is stored securely.
 
-In addition, with regulations such as GDPR, data protection has become increasingly important for all organizations, big and small.
+With regulations such as GDPR, data protection has become increasingly important for all organizations, big and small.
 
 ## Overview
 
-By default, Workato encrypts all data that must be stored. Key rotation automatically rotates  encryption keys every hour. New rotated keys are considered active keys used for encrypting the data for storage. Active keys become inactive at the end of the hour from when it was generated. Inactive keys are then only used for decrypting data.
+By default, Workato encrypts all data at rest. Key rotation automatically rotates  encryption keys every hour. New rotated keys are considered active keys used for encrypting the data for storage. Active keys become inactive at the end of the hour from when it was generated. Inactive keys are then only used for decrypting data.
 
 * By regularly rotating encryption key used every hour, volume of data that remains unprotected is limited if a key is compromised.
 
@@ -33,6 +33,6 @@ By default, Workato encrypts all data that must be stored. Key rotation automati
 * When [data retention period](/security/data-protection/hour-data-retention.md) ends, the encryption key and the encrypted data is destroyed
 * Above process repeats every hour
 
-***Does customer need to do anything to get key rotation?***
+***Do I need to do anything to get key rotation?***
 
 The encryption key rotation is completely transparent and automatic for Workato customers.
