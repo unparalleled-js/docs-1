@@ -48,7 +48,7 @@ body {
 
   .sidebar-links {
     padding: 0 0 0 15px;
-    
+
     li {
       padding: 0;
       margin: 0;
@@ -116,6 +116,47 @@ body {
 
   .page-nav {
     max-width: $maxContentSize;
+  }
+
+  /* Table width */
+  .api_input + table, .api_quick_reference + table {
+    width: 100%;
+  }
+
+  /* Header alignment */
+  .api_input + table th, .api_quick_reference + table th {
+    text-align: left;
+  }
+
+  /* Name */
+  .api_input + table th:nth-child(1) {
+    text-align: left;
+    width: 10%;
+  }
+
+  /* Type */
+  .api_input + table th:nth-child(2) {
+    width: 20%;
+  }
+
+  /* Description */
+  .api_input + table th:nth-child(3) {
+    width: 70%;
+  }
+
+  /* Type */
+  .api_quick_reference + table th:nth-child(1) {
+    width: 10%;
+  }
+
+  /* Resource */
+  .api_quick_reference + table th:nth-child(2) {
+    width: 35%;
+  }
+
+  /* Description */
+  .api_quick_reference + table th:nth-child(3) {
+    width: 55%;
   }
 
   .algolia-search-wrapper {
