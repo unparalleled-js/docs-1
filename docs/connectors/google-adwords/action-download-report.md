@@ -24,6 +24,8 @@ This action downloads a chosen advertising report from Google Ads.
 
 ## Output fields
 
+![Download report - parsed](~@img/adwords/output-parsed.png)
+
 **If Download report in raw format is No (Default)**
 | Field name | Description |
 |---|---|
