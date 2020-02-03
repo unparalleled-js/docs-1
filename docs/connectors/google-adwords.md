@@ -3,7 +3,7 @@ title: Google AdWords
 date: 2020-01-29 23:00:00 Z
 ---
 
-# Google Ads
+# Google AdWords
 [Google Ads](https://ads.google.com/) is an advertising service by Google for businesses wanting to display ads on Google and its advertising network. The AdWords program enables businesses to set a budget for advertising and only pay when people click the ads. The ad service is largely focused on keywords.
 
 The Google AdWords connector enables you to build powerful automations around Google AdWords by triggering jobs based off new ads, new ad groups and new campaigns in Google Ad accounts that you manage. Use this to send data to downstream applications automatically and easily.
@@ -13,7 +13,7 @@ Furthermore, you'll be able to use the Google AdWords connector to download adve
 ## API version
 Workato's Google AdWords connector uses the [AdWords API](https://developers.google.com/adwords/api/docs/guides/start).
 
-## How to connect to Google Ads on Workato
+## How to connect to Google AdWords on Workato
 The Google AdWords connector uses OAuth 2 to authenticate with the Google AdWords API.
 
 ![Configure AdWords connection view](~@img/adwords/connection.png)

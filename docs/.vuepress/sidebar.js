@@ -952,6 +952,23 @@ module.exports = [
       },
       ['/connectors/gmail', 'Gmail'],
       {
+        title: 'Google AdWords',
+        path: '/connectors/google-adwords',
+        children: [
+          [
+            '/connectors/google-adwords#how-to-connect-to-google-adwords-on-workato',
+            'Connection setup'
+          ],
+          [
+            '/connectors/google-adwords/trigger',
+            'Triggers'
+          ],
+          ['/connectors/google-adwords/action-campaign-actions', 'Campaign actions'],
+          ['/connectors/google-adwords/action-download-report', 'Download report action'],
+          ['/connectors/google-adwords/action-get-customer-accounts', 'Get customer accounts action']
+        ]
+      },
+      {
         title: 'Google BigQuery',
         path: '/connectors/bigquery',
         children: [
