@@ -20,8 +20,6 @@ Workato API supports sending request body with the `application/json` content-ty
 
 ## HTTP response codes
 
-<div class='api_input'></div>
-
 | Name  | Description  | Sample reply                  |
 |-------|--------------|-------------------------------|
 | `200` | Success      | `{"Success": true}`           |
@@ -29,27 +27,23 @@ Workato API supports sending request body with the `application/json` content-ty
 | `401` | Unauthorized | `{"message": "Unauthorized"}` |
 | `404` | Not found    | `{"message": "Not found"}`    |
 | `500` | Server error | `{"message":"Server error","id":"3188c2d0-29a4-4080-908e-582e7ed82580"}` |
-
+{.api-input}
 
 ## Connections
-
-<div class='api_quick_reference'> </div>
 
 | Type |Resource | Description |
 |------|---------|-------------|
 | GET | [/api/connections](/workato-api/connections.md) | List connections belonging to user. |
+{.api-quick-reference}
 
 ## Jobs
-
-<div class='api_quick_reference'> </div>
 
 | Type |Resource | Description |
 |------|---------|-------------|
 | GET | [/api/recipes/:recipe_id/jobs](/workato-api/jobs.md#list-jobs-from-a-recipe) | List jobs belonging to recipe. |
+{.api-quick-reference}
 
 ## Recipes
-
-<div class='api_quick_reference'> </div>
 
 | Type | Resource | Description |
 |------|----------|-------------|
@@ -61,18 +55,16 @@ Workato API supports sending request body with the `application/json` content-ty
 | PUT  | [api/recipes/:id/start](/workato-api/recipes.md#start-recipe) | Start recipe. |
 | PUT  | [api/recipes/:id/stop](/workato-api/recipes.md#stop-recipe) | Stop recipe. |
 | DELETE | [api/recipes/:id](/workato-api/recipes.md#delete-recipe) | Delete recipe. |
+{.api-quick-reference}
 
 ## User
-
-<div class='api_quick_reference'> </div>
 
 | Type | Resource | Description |
 |------|----------|-------------|
 | GET  | [api/users/me](/workato-api/users.md#get-user-details) | Get details of authenticated user. |
+{.api-quick-reference}
 
 ## Recipe lifecycle management
-
-<div class='api_quick_reference'> </div>
 
 | Type | Resource | Description |
 |------|----------|-------------|
@@ -80,3 +72,4 @@ Workato API supports sending request body with the `application/json` content-ty
 | POST | [api/packages/import/:folder_id](/workato-api/recipe-lifecycle-management.md#import-package-into-a-folder) | Import package into a folder. |
 | GET  | [api/packages/:id](/workato-api/recipe-lifecycle-management.md#get-package-by-id) | Get package by ID. |
 | GET  | [api/packages/:id/download](/workato-api/recipe-lifecycle-management.md#download-package) | Download package. |
+{.api-quick-reference}

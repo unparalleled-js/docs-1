@@ -17,11 +17,10 @@ GET /api/integrations
 
 ### Request body
 
-<div class='api_input'></div>
-
 | Name | Type | Description |
 |------|------|-------------|
 | applications | **string**<br>_required_ | Comma separated connector identifiers. |
+{.api-input}
 
 #### Sample request
 

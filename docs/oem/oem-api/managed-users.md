@@ -9,8 +9,6 @@ All API endpoints listed here are OEM Vendor APIs and require the `oem_vendor` p
 
 ### Quick reference
 
-<div class='api_quick_reference'></div>
-
 | Type | Resource | Description |
 |------|----------|-------------|
 | POST | [/api/managed_users](#create-customer-account) | Create customer account. |
@@ -20,6 +18,7 @@ All API endpoints listed here are OEM Vendor APIs and require the `oem_vendor` p
 | POST | [/api/managed_users/:id/member](#add-member-to-customer-account) | Add member to customer account. |
 | DELETE | [/api/managed_users/:id/member](#remove-member-from-customer-account) |  Remove member from customer account. |
 | GET  | [/api/managed_users/:id/connections](#list-customer-connections)| List customer connections. |
+{.api-quick-reference}
 
 ## Create customer account
 
@@ -31,14 +30,13 @@ POST /api/managed_users
 
 ### Request body
 
-<div class='api_input'></div>
-
 | Name | Type | Description |
 |------|------|-------------|
 | name | **string**<br>_required_ | Full name of the user. |
 | notification_email | **string**<br>_required_  | Email for error notifications. |
 | plan_id | **string**<br>_optional_ | Plan id. Default plan id is used when not provided. |
 | external_id | **string**<br>_optional_ | External identifier for the OEM customer. |
+{.api-input}
 
 #### Sample request
 
@@ -74,11 +72,10 @@ GET /api/managed_users/:id
 
 ### URL parameters
 
-<div class='api_input'></div>
-
 | Name | Type | Description |
 |------|------|-------------|
 | id   | **string**<br>_required_ | OEM customer Account ID/External ID. <br>External id should be prefixed with a E(eg: EA2300) and the resulting id should be URL encoded. |
+{.api-input}
 
 #### Sample request
 
@@ -113,20 +110,17 @@ PUT /api/managed_users/:id/upgrade
 
 ### URL parameters
 
-<div class='api_input'></div>
-
 | Name | Type | Description |
 |------|------|-------------|
 | id   | **string**<br>_required_ | OEM customer Account ID/External ID. <br>External id should be prefixed with a E(eg: EA2300) and the resulting id should be URL encoded. |
-
+{.api-input}
 
 ### Request body
-
-<div class='api_input'></div>
 
 | Name | Type | Description |
 |------|------|-------------|
 | plan_id | **string**<br>_optional_ | Plan id. Default plan id is used when not provided. |
+{.api-input}
 
 #### Sample request
 
@@ -160,11 +154,10 @@ PUT /api/managed_users/:id/downgrade
 
 ### URL parameters
 
-<div class='api_input'></div>
-
 | Name | Type | Description |
 |------|------|-------------|
 | id   | **string**<br>_required_ | OEM customer Account ID/External ID. <br>External id should be prefixed with a E(eg: EA2300) and the resulting id should be URL encoded. |
+{.api-input}
 
 #### Sample request
 
@@ -194,15 +187,12 @@ POST /api/managed_users/:id/member
 
 ### URL parameters
 
-<div class='api_input'></div>
-
 | Name | Type | Description |
 |------|------|-------------|
 | id   | **string**<br>_required_ | OEM customer Account ID/External ID. <br>External id should be prefixed with a E(eg: EA2300) and the resulting id should be URL encoded. |
+{.api-input}
 
 ### Request body
-
-<div class='api_input'></div>
 
 | Name | Type | Description |
 |------|------|-------------|
@@ -210,6 +200,7 @@ POST /api/managed_users/:id/member
 | oauth_id | **string**<br>_required_ | Identifier used for oauth. |
 | role_name | **string**<br>_optional_  | Role name. |
 | external_id | **string**<br>_optional_ | External identifier for the member. |
+{.api-input}
 
 #### Sample request
 
@@ -246,20 +237,17 @@ DELETE /api/managed_users/:id/member
 
 ### URL parameters
 
-<div class='api_input'></div>
-
 | Name | Type | Description |
 |------|------|-------------|
 | id | **string**<br>_required_ | OEM customer Account ID/External ID. <br>External id should be prefixed with a E(eg: EA2300) and the resulting id should be URL encoded. |
-
+{.api-input}
 
 ### Request body
-
-<div class='api_input'></div>
 
 | Name | Type | Description |
 |------|------|-------------|
 | member_id | **string**<br>_required_ | Member id |
+{.api-input}
 
 #### Sample request
 
@@ -291,11 +279,10 @@ GET /api/managed_users/:id/connections
 
 ### URL parameters
 
-<div class='api_input'></div>
-
 | Name | Type | Description |
 |------|------|-------------|
 | id   | **string**<br>_required_ | OEM customer Account ID/External ID. <br>External id should be prefixed with a E(eg: EA2300) and the resulting id should be URL encoded. |
+{.api-input}
 
 #### Sample request
 

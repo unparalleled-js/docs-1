@@ -9,12 +9,11 @@ Use the following endpoints to retrieve and create the connections that belong t
 
 ### Quick reference
 
-<div class='api_quick_reference'></div>
-
 | Type |Resource | Description |
 |------|---------|-------------|
 | GET  | [/api/managed_users/:managed_user_id/connections](#list-connections) | Returns a list of connections in OEM user's account. |
 | POST | [/api/managed_users/:id/connections](#create-connections) | Allows the OEM vendor to add a shell connection in a customer's account. |
+{.api-quick-reference}
 
 ## List Connections
 
@@ -25,11 +24,10 @@ GET /api/managed_users/:managed_user_id/connections
 ```
 ### URL parameters
 
-<div class='api_input'></div>
-
 | Name | Type | Description |
 |------|------|-------------|
 | managed_user_id | **string**<br>_required_ | OEM customer Account ID/External ID. <br>External id should be prefixed with a E(eg: EA2300) and the resulting id should be URL encoded. |
+{.api-input}
 
 #### Sample request
 
@@ -75,10 +73,9 @@ POST /api/managed_users/:id/connections
 
 ### URL parameters
 
-<div class='api_input'></div>
-
 | Name | Type | Description |
 |------|------|-------------|
 | managed_user_id | **string**<br>_required_ | OEM customer Account ID/External ID. <br>External id should be prefixed with a E(eg: EA2300) and the resulting id should be URL encoded. |
 | name | **string**<br>_optional_ | Name of the connection. Eg: 'Prod Salesforce connection'
 | provider | **string**<br>_required_ | Connector identifier. Eg: 'Salesforce' |
+{.api-input}
