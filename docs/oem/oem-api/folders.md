@@ -16,19 +16,17 @@ POST /api/managed_users/:id/folders
 ```
 ### URL Parameters
 
-<div class='api_input'></div>
-
 | Name | Type | Description |
 |------|------|-------------|
 | managed_user_id | **string**<br>_required_ | OEM customer Account ID/External ID. <br>External id should be prefixed with a E(eg: EA2300) and the resulting id should be URL encoded. |
+{.api-input}
 
 ### Query parameters
-
-<div class='api_input'></div>
 
 | Name | Type | Description |
 |------|------|-------------|
 | folder_name | **string**<br>_required_ | Name of the folder. |
+{.api-input}
 
 #### Sample request
 

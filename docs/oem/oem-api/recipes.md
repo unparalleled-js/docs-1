@@ -7,15 +7,13 @@ date: 2020-01-04 11:00:00 Z
 
 ### Quick reference
 
-<div class='api_quick_reference'></div>
-
 | Type | Resource | Description |
 |------|----------|-------------|
 | GET  | [/api/managed_users/:id/recipes](#list-recipes-in-a-customer-account)| List recipes belonging to a customer account. |
 | GET  | [/api/recipes/search](#search-for-public-recipes) | Search for public recipes. |
 | PUT  | [/api/managed_users/:managed_user_id/recipes/:recipe_id/start](#start-recipe-in-a-customer-account) | Start a recipe in a customer account. |
 | PUT  | [/api/managed_users/:managed_user_id/recipes/:recipe_id/stop](#stop-recipe-in-a-customer-account) | Stop a recipe in a customer account. |
-
+{.api-quick-reference}
 
 ## List recipes in a customer account
 
@@ -27,8 +25,6 @@ GET /api/managed_users/:id/recipes
 
 ### URL parameters
 
-<div class='api_input'></div>
-
 | Name | Type | Description |
 |------|------|-------------|
 | id   | **string**<br>_required_ | OEM customer Account ID/External ID. <br>External id should be prefixed with a E(eg: EA2300) and the resulting id should be URL encoded. |
@@ -36,6 +32,7 @@ GET /api/managed_users/:id/recipes
 | page | **integer**<br>_optional_ | Page number (defaults to 1).|
 | per_page | **integer**<br>_optional_ | Page size (defaults to 10, maximum allowed is 100 per page). |
 | since_id | **integer**<br>_optional_ | Find recipes with ID less than the given ID. |
+{.api-input}
 
 #### Sample request
 
@@ -88,22 +85,20 @@ GET /api/recipes/search
 
 ### URL parameters
 
-<div class='api_input'></div>
-
 | Name | Type | Description |
 |------|------|-------------|
 | term | **string**<br>_optional_ | Search term. |
 | boost_owned | **boolean**<br>_optional_ | If `true`, returned results will give priority to recipes in your account. Defaults to `false`. |
 | page | **integer**<br>_optional_ | Page number. Defaults to 0. |
 | per_page | **integer**<br>_optional_ | Page size. Defaults to 20, max 20. |
+{.api-input}
 
 ### Request body
-
-<div class='api_input'></div>
 
 | Name | Type | Description |
 |------|------|-------------|
 | applications | **string**<br>_required_ | Comma separated connector identifiers (e.g: salesforce,service_now). |
+{.api-input}
 
 #### Sample request
 
@@ -153,12 +148,11 @@ PUT /api/managed_users/:managed_user_id/recipes/:recipe_id/start
 
 ### URL parameters
 
-<div class='api_input'></div>
-
 | Name | Type | Description |
 |------|------|-------------|
 | managed_user_id   | **string**<br>_required_ | OEM customer Account ID/External ID. <br>External id should be prefixed with a E(eg: EA2300) and the resulting id should be URL encoded. |
 | recipe_id   | **integer**<br>_optional_ | Recipe ID. |
+{.api-input}
 
 #### Sample request
 
@@ -186,12 +180,11 @@ PUT /api/managed_users/:managed_user_id/recipes/:recipe_id/stop
 
 ### URL parameters
 
-<div class='api_input'></div>
-
 | Name | Type | Description |
 |------|------|-------------|
 | managed_user_id   | **string**<br>_required_ | OEM customer Account ID/External ID. <br>External id should be prefixed with a E(eg: EA2300) and the resulting id should be URL encoded. |
 | recipe_id   | **interger**<br>_optional_ | Recipe ID. |
+{.api-input}
 
 #### Sample request
 

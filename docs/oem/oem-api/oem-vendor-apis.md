@@ -24,8 +24,6 @@ Workato API supports sending request body with the `application/json` content-ty
 
 ## HTTP response codes
 
-<div class='api_input'></div>
-
 | Name  | Description  | Sample reply                  |
 |-------|--------------|-------------------------------|
 | `200` | Success      | `{"Success": true}`           |
@@ -33,44 +31,38 @@ Workato API supports sending request body with the `application/json` content-ty
 | `401` | Unauthorized | `{"message": "Unauthorized"}` |
 | `404` | Not found    | `{"message": "Not found"}`    |
 | `500` | Server error | `{"message":"Server error","id":"3188c2d0-29a4-4080-908e-582e7ed82580"}` |
+{.api-input}
 
 ## Connectors
-
-<div class='api_quick_reference'> </div>
 
 | Type |Resource | Description |
 |------|---------|-------------|
 | GET | [/api/integrations](/oem/oem-api/adapters.md#list-connector-metadata) | Query connector metadata.|
+{.api-quick-reference}
 
 ## Connections
-
-<div class='api_quick_reference'> </div>
 
 | Type |Resource | Description |
 |------|---------|-------------|
 | GET  | [/api/managed_users/:managed_user_id/connections](/oem/oem-api/connections.md#list-connections) | Returns a list of connections in a customer account.|
 | POST | [/api/managed_users/:id/connections](/workato-api/connections.md) | Allows the OEM vendor to add a shell connection in a customer account. |
+{.api-quick-reference}
 
 ## Picklists
-
-<div class='api_quick_reference'> </div>
 
 | Type |Resource | Description |
 |------|---------|-------------|
 | POST | [/managed_users/:id/connections/:connection_id/pick_list](/oem/oem-api/picklists.md)) | Obtains a list of picklist values for a specified connection in an OEM customer account. |
+{.api-quick-reference}
 
 ## Folders
-
-<div class='api_quick_reference'> </div>
 
 | Type |Resource | Description |
 |------|---------|-------------|
 | POST | [/api/managed_users/:id/folders](/oem/oem-api/folders.md) | Creates a new folder in a customer account. |
-
+{.api-quick-reference}
 
 ## Manage customer accounts
-
-<div class='api_quick_reference'> </div>
 
 | Type | Resource | Description |
 |------|----------|-------------|
@@ -80,10 +72,9 @@ Workato API supports sending request body with the `application/json` content-ty
 | PUT  | [/api/managed_users/:id/downgrade](/oem/oem-api/managed-users.md#downgrade-customer-account) | Downgrade customer account. |
 | POST | [/api/managed_users/:id/member](/oem/oem-api/managed-users.md#add-member-to-customer-account) | Add member to customer account. |
 | DELETE | [/api/managed_users/:id/member](/oem/oem-api/managed-users.md#remove-member-from-customer-account) |  Remove member from customer account. |
+{.api-quick-reference}
 
 ## Recipes
-
-<div class='api_quick_reference'> </div>
 
 | Type | Resource | Description |
 |------|----------|-------------|
@@ -91,16 +82,15 @@ Workato API supports sending request body with the `application/json` content-ty
 | GET  | [/api/recipes/search](/oem/oem-api/recipes.md#search-for-public-recipes) | Search for public recipes. |
 | PUT  | [/api/managed_users/:managed_user_id/recipes/:recipe_id/start](/oem/oem-api/recipes.md#start-recipe-in-a-customer-account) | Start a recipe in a customer account. |
 | PUT  | [/api/managed_users/:managed_user_id/recipes/:recipe_id/stop](/oem/oem-api/recipes.md#stop-recipe-in-a-customer-account) | Stop a recipe in a customer account. |
-
+{.api-quick-reference}
 
 ## Recipe lifecycle management
 The endpoints listed below are OEM vendor only endpoints for importing a package into a customer account.
 
 The APIs for exporting a package are available [here](/workato-api.md#recipe-lifecycle-management).
 
-<div class='api_quick_reference'> </div>
-
 | Type | Resource | Description |
 |------|----------|-------------|
 | POST | [/api/managed_users/:id/imports](/oem/oem-api/recipe-lifecycle-management.md#import-package-into-a-customer-account) | Import package into a folder in a customer account. |
 | GET  | [/api/managed_users/:id/recipes](/oem/oem-api/recipe-lifecycle-management.md#get-package-status) | Get status of an imported package. |
+{.api-quick-reference}
