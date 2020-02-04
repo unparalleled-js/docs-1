@@ -80,6 +80,10 @@ It's a simple JS array each element of which can be one of:
   
 ## Writing documentation
   
-All documents must be a Markdown files (`*.md`) which will be processed with [markdown-it](https://github.com/markdown-it/markdown-it). List of available markdown extensions can be found in the [VuePress documentation](https://vuepress.vuejs.org/guide/markdown.html).
+All documents must be a Markdown files (`*.md`) which will be processed with [markdown-it](https://github.com/markdown-it/markdown-it).
+
+Here is the list of plugins that we use in addition to the [built-in addons](https://vuepress.vuejs.org/guide/markdown.html):
+
+- [markdown-it-attrs](https://github.com/arve0/markdown-it-attrs) - allows to set HTML attributes like `id` or `class` to any markdown element.
 
 URLs to images (located in `/assets/images` directory) must start with `~@img` prefix e.g. to insert an image located at `/assets/images/foo.png` you need to write `![Foo](~@img/foo.png)`.
