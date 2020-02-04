@@ -6,7 +6,7 @@ search:
 ---
 
 # Zendesk - New user triggers
-This trigger picks up new users that are created. Each user is processed as a separate job. It checks for new jobs once every poll interval. The poll interval can be 10 mins or 5 mins, depending on your plan. Check the [Pricing and Plans page](https://www.workato.com/pricing?audience=general) to find out more.
+This trigger picks up new users that are created. Each user is processed as a separate job. It checks for new jobs once every poll interval.
 
 ![New user trigger](~@img/connectors/zendesk/new-user-trigger.png)
 *New user trigger*

@@ -6,7 +6,7 @@ date: 2018-03-23 06:00:00 Z
 # MySQL - New row triggers
 
 ## New row
-This trigger picks up rows that are inserted in the selected table or view. Each row is processed as a separate job. It checks for new rows once every poll interval. The poll interval can be 10 mins or 5 mins, depending on your plan. Check the [Pricing and Plans page](https://www.workato.com/pricing?audience=general) to find out more.
+This trigger picks up rows that are inserted in the selected table or view. Each row is processed as a separate job. It checks for new rows once every poll interval.
 
 ![New row trigger](~@img/mysql/new-row-trigger.png)
 *New row trigger*
@@ -41,7 +41,7 @@ This trigger picks up rows that are inserted in the selected table or view. Each
 </table>
 
 ## New batch of rows
-This trigger picks up rows that are inserted in the selected table or view. These rows are processed as a batch of rows for each job. This batch size can be configured in the trigger input. It checks for new rows once every poll interval. The poll interval can be 10 mins or 5 mins, depending on your plan. Check the [Pricing and Plans page](https://www.workato.com/pricing?audience=general) to find out more.
+This trigger picks up rows that are inserted in the selected table or view. These rows are processed as a batch of rows for each job. This batch size can be configured in the trigger input. It checks for new rows once every poll interval.
 
 ![New batch of rows trigger](~@img/mysql/new-batch-of-rows-trigger.png)
 *New batch of rows trigger*

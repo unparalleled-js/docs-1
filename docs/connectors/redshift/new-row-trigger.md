@@ -6,7 +6,7 @@ date: 2018-05-06 06:00:00 Z
 # Redshift - New row triggers
 
 ## New row
-This trigger picks up rows that are inserted in the selected table or view. Each row is processed as a separate job. It checks for new rows once every poll interval. The poll interval can be 10 mins or 5 mins, depending on your plan. Check the [Pricing and Plans page](https://www.workato.com/pricing?audience=general) to find out more.
+This trigger picks up rows that are inserted in the selected table or view. Each row is processed as a separate job. It checks for new rows once every poll interval.
 
 ![New row trigger](~@img/redshift/new-row-trigger.png)
 *New row trigger*
@@ -41,7 +41,7 @@ This trigger picks up rows that are inserted in the selected table or view. Each
 </table>
 
 ## New batch of rows
-This trigger picks up rows that are inserted in the selected table or view. These rows are processed as a batch of rows for each job. This batch size can be configured in the trigger input. It checks for new rows once every poll interval. The poll interval can be 10 mins or 5 mins, depending on your plan. Check the [Pricing and Plans page](https://www.workato.com/pricing?audience=general) to find out more.
+This trigger picks up rows that are inserted in the selected table or view. These rows are processed as a batch of rows for each job. This batch size can be configured in the trigger input. It checks for new rows once every poll interval.
 
 ![New batch of rows trigger](~@img/redshift/new-batch-of-rows-trigger.png)
 *New batch of rows trigger*
@@ -82,7 +82,7 @@ This trigger picks up rows that are inserted in the selected table or view. Thes
 </table>
 
 ## New batch of rows via custom SQL
-This trigger picks up rows when any rows matching the custom SQL are inserted. These rows are processed as a batch of rows for each job. This batch size can be configured in the trigger input. It checks for new rows once every poll interval. The poll interval can be 10 mins or 5 mins, depending on your plan. Check the [Pricing and Plans page](https://www.workato.com/pricing?audience=general) to find out more.
+This trigger picks up rows when any rows matching the custom SQL are inserted. These rows are processed as a batch of rows for each job. This batch size can be configured in the trigger input. It checks for new rows once every poll interval.
 
 ![New batch of rows via custom SQL trigger](~@img/redshift/new-batch-of-rows-via-custom-sql-trigger.png)
 *New batch of rows trigger via custom SQL*

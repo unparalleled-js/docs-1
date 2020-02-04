@@ -6,7 +6,7 @@ date: 2018-04-20 06:00:00 Z
 # Active Directory - New entry trigger
 
 ## New entry
-This trigger picks up new entries that are created in your Active Directory instance. Each entry is processed as an individual job. It checks for new entries once every poll interval. The poll interval can be 10 mins or 5 mins, depending on your plan. Check the [Pricing and Plans page](https://www.workato.com/pricing?audience=general) to find out more.
+This trigger picks up new entries that are created in your Active Directory instance. Each entry is processed as an individual job. It checks for new entries once every poll interval.
 
 ![New entry trigger](~@img/active_directory/new_entry_trigger.png)
 *New entry trigger*

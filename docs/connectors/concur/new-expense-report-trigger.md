@@ -6,7 +6,7 @@ date: 2018-10-04 06:00:00 Z
 # SAP Concur - New expense report trigger
 
 ## New expense report trigger
-This trigger picks up expense reports when they are created or submitted. Each report is processed as a separate job. It checks for new reports once every poll interval. The polling interval is determined by your Workato plan. Check the [Pricing and Plans page](https://www.workato.com/pricing?audience=general) to find out more.
+This trigger picks up expense reports when they are created or submitted. Each report is processed as a separate job. It checks for new reports once every poll interval.
 
 ![New expense report trigger](~@img/concur/new-expense-report-trigger.png)
 *New expense report trigger*

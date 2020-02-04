@@ -12,7 +12,7 @@ The Mapper connector's **Map to object** action is typically used as a temporary
 There is no connection required to use the Mapper connector, as schemas are stored in the Workato account for recipes to interact with.
 
 ## Working with the Mapper connector
-In order to work with the JMS connector, users have to have a [common data model](/features/common-data-model.md) to work with. The common data model feature is enabled only for certain plans. Check the [Pricing and Plans page](https://www.workato.com/pricing?audience=general) or reach out to Workato sales representatives at +1 (844) 469-6752 to find out more.
+In order to work with the JMS connector, users have to have a [common data model](/features/common-data-model.md) to work with.
 
 ### Using the map to object action
 To use the action, simply select the schema you wish to interact with. The selected schema will create the input fields for the action. Fill in these input fields to populate the schema with the data you wish to populate it with.

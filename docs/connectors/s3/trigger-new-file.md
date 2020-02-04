@@ -6,7 +6,7 @@ date: 2018-12-13 23:00:00 Z
 # Amazon S3 trigger - New file
 Triggers when a new file is added in a selected bucket/folder in Amazon S3.
 
-Checks selected folder for new file once every poll interval. The poll interval can be 10 mins or 5 mins, depending on your plan. Check the [Pricing and Plans page](https://www.workato.com/pricing?audience=general) to find out more. The output includes the file’s metadata and file contents. The file contents is returned as a [streaming object](/features/file-streaming.md) and can handle unlimited file size.
+Checks selected folder for new file once every poll interval. The output includes the file’s metadata and file contents. The file contents is returned as a [streaming object](/features/file-streaming.md) and can handle unlimited file size.
 
 Note that in Amazon S3, when a file is renamed, it is considered a new file. When a file is uploaded and overwrites an existing file with the same name, it is considered an updated file but not a new file.
 

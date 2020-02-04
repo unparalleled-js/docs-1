@@ -7,9 +7,7 @@ date: 2018-12-04 06:00:00 Z
 
 This trigger picks up new lines added to the end of a selected CSV file. Lines from the file will be processed in batches in each job.
 
-When the recipe is first started, the trigger will pick up all existing lines in the selected CSV file. Subsequently, new lines added to the end of the file will be processed as new job(s).
-
-This trigger checks for new lines once every poll interval. The poll interval can be 10 mins or 5 mins, depending on your plan. Check the [Pricing and Plans page](https://www.workato.com/pricing?audience=general) to find out more.
+When the recipe is first started, the trigger will pick up all existing lines in the selected CSV file. Subsequently, new lines added to the end of the file will be processed as new job(s). This trigger checks for new lines once every poll interval.
 
 ![New lines in CSV file trigger](~@img/connectors/on-prem-files/new-lines-trigger.png)
 *New lines in CSV file trigger*

@@ -24,7 +24,7 @@ Users can export and import their recipes as packages. Here's a list of assets t
 
 The import and export of packages are useful when teams are collaborating across different Workato accounts, for example, if the development team wishes to move recipes over to the QA team's Workato account, or to the production Workato account. Consultants can also utilize this feature to move comprehensive integrations into their clients' accounts.
 
-The Recipe lifecycle management feature is enabled only for certain Workato plans. Check the [Pricing and plans page](https://www.workato.com/pricing?audience=general) or reach out to Workato sales representatives at +1 (844) 469-6752 to find out more.
+The Recipe lifecycle management feature is enabled only for certain Workato users. Reach out to Workato sales representatives at +1 (844) 469-6752 to find out more.
 
 For Workato accounts with the Recipe lifecycle management feature enabled, users will be able to see the option when they click on Tools > All Tools > Recipe Lifecycle Management.
 

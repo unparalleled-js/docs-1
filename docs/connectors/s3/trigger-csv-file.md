@@ -6,7 +6,7 @@ date: 2018-12-13 23:00:00 Z
 # Amazon S3 trigger - New/updated CSV file
 Triggers when a CSV file is added or updated in a selected bucket/folder in Amazon S3.
 
-Checks selected folder for new or updated CSV file once every poll interval. The poll interval can be 10 mins or 5 mins, depending on your plan. Check the [Pricing and Plans page](https://www.workato.com/pricing?audience=general) to find out more. The output includes the file’s metadata and file contents, which are CSV rows delivered in batches.
+Checks selected folder for new or updated CSV file once every poll interval. The output includes the file’s metadata and file contents, which are CSV rows delivered in batches.
 
 Note that in Amazon S3, when a file is renamed, it is considered a new file. When a file is uploaded and overwrites an existing file with the same name, it is considered an updated file but not a new file.
 
