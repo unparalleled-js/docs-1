@@ -963,8 +963,17 @@ module.exports = [
             '/connectors/bigquery/new-row-trigger',
             'New rows trigger'
           ],
+          [
+            '/connectors/bigquery/job-completed-trigger',
+            'New job completed trigger'
+          ],
+          [
+            '/connectors/bigquery/scheduled-query-trigger',
+            'Scheduled query trigger'
+          ],
           ['/connectors/bigquery/insert', 'Insert rows action'],
-          ['/connectors/bigquery/select', 'Select rows action']
+          ['/connectors/bigquery/select', 'Select rows action'],
+          ['/connectors/bigquery/get-query-result-action', 'Get query job results action']
         ]
       },
       {

@@ -6,7 +6,7 @@ date: 2019-12-10 06:00:00 Z
 # BigQuery - Get query job output action
 
 ## Get query job output action
-This action takes in a specific Job ID and returns the query results of this job. This is often used with a Query Job and can be used in the context of a recipe to page through large result sets.
+This action takes in a specific Job ID and returns the query results of this job. This is often used with the job completed trigger where the job is of the type `Query`. It can be used to page through large result sets.
 
 ![Get Query Job output](~@img/bigquery/get-query-job-output.png)
 *Get Query Job output action*
@@ -63,12 +63,12 @@ This action takes in a specific Job ID and returns the query results of this job
       <td>Can be passed to the next "Get query result" action to get the next page</td>
     </tr>
     <tr>
-      <td>Total row<s/td>
+      <td>Total rows</td>
       <td>Total number of rows returned.</td>
     </tr>
     <tr>
-      <td>Array of rows/td>
-      <td>Rows containing the data defined in the output fields.</td>
+      <td>Array of rows</td>
+      <td>An array of rows containing the data defined in the output fields. Each datapill in the row object corresponds to a single column. Names of the columns must match the rows exactly.</td>
     </tr>
    </tbody>
 </table>
