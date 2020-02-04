@@ -146,3 +146,12 @@ This action lets you select rows based on a custom SQL query. Rows that are retu
     </tr>
    </tbody>
 </table>
+
+### Working with automatic schema introspection
+When working with large queries or datapills, we are unable to automatically introspect the schema of the expected rows for you. As such, the action also gives you the ability to define the output schema of the result set.
+
+Workato has set some basic limitations before schema introspection is disabled
+* Query's estimated bytes processed is larger than 1 Gigabyte
+* Query contains datapills
+
+Relevant error messages are shown when this happens and you should toggle the `Automatic schema introspection` input field to `No`.
