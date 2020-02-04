@@ -6,6 +6,9 @@ date: 2018-04-9 10:23:00 Z
 # What are custom bots?
 Custom bots are Slack apps you can use together with Workato for triggers and/or actions. They're useful for when you want to customize your bot for specific functions; giving it a name related to that function, as well as giving it its own icon e.g. HRBot, SupportBot. This allows you greater flexibility in customizing your bot's functionalities and identity.
 
+# Authentication
+Custom bots make use of Slack's [V2 OAuth 2.0 flow](https://api.slack.com/authentication/oauth-v2).
+
 ### Creating a custom bot
 To get started, head to Tools ➤ Workbot like so:
 
@@ -65,21 +68,35 @@ If you get an error like the one below, make sure there are no extra spaces at t
 
 ![Not a proper link error](~@img/workbot/workbot-slash-commands/not-a-proper-link.png)
 
-Scroll down to **Scopes**, and select the following **Permission Scopes**:
-- bot
-- users:read
+Scroll down to **Scopes**, and select the following **Bot Token Scopes**:
+- channels:history
+- channels:read
+- chat:write
+- commands
+- files:read
+- files:write
+- groups:history
+- groups:read
+- im:history
 - im:write
+- mpim:history
+- users:read
+- users:read.email
 
-![Scopes](~@img/workbot/workbot-slash-commands/scopes.png)
+ ![Bot token scopes](~@img/workbot/workbot-slash-commands/bot-token-scopes.png)
 
-Click on **Save Changes**.
+Next, scroll down to **User Token Scopes**, and select the following **User Token Scopes**:
+- identity.basic
+
+![User token scopes](~@img/workbot/workbot-slash-commands/user-token-scopes.png)
+
+Reinstall your app when prompted to.
 
 #### Adding the custom bot as a user in your Slack team
-You'll want to add your custom bot to your team so it can interact with users in a more conversational manner. From the left navigation menu, under **Features**, head over to **Bot Users** and click on **Add a Bot User**.
+Slack automatically adds a bot user to your app when any bot token scopes are selected, but you can (and should) also make it so that your bot always appears online. From the left navigation menu, under **Features**, head over to **App home**.
 
 - Set the **Display name** and **Default username** as the name of your bot e.g. **HRBot**
 - Set **Always Show My Bot as Online** to `ON`
-- Click on Add Bot User
 
 ![Adding a bot user](~@img/workbot/workbot-slash-commands/adding-a-bot-user.png)
 
