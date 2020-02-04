@@ -43,7 +43,7 @@ This trigger executes a query on a regular basis. The result of the query is bat
     </tr>
     <tr>
       <td>Output fields</td>
-      <td>This input field appears when "Automatic schema introspection" is false. Use this to manually define the output fields of your query. The names given to the output should be identical to the column names expected.</td>
+      <td>This input field appears when "Automatic schema introspection" is false. Use this to manually define the output fields of your query. The names given to the output should be identical to the column names expected. <br> <a href='/connectors/bigquery.html#defining-your-output-fields'>Find out how to define your output fields quickly and easily.</a></td>
     </tr>
     <tr>
       <td>Unique key</td>

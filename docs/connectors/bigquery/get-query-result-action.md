@@ -43,7 +43,7 @@ This action takes in a specific Job ID and returns the query results of this job
     </tr>
     <tr>
       <td>Output fields</td>
-      <td>This input field appears when "Automatic schema introspection" is false. Use this to manually define the output fields of your query. The names given to the output should be identical to the column names expected.</td>
+      <td>Use this to manually define the output fields of your query. The names given to the output should be identical to the column names expected.<br> <a href='/connectors/bigquery.html#defining-your-output-fields'>Find out how to define your output fields quickly and easily.</a></td>
     </tr>
   </tbody>
 </table>
