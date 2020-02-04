@@ -12,7 +12,7 @@ Enterprises want to be empowered to control the destiny of their data. The data 
 * Data retention periods can be set in hours or days
 * The retention periods will vary by plan
 
-Data retention policy differs depending on the Workato plan you're on. Check the [Pricing and Plans page](https://www.workato.com/pricing?audience=general) or reach out to Workato sales representatives at +1 (844) 469-6752 to find out more.
+Data retention policy differs depending on the Workato user. Reach out to Workato sales representatives at +1 (844) 469-6752 to find out more.
 
 ## Settings
 Customer administrator or account owner can navigate to `Account Settings` > `Data retention` to configure data retention.

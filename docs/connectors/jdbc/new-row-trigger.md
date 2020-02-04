@@ -6,7 +6,7 @@ date: 2018-04-20 06:00:00 Z
 # JDBC - New row triggers
 
 ## New row
-This trigger picks up rows that are inserted in the selected table or view. Each row is processed as an individual job. It checks for new rows once every poll interval. The poll interval can be 10 mins or 5 mins, depending on your plan. Check the [Pricing and Plans page](https://www.workato.com/pricing?audience=general) to find out more.
+This trigger picks up rows that are inserted in the selected table or view. Each row is processed as an individual job. It checks for new rows once every poll interval.
 
 ![New row trigger](~@img/jdbc/new-row-trigger.png)
 *New row trigger*
@@ -41,7 +41,7 @@ This trigger picks up rows that are inserted in the selected table or view. Each
 </table>
 
 ## New batch of rows
-This trigger picks up rows that are inserted in the selected table or view. These rows are processed in batches. Each batch of rows is processed as an individual job. This batch size can be configured in the trigger input. It checks for new rows once every poll interval. The poll interval can be 10 mins or 5 mins, depending on your plan. Check the [Pricing and Plans page](https://www.workato.com/pricing?audience=general) to find out more.
+This trigger picks up rows that are inserted in the selected table or view. These rows are processed in batches. Each batch of rows is processed as an individual job. This batch size can be configured in the trigger input. It checks for new rows once every poll interval.
 
 ![New batch of rows trigger](~@img/jdbc/new-batch-of-rows-trigger.png)
 *New batch of rows trigger*
@@ -85,7 +85,7 @@ This trigger picks up rows that are inserted in the selected table or view. Thes
 
 **This trigger is not supported for SQL Server 2008 version or earlier.**
 
-This trigger picks up rows when any rows matching the custom SQL are inserted. These rows are processed as a batch of rows for each job. This batch size can be configured in the trigger input. It checks for new rows once every poll interval. The poll interval can be 10 mins or 5 mins, depending on your plan. Check the [Pricing and Plans page](https://www.workato.com/pricing?audience=general) to find out more.
+This trigger picks up rows when any rows matching the custom SQL are inserted. These rows are processed as a batch of rows for each job. This batch size can be configured in the trigger input. It checks for new rows once every poll interval.
 
 This trigger is especially useful if you wish to pick up data selected from multiple tables using a `JOIN` statement. In the example below, the trigger picks up new rows from a custom SQL that joins information from the `Opportunity` and `users` table.
 

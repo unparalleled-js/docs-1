@@ -6,7 +6,7 @@ date: 2018-03-23 06:00:00 Z
 # Oracle - New/updated row triggers
 
 ## New/updated row
-This trigger picks up rows that are inserted/updated in the selected table or view. Each row is processed as a separate job. It checks for new/updated rows once every poll interval. The poll interval can be 10 mins or 5 mins, depending on your plan. Check the [Pricing and Plans page](https://www.workato.com/pricing?audience=general) to find out more.
+This trigger picks up rows that are inserted/updated in the selected table or view. Each row is processed as a separate job. It checks for new/updated rows once every poll interval.
 
 ![New/updated row trigger](~@img/oracle/new-updated-row-trigger.png)
 *New/updated row trigger*
@@ -47,7 +47,7 @@ This trigger picks up rows that are inserted/updated in the selected table or vi
 </table>
 
 ## New/updated batch of rows
-This trigger picks up rows that are inserted/updated in the selected table or view. These rows are processed as a batch of rows for each job. This batch size can be configured in the trigger input. It checks for new/updated rows once every poll interval. The poll interval can be 10 mins or 5 mins, depending on your plan. Check the [Pricing and Plans page](https://www.workato.com/pricing?audience=general) to find out more.
+This trigger picks up rows that are inserted/updated in the selected table or view. These rows are processed as a batch of rows for each job. This batch size can be configured in the trigger input. It checks for new/updated rows once every poll interval.
 
 ![New/updated batch of rows trigger](~@img/oracle/new-updated-batch-of-rows-trigger.png)
 *New/updated batch of rows trigger*

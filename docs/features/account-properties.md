@@ -10,7 +10,7 @@ Account-level properties are also known as environment variables or configuratio
 
 For example, you can have a property that indicates where to send a notification email. All recipes can look this value up from the data tree (properties section) and send email to the same recipient.
 
-Account properties feature is enabled only for certain plans. Check the [Pricing and Plans page](https://www.workato.com/pricing?audience=general) or call us at +1 (844) 469-6752.
+Account properties feature is enabled only for certain users. Reach out to Workato sales representatives at +1 (844) 469-6752 to find out more.
 
 You can create property values (name value pairs) by going to the 'Tools' tab at the top of your screen and clicking on 'View all Tools'. Then, click on 'Properties'.
 

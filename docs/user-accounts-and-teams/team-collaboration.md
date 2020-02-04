@@ -19,7 +19,7 @@ Workato Teams is built with a vision of facilitating agile and iterative develop
 
 - **Recipe Ownership:** Recipes created by users as part of a team are owned by the team. When a consultant leaves or an employee changes group/jobs, their contribution to the team doesn't go away with them.
 
-The Teams feature is enabled only for certain plans. Check the [Pricing and Plans page](https://www.workato.com/pricing?audience=general) or reach out to Workato sales representatives at +1 (844) 469-6752 to find out more.
+The Teams feature is enabled only for certain users. Reach out to Workato sales representatives at +1 (844) 469-6752 to find out more.
 
 ## Differentiating factors
 

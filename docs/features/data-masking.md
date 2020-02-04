@@ -12,7 +12,7 @@ Its important to understand that even when data masking is enabled, data for thi
 
 From a security standpoint, Workato stores all customer data in encrypted form.
 
-Data masking is only available for certain plans. Check the [Pricing and Plans page](https://www.workato.com/pricing?audience=general) or reach us at +1 (844) 469-6752.
+Data masking is only available for certain Users. Reach out to Workato sales representatives at +1 (844) 469-6752 to find out more.
 
 ## Enable data masking
 Data can be masked for individual recipe steps, and both input and output data display will be disabled in he job history. To turn off display of this data as part of job history, you will need to check the **Enable data masking** field, found under the **Comment** section for each recipe step.
