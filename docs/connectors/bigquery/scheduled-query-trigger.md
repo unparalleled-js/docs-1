@@ -1,79 +1,15 @@
 ---
-title: Workato connectors - BigQuery new row triggers
+title: Workato connectors - BigQuery Scheduled Query trigger
 date: 2019-12-10 06:00:00 Z
 ---
 
-# BigQuery - New row triggers
+# BigQuery - Scheduled Query trigger
 
-## New row trigger
-This trigger picks up rows that are inserted in the selected table. Each row is processed as a separate job. It checks for new rows once every poll interval.
+## Scheduled Query Trigger
+This trigger executes a query on a regular basis. The result of the query is batched into jobs of a user defined batch size.
 
-![New row trigger](~@img/bigquery/new-row-trigger.png)
-*New row trigger*
-
-### Input fields
-
-<table class="unchanged rich-diff-level-one">
-  <thead>
-    <tr>
-        <th width='25%'>Field</th>
-        <th>Description</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>Project</td>
-      <td>The project available in the connection to be billed for the query.</td>
-    </tr>
-    <tr>
-      <td>Dataset</td>
-      <td>The dataset which the action or trigger will pull the possible tables from.</td>
-    </tr>
-    <tr>
-      <td>Table</td>
-      <td>The table inside the dataset.</td>
-    </tr>
-    <tr>
-      <td>Unique key</td>
-      <td>Values from this selected column is used to deduplicate rows in the selected table, making sure that the same row is not processed twice in the same recipe.<br>
-      As such, the values in the selected column should not be repeated in your table. Typically, this column is the primary key of the table (e.g. `ID`) and must be of type integer.</td>
-    </tr>
-    <tr>
-      <td>Output columns</td>
-      <td>After selecting your table, you'll also be able to select which columns you want returned. Selecting only what you need for your recipe increases job throughput and overall efficiency of the recipe.</td>
-    </tr>
-    <tr>
-      <td>WHERE condition</td>
-      <td>Refer to the <a href='/connectors/bigquery.md#where-condition'>WHERE condition</a> guide for more information.</td>
-    </tr>
-    <tr>
-      <td>Location</td>
-      <td>The geographical location of where the job should be run. This field isn't required in most cases.</td>
-    </tr>
-  </tbody>
-</table>
-
-### Output fields
-<table class="unchanged rich-diff-level-one">
-  <thead>
-    <tr>
-        <th width='25%'>Field</th>
-        <th>Description</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>Columns</td>
-      <td>Workato introspects the schema of the table and returns the value of each column as a datapill</td>
-    </tr>
-  </tbody>
-</table>
-
-## New rows batch trigger
-This trigger picks up rows that are inserted in the selected table or view. These rows are processed as a batch of rows for each job. This batch size can be configured in the trigger input. It checks for new rows once every poll interval.
-
-![New batch of rows trigger](~@img/bigquery/new-batch-of-rows-trigger.png)
-*New batch of rows trigger*
+![Scheduled query trigger](~@img/bigquery/scheduled-query-input.png)
+*Scheduled query trigger*
 
 ### Input fields
 
@@ -90,33 +26,36 @@ This trigger picks up rows that are inserted in the selected table or view. Thes
       <td>The project available in the connection to be billed for the query.</td>
     </tr>
     <tr>
-      <td>Dataset</td>
-      <td>The dataset which the action or trigger will pull the possible tables from.</td>
-    </tr>
-    <tr>
-      <td>Table</td>
-      <td>The table inside the dataset.</td>
-    </tr>
-    <tr>
-      <td>Unique key</td>
-      <td>Values from this selected column is used to deduplicate rows in the selected table, making sure that the same row is not processed twice in the same recipe.<br>
-      As such, the values in the selected column should not be repeated in your table. Typically, this column is the primary key of the table (e.g. `ID`) and must be of type integer.</td>
-    </tr>
-    <tr>
-      <td>Output columns</td>
-      <td>After selecting your table, you'll also be able to select which columns you want returned. Selecting only what you need for your recipe increases job throughput and overall efficiency of the recipe.</td>
+      <td>Query</td>
+      <td>The query to execute. If a limit clause is used, automatic schema introspection is not allowed.</td>
     </tr>
     <tr>
       <td>Batch size</td>
-      <td>The batch size of the rows to be returned in each job. This can be anywhere from 1 to 50,000 with 50,000 being the default. Larger batch sizes will increase data throughput. If more new rows are found than the batch size, multiple jobs will be created until all new rows are processed.</td>
+      <td>The number of rows in each job. Jobs may be processed faster when batch sizes are smaller.</td>
     </tr>
     <tr>
-      <td>WHERE condition</td>
-      <td>Refer to the <a href='/connectors/bigquery.md#where-condition'>WHERE condition</a> guide for more information.</td>
+      <td>Schedule settings</td>
+      <td>Set how often you want this query to run. The minimum period is 1 hour to give previous triggers sufficient time to batch and complete.</td>
+    </tr>
+    <tr>
+      <td>Automatic schema introspection</td>
+      <td>Workato automatically tries to introspect the output of your query. In cases where the query takes too long or if datapills are used, toggle this to false and define the output fields of your query manually.</td>
+    </tr>
+    <tr>
+      <td>Output fields</td>
+      <td>This input field appears when "Automatic schema introspection" is false. Use this to manually define the output fields of your query. The names given to the output should be identical to the column names expected.</td>
+    </tr>
+    <tr>
+      <td>Unique key</td>
+      <td>A unique key to deduplicate rows with. When we execute the scheduled query, we immediately order by this key.</td>
     </tr>
     <tr>
       <td>Location</td>
       <td>The geographical location of where the job should be run. This field isn't required in most cases.</td>
+    </tr>
+    <tr>
+      <td>Legacy SQL</td>
+      <td>The default is assumed to be standard SQL. Select true to use legacy SQL instead.</td>
     </tr>
   </tbody>
 </table>
@@ -132,11 +71,7 @@ This trigger picks up rows that are inserted in the selected table or view. Thes
   <tbody>
     <tr>
       <td>Rows</td>
-      <td>An array of the rows. Each datapill in the row corresponds to a single column.</td>
+      <td>An array of the rows. Each datapill in the row object corresponds to a single column.</td>
     </tr>
-    <tr>
-      <td>Total rows</td>
-      <td>Total rows returned from this poll.</td>
-    </tr>
-  </tbody>
+   </tbody>
 </table>
