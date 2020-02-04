@@ -5,7 +5,7 @@ date: 2019-02-15 06:00:00 Z
 
 # NetSuite Action - Get case comments
 
-The action `Get case comments` allows you to retrieve the case comments of a specific case in NetSuite by it's case ID.
+The action `Get case comments` allows you to retrieve the case comments of a specific case in NetSuite by its case ID.
 
 ![Get case comments](~@img/connectors/netsuite/case-comments.png)
 
