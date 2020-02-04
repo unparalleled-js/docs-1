@@ -39,7 +39,7 @@ This action lets you select rows based on certain criteria defined by a ` WHERE`
     </tr>
     <tr>
       <td>WHERE condition</td>
-      <td>Refer to the <a href='/connectors/bigquery.md#where-condition'>WHERE condition</a> guide for more information.</td>
+      <td>Refer to the <a href='/connectors/bigquery.html#where-condition'>WHERE condition</a> guide for more information.</td>
     </tr>
     <tr>
       <td>Order by</td>

@@ -25,7 +25,7 @@ The Active Directory connector authenticates with LDAP protocol, which is only a
     </tr>
     <tr>
       <td>Is this app in a private network?</td>
-      <td>Choose an on-premise agent if your database is running in a network that does not allow direct connection. Before attempting to connect, make sure you have an active on-premise agent. Refer to the <a href="/on-prem.md">On-premise agent</a> guide for more information.</td>
+      <td>Choose an on-premise agent if your database is running in a network that does not allow direct connection. Before attempting to connect, make sure you have an active on-premise agent. Refer to the <a href="/on-prem.html">On-premise agent</a> guide for more information.</td>
     </tr>
     <tr>
       <td>On-prem LDAP connection profile</td>

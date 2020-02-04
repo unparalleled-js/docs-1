@@ -81,7 +81,7 @@ This action updates a specific folder in Wrike. You can change the folder name, 
     <tr>
       <td>Project</a></td>
       <td>
-        Wrike projects are folders with additional properties. For more information, see the <a href="/connectors/wrike/create-project-action.md">Create project action</a>.
+        Wrike projects are folders with additional properties. For more information, see the <a href="/connectors/wrike/create-project-action.html">Create project action</a>.
         <table>
           <tbody>
             <tr>

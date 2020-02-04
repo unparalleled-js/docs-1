@@ -26,7 +26,7 @@ You can choose to include files in sub-folders. This action also allows you to f
       <td>Folder</td>
       <td>
         Select the parent folder to list files from. This can be done either by selecting a folder from the pick list, or toggling the input field to text mode and providing the folder path.<br>
-        This should be relative to the base path you define in the connection profile. Learn about <a href="/connectors/on-prem-files.md#relative-path">relative path</a>.</td>
+        This should be relative to the base path you define in the connection profile. Learn about <a href="/connectors/on-prem-files.html#relative-path">relative path</a>.</td>
       </td>
     </tr>
     <tr>
@@ -37,7 +37,7 @@ You can choose to include files in sub-folders. This action also allows you to f
     </tr>
     <tr>
       <td>Filter files by name</td>
-      <td>Only file names matching this naming pattern will be returned. Learn how to use <a href="/connectors/on-prem-files.md#naming-pattern">naming patterns</a>.</td>
+      <td>Only file names matching this naming pattern will be returned. Learn how to use <a href="/connectors/on-prem-files.html#naming-pattern">naming patterns</a>.</td>
     </tr>
   </tbody>
 </table>
@@ -55,7 +55,7 @@ You can choose to include files in sub-folders. This action also allows you to f
     <tr>
       <td rowspan=5>Files</td>
       <td>File path</td>
-      <td>This is the relative path of the file. This path is relative to the base path you define in the connection profile. Learn about <a href="/connectors/on-prem-files.md#relative-path">relative path</a>.</td>
+      <td>This is the relative path of the file. This path is relative to the base path you define in the connection profile. Learn about <a href="/connectors/on-prem-files.html#relative-path">relative path</a>.</td>
     </tr>
     <tr>
       <td>File name</td>
