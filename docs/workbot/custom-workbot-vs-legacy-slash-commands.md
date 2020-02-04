@@ -58,8 +58,8 @@ Here is a detailed comparison table between the custom Workbot slash commands an
         </tr>
         <tr>
             <td>Connection method</td>
-            <td><a href="/workbot/configuring-slash-commands.md#workbot-connection"> Workbot with Custom OAuth profile</a></td>
-            <td><a href="/workbot/legacy-slash-commands.md#configuring-the-workbot-connection">Slash command verification token</a></td>
+            <td><a href="/workbot/configuring-slash-commands.html#workbot-connection"> Workbot with Custom OAuth profile</a></td>
+            <td><a href="/workbot/legacy-slash-commands.html#configuring-the-workbot-connection">Slash command verification token</a></td>
         </tr>
         <tr>
             <td>Customize app icon</td>

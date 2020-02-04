@@ -44,7 +44,7 @@ This trigger picks up rows that are inserted in the selected table. Each row is 
     </tr>
     <tr>
       <td>WHERE condition</td>
-      <td>Refer to the <a href='/connectors/bigquery.md#where-condition'>WHERE condition</a> guide for more information.</td>
+      <td>Refer to the <a href='/connectors/bigquery.html#where-condition'>WHERE condition</a> guide for more information.</td>
     </tr>
     <tr>
       <td>Location</td>
@@ -112,7 +112,7 @@ This trigger picks up rows that are inserted in the selected table or view. Thes
     </tr>
     <tr>
       <td>WHERE condition</td>
-      <td>Refer to the <a href='/connectors/bigquery.md#where-condition'>WHERE condition</a> guide for more information.</td>
+      <td>Refer to the <a href='/connectors/bigquery.html#where-condition'>WHERE condition</a> guide for more information.</td>
     </tr>
     <tr>
       <td>Location</td>

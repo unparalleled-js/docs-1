@@ -26,7 +26,7 @@ The SQL Server connector uses basic authentication to authenticate with SQL Serv
     </tr>
     <tr>
       <td>On-prem secure agent</td>
-      <td>Choose an on-premise agent if your database is running in a network that does not allow direct connection. Before attempting to connect, make sure you have an active on-premise agent. Refer to the <a href="/on-prem.md">On-premise agent</a> guide for more information.</td>
+      <td>Choose an on-premise agent if your database is running in a network that does not allow direct connection. Before attempting to connect, make sure you have an active on-premise agent. Refer to the <a href="/on-prem.html">On-premise agent</a> guide for more information.</td>
     </tr>
     <tr>
       <td>Username</td>

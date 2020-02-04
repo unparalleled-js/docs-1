@@ -547,7 +547,7 @@ This is extremely useful when syncing screenshots (attached to tickets) in Jira 
     <tr>
       <td>Attachment URI</td>
       <td>
-        Datapill containing file content, obtainable from the step output of objects that support attachments, e.g. the <kbd>Content</kbd> datapill from the <a href="/connectors/jira/actions.md#get-issue"> Get issue action</a>.<br>
+        Datapill containing file content, obtainable from the step output of objects that support attachments, e.g. the <kbd>Content</kbd> datapill from the <a href="/connectors/jira/actions.html#get-issue"> Get issue action</a>.<br>
         <img src="~@img/jira-docs/attachment-uri-example.png"></img>
       </td>
     </tr>
@@ -713,7 +713,7 @@ You can also upload a `.txt` or `.csv` file by filling in the text contents of t
     </tr>
     <tr>
       <td colspan="2">Content</td>
-      <td>Link to the attachment itself. Can be used in proceeding action steps that support attachments, e.g. the <b>Attachment URI</b> field from the <a href="/connectors/jira/actions.md#download-attachment"> Download attachment action</a>.<br>
+      <td>Link to the attachment itself. Can be used in proceeding action steps that support attachments, e.g. the <b>Attachment URI</b> field from the <a href="/connectors/jira/actions.html#download-attachment"> Download attachment action</a>.<br>
         <img src="~@img/jira-docs/content-output-example.png"></img> </td>
     </tr>
     <tr>

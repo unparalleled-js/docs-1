@@ -136,7 +136,7 @@ Furthermore, you'll be able to declare personal reusable methods to use in any b
        <td>dig</td>
        <td>Retrieves the value object corresponding to the index passed in <br>
        The dig method is often used to strip away layers in nested arrays/hashes. For example, we use the dig method often when dealing with XML data formats. <br>
-      <a href="/developing-connectors/sdk/data-format/xml-format.md">More details here.</a></td>
+      <a href="/developing-connectors/sdk/data-format/xml-format.html">More details here.</a></td>
     </tr>
     <tr>
       <td>dst?</td>

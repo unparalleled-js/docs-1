@@ -24,7 +24,7 @@ This action uploads a file to an existing folder. You can choose to overwrite co
       <td>Folder</td>
       <td>
         Select the folder to upload the file to. This can be done either by selecting a folder from the pick list, or toggling the input field to text mode and providing the folder path.<br>
-        This should be relative to the base path you define in the connection profile. Learn about <a href="/connectors/on-prem-files.md#relative-path">relative path</a>.</td>
+        This should be relative to the base path you define in the connection profile. Learn about <a href="/connectors/on-prem-files.html#relative-path">relative path</a>.</td>
       </td>
     </tr>
     <tr>
@@ -36,7 +36,7 @@ This action uploads a file to an existing folder. You can choose to overwrite co
     <tr>
       <td>File contents</td>
       <td>
-        Content of the file to upload. This input field supports <a href='/features/file-streaming.md'>streaming</a>.
+        Content of the file to upload. This input field supports <a href='/features/file-streaming.html'>streaming</a>.
       </td>
     </tr>
     <tr>
@@ -65,7 +65,7 @@ This action uploads a file to an existing folder. You can choose to overwrite co
     </tr>
     <tr>
       <td>File path</td>
-      <td>This is the path of the file. This path is relative to the base path you define in the connection profile. Learn about <a href="/connectors/on-prem-files.md#relative-path">relative path</a>.</td>
+      <td>This is the path of the file. This path is relative to the base path you define in the connection profile. Learn about <a href="/connectors/on-prem-files.html#relative-path">relative path</a>.</td>
     </tr>
     <tr>
       <td>File size (bytes)</td>
