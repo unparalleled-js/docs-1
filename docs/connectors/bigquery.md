@@ -115,3 +115,11 @@ When used in a **Delete rows** action, this will delete all rows in the `users` 
 
 ![Using datapills in WHERE condition with subquery](~@img/postgresql/use_datapill_in_where_complex.png)
 *Using datapills in `WHERE` condition with subquery*
+
+### Defining your output fields
+
+![Export CSV from BigQuery](~@img/bigquery/export-results.png)
+
+Define your output fields easily using the output schema designer by using our CSV uploader. Workato is unable to introspect schema automatically when your query runs for too long, processes too many bytes or contains datapills. In these cases, simply run a sample query in the BigQuery console like above and export a CSV. Upload this CSV into the schema wizard and automatically generate all fields for you.
+
+![CSV schema wizard](~@img/bigquery/csv-wizard.gif)
