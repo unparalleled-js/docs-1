@@ -1355,6 +1355,10 @@ module.exports = [
           [
             '/connectors/netsuite/action-batch-upsert',
             'Upsert records in bulk action'
+          ],
+          [
+            '/connectors/netsuite/action-get-case-comments',
+            'Get case comments action'
           ]
         ]
       },
