@@ -1844,7 +1844,7 @@ module.exports = [
             '/connectors/snowflake/new-row-trigger',
             'New row trigger'
           ],
-          ['/connectors/snowflake/replicate.md', 'replicate action'],
+          ['/connectors/snowflake/replicate', 'Replication action'],
           [
             '/connectors/snowflake/updated-row-trigger',
             'New/updated row trigger'
