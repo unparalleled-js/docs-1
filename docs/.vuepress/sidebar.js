@@ -1840,11 +1840,11 @@ module.exports = [
             '/connectors/snowflake/bulk-load-s3',
             'Bulk load from Amazon S3'
           ],
+          ['/connectors/snowflake/replicate', 'Replication action'],
           [
             '/connectors/snowflake/new-row-trigger',
             'New row trigger'
           ],
-          ['/connectors/snowflake/replicate', 'Replication action'],
           [
             '/connectors/snowflake/updated-row-trigger',
             'New/updated row trigger'

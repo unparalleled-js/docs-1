@@ -21,6 +21,10 @@ Workato will first detect and compare the schema of the input data and Snowflake
 | Rows       | Use a list datapill as input. |
 | Flatten columns | If your input data is formatted as an object, use this toggle to flatten the object into individual key-value pairs. See the example [below](#when-to-use-flatten). |
 
+::: warning Rows limit
+Snowflake has a limit of 16,384 rows for insert/update statements. Input lists with more than 16,384 rows will cause this job to fail.
+:::
+
 ### When to use flatten
 
 If you have data formatted as an object, you may not be able to access nested data directly (e.g. nested within a JSON object).
@@ -55,7 +59,3 @@ A flattened row will look like this:
 ## Output
 
 The output of this action is a count of the number of rows upserted.
-
-::: warning
-Snowflake has a limit of 16,384 rows for insert statements. Inputs with more than 16,384 rows will cause this job to fail.
-:::
