@@ -62,17 +62,17 @@ The output of this action is a count of the number of rows upserted.
 
 ## Workato schema mapper
 
-Since datatypes are maintained differently between Workato and Snowflake, Workato will perform data conversion when inserting or updating data into your Snowflake table.
+Each data source (API, Database and File) has its own schema. To maintain consistency, this action maps each data type from the source to the Snowflake table schema. This mapping is done before creating/updating the Snowflake table.
 
-Input data will be converted to Snowflake datatypes, based on the mappings defined below.
+Input data will be converted to Snowflake data types, based on the mappings defined below.
 
 | Workato type  | Snowflake type |
 | :------------ | :------------- |
-| string        | [text / string / varchar](https://docs.snowflake.net/manuals/sql-reference/data-types-text.html#data-types-for-text-strings)<br>Defaults to maximum length. |
+| string        | [varchar](https://docs.snowflake.net/manuals/sql-reference/data-types-text.html#data-types-for-text-strings)<br>Defaults to maximum length. |
 | string(binary) | [binary](https://docs.snowflake.net/manuals/sql-reference/data-types-text.html#data-types-for-binary-strings) |
 | date          | [date](https://docs.snowflake.net/manuals/sql-reference/data-types-datetime.html#date) |
 | date_time timestamp | [timestamp](https://docs.snowflake.net/manuals/sql-reference/data-types-datetime.html#timestamp)<br>Workato will use the timezone defined in the [connection setup](/connectors/snowflake.md#database-timezone), or use the default Snowflake user account timezone. |
 | integer       | [number](https://docs.snowflake.net/manuals/sql-reference/data-types-numeric.html#data-types-for-fixed-point-numbers)<br>Precision and scale defaults to (38, 0). |
 | number        | [double](https://docs.snowflake.net/manuals/sql-reference/data-types-numeric.html#data-types-for-floating-point-numbers) |
 | boolean       | [boolean](https://docs.snowflake.net/manuals/sql-reference/data-types-logical.html#boolean) |
-| hash / array  | [variant](https://docs.snowflake.net/manuals/sql-reference/data-types-semistructured.html#variant) |
+| object        | [variant](https://docs.snowflake.net/manuals/sql-reference/data-types-semistructured.html#variant) |
