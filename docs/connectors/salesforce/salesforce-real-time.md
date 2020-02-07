@@ -4,7 +4,7 @@ date: 2018-01-04 06:15:00 Z
 ---
 
 # Salesforce real-time triggers
-Workato offers real-time capabilities for 2 Salesforce triggers: **New Object** and **New/Updated Object**. This allows Workato to detect records created/updated in Salesforce immediately. Salesforce real-time triggers is enabled only for certain plans. Check the [Pricing and Plans page](https://www.workato.com/pricing?audience=general) or reach out to Workato sales representatives at +1 (844) 469-6752 to find out more.
+Workato offers real-time capabilities for 2 Salesforce triggers: **New Object** and **New/Updated Object**. This allows Workato to detect records created/updated in Salesforce immediately. Salesforce real-time triggers is enabled only for certain users. Reach out to Workato sales representatives at +1 (844) 469-6752 to find out more.
 
 These real-time triggers are powered by [Salesforce workflow rules](https://help.salesforce.com/articleView?id=workflow_rules_new.htm&type=5). Via these workflow rules, Salesforce monitors records for certain changes and notifies Workato immediately via an outbound message when these changes occur. These outbound messages will be received and processed by a Workato recipe as trigger events.
 

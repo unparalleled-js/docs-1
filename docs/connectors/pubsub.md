@@ -11,7 +11,7 @@ This connector allows us to add or modify recipes which are consumers without af
 ## How to connect to the PubSub connector on Workato
 There is no connection required to use the PubSub connector, as schemas are stored in the Workato account for recipes to interact with.
 
-In order to work with the PubSub connector, users require access to the PubSub topics feature, which is enabled only for certain plans. Check the [Pricing and Plans page](https://www.workato.com/pricing?audience=general) or reach out to Workato sales representatives at +1 (844) 469-6752 to find out more.
+In order to work with the PubSub connector, users require access to the PubSub topics feature. Reach out to Workato sales representatives at +1 (844) 469-6752 to find out more.
 
 ## How to use PubSub topics
 You can go to the PubSub main page by clicking **Tools** > **Pub/Sub Topics**. Here, you can view all the topics that are active on your Workato account.

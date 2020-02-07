@@ -24,7 +24,7 @@ This action downloads an existing file. The output of this action is the raw con
       <td>File</td>
       <td>
         Select the file to download. This can be done either by selecting a file from the pick list, or toggling the input field to text mode and providing the file path. Only files can be downloaded.<br>
-        This should be relative to the base path you define in the connection profile. Learn about <a href="/connectors/on-prem-files.md#relative-path">relative path</a>.</td>
+        This should be relative to the base path you define in the connection profile. Learn about <a href="/connectors/on-prem-files.html#relative-path">relative path</a>.</td>
       </td>
     </tr>
     <tr>
@@ -46,7 +46,7 @@ This action downloads an existing file. The output of this action is the raw con
   <tbody>
     <tr>
       <td>File contents</td>
-      <td>Content of the downloaded file. This datapill supports <a href='/features/file-streaming.md'>streaming</a>. To transfer large files, make sure you map this to an input field that supports streaming.</td>
+      <td>Content of the downloaded file. This datapill supports <a href='/features/file-streaming.html'>streaming</a>. To transfer large files, make sure you map this to an input field that supports streaming.</td>
     </tr>
   </tbody>
 </table>

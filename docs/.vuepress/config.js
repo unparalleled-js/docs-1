@@ -1,6 +1,9 @@
 const {resolve} = require('path');
 const {repository, domain} = require('../../package.json');
 
+const attributesPlugin = require('markdown-it-attrs');
+const imageSizePlugin = require('./plugins/markdown-it-image-size');
+
 const IMAGES_ALIAS = '@img';
 const IMAGES_DIR = resolve(__dirname, '../../assets/images');
 
@@ -58,10 +61,11 @@ module.exports = {
       )
     },
     extendMarkdown: md => {
-      md.use(require('./plugins/markdown-it-image-size'), {
-        imagesDir: IMAGES_DIR,
-        imagesAlias: IMAGES_ALIAS
-      })
+      md.use(attributesPlugin)
+        .use(imageSizePlugin, {
+          imagesDir: IMAGES_DIR,
+          imagesAlias: IMAGES_ALIAS
+        })
     }
   },
   configureWebpack: {

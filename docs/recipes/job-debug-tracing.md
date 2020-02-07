@@ -18,7 +18,7 @@ For each action line in the recipe, job debug tracing provides
 * HTTP request payload
 * HTTP response
 
-Job debug tracing is available with select plans. Please check the [Pricing and Plans page](https://www.workato.com/pricing?audience=general) or reach out to Workato sales representatives at +1 (844) 469-6752 to find out more.
+Job debug tracing is available for certain users. Reach out to Workato sales representatives at +1 (844) 469-6752 to find out more.
 
 ## Enabling and disabling job debug tracing
 

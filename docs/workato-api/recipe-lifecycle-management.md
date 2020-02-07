@@ -7,14 +7,13 @@ date: 2019-04-25 12:20:00 Z
 
 ### Quick reference
 
-<div class='api_quick_reference'></div>
-
 | Type | Resource | Description |
 |------|----------|-------------|
 | POST | [/api/packages/export/:manifest_id](#export-package-based-on-a-manifest)| Export package based on a manifest. |
 | POST | [/api/packages/import/:folder_id](#import-package-into-a-folder) | Import package into a folder. |
 | GET  | [/api/packages/:id](#get-package-by-id) | Get package by ID. |
 | GET  | [/api/packages/:id/download](#download-package) | Download a package. |
+{.api-quick-reference}
 
 ## Export package based on a manifest
 
@@ -28,11 +27,10 @@ This is an asynchronous request. Use [GET package by ID](#get-package-by-id) end
 
 ### URL parameters
 
-<div class='api_input'></div>
-
 | Name | Type | Description |
 |------|------|-------------|
 | id   | **string**<br>_required_ | Export manifest ID. |
+{.api-input}
 
 #### Sample request
 
@@ -68,12 +66,11 @@ The input (zip file) is a `application/octet-stream` payload containing package 
 
 ### URL parameters
 
-<div class='api_input'></div>
-
 | Name | Type | Description |
 |------|------|-------------|
 | id   | **string**<br>_required_ | Folder ID. |
 | restart_recipes | **boolean**<br>_optional_ | If `true`, it will allow the restarting of running recipes. |
+{.api-input}
 
 #### Sample request
 
@@ -106,11 +103,10 @@ GET /api/packages/:id
 
 ### URL paramters
 
-<div class='api_input'></div>
-
 | Name | Type | Description |
 |------|------|-------------|
 | id   | **string**<br>_required_ | Package ID. |
+{.api-input}
 
 #### Sample request
 
@@ -157,11 +153,10 @@ GET /api/packages/:id/download
 
 ### URL parameters
 
-<div class='api_input'></div>
-
 | Name | Type | Description |
 |------|------|-------------|
 | id   | **string**<br>_required_ | Package ID. |
+{.api-input}
 
 #### Sample request
 

@@ -53,7 +53,7 @@ Be careful not to use this action concurrently on the same CSV file from multipl
   <tbody>
     <tr>
       <td>File path</td>
-      <td>This is the path of the file. This path is relative to the base path you define in the connection profile. Learn about <a href="/connectors/on-prem-files.md#relative-path">relative path</a>.</td>
+      <td>This is the path of the file. This path is relative to the base path you define in the connection profile. Learn about <a href="/connectors/on-prem-files.html#relative-path">relative path</a>.</td>
     </tr>
     <tr>
       <td>File size (bytes)</td>

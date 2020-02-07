@@ -6,7 +6,7 @@ date: 2017-02-22 12:00:00
 # On-prem Connectivity
 Enterprises have on-prem applications and databases that are deployed within their corporate data centers. These apps are protected via firewalls, and therefore are typically not easily accessible to cloud services like Workato.
 
-> On-prem access is enabled only for certain plans. Check the [Pricing and Plans page](https://www.workato.com/pricing?audience=general) or reach out to Workato sales representatives at **+1 (844) 469-6752** to find out more.
+> On-prem access is enabled only for certain users. Reach out to Workato sales representatives at +1 (844) 469-6752 to find out more.
 
 ## Overview
 The following is a conceptual model of Workato's on-prem agent and how it interacts with databases and applications behind the firewall.

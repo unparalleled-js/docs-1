@@ -6,7 +6,7 @@ date: 2018-05-30 06:00:00 Z
 # ServiceNow - New/updated record triggers
 
 ## New/updated record
-This trigger picks up records that are created or updated in the selected table. Each record is processed as a separate job. It checks for new or updated records once every poll interval. The poll interval can be 10 mins or 5 mins, depending on your plan. Check the [Pricing and Plans page](https://www.workato.com/pricing?audience=general) to find out more.
+This trigger picks up records that are created or updated in the selected table. Each record is processed as a separate job. It checks for new or updated records once every poll interval.
 
 ![New/updated record trigger](~@img/connectors/servicenow/updated-record-trigger.png)
 *New/updated record trigger*

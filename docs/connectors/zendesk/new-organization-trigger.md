@@ -6,7 +6,7 @@ search:
 ---
 
 # Zendesk - New organization trigger
-This trigger picks up new organizations that are created. Each organization is processed as a separate job. It checks for new organizations once every poll interval. The poll interval can be 10 mins or 5 mins, depending on your plan. Check the [Pricing and Plans page](https://www.workato.com/pricing?audience=general) to find out more.
+This trigger picks up new organizations that are created. Each organization is processed as a separate job. It checks for new organizations once every poll interval.
 
 ![New organization trigger](~@img/connectors/zendesk/new-organization-trigger.png)
 *New organization trigger*

@@ -7,8 +7,6 @@ date: 2019-03-21 11:20:00 Z
 
 ### Quick reference
 
-<div class='api_quick_reference'></div>
-
 | Type | Resource | Description |
 |------|----------|-------------|
 | GET  | [/api/recipes/:id](#get-recipe-details) | Get recipe details. |
@@ -18,6 +16,7 @@ date: 2019-03-21 11:20:00 Z
 | PUT  | [/api/recipes/:id/start](#start-recipe) | Start recipe. |
 | PUT  | [/api/recipes/:id/stop](#stop-recipe) | Stop recipe. |
 | DELETE | [/api/recipes/:id](#delete-recipe) | Delete recipe. |
+{.api-quick-reference}
 
 ## Get recipe details
 
@@ -29,11 +28,10 @@ GET /api/recipes/:id
 
 ### URL parameters
 
-<div class='api_input'></div>
-
 | Name | Type | Description |
 |------|------|-------------|
 | id   | **integer**<br>_required_ | Recipe ID. |
+{.api-input}
 
 #### Sample request
 
@@ -96,14 +94,13 @@ POST /api/recipes
 
 ### Request body
 
-<div class='api_input'> </div>
-
 | Name | Type | Description |
 |------|------|-------------|
 | name | **string**<br>_required_ | Name of the recipe. |
 | code | **string**<br>_required_ | JSON string representing the recipe lines.
 | config | **string**<br>_required_ | JSON string representing the connection lines. |
 | recipe | **hash**<br>_optional_ | The hash of the recipe. |
+{.api-input}
 
 #### Sample request
 
@@ -138,15 +135,12 @@ PUT /api/recipes/:id
 
 ### URL parameters
 
-<div class='api_input'></div>
-
 | Name | Type | Description |
 |------|------|-------------|
 | id   | **integer**<br>_required_ | Recipe ID. |
+{.api-input}
 
 ### Request body
-
-<div class='api_input'></div>
 
 | Name | Type | Description |
 |------|------|-------------|
@@ -154,6 +148,7 @@ PUT /api/recipes/:id
 | recipe[name] | **string**<br>_optional_ | Name of the recipe. |
 | recipe[code] | **string**<br>_optional_ | JSON string representing the recipe lines.
 | recipe[config] | **string**<br>_optional_ | JSON string representing the connection lines. |
+{.api-input}
 
 #### Sample request
 
@@ -200,8 +195,6 @@ GET /api/recipes
 
 ### URL parameters
 
-<div class='api_input'> </div>
-
 | Name | Type | Description |
 |------|------|-------------|
 | adapter_names_any | **string**<br>_optional_ | List of adapters names. Resulting recipes should use at least one of given adapters. |
@@ -209,7 +202,7 @@ GET /api/recipes
 | active | **string**<br>_optional_ | If `true`, returns running recipes. |
 | since_id | **integer**<br>_optional_ | Find recipes with ID less than the given ID. |
 | order | **string**<br>_optional_ | Set ordering method. Possible options: activity, default. |
-
+{.api-input}
 
 #### Sample request
 
@@ -263,11 +256,10 @@ PUT /api/recipes/:id/start
 
 ### URL parameters
 
-<div class='api_input'></div>
-
 | Name | Type | Description |
 |------|------|-------------|
 | id   | **interger**<br>_optional_ | Recipe ID. |
+{.api-input}
 
 #### Sample request
 
@@ -295,11 +287,10 @@ PUT /api/recipes/:id/stop
 
 ### URL parameters
 
-<div class='api_input'></div>
-
 | Name | Type | Description |
 |------|------|-------------|
 | id   | **interger**<br>_optional_ | Recipe ID. |
+{.api-input}
 
 #### Sample request
 
@@ -327,11 +318,10 @@ DELETE /api/recipes/:id
 
 ### URL parameters
 
-<div class='api_input'></div>
-
 | Name | Type | Description |
 |------|------|-------------|
 | id   | **interger**<br>_optional_ | Recipe ID. |
+{.api-input}
 
 #### Sample request
 

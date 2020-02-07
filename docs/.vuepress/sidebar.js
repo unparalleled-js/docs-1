@@ -963,8 +963,17 @@ module.exports = [
             '/connectors/bigquery/new-row-trigger',
             'New rows trigger'
           ],
+          [
+            '/connectors/bigquery/job-completed-trigger',
+            'New job completed trigger'
+          ],
+          [
+            '/connectors/bigquery/scheduled-query-trigger',
+            'Scheduled query trigger'
+          ],
           ['/connectors/bigquery/insert', 'Insert rows action'],
-          ['/connectors/bigquery/select', 'Select rows action']
+          ['/connectors/bigquery/select', 'Select rows action'],
+          ['/connectors/bigquery/get-query-result-action', 'Get query job results action']
         ]
       },
       {
@@ -1355,6 +1364,10 @@ module.exports = [
           [
             '/connectors/netsuite/action-batch-upsert',
             'Upsert records in bulk action'
+          ],
+          [
+            '/connectors/netsuite/action-get-case-comments',
+            'Get case comments action'
           ]
         ]
       },
@@ -1840,6 +1853,7 @@ module.exports = [
             '/connectors/snowflake/bulk-load-s3',
             'Bulk load from Amazon S3'
           ],
+          ['/connectors/snowflake/replicate', 'Replication action'],
           [
             '/connectors/snowflake/new-row-trigger',
             'New row trigger'

@@ -9,7 +9,7 @@ The people task feature enables the addition of human approval steps within the 
 # Using People Task as an admin
 
 ## People Task setup
-People Task feature is enabled only for certain plans. Check the [Pricing and Plans page](https://www.workato.com/pricing?audience=general) or reach out to Workato sales representatives at +1 (844) 469-6752 to find out more.
+People Task feature is enabled only for certain users. Reach out to Workato sales representatives at +1 (844) 469-6752 to find out more.
 
 For Workato accounts with People Task feature enabled, team owners are able to view the People Task option in their 'Tools' page. Click on 'All Tools' and then on 'People Task'.
 

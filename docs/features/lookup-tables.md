@@ -21,7 +21,7 @@ Here are other common use cases for lookup tables:
 * Given data in metric units, you want to convert to imperial units for the downstream app
 * Given a department and rank, you want to retrieve vacation accrual rates
 
-> **Lookup tables are enabled only for certain plans. Check the [Pricing and Plans page](https://www.workato.com/pricing) to find out more.**
+> **Lookup tables are enabled only for certain users. Reach out to Workato sales representatives at +1 (844) 469-6752 to find out more.**
 
 ## Setting up your lookup tables
 There are three ways to upload data into your lookup tables:
