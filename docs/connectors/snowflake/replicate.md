@@ -7,7 +7,7 @@ date: 2018-02-02 06:10:00 Z
 
 This action updates a selected table in your Snowflake instance. It takes a list datapill as input and inserts or updates them as rows.
 
-Workato will first detect and compare the schema of the input data and Snowflake table. If they do not match, this action will create new columns in the Snowflake table. This ensures that all the data from your input will be automatically synced in Snowflake, even if there are updates to the input schema.
+Workato will first [detect and compare the schema](#workato-schema-mapper) of the input data and Snowflake table. If they do not match, this action will create new columns in the Snowflake table. This ensures that all the data from your input will be automatically synced in Snowflake, even if there are updates to the input schema.
 
 ![Replicate action](~@img/snowflake/replicate-action.png)
 *Replicate action*
@@ -59,3 +59,20 @@ A flattened row will look like this:
 ## Output
 
 The output of this action is a count of the number of rows upserted.
+
+## Workato schema mapper
+
+Each data source (API, Database and File) has its own schema. To maintain consistency, this action maps each data type from the source to the Snowflake table schema. This mapping is done before creating/updating the Snowflake table.
+
+Input data will be converted to Snowflake data types, based on the mappings defined below.
+
+| Workato type  | Snowflake type |
+| :------------ | :------------- |
+| string        | [varchar](https://docs.snowflake.net/manuals/sql-reference/data-types-text.html#data-types-for-text-strings)<br>Defaults to maximum length. |
+| string(binary) | [binary](https://docs.snowflake.net/manuals/sql-reference/data-types-text.html#data-types-for-binary-strings) |
+| date          | [date](https://docs.snowflake.net/manuals/sql-reference/data-types-datetime.html#date) |
+| date_time timestamp | [timestamp](https://docs.snowflake.net/manuals/sql-reference/data-types-datetime.html#timestamp)<br>Workato will use the timezone defined in the [connection setup](/connectors/snowflake.md#database-timezone), or use the default Snowflake user account timezone. |
+| integer       | [number](https://docs.snowflake.net/manuals/sql-reference/data-types-numeric.html#data-types-for-fixed-point-numbers)<br>Precision and scale defaults to (38, 0). |
+| number        | [double](https://docs.snowflake.net/manuals/sql-reference/data-types-numeric.html#data-types-for-floating-point-numbers) |
+| boolean       | [boolean](https://docs.snowflake.net/manuals/sql-reference/data-types-logical.html#boolean) |
+| object        | [variant](https://docs.snowflake.net/manuals/sql-reference/data-types-semistructured.html#variant) |
