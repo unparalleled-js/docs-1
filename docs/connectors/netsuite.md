@@ -6,6 +6,38 @@ date: 2017-04-28 06:15:00 Z
 # NetSuite
 [NetSuite](http://www.netsuite.com/) is a cloud business management suite that offers comprehensive software for an organization, with software products encompassing ERP/Financials, CRM, and ecommerce.
 
+## API version
+The NetSuite connector uses the WSDL from the SuiteTalk 2019_2 API. This gives you the latest access to objects introduced in past API versions. A variety of new fields for objects have also been introduced.
+
+### SuiteTalk 2019_2 changes
+Record types added:
+* Bom
+* Bom Revision
+* CRM custom field
+* Entity Custom Field
+* Item Custom field
+* Item number Custom field
+* Item option Custom field
+* Other Custom Field
+* Transaction Body Custom Field
+* Transaction Column Custom Field
+* Customer subsidiary relationship
+* Custom Segment
+* General Token
+* Merchandise Hierarchy Node
+* Payment Card Token
+* Payment Card
+* Period End journal
+* Vendor Subsidiary Relationship
+* Custom purchase
+* Custom Record custom field
+* Custom Sale
+* Resource Allocation
+* Usage
+
+New action added:
+* [Get case comments](/connectors/netsuite/action-get-case-comments.md)
+
 ## How to connect to NetSuite on Workato
 You can connect to NetSuite via token based authentication. In order to do so, we need to generate an application ID, consumer key and consumer secret as well as a token ID and token secret.
 
