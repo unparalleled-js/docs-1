@@ -74,7 +74,7 @@ Use this action to update campaign attributes.
 | Network setting | Network settings for the campaign indicating where the campaign will serve. |
 | Bidding strategy configuration | Bidding configuration for this campaign.<br> [More info](https://developers.google.com/adwords/api/docs/reference/v201809/CampaignService.BiddingStrategyConfiguration.html) |
 | Forward compatibility map | It is a presently unused object by AdWords|
-| URL custom parameters | A list of mappings to be used for substituting URL custom parameter tags in the trackingUrlTemplate, finalUrls, and/or finalMobileUrls. |
+| URL custom parameters | A list of mappings to be used for substituting URL custom parameter tags in the trackingUrlTemplate, finalUrls, and/or finalMobileUrls. Cannot be used in conjunction with Tracking URL template in a single action. |
 | Vanity pharma | Describes how unbranded pharma ads will be displayed. <br> [More info](https://developers.google.com/adwords/api/docs/reference/v201809/CampaignService.VanityPharma.html) |
 | Universal app campaign info | Stores information specific to Universal App Campaigns. <br> [More info](https://developers.google.com/adwords/api/docs/reference/v201809/CampaignService.UniversalAppCampaignInfo.html)|
 | Selective optimization | Selective optimization setting for this campaign, which includes a set of conversion types to optimize this campaign towards. <br> [More info](https://developers.google.com/adwords/api/docs/reference/v201809/CampaignService.SelectiveOptimization.html) |
