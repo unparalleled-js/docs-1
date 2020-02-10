@@ -28,7 +28,7 @@ The Customer section of the dashboard first gives you a total count of customers
 
 The customer leaderboard that follows shows you the customer leaderboard by active recipes. This gives you a brief idea of the customers that are most and least engaged on your platform, ripe for upsell or review and those that need attention. To drill down deeper into individual customers, you can click on the individual customer names to head over to their [customer information page](/oem/admin-console/customers.md).
 
-This is overall view of customer health. Drill down into more detailed stats for each customer in the [Customers tab](/oem/admin-console/customers.md) where all customers and details are listed.
+This is overall view of customer health. Drill down into more detailed stats for each customer in the [Customers tab](/oem/admin-console/customers.md#customer-information) where all customers and details are listed.
 
 ## Recipes
 ![OEM dashboard](~@img/oem/admin-console/dashboard-recipes.png)
