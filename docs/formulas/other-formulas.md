@@ -273,6 +273,8 @@ Render an object into a YAML string.
 
 This formula allows you to lookup values from your Workato lookup tables via a key. It is case sensitive and data type sensitive.
 
+If you use a data pill in the lookup formula, it is recommended that the data is converted to the right format. For example, integer-type data pills should be converted to string with a `.to_s` formula if comparing to a column containing both integers and strings.
+
 ### Example
 For example, let's use the following lookup table with name `Department Codes` with an ID of 6:
 
