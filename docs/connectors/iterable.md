@@ -25,21 +25,21 @@ The connector uses API key authentication to connect Workato to Iterable.
     </tr>
     <tr>
       <td>API key</td>
-      <td>Generate an API key for this account over <a href='https://app.iterable.com/settings/apiKeys'>here</a></td>
+      <td>Generate an API key for this account <a href='https://app.iterable.com/settings/apiKeys'>here</a></td>
     </tr>
   </tbody>
 </table>
 
 ### Generating an API key
-1. After logging into Iterable, head over to the “Integrations” tab in the top navigation bar.
+1. After logging into Iterable, head over to the “Integrations” tab in the top navigation bar and click on the API key option in the dropdown.
 
 ![Navigating to API key settings](~@img/iterable/apiKeyNav1.png)
 
-2. Select API keys and you’ll be brought to the view where you can generate a new API key for your Workato connector.
+2. You’ll be brought to the view where you can generate a new API key for your Workato connector.
 
 ![Navigating to API key settings](~@img/iterable/apiKeyNav2.png)
 
-3. Generate a Standard API key and give it a meaningful name. Here, we gave it the name, Workato-demo. After this is done, simply provide the same key to the connector and you should be able to make a successful connection.
+3. Generate a Standard API key and give it a meaningful name. Here, we gave it the name, 'Workato-demo'. After this is done, simply provide the same key to the connector and you should be able to make a successful connection.
 
 ### Generating System webhooks
 1. Head over to the Iterable connector in Workato. Under the top navigation bar, select “tools” and select “connector SDK” from the dropdown.
@@ -160,6 +160,6 @@ We can use the input field called “Data fields” to change the values in exis
 
 ![Action config](~@img/iterable/action3.png)
 
-Which results in
+This results in the following object:
 
 ![Action config](~@img/iterable/action4.png)
