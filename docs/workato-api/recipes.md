@@ -258,7 +258,7 @@ PUT /api/recipes/:id/start
 
 | Name | Type | Description |
 |------|------|-------------|
-| id   | **interger**<br>_optional_ | Recipe ID. |
+| id   | **integer**<br>_optional_ | Recipe ID. |
 {.api-input}
 
 #### Sample request
@@ -289,7 +289,7 @@ PUT /api/recipes/:id/stop
 
 | Name | Type | Description |
 |------|------|-------------|
-| id   | **interger**<br>_optional_ | Recipe ID. |
+| id   | **integer**<br>_optional_ | Recipe ID. |
 {.api-input}
 
 #### Sample request
@@ -320,7 +320,7 @@ DELETE /api/recipes/:id
 
 | Name | Type | Description |
 |------|------|-------------|
-| id   | **interger**<br>_optional_ | Recipe ID. |
+| id   | **integer**<br>_optional_ | Recipe ID. |
 {.api-input}
 
 #### Sample request
