@@ -87,7 +87,7 @@ Scroll down to **Scopes**, and select the following **Bot Token Scopes**:
 - users:read
 - users:read.email
 
- ![Bot token scopes](~@img/workbot/workbot-slash-commands/bot-token-scopes.png)
+![Bot token scopes](~@img/workbot/workbot-slash-commands/bot-token-scopes.png)
 
 Next, scroll down to **User Token Scopes**, and select the following **User Token Scopes**:
 - users:read
@@ -188,7 +188,7 @@ However, the [RTM API](https://api.slack.com/rtm) is not accessible to the new b
 
 ## Migrating to the new scopes
 On your app management page on Slack, head over to **Update to Granular Scopes**.
-![Update to granular scopes](~@img/workbot/workbot-slash-commands/navigate-to-granular-scopes.png).
+![Update to granular scopes](~@img/workbot/workbot-slash-commands/navigate-to-granular-scopes.png)
 
 In Step 1, select the following bot token scopes:
 - channels:history
