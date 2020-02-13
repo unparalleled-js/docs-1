@@ -6,7 +6,7 @@ date: 2018-04-9 10:23:00 Z
 # What are custom bots?
 Custom bots are Slack apps you can use together with Workato for triggers and/or actions. They're useful for when you want to customize your bot for specific functions; giving it a name related to that function, as well as giving it its own icon e.g. HRBot, SupportBot. This allows you greater flexibility in customizing your bot's functionalities and identity.
 
-::: warning Migration to granular scopes
+::: Migration to granular scopes
 Slack released [granular permissions](https://api.slack.com/docs/token-types#granular_bot) on 22 January 2020. You may have to migrate any pre-existing custom bots you have. See the [migration guide](#moving-to-granular-permission-scopes) for more details.
 :::
 
@@ -165,7 +165,7 @@ You should also be able to use this custom bot with recipes:
 ![Recipe connection to custom bot](~@img/workbot/workbot-slash-commands/recipe-connection-to-custom-bot.png)
 
 # Moving to granular permission scopes
-On 22 January 2020, Slack released [granular permissions](https://api.slack.com/docs/token-types#granular_bot), deprecating the old `bot` scope.
+On the 22 January 2020, Slack released [granular permissions](https://api.slack.com/docs/token-types#granular_bot), deprecating the old `bot` scope.
 
 Previously, bot users were special and required the umbrella `bot` scope. Now, new Slack apps can request individual scopes for their bot users.
 
