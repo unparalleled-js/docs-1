@@ -1,15 +1,13 @@
 ---
-title: Workato connectors - BigQuery new row triggers
-date: 2019-12-10 06:00:00 Z
+title: Workato connectors - BigCommerce new updated object triggers
+date: 2020-02-12 06:00:00 Z
 ---
 
-# BigQuery - New row triggers
+# BigCommerce - New object triggers
+This trigger picks up on new or updated objects in BigCommerce. Each event is processed as a separate job. It checks for new or updated objects once every poll interval.
 
-## New row trigger
-This trigger picks up rows that are inserted in the selected table. Each row is processed as a separate job. It checks for new rows once every poll interval.
-
-![New row trigger](~@img/bigquery/new-row-trigger.png)
-*New row trigger*
+![New/updated object trigger](~@img/bigcommerce/new-updated-object-trigger.png)
+*New/updated object trigger*
 
 ### Input fields
 
@@ -22,33 +20,15 @@ This trigger picks up rows that are inserted in the selected table. Each row is 
   </thead>
   <tbody>
     <tr>
-      <td>Project</td>
-      <td>The project available in the connection to be billed for the query.</td>
+      <td>Object type</td>
+      <td>The object in which to listen for in BigCommerce. Select from the list of available objects.</td>
     </tr>
     <tr>
-      <td>Dataset</td>
-      <td>The dataset which the action or trigger will pull the possible tables from.</td>
-    </tr>
-    <tr>
-      <td>Table</td>
-      <td>The table inside the dataset.</td>
-    </tr>
-    <tr>
-      <td>Unique key</td>
-      <td>Values from this selected column is used to deduplicate rows in the selected table, making sure that the same row is not processed twice in the same recipe.<br>
-      As such, the values in the selected column should not be repeated in your table. Typically, this column is the primary key of the table (e.g. `ID`) and must be of type integer.</td>
-    </tr>
-    <tr>
-      <td>Output columns</td>
-      <td>After selecting your table, you'll also be able to select which columns you want returned. Selecting only what you need for your recipe increases job throughput and overall efficiency of the recipe.</td>
-    </tr>
-    <tr>
-      <td>WHERE condition</td>
-      <td>Refer to the <a href='/connectors/bigquery.html#where-condition'>WHERE condition</a> guide for more information.</td>
-    </tr>
-    <tr>
-      <td>Location</td>
-      <td>The geographical location of where the job should be run. This field isn't required in most cases.</td>
+      <td>When first started, this recipe should pick up events from</td>
+      <td>
+        Expense reports created or submitted after this time will be processed by the recipe.<br>
+        If no Approval status is selected or if <b>Not submitted</b> status is selected, this trigger will pick up expense reports when they are first created. Otherwise, it will pick up expense reports when they are submitted.
+      </td>
     </tr>
   </tbody>
 </table>
