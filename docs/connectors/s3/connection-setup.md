@@ -69,4 +69,4 @@ Follow these steps to retrieve the **Role ARN** and **External ID** required for
 | 7.    | Give this IAM Role an appropriate name & description.<br>![Review role](~@img/connectors/amazon-s3/review-role.png)
 | 8.    | The IAM Role is now created. Select the role.<br>![Select IAM role](~@img/connectors/amazon-s3/select-iam-role.png) |
 | 9.    | Copy the **Role ARN**. You will need to use this in the [connection setup](#input-fields-2) when creating an Amazon S3 connection in Workato.<br>![Copy role ARN](~@img/connectors/amazon-s3/copy-role-arn.png) |
-| 10.   | To view the **external ID**. Locate the **Trust relationships** tab.<br>![Copy role ARN](~@img/connectors/amazon-s3/view-external-id.png) |
+| 10.   | To view the **external ID**. Locate the **Trust relationships** tab.<br>![Copy role ARN](~@img/connectors/amazon-s3/find-external-id.png) |
