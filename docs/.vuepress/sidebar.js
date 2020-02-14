@@ -987,19 +987,23 @@ module.exports = [
           ],
           [
             '/connectors/google-drive/trigger-new-file',
-            'New file or folder trigger'
+            'New file/folder'
+          ],
+          [
+            '/connectors/google-drive/trigger-new-file-hierarchy',
+            'New file/folder in folder hierarchy'
           ],
           [
             '/connectors/google-drive/action-create-folder',
-            'Create folder action'
+            'Create folder'
           ],
           [
             '/connectors/google-drive/action-download-file',
-            'Download file action'
+            'Download file'
           ],
           [
             '/connectors/google-drive/action-rename-file',
-            'Rename/move file or folder action'
+            'Rename/move file or folder'
           ],
           [
             '/connectors/google-drive/action-search-files',

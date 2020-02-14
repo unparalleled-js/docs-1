@@ -9,6 +9,106 @@ date: 2018-06-05 21:45:00 Z
 
 Our engineers are hard at work daily to make Workato better! View the latest updates to our platform below.
 
+## Platform update
+##### Feb 2020
+
+### Trash smartfolder
+Teams of developers working together who may accidentally delete a recipe will now have a safety net of 30 days to recover an item that was deleted. This will help our customers solve the often costly problem of a mistakenly deleted item.
+
+Users will only be able to see items in the Trash folder to which they have access. The customer's admin will have access to all items and will serve as the point of contact for help in recovering accidentally deleted items.
+
+- Customers can view items that were deleted and restore items within 30 days of deletion
+- Customers have the option to permanently delete items from the Trash folder
+- Restore recipes that have been accidentally deleted
+
+## Connector update
+##### Feb 2019
+
+### NetSuite SuiteTalk 2019_2 API
+We recently migrated our NetSuite connector to the SuiteTalk 2019_2 API. NetSuite has 2 major releases of their API every year which includes updates to their WSDL. With this update, the NetSuite connector now has access to more record types and field types which may not have been found previously.
+
+**Links:**
+- [View added record types](https://docs.workato.com/connectors/netsuite.html#suitetalk-2019-2-changes)
+
+## Connector update
+##### Feb 2019
+
+### Data replication in Snowflake
+Let Workato replicate your data into Snowflake without data warehouse maintenance or DevOps. Maintain table definition from data source automatically and utilize built-in data deduplication.
+
+When new/updated data is detected from the data source, Workato first inspects the new object definition against the existing Snowflake table schema. Any mismatches will be reconciled by updating the table definition in Snowflake. Following that, the data is then deduplicated and inserted/updated in the Snowflake table.
+
+This action performs data loading in batches. It is able to handle batch sizes of up to 16,384 rows (Snowflake limitation).
+
+For the schema replication as intended, the data source (application) must able to pick up new fields when an object definition changes. Additionally, the object structure should not be too complex (highly nested, nested arrays) for optimal results.
+
+**Links:**
+- [View data replication action documentation](https://docs.workato.com/connectors/snowflake/replicate.html)
+
+## Connector update
+##### Jan 2020
+
+### Enhanced hierarchical relationship management in Salesforce
+An object relationship in Salesforce is a two-way association between two objects. Relationships are created by creating custom relationship fields on an object. This is done so that when users view records, they can also see and access related data from related objects.
+
+We have updated the Salesforce connector to allow access to relationships beyond the parent. Toggle the related objects field in triggers and actions to accept text input. This will allow you to enter multiple object relationships. Learn more in the link below.
+
+**Links:**
+- [Related objects in Salesforce](https://docs.workato.com/connectors/salesforce/related-objects.html#grandparent-relationships)
+
+## Platform update
+##### Dec 2019
+
+### Dependency Graph
+As the number of your automations and the size of teams building automations increase, there’s also a dramatic increase in the interdependency between assets e.g. callable recipes, connections, common data models, lookup tables etc.
+
+Workato’s Dependency Graph visually illustrates the relationships between every asset and resource in a Workspace. Users can easily browse and inspect dependencies, and identify and assess how a change in one asset e.g. connection might impact other assets.
+
+**Links:**
+- [Video](https://www.youtube.com/watch?v=9JaetuTIBoM)
+
+## Platform update
+##### Dec 2019
+
+### Azure AD and G Suite SAML SSO support
+Seamlessly use your Azure AD and G Suite identity provider to securely connect to multiple Workato workspaces using single sign-on.
+
+With this enhancement, Workato makes it easy for IT to provision users in all the top identity providers in the market - Okta, Onelogin, Azure AD and G Suite.
+
+**Links:**
+- [Azure AD](https://docs.workato.com/user-accounts-and-teams/single-sign-on.html#azure-ad-single-sign-on)
+- [G suite](https://docs.workato.com/user-accounts-and-teams/single-sign-on.html#google-g-suite-single-sign-on)
+
+## New connectors
+##### Dec 2019
+
+### Google BigQuery
+Google BigQuery is a serverless, highly scalable, and cost effective cloud data warehouse. BigQuery is amongst the top 3 solutions customers look to use when migrating from traditional data warehousing products. Build data pipelines faster to accelerate time to insights, create scalable ELT/ETL data pipelines effortlessly with the Workato BigQuery connector.
+
+**Connector features**
+- The connector currently supports OAuth2 connection. No app registration needed.
+- [Triggers/Actions](https://www.workato.com/integrations/google_big_query)
+- [Documentation](https://docs.workato.com/connectors/bigquery.html)
+
+## New connectors
+##### Dec 2019
+
+### Zuora
+Zuora is a popular and critical application for businesses that offer product/services as a subscription e.g. BOX, HBO, Zoom, Clear, Prezi, BetterCloud, Zendesk, and more.
+
+**Configure Price Quote (CPQ) integrations**
+For B2B companies with an existing CPQ can connect their CPQ (e.g. Salesforce, Microsoft CRM Dynamics, Apttus etc.) solution to the Zuora. By connecting to Zuora, they can sync the pricing, orders, subscription, usage, AR, and revenue data.
+
+**CRM Integrations**
+By connecting Zuora to CRM applications customers can provide sales and support teams instant access to billing data.
+- **Sales:** Zuora’s pricing catalog can be exposed in sales system so pricing and transactional (i.e., invoices, payments, refunds) information can be used to automate creation of subscription quotes.
+- **Support / Service:** By providing instant access to customer subscription, billing and payment history, renewal dates, and key subscriber metrics in the support / service system for complete visibility into the subscriber relationship allowing agents to resolve issues faster, and create better CX.
+
+**Connector features**
+- The connector currently supports OAuth2 connection. App registration needed.
+- [Triggers/Actions](https://www.workato.com/integrations/zuora)
+- [Documentation](https://docs.workato.com/connectors/zuora.html)
+
 ## New connectors
 ###### Oct 2019
 
