@@ -704,17 +704,16 @@ module.exports = [
             path: '/workbot/workbot-custom-bots',
             children: [
               [
-                '/workbot/workbot-custom-bots#moving-to-granular-permission-scopes',
-                'Moving to granular permission scopes'
-              ],
-              [
                 '/workbot/custom-workbot-vs-legacy-slash-commands',
                 'Custom Workbot vs Legacy slash commands'
               ]
             ]
           }
         ]
-      }
+      },
+      [
+        '/workbot/workbot-granular-permissions','Moving to granular permissions'
+      ]
     ]
   },
   {
