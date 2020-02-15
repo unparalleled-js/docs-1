@@ -823,7 +823,7 @@ module.exports = [
         path: '/connectors/s3',
         children: [
           [
-            '/connectors/s3#how-to-connect-to-amazon-s3-on-workato',
+            '/connectors/s3/connection-setup',
             'Connection setup'
           ],
           [
@@ -843,7 +843,8 @@ module.exports = [
           [
             '/connectors/s3/action-create-bucket',
             'Create bucket action'
-          ]
+          ],
+          ['/connectors/s3/action-presign-url', 'Generate presigned URL action'],
         ]
       },
       {
