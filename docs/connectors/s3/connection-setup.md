@@ -21,7 +21,7 @@ Refer to [Amazon documentation](http://docs.aws.amazon.com/IAM/latest/UserGuide/
 ![Authorization method - Access key](~@img/connectors/amazon-s3/auth-access-key.png)
 *Authorization method - Access key*
 
-### Input fields
+### Input fields for Access Key
 
 | Field              | Description |
 | :----------------- | :---------- |
@@ -42,7 +42,7 @@ In this method, you will create an IAM Role for an external Workato's Amazon S3 
 ![Authorization method - IAM role](~@img/connectors/amazon-s3/auth-iam-role.png)
 *Authorization method - IAM role*
 
-### Input fields
+### Input fields for IAM role
 
 | Field              | Description |
 | :----------------- | :---------- |
@@ -63,10 +63,10 @@ Follow these steps to retrieve the **Role ARN** and **External ID** required for
 | 1.    | Navigate to **My Security Credentials**.<br>![My Security Credentials](~@img/connectors/amazon-s3/security-credentials.png) |
 | 2.    | Select **Roles** > **Create role**.<br>![Create role](~@img/connectors/amazon-s3/create-role.png) |
 | 3.    | Select **Another AWS account**. Input Workato's Amazon S3 Account ID (`353360065216`).<br>![Workato Amazon S3 Account ID](~@img/connectors/amazon-s3/trusted-entity.png) |
-| 4. (optional) | To increase security, select **Require external ID**. Provide a meaningful **External ID** and record this down. You will need this in the [connection setup](#input-fields-2) when creating a connection in Workato.<br>![Require External ID](~@img/connectors/amazon-s3/require-external-id.png) |
+| 4. (optional) | To increase security, select **Require external ID**. Provide a meaningful **External ID** and record this down. You will need this in the [connection setup](#input-fields-for-iam-role) when creating a connection in Workato.<br>![Require External ID](~@img/connectors/amazon-s3/require-external-id.png) |
 | 5.    | Select proper permissions for Workato to run automation in your Amazon S3. At the minimum, Workato should have List/Read/Write access to specific buckets or folders. In this tutorial, we will select `AmazonS3FullAccess`.<br>![Select permissions](~@img/connectors/amazon-s3/select-permissions.png) |
 | 6. (optional) | If you are using object taggings, select an appropriate tag for this IAM role.<br>![Add tag](~@img/connectors/amazon-s3/add-tag.png) |
 | 7.    | Give this IAM Role an appropriate name & description.<br>![Review role](~@img/connectors/amazon-s3/review-role.png)
 | 8.    | The IAM Role is now created. Select the role.<br>![Select IAM role](~@img/connectors/amazon-s3/select-iam-role.png) |
-| 9.    | Copy the **Role ARN**. You will need to use this in the [connection setup](#input-fields-2) when creating an Amazon S3 connection in Workato.<br>![Copy role ARN](~@img/connectors/amazon-s3/copy-role-arn.png) |
+| 9.    | Copy the **Role ARN**. You will need to use this in the [connection setup](#input-fields-for-iam-role) when creating an Amazon S3 connection in Workato.<br>![Copy role ARN](~@img/connectors/amazon-s3/copy-role-arn.png) |
 | 10.   | To view the **external ID**. Locate the **Trust relationships** tab.<br>![Copy role ARN](~@img/connectors/amazon-s3/find-external-id.png) |
