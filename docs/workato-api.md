@@ -51,7 +51,7 @@ Workato API supports sending request body with the `application/json` content-ty
 | POST | [api/recipes](/workato-api/recipes.md#create-a-recipe) | Create recipe. |
 | PUT  | [api/recipes/:id](/workato-api/recipes.md#update-a-recipe) | Update recipe. |
 | GET  | [api/recipes](/workato-api/recipes.md#list-recipes-belonging-to-user)| List recipes belonging to user. |
-| GET  | [api/recipes/search](/workato-api/recipes.md#search-for-public-recipes) | Search for public recipes. |
+| GET  | [api/recipes/search](/oem/oem-api/recipes.md#search-for-public-recipes) | Search for public recipes. Requires OEM vendor privileges. |
 | PUT  | [api/recipes/:id/start](/workato-api/recipes.md#start-recipe) | Start recipe. |
 | PUT  | [api/recipes/:id/stop](/workato-api/recipes.md#stop-recipe) | Stop recipe. |
 | DELETE | [api/recipes/:id](/workato-api/recipes.md#delete-recipe) | Delete recipe. |
