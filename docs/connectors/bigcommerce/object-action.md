@@ -20,6 +20,8 @@ After selecting the object, input fields related to the selected objects will be
 ### Output fields
 The output datatree is populated based on the object created and returns the attributes of the created object in BigCommerce.
 
+______________________
+
 ## Update object actions
 When executed, this action updates an object of your choosing in BigCommerce.
 
@@ -31,6 +33,8 @@ One required field common to all `Update object` actions is the internal BigComm
 ### Output fields
 The output datatree is populated based on the object updated and returns the attributes of the updated object in BigCommerce.
 
+______________________
+
 ## Search object action
 When executed, this action searches for an object of your choosing in BigCommerce.
 
@@ -41,6 +45,8 @@ Select the BigCommerce object to search for. After selecting the object, possibl
 This action returns an array of objects which match your search results. In some cases, when you are expecting only a single result, you may simply map the output datapills directly to downstream actions.
 
 In other cases where you expect multiple results from the search, make use of the [list datapill](/features/list-management.md) to iterate through the results from BigCommerce.
+
+______________________
 
 ## Get object by ID action
 When executed, this action retrieves a single object of your choosing in BigCommerce.

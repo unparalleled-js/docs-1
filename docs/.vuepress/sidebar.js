@@ -865,6 +865,18 @@ module.exports = [
         ]
       },
       {
+        title: 'BigCommerce',
+        path: '/connectors/bigcommerce',
+        children: [
+          [
+            '/connectors/bigcommerce#how-to-connect-to-bigcommerce-on-workato',
+            'Connection setup'
+          ],
+          ['/connectors/bigcommerce/new-row-trigger', 'New object trigger'],
+          ['/connectors/bigcommerce/object-action', 'Object actions']
+        ]
+      },
+      {
         title: 'Box',
         path: '/connectors/box',
         children: [
