@@ -64,7 +64,7 @@ curl  -X GET https://www.workato.com/api/managed_users/98178/connections \
 ]
 ```
 
-## Create Connection
+## Create Connections
 Allows the OEM vendor to add a shell connection in a customer's account. Note that the API doesn't allow user to provide actual credentials.
 
 ```
