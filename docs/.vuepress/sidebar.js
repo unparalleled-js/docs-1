@@ -1359,6 +1359,10 @@ module.exports = [
             'Search custom records action'
           ],
           [
+            '/connectors/netsuite#get-all-standard-objects-action',
+            'Get all standard records action'
+          ],
+          [
             '/connectors/netsuite#update-standard-object-and-update-custom-object-action',
             'Update record action'
           ],
