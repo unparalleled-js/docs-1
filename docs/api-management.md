@@ -41,11 +41,17 @@ An API token grants access to all the API Collections within an Access Profile. 
 
 See the following pages for more details on Workato's API Platform:
 
-* [API Collections and Endpoint Management](/api-mgmt/api-collections.md)
+* [API Collections Management](/api-mgmt/api-collections.md)
+
+* [API Endpoints Management](/api-mgmt/api-endpoints.md)
 
 * [API Access Policies](/api-mgmt/api-access-policies.md)
 
 * [Managing API Clients and Access Profiles](/api-mgmt/api-client-mgmt.md)
+
+* [API Prefix](/api-mgmt/api-prefix)
+
+* [Custom Domain](/api-mgmt/custom-domain)
 
 * [Calling APIs](/api-mgmt/calling-apis.md)
 
