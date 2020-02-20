@@ -6,7 +6,7 @@ date: 2019-01-31 06:00:00 Z
 # Dropbox trigger - New/updated file in directory
 Triggers when a new file is added or existing file is updated in a specified folder. New and updated files in subfolders will also be picked up.
 
-Checks selected folder for new/updated files every 5 minutes. When recipe is first started, picks up files created or updated an hour ago.
+When recipe is first started, picks up files created or updated an hour ago.
 
 ## Input fields
 
