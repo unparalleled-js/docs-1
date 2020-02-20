@@ -414,7 +414,7 @@ If you can't find the field you're looking for, check with your NetSuite admin o
 The get all standard objects action will return the entire list of records of the selected record type in your NetSuite.
 
 ### Configuring the get all standard objects action
-To carry out a get all standard object action, we would first need to tell the recipe exactly what standard object category you want to retrieve. Filtering this list of records can be done using formula mode and `where` filters. [Find out more here](/formulas/array-list-formulas.html#where)
+To carry out a get all standard object action, we would first need to tell the recipe exactly what standard object category you want to retrieve. The output of this action will be a list containing all records in your NetSuite instance. You can then filtering this list of records using `.where` methods in formula mode in downstream actions. [Find out more here](/formulas/array-list-formulas.html#where)
 
 ![Get all standard objects](~@img/connectors/netsuite/get-all-standard-objects.png)
 *Configuring the get all standard objects action*
