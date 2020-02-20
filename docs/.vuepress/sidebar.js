@@ -742,8 +742,8 @@ module.exports = [
     path: '/api-management',
     children: [
       ['/api-mgmt/dashboard', 'Dashboard'],
-      ['/api-mgmt/api-collections', 'API Collections Management'],
-      ['/api-mgmt/api-endpoints', 'API Endpoints Management'],
+      ['/api-mgmt/api-collections', 'API Collections'],
+      ['/api-mgmt/api-endpoints', 'API Endpoints'],
       ['/api-mgmt/api-access-policies', 'API Access Policies'],
       {
         title: 'Managing API Clients and Access Profiles',

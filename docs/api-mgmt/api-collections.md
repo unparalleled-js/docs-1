@@ -10,8 +10,6 @@ The API collections tab displays all API collections under this account (individ
 ![API Collection Tab](~@img/api-mgmt/api-collections.png)
 *API Collections Tab*
 
-The first step in setting up an API for external use is to define and test one or more recipes that use the [Callable recipes by Workato](/features/callable-recipes.md) connector as a trigger. Each such recipe is a potential Endpoint for a callable API, but when first created they are not enabled for external access.
-
 The next step is to organize these recipes into one or more API Collections. Generally, an API Collection should contain endpoints whose access pattern has some common features, so that you can manage them together. For example, a set of Salesforce endpoints that are intended to be called by recipes used with the Sales team might be put together in an API Collection.
 
 API Collections are versioned, using a unique 1-10 character version identifier. Collections with the same name but different versions are distinct objects.
@@ -23,7 +21,7 @@ In this guide, we will go through API collection configurations:
 - [How to customize URL path for API collection](#customize-url-path-for-api-collection)
 - [How to obtain machine-readable documentation (OpenAPI)](#machine-readable-documentation-openapi)
 
-In a seperate guide, we will go through [API endpoint configuration](/api-mgmt/api-endpoints.md).
+In a separate guide, we will go through [API endpoint configuration](/api-mgmt/api-endpoints.md).
 
 ## Creating an API Collection
 
@@ -58,10 +56,10 @@ API collection URL paths are sub-directory paths that you can use to define your
 
 Navigate to this page by **selecting your desired API collection** > click on the **Settings** tab, and selecting **URL settings** on the left menu.
 
-You can edit the URL path for this collection. Workato recommends to a meaningful name and standardizing the name across development teams. Having standardized collection names across your company will simplify the [recipe export process](/recipe-development-lifecycle.md) during versioning changes and updates between development, testing, and production-ready endpoint.
-
 ![Customize endpoint URL](~@img/api-mgmt/customize-collection-url.png)
 *Customize endpoint URL*
+
+You can edit the URL path for this collection. Workato recommends using a meaningful name and standardizing the name across development teams. Having standardized collection names across your company will simplify the [recipe export process](/recipe-development-lifecycle.md) during versioning changes and updates between development, testing, and production-ready endpoint.
 
 :::tip
 New Workato collections are automatically configured with a custom path prefix. For more information on path prefixes, see [here](/api-mgmt/custom-domain.md).
@@ -69,7 +67,7 @@ New Workato collections are automatically configured with a custom path prefix. 
 
 ## Machine-readable documentation (OpenAPI)
 
-The API Collection page has a link in the upper-right corner, labeled **Download OpenAPI spec**. This gives you access to a downloadable file that contains documentation for all the endpoints within the collection, in a format that can be used by programs and tools. This format is called OpenAPI, also known as Swagger. Currently, Workato supports [version 2.0](https://github.com/OAI/OpenAPI-Specification/blob/master/versions/2.0.md) of the specification.
+The API Collection page has a link in the upper-right corner, labeled **Download OpenAPI spec**. This gives you access to a downloadable file that contains documentation for all the endpoints within the collection, in a format that can be used by tools like Postman. This format is called OpenAPI, also known as Swagger. Currently, Workato supports [version 2.0](https://github.com/OAI/OpenAPI-Specification/blob/master/versions/2.0.md) of the specification.
 
 ## More information
 

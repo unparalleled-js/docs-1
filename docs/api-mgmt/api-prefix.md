@@ -5,9 +5,9 @@ date: 2020-01-20 00:00:00 Z
 
 ## API Prefix
 
-API prefixes are base paths are unique to each Workato account. You can use it to define your API platform environment. For example, you can use the API prefix to differentiate development, testing, and production callable endpoints. Doing so allows you to reuse your collection paths.
+API prefixes are base paths that are unique to each Workato account. You can use it to define your API platform environment. For example, you can use the API prefix to differentiate development, testing, and production callable endpoints. Doing so allows you to reuse your collection paths.
 
-Having standardized collection names across your company simplifies the [recipe export process](/recipe-development-lifecycle.md). For example, your team can easily export recipes from development account (`/acme-dev/sales-api/`) to the production account `/acme/sales-api/` without worrying about conflicting collection paths. API Prefix lets your work seemlessly between your environments.
+Having standardized collection names across your company simplifies the [recipe export process](/recipe-development-lifecycle.md). For example, your team can easily export recipes from the development account (`/acme-dev/sales-api/`) to the production account `/acme/sales-api/` without worrying about conflicting collection paths. API Prefix lets your work seemlessly between your environments.
 
 ## Understanding the Endpoint
 
@@ -38,7 +38,7 @@ Changes to API prefix will require existing clients of the API to make adjustmen
 
 ### API Prefix for old API collection
 
-All newly created Workato API collections come preconfigured with an API prefix. However, this does not apply to older API collections. These will retain the existing URL until you decide to upgrade.
+All newly created Workato API collections come preconfigured with an API prefix. However, this does not apply to older API collections. Those will retain their existing URL until you decide to upgrade them.
 
 #### Why upgrade API collection?
 

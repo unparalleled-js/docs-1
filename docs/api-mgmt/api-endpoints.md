@@ -14,7 +14,7 @@ You should see something like this:
 
 ## Setting up an API Endpoint
 
-The first step in setting up an API for external use is to define and test one or more recipes that use the [Callable recipes by Workato](/features/callable-recipes.md) connector as a trigger. Each such recipe is a potential Endpoint for a callable API, but when first created they are not enabled for external access.
+The first step in setting up an API endpoint is to create a recipe that uses the [Callable recipes by Workato](/features/callable-recipes.md) connector as a trigger.
 
 The next step is to organize these recipes into one or more API Collections. Generally, an API Collection should contain endpoints whose access pattern has some common features, so that you can manage them together. For example, a set of Salesforce endpoints that are intended to be called by recipes used with the Sales team might be put together in an API Collection.
 
@@ -94,7 +94,7 @@ When a call to the endpoint is made, a status message will be returned to the cl
 
 To the right of the **Parameters** section, there is a **Try it out** button. This can be used to make a REST call to the endpoint for testing purposes.
 
-The input parameters can be entered in the **Parameters** section of the endpoint description. Frequently the **Example value** shown in the endpoint description will suffice for a test. For example:
+The input parameters can be entered in the **Parameters** section of the endpoint description. Often, the **Example value** shown in the endpoint description will suffice for a test. For example:
 
 ![Parameter input](~@img/api-mgmt/test-endpoint-parameters.png)
 *Parameters input*

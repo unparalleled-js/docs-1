@@ -46,7 +46,7 @@ The original API endpoint will continue to work in parallel with your custom dom
 
 ## How to remove custom domain configuration
 
-You may have to remove the current custom domain configuration if you would like to reconfigure your API platform to a different custom domain. To do this, simply select **Remove** button on the top-right of the screen.
+You may have to remove the current custom domain configuration if you would like to reconfigure your API platform to a different custom domain. To do this, simply click the **Remove** button on the top-right of the screen.
 
 | Steps | Description |
 | ----- | ----- |

@@ -16,9 +16,9 @@ Monitor the performance of your API platform as a whole, or get granular data ab
 
 Use the **Policy violations** metric to identify key clients or collections that produce abnormal API calls. See here for more information on [API Access Policies](/api-mgmt/api-access-policies.md).
 
-## Filter parameters
+## Filters
 
-Use filter parameters to modify the dashboard output. By default, the filters are set to `Last 30 days`, `All clients` and `All collections`.
+Use filter parameters to modify the dashboard output. By default, the dashboard is set to `Last 30 days`, `All clients` and `All collections`. You can change the filters to find your preferred dashboard view. Filters will reset once you leave the page.
 
 ![API Dashboard filters](~@img/api-mgmt/api-dashboard-filter.png)
 *API Dashboard filters*
@@ -29,9 +29,9 @@ Use filter parameters to modify the dashboard output. By default, the filters ar
 
 ## Top request count
 
-Finally, obtain aggregate data about who is your active API consumers and your most popular endpoint. This display will change according to the filter parameters specified above.
+Finally, obtain aggregated data about who your most active API consumers are, as well as your most popular endpoints. This display will change according to the filters you specified above.
 
 ![Top request count](~@img/api-mgmt/api-dashboard-request-count.png)
 *Top request count*
 
-To see details of each endpoint request, use the **Logs** tab.
+To see details of each endpoint request, navigate to the **Logs** tab.
