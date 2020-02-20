@@ -40,42 +40,126 @@ curl  -X GET https://www.workato.com/api/managed_users/98178/connections \
 ### Response
 
 ```json
-[
-  {
-    "id": 36,
-    "name": "ACME Production Salesforce connection",
-    "provider": "salesforce",
-    "authorized_at": "2015-05-26T22:53:52.528Z",
-    "authorization_status": "success",
-    "authorization_error": null,
-    "created_at": "2015-05-26T22:53:52.532Z",
-    "updated_at": "2015-05-26T22:53:52.532Z"
-  },
-  {
-      "id": 37,
-      "name": "ACME google sheet account",
-      "provider": "google_sheets",
-      "authorized_at": "2015-05-26T22:53:52.528Z",
-      "authorization_status": "success",
-      "authorization_error": null,
-      "created_at": "2015-05-26T22:53:52.532Z",
-      "updated_at": "2015-05-26T22:53:52.532Z"
-  }
-]
+{
+ "result": [
+   {
+     "id": 36,
+     "name": "ACME Production Salesforce connection",
+     "provider": "salesforce",
+     "authorized_at": "2015-05-26T22:53:52.528Z",
+     "authorization_status": "success",
+     "authorization_error": null,
+     "created_at": "2015-05-26T22:53:52.532Z",
+     "updated_at": "2015-05-26T22:53:52.532Z"
+   },
+   {
+       "id": 37,
+       "name": "ACME google sheet account",
+       "provider": "google_sheets",
+       "authorized_at": "2015-05-26T22:53:52.528Z",
+       "authorization_status": "success",
+       "authorization_error": null,
+       "created_at": "2015-05-26T22:53:52.532Z",
+       "updated_at": "2015-05-26T22:53:52.532Z"
+   }
+ ]
+}
 ```
 
 ## Create Connections
 Allows the OEM vendor to add a shell connection in a customer's account. Note that the API doesn't allow user to provide actual credentials.
 
 ```
-POST /api/managed_users/:id/connections
+POST /api/managed_users/:managed_user_id/connections
 ```
+
 
 ### URL parameters
 
 | Name | Type | Description |
 |------|------|-------------|
 | managed_user_id | **string**<br>_required_ | OEM customer Account ID/External ID. <br>External id should be prefixed with a E(eg: EA2300) and the resulting id should be URL encoded. |
-| name | **string**<br>_optional_ | Name of the connection. Eg: 'Prod Salesforce connection'
-| provider | **string**<br>_required_ | Connector identifier. Eg: 'Salesforce' |
 {.api-input}
+
+### Post parameters
+| Name | Type | Description |
+|------|------|-------------|
+| name | **string**<br>_optional_ | Name of the connection. Eg: 'Prod Salesforce connection'
+| provider | **string**<br>_required_ | Connector identifier. Eg: 'salesforce' |
+| input | **Hash**<br>_optional_ | Connection parameters. |
+| oauth_token_pair | **Hash**<br>_optional_ | For connectors supporting OAuth, the Hash can contain `access_token` and `refresh_token`. |
+{.api-input}
+
+
+#### Sample request
+
+##### Shell connection request
+
+```shell
+curl  -X GET https://www.workato.com/api/managed_users/98178/connection \
+      -H 'x-user-email: <email>' \
+      -H 'x-user-token: <token>' \
+      -H 'Content-Type: application/json' \
+      -d  '{
+            "name": "jira_connection",
+            "provider": "jira"
+          }'
+
+```
+
+##### Connection request with credentials
+
+```shell
+curl  -X GET https://www.workato.com/api/managed_users/98178/connection \
+      -H 'x-user-email: <email>' \
+      -H 'x-user-token: <token>' \
+      -H 'Content-Type: application/json' \
+      -d  '{
+            "name": "jira_connection",
+            "provider": "jira",
+            "input": {
+              "host_name": "acme.atlassian.net",
+              "api_token_auth": "true",
+              "email": "smith@acme.com",
+              "apitoken": "XXXXXXXX"
+            }
+          }'
+
+```
+
+##### Connection request with OAuth token
+
+```shell
+
+curl  -X GET https://www.workato.com/api/managed_users/98178/connection \
+      -H 'x-user-email: <email>' \
+      -H 'x-user-token: <token>' \
+      -H 'Content-Type: application/json' \
+      -d  '{
+            "name": "zendesk_connection",
+            "provider": "zendesk",
+            "input": {
+              "subdomain": "acme"
+            },
+            "oauth_token_pair": {
+              "access_token": "XXXXXXX",
+              "refresh_token": "YYYYYYY"
+            }
+          }'
+
+```
+
+### Response
+
+```json
+{
+ "id": 36,
+ "name": "jira_connection",
+ "provider": "jira",
+ "authorized_at": "2015-05-26T22:53:52.528Z",
+ "authorization_status": "success",
+ "authorization_error": null,
+ "created_at": "2015-05-26T22:53:52.532Z",
+ "updated_at": "2015-05-26T22:53:52.532Z"
+}
+```
