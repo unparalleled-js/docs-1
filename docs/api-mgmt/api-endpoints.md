@@ -33,7 +33,7 @@ Clicking on **Create new endpoint** within the API Collection tab brings up a di
 
 ## Editing an Endpoint
 
-The **•••** icon in the upper-right corner of the listed endpoint within the API Collection brings up a menu that allows editing or deleting an individual endpoint within the collection. The editing dialog looks like this:
+The ellipsis (**•••**) icon in the upper-right corner of the listed endpoint within the API Collection brings up a menu that allows editing or deleting an individual endpoint within the collection. The editing dialog looks like this:
 
 ![Edit endpoint dialog](~@img/api-mgmt/edit-endpoint.png)
 *Edit endpoint dialog*
