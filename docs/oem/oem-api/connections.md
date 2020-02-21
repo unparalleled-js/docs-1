@@ -40,42 +40,106 @@ curl  -X GET https://www.workato.com/api/managed_users/98178/connections \
 ### Response
 
 ```json
-[
-  {
-    "id": 36,
-    "name": "ACME Production Salesforce connection",
-    "provider": "salesforce",
-    "authorized_at": "2015-05-26T22:53:52.528Z",
-    "authorization_status": "success",
-    "authorization_error": null,
-    "created_at": "2015-05-26T22:53:52.532Z",
-    "updated_at": "2015-05-26T22:53:52.532Z"
-  },
-  {
-      "id": 37,
-      "name": "ACME google sheet account",
-      "provider": "google_sheets",
-      "authorized_at": "2015-05-26T22:53:52.528Z",
-      "authorization_status": "success",
-      "authorization_error": null,
-      "created_at": "2015-05-26T22:53:52.532Z",
-      "updated_at": "2015-05-26T22:53:52.532Z"
-  }
-]
+{
+ "result": [
+   {
+     "id": 36,
+     "name": "ACME Production Salesforce connection",
+     "provider": "salesforce",
+     "authorized_at": "2015-05-26T22:53:52.528Z",
+     "authorization_status": "success",
+     "authorization_error": null,
+     "created_at": "2015-05-26T22:53:52.532Z",
+     "updated_at": "2015-05-26T22:53:52.532Z"
+   },
+   {
+       "id": 37,
+       "name": "ACME google sheet account",
+       "provider": "google_sheets",
+       "authorized_at": "2015-05-26T22:53:52.528Z",
+       "authorization_status": "success",
+       "authorization_error": null,
+       "created_at": "2015-05-26T22:53:52.532Z",
+       "updated_at": "2015-05-26T22:53:52.532Z"
+   }
+ ]
+}
 ```
 
 ## Create Connections
-Allows the OEM vendor to add a shell connection in a customer's account. Note that the API doesn't allow user to provide actual credentials.
+Allows the OEM vendor to:
+- Add a shell connection in a customer's account OR
+- Add and authenticate a connection in a customer's account
 
 ```
-POST /api/managed_users/:id/connections
+POST /api/managed_users/:managed_user_id/connections
 ```
+
 
 ### URL parameters
 
 | Name | Type | Description |
 |------|------|-------------|
 | managed_user_id | **string**<br>_required_ | OEM customer Account ID/External ID. <br>External id should be prefixed with a E(eg: EA2300) and the resulting id should be URL encoded. |
-| name | **string**<br>_optional_ | Name of the connection. Eg: 'Prod Salesforce connection'
-| provider | **string**<br>_required_ | Connector identifier. Eg: 'Salesforce' |
 {.api-input}
+
+### Post parameters
+| Name | Type | Description |
+|------|------|-------------|
+| name | **string**<br>_optional_ | Name of the connection. Eg: 'Prod Salesforce connection'
+| provider | **string**<br>_required_ | Connector identifier. Eg: 'salesforce' |
+| input | **Hash**<br>_optional_ | Connection parameters. |
+{.api-input}
+
+
+#### Sample request
+
+##### Shell connection request
+This creates the connection in a 'Disconnected' state.
+
+```shell
+curl  -X GET https://www.workato.com/api/managed_users/98178/connection \
+      -H 'x-user-email: <email>' \
+      -H 'x-user-token: <token>' \
+      -H 'Content-Type: application/json' \
+      -d  '{
+            "name": "jira_connection",
+            "provider": "jira"
+          }'
+```
+
+##### Connection request with credentials
+Authenticates the connection (API token authentication).
+
+```shell
+curl  -X GET https://www.workato.com/api/managed_users/98178/connection \
+      -H 'x-user-email: <email>' \
+      -H 'x-user-token: <token>' \
+      -H 'Content-Type: application/json' \
+      -d  '{
+            "name": "jira_connection",
+            "provider": "jira",
+            "input": {
+              "host_name": "acme.atlassian.net",
+              "api_token_auth": "true",
+              "email": "smith@acme.com",
+              "apitoken": "XXXXXXXX"
+            }
+          }'
+```
+
+
+### Response
+
+```json
+{
+ "id": 36,
+ "name": "jira_connection",
+ "provider": "jira",
+ "authorized_at": "2015-05-26T22:53:52.528Z",
+ "authorization_status": "success",
+ "authorization_error": null,
+ "created_at": "2015-05-26T22:53:52.532Z",
+ "updated_at": "2015-05-26T22:53:52.532Z"
+}
+```
