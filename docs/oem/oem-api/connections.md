@@ -107,7 +107,6 @@ curl  -X GET https://www.workato.com/api/managed_users/98178/connection \
             "name": "jira_connection",
             "provider": "jira"
           }'
-
 ```
 
 ##### Connection request with credentials
@@ -128,14 +127,12 @@ curl  -X GET https://www.workato.com/api/managed_users/98178/connection \
               "apitoken": "XXXXXXXX"
             }
           }'
-
 ```
 
 ##### Connection request with OAuth token
 Authenticates the connection (OAuth 2.0 authentication).
 
 ```shell
-
 curl  -X GET https://www.workato.com/api/managed_users/98178/connection \
       -H 'x-user-email: <email>' \
       -H 'x-user-token: <token>' \
@@ -151,7 +148,6 @@ curl  -X GET https://www.workato.com/api/managed_users/98178/connection \
               "refresh_token": "YYYYYYY"
             }
           }'
-
 ```
 
 ### Response
