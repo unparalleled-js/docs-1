@@ -67,7 +67,9 @@ curl  -X GET https://www.workato.com/api/managed_users/98178/connections \
 ```
 
 ## Create Connections
-Allows the OEM vendor to add a shell connection in a customer's account. Note that the API doesn't allow user to provide actual credentials.
+Allows the OEM vendor to:
+- Add a shell connection in a customer's account OR
+- Add and authenticate a connection in a customer's account
 
 ```
 POST /api/managed_users/:managed_user_id/connections
@@ -94,6 +96,7 @@ POST /api/managed_users/:managed_user_id/connections
 #### Sample request
 
 ##### Shell connection request
+This creates the connection in a 'Disconnected' state.
 
 ```shell
 curl  -X GET https://www.workato.com/api/managed_users/98178/connection \
@@ -108,6 +111,7 @@ curl  -X GET https://www.workato.com/api/managed_users/98178/connection \
 ```
 
 ##### Connection request with credentials
+Authenticates the connection (API token authentication).
 
 ```shell
 curl  -X GET https://www.workato.com/api/managed_users/98178/connection \
@@ -128,6 +132,7 @@ curl  -X GET https://www.workato.com/api/managed_users/98178/connection \
 ```
 
 ##### Connection request with OAuth token
+Authenticates the connection (OAuth 2.0 authentication).
 
 ```shell
 
