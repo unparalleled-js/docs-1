@@ -2692,7 +2692,7 @@ module.exports = [
         path: '/security/data-protection',
         children: [
           [
-            '/security/data-protection/hour-data-retention',
+            '/security/data-protection/data-retention-faq',
             'Data retention'
           ],
           {
