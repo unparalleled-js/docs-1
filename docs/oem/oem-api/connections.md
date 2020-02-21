@@ -89,7 +89,6 @@ POST /api/managed_users/:managed_user_id/connections
 | name | **string**<br>_optional_ | Name of the connection. Eg: 'Prod Salesforce connection'
 | provider | **string**<br>_required_ | Connector identifier. Eg: 'salesforce' |
 | input | **Hash**<br>_optional_ | Connection parameters. |
-| oauth_token_pair | **Hash**<br>_optional_ | For connectors supporting OAuth, the Hash can contain `access_token` and `refresh_token`. |
 {.api-input}
 
 
@@ -129,26 +128,6 @@ curl  -X GET https://www.workato.com/api/managed_users/98178/connection \
           }'
 ```
 
-##### Connection request with OAuth token
-Authenticates the connection (OAuth 2.0 authentication).
-
-```shell
-curl  -X GET https://www.workato.com/api/managed_users/98178/connection \
-      -H 'x-user-email: <email>' \
-      -H 'x-user-token: <token>' \
-      -H 'Content-Type: application/json' \
-      -d  '{
-            "name": "zendesk_connection",
-            "provider": "zendesk",
-            "input": {
-              "subdomain": "acme"
-            },
-            "oauth_token_pair": {
-              "access_token": "XXXXXXX",
-              "refresh_token": "YYYYYYY"
-            }
-          }'
-```
 
 ### Response
 
