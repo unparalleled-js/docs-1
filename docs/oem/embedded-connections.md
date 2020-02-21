@@ -3,19 +3,32 @@ title: Embedded connections
 date: 2019-10-21 11:00:00 Z
 ---
 
-# Embedded connections
+# Embedded Connection Widget
 
-To use Connections widget you can add: 
+The Embedded Connection Widget allows the end customer to access and authenticate the app connections in their account. It allows OEM partners to build their own user experience for their customers to provide authentication to connections.
+
+It usually functions well in Blackbox use cases where the OEM partner builds and maintains integrations on the customer's behalf. In this scenario, the customer can use the widget to authenticate connections required for their recipes from the partner's application, without ever having to leave and access the Workato platform.
+
+This is available as an add-on to all OEM partners.
+
+## Implementation
+
+To use the Connection Widget you can add:
 
 ```html
 <iframe src="https://workato.com/direct_link/embedded/connections/<connection_id>>?workato_dl_token=<jwt_token>"></iframe>
-``` 
+```
 
-Widget API works on postMessage. 
+The Connection Widget API works on [PostMessage API](https://developer.mozilla.org/en-US/docs/Web/API/Window/postMessage) in the following format:
 
-Format: `{ type: string, payload: object }` 
+```
+{ type: string, payload: object }
+```
+::: tip Note
+If you are testing the Widget for the first time, please provide your Workato customer success representative the Origin URL. This will allow the window to receive the messages via the PostMessage API.
+:::
 
-Is supported next types: 
+### Supported types
 
 | Type  | Payload | Description |
 | ------------- | ------------- | -------- |
@@ -23,7 +36,7 @@ Is supported next types:
 | `connectionStatusChange`  | `{ id: number, provider: string, connected?: boolean, error?: string }`  | Connection status was changed
 | `error` | `{ message: string }` | Unexpected error
 
-### Example of use: 
+### Example of use:
 
 ```html
 <!DOCTYPE html>
@@ -43,7 +56,7 @@ Is supported next types:
             var message = data.error || (data.payload.connected ? 'Connected' : 'Disconnected');
             document.getElementById('statusId').innerText = message;
             break;
-          case 'error': 
+          case 'error':
             console.log(data.payload.message);
         }
       }
@@ -56,7 +69,10 @@ Is supported next types:
 </html>
 ```
 
-### Example of JWT generation: 
+## JWT direct linking
+Every customer account that uses the Embedded Connection Widget is authenticated to their corresponding Workato account through JWT direct linking. View this [document](/oem/jwt-direct-linking.md) to learn more.
+
+### Example of JWT generation:
 
 ```javascript
 import nanoid from 'nanoid';
@@ -80,5 +96,3 @@ function getToken(apiKey, customerAccountId, privateKey) {
 ```
 
 See more examples https://github.com/auth0/node-jsonwebtoken
-
- 
