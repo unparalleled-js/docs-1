@@ -2651,6 +2651,10 @@ module.exports = [
         path: '/oem/oem-api/oem-vendor-apis',
         children: [
           [
+            '/oem/oem-api/account-properties',
+            'Account Properties'
+          ],
+          [
             '/oem/oem-api/adapters',
             'Connectors'
           ],
@@ -2659,12 +2663,12 @@ module.exports = [
             'Connections'
           ],
           [
-            '/oem/oem-api/picklists',
-            'Picklists'
-          ],
-          [
             '/oem/oem-api/folders',
             'Folders'
+          ],
+          [
+            '/oem/oem-api/picklists',
+            'Picklists'
           ],
           [
             '/oem/oem-api/managed-users',

@@ -33,6 +33,14 @@ Workato API supports sending request body with the `application/json` content-ty
 | `500` | Server error | `{"message":"Server error","id":"3188c2d0-29a4-4080-908e-582e7ed82580"}` |
 {.api-input}
 
+## Account properties
+
+| Type | Resource | Description |
+|------|----------|-------------|
+| GET | [/api/managed_users/:managed_user_id/properties](/oem/oem-api/account-properties.md#list-properties-belonging-to-a-customer-by-prefix) | Returns a list of account properties belonging to a customer account that matches a prefix. |
+| POST | [/api/managed_users/:managed_user_id/properties](/oem/oem-api/account-properties.md#upsert-properties-by-name) | Upserts account properties to a customer account. |
+{.api-quick-reference}
+
 ## Connectors
 
 | Type |Resource | Description |
@@ -48,18 +56,18 @@ Workato API supports sending request body with the `application/json` content-ty
 | POST | [/api/managed_users/:id/connections](/workato-api/connections.md) | Allows the OEM vendor to add a shell connection in a customer account. |
 {.api-quick-reference}
 
-## Picklists
-
-| Type |Resource | Description |
-|------|---------|-------------|
-| POST | [/managed_users/:id/connections/:connection_id/pick_list](/oem/oem-api/picklists.md)) | Obtains a list of picklist values for a specified connection in an OEM customer account. |
-{.api-quick-reference}
-
 ## Folders
 
 | Type |Resource | Description |
 |------|---------|-------------|
 | POST | [/api/managed_users/:id/folders](/oem/oem-api/folders.md) | Creates a new folder in a customer account. |
+{.api-quick-reference}
+
+## Picklists
+
+| Type |Resource | Description |
+|------|---------|-------------|
+| POST | [/managed_users/:id/connections/:connection_id/pick_list](/oem/oem-api/picklists.md)) | Obtains a list of picklist values for a specified connection in an OEM customer account. |
 {.api-quick-reference}
 
 ## Manage customer accounts
