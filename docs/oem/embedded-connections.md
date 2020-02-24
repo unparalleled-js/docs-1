@@ -24,7 +24,7 @@ The Connection Widget API works on [PostMessage API](https://developer.mozilla.o
 ```
 { type: string, payload: object }
 ```
-::: tip Note
+::: tip Note:
 If you are testing the Widget for the first time, please provide your Workato customer success representative the Origin URL. This will allow the window to receive the messages via the PostMessage API.
 :::
 
