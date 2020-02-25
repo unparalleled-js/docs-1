@@ -51,7 +51,7 @@ This allows users to open the correct embedded page when he wants to open a link
 ### Communication between apps
 Communication between the iframe and the partner's application is done via browser's [PostMessage API](https://developer.mozilla.org/en-US/docs/Web/API/Window/postMessage).
 
-See [[EmbeddingWorkatoMessage]] for the complete list of messages that Workato sends to the vendor's webapp and [[EmbeddingVendorMessage]] for the list of messages
+See [EmbeddingWorkatoMessage](https://workato.github.io/full-embed-sample/globals.html#embeddingworkatomessage) for the complete list of messages that Workato sends to the vendor's webapp and [EmbeddingVendorMessage](https://workato.github.io/full-embed-sample/globals.html#embeddingvendormessage) for the list of messages
 that can be sent in the opposite direction.
 
 In order to simplify communication between Workato and vendor's webapps we have built the [Workato Embedding Client](#workato-embedding-client). Read on to learn more.
