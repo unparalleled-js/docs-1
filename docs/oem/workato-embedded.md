@@ -9,9 +9,11 @@ Workato Embedded gives our OEM partner's customers the best end user experience 
 ![Workato embedded](~@img/oem/workato-embedded.png)
 *Workato embedded in an IFrame in ACME ERP*
 
-Instead of choosing to build an in-house integration or automation solution, embedding a platform built and maintained by specialists in the integration and automation space through the OEM model would allow our partners to utilize all of Workato's experience in the integration space and all the tools required to build, run and maintain integrations in a modern, scalable way.
+Instead of choosing to build an in-house integration or automation solution, partners can now embed a platform built and maintained by Workato, specialists in the integration and automation space. The OEM model allows our partners to utilize all of Workato's experience in the integration space and all the tools required to build, run and maintain integrations in a modern, scalable way.
 
-The following describes the various features of Workato Embedded, to learn more about how it is implemented, read on [here](/oem/workato-embedded-implementation.md). You may also be looking to embed just the connection widget from Workato into your product, which allows customers to authenticate their applications. If so, read the [Embedded connection widget](/oem/embedded-connections.md) document.
+The following describes the various features of Workato Embedded. For implementation details, read on [here](/oem/workato-embedded-implementation.md). 
+
+You may also be looking to embed just the connection widget from Workato into your product, which allows customers to authenticate their applications. If so, read the [Embedded connection widget](/oem/embedded-connections.md) document.
 
 ## Key benefits
 
