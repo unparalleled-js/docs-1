@@ -11,5 +11,5 @@ As we constantly enhance the platform to deliver best-in-class secure integratio
 
 ## Related chapters
 
-* [Data retention in hours](data-protection/hour-data-retention.md)
+* [Data retention FAQ](data-protection/data-retention-faq.md)
 * [Encryption Key Management](data-protection/encryption-key-management.md)
