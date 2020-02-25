@@ -722,12 +722,13 @@ module.exports = [
         'Using Workbot for MS Teams'
       ],
       ['/workbot-for-teams/getting-started', 'Getting started'],
-      ['/workbot-for-teams/workbot-triggers', 'Workbot triggers'],
-      ['/workbot-for-teams/workbot-actions', 'Workbot actions'],
+      ['/workbot-for-teams/workbot-triggers', 'Triggers'],
+      ['/workbot-for-teams/workbot-actions', 'Actions'],
       [
         '/workbot-for-teams/buttons-choices-task-modules',
-        'Workbot buttons task modules & pick lists'
-      ]
+        'Buttons task modules & pick lists'
+      ],
+      ['/workbot-for-teams/workbot-latebinding','Personal connections']
     ]
   },
   {
