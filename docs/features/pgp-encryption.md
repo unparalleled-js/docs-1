@@ -1,16 +1,44 @@
 ---
-title: PGP Encryption
+title: PGP Cryptographic Privacy and Authentication
 date: 2018-10-04 23:00:00 Z
 ---
 
-# Encrypt file with PGP
-Using the PGP encryption tool in Workato recipe, you can perform common cryptographic functions like encrypting and decrypting files, based on the common PGP standard. Under the hood, we use AES256 cipher algorithm and SHA256 digest algorithm.
-
-![PGP Connector](~@img/features/files-and-attachments/pgp-connector.png)
+# PGP (Pretty Good Privacy) Cryptographic Privacy and Authentication
+Using the PGP tool in Workato recipe, you can perform common cryptographic functions like encrypting, decrypting, signing and verifying files, based on the common PGP standard. Under the hood, we use AES256 cipher algorithm and SHA256 digest algorithm.
 
 Depending on what operation you wish to perform, you may need to provide the public key, private key, or both keys to setup the PGP encryption tool.
 
-![PGP Authentication](~@img/features/files-and-attachments/pgp-authentication.png)
+![PGP Actions](~@img/features/files-and-attachments/pgp-actions.png)
+
+## Encrypt
+
+The `Encrypt file with PGP` action lets you encrypt data using the public key specified in the action. In addition, you can choose to sign the data with PGP. Private key and passphrase from the connection is used to sign the data. The `ASCII armor` option generates the encrypted content as printable ASCII characters. The content can be sent in and as standard messaging format such as an email.
+
+![PGP Encrypt](~@img/features/files-and-attachments/pgp-encrypt.png)
+
+## Decrypt
+
+The `Decrypt file with PGP` action lets you decrypt data using the private key specified in the connection. If you specify the `Verification public key` in the action, then the decrypt action will verify the signed content as part of the decrypt action.
+
+![PGP Decrypt](~@img/features/files-and-attachments/pgp-decrypt.png)
+
+## Sign
+
+The `Sign file with PGP` action signs the data using the private key and passphrase specified in the connection. This is a standalone action to sign the data for use cases when only signing is needed. The `ASCII armor` option generates the encrypted content as printable ASCII characters. The content can be sent in and as standard messaging format such as an email.
+
+![PGP Sign](~@img/features/files-and-attachments/pgp-sign.png)
+
+## Verify
+
+The `Verify file signed with PGP` action verifies the signed data using the `Verification public key` specified in the action. This is a standalone action to verify the signed data for use cases when only signature verification is needed.
+
+![PGP Sign](~@img/features/files-and-attachments/pgp-verify.png)
+
+## Connection
+
+Private key and passphrase setup must be done in the connection. Use the public key input field in the action to use the public key for operations that require the public key.
+
+![PGP Connection](~@img/features/files-and-attachments/pgp-connection.png)
 
 Follow the instructions below to generate new PGP keys if you do not have a set already.
 
