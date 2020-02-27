@@ -9,7 +9,7 @@ date: 2018-06-05 21:45:00 Z
 
 Our engineers are hard at work daily to make Workato better! View the latest updates to our platform below.
 
-## UI update
+## Design update
 ##### Feb 2020
 
 ### Recipe Editor design updates
