@@ -9,6 +9,59 @@ date: 2018-06-05 21:45:00 Z
 
 Our engineers are hard at work daily to make Workato better! View the latest updates to our platform below.
 
+## UI update
+##### Feb 2020
+
+### Recipe Editor design updates
+We are constantly making updates to the user interface to increase user productivity and make Workato even easier to use. Below are a few updates you may have noticed recently.
+
+The "What happens next?" action in our recipe editor is horizontal instead of vertical to make it easier to see the options while preserving visibility to the rest of the recipe.
+
+![Horizontal Action Bar](~@img/horizontal_action_bar.png)
+*The 'What happens next?' options are displayed horizontally*
+
+Additional source information shown when hovering over Data Pill:
+
+![Data Pill Source Information](~@img/data_pill_source_information.png)
+*Detailed source information is displayed when hovering over a data pill*
+
+New-and-improved color and styling on the event tags (New, Bulk, Batch, Deprecated, and Real Time).
+
+![Event Tag Updates](~@img/event_tags.png)
+*New colors and styling for event tags*
+
+## Connector update
+##### Feb 2020
+
+### Google Drive update
+The new trigger - **New file or folder in folder hierarchy** - is a powerful addition to the Google Drive connector. It enables recipes to trigger jobs on a selected folder and any of its sub-folders. This trigger checks periodically for new files or folders created in a specified folder and its subfolders. Each new file and folder generates a new job.
+This trigger is compatible with streaming, allowing it to send large amounts of data from Google Drive to other streaming compatible connectors in Workato.
+
+This new trigger has many benefits, including:
+- Reduces maintenance by eliminating the need to refresh the folder/sub-folder data for the trigger
+- Simplifies automated backup of folders and files in Google drive into any downstream file management software
+- Prevents loss of data/files owing to new sub-folders and files created after the recipe start
+
+**Links:**
+- [Documentation](/connectors/google-drive/trigger-new-file-hierarchy.md)
+
+
+## Platform update
+##### Feb 2020
+
+### Tracking billable recipes
+For customers billed by active recipes, you now have visibility into your daily active (i.e. billable) recipe usage, active plan and add-ons, and historical recipe consumption. This will give you instant visibility into current and past usage trends. With better understanding of your usage patterns, you can manage the recipe usage, and plan for the future. You can find your recipe usage and plan details on the user Subscription tab under account settings and as a card on the Dashboard.
+
+Older plans will be supported through this release in the following way: Plans that have a billable metric (such as tasks) will have a thermometer representation in the UI to show the consumption of tasks. Plans that do not have a limited billable metric will not show a thermometer UI representation. All older plans will show the plan name and the feature add-ons.
+
+**Subscription Page (under account settings):**
+![Recipe Pricing Subscription Screen](~@img/recipe_pricing_subscription_screen.png)
+*Plan information, usage stats, and tasks are now displayed on the user subscription page*
+
+**Dashboard View**
+![Recipe Pricing Dashboard](~@img/recipe_pricing_dashboard.png)
+*The current recipe plan limit and number of recipes being used are displayed as a card on the user's dashboard*
+
 ## Platform update
 ##### Feb 2020
 
@@ -22,7 +75,7 @@ Users will only be able to see items in the Trash folder to which they have acce
 - Restore recipes that have been accidentally deleted
 
 ## Connector update
-##### Feb 2019
+##### Feb 2020
 
 ### NetSuite SuiteTalk 2019_2 API
 We recently migrated our NetSuite connector to the SuiteTalk 2019_2 API. NetSuite has 2 major releases of their API every year which includes updates to their WSDL. With this update, the NetSuite connector now has access to more record types and field types which may not have been found previously.
@@ -31,7 +84,7 @@ We recently migrated our NetSuite connector to the SuiteTalk 2019_2 API. NetSuit
 - [View added record types](https://docs.workato.com/connectors/netsuite.html#suitetalk-2019-2-changes)
 
 ## Connector update
-##### Feb 2019
+##### Feb 2020
 
 ### Data replication in Snowflake
 Let Workato replicate your data into Snowflake without data warehouse maintenance or DevOps. Maintain table definition from data source automatically and utilize built-in data deduplication.
