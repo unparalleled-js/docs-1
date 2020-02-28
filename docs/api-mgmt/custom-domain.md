@@ -10,6 +10,10 @@ Route Workato API endpoints through your own domain. You can expose Workato API 
 **Original API URL:** `https://apim.workato.com/prod/sales-api/get-invoice`
 **Custom domain URL:** `https://api.boltcompany.com/sales-api/get-invoice`
 
+::: tip
+Custom domains in Workato are not case sensitive.
+:::
+
 | Steps | Description |
 | ----- | ----- |
 | 1.    | Prepare a registered domain and subdomain name. For more information on domain names, see the [ICANN documentation](https://www.icann.org/resources/pages/register-domain-name-2017-06-20-en). For example, `blog.boltcompany.com`.
@@ -19,7 +23,7 @@ Route Workato API endpoints through your own domain. You can expose Workato API 
 | 5.    | Register a new CNAME record with your domain host. See [here](#configuring-cname-record). |
 | 6.    | Once the verification process succeeds. Your custom setup is complete.<br>![Completed custom domain setup](~@img/api-mgmt/custom-domain-successful.png)*Completed custom domain setup* |
 
-Depending on the domain host, it may take up to a few hours for the new CNAME record to propagate. After this, the custom domain will be verified and it will take effect.
+Depending on the domain host, it may take up to an hour for the new CNAME record to propagate. After verifiying your custom domain's DNS, Workato will start generating a TLS certificate. It can take up to an hour for the certificate to be issued and ready for use. Refresh the custom domains page to check on the status.
 
 ## Configuring CNAME record
 
@@ -34,11 +38,11 @@ For this example, let's register the subdomain `api.boltcompany.com` hosted by *
 | 2.    | Select type as `CNAME`. |
 | 3.    | Provide the subdomain name. In this example, we are creating a subdomain `api` to `boltcompany.com`. |
 | 4.    | Provide the target. Paste the value which was provided in the custom domain configuration earlier: `apim.workato.com`. |
-| 5.    | Save your settings. It may take up to a few hours for the settings to propagate through the global domain name system. |
+| 5.    | Save your settings. It may take up to an hour for the settings to propagate through the global domain name system. |
 
-## SSL certificate
+## Certificate for TLS
 
-When you use Workato’s API platform, the default domain is workato.com. If you add a custom domain, Workato manages TLS certificates for your APIs to enabled HTTPS for your custom domain. New certificates are created automatically when you add a custom domain. These certificates will automatically renew one month before they expire. Workato uses [Let’s Encrypt](https://letsencrypt.org/) to create and manage TLS certificates for your APIs.
+When you use Workato’s API platform, the default domain is workato.com. If you add a custom domain, Workato manages certificates for your API collections to enabled HTTPS for your custom domain. New certificates are created automatically when you add a custom domain. These certificates will automatically renew one month before they expire. Workato uses [Let’s Encrypt](https://letsencrypt.org/) to create and manage certificates for your APIs.
 
 ::: tip
 The original API endpoint will continue to work in parallel with your custom domain.
