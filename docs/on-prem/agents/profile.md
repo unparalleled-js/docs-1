@@ -50,7 +50,14 @@ ldap:
 After configuring your connection profiles, you will need to [run your on-prem agent](/on-prem/agents/run.md) on your machine.
 
 ## Applying a new configuration
-A running on-prem agent automatically applies any changes made to the configuration file. Changes to proxy server settings require you to restart the agent.
+By default, a running on-prem agent will require you to restart the agent to apply the changes.
+
+To allow the on-prem agent to automatically apply the changes, add the following to the top of your configuration file:
+```YAML
+config:
+  autoReload: true
+```
+However, this will not apply for changes made on `server` settings.
 
 ## Database profile
 Database connection profiles are located in the `database` section of `<INSTALL_HOME>/conf/config.yml`.
