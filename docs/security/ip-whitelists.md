@@ -35,6 +35,12 @@ If your organization has strict outbound traffic rules, you should whitelist the
 - **34.192.94.13**
 - **34.195.128.7**
 - **34.226.84.130**
+- **50.16.101.13**
+- **54.84.241.116**
+- **34.237.50.149**
+- **34.204.129.29**
+- **34.228.172.35**
+- **54.83.143.113**
 - **52.206.58.244** (Deprecated on 28 March 2018)
 
 #### General (browsers, webhooks, API endpoints)
