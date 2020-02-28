@@ -57,7 +57,7 @@ To allow the on-prem agent to automatically apply the changes, add the following
 config:
   autoReload: true
 ```
-However, this will not apply for changes made on `proxy` or `server` settings.
+However, this will not apply for changes made on `server` settings.
 
 ## Database profile
 Database connection profiles are located in the `database` section of `<INSTALL_HOME>/conf/config.yml`.
