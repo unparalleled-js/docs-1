@@ -443,7 +443,7 @@ jms:
 
 Download jar files from [here](https://jar-download.com/artifacts/org.apache.qpid/qpid-jms-client/0.29.0/source-code) and extract it inside *_lib_ext_* folder.
 
-Add the classpath inside the config.yml file.
+Add the classpath inside the config.yml file. 
 ```YAML
 server:
  classpath: /<path-of-the-agent>/workato-agent/lib_ext
