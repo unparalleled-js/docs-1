@@ -45,6 +45,17 @@ This new trigger has many benefits, including:
 **Links:**
 - [Documentation](/connectors/google-drive/trigger-new-file-hierarchy.md)
 
+## Connector update
+##### Feb 2020
+
+### Salesforce bulk upsert action update
+We previously only allowed External ID as a valid field for Primary Key in the Salesforce bulk upsert action. We now accept all indexed fields (Salesforce record ID, Name, any custom indexed field) as well.
+
+**Use cases**
+For customers that do not store an ID in their external systems and use the Salesforce record ID (or other internal fields) as the primary identifier of a record, they can now use that field as the Primary Key by toggling the field to text and entering the name of the field.
+
+**Links:**
+- [Documentation](/connectors/salesforce/salesforce-bulk.md#salesforce-object-to-create-update-upsert)
 
 ## Platform update
 ##### Feb 2020
