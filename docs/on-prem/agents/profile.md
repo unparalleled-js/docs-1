@@ -53,7 +53,7 @@ After configuring your connection profiles, you will need to [run your on-prem a
 By default, a running on-prem agent will require you to restart the agent to apply the changes.
 
 To allow the on-prem agent to automatically apply the changes, add the following to the top of your configuration file:
-```
+```YAML
 config:
   autoReload: true
 ```
@@ -443,7 +443,7 @@ jms:
 
 Download jar files from [here](https://jar-download.com/artifacts/org.apache.qpid/qpid-jms-client/0.29.0/source-code) and extract it inside *_lib_ext_* folder.
 
-Add the classpath inside the config.yml file. 
+Add the classpath inside the config.yml file.
 ```YAML
 server:
  classpath: /<path-of-the-agent>/workato-agent/lib_ext
