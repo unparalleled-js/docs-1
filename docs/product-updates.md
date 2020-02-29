@@ -20,15 +20,7 @@ The "What happens next?" action in our recipe editor is horizontal instead of ve
 ![Horizontal Action Bar](~@img/horizontal_action_bar.png)
 *The 'What happens next?' options are displayed horizontally*
 
-Additional source information shown when hovering over Data Pill:
-
-![Data Pill Source Information](~@img/data_pill_source_information.png)
-*Detailed source information is displayed when hovering over a data pill*
-
-New-and-improved color and styling on the event tags (New, Bulk, Batch, Deprecated, and Real Time).
-
-![Event Tag Updates](~@img/event_tags.png)
-*New colors and styling for event tags*
+We have also improved the color and styling on the event tags (New, Bulk, Batch, Deprecated, and Real Time), and additional source information will now be shown when hovering over Data Pills.
 
 ## Connector update
 ##### Feb 2020
@@ -61,17 +53,13 @@ For customers that do not store an ID in their external systems and use the Sale
 ##### Feb 2020
 
 ### Tracking billable recipes
-For customers billed by active recipes, you now have visibility into your daily active (i.e. billable) recipe usage, active plan and add-ons, and historical recipe consumption. This will give you instant visibility into current and past usage trends. With better understanding of your usage patterns, you can manage the recipe usage, and plan for the future. You can find your recipe usage and plan details on the user Subscription tab under account settings and as a card on the Dashboard.
+We announced some radical changes to simplify pricing for customers last year and a lot of you have taken advantage of the new recipe-based pricing model. To help you plan and optimize usage, we have added a new section in your Workspace to view all purchased add-ons and recipe packages. Additionally, you can also track current and historical recipe usage trends.
 
-Older plans will be supported through this release in the following way: Plans that have a billable metric (such as tasks) will have a thermometer representation in the UI to show the consumption of tasks. Plans that do not have a limited billable metric will not show a thermometer UI representation. All older plans will show the plan name and the feature add-ons.
+Legacy usage-based plans will be supported through this release in the following way: Plans that have a billable metric, like tasks, will have a thermometer representation in the UI to show the consumption of tasks. Usage-based plans with no billable metrics will just show the plan name and feature add-ons.
 
 **Subscription Page (under account settings):**
 ![Recipe Pricing Subscription Screen](~@img/recipe_pricing_subscription_screen.png)
 *Plan information, usage stats, and tasks are now displayed on the user subscription page*
-
-**Dashboard View**
-![Recipe Pricing Dashboard](~@img/recipe_pricing_dashboard.png)
-*The current recipe plan limit and number of recipes being used are displayed as a card on the user's dashboard*
 
 ## Platform update
 ##### Feb 2020
