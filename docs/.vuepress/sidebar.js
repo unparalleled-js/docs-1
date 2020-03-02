@@ -1658,12 +1658,12 @@ module.exports = [
             'Connection setup'
           ],
           [
-            '/connectors/salesforce/salesforce-real-time',
-            'Real-time trigger setup'
+            '/connectors/salesforce/salesforce-generic',
+            'Triggers/Actions in Salesforce'
           ],
           [
-            '/connectors/salesforce/salesforce-generic',
-            'Object triggers'
+            '/connectors/salesforce/salesforce-real-time',
+            'Real-time triggers'
           ],
           [
             '/connectors/salesforce/related-objects',
