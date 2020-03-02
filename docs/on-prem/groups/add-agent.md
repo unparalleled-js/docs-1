@@ -27,6 +27,8 @@ For this example, we will setup an on-prem agent on a Windows OS.
 
 ## Optional settings on Linux
 
+The following settings assume that the contents of Workato OPA is in `/opt/workato`
+
 ### Setup Workato user
 
 You can to create a non-privileged user to run Workato OPA.
@@ -55,8 +57,6 @@ After=syslog.target network.target
 
 [Service]
 Type=simple
-Environment="NAME="
-EnvironmentFile=/etc/sysconfig/workato
 WorkingDirectory=/opt/workato
 ExecStart=/usr/bin/java -Djava.security.egd=file:/dev/urandom -cp "/opt/workato/lib/*" com.workato.agent.Main
 User=workato
