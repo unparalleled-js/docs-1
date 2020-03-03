@@ -91,7 +91,7 @@ POST /api/managed_users/:managed_user_id/connections
 | input | **Hash**<br>_optional_ | Connection parameters. |
 {.api-input}
 
-For a list of providers and connection parameters, please view this [document](https://docs.google.com/spreadsheets/d/1osJSsZmophKfuNI-qQPGHskuQR89Lq3i-sgyHCTjkBg/edit?usp=sharing).
+For a list of providers and connection parameters, please view this [document](/oem/oem-api/connections-parameters.md).
 
 #### Sample request
 
