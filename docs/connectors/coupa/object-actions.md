@@ -103,7 +103,7 @@ The attachment name is optional and a generic attachment name will be generated 
 <center><i>Where it shows up in Coupa</i></center>
 
 ### Output fields for Add file attachment on object action
-The action returns the location of the attachment just created in Coupa in the form of a URL.
+The action returns the location of the attachment just created in Coupa. This location cannot be used directly as a URL.
 
 ## List of triggers and actions
 Workato currently supports the following Coupa triggers and actions. Find out more details about each by clicking on the links below. You can also navigate to them through the sidebar.
