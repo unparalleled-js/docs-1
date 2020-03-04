@@ -28,20 +28,33 @@ TO 'integrationuser'@'52.5.142.59',
 ### Traffic to Workato
 
 #### On-premise agent
-Workato's [on-premise agent](/on-prem.md) provides a secure way for Workato to selectively access customer-authorized on-prem apps, databases and folders without having to open inbound ‘ports’ in the corporate firewall. The on-premise agent makes an outbound connection to Workato via an on-premise gateway.
+Workato's [on-premise agent](/on-prem.md) (OPA) provides a secure way for Workato to selectively access customer-authorized on-prem apps, databases and folders without having to open inbound ‘ports’ in the corporate firewall.
 
-If your organization has strict outbound traffic rules, you should whitelist the on-premise gateway IP address:
+The OPA makes an outbound connection to the Workato cloud's on-premise gateways using a small number of hostnames/IP addresses.
 
-| Host name  | IP Addresses | Notes
-| ------------- | ------------- |--|
-| sg.workato.com  | 34.192.94.13<br>34.195.128.7<br>34.226.84.130<br>| Will be deprecated on 5 April 2020 |
-| sg1.workato.com  | 50.16.101.13<br>54.84.241.116<br>34.237.50.149  | |
-| sg2.workato.com  | 34.204.129.29<br>34.228.172.35<br>54.83.143.113  | |
+| Host name | IP Addresses | TCP port | Notes
+| ------------- | ------------- |-- | -- |
+| sg1.workato.com | 50.16.101.13<br>54.84.241.116<br>34.237.50.149 | 443 | |
+| sg2.workato.com | 34.204.129.29<br>34.228.172.35<br>54.83.143.113 | 443 | |
+| sg.workato.com |34.192.94.13<br>34.195.128.7<br>34.226.84.130<br>| 443 | Will be deprecated 5 April 2020 |
+| N/A | 52.206.58.244 | 443 | Deprecated 28 March 2018, not used in recent OPA versions |
 
 {.api-input}
 
-_Note: The IP address **52.206.58.244** was deprecated on 28 March 2018._
+If your organization has strict outbound traffic rules, you will need to whitelist the OPA's access to the Workato cloud.
 
+##### IP Addresses
+
+Firewall whitelists should allow outbound TCP connections from the OPA to port 443 on each address listed above.
+
+##### DNS resolution of host names
+
+Some organizations also restrict DNS hostname resolution from the machines/networks where the OPA may run. This may take the form of domain/hostname restrictions, or even lack of DNS service for domains external to the organization. In that case, you should ensure that the machine where OPA will be running can resolve the relevant hostnames above.
+
+This can be accomplished in, broadly, a couple of different ways, depending on your organization's network policies/restrictions; the hostnames above must:
+
+- Be whitelisted for regular DNS service from the machine hosting the OPA, or
+- Have them hard-coded against their corresponding IP addresses in OS files such as `/etc/hosts` on Linux or `C:\Windows\System32\drivers\etc\Hosts` on Windows.
 
 #### General (browsers, webhooks, API endpoints)
 All other traffic to Workato:
