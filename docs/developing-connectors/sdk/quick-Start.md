@@ -159,6 +159,10 @@ After you've built and released a version of your connector, you'll be able to s
 ![Install page](~@img/sdk/install-page.png)
 *Install page for custom connector*
 
+::: tip
+Your connector's description is the highlight of your install page. When you share your connector with others, make sure you have a description that showcases what your connector can do as well as other important information those using it might need.
+:::
+
 When users have reviewed your custom connector, they can choose to install it by clicking the "Install this connector" button in the top right corner. This will create an identical copy of this latest version in their own Workato account labeled as version 1. Users that install your connector will also have the notes attached to your latest version copied into their first version. Use version notes as a great way to let them know more about your connector.
 
 ![First version of a cloned connector with notes from a parent](~@img/sdk/share-connector-new-version-notes.png)
