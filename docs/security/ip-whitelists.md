@@ -49,7 +49,7 @@ Firewall whitelists should allow outbound TCP connections from the OPA to port 4
 
 ##### DNS resolution of host names
 
-Some organizations also restrict DNS hostname resolution from the machines/networks where the OPA may run. In that case, you should ensure that the machine where OPA will be running can resolve the relevant hostnames above.
+Some organizations also restrict DNS hostname resolution from the machines/networks where the OPA may run. In that case, you should ensure that the machine where OPA will be running can resolve the relevant hostnames above to their corresponding IP addresses.
 
 #### General (browsers, webhooks, API endpoints)
 All other traffic to Workato:
