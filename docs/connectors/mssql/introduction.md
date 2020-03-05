@@ -140,16 +140,19 @@ The SQL Server connector works with all tables and views. These are available in
 Case sensitivity of the name of a table/view depends on your database implementation. A default SQL Server is case insensitive. Databases or database objects with `CS` in the **COLLATION** indicates that it is case sensitive.
 
 ### Improved datetime handling
-The SQL Server connector now has the option to utilise improved handling of datetime, datetime2 and datetimeoffset datatype. This can be enabled in the connection settings of each SQL server connection. This defaults to `Yes` for all new connections. This affects all actions that **insert rows** into SQL server.
+The SQL Server connector now has the option to utilise improved handling of datetime, datetime2 and datetimeoffset datatype. This can be enabled in the connection settings of each SQL server connection. This defaults to `Yes` for all new connections and defaults to UTC timezones. Change this to the local timezone of your database if needed. This affects all actions that **insert rows** into SQL server. 
+
+![Advanced connection setting](~@img/mssql/advanced_date_time_handling.png)
+<center><i>Configure this in the setting of your SQL server connection</i></center>
 
 **Summary of behaviour**
 
 | Datatype           | Workato input   | Improved datetime handling set to false/unselected | Improved datetime handling set to true |
 |--------------------|-----------------|--------------------------------------------------------------------------------------|---------------------------------------------|
-| datetime/datetime2 | Time with no TZ | Workato workspace timezone assumed. Converted to UTC before insertion                | No TZ assumed. Inserted as is               |
-| datetime/datetime2 | Time with TZ    | Converted to UTC before insertion.                                                   | Converted to database timezone in connection setting timezone before insertion |
-| datetimeoffset     | Time with no TZ | Workato workspace timezone assumed. Converted to UTC before insertion with +00:00 tz | Inserted with +00:00 timezone assumed       |
-| datetimeoffset     | Time with TZ    | Converted to UTC before insertion with +00:00 tz                                     | Insert with given timezone                  |
+| datetime/datetime2 | Time with no timezone | Workato workspace timezone assumed. Converted to UTC before insertion. | No TZ assumed. Inserted as is.               |
+| datetime/datetime2 | Time with timezone    | Converted to UTC before insertion.   | Converted to database timezone in connection setting timezone before insertion. |
+| datetimeoffset     | Time with no timezone | Workato workspace timezone assumed. Converted to UTC before insertion with +00:00 tz | Inserted with +00:00 timezone assumed.       |
+| datetimeoffset     | Time with timezone    | Converted to UTC before insertion with +00:00 timezone.  | Insert with given timezone .                 |
 
 ::: warning
 Selecting a static calendar date or using timestamps from Workato connectors often have your Workspace timezone assumed. Be sure to strip these timezones when necessary.
