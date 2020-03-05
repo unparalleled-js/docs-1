@@ -36,6 +36,7 @@ POST /api/managed_users
 | notification_email | **string**<br>_required_  | Email for error notifications. |
 | plan_id | **string**<br>_optional_ | Plan id. Default plan id is used when not provided. |
 | external_id | **string**<br>_optional_ | External identifier for the OEM customer. |
+| origin_url | **string**<br>_optional_ | Applies to embedded OEM account customers. If the embedded IFrame is hosted in a non-default origin page(E.g. customer specifc custom domains etc). Defaults to the origin configured at the account level. |
 {.api-input}
 
 #### Sample request
