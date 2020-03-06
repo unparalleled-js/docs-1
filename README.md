@@ -84,6 +84,7 @@ All documents must be a Markdown files (`*.md`) which will be processed with [ma
 
 Here is the list of plugins that we use in addition to the [built-in addons](https://vuepress.vuejs.org/guide/markdown.html):
 
-- [markdown-it-attrs](https://github.com/arve0/markdown-it-attrs) - allows to set HTML attributes like `id` or `class` to any markdown element.
+- [markdown-it-attrs](https://github.com/arve0/markdown-it-attrs) - allows to set HTML attributes like `id` or `class` to any markdown element.<br>
+  Delimiters are set to `{:` and `:}` i.e. to set `foo` class to the header element you should write `# Header {: .foo :}`
 
 URLs to images (located in `/assets/images` directory) must start with `~@img` prefix e.g. to insert an image located at `/assets/images/foo.png` you need to write `![Foo](~@img/foo.png)`.

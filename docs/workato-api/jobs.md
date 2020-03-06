@@ -24,7 +24,7 @@ GET /api/recipes/:id/jobs
 | failed | **boolean**<br>_(deprecated)_ | If `true`, returns failed jobs only. |
 | status | **string**<br>_optional_ | Filter by status - succeeded, failed, pending. |
 | rerun_jobs | **boolean**<br>_optional_ | If `true`, returns rerun jobs only. |
-{.api-input}
+{: .api-input :}
 
 #### Sample request
 

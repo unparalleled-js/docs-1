@@ -15,7 +15,7 @@ The APIs for exporting a package are available [here](/workato-api.md#recipe-lif
 |------|----------|-------------|
 | POST | [api/managed_users/:id/imports](#import-package-into-a-customer-account) | Import package into a folder in a customer account. |
 | GET  | [api/managed_users/:id/recipes](#get-package-status) | Get status of an imported package. |
-{.api-quick-reference}
+{: .api-quick-reference :}
 
 ## Import package into a customer account
 
@@ -36,7 +36,7 @@ The input (zip file) is a `application/octet-stream` payload containing package 
 | managed_user_id   | **string**<br>_required_ | OEM customer Account ID/External ID. <br>External id should be prefixed with a E(eg: EA2300) and the resulting id should be URL encoded. |
 | folder_id   | **string**<br>_required_ | Folder ID. |
 | restart_recipes | **boolean**<br>_optional_ | If `true`, it will allow the restarting of running recipes. |
-{.api-input}
+{: .api-input :}
 
 #### Sample request
 
@@ -72,7 +72,7 @@ GET /managed_users/:id/imports/:package_id
 |------|------|-------------|
 | managed_user_id   | **string**<br>_required_ | OEM customer Account ID/External ID. <br>External id should be prefixed with a E(eg: EA2300) and the resulting id should be URL encoded. |
 | package_id   | **string**<br>_required_ | Package ID. |
-{.api-input}
+{: .api-input :}
 
 #### Sample request
 

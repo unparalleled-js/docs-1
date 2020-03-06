@@ -20,7 +20,7 @@ GET /api/integrations
 | Name | Type | Description |
 |------|------|-------------|
 | applications | **string**<br>_required_ | Comma separated connector identifiers. |
-{.api-input}
+{: .api-input :}
 
 #### Sample request
 

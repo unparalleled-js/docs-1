@@ -16,7 +16,7 @@ date: 2019-03-21 11:20:00 Z
 | PUT  | [/api/recipes/:id/start](#start-recipe) | Start recipe. |
 | PUT  | [/api/recipes/:id/stop](#stop-recipe) | Stop recipe. |
 | DELETE | [/api/recipes/:id](#delete-recipe) | Delete recipe. |
-{.api-quick-reference}
+{: .api-quick-reference :}
 
 ## Get recipe details
 
@@ -31,7 +31,7 @@ GET /api/recipes/:id
 | Name | Type | Description |
 |------|------|-------------|
 | id   | **integer**<br>_required_ | Recipe ID. |
-{.api-input}
+{: .api-input :}
 
 #### Sample request
 
@@ -100,7 +100,7 @@ POST /api/recipes
 | code | **string**<br>_required_ | JSON string representing the recipe lines.
 | config | **string**<br>_required_ | JSON string representing the connection lines. |
 | recipe | **hash**<br>_optional_ | The hash of the recipe. |
-{.api-input}
+{: .api-input :}
 
 #### Sample request
 
@@ -138,7 +138,7 @@ PUT /api/recipes/:id
 | Name | Type | Description |
 |------|------|-------------|
 | id   | **integer**<br>_required_ | Recipe ID. |
-{.api-input}
+{: .api-input :}
 
 ### Request body
 
@@ -148,7 +148,7 @@ PUT /api/recipes/:id
 | recipe[name] | **string**<br>_optional_ | Name of the recipe. |
 | recipe[code] | **string**<br>_optional_ | JSON string representing the recipe lines.
 | recipe[config] | **string**<br>_optional_ | JSON string representing the connection lines. |
-{.api-input}
+{: .api-input :}
 
 #### Sample request
 
@@ -202,7 +202,7 @@ GET /api/recipes
 | active | **string**<br>_optional_ | If `true`, returns running recipes. |
 | since_id | **integer**<br>_optional_ | Find recipes with ID less than the given ID. |
 | order | **string**<br>_optional_ | Set ordering method. Possible options: activity, default. |
-{.api-input}
+{: .api-input :}
 
 #### Sample request
 
@@ -259,7 +259,7 @@ PUT /api/recipes/:id/start
 | Name | Type | Description |
 |------|------|-------------|
 | id   | **integer**<br>_optional_ | Recipe ID. |
-{.api-input}
+{: .api-input :}
 
 #### Sample request
 
@@ -290,7 +290,7 @@ PUT /api/recipes/:id/stop
 | Name | Type | Description |
 |------|------|-------------|
 | id   | **integer**<br>_optional_ | Recipe ID. |
-{.api-input}
+{: .api-input :}
 
 #### Sample request
 
@@ -321,7 +321,7 @@ DELETE /api/recipes/:id
 | Name | Type | Description |
 |------|------|-------------|
 | id   | **integer**<br>_optional_ | Recipe ID. |
-{.api-input}
+{: .api-input :}
 
 #### Sample request
 
