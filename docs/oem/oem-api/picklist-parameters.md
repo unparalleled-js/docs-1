@@ -763,4 +763,4 @@ If a picklist requires parameter(s), the name of the parameter is specified here
 |zohocrm                    |vendor_picklist                        |                                  |
 |zohocrm                    |campaign_picklist                      |                                  |
 |zuora_forcecom             |all_sobjects                           |                                  |
-{.api-input}
+{: .api-input :}

@@ -13,7 +13,7 @@ Use the following endpoints to retrieve and create the connections that belong t
 |------|---------|-------------|
 | GET  | [/api/managed_users/:managed_user_id/connections](#list-connections) | Returns a list of connections in OEM user's account. |
 | POST | [/api/managed_users/:id/connections](#create-connections) | Allows the OEM vendor to add a shell connection in a customer's account. |
-{.api-quick-reference}
+{: .api-quick-reference :}
 
 ## List Connections
 
@@ -27,7 +27,7 @@ GET /api/managed_users/:managed_user_id/connections
 | Name | Type | Description |
 |------|------|-------------|
 | managed_user_id | **string**<br>_required_ | OEM customer Account ID/External ID. <br>External id should be prefixed with a E(eg: EA2300) and the resulting id should be URL encoded. |
-{.api-input}
+{: .api-input :}
 
 #### Sample request
 
@@ -81,7 +81,7 @@ POST /api/managed_users/:managed_user_id/connections
 | Name | Type | Description |
 |------|------|-------------|
 | managed_user_id | **string**<br>_required_ | OEM customer Account ID/External ID. <br>External id should be prefixed with a E(eg: EA2300) and the resulting id should be URL encoded. |
-{.api-input}
+{: .api-input :}
 
 ### Post parameters
 | Name | Type | Description |
@@ -89,7 +89,7 @@ POST /api/managed_users/:managed_user_id/connections
 | name | **string**<br>_optional_ | Name of the connection. Eg: 'Prod Salesforce connection'
 | provider | **string**<br>_required_ | Connector identifier. Eg: 'salesforce' |
 | input | **Hash**<br>_optional_ | Connection parameters. |
-{.api-input}
+{: .api-input :}
 
 For a list of providers and connection parameters, please view this [document](/oem/oem-api/connections-parameters.md).
 

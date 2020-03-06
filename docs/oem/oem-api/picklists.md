@@ -20,7 +20,7 @@ POST /managed_users/:id/connections/:connection_id/pick_list
 |------|------|-------------|
 | managed_user_id | **string**<br>_required_ | OEM customer Account ID/External ID. <br>External id should be prefixed with a E(eg: EA2300) and the resulting id should be URL encoded. |
 | connection_id | **string**<br>_required_ | ID of the connection. This can be found in the URL of the app connection or is the result of the [List connections](/oem/oem-api/connections.md#list-connections) endpoint.  |
-{.api-input}
+{: .api-input :}
 
 ### Body
 | Name | Type | Description |
