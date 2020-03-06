@@ -12,6 +12,7 @@ All API endpoints listed here are OEM Vendor APIs and require the `oem_vendor` p
 | Type | Resource | Description |
 |------|----------|-------------|
 | POST | [/api/managed_users](#create-customer-account) | Create customer account. |
+| PUT | [/api/managed_users](#update-customer-account) | Update customer account. |
 | GET  | [/api/managed_users/:id](#get-customer-account) | Get customer account. |
 | PUT  | [/api/managed_users/:id/upgrade](#upgrade-customer-account) | Upgrade customer account. |
 | PUT  | [/api/managed_users/:id/downgrade](#downgrade-customer-account) | Downgrade customer account. |
@@ -36,6 +37,7 @@ POST /api/managed_users
 | notification_email | **string**<br>_required_  | Email for error notifications. |
 | plan_id | **string**<br>_optional_ | Plan id. Default plan id is used when not provided. |
 | external_id | **string**<br>_optional_ | External identifier for the OEM customer. |
+| origin_url | **string**<br>_optional_ | Applies to embedded OEM account customers. Provide a value if the embedded IFrame is hosted in a non-default origin page(E.g. customer specifc custom domains etc). Defaults to the origin configured at the account level. |
 {.api-input}
 
 #### Sample request
@@ -57,8 +59,73 @@ curl  -X POST http://www.workato.com/api/managed_users \
 ```json
 {
   "id": 3498583,
+  "external_id": "UU0239093498",
+  "name": "Kevin Leary",
+  "notification_email": "kevinl@acme.com",
   "plan_id": "oem_plan",
-  "trial": false
+  "origin_url": null,
+  "in_trial": true,
+  "created_at": "2020-03-06T01:56:20.208Z",
+  "updated_at": "2020-03-06T01:56:20.625Z"
+}
+```
+
+## Update customer account
+
+Update an existing OEM customer account.
+
+```
+PUT /api/managed_users/:id
+```
+
+### URL parameters
+
+| Name | Type | Description |
+|------|------|-------------|
+| id   | **string**<br>_required_ | OEM customer Account ID/External ID. <br>External id should be prefixed with a E(eg: EA2300) and the resulting id should be URL encoded. |
+{.api-input}
+
+
+### Request body
+
+| Name | Type | Description |
+|------|------|-------------|
+| name | **string**<br>_required_ | Full name of the user. |
+| notification_email | **string**<br>_required_  | Email for error notifications. |
+| external_id | **string**<br>_optional_ | External identifier for the OEM customer. |
+| origin_url | **string**<br>_optional_ | Applies to embedded OEM account customers. Provide a value if the embedded IFrame is hosted in a non-default origin page(E.g. customer specifc custom domains etc). Defaults to the origin configured at the account level. |
+{.api-input}
+
+User property is upated only if the request body contains the property. To clear the value of a property, set the property to `null` in the request body. 
+
+#### Sample request
+
+
+
+```shell
+curl  -X PUT http://www.workato.com/api/managed_users/3498583 \
+      -H 'x-user-email: <email>' \
+      -H 'x-user-token: <token>' \
+      -H 'Content-Type: application/json' \
+      -d '{
+            "name": "Kevin K Leary",
+            "notification_email": "kevinl+workatodevops@acme.com"
+          }'
+```
+
+### Response
+
+```json
+{
+  "id": 3498583,
+  "external_id": "UU0239093498",
+  "name": "Kevin K Leary",
+  "notification_email": "kevinl+workatodevops@acme.com",
+  "plan_id": "oem_plan",
+  "origin_url": null,
+  "in_trial": true,
+  "created_at": "2020-03-06T01:56:20.208Z",
+  "updated_at": "2020-03-06T01:56:20.625Z"
 }
 ```
 
