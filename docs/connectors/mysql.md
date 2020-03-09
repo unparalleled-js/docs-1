@@ -123,8 +123,8 @@ There are various timezone settings in MySQL. If no changes are made, your MySQL
 | timestamp     | Time with no TZ | Workato workspace timezone assumed. Converted to UTC before insertion with +00:00 tz | No TZ assumed. Inserted as is    |
 | timestamp     | Time with TZ    | Converted to UTC before insertion | Converted to database timezone in connection setting timezone before insertion   |
 
-::: warning
-Selecting a static calendar date or using timestamps from Workato connectors often have your Workspace timezone assumed. Be sure to strip these timezones when necessary.
+::: warning Note
+When using the calendar datepicker for date/datetime/timestamp fields, times are defined using your Workato workspace timezone.
 :::
 
 ### Single row vs batch of rows
