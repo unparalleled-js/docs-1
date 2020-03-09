@@ -49,8 +49,37 @@ The MySQL connector uses basic authentication to authenticate with MySQL.
       <td>Database</td>
       <td>Name of the MySQL database you wish to connect to.</td>
     </tr>
+    <tr>
+      <td>Advanced Settings</td>
+      <td>Contains advanced connection settings such as improved datetime handling and ability to set database timezone.</td>
+    </tr>
   </tbody>
 </table>
+
+### Improved datetime handling
+The SQL Server connector now has the option to utilise improved handling of datetime, datetime2 and datetimeoffset datatype. This can be enabled in the connection settings of each SQL server connection. This defaults to `Yes` for all new connections and defaults to UTC timezones. Change this to the local timezone of your database if needed. This affects all actions that **insert rows** into MySQL.
+
+::: warning
+There are various timezone settings in MySQL. If no changes are made, your MySQL **system** timezone should be the same as your **global** timezone and set to UTC.
+:::
+
+![Advanced connection setting](~@img/mysql/advanced_date_time_handling.png)
+<center><i>Configure this in the setting of your MySQL server connection</i></center>
+
+**Summary of behaviour**
+
+| Datatype           | Workato input   | Improved datetime handling set to false/unselected | Improved datetime handling set to true |
+|--------------------|-----------------|--------------------------------------------------------------------------------------|---------------------------------------------|
+| date | Time with no TZ | Workato workspace timezone assumed. Converted to UTC before insertion                | No TZ assumed. Inserted as is               |
+| date | Time with TZ | Converted to UTC before insertion                | Converted to database timezone in connection setting timezone before insertion  |
+| datetime | Time with no TZ    | Workato workspace timezone assumed. Converted to UTC before insertion.    | No TZ assumed. Inserted as is  |
+| datetime | Time with TZ    | Converted to UTC before insertion.     | Converted to database timezone in connection setting timezone before insertion |
+| timestamp     | Time with no TZ | Workato workspace timezone assumed. Converted to UTC before insertion with +00:00 tz | No TZ assumed. Inserted as is    |
+| timestamp     | Time with TZ    | Converted to UTC before insertion | Converted to database timezone in connection setting timezone before insertion   |
+
+::: warning Note
+When using the calendar datepicker for date/datetime/timestamp fields, times are defined using your Workato workspace timezone.
+:::
 
 ### Permissions required to connect
 
@@ -101,31 +130,6 @@ The MySQL connector works with all tables, views and stored procedures. These ar
 *Provide exact table/view name in a text field*
 
 Case sensitivity of the name of a table/view depends on your database implementation. The underlying OS that your database is hosted determines if you need to provide exact table/view names. Typically, database and table names are case insensitive in Windows.
-
-### Improved datetime handling
-The SQL Server connector now has the option to utilise improved handling of datetime, datetime2 and datetimeoffset datatype. This can be enabled in the connection settings of each SQL server connection. This defaults to `Yes` for all new connections and defaults to UTC timezones. Change this to the local timezone of your database if needed. This affects all actions that **insert rows** into MySQL.
-
-::: warning
-There are various timezone settings in MySQL. If no changes are made, your MySQL **system** timezone should be the same as your **global** timezone and set to UTC.
-:::
-
-![Advanced connection setting](~@img/mysql/advanced_date_time_handling.png)
-<center><i>Configure this in the setting of your MySQL server connection</i></center>
-
-**Summary of behaviour**
-
-| Datatype           | Workato input   | Improved datetime handling set to false/unselected | Improved datetime handling set to true |
-|--------------------|-----------------|--------------------------------------------------------------------------------------|---------------------------------------------|
-| date | Time with no TZ | Workato workspace timezone assumed. Converted to UTC before insertion                | No TZ assumed. Inserted as is               |
-| date | Time with TZ | Converted to UTC before insertion                | Converted to database timezone in connection setting timezone before insertion  |
-| datetime | Time with no TZ    | Workato workspace timezone assumed. Converted to UTC before insertion.    | No TZ assumed. Inserted as is  |
-| datetime | Time with TZ    | Converted to UTC before insertion.     | Converted to database timezone in connection setting timezone before insertion |
-| timestamp     | Time with no TZ | Workato workspace timezone assumed. Converted to UTC before insertion with +00:00 tz | No TZ assumed. Inserted as is    |
-| timestamp     | Time with TZ    | Converted to UTC before insertion | Converted to database timezone in connection setting timezone before insertion   |
-
-::: warning Note
-When using the calendar datepicker for date/datetime/timestamp fields, times are defined using your Workato workspace timezone.
-:::
 
 ### Single row vs batch of rows
 MySQL connector can read or write to your database either as a single row or in batches. When using batch triggers/actions, you have to provide the batch size you wish to work with. The batch size can be any number between 1 and 100, with 100 being the maximum batch size.
