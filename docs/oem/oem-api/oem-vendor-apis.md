@@ -67,6 +67,7 @@ Workato API supports sending request body with the `application/json` content-ty
 | Type | Resource | Description |
 |------|----------|-------------|
 | POST | [/api/managed_users](/oem/oem-api/managed-users.md#create-customer-account) | Create customer account. |
+| PUT  | [/api/managed_users](/oem/oem-api/managed-users.md#update-customer-account) | Update customer account. |
 | GET  | [/api/managed_users/:id](/oem/oem-api/managed-users.md#get-customer-account) | Get customer account. |
 | PUT  | [/api/managed_users/:id/upgrade](/oem/oem-api/managed-users.md#upgrade-customer-account) | Upgrade customer account. |
 | PUT  | [/api/managed_users/:id/downgrade](/oem/oem-api/managed-users.md#downgrade-customer-account) | Downgrade customer account. |
