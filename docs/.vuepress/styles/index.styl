@@ -119,14 +119,18 @@ body {
   }
 
   /* Table width */
-  .api-input, .api-quick-reference {
+  .api-input, .api-quick-reference, .ip-whitelist {
     display: table;
     width: 100%;
   }
 
   /* Header alignment */
-  .api-input th, .api-quick-reference th {
+  .api-input th, .api-quick-reference th, .ip-whitelist th {
     text-align: left;
+  }
+
+  .ip-whitelist th {
+    white-space: nowrap;
   }
 
   /* Name */
