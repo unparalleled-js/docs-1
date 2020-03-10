@@ -87,6 +87,7 @@ To access the customer account, [Customer managers](/oem/admin-console/customer-
 The settings page allows changing the configuration on the customer account. This includes:
 - Subscription
 - External ID
+- IFrame origin URL (for Workato Embedded/Embedded connection widget only)
 - Deleting the customer account
 
 ### Subscription
