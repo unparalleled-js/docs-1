@@ -119,13 +119,13 @@ body {
   }
 
   /* Table width */
-  .api-input, .api-quick-reference {
+  .api-input, .api-quick-reference, .table-with-4-col {
     display: table;
     width: 100%;
   }
 
   /* Header alignment */
-  .api-input th, .api-quick-reference th {
+  .api-input th, .api-quick-reference th, .table-with-4-col th {
     text-align: left;
   }
 
@@ -160,6 +160,26 @@ body {
     width: 55%;
   }
 
+  /* main col1 */
+  .table-with-4-col th:nth-child(1) {
+    width: 25%;
+  }
+
+  /* sub col2 */
+  .table-with-4-col th:nth-child(2) {
+    width: 20%;
+  }
+
+  /* minor col3 */
+  .table-with-4-col th:nth-child(3) {
+    width: 15%;
+  }
+  
+  /* comment */
+  .table-with-4-col th:nth-child(4) {
+    width: 40%;
+  }
+  
   .algolia-search-wrapper {
     .algolia-autocomplete {
       width: 100%;
