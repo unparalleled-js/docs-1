@@ -87,6 +87,7 @@ To access the customer account, [Customer managers](/oem/admin-console/customer-
 The settings page allows changing the configuration on the customer account. This includes:
 - Subscription
 - External ID
+- IFrame origin URL (for Workato Embedded/Embedded connection widget only)
 - Deleting the customer account
 
 ### Subscription
@@ -97,12 +98,19 @@ To change the plan or trial status of a customer account, use the 'Subscription'
 
 You may also choose to put the customer on `Trial` status. This gives the user the opportunity to try the Workato platform in a 30-day trial. Users in trial have **100 tasks/month** and the trial lasts for **30 days**. The user is automatically downgraded to the 'Free' plan after 30 days. As an OEM partner, you may extend the trial by simply re-enabling it and changing the plan.
 
-Once the customer has subscribed, simply disable the `Trial` and the user will be in an `Active` subscription. 
+Once the customer has subscribed, simply disable the `Trial` and the user will be in an `Active` subscription.
 
 ### External ID
 The external ID is a customer ID assigned to the customer by the OEM partner. This ID usually corresponds to a customer ID within your CRM. You may change the value at any time, but do note that any [APIs](/oem/oem-api/managed-users.md) using the external ID as an input will be affected if you change this ID.
 
 Workato assigns each customer a unique `User ID` as well. This ID can be obtained in the URL of the customer information page.
+
+### IFrame origin URL
+This setting is available for customers using [Workato embedded](/oem/workato-embedded.md). When a URL is entered here, it overrides the IFrame origin URL set on the OEM admin account.
+
+For example, if the OEM account has origin URL: `https://company.com`, if no value is set in the customer account, the customer account will inherit the same origin. If the customer has a unique domain they login with eg. `https://1.company.com`, you can change that in this setting and it will only apply to the selected customer.
+
+This enables the use of multiple custom domains/workspace domains that your application supports.
 
 ### Delete account
 The OEM partner may delete a customer account at any time. Please note that this removes the customer account for good — all data, recipes etc. will be removed and cannot be recovered.
