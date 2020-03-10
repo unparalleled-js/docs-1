@@ -38,8 +38,7 @@ The OPA makes an outbound connection to the Workato cloud's on-premise gateways 
 | `sg2.workato.com` | 34.204.129.29<br>34.228.172.35<br>54.83.143.113 | 443 | |
 | `sg.workato.com` | 34.192.94.13<br>34.195.128.7<br>34.226.84.130 | 443 | Will be deprecated 5 April 2020 |
 | N/A | 52.206.58.244 | 443 | Deprecated 28 March 2018, not used in recent OPA versions |
-
-{: .api-input :}
+{: .ip-whitelist :}
 
 If your organization has strict outbound traffic rules, you will need to whitelist the OPA's access to the Workato cloud.
 
