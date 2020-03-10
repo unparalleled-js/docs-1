@@ -38,7 +38,7 @@ POST /api/managed_users
 | plan_id | **string**<br>_optional_ | Plan id. Default plan id is used when not provided. |
 | external_id | **string**<br>_optional_ | External identifier for the OEM customer. |
 | origin_url | **string**<br>_optional_ | Applies to embedded OEM account customers. Provide a value if the embedded IFrame is hosted in a non-default origin page(E.g. customer specifc custom domains etc). Defaults to the origin configured at the account level. |
-{.api-input}
+{: .api-input :}
 
 #### Sample request
 
@@ -83,7 +83,7 @@ PUT /api/managed_users/:id
 | Name | Type | Description |
 |------|------|-------------|
 | id   | **string**<br>_required_ | OEM customer Account ID/External ID. <br>External id should be prefixed with a E(eg: EA2300) and the resulting id should be URL encoded. |
-{.api-input}
+{: .api-input :}
 
 
 ### Request body
@@ -94,7 +94,7 @@ PUT /api/managed_users/:id
 | notification_email | **string**<br>_required_  | Email for error notifications. |
 | external_id | **string**<br>_optional_ | External identifier for the OEM customer. |
 | origin_url | **string**<br>_optional_ | Applies to embedded OEM account customers. Provide a value if the embedded IFrame is hosted in a non-default origin page(E.g. customer specifc custom domains etc). Defaults to the origin configured at the account level. |
-{.api-input}
+{: .api-input :}
 
 User property is upated only if the request body contains the property. To clear the value of a property, set the property to `null` in the request body. 
 
