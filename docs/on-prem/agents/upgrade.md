@@ -16,7 +16,7 @@ Follow the instructions below for upgrading an existing agent:
 
 ## Linux/MacOS
 1. Verify that the agent process is stopped. The upgrade will fail if any running agents are detected.
-2. Navigate to the agent directory. (e.g. `cd ~/programs/workato-agent/`)
+2. Navigate to the agent directory (e.g. `cd ~/programs/workato-agent/`). **Do not** navigate further into the `/bin/` directory.
 3. Run the upgrade script: `bin/upgrade.sh`. Make sure you have enough permissions.
 4. Follow the instructions provided by the upgrade script. Confirm the upgrade when prompted.
 5. Upon successful completion of the upgrade, run the agent (e.g. `bin/run.sh`).
