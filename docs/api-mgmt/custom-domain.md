@@ -19,7 +19,7 @@ Custom domains in Workato are not case sensitive.
 | 1.    | Prepare a registered domain and subdomain name. For more information on domain names, see the [ICANN documentation](https://www.icann.org/resources/pages/register-domain-name-2017-06-20-en). For example, `blog.boltcompany.com`.
 | 2.    | Navigate to **Tools** > **API Platform** > **Settings** tab > **Custom domain** on the left menu.<br>![Register custom domain](~@img/api-mgmt/add-custom-domain-blank.png)*Register custom domain* |
 | 3.    | Provide your subdomain name.<br>![Register a domain](~@img/api-mgmt/add-custom-domain.png)*Register a domain* |
-| 4.    | Once you have configured the custom domain on Workato. It is time to create a record in your domain host. Copy `apim.workato.com` to be used in the DNS host record.<br>![Pending verification](~@img/api-mgmt/custom-domain-pending-verification.png)*Pending verification* |
+| 4.    | Once you have configured the custom domain on Workato. It is time to create a record in your domain host. Copy `apim-custom.workato.com` to be used in the DNS host record.<br>![Pending verification](~@img/api-mgmt/custom-domain-pending-verification.png)*Pending verification* |
 | 5.    | Register a new CNAME record with your domain host. See [here](#configuring-cname-record). |
 | 6.    | Once the verification process succeeds. Your custom setup is complete.<br>![Completed custom domain setup](~@img/api-mgmt/custom-domain-successful.png)*Completed custom domain setup* |
 
@@ -37,7 +37,7 @@ For this example, let's register the subdomain `api.boltcompany.com` hosted by *
 | 1.    | Select **Add record**. |
 | 2.    | Select type as `CNAME`. |
 | 3.    | Provide the subdomain name. In this example, we are creating a subdomain `api` to `boltcompany.com`. |
-| 4.    | Provide the target. Paste the value which was provided in the custom domain configuration earlier: `apim.workato.com`. |
+| 4.    | Provide the target. Paste the value which was provided in the custom domain configuration earlier: `apim-custom.workato.com`. |
 | 5.    | Save your settings. It may take up to an hour for the settings to propagate through the global domain name system. |
 
 **NOTE**: Requests to custom domains are routed to a [specific set of IP addresses](/security/ip-whitelists#custom-apim-domains)
