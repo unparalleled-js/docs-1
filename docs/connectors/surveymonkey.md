@@ -14,3 +14,22 @@ The SurveyMonkey connector works with all SurveyMonkey plans. However, the [**Ex
 
 ## How to connect to SurveyMonkey on Workato
 The SurveyMonkey connector uses [OAuth2 authentication](https://developer.surveymonkey.com/api/v3/#authentication) to authenticate with SurveyMonkey.
+
+1. First, head into Workato to the connections tab and select SurveyMonkey as the app you would like to connect to.
+
+![SurveyMonkey workato connection screen](~@img/survey_monkey/connection.png)
+
+2. An authorization page will appear, in this screen, log in to SurveyMonkey using your credentials. 
+**Note:**
+* It will be best to use an admin account to avoid permission roadblocks.
+
+3. Read the terms of service and hit Authorize.
+ **Note:**
+ * Ensure to select `view answers along with responses` if you would like to use the `New Survey Responses` trigger in Workato. 
+
+![Authorization grant](~@img/survey_monkey/authorization_grant.png)
+
+## How to unlink Workato on SurveyMonkey
+If you ever need to change your selections in the authorization page, you might have to unlink the current app in SurveyMonkey. Head over to your `accounts` page, where you will see the currently linked applications. Simply click on `Unlink` to remove the connection. 
+
+![SurveyMonkey linked accounts](~@img/survey_monkey/linked_accounts.png)

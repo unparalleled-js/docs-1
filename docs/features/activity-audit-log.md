@@ -182,7 +182,7 @@ Activity audit log is visible to owner of the account and the users with `Admin`
 ## Activity audit data retention
 The activity audit log data will be retained for one year from when it is generated. To get longer data retention period, you may reach out to Workato sales representative at +1 (844) 469-6752 to find out more.
 
-Alternatively, you can use the activity log streaming to stream the data to your choice of data storage like `Amazon S3` or data storage providers like `sumologic` using the standard REST API interface. You can find more information about audit log streaming [here](/job-history-replication.md).
+We strongly recommend that you use the activity log streaming to stream the audit log data to your choice of data storage like `Amazon S3` or data storage providers like `sumologic` using the standard REST API interface. You can find more information about audit log streaming [here](/job-history-replication.md).
 
 ## Activity audit logs in more detail
 

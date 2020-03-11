@@ -34,17 +34,14 @@ There are 4 main sections/components in these bulk actions.
 | Action section                            | Description                                                                                                                                   |
 |-------------------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------|
 | [CSV file input](#csv-file-input) | Define the schema of the CSV files containing Salesforce bulk load data.                                                                      |
-| [Salesforce object to create/update/upsert](#salesforce-object-to-create-update-upsert) | Define the Salesforce object to write to, as well as `External ID` for upsert operation. |
+| [Salesforce object to create/update/upsert](#salesforce-object-to-create-update-upsert) | Define the Salesforce object to write to. Includes `Primary key` (usually external ID) for upsert operations. |
 | [CSV to Salesforce field mapping](#csv-to-salesforce-field-mapping) | Describe how the CSV data columns should map into Salesforce object fields. |
 | [Advanced configuration](#advanced-configuration) | Define the size per Salesforce bulk job. Define whether this action should be synchronous or asynchronous. |
 
 Let's go into each section in detail.
 
 ### CSV file input
-In this section, define the schema of the CSV files containing Salesforce bulk load data. This enables Workato to read and extract data from your CSV files and move it into Salesforce accurately. These are the fields to fill in:
-
-![Salesforce bulk action - unconfigured CSV file input section](~@img/salesforce-docs/unconfigured-bulk-action-csv-file-input-section.png)
-*Salesforce bulk action - unconfigured CSV file input section*
+In this section, define the schema of the CSV files containing Salesforce bulk load data. This enables Workato to read and extract data from your CSV files and move it into Salesforce accurately.
 
 | Input field           | Description                                                                                                                                                                                                                     |
 |-----------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -61,10 +58,10 @@ This is how the section should look after configuration.
 In our example, we used the sample CSV file below.
 
 ```
-external_id,first_name,last_name,total_recipe_count
-"a0K1h000003fXSS","Jenna","Minnes","54"
-"a0K1h000003fehx","Kathrine","Lecompte","12"
-"a0K1h000003fjnv","Mariela","Fester","28"
+external_id,last_name,value
+"a0K1h000003fXSS","Minnes","54"
+"a0K1h000003fehx","Lecompte","12"
+"a0K1h000003fjnv","Fester","28"
 ```
 
 ### Salesforce object to create/update/upsert
@@ -73,25 +70,32 @@ For the create and update operations, select the Salesforce object you wish to w
 ![Salesforce bulk create action - configured Salesforce object section](~@img/salesforce-docs/salesforce-object-to-bulk-create-config.png)
 *Salesforce bulk create action - configured Salesforce object section*
 
-For the upsert operations, select the Salesforce object you wish to write to as well as the external ID field of the object. In order to carry out the bulk upsert action, your Salesforce object must have an external ID field.
+For the upsert operations, select the Salesforce object you wish to write to as well as the Primary key of the object. A primary key in Salesforce is a unique identifier for each record. In order to carry out the bulk upsert action, your Salesforce object should have an `External ID` field.
+
+The `External ID` field is a custom field that has the “External ID” attribute. It contains unique record identifiers from a system outside of Salesforce. External ID fields must be Custom text, number or email fields.
 
 ![Salesforce bulk upsert action - configured Salesforce object section](~@img/salesforce-docs/salesforce-object-to-bulk-upsert-config.png)
 *Salesforce bulk upsert action - configured Salesforce object section*
+
+The bulk API for upsert also allows the use of other fields such as the internal Record ID in bulk upsert operations. Please note that these must be **indexed** fields. To use an indexed field, toggle the 'Primary key' to accept text input and type in the API name of the field.
+
+The behaviour while using an external ID and other indexed fields differ as follows:
+
+| Input value | External ID | Indexed fields |
+|----------------|-------------|--------------|
+| Match found | Updates record | Updates record|
+| No match found | Creates record | `MALFORMED_ID:Id in upsert is not valid` error |
+| No value | `MISSING_ARGUMENT:External_ID__c not specified` error | Creates records
 
 ### CSV to Salesforce field mapping
 In this section, describe how your data should flow from the CSV file into the Salesforce object. The input fields are generated from your selection of Salesforce object to create/update/upsert, while the picklist is generated from your CSV column names in the **CSV file input** section.
 
 When unconfigured, this section will not map any data into Salesforce.
 
-![Salesforce bulk upsert action - unconfigured fields mapping section](~@img/salesforce-docs/bulk-action-unconfigured-fields-mapping.png)
-*Salesforce bulk upsert action - unconfigured fields mapping section*
-
 For each field that you wish to write to in Salesforce, select which column of the CSV file the data should come from. This action does not allow datapills or data transformation via formula mode as it streams the CSV file data into Salesforce.
 
-This is how the section should look after configuration.
-
 ![Salesforce bulk upsert action - configured fields mapping section](~@img/salesforce-docs/bulk-action-configured-fields-mapping.png)
-*Salesforce bulk upsert action - configured fields mapping section*
+*Salesforce bulk upsert action - field mapping section*
 
 ### Advanced configuration
 In this section, define whether the action should be synchronous or asynchronous. If synchronous, Workato waits for Salesforce to complete the bulk job processing before moving to the next recipe action. If asynchronous, Workato simply uploads the CSV file content into Salesforce and move to the next recipe action without waiting for Salesforce to complete the bulk job processing.

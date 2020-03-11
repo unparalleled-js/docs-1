@@ -1354,6 +1354,10 @@ module.exports = [
             'Search custom records action'
           ],
           [
+            '/connectors/netsuite#get-all-standard-objects-action',
+            'Get all standard records action'
+          ],
+          [
             '/connectors/netsuite#update-standard-object-and-update-custom-object-action',
             'Update record action'
           ],
@@ -1649,12 +1653,12 @@ module.exports = [
             'Connection setup'
           ],
           [
-            '/connectors/salesforce/salesforce-real-time',
-            'Real-time trigger setup'
+            '/connectors/salesforce/salesforce-generic',
+            'Triggers/Actions in Salesforce'
           ],
           [
-            '/connectors/salesforce/salesforce-generic',
-            'Object triggers'
+            '/connectors/salesforce/salesforce-real-time',
+            'Real-time triggers'
           ],
           [
             '/connectors/salesforce/related-objects',
@@ -2688,7 +2692,7 @@ module.exports = [
         path: '/security/data-protection',
         children: [
           [
-            '/security/data-protection/hour-data-retention',
+            '/security/data-protection/data-retention-faq',
             'Data retention'
           ],
           {

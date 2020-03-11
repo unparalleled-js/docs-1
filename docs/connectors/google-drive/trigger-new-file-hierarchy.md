@@ -12,7 +12,7 @@ This trigger is compatible with [streaming](/features/file-streaming.md), allowi
 
 | Field name | Description |
 |---|---|
-| Folder | The folder to monitor for new files or folders. Sub-folders will not be monitored. Select a folder from the picklist or enter the folder ID directly. |
+| Folder | The folder to monitor for new files or folders. Sub-folders will be monitored as well. Select a folder from the picklist or enter the folder ID directly. |
 | Chunk size (KB) | Defaults to 1024 KB. This denotes the chunk size when sending data from Google drive to a downstream application. Only applicable when the downstream application is streaming compatible as well. |
 
 ## Output fields

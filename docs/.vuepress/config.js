@@ -61,7 +61,11 @@ module.exports = {
       )
     },
     extendMarkdown: md => {
-      md.use(attributesPlugin)
+      md
+        .use(attributesPlugin, {
+          leftDelimiter: '{:',
+          rightDelimiter: ':}'
+        })
         .use(imageSizePlugin, {
           imagesDir: IMAGES_DIR,
           imagesAlias: IMAGES_ALIAS

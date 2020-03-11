@@ -6,8 +6,6 @@ date: 2019-01-31 06:00:00 Z
 # Dropbox trigger - New/updated CSV file in directory
 Triggers when a new CSV file is added or existing CSV file is updated in a specified folder. New and updated CSV files in subfolders will also be picked up.
 
-Checks selected folder for new/updated CSV files every 5 minutes.
-
 ## Input fields
 
 | Field name | Description |

@@ -13,7 +13,7 @@ date: 2019-04-25 12:20:00 Z
 | POST | [/api/packages/import/:folder_id](#import-package-into-a-folder) | Import package into a folder. |
 | GET  | [/api/packages/:id](#get-package-by-id) | Get package by ID. |
 | GET  | [/api/packages/:id/download](#download-package) | Download a package. |
-{.api-quick-reference}
+{: .api-quick-reference :}
 
 ## Export package based on a manifest
 
@@ -30,7 +30,7 @@ This is an asynchronous request. Use [GET package by ID](#get-package-by-id) end
 | Name | Type | Description |
 |------|------|-------------|
 | id   | **string**<br>_required_ | Export manifest ID. |
-{.api-input}
+{: .api-input :}
 
 #### Sample request
 
@@ -70,7 +70,7 @@ The input (zip file) is a `application/octet-stream` payload containing package 
 |------|------|-------------|
 | id   | **string**<br>_required_ | Folder ID. |
 | restart_recipes | **boolean**<br>_optional_ | If `true`, it will allow the restarting of running recipes. |
-{.api-input}
+{: .api-input :}
 
 #### Sample request
 
@@ -106,7 +106,7 @@ GET /api/packages/:id
 | Name | Type | Description |
 |------|------|-------------|
 | id   | **string**<br>_required_ | Package ID. |
-{.api-input}
+{: .api-input :}
 
 #### Sample request
 
@@ -156,7 +156,7 @@ GET /api/packages/:id/download
 | Name | Type | Description |
 |------|------|-------------|
 | id   | **string**<br>_required_ | Package ID. |
-{.api-input}
+{: .api-input :}
 
 #### Sample request
 

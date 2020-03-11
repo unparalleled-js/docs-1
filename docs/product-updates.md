@@ -9,6 +9,58 @@ date: 2018-06-05 21:45:00 Z
 
 Our engineers are hard at work daily to make Workato better! View the latest updates to our platform below.
 
+## UI update
+##### Feb 2020
+
+### Recipe Editor design updates
+We are constantly making updates to the user interface to increase user productivity and make Workato even easier to use. Below are a few updates you may have noticed recently.
+
+The "What happens next?" action in our recipe editor is horizontal instead of vertical to make it easier to see the options while preserving visibility to the rest of the recipe.
+
+![Horizontal Action Bar](~@img/horizontal_action_bar.png)
+*The 'What happens next?' options are displayed horizontally*
+
+We have also improved the color and styling on the event tags (New, Bulk, Batch, Deprecated, and Real Time), and additional source information will now be shown when hovering over Data Pills.
+
+## Connector update
+##### Feb 2020
+
+### Google Drive update
+The new trigger - **New file or folder in folder hierarchy** - is a powerful addition to the Google Drive connector. It enables recipes to trigger jobs on a selected folder and any of its sub-folders. This trigger checks periodically for new files or folders created in a specified folder and its subfolders. Each new file and folder generates a new job.
+This trigger is compatible with streaming, allowing it to send large amounts of data from Google Drive to other streaming compatible connectors in Workato.
+
+This new trigger has many benefits, including:
+- Reduces maintenance by eliminating the need to refresh the folder/sub-folder data for the trigger
+- Simplifies automated backup of folders and files in Google drive into any downstream file management software
+- Prevents loss of data/files owing to new sub-folders and files created after the recipe start
+
+**Links:**
+- [Documentation](/connectors/google-drive/trigger-new-file-hierarchy.md)
+
+## Connector update
+##### Feb 2020
+
+### Salesforce bulk upsert action update
+We previously only allowed External ID as a valid field for Primary Key in the Salesforce bulk upsert action. We now accept all indexed fields (Salesforce record ID, Name, any custom indexed field) as well.
+
+**Use cases**
+For customers that do not store an ID in their external systems and use the Salesforce record ID (or other internal fields) as the primary identifier of a record, they can now use that field as the Primary Key by toggling the field to text and entering the name of the field.
+
+**Links:**
+- [Documentation](/connectors/salesforce/salesforce-bulk.md#salesforce-object-to-create-update-upsert)
+
+## Platform update
+##### Feb 2020
+
+### Tracking billable recipes
+We announced some radical changes to simplify pricing for customers last year and a lot of you have taken advantage of the new recipe-based pricing model. To help you plan and optimize usage, we have added a new section in your Workspace to view all purchased add-ons and recipe packages. Additionally, you can also track current and historical recipe usage trends.
+
+Legacy usage-based plans will be supported through this release in the following way: Plans that have a billable metric, like tasks, will have a thermometer representation in the UI to show the consumption of tasks. Usage-based plans with no billable metrics will just show the plan name and feature add-ons.
+
+**Subscription Page (under account settings):**
+![Recipe Pricing Subscription Screen](~@img/recipe_pricing_subscription_screen.png)
+*Plan information, usage stats, and tasks are now displayed on the user subscription page*
+
 ## Platform update
 ##### Feb 2020
 
@@ -22,7 +74,7 @@ Users will only be able to see items in the Trash folder to which they have acce
 - Restore recipes that have been accidentally deleted
 
 ## Connector update
-##### Feb 2019
+##### Feb 2020
 
 ### NetSuite SuiteTalk 2019_2 API
 We recently migrated our NetSuite connector to the SuiteTalk 2019_2 API. NetSuite has 2 major releases of their API every year which includes updates to their WSDL. With this update, the NetSuite connector now has access to more record types and field types which may not have been found previously.
@@ -31,7 +83,7 @@ We recently migrated our NetSuite connector to the SuiteTalk 2019_2 API. NetSuit
 - [View added record types](https://docs.workato.com/connectors/netsuite.html#suitetalk-2019-2-changes)
 
 ## Connector update
-##### Feb 2019
+##### Feb 2020
 
 ### Data replication in Snowflake
 Let Workato replicate your data into Snowflake without data warehouse maintenance or DevOps. Maintain table definition from data source automatically and utilize built-in data deduplication.

@@ -20,13 +20,13 @@ POST /managed_users/:id/connections/:connection_id/pick_list
 |------|------|-------------|
 | managed_user_id | **string**<br>_required_ | OEM customer Account ID/External ID. <br>External id should be prefixed with a E(eg: EA2300) and the resulting id should be URL encoded. |
 | connection_id | **string**<br>_required_ | ID of the connection. This can be found in the URL of the app connection or is the result of the [List connections](/oem/oem-api/connections.md#list-connections) endpoint.  |
-{.api-input}
+{: .api-input :}
 
 ### Body
 | Name | Type | Description |
 |------|------|-------------|
-| pick_list_name | **string**<br>_required_ | Name of the pick list. Obtain from this [document](https://docs.google.com/spreadsheets/d/1XnzSkUo72Bp6THWhFim0444FXNfziMJo7ouzP5eO9T0/edit?usp=sharing). |
-| pick_list_params | **Hash**<br>_optional_ | Picklist parameters, required in some picklists. For more information view this [document](https://docs.google.com/spreadsheets/d/1XnzSkUo72Bp6THWhFim0444FXNfziMJo7ouzP5eO9T0/edit?usp=sharing). |
+| pick_list_name | **string**<br>_required_ | Name of the pick list. Obtain from this [document](/oem/oem-api/picklist-parameters.md). |
+| pick_list_params | **Hash**<br>_optional_ | Picklist parameters, required in some picklists. For more information view this [document](/oem/oem-api/picklist-parameters.md). |
 
 #### Sample request
 
