@@ -1,4 +1,3 @@
-
 ---
 title: Workato connectors - Zendesk create/update record action
 date: 2019-06-03 18:00:00 Z
