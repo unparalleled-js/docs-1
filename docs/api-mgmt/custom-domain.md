@@ -45,7 +45,7 @@ For this example, let's register the subdomain `api.boltcompany.com` hosted by *
 
 ## Certificate for TLS
 
-When you use Workato’s API platform, the default domain is workato.com. If you add a custom domain, Workato manages certificates for your API collections to enabled HTTPS for your custom domain. New certificates are created automatically when you add a custom domain. These certificates will automatically renew one month before they expire. Workato uses [Let’s Encrypt](https://letsencrypt.org/) to create and manage certificates for your APIs.
+When you use Workato’s API platform, the default domain is workato.com. If you add a custom domain, Workato manages certificates for your API collections to enable HTTPS for your custom domain. New certificates are created automatically when you add a custom domain. These certificates will automatically renew one month before they expire. Workato uses [Let’s Encrypt](https://letsencrypt.org/) to create and manage certificates for your APIs.
 
 ::: tip
 The original API endpoint will continue to work in parallel with your custom domain.
