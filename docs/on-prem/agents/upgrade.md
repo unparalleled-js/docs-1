@@ -22,3 +22,7 @@ Follow the instructions below for upgrading an existing agent:
 5. Upon successful completion of the upgrade, run the agent (e.g. `bin/run.sh`).
 6. Make sure your agent is active and verify its version number on the [on-prem agent page](https://www.workato.com/on_prem_groups).
 7. The upgrade process is not triggered if no new versions are available. However, it might be necessary to repair a broken installation; in that case use the command line option when running the upgrade: `bin/upgrade.sh --enforce`.
+
+## Troubleshoot
+- For Linux/MacOS users, if you have anaconda installed on your terminal, be sure to deactivate any conda environments with `conda deactivate` as it will cause an error when upgrading. 
+
