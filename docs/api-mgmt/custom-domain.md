@@ -41,7 +41,7 @@ For this example, let's register the subdomain `api.boltcompany.com` hosted by *
 | 4.    | Provide the target. Paste the value which was provided in the custom domain configuration earlier: `apim-custom.workato.com`. |
 | 5.    | Save your settings. It may take up to an hour for the settings to propagate through the global domain name system. |
 
-**NOTE**: Requests to custom domains are routed to a [specific set of IP addresses](/security/ip-whitelists#custom-apim-domains)
+**NOTE**: Requests to custom domains are routed to a [specific set of IP addresses](/security/ip-whitelists.html#custom-apim-domains)
 
 ## Certificate for TLS
 
