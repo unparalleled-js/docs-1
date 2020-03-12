@@ -588,13 +588,7 @@ module.exports = [
       ['/features/collection', 'Collection by Workato'],
       ['/data-retention', 'Data retention'],
       ['/features/common-data-model', 'Common data model'],
-      {
-        title: 'API Platform',
-        path: '/api-management',
-        children: [
-          ['/connectors/sap/tls1.2', 'TLS 1.2 set up']
-        ]
-      }
+      ['/features/api-management', 'API Platform']
     ]
   },
   {
@@ -748,16 +742,17 @@ module.exports = [
     title: 'API Platform',
     path: '/api-management',
     children: [
-      [
-        '/api-mgmt/api-collections',
-        'API Collections and Endpoint Management'
-      ],
+      ['/api-mgmt/dashboard', 'Dashboard'],
+      ['/api-mgmt/api-collections', 'API Collections'],
+      ['/api-mgmt/api-endpoints', 'API Endpoints'],
       ['/api-mgmt/api-access-policies', 'API Access Policies'],
       {
         title: 'Managing API Clients and Access Profiles',
         path: '/api-mgmt/api-client-mgmt',
         children: [['/api-mgmt/access-tokens', 'Access Tokens']]
       },
+      ['/api-mgmt/api-prefix', 'API Prefix'],
+      ['/api-mgmt/custom-domain', 'Custom Domain'],
       ['/api-mgmt/calling-apis', 'Calling APIs'],
       [
         '/features/callable-recipes/handling-raw-content',
@@ -1696,7 +1691,8 @@ module.exports = [
             '/connectors/sap/action-check-idoc',
             'Check IDoc status action'
           ],
-          ['/connectors/sap/action-run-rfm', 'Run RFC action']
+          ['/connectors/sap/action-run-rfm', 'Run RFC action'],
+          ['/connectors/sap/tls1.2', 'TLS 1.2 set up']
         ]
       },
       {

@@ -1,95 +1,78 @@
 ---
-title: API Collections and Endpoint Management
-date: 2018-02-02 18:26:00 Z
+title: API Collections Management
+date: 2018-02-02 00:00:00 Z
 ---
 
-# API Collections and Endpoint Management
+# API Collections Management
 
-## Creating an API Collection
-
-The first step in setting up an API for external use is to define and test one or more recipes that use the [Callable recipes by Workato](/features/callable-recipes.md) connector as a trigger. Each such recipe is a potential Endpoint for a callable API, but when first created they are not enabled for external access.
-
-The next step is to organize these recipes into one or more API Collections. Generally, an API Collection should contain endpoints whose access pattern has some common features, so that you can manage them together. For example, a set of Salesforce endpoints that are intended to be called by recipes used with the Sales team might be put together in an API Collection.
-
-It may be helpful to place recipes whose endpoints belong to the same API Collection within the same folder. An API Collection can be associated with a folder so that any new callable recipes added to the folder will be included in the collection automatically (they are not, however, automatically enabled for external calling).
-
-API Collections are versioned, using a unique 1-10 character version identifier. Collections with the same name but different versions are distinct objects.
-
-To create an API Collection, navigate to the API Platform section from the Tools menu, and then click on the API Collections tab. You will see something like this:
+The API collections tab displays all API collections under this account (individual or team account). Navigate to this page by clicking on the **API Collections tab**. You will see something like this:
 
 ![API Collection Tab](~@img/api-mgmt/api-collections.png)
 *API Collections Tab*
 
-Click on **Add new API Collection** to create a new collection. This brings up an API Source dialog, as follows:
+The next step is to organize these recipes into one or more API Collections. Generally, an API Collection should contain endpoints whose access pattern has some common features, so that you can manage them together. For example, a set of Salesforce endpoints that are intended to be called by recipes used with the Sales team might be put together in an API Collection.
 
-![Select API Source dialog](~@img/api-mgmt/select-api-source.png)
-*Select API Source dialog*
+API Collections are versioned, using a unique 1-10 character version identifier. Collections with the same name but different versions are distinct objects.
 
-After filling in this dialog, the final screen shows a list of the endpoints that will be initially placed into your collection from the folder you have selected. Don't worry if more endpoints are included than you actually intend to use. You can edit the list later.
+In this guide, we will go through API collection configurations:
+- [How to create an API collection](#creating-an-api-collection)
+- [How to edit an API collection](#editing-an-api-collection)
+- [How to activate an API endpoint](#activating-or-deactivating-an-endpoint)
+- [How to customize URL path for API collection](#customize-url-path-for-api-collection)
+- [How to obtain machine-readable documentation (OpenAPI)](#machine-readable-documentation-openapi)
+
+In a separate guide, we will go through [API endpoint configuration](/api-mgmt/api-endpoints.md).
+
+## Creating an API Collection
+
+Click on **Add new API Collection** to create a new collection.
+
+| Step | Description |
+| --- | --- |
+| 1. | Provide information about the **Collection name**, **Version**, and **Description**. Also, select a **Recipe folder** from which the endpoints will be retrieved from.<br>![Select API Source dialog](~@img/api-mgmt/select-api-source.png)*Select API Source dialog*<br><br>It may be helpful to place recipes whose endpoints belong to the same API Collection within the same folder. An API Collection can be associated with a folder so that any new callable recipes added to the folder will be included in the collection automatically (they are not, however, automatically enabled for [external calling](#activating-or-deactivating-an-endpoint)). |
+| 2. | This screen shows a list of the endpoints that will be initially placed into your collection from the folder you have selected. Don't worry if more endpoints are included than you actually intend to use. You can edit the list later.<br>![Review endpoints](~@img/api-mgmt/review-endpoints.png)*Review endpoints* |
 
 Click on **Create API Collection** to create the collection. This returns you to the API Collections list, where you will see the new collection listed.
 
 ## Editing an API Collection
 
-Clicking on **Create new endpoint** within the API Collection tab brings up a dialog that allows you to add a new Endpoint to the API Collection. The recipe for this endpoint can be chosen from any callable recipe: it does not have to be in the same folder as other existing collection endpoints.
+Once you have created an API collection, click on an API collection open up the collection overview page. From this page, you can add, remove, or edit endpoints that are available within this collection.
 
-The **•••** icon in the upper-right corner of the listed endpoint within the API Collection brings up a menu that allows editing or deleting an individual endpoint within the collection. The editing dialog looks like this:
-
-![Edit endpoint dialog](~@img/api-mgmt/edit-endpoint.png)
-*Edit endpoint dialog*
-
-Editing allows changing the name, recipe, HTTP Method (such as POST), and the URL path to the API.
-
-Note that changes may require clients of the API to make adjustments on their end, so that their recipes, scripts, etc. still work. Deleting an endpoint removes it from the collection and makes it inaccessible to any clients that had previously been granted access to it through the collection.
+![API collection overview](~@img/api-mgmt/api-collection-overview.png)
+*API collection overview*
 
 ## Activating or Deactivating an Endpoint
 
-When first created as part of creating an API Collection, or when first added to an existing collection, an endpoint is set to the **Inactive** state. In this state, it cannot be called remotely. The slider control next to the **Inactive** label can be used to change the status to **Active**. However, to be made active, the recipe associated with the endpoint must first be running.
+Control the recipes that are callable from this API collection page. When first created as part of creating an API Collection, or when first added to an existing collection, an endpoint is set to the **Inactive** state.
 
-Sliding the slider back to **Inactive** makes the endpoint not callable again. It does not, however, stop the associated recipe.
+| State    | Description |
+| -------- | ----------- |
+| Active   | Active endpoints are callable from API requests. To set an endpoint to the **Active** state, the recipe associated with the endpoint must first be running.
+| Inactive | Inactive endpoints cannot be called remotely. Using this slider to toggle to **Inactive** does not, however, stop the associated recipe. |
 
-## Machine-readable documentation (Open API)
+## Customize URL path for API collection
 
-The API Collection page has a link in the upper-right corner, labeled **Download Open API spec**. This gives you access to a downloadable file that contains documentation for all the endpoints within the collection, in a format that can be used by programs and tools. This format is called Open API, also known as Swagger. Currently, Workato supports [version 2.0](https://github.com/OAI/OpenAPI-Specification/blob/master/versions/2.0.md) of the specification.
+API collection URL paths are sub-directory paths that you can use to define your API collection. For example, you can use the path prefix to differentiate collections for sales, marketing, or HR.
 
-## Viewing an Endpoint
+Navigate to this page by **selecting your desired API collection** > click on the **Settings** tab, and selecting **URL settings** on the left menu.
 
-The description that is in the Open API file can also be viewed in the Workato UI, by clicking on an Endpoint within the API Collection list. This will bring up a page with detailed documentation on that endpoint.
+![Customize endpoint URL](~@img/api-mgmt/customize-collection-url.png)
+*Customize endpoint URL*
 
-There are several sections within the information section.
+You can edit the URL path for this collection. Workato recommends using a meaningful name and standardizing the name across development teams. Having standardized collection names across your company will simplify the [recipe export process](/recipe-development-lifecycle.md) during versioning changes and updates between development, testing, and production-ready endpoint.
 
-### Implementation notes
+:::tip
+New Workato collections are automatically configured with a custom path prefix. For more information on path prefixes, see [here](/api-mgmt/custom-domain.md).
+:::
 
-These come from the recipe description and describe what the recipe does.
+## Machine-readable documentation (OpenAPI)
 
-### Response class (status 200)
+The API Collection page has a link in the upper-right corner, labeled **Download OpenAPI spec**. This gives you access to a downloadable file that contains documentation for all the endpoints within the collection, in a format that can be used by tools like Postman. This format is called OpenAPI, also known as Swagger. Currently, Workato supports [version 2.0](https://github.com/OAI/OpenAPI-Specification/blob/master/versions/2.0.md) of the specification.
 
-When a call to the endpoint is made, a status of 200 will be returned to the client if the call was successful. This section also documents any response data that is sent along with the status.
+## More information
 
-### Parameters
-
-This section lists the parameters that are required to be input as part of the call to the API. For a GET method, parameters should be sent as query strings that are part of the URL. For a POST or PUT method, parameters should be sent in JSON format in the body of the request.
-
-### Response messages
-
-If a call to the API fails, then an error status will be returned to the HTTP client. This section documents the possible error codes that might be returned.
-
-## Testing an Endpoint
-
-At the bottom of the endpoint description section, there is a Test button. This can be used to make a REST call to the endpoint for testing purposes.
-
-The input parameters can be entered in the **Parameters** section of the endpoint description. Frequently the **Example value** shown in the endpoint description will suffice for a test. For example:
-
-![Parameter input](~@img/api-mgmt/test-parameters.png)
-*Parameters input*
-
-Once the required parameters are entered, click the Test button at the bottom of the screen. A successful test might produce results like this:
-
-![Test response](~@img/api-mgmt/test-response.png)
-*Test response*
-
-This shows a "Success" return code (200).
-
-If the response value is not 200, the test results in an error. There can be numerous reasons for an error.
-
-The most common error when performing a test from the same account that owns the callable recipe is "Invalid request" (500). This usually indicates that the input parameters were incorrect: not all required parameters were supplied or had values that are invalid for the target recipe.
+Read our walkthrough for API endpoint configuration:
+- [How to activate an API endpoint](/api-mgmt/api-endpoints.md#activating-or-deactivating-an-endpoint)
+- [How to customize URL path for an endpoint](/api-mgmt/api-endpoints.md#customize-url-path-for-an-endpoint)
+- [How to view individual endpoint](/api-mgmt/api-endpoints.md#viewing-an-endpoint)
+- [How to test individual endpoints](/api-mgmt/api-endpoints.md#testing-an-endpoint)

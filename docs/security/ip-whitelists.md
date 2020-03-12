@@ -50,6 +50,13 @@ Firewall whitelists should allow outbound TCP connections from the OPA to port 4
 
 Some organizations also restrict DNS hostname resolution from the machines/networks where the OPA may run. In that case, you should ensure that the machine where OPA will be running can resolve the relevant hostnames above to their corresponding IP addresses.
 
+#### Custom APIM domains
+When using [custom domains](/api-mgmt/custom-domain.md) for API recipes, client traffic will be routed to a distinct set of IP addresses.
+
+- **18.211.121.35**
+- **34.232.254.255**
+- **52.203.235.136**
+
 #### General (browsers, webhooks, API endpoints)
 All other traffic to Workato:
 
