@@ -7,7 +7,8 @@ date: 2020-01-20 00:00:00 Z
 
 Route Workato API endpoints through your own domain. You can expose Workato API endpoints under your own subdomain. For example, modify the endpoint to reflect your company's subdomain.
 
-**Original API URL:** `https://apim.workato.com/prod/sales-api/get-invoice`
+**Original API URL:** `https://apim.workato.com/boltco/sales-api/get-invoice`
+
 **Custom domain URL:** `https://api.boltcompany.com/sales-api/get-invoice`
 
 ::: tip
