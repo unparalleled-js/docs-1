@@ -25,4 +25,3 @@ Follow the instructions below for upgrading an existing agent:
 
 ## Troubleshoot
 - For Linux/MacOS users, if you have anaconda installed on your terminal, be sure to deactivate any conda environments with `conda deactivate` as it will cause an error when upgrading. 
-
