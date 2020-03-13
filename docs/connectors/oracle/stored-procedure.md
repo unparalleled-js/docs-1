@@ -14,7 +14,20 @@ Using stored procedures are a great way to improve recipe efficiency and balance
 *Execute stored procedure rows action*
 
 ### Stored procedure
-First, select a stored procedure to execute. This can be done either by selecting from the pick list, or toggling the input to text mode and providing the full stored procedure name.
+First, select a stored procedure to execute. This can be done either by selecting from the pick list, or toggling the input to text mode and providing the full stored procedure name. When working with overloaded stored procedures, you will see multiple stored procedures with its `sub_program_id` in brackets next to each.
+
+![Execute stored procedure rows action](~@img/oracle/overloaded-stored-procedure.png)
+*Each overloaded stored procedure will show up with its sub_program_id in brackets next to the name*
+
+::: tip
+To find out the different sub_program_ids for an overloaded stored procedure, use the following query in your DBMS.
+```sql
+SELECT position, argument_name, in_out, data_type,
+         data_length, data_precision, data_scale, char_length, object_name, subprogram_id
+         FROM SYS.ALL_ARGUMENTS where object_name = [stored_procedure_name]
+```
+where `[stored_procedure_name]` is the name of the overloaded stored procedure.
+:::
 
 ### Input parameters
 Next, provide any input parameters required for the selected stored procedure.
