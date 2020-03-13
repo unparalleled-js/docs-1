@@ -58,7 +58,7 @@ Directory.Read.All
 Directory.ReadWrite.All
 offline_access
 ```
-Contact your administrator to ensure that that your connected work or school account has been granted the permissions above.
+Contact your **Office 365 administrator**, not your Microsoft Teams admin, to ensure that that your connected work or school account has been granted the permissions above.
 
 ## Setup
 In Teams, go to the Workbot welcome message and click on **Login**. If you don't have yet have a Workato account, click on **create a new one** instead.
