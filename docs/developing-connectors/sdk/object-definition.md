@@ -131,8 +131,20 @@ Up until now, our sample code snippets have largely only included the basic para
                 <li><code>"timestamp"</code></li>
                 <li><code>"boolean"</code></li>
                 <li><code>"object"</code> Must be accompanied with <code>properties:</code></li>
-                <li><code>array</code> Must be accompanied with <code>properties:</code></li>
+                <li><code>"array"</code> Must be accompanied with <code>properties:</code> and the <code>of:</code></li>
               </ul>
+            </td>
+        </tr>
+        <tr>
+            <td>of</td>
+            <td>
+              When defining arrays, you need to declare <code>of</code> where <code>of: "object"</code>. Only the type <code>object</code> is compatible with this parameter. Primitive data types like <code>string</code> and <code>integer</code> are not yet supported.
+            </td>
+        </tr>
+        <tr>
+            <td>properties</td>
+            <td>
+              When defining nested objects, use the <code>properties</code> key to define the fields in the object or array of objects.
             </td>
         </tr>
         <tr>
@@ -154,13 +166,6 @@ Up until now, our sample code snippets have largely only included the basic para
             <td>
               If <code>control_type</code> is <code>:select</code> or <code>:multiselect</code>, this property is required.
               See more in <a href="/developing-connectors/sdk/pick-list-toggle-fields.html">Pick List</a> chapter.
-            </td>
-        </tr>
-        <tr>
-            <td>properties</td>
-            <td>
-              When defining nested objects, use the <code>properties</code> key to define the fields in the object.
-              Remember to define the type as <code>:array</code> or <code>:object</code>
             </td>
         </tr>
         <tr>
@@ -468,6 +473,70 @@ object_definitions: {
           ]
         }
       ]
+    end
+  }
+}
+```
+
+### Arrays of primitive data types
+Arrays in Workato input and output schema currently only work with objects. In cases where you need to collect an array of primitive datatypes such as strings or integers, consider the code below. In this example, we hope to send an array of strings to a target API in the format `["column1","column2","column3"]`. This can be done by declaring an array of objects with the declaration for the `column names` input field wrapped inside the object layer.
+
+#### Sample code snippet
+```ruby
+object_definitions: {
+  columns: {
+    fields: lambda do
+    [
+      {
+        label: 'Column Names',
+        name: 'columnNames',
+        type: :array,
+        of: :object,
+        properties: [
+          {
+            name: 'columnName'
+          }
+        ]
+      }
+    ]
+    end
+  }
+}
+```
+
+When users design their recipes, we expect the `input` from this to look like this:
+
+```JSON
+{
+  "columnNames": [
+    {
+      "columnName": "column1"
+    },
+    {
+      "columnName": "column1"
+    },
+    {
+      "columnName": "column1"
+    }
+  ]
+}
+```
+
+This input can be massaged into our desired format with a simple `.map` method.
+
+```ruby
+actions:{
+  get_column_names:{
+    input_fields: lambda do |object_definitions|
+      object_definitions["columns"]
+    end,
+
+    execute: lambda do |connection, input|
+      column_names = input["columnNames"].map do |item|
+        item['columnName']
+      end || [] # This gives us ["column1","column2","column3"]
+
+      post("Target_URL", column_names)
     end
   }
 }
