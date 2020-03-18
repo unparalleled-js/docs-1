@@ -532,7 +532,7 @@ actions:{
     end,
 
     execute: lambda do |connection, input|
-      column_names = input["columnNames"].pluck("columnName") || [] # This gives us ["column1","column2","column3"]
+      column_names = input["columnNames"]&.pluck("columnName") # This gives us ["column1","column2","column3"]
 
       post("Target_URL", column_names)
     end
