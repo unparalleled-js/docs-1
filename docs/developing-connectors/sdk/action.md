@@ -161,6 +161,18 @@ end
       <img src="~@img/sdk/help.png">
       </td>
     </tr>  
+    <tr>
+      <td><code>summarize_input:</code></td>
+      <td><code>summarize_input: ['report.records', 'report.description']</code></td>
+      <td>This allows you to define what should be summarised in the job input fields. <a href='#summarizing-inputs-and-outputs-in-job-data'>Learn more.</a>
+      </td>
+    </tr>  
+    <tr>
+      <td><code>summarize_output:</code></td>
+      <td><code>summarize_output: ['report.records', 'report.description']</code></td>
+      <td>This allows you to define what should be summarised in the job output fields. <a href='#summarizing-inputs-and-outputs-in-job-data'>Learn more.</a>
+      </td>
+    </tr>  
   </tbody>
 </table>
 
@@ -238,6 +250,50 @@ execute: lambda do |_connection, input|
     response_format_raw # essential to handle binary files
 end,
 ```
+
+### Summarizing inputs and outputs in job data
+When working with large arrays or data, Workato tries to show all the data in the input and output tabs of the job for each action. In some cases, this can get confusing when we are working with a large numbers of records or large strings. You can use the `summarize_input` and `summarize_output` blocks to summarize the data in your job input and output tabs to make it more human readable for users of your connector.
+
+```ruby
+input_fields: lambda do
+  [
+    {
+      name: 'report',
+      type: 'object',
+      properties: [
+        {
+          name: 'records',
+          type: :array,
+          of: :object,
+          properties: [
+            {
+              name: 'item_name',
+              type: 'string'
+            }
+          ]
+        },
+        {
+          name: 'description',
+          type: 'string'
+        },
+        {
+          name: 'comment',
+          type: 'string'
+        }
+      ],
+    }
+  ]
+end,
+
+summarize_input: ['report.records', 'report.description'],
+```
+
+In the example above, we see the declarations for an input field which consist of a parent `report` object and its children attributes. `summarize_input` can be used to declare which fields should be summarized in the job input tab.
+
+![Sample output](~@img/sdk/job_input_summarized.png)
+*Job input tab summarized*
+
+The same can be declare for the output tab using `summarize_output`.
 
 ## Next section
 Find out more about how to build triggers for your connector that can listen for events and trigger recipes based on that.
