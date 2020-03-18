@@ -513,16 +513,16 @@ When users design their recipes, we expect the `input` from this to look like th
       "columnName": "column1"
     },
     {
-      "columnName": "column1"
+      "columnName": "column2"
     },
     {
-      "columnName": "column1"
+      "columnName": "column3"
     }
   ]
 }
 ```
 
-This input can be massaged into our desired format with a simple `.map` method.
+This input can be massaged into our desired format with a simple `.pluck` method.
 
 ```ruby
 actions:{
@@ -532,9 +532,7 @@ actions:{
     end,
 
     execute: lambda do |connection, input|
-      column_names = input["columnNames"].map do |item|
-        item['columnName']
-      end || [] # This gives us ["column1","column2","column3"]
+      column_names = input["columnNames"].pluck("columnName") || [] # This gives us ["column1","column2","column3"]
 
       post("Target_URL", column_names)
     end
