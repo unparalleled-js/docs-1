@@ -13,8 +13,8 @@ Workbot supports 6 actions:
 * [Download attachment](#download-attachment)
 * [Return menu options](#return-menu-options)
 * [Upload file](#upload-file)
-* [Open/update modal view](#modal-view-input)
-* [Push modal view](#modal-view-input)
+* [Open/update modal view](#modals)
+* [Push modal view](#modals)
 
 ## Block kit compatibility
 Blocks can be used together with existing message attachments present in the [Post command reply](#post-command-reply) and [Post message](#post-message).
