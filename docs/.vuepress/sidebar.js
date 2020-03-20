@@ -2592,6 +2592,10 @@ module.exports = [
           [
             '/workato-api/jobs#list-jobs-from-a-recipe',
             'List jobs from a recipe'
+          ],
+          [
+            '/workato-api/jobs#get-job-details-by-id',
+            'Get job details by ID'
           ]
         ]
       },
