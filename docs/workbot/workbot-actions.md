@@ -13,6 +13,8 @@ Workbot supports 6 actions:
 * [Download attachment](#download-attachment)
 * [Return menu options](#return-menu-options)
 * [Upload file](#upload-file)
+* [Open/update modal view](#modal-view-input)
+* [Push modal view](#modal-view-input)
 
 ## Block kit compatibility
 Blocks can be used together with existing message attachments present in the [Post command reply](#post-command-reply) and [Post message](#post-message).
@@ -305,3 +307,118 @@ The following table lists the fields available in an **Upload file** action.
     </tr>
     </tbody>
 </table>
+
+## Modal view input
+The modal view input is common to both the **Open/update modal view** and **Push modal view** actions. The following table holds additional information about the **Modal** object and the data it correspondingly holds.
+
+<table class="unchanged rich-diff-level-one">
+    <thead>
+        <tr>
+            <th>Group</th>
+            <th>Input</th>
+            <th>Description</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td></td>
+            <td>Trigger ID (required)</td>
+            <td>
+                Modal views can only be opened by interactive components (like buttons & menus), modal submissions, message actions, shortcuts, and slash commands. When users interact with or use these features, a trigger ID is generated. You can grab these from the New command trigger dataree under the Modals object.
+            </td>
+        </tr>
+            <tr>
+                <td></td>
+                <td>View ID (optional)</td>
+                <td>
+                    To open a brand new modal view, leave this blank. To update an existing modal, specify the view ID of the view you want to update.
+                </td>
+            </tr>
+        <tr>
+            <td rowspan="10">View</td>
+            <td>Title of modal</td>
+            <td>Title of the modal view. Up to 24 characters only.</td>
+        </tr>
+        <tr>
+            <td>Blocks</td>
+            <td>An array of blocks you can stack and rearrange.</td>
+        </tr>
+        <tr>
+            <td>Submit command</td>
+            <td>
+                Command to invoke when users do a modal submission.
+            </td>
+        </tr>
+        <tr>
+            <td>Hidden parameters</td>
+            <td>
+                When users do a modal submission, you may want to pass some hidden parameters (e.g. the user ID, opportunity_id) so that the downstream recipe has context to work with. You'll need to define these parameters in the downstream recipe to use them there. <br><br>The parameter names in both upstream & downstream recipes must match.
+            </td>
+        </tr>
+        <tr>
+            <td>Submit button label</td>
+            <td>
+                Label of the submit button. Up to 24 characters only.
+            </td>
+        </tr>
+        <tr>
+            <td>Close button label</td>
+            <td>
+                Label of the submit button. Up to 24 characters only.
+            </td>
+        </tr>
+        <tr>
+            <td>Callback ID</td>
+            <td>
+                For advanced users. Used to reference the view submission event in downstream recipes. Max length of 255 characters.
+            </td>
+        </tr>
+        <tr>
+            <td>Private metadata</td>
+            <td>
+                For advanced users. Used to pass sensitive data. This field is encrypted and hidden to users. Max length of 3000 characters.
+            </td>
+        </tr>
+        <tr>
+            <td>Clear on close</td>
+            <td>
+                Clicking on the close button will clear all views in a modal and close it. Defaults to false.
+            </td>
+        </tr>
+        <tr>
+            <td>Notify on close</td>
+            <td>
+                Sends a view_closed event when a user clicks the close button. Defaults to false. Use the New event trigger to listen to this event.
+            </td>
+        </tr>
+        <tr>
+            <td></td>
+            <td>
+                Hash
+            </td>
+            <td>A unique value you can optionally use when updating modals. When provided, the hash is validated such that only the most recent view is updated, ensuring the correct view is being updated when updates are happening asynchronously.</td>
+        </tr>
+    </tbody>
+</table>
+
+## Open/update modal view
+You can open or update modals using the same action: Open/update modal view.
+
+![Open/update modal view](~@img/workbot/workbot-blockkit/open-update-modal-view.png)
+
+Once a modal view is open, you can choose to update the active view, or push a new view on top of the existing active view.
+
+To open a modal, just use Trigger ID.
+
+To update a modal, use both Trigger ID and View ID (of the view you want to update). Generally speaking, commands (from interactive components) invoked in modal views typically *update* the active view (View iD in the Modal datatree), while modal submissions usually update the root view (Root View ID in the Modal datatree).
+
+::: warning
+When a view is submitted, it closes by default. Be careful not to update a closed modal.
+:::
+
+## Push modal view
+To push a modal view, use Trigger ID (no View ID is required). This pushes a modal on top of an existing view.
+
+::: warning
+When a view is submitted, it closes by default. Be careful not to push a modal view on top of a closed modal.
+:::

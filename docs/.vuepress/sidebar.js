@@ -602,6 +602,7 @@ module.exports = [
       ['/workbot/workbot-for-slack-setup', 'Workbot for Slack setup'],
       ['/workbot/using-workbot-for-slack', 'Using Workbot for Slack'],
       ['/workbot/block-kit', 'Block kit'],
+      ['/workbot/modals', 'Block kit in modals'],
       {
         title: 'Workbot triggers',
         path: '/workbot/workbot-triggers',
@@ -642,7 +643,8 @@ module.exports = [
             '/workbot/workbot-actions#return-menu-options',
             'Return menu options'
           ],
-          ['/workbot/workbot-actions#upload-file', 'Upload file']
+          ['/workbot/workbot-actions#modal-view-input', 'Open/update modal view'],
+          ['/workbot/workbot-actions#modal-view-input', 'Push modal view']
         ]
       },
       {
