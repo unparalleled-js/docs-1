@@ -9,7 +9,7 @@ Modals allow you to build rich, interactive and dynamic views that collect infor
 
 Modals views are built using blocks.
 A modal view has a title, the view (comprised of blocks), and submission/close buttons.
-As mentioned, you can use blocks to build views. There are modal-only blocks called input blocks. These are:
+There are also modal-only blocks called input blocks. These are:
 - Singleline input
 - Multiline input
 - Select menu input
@@ -32,7 +32,7 @@ You can stack up to 3 views. Users see the top-most view. This view is called th
 
 Opening a modal opens the root view. Pushing a modal view pushes a new view on top of any existing views.
 
-Each view has an associated ID. You'll need this view ID if you want to update an existing view.s
+Each view has an associated ID. You'll need this view ID if you want to update an existing view.
 
 # Working with modals
 Modals can be opened using:
@@ -47,7 +47,7 @@ Modals can be opened using:
 - slash commands,
 - modal view submissions
 
-The components above invoke a bot command and generate a Trigger ID. The New command trigger can then pick it up. Trigger IDs are mandatory for modals – opening, updating and pushing modal views requires this trigger ID.
+The components above invoke a bot command and generate a Trigger ID. The New command trigger can then pick it up. Trigger IDs are mandatory for modals – opening, updating and pushing modal views all require this trigger ID.
 
 The New command trigger datatree contains a **Modal** object which stores modal-related context for you to perform modal actions.
 | Modal datapills  | Description                                                                                                                                                                                                                            |
