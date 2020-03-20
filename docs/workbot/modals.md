@@ -47,7 +47,7 @@ Modals can be opened using:
 - slash commands,
 - modal view submissions
 
-The components above invoke a bot command, and generate a Trigger ID. The New command trigger can then pick it up. Trigger IDs are mandatory for modals – opening, updating and pushing modal views requires this trigger ID.
+The components above invoke a bot command and generate a Trigger ID. The New command trigger can then pick it up. Trigger IDs are mandatory for modals – opening, updating and pushing modal views requires this trigger ID.
 
 The New command trigger datatree contains a **Modal** object which stores modal-related context for you to perform modal actions.
 | Modal datapills  | Description                                                                                                                                                                                                                            |
@@ -168,7 +168,7 @@ To open, update or push Modals, **Trigger ID** is always required. Trigger IDs a
 - modal view submissions
 
 ## Opening a modal view
-Once a modal view is open, you can choose to update the view, or push a new view on top of it.
+Once a modal view is open, you can choose to update the view or push a new view on top of it.
 
 To open a modal, use **Trigger ID**. You can find **Trigger ID** from the datatree of the **New command** trigger.
 ![Trigger ID](~@img/workbot/workbot-blockkit/trigger-id.png)

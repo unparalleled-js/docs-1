@@ -308,7 +308,11 @@ The following table lists the fields available in an **Upload file** action.
     </tbody>
 </table>
 
-## Modal view input
+## Modals
+Modals allow you to build rich, interactive and dynamic views that collect information from users in a structured manner.
+![Modal example](~@img/workbot/workbot-blockkit/pretty-modal.png)
+
+### Modals input fields
 The following table holds additional information about the **Modal** object and the data it correspondingly holds.
 
 <table class="unchanged rich-diff-level-one">
