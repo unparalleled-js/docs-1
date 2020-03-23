@@ -824,7 +824,7 @@ module.exports = [
           ],
           [
             '/connectors/s3/trigger-csv-file',
-            'New/updated CSV file trigger'
+            'New CSV file trigger'
           ],
           ['/connectors/s3/trigger-new-file', 'New file trigger'],
           ['/connectors/s3/action-upload-file', 'Upload file action'],
@@ -833,8 +833,6 @@ module.exports = [
             'Download file action'
           ],
           ['/connectors/s3/action-list-files', 'List files action'],
-          ['/connectors/s3/action-rename-file', 'Rename file action'],
-          ['/connectors/s3/action-move-file', 'Move file action'],
           ['/connectors/s3/action-delete-file', 'Delete file action'],
           [
             '/connectors/s3/action-create-bucket',

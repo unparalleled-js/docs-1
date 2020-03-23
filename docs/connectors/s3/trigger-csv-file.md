@@ -10,8 +10,8 @@ Checks selected folder for new or updated CSV file once every poll interval. The
 
 Note that in Amazon S3, when a file is renamed, it is considered a new file. When a file is uploaded and overwrites an existing file with the same name, it is considered an updated file but not a new file.
 
-![screenshot](~@img/connectors/amazon-s3/new-csv-file-trigger.png)
-*Amazon s3 - New CSV file trigger*
+![Amazon S3 - New CSV file trigger](~@img/connectors/amazon-s3/new-csv-file-trigger.png)
+*Amazon S3 - New CSV file trigger*
 
 ## Input fields
 | Field name   | Description |
