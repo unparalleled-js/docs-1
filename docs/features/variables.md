@@ -107,7 +107,7 @@ Some item fields are mandatory. Check that you have valid inputs for the require
 For more information on list management, see [here](/features/list-management.md).
 
 ## Clear all items from list
-This action removes all entries in an existing list. This action should be used after a the 'Create list' and 'Add items to list' action. You can only update lists created with **Variables by Workato**.
+This action removes all entries in an existing list. This action should be used after a the 'Create list' and 'Add items to list' action. You can only clear lists created with **Variables by Workato**.
 
 | Input field     | Description                            |
 | --------------- | -------------------------------------- |
