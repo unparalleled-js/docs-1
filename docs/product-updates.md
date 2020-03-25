@@ -4,10 +4,67 @@ date: 2018-06-05 21:45:00 Z
 ---
 
 <p>
-  <img alt="Product Updates banner" src="~@img/product-updates-banner.png" data-no-zoom/>
+  <img alt="Product Updates banner" src="~@img/product-updates/product-updates-banner.png" data-no-zoom/>
 </p>
 
 Our engineers are hard at work daily to make Workato better! View the latest updates to our platform below.
+
+## API Platform update
+##### March 2020
+
+### Custom Domain Names for simpler and intuitive API URLs
+By setting up custom domain names for REST APIs, you can provide better customer experience with user-friendly names, develop consistency in branding, and improve security.
+
+The base URL format for invoking APIs you deploy uses the default hostname apim.workato.com.
+```
+https://apim.workato.com/
+```
+With custom domain names, you can use an alternative domain to set up your API’s hostname.
+```
+https://www.acme.com/
+```
+In order to set up a custom domain for your APIs, you must have a registered internet domain name. Additionally, you will be required to provide a certificate for a custom domain name.
+Typically, the steps to register a custom domain and obtain certificates take a long time and often require special developer resources.
+
+Workato makes it straightforward to set up and use a custom domain name by enabling you to register for a domain name and providing the required certificates. For increased security, Workato automatically updates these certificates on your behalf periodically to reduce the attack surface area.
+
+![API Custom Domain](~@img/product-updates/api-custom-domain.png)
+*Now you can register a custom domain to personalize your API*
+
+**Links:**
+- [Documentation](/api-mgmt/custom-domain.md)
+
+## Workbot for Microsoft Teams
+##### March 2020
+
+### Making Workbot for Microsoft Teams secure and personalized
+Workato’s Workbot for Microsoft Teams is a multi-purpose and powerful tool that you can use to execute tasks from MS Teams that perform actions like updating opportunities in Salesforce, approving expenses in Concur, and assigning tickets in ServiceNow, just to name a few. Now, by turning on Verify user access at runtime, you can have Workbot authenticate user credentials and only let authorized users complete the requested actions (e.g. approving expense, updating ticket status, etc.).
+
+By allowing only authorized users to have access to viewing or modifying information in a business process or application, you improve security and also make the experience more personalized (e.g. listing only opportunities that an Account Executive cares about).
+
+![Workbot verify user access at runtime](~@img/product-updates/workbot-personal-connections.png)
+*Turning on "Verify user access at runtime" ensures the person using Workbot for MS Teams has the right credentials*
+
+**Links:**
+- [Documentation](/workbot-for-teams/workbot-latebinding.md)
+
+## PGP Connector Update
+##### March 2020
+
+### More options when encrypting and decrypting with the PGP connector
+Workato’s Pretty Good Privacy (PGP) connector is used by companies to meet common security requirements to ensure privacy (encryption) and authentication (digital signature). This added layer of security above and beyond network level security meets the needs of companies integrating with partners, like banks, who often need to transfer files with sensitive information.
+
+We enhanced existing encrypt and decrypt actions as well as added standalone actions for signing and verifying. This includes:
+- Encrypt action with optional signing
+- Decrypt action with optional verification
+- New Sign action for digitally signing the data
+- New Verify action to authenticate signed content
+
+![PGP Connector Actions](~@img/product-updates/pgp-connector-new-actions.png)
+*The PGP Connector got a few additional actions that provide more flexibility when encrypting and decrypting files*
+
+**Links:**
+- [Documentation](/features/pgp-encryption.md)
 
 ## UI update
 ##### Feb 2020
@@ -17,7 +74,7 @@ We are constantly making updates to the user interface to increase user producti
 
 The "What happens next?" action in our recipe editor is horizontal instead of vertical to make it easier to see the options while preserving visibility to the rest of the recipe.
 
-![Horizontal Action Bar](~@img/horizontal_action_bar.png)
+![Horizontal Action Bar](~@img/product-updates/horizontal-action-bar.png)
 *The 'What happens next?' options are displayed horizontally*
 
 We have also improved the color and styling on the event tags (New, Bulk, Batch, Deprecated, and Real Time), and additional source information will now be shown when hovering over Data Pills.
@@ -58,7 +115,7 @@ We announced some radical changes to simplify pricing for customers last year an
 Legacy usage-based plans will be supported through this release in the following way: Plans that have a billable metric, like tasks, will have a thermometer representation in the UI to show the consumption of tasks. Usage-based plans with no billable metrics will just show the plan name and feature add-ons.
 
 **Subscription Page (under account settings):**
-![Recipe Pricing Subscription Screen](~@img/recipe_pricing_subscription_screen.png)
+![Recipe Pricing Subscription Screen](~@img/product-updates/recipe_pricing_subscription_screen.png)
 *Plan information, usage stats, and tasks are now displayed on the user subscription page*
 
 ## Platform update
