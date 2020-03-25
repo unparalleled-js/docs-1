@@ -37,8 +37,8 @@ This action creates a variable in the specified data type. You should configure 
 | Variable type | The [data type](/recipes/data-pills-and-mapping.md#data-types) of the variable. |
 | Default value | The default value of the variable. Leave this blank to set the default value as `null`. |
 
-### Update variable
-This action updates an existing variable. You can only update variables managed by **Variables by Workato**.
+## Update variable
+This action updates an existing variable. You can only update variables previously created with the 'Create variable' action. Otherwise, this action cannot be used.
 
 ![Update variable](~@img/features/variables/update-variable-action.png)
 *Update variable*
@@ -48,7 +48,13 @@ This action updates an existing variable. You can only update variables managed 
 | Variable name | Select the variable to update. |
 | Value         | The new value of the variable. |
 
-> Note: This action does not generate a datapill. To call your custom variable, use the output of the **Create variable** step.
+::: tip Note
+This action does not generate a datapill. To call your custom variable, use the output of the **Create variable** step.
+:::
+
+### Reset the value of a variable
+You can set a `nil` value to variables in Update variable action to remove an existing value of a variable. This has to be done in the formula mode.
+
 
 ### Example: Creating a name variable from an image file
 Suppose you want to read a name from an image file (e.g. PNG). You can generate a `Name` variable and add the values for **First name**, **Middle name**, and **Last Name**.
@@ -82,8 +88,8 @@ The list item schema will show up as a list of usable variables in the output da
 | Optional    | Select if this new field is mandatory.   |
 | Hint        | A description of this new field.         |
 
-### Add item to list
-This action appends a new item entry to an existing list. You can only update lists managed by **Variables by Workato**.
+## Add item to list
+This action appends a new item entry to an existing list. You can only update lists created with **Variables by Workato**.
 
 Some item fields are mandatory. Check that you have valid inputs for the required fields before using this action.
 
@@ -99,3 +105,10 @@ Some item fields are mandatory. Check that you have valid inputs for the require
 > Note: This action does not generate a datapill. To call your list, use the output of the **Create list** step.
 
 For more information on list management, see [here](/features/list-management.md).
+
+## Clear all items from list
+This action removes all entries in an existing list. This action should be used after a the 'Create list' and 'Add items to list' action. You can only clear lists created with **Variables by Workato**.
+
+| Input field     | Description                            |
+| --------------- | -------------------------------------- |
+| List name       | Select the list to clear all entries from. |
