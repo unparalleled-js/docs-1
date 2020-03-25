@@ -5,11 +5,10 @@ date: 2020-03-19 00:00:00 Z
 
 # Block kit in modals
 Modals allow you to build rich, interactive and dynamic views that collect information from users in a structured manner.
-![Modal example](~@img/workbot/workbot-blockkit/pretty-modal.png)
+![Block kit modal example](~@img/workbot/workbot-blockkit/pretty-modal.png)
+*Block kit modal example*
 
-Modals views are built using blocks.
-A modal view has a title, the view (comprised of blocks), and submission/close buttons.
-There are also modal-only blocks called input blocks. These are:
+Modals views are built using blocks. A modal view has a title, the view (comprised of blocks), and submission/close buttons. You can also use modal-only blocks called input blocks. These are:
 - Singleline input
 - Multiline input
 - Select menu input
@@ -22,23 +21,32 @@ Input blocks work differently from the interactive components from other blocks.
 While buttons, menus, and other interactive components invoke commands **when clicked**, input blocks only invoke commands **when a view is submitted**. For example, a user is free to choose from 'Approve' or 'Reject' – the value is only locked in once he submits the modal by clicking the submit button.
 
 ![Example select input](~@img/workbot/workbot-blockkit/example-select-input.png)
+*The user's choice is only locked in after clicking __submit__*
 
-If a view does not have any input blocks, no submit button/close button needs to be defined. If you do have them, then you **must** define submit/close buttons.
+If a view contains input blocks, you **must** define submit/close buttons. If it does not, then it is not necessary to include submit/close buttons.
 
 # Modal stack
-You can stack up to 3 views. Users see the top-most view. This view is called the active view.
+A modal can hold up to 3 views at one time in a view stack. Users will only see the top-most view, also called the active view. View stacks are useful as it allows the user to return to previous views, after submitting/closing their active view(s).
 
 ![Modal stack with 3 views](~@img/workbot/workbot-blockkit/modal-stack.png)
+*Each modal can stack up to 3 views*
 
-Opening a modal opens the root view. Pushing a modal view pushes a new view on top of any existing views.
+Opening a modal opens in the root view. Updating a modal replaces the currently active view, while pushing a modal view applies a new view on top of the view stack.
 
 Each view has an associated ID. You'll need this view ID if you want to update an existing view.
+
+# Passing information between views
+When users interact with interactive components or submit modals, a bot command is invoked, triggering the downstream recipe with that bot command. In the context of modals, this downstream recipe may be updating or pushing modal views. You may want to pass some parameters (e.g. the user ID, opportunity ID) so that the modal actions in the downstream recipe can use them in its views.
+
+You'll need to define these parameters in the **New command** trigger in the downstream recipe so that it's prepared to receive them. It's important to ensure the parameter names and data types match their upstream counterparts, e.g. when using `opportunity_id` as a singleline input in the view of modal (rendered in an upstream recipe), also specify `opportunity_id` as a string parameter in the **New command** of the downstream recipe.
+
+Parameters can be passed either in comma-separated name-value pairs, e.g. name: John Smith, user_id: AB12345 or in JSON, e.g. {"opportunity_id": "OPP1234567"}. When using JSON, you can also pass array or object parameters.
 
 # Working with modals
 Modals can be opened using:
 - buttons,
 - menus,
-- overflow
+- overflow,
 - select menus,
 - datepickers,
 - radio buttons,
@@ -49,41 +57,38 @@ Modals can be opened using:
 
 The components above invoke a bot command and generate a Trigger ID. The New command trigger can then pick it up. Trigger IDs are mandatory for modals – opening, updating and pushing modal views all require this trigger ID.
 
-The New command trigger datatree contains a **Modal** object which stores modal-related context for you to perform modal actions.
-| Modal datapills  | Description                                                                                                                                                                                                                            |
+The New command trigger datatree contains a **Modals** object which stores modal-related context for you to perform modal actions.
+| Modal datapills  | Description |
 |------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| View ID          | View ID of view from which command was invoked, a.k.a. the active view. If the command was invoked from a view submission, then this view ID cannot be used for updating/pushing views as the view has already closed on submission. If only 1 view is active, then this view ID will be identical to the root view ID.                                                                                                                                                                                         |
-| Root View ID     | View ID of the root view.                                                                                                                                                                                                     |
-| Previous View ID | View ID of the view beneath the current view                                                                                                                                                                                             |
-| Private metadata | Private data you can optionally use to pass to downstream recipes. This field is encrypted and hidden from users.                                                                                                                      |
-| Hash             | A unique value you can optionally use when updating modals. When provided, the hash is validated such that only the most recent view is updated, ensuring the correct view is being updated when updates are happening asynchronously. |
+| View ID | View ID of view from which command was invoked, a.k.a. the active view. If the command was invoked from a view submission, then this view ID cannot be used for updating/pushing views as the view has already closed on submission. If only 1 view is active, then this view ID will be identical to the root view ID. |
+| Root View ID | View ID of the root view. |
+| Previous View ID | View ID of the view beneath the current view |
+| Private metadata | Private data you can optionally use to pass to downstream recipes. This field is encrypted and hidden from users. |
+| Hash | A unique value you can optionally use when updating modals. When provided, the hash is validated such that only the most recent view is updated, ensuring the correct view is being updated when updates are happening asynchronously. |
 
 # Modal view input
-The following table holds additional information about the **Modal** object and the data it correspondingly holds.
+The following table describes the configuration when working with Modals. This applies for the Open/update modal view action and the Push modal view action.
 
 <table class="unchanged rich-diff-level-one">
     <thead>
         <tr>
-            <th>Group</th>
-            <th>Input</th>
+            <th colspan=2>Input</th>
             <th>Description</th>
         </tr>
     </thead>
     <tbody>
         <tr>
-            <td></td>
-            <td>Trigger ID (required)</td>
+            <td colspan=2>Trigger ID (required)</td>
             <td>
                 Modal views can only be opened by interactive components (like buttons & menus), modal submissions, message actions, shortcuts, and slash commands. When users interact with or use these features, a trigger ID is generated. You can grab these from the New command trigger dataree under the Modals object.
             </td>
         </tr>
-            <tr>
-                <td></td>
-                <td>View ID (optional)</td>
-                <td>
-                    To open a brand new modal view, leave this blank. To update an existing modal, specify the view ID of the view you want to update.
-                </td>
-            </tr>
+        <tr>
+            <td colspan=2>View ID (optional)</td>
+            <td>
+                To open a brand new modal view, leave this blank. To update an existing modal, specify the view ID of the view you want to update.
+            </td>
+        </tr>
         <tr>
             <td rowspan="10">View</td>
             <td>Title of modal</td>
@@ -102,7 +107,7 @@ The following table holds additional information about the **Modal** object and 
         <tr>
             <td>Hidden parameters</td>
             <td>
-                When users do a modal submission, you may want to pass some hidden parameters (e.g. the user ID, opportunity_id) so that the downstream recipe has context to work with. You'll need to define these parameters in the downstream recipe to use them there. <br><br>The parameter names in both upstream & downstream recipes must match.
+            When users submit modals, you may want to pass some parameters (e.g. the user ID, opportunity ID) so that the downstream recipe has context to work with.<br><br>You'll need to define these parameters in the <b>New command</b> trigger in the downstream recipe so that it's prepared to receive them. The parameter names in both upstream & downstream recipes must match.<br><br>Parameters can be passed either in comma-separated name-value pairs, e.g. name: John Smith, user_id: AB12345 or in JSON, e.g. {"opportunity_id": "OPP1234567"}. When using JSON, you can also pass array or object parameters.<br><br>It's important to ensure the parameter names and data types match their upstream counterparts, e.g. when using <code>opportunity_id</code> as a singleline input in the view of modal (rendered in an upstream recipe), also specify <code>opportunity_id</code> as a string parameter in the <b>New command</b> of the downstream recipe.
             </td>
         </tr>
         <tr>
@@ -114,7 +119,7 @@ The following table holds additional information about the **Modal** object and 
         <tr>
             <td>Close button label</td>
             <td>
-                Label of the submit button. Up to 24 characters only.
+                Label of the close button. Up to 24 characters only.
             </td>
         </tr>
         <tr>
@@ -138,27 +143,26 @@ The following table holds additional information about the **Modal** object and 
         <tr>
             <td>Notify on close</td>
             <td>
-                Sends a view_closed event when a user clicks the close button. Defaults to false. Use the New event trigger to listen to this event.
+                Sends a <code><a href="https://api.slack.com/reference/interaction-payloads/views#view_closed">view_closed</a></code> event when a user clicks the close button. Defaults to false. Use the New event trigger to listen to this event.
             </td>
         </tr>
         <tr>
-            <td></td>
+            <td colspan=2>Hash</td>
             <td>
-                Hash
+                A unique value you can optionally use when updating modals. When provided, the hash is validated such that only the most recent view is updated, ensuring the correct view is being updated when updates are happening asynchronously.
             </td>
-            <td>A unique value you can optionally use when updating modals. When provided, the hash is validated such that only the most recent view is updated, ensuring the correct view is being updated when updates are happening asynchronously.</td>
         </tr>
     </tbody>
 </table>
 
-# Open/update modal view
+# Open/update modal view action
 You can open or update modals using the same action: Open/update modal view.
 ![Open/update modal view](~@img/workbot/workbot-blockkit/open-update-modal-view.png)
 
 To open, update or push Modals, **Trigger ID** is always required. Trigger IDs are generated by Slack when users interact with:
 - buttons,
 - menus,
-- overflow
+- overflow,
 - select menus,
 - datepickers,
 - radio buttons,
@@ -172,6 +176,7 @@ Once a modal view is open, you can choose to update the view or push a new view 
 
 To open a modal, use **Trigger ID**. You can find **Trigger ID** from the datatree of the **New command** trigger.
 ![Trigger ID](~@img/workbot/workbot-blockkit/trigger-id.png)
+*Trigger ID for modal found in the New command trigger*
 
 ## Updating a modal view
 To update a modal, provide both the **Trigger ID** and the **View ID** of the view you want to update.
@@ -179,24 +184,31 @@ To update a modal, provide both the **Trigger ID** and the **View ID** of the vi
 ### When to update modals
 Typically, bot commands update the active view they exist in (View ID).
 ![Update modal](~@img/workbot/workbot-blockkit/update-modal.gif)
+*Making changes on the active view*
 
 In contrast, modal submissions usually update the root view (Root View ID) or the previous view (Previous View ID). These views can be found in the **New command trigger** datatree, under **Modals**.
 
 ![Modals object in New command trigger datatree](~@img/workbot/workbot-blockkit/modals-in-datatree.png)
+*Root View ID and Previous View ID found in the New command trigger*
 
 ::: warning
 When a view is submitted, it closes by default. Use the correct View ID when updating views in response to view submissions.
 :::
 
-# Push modal view
+# Push modal view action
 This action pushes a modal on top of the active view. To push a modal view, use **Trigger ID** (no View ID is required). You can find trigger ID from the datatree of the **New command** trigger.
 ![Trigger ID](~@img/workbot/workbot-blockkit/trigger-id.png)
+*Trigger ID for modal found in the New command trigger*
+
+This action requires an open modal view. Use the [Open/update modal view action](#opening-a-modal-view) to open a model view.
 
 Typically, bot commands push views on top of the active view they exist in (**View ID**). The **View ID** can be found in the **New command trigger** datatree, under **Modals**.
 
 ![Push modal](~@img/workbot/workbot-blockkit/push-modal.gif)
+*Making changes on the active view*
 
 ![Modals object in New command trigger datatree](~@img/workbot/workbot-blockkit/modals-in-datatree.png)
+*Root View ID and Previous View ID found in the New command trigger*
 
 ::: warning
 When a view is submitted, it closes by default. Take care to only push a modal view on top of an active view.

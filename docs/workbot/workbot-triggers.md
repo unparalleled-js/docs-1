@@ -249,7 +249,7 @@ The following table holds additional information about the **Context** object an
     </tbody>
 </table>
 
-The following table holds additional information about the **Modal** object and the data it correspondingly holds.
+The following table holds additional information about the **Modals** object and the data it correspondingly holds.
 | Modal datapills  | Description                                                                                                                                                                                                                            |
 |------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | View ID          | View ID of view from which command was invoked, a.k.a. the active view. If the command was invoked from a view submission, then this view ID cannot be used for updating/pushing views as the view has already closed on submission. If only 1 view is active, then this view ID will be identical to the root view ID.                                                                                                                                                                                         |

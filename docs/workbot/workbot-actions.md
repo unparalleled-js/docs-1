@@ -13,8 +13,8 @@ Workbot supports 6 actions:
 * [Download attachment](#download-attachment)
 * [Return menu options](#return-menu-options)
 * [Upload file](#upload-file)
-* [Open/update modal view](#modals)
-* [Push modal view](#modals)
+* [Open/update modal view](#openupdate-modal-view-action)
+* [Push modal view](#push-modal-view-action)
 
 ## Block kit compatibility
 Blocks can be used together with existing message attachments present in the [Post command reply](#post-command-reply) and [Post message](#post-message).
@@ -312,32 +312,29 @@ The following table lists the fields available in an **Upload file** action.
 Modals allow you to build rich, interactive and dynamic views that collect information from users in a structured manner.
 ![Modal example](~@img/workbot/workbot-blockkit/pretty-modal.png)
 
-### Modals input fields
-The following table holds additional information about the **Modal** object and the data it correspondingly holds.
+## Modal view input
+The following table describes the configuration when working with Modals. This applies for the Open/update modal view action and the Push modal view action.
 
 <table class="unchanged rich-diff-level-one">
     <thead>
         <tr>
-            <th>Group</th>
-            <th>Input</th>
+            <th colspan=2>Input</th>
             <th>Description</th>
         </tr>
     </thead>
     <tbody>
         <tr>
-            <td></td>
-            <td>Trigger ID (required)</td>
+            <td colspan=2>Trigger ID (required)</td>
             <td>
                 Modal views can only be opened by interactive components (like buttons & menus), modal submissions, message actions, shortcuts, and slash commands. When users interact with or use these features, a trigger ID is generated. You can grab these from the New command trigger dataree under the Modals object.
             </td>
         </tr>
-            <tr>
-                <td></td>
-                <td>View ID (optional)</td>
-                <td>
-                    To open a brand new modal view, leave this blank. To update an existing modal, specify the view ID of the view you want to update.
-                </td>
-            </tr>
+        <tr>
+            <td colspan=2>View ID (optional)</td>
+            <td>
+                To open a brand new modal view, leave this blank. To update an existing modal, specify the view ID of the view you want to update.
+            </td>
+        </tr>
         <tr>
             <td rowspan="10">View</td>
             <td>Title of modal</td>
@@ -368,7 +365,7 @@ The following table holds additional information about the **Modal** object and 
         <tr>
             <td>Close button label</td>
             <td>
-                Label of the submit button. Up to 24 characters only.
+                Label of the close button. Up to 24 characters only.
             </td>
         </tr>
         <tr>
@@ -392,20 +389,19 @@ The following table holds additional information about the **Modal** object and 
         <tr>
             <td>Notify on close</td>
             <td>
-                Sends a view_closed event when a user clicks the close button. Defaults to false. Use the New event trigger to listen to this event.
+                Sends a <code><a href="https://api.slack.com/reference/interaction-payloads/views#view_closed">view_closed</a></code> event when a user clicks the close button. Defaults to false. Use the New event trigger to listen to this event.
             </td>
         </tr>
         <tr>
-            <td></td>
+            <td colspan=2>Hash</td>
             <td>
-                Hash
+                A unique value you can optionally use when updating modals. When provided, the hash is validated such that only the most recent view is updated, ensuring the correct view is being updated when updates are happening asynchronously.
             </td>
-            <td>A unique value you can optionally use when updating modals. When provided, the hash is validated such that only the most recent view is updated, ensuring the correct view is being updated when updates are happening asynchronously.</td>
         </tr>
     </tbody>
 </table>
 
-## Open/update modal view
+## Open/update modal view action
 You can open or update modals using the same action: Open/update modal view.
 ![Open/update modal view](~@img/workbot/workbot-blockkit/open-update-modal-view.png)
 
@@ -426,31 +422,39 @@ Once a modal view is open, you can choose to update the view, or push a new view
 
 To open a modal, use **Trigger ID**. You can find **Trigger ID** from the datatree of the **New command** trigger.
 ![Trigger ID](~@img/workbot/workbot-blockkit/trigger-id.png)
+*Trigger ID for modal found in the New command trigger*
 
 ### Updating a modal view
-To update a modal, provide both the **Trigger ID** and the **View ID** of the view you want to update.
+To update a modal, provide both the **Trigger ID** and the **View ID** of the view you want to update. Learn more about the [modal input fields](/workbot/modals.md#modal-view-input).
 
 ### When to update modals
 Typically, bot commands update the active view they exist in (View ID).
 ![Update modal](~@img/workbot/workbot-blockkit/update-modal.gif)
+*Making changes on the active view*
 
 In contrast, modal submissions usually update the root view (Root View ID) or the previous view (Previous View ID). These views can be found in the **New command trigger** datatree, under **Modals**.
 
 ![Modals object in New command trigger datatree](~@img/workbot/workbot-blockkit/modals-in-datatree.png)
+*Root View ID and Previous View ID found in the New command trigger*
 
 ::: warning
 When a view is submitted, it closes by default. Use the correct View ID when updating views in response to view submissions.
 :::
 
-## Push modal view
+## Push modal view action
 This action pushes a modal on top of the active view. To push a modal view, use **Trigger ID** (no View ID is required). You can find trigger ID from the datatree of the **New command** trigger.
 ![Trigger ID](~@img/workbot/workbot-blockkit/trigger-id.png)
+*Trigger ID for modal found in the New command trigger*
+
+This action requires an open modal view. Use the [Open/update modal view action](#opening-a-modal-view) to open a model view.
 
 Typically, bot commands push views on top of the active view they exist in (**View ID**). The **View ID** can be found in the **New command trigger** datatree, under **Modals**.
 
 ![Push modal](~@img/workbot/workbot-blockkit/push-modal.gif)
+*Making changes on the active view*
 
 ![Modals object in New command trigger datatree](~@img/workbot/workbot-blockkit/modals-in-datatree.png)
+*Root View ID and Previous View ID found in the New command trigger*
 
 ::: warning
 When a view is submitted, it closes by default. Take care to only push a modal view on top of an active view.
