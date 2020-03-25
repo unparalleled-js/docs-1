@@ -41,7 +41,6 @@ Workato API supports sending request body with the `application/json` content-ty
 | Type |Resource | Description |
 |------|---------|-------------|
 | GET | [/api/recipes/:recipe_id/jobs](/workato-api/jobs.md#list-jobs-from-a-recipe) | List jobs belonging to recipe. |
-| GET | [/api/recipes/:recipe_id/jobs/:job_id](/workato-api/jobs.md#get-job-details-by-id) | Get job details by job ID. |
 {: .api-quick-reference :}
 
 ## Recipes
