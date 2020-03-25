@@ -24,7 +24,7 @@ Follow the links below to continue reading about advanced Workbot topics:
 * [Updating messages](/workbot/workbot-update-message.md)
 * [Message menus](/workbot/workbot-message-menus.md)
 * [Buttons](/workbot/workbot-buttons.md)
-* [Personal connections](/workbot/workbot-latebinding.md)
+* [Verify user access at runtime](/workbot/workbot-latebinding.md)
 * [Troubleshooting](/workbot/workbot-troubleshooting.md)
 * [Slash commands](/workbot/configuring-slash-commands.md)
   * [Configuring slash commands](/workbot/configuring-slash-commands.md)

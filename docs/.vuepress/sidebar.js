@@ -673,7 +673,7 @@ module.exports = [
           ['/workbot/workbot-buttons', 'Workbot buttons'],
           [
             '/workbot/workbot-latebinding',
-            'Workbot personal connections'
+            'Verify user access at runtime'
           ],
           [
             '/workbot/workbot-troubleshooting',
@@ -722,7 +722,7 @@ module.exports = [
         '/workbot-for-teams/buttons-choices-task-modules',
         'Buttons task modules & pick lists'
       ],
-      ['/workbot-for-teams/workbot-latebinding','Personal connections']
+      ['/workbot-for-teams/workbot-latebinding','Verify user access at runtime']
     ]
   },
   {
