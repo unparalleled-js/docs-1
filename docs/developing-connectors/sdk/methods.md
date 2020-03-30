@@ -133,6 +133,13 @@ Furthermore, you'll be able to declare personal reusable methods to use in any b
        </td>
      </tr>
      <tr>
+       <td>delete_at</td>
+       <td>
+         Delete elements in an array<br>
+         <a href="https://apidock.com/ruby/Array/delete_at">More details here.</a>
+       </td>
+     </tr>
+     <tr>
        <td>dig</td>
        <td>Retrieves the value object corresponding to the index passed in <br>
        The dig method is often used to strip away layers in nested arrays/hashes. For example, we use the dig method often when dealing with XML data formats. <br>
@@ -346,6 +353,13 @@ Furthermore, you'll be able to declare personal reusable methods to use in any b
       <td>
         Combine elements in an array using an operation.<br>
         <a href="http://apidock.com/ruby/Enumerable/inject">More details here.</a>
+      </td>
+    </tr>
+    <tr>
+      <td>insert</td>
+      <td>
+        Insert elements into an array<br>
+        <a href="https://apidock.com/ruby/v2_5_5/Array/insert">More details here.</a>
       </td>
     </tr>
     <tr>
