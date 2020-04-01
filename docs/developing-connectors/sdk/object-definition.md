@@ -274,7 +274,7 @@ Control types are a way for you to declare how input fields are displayed to use
     <tr>
       <td>checkbox</td>
       <td>
-        Simple Yes/No select interface. This control type adds an implicit toggle to text mode (for dynamic mapping and formula mode option).<br>
+        Simple Yes/No select interface. It is advisable to add a <a href='/developing-connectors/sdk/toggle-fields.html'>toggle field</a> for dynamic mapping and formula mode option.<br>
         <img src="~@img/sdk/checkbox.png" alt="checkbox control type">
       </td>
     </tr>
