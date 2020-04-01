@@ -20,6 +20,9 @@ The “Repeat in Batches” feature enables users to process such a data movemen
 ![SFDC Primary Key](~@img/product-updates/repeat-in-batches-action.png)
 *Transferring data at different batch sizes is easy with the Repeat in Batches action*
 
+**Links:**
+- [Documentation](/recipes/steps.md#call-recipe-step)
+
 ## Salesforce Connector updates
 ##### March 2020
 
