@@ -74,6 +74,34 @@ The following displays the mapping from the **Foreach** datatree.
 
 For further Repeat step examples or more info about list processing, refer to the [list management article](http://docs.workato.com/features/list-management.html).
 
+## Repeat in Batches
+Occasionally, the rate at which an upstream app or system transmits the data is faster than the rate at which a downstream app or system can receive it. You can use the Repeat in Batches feature to process such a data movement by configuring the batch size. Large data sets are automatically parsed into smaller batches for transfer.
+​
+### How to use
+Follow these steps to use the Repeat in Batch feature:
+
+1. Select the Repeat Action step from our “What happens next” container in the Recipe Editor.
+
+![Select the repeat action step as action](~@img/recipes/steps/repeat_step_selection.png)
+
+2. Enter the Input List data pill in the Repeat Action step.
+
+![Input List](~@img/recipes/steps/repeat_step_inputlist.png)
+
+3. Invoke the Repeat in Batches feature by setting Repeat Mode to “Batch of items”. (The two options available are “One item at a time” and “Batch of items”.) Refer to figure below for more details.
+
+![Repeat in Batches invoke](~@img/recipes/steps/repeat_step_invoke.png)
+
+4. Set the Batch size field. This defaults to 100 when the batch size is not specified or if the number specified is less than 1. Please note that a data pill can also be input here as a batch size.
+
+![Set Batch Size](~@img/recipes/steps/repeat_step_batchsize.png)
+
+5. You will see this reflected in the For each statement with the batch event tag.
+
+![Foreach loop batch size](~@img/recipes/steps/repeat_step_loop.png)
+
+Please see [an example recipe](https://www.workato.com/recipes/1106794?st=d3a7e3).
+
 ## Call recipe step
 Call recipe will run another recipe (named a callable recipe). Callable recipes are like functional calls in programming languages. They offer an easy way to reuse recipe logic.
 
