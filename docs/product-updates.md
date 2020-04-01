@@ -9,6 +9,32 @@ date: 2018-06-05 21:45:00 Z
 
 Our engineers are hard at work daily to make Workato better! View the latest updates to our platform below.
 
+## Repeat in Batches
+##### March 2020
+
+### Process large volumes of data in batches
+We just released a powerful new feature called “Repeat in Batches.” When the rate at which an upstream app or system (e.g., Salesforce) transmits the data is faster than the rate at which a downstream app or system (e.g., NetSuite) can receive it, the control of this data flow often requires complex logic. 
+
+The “Repeat in Batches” feature enables users to process such a data movement without having to build extra recipe logic, saving time on build and error handling. Users can easily configure the batch size to optimize the throughput, allowing them to control the data flow, and large data sets are automatically broken down into smaller batches for transfer. 
+
+![SFDC Primary Key](~@img/product-updates/repeat-in-batches-action.png)
+*Transferring data at different batch sizes is easy with the Repeat in Batches action*
+
+## Salesforce Connector updates
+##### March 2020
+
+### Trigger off of outbound messages and use any index field as the primary key
+We made two updates to the Salesforce Connector. First, you can now trigger a recipe off of outbound messages! This allows you to use native Salesforce functionality (i.e. Outbound Messages) to kick off a recipe. This provides for real-time use cases, like point-of-sale or order fulfillment, to be handled more easily.
+
+We also updated our “Upsert Records in Bulk” action so any indexed field can be used as the Primary Key, not just external IDs. If you do not store an ID in your external systems and use the Salesforce record ID (or other internal fields) as the primary identifier of a record, you can now use that field as the Primary Key.
+
+![SFDC Primary Key](~@img/product-updates/sfdc-primary-key.png)
+*Now you can select any indexed field as the primary key*
+
+**Links:**
+- [Learn More: New Outbound Message Trigger](connectors/salesforce/salesforce-real-time.md#choosing-the-right-trigger)
+- [Learn More: Primary Keys](/connectors/salesforce/salesforce-bulk.md#salesforce-object-to-create-update-upsert)
+
 ## API Platform update
 ##### March 2020
 
