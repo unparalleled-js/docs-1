@@ -64,7 +64,7 @@ Take note that these names are strictly defined and must be spelt exactly for th
 
 - **picklists** - This is where you can define lists of values. Reference them later on when you define input fields that are dropdowns instead of free text fields. Picklists can be static, dynamic based on API requests or even dependant on the previous input of the user.
 
-- **methods** - This is where you can define functions in the same way that you would do in normal coding. Methods can called and then used in most portions of your connector code.
+- **methods** - This is where you can define functions in the same way that you would do in normal coding. Methods can be called and then used in most portions of your connector code.
 
 > Functions are pre-defined lines of code that accept input, execute these lines of code based on the input and return the output back to you.
 
