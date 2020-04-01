@@ -21,7 +21,7 @@ The “Repeat in Batches” feature enables users to process such a data movemen
 *Transferring data at different batch sizes is easy with the Repeat in Batches action*
 
 **Links:**
-- [Documentation](/recipes/steps.md#call-recipe-step)
+- [Documentation](/recipes/steps.md#repeat-in-batches)
 
 ## Salesforce Connector updates
 ##### March 2020
